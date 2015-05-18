@@ -1,0 +1,17 @@
+{
+	"name": "GUI-server",
+	"version": "0.0.1",
+	"private": true,
+	"dependencies": {
+		"archiver": "^0.14.3",
+		"body-parser": "^1.12.4",
+		"combined-stream2": "^1.1.1",
+		"cfonts": "0.0.13",
+		"chalk": "^1.0.0",
+		"express": "^4.12.3",
+		"less": "^2.5.0",
+		"through2": "^0.6.5",
+		"uglify-js": "^2.4.21",
+		"wait.for": "^0.6.6"
+	}
+}
