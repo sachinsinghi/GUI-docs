@@ -124,7 +124,6 @@ var CombinedStream = require('combined-stream2');
 var Archiver = require('archiver');
 var UglifyJS = require('uglify-js');
 var Through = require('through2');
-var Wait = require('wait.for');
 var Less = require('less');
 
 
