@@ -8,7 +8,7 @@
 //                                               ██║   ██║ ██║   ██║ ██║      ██║  ██║ ██║   ██║ ██║      ╚════██║
 //                                               ╚██████╔╝ ╚██████╔╝ ██║      ██████╔╝ ╚██████╔╝ ╚██████╗ ███████║
 //                                                ╚═════╝   ╚═════╝  ╚═╝      ╚═════╝   ╚═════╝   ╚═════╝ ╚══════╝
-//                                                                       Created by Westpac digital
+//                                                                       Created by Westpac Design Delivery Team
 // @desc     GUI docs
 // @author   Dominik Wilkowski
 // @website  https://github.com/WestpacCXTeam/GUI-docs
@@ -19,7 +19,6 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 // External dependencies
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
-var Spinner = require('simple-spinner');
 var Crypto = require('crypto');
 var Chalk = require('chalk');
 
@@ -43,10 +42,59 @@ function checksum(string, algorithm, encoding) {
 		.digest(encoding || 'hex');
 }
 
-
 /*
- * Set progress for the spinner
+ * Spinner from https://github.com/dapuck/node-simple-spinner
+ *
+ * @method  start             Start spinner
+ * @param   inv    [integer]  Set interval of animations in ms
+ *
+ * @method  stop              Stop spinner
+ *
+ * @method  change_sequence   Change the animation slides
+ * @param   seq    [array]    Array of characters to be replaced one by one per animation interval
+ *
  */
+var Spinner = (function() {
+
+	var sequence = ["|","/","-","\\"]; //[".", "o", "0", "@", "*"];
+	var index = 0;
+	var timer;
+
+	function start(inv) {
+		inv = inv || 250;
+		index = 0;
+
+		process.stdout.write(sequence[index]);
+		timer = setInterval(function() {
+			process.stdout.write(sequence[index].replace(/./g,"\r"));
+			index = (index < sequence.length - 1) ? index + 1 : 1; //changed so animation only ever shows slide 0 in the very first round
+			process.stdout.write(sequence[index]);
+		},inv);
+	}
+
+	function stop() {
+		clearInterval(timer);
+		process.stdout.write(sequence[index].replace(/./g,"\r"));
+	}
+
+	function change_sequence(seq) {
+		if(Array.isArray(seq)) {
+			sequence = seq;
+		}
+	}
+
+	return {
+		start: start,
+		stop: stop,
+		change_sequence: change_sequence
+	};
+})();
+
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Settings
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------
+/* Spinner settings */
 var progress = [
 	'',
 	'[ ' + Chalk.white('█') + '                          ]  downloading... ',
@@ -99,6 +147,28 @@ var progress = [
 	'[ ' + Chalk.white('█') + '                          ]  downloading... ',
 ];
 Spinner.change_sequence( progress );
+
+/* SETTINGS */
+var SETTINGS = function() {
+	return {
+		'folder': {
+			'html': 'HTML',
+			'assets': 'HTML/_assets',
+			'js': 'HTML/_assets/js',
+			'less': 'HTML/_assets/less',
+			'svg': 'HTML/_assets/svg',
+			'fileserver': 'file-server',
+			'temp': '.temp',
+			'root': '',
+
+			'prod': 'jekyll',
+			'GUImaster': 'GUI-source-master',
+
+			'GUIjson': 'GUI-source-master/GUI.json',
+			'Packagejson': 'package.json',
+		},
+	};
+};
 
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -160,7 +230,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('downloadGUI', 'Download the GUI zip from GitHub.', function() {
 
 		grunt.log.writeln('Downloading the GUI zip file can take a long time.');
-		grunt.log.writeln( Chalk.yellow.bold('Time to replax and get a tea.') );
+		grunt.log.writeln( Chalk.yellow.bold('Time to replax and get a cup of tea...') );
 
 		grunt.task.run('spinnerStart');
 		grunt.task.run('curl:GUI');
@@ -175,23 +245,25 @@ module.exports = function(grunt) {
 	grunt.registerTask('verifyGUI', 'Check if there is a new GUI online by comparing the GUI.json.', function() {
 
 		try {
-			var THIScontent = grunt.file.read('./GUI-source-master/GUI.json');
+			var THIScontent = grunt.file.read( SETTINGS().folder.GUIjson );
 		}
 		catch(e) {
 			grunt.log.writeln('No local GUI.json found!');
 			THIScontent = '';
 		}
 
-		var GUIcontent = grunt.file.read('./.temp/GUI.json');
+		var GUIcontent = grunt.file.read( SETTINGS().folder.temp + '/GUI.json');
 
 		var THIShash = checksum( THIScontent );
 		var GUIhash = checksum( GUIcontent );
 
 		if( THIShash === GUIhash ) {
-			grunt.task.run('font:uptodate');
+			grunt.log.ok('GUI is up to date.')
 		}
 		else {
 			grunt.task.run('font:updating');
+			grunt.log.writeln('The GUI was found to be out-of-date and will now download and install.');
+
 			grunt.task.run('downloadGUI');
 			grunt.task.run('clean:GUI');
 			grunt.task.run('unzip:GUI');
@@ -208,44 +280,42 @@ module.exports = function(grunt) {
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
 		// Package content
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
-		pkg: grunt.file.readJSON('./package.json'),
+		SETTINGS: SETTINGS(),
+		pkg: grunt.file.readJSON( SETTINGS().folder.Packagejson ),
 
 
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
 		// Clean task
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
 		clean: {
-			assets: [
-				'./jekyll/BOM/assets/',
-				'./jekyll/BSA/assets/',
-				'./jekyll/STG/assets/',
-				'./jekyll/WBC/assets/',
+			jekyll: [
+				'<%= SETTINGS.folder.prod %>/',
 			],
 
 			grunticon: [
-				'./jekyll/BOM/assets/css/grunticon.loader.js',
-				'./jekyll/BOM/assets/css/preview.html',
-				'./jekyll/BOM/assets/css/png/',
+				'<%= SETTINGS.folder.prod %>/BOM/assets/css/grunticon.loader.js',
+				'<%= SETTINGS.folder.prod %>/BOM/assets/css/preview.html',
+				'<%= SETTINGS.folder.prod %>/BOM/assets/css/png/',
 
-				'./jekyll/BSA/assets/css/grunticon.loader.js',
-				'./jekyll/BSA/assets/css/preview.html',
-				'./jekyll/BSA/assets/css/png/',
+				'<%= SETTINGS.folder.prod %>/BSA/assets/css/grunticon.loader.js',
+				'<%= SETTINGS.folder.prod %>/BSA/assets/css/preview.html',
+				'<%= SETTINGS.folder.prod %>/BSA/assets/css/png/',
 
-				'./jekyll/STG/assets/css/grunticon.loader.js',
-				'./jekyll/STG/assets/css/preview.html',
-				'./jekyll/STG/assets/css/png/',
+				'<%= SETTINGS.folder.prod %>/STG/assets/css/grunticon.loader.js',
+				'<%= SETTINGS.folder.prod %>/STG/assets/css/preview.html',
+				'<%= SETTINGS.folder.prod %>/STG/assets/css/png/',
 
-				'./jekyll/WBC/assets/css/grunticon.loader.js',
-				'./jekyll/WBC/assets/css/preview.html',
-				'./jekyll/WBC/assets/css/png/',
+				'<%= SETTINGS.folder.prod %>/WBC/assets/css/grunticon.loader.js',
+				'<%= SETTINGS.folder.prod %>/WBC/assets/css/preview.html',
+				'<%= SETTINGS.folder.prod %>/WBC/assets/css/png/',
 			],
 
 			GUI: [
-				'./GUI-source-master/',
+				'<%= SETTINGS.folder.GUImaster %>/',
 			],
 
 			temp: [
-				'./.temp/',
+				'<%= SETTINGS.folder.temp %>/',
 			],
 		},
 
@@ -256,7 +326,7 @@ module.exports = function(grunt) {
 		replace: {
 			example: {
 				src: [
-					'./file-server/server.js'
+					'<%= SETTINGS.folder.fileserver %>/server.js'
 				],
 				overwrite: true,
 				replacements: [
@@ -279,12 +349,12 @@ module.exports = function(grunt) {
 		curl: {
 			GUI: {
 				src: 'https://github.com/WestpacCXTeam/GUI-source/archive/master.zip',
-				dest: './.temp/GUI.zip',
+				dest: '<%= SETTINGS.folder.temp %>/GUI.zip',
 			},
 
 			json: {
 				src: 'https://raw.githubusercontent.com/WestpacCXTeam/GUI-source/master/GUI.json',
-				dest: './.temp/GUI.json',
+				dest: '<%= SETTINGS.folder.temp %>/GUI.json',
 			},
 		},
 
@@ -295,22 +365,8 @@ module.exports = function(grunt) {
 		unzip: {
 			GUI: {
 				dot: false,
-				src: './.temp/GUI.zip',
-				dest: './',
-			},
-		},
-
-
-		//----------------------------------------------------------------------------------------------------------------------------------------------------------
-		// Concat node files
-		//----------------------------------------------------------------------------------------------------------------------------------------------------------
-		concat: {
-			node: {
-				src: [
-					'./file-server/*.js',
-					'!./file-server/server.js',
-				],
-				dest: './file-server/server.js',
+				src: '<%= SETTINGS.folder.temp %>/GUI.zip',
+				dest: '<%= SETTINGS.folder.root %>',
 			},
 		},
 
@@ -328,10 +384,45 @@ module.exports = function(grunt) {
 					plugins : [ new (require('less-plugin-autoprefix'))({ browsers: [ 'last 2 versions', 'ie 8', 'ie 9', 'ie 10' ] }) ],
 				},
 				files: {
-					'./jekyll/BOM/assets/css/style-<%= pkg.version %>.min.css': './assets/less/theme-BOM.less',
-					'./jekyll/BSA/assets/css/style-<%= pkg.version %>.min.css': './assets/less/theme-BSA.less',
-					'./jekyll/STG/assets/css/style-<%= pkg.version %>.min.css': './assets/less/theme-STG.less',
-					'./jekyll/WBC/assets/css/style-<%= pkg.version %>.min.css': './assets/less/theme-WBC.less',
+					'<%= SETTINGS.folder.prod %>/BOM/assets/css/style-<%= pkg.version %>.min.css': '<%= SETTINGS.folder.assets %>/less/theme-BOM.less',
+					'<%= SETTINGS.folder.prod %>/BSA/assets/css/style-<%= pkg.version %>.min.css': '<%= SETTINGS.folder.assets %>/less/theme-BSA.less',
+					'<%= SETTINGS.folder.prod %>/STG/assets/css/style-<%= pkg.version %>.min.css': '<%= SETTINGS.folder.assets %>/less/theme-STG.less',
+					'<%= SETTINGS.folder.prod %>/WBC/assets/css/style-<%= pkg.version %>.min.css': '<%= SETTINGS.folder.assets %>/less/theme-WBC.less',
+				},
+			},
+		},
+
+
+		//----------------------------------------------------------------------------------------------------------------------------------------------------------
+		// Concat node files
+		//----------------------------------------------------------------------------------------------------------------------------------------------------------
+		concat: {
+			node: {
+				src: [
+					'<%= SETTINGS.folder.fileserver %>/*.js',
+					'!<%= SETTINGS.folder.fileserver %>/server.js',
+				],
+				dest: '<%= SETTINGS.folder.fileserver %>/server.js',
+			},
+
+			js: {
+				files: {
+					'<%= SETTINGS.folder.prod %>/BOM/assets/js/script-<%= pkg.version %>.min.js': [
+						'<%= SETTINGS.folder.js %>/**/*jquery*.js',
+						'<%= SETTINGS.folder.prod %>/BOM/assets/js/script-<%= pkg.version %>.min.js',
+					],
+					'<%= SETTINGS.folder.prod %>/BSA/assets/js/script-<%= pkg.version %>.min.js': [
+						'<%= SETTINGS.folder.js %>/**/*jquery*.js',
+						'<%= SETTINGS.folder.prod %>/BSA/assets/js/script-<%= pkg.version %>.min.js',
+					],
+					'<%= SETTINGS.folder.prod %>/STG/assets/js/script-<%= pkg.version %>.min.js': [
+						'<%= SETTINGS.folder.js %>/**/*jquery*.js',
+						'<%= SETTINGS.folder.prod %>/STG/assets/js/script-<%= pkg.version %>.min.js',
+					],
+					'<%= SETTINGS.folder.prod %>/WBC/assets/js/script-<%= pkg.version %>.min.js': [
+						'<%= SETTINGS.folder.js %>/**/*jquery*.js',
+						'<%= SETTINGS.folder.prod %>/WBC/assets/js/script-<%= pkg.version %>.min.js',
+					],
 				},
 			},
 		},
@@ -348,10 +439,22 @@ module.exports = function(grunt) {
 
 			BOM: {
 				files: {
-					'./jekyll/BOM/assets/js/script-<%= pkg.version %>.min.js': './assets/js/**/*.js',
-					'./jekyll/BSA/assets/js/script-<%= pkg.version %>.min.js': './assets/js/**/*.js',
-					'./jekyll/STG/assets/js/script-<%= pkg.version %>.min.js': './assets/js/**/*.js',
-					'./jekyll/WBC/assets/js/script-<%= pkg.version %>.min.js': './assets/js/**/*.js',
+					'<%= SETTINGS.folder.prod %>/BOM/assets/js/script-<%= pkg.version %>.min.js': [
+						'<%= SETTINGS.folder.js %>/**/*.js',
+						'!<%= SETTINGS.folder.js %>/**/*jquery*.js',
+					],
+					'<%= SETTINGS.folder.prod %>/BSA/assets/js/script-<%= pkg.version %>.min.js': [
+						'<%= SETTINGS.folder.js %>/**/*.js',
+						'!<%= SETTINGS.folder.js %>/**/*jquery*.js',
+					],
+					'<%= SETTINGS.folder.prod %>/STG/assets/js/script-<%= pkg.version %>.min.js': [
+						'<%= SETTINGS.folder.js %>/**/*.js',
+						'!<%= SETTINGS.folder.js %>/**/*jquery*.js',
+					],
+					'<%= SETTINGS.folder.prod %>/WBC/assets/js/script-<%= pkg.version %>.min.js': [
+						'<%= SETTINGS.folder.js %>/**/*.js',
+						'!<%= SETTINGS.folder.js %>/**/*jquery*.js',
+					],
 				},
 			},
 		},
@@ -372,48 +475,48 @@ module.exports = function(grunt) {
 			BOM: {
 				files: [{
 					expand: true,
-					cwd: './assets/svg/',
+					cwd: '<%= SETTINGS.folder.svg %>/',
 					src: [
 						'all/*.svg',
 						'BOM/*.svg',
 					],
-					dest: './jekyll/BOM/assets/css',
+					dest: '<%= SETTINGS.folder.prod %>/BOM/assets/css',
 				}],
 			},
 
 			BSA: {
 				files: [{
 					expand: true,
-					cwd: './assets/svg/',
+					cwd: '<%= SETTINGS.folder.svg %>/',
 					src: [
 						'all/*.svg',
 						'BSA/*.svg',
 					],
-					dest: './jekyll/BSA/assets/css',
+					dest: '<%= SETTINGS.folder.prod %>/BSA/assets/css',
 				}],
 			},
 
 			STG: {
 				files: [{
 					expand: true,
-					cwd: './assets/svg/',
+					cwd: '<%= SETTINGS.folder.svg %>/',
 					src: [
 						'all/*.svg',
 						'STG/*.svg',
 					],
-					dest: './jekyll/STG/assets/css',
+					dest: '<%= SETTINGS.folder.prod %>/STG/assets/css',
 				}],
 			},
 
 			WBC: {
 				files: [{
 					expand: true,
-					cwd: './assets/svg/',
+					cwd: '<%= SETTINGS.folder.svg %>/',
 					src: [
 						'all/*.svg',
 						'WBC/*.svg',
 					],
-					dest: './jekyll/WBC/assets/css',
+					dest: '<%= SETTINGS.folder.prod %>/WBC/assets/css',
 				}],
 			},
 		},
@@ -423,38 +526,118 @@ module.exports = function(grunt) {
 		// Copy all grunticon fallback pngs to img folder
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
 		copy: {
-			BOKM: {
+			//grunticon cleanup
+			BOM: {
 				files: [{
-					cwd: './jekyll/BOKM/assets/css/png/',
+					cwd: '<%= SETTINGS.folder.prod %>/BOM/assets/css/png/',
 					src: ['**/*.png'],
-					dest: './jekyll/BOKM/assets/img/',
+					dest: '<%= SETTINGS.folder.prod %>/BOM/assets/img/',
 					filter: 'isFile',
 					expand: true,
 				}],
 			},
 			BSA: {
 				files: [{
-					cwd: './jekyll/BSA/assets/css/png/',
+					cwd: '<%= SETTINGS.folder.prod %>/BSA/assets/css/png/',
 					src: ['**/*.png'],
-					dest: './jekyll/BSA/assets/img/',
+					dest: '<%= SETTINGS.folder.prod %>/BSA/assets/img/',
 					filter: 'isFile',
 					expand: true,
 				}],
 			},
 			STG: {
 				files: [{
-					cwd: './jekyll/STG/assets/css/png/',
+					cwd: '<%= SETTINGS.folder.prod %>/STG/assets/css/png/',
 					src: ['**/*.png'],
-					dest: './jekyll/STG/assets/img/',
+					dest: '<%= SETTINGS.folder.prod %>/STG/assets/img/',
 					filter: 'isFile',
 					expand: true,
 				}],
 			},
 			WBC: {
 				files: [{
-					cwd: './jekyll/WBC/assets/css/png/',
+					cwd: '<%= SETTINGS.folder.prod %>/WBC/assets/css/png/',
 					src: ['**/*.png'],
-					dest: './jekyll/WBC/assets/img/',
+					dest: '<%= SETTINGS.folder.prod %>/WBC/assets/img/',
+					filter: 'isFile',
+					expand: true,
+				}],
+			},
+
+			//HTML
+			HTMLBOM: {
+				files: [{
+					cwd: '<%= SETTINGS.folder.html %>/',
+					src: [
+						'**/*.html',
+						'**/*.md',
+						'**/*.liquid',
+						'!_assets/**/*',
+						'!_*/**/*',
+					],
+					dest: '<%= SETTINGS.folder.prod %>/BOM/',
+					filter: 'isFile',
+					expand: true,
+				}],
+			},
+			HTMLBSA: {
+				files: [{
+					cwd: '<%= SETTINGS.folder.html %>/',
+					src: [
+						'**/*.html',
+						'**/*.md',
+						'**/*.liquid',
+						'!_assets/**/*',
+						'!_*/**/*',
+					],
+					dest: '<%= SETTINGS.folder.prod %>/BSA/',
+					filter: 'isFile',
+					expand: true,
+				}],
+			},
+			HTMLSTG: {
+				files: [{
+					cwd: '<%= SETTINGS.folder.html %>/',
+					src: [
+						'**/*.html',
+						'**/*.md',
+						'**/*.liquid',
+						'!_assets/**/*',
+						'!_*/**/*',
+					],
+					dest: '<%= SETTINGS.folder.prod %>/STG/',
+					filter: 'isFile',
+					expand: true,
+				}],
+			},
+			HTMLWBC: {
+				files: [{
+					cwd: '<%= SETTINGS.folder.html %>/',
+					src: [
+						'**/*.html',
+						'**/*.md',
+						'**/*.liquid',
+						'!_assets/**/*',
+						'!_*/**/*',
+					],
+					dest: '<%= SETTINGS.folder.prod %>/WBC/',
+					filter: 'isFile',
+					expand: true,
+				}],
+			},
+
+			//HTML underscore folders
+			HTML_: {
+				files: [{
+					cwd: '<%= SETTINGS.folder.html %>/',
+					src: [
+						'_*/**/*.html',
+						'_*/**/*.md',
+						'_*/**/*.liquid',
+						'_plugins/**/*',
+						'!_assets/**/*',
+					],
+					dest: '<%= SETTINGS.folder.prod %>/',
 					filter: 'isFile',
 					expand: true,
 				}],
@@ -489,11 +672,11 @@ module.exports = function(grunt) {
 
 					'!jekyll/_site/**/*',
 					'!jekyll/**/assets/**/*',
+					'!HTML/_assets/js/**/*jquery*.js',
 					'!GUI-source-master/**/*',
 					'!file-server/server.js',
 					'!file-server/node_modules/**/*',
 					'!node_modules/**/*',
-					'!**/*.svg',
 					'!Gruntfile.js',
 				],
 			},
@@ -512,16 +695,6 @@ module.exports = function(grunt) {
 
 			title: {
 				text: '| GUI docs',
-			},
-
-			uptodate: {
-				options: {
-					font: 'simple',
-					maxLength: 30,
-					colors: ['magenta'],
-				},
-
-				text: 'Up to date',
 			},
 
 			updating: {
@@ -554,10 +727,11 @@ module.exports = function(grunt) {
 		watch: {
 			node: {
 				files: [
-					'./file-server/*.js',
-					'!./file-server/server.js',
+					'<%= SETTINGS.folder.fileserver %>/*.js',
+					'!<%= SETTINGS.folder.fileserver %>/server.js',
 				],
 				tasks: [
+					// 'lintspaces',
 					'_buildNode',
 					'wakeup',
 				],
@@ -565,21 +739,22 @@ module.exports = function(grunt) {
 
 			GUIjs: {
 				files: [
-					'./assets/js/**/*.js',
+					'<%= SETTINGS.folder.js %>/**/*.js',
 				],
 				tasks: [
-					'lintspaces',
+					// 'lintspaces',
 					'uglify',
+					'concat:js',
 					'wakeup',
 				],
 			},
 
 			GUIless: {
 				files: [
-					'./assets/less/**/*.less',
+					'<%= SETTINGS.folder.less %>/**/*.less',
 				],
 				tasks: [
-					'lintspaces',
+					// 'lintspaces',
 					'less',
 					'wakeup',
 				],
@@ -587,12 +762,29 @@ module.exports = function(grunt) {
 
 			GUIsvg: {
 				files: [
-					'./assets/svg/**/*.svg',
+					'<%= SETTINGS.folder.less %>/svg/**/*.svg',
 				],
 				tasks: [
 					'grunticon',
 					'copy',
 					'clean:grunticon',
+					'wakeup',
+				],
+			},
+
+			GUIhtml: {
+				files: [
+					'<%= SETTINGS.folder.html %>/**/*.md',
+					'<%= SETTINGS.folder.html %>/**/*.liquid',
+					'<%= SETTINGS.folder.html %>/**/*.html',
+				],
+				tasks: [
+					'lintspaces',
+					'copy:HTMLBOM',
+					'copy:HTMLBSA',
+					'copy:HTMLSTG',
+					'copy:HTMLWBC',
+					'copy:HTML_',
 					'wakeup',
 				],
 			},
@@ -608,8 +800,8 @@ module.exports = function(grunt) {
 					open: false,
 					hostname: '127.0.0.1',
 					port: 1337,
-					directory: './jekyll/_site/',
-					base: './jekyll/_site/',
+					directory: '<%= SETTINGS.folder.prod %>/_site/',
+					base: '<%= SETTINGS.folder.prod %>/_site/',
 				},
 			},
 		},
@@ -629,17 +821,18 @@ module.exports = function(grunt) {
 	]);
 
 	grunt.registerTask('_buildDocs', [
-		'clean:assets',
-		'lintspaces',
+		'clean:jekyll',
+		// 'lintspaces',
 		'less',
 		'uglify',
+		'concat:js',
 		'grunticon',
 		'copy',
 		'clean:grunticon',
 	]);
 
 	grunt.registerTask('_buildNode', [
-		'concat',
+		'concat:node',
 		'replace',
 	]);
 
