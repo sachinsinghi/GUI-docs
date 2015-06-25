@@ -325,9 +325,9 @@ module.exports = function(grunt) {
 		// Replace version
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
 		replace: {
-			example: {
+			node: {
 				src: [
-					'<%= SETTINGS.folder.fileserver %>/server.js'
+					'<%= SETTINGS.folder.fileserver %>/server.js',
 				],
 				overwrite: true,
 				replacements: [
@@ -338,6 +338,103 @@ module.exports = function(grunt) {
 					{
 						from: '[Version]',
 						to: 'v<%= pkg.version %>',
+					},
+				],
+			},
+
+			BOM: {
+				src: [
+					'<%= SETTINGS.folder.prod %>/BOM/**/*.js',
+					'<%= SETTINGS.folder.prod %>/BOM/**/*.less',
+					'<%= SETTINGS.folder.prod %>/BOM/**/*.html',
+					'<%= SETTINGS.folder.prod %>/BOM/**/*.md',
+					'<%= SETTINGS.folder.prod %>/BOM/**/*.liquid',
+				],
+				overwrite: true,
+				replacements: [
+					{
+						from: '[Brand]',
+						to: 'BOM',
+					},
+					{
+						from: '[brand]',
+						to: 'bom',
+					},
+					{
+						from: '[Version]',
+						to: '<%= pkg.version %>',
+					},
+				],
+			},
+			BSA: {
+				src: [
+					'<%= SETTINGS.folder.prod %>/BSA/**/*.js',
+					'<%= SETTINGS.folder.prod %>/BSA/**/*.less',
+					'<%= SETTINGS.folder.prod %>/BSA/**/*.html',
+					'<%= SETTINGS.folder.prod %>/BSA/**/*.md',
+					'<%= SETTINGS.folder.prod %>/BSA/**/*.liquid',
+				],
+				overwrite: true,
+				replacements: [
+					{
+						from: '[Brand]',
+						to: 'BSA',
+					},
+					{
+						from: '[brand]',
+						to: 'bsa',
+					},
+					{
+						from: '[Version]',
+						to: '<%= pkg.version %>',
+					},
+				],
+			},
+			STG: {
+				src: [
+					'<%= SETTINGS.folder.prod %>/STG/**/*.js',
+					'<%= SETTINGS.folder.prod %>/STG/**/*.less',
+					'<%= SETTINGS.folder.prod %>/STG/**/*.html',
+					'<%= SETTINGS.folder.prod %>/STG/**/*.md',
+					'<%= SETTINGS.folder.prod %>/STG/**/*.liquid',
+				],
+				overwrite: true,
+				replacements: [
+					{
+						from: '[Brand]',
+						to: 'STG',
+					},
+					{
+						from: '[brand]',
+						to: 'stg',
+					},
+					{
+						from: '[Version]',
+						to: '<%= pkg.version %>',
+					},
+				],
+			},
+			WBC: {
+				src: [
+					'<%= SETTINGS.folder.prod %>/WBC/**/*.js',
+					'<%= SETTINGS.folder.prod %>/WBC/**/*.less',
+					'<%= SETTINGS.folder.prod %>/WBC/**/*.html',
+					'<%= SETTINGS.folder.prod %>/WBC/**/*.md',
+					'<%= SETTINGS.folder.prod %>/WBC/**/*.liquid',
+				],
+				overwrite: true,
+				replacements: [
+					{
+						from: '[Brand]',
+						to: 'WBC',
+					},
+					{
+						from: '[brand]',
+						to: 'wbc',
+					},
+					{
+						from: '[Version]',
+						to: '<%= pkg.version %>',
 					},
 				],
 			},
@@ -644,6 +741,19 @@ module.exports = function(grunt) {
 					expand: true,
 				}],
 			},
+
+			//GUI.json
+			GUIjson: {
+				files: [{
+					cwd: '<%= SETTINGS.folder.GUImaster %>/',
+					src: [
+						'GUI.json',
+					],
+					dest: '<%= SETTINGS.folder.prod %>/_data',
+					filter: 'isFile',
+					expand: true,
+				}],
+			},
 		},
 
 
@@ -757,6 +867,7 @@ module.exports = function(grunt) {
 				tasks: [
 					// 'lintspaces',
 					'_buildNode',
+					'replace:node',
 					'wakeup',
 				],
 			},
@@ -769,6 +880,10 @@ module.exports = function(grunt) {
 					// 'lintspaces',
 					'uglify',
 					'concat:js',
+					'replace:BOM',
+					'replace:BSA',
+					'replace:STG',
+					'replace:WBC',
 					'jekyll:dev',
 					'wakeup',
 				],
@@ -781,6 +896,10 @@ module.exports = function(grunt) {
 				tasks: [
 					// 'lintspaces',
 					'less',
+					'replace:BOM',
+					'replace:BSA',
+					'replace:STG',
+					'replace:WBC',
 					'jekyll:dev',
 					'wakeup',
 				],
@@ -814,6 +933,10 @@ module.exports = function(grunt) {
 					'copy:HTMLSTG',
 					'copy:HTMLWBC',
 					'copy:HTML_',
+					'replace:BOM',
+					'replace:BSA',
+					'replace:STG',
+					'replace:WBC',
 					'jekyll:dev',
 					'wakeup',
 				],
@@ -858,13 +981,17 @@ module.exports = function(grunt) {
 		'concat:js',
 		'grunticon',
 		'copy',
+		'replace:BOM',
+		'replace:BSA',
+		'replace:STG',
+		'replace:WBC',
 		'clean:grunticon',
 		'jekyll:dev',
 	]);
 
 	grunt.registerTask('_buildNode', [
 		'concat:node',
-		'replace',
+		'replace:node',
 	]);
 
 

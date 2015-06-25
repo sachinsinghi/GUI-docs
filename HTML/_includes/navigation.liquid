@@ -3,7 +3,7 @@
 	https://gist.github.com/dominikwilkowski/c7d916c9b36e4eebbc90
 
 	Usage:
-		{% include navigation.liquid  nav = page.nav filter = "all" %}
+		{% include navigation.liquid  brand = "BOM" %}
 
 	Return:
 		HTML direct output
@@ -27,7 +27,7 @@
 {% endcomment %}
 
 
-{% assign filter = include.filter %}
+{% assign brand = include.brand %}
 {% assign pages = site.pages | sort: "weight" %}
 {% assign rootLevel = page.weight %}
 
@@ -48,12 +48,13 @@
 {% assign _isFirst = true %}
 
 
-{% comment %}startwith: {{ rootLevel | startwith: rootLevel }}<br>
+brand: {{ brand }}<br>
+startwith: {{ rootLevel | startwith: rootLevel }}<br>
 rootlevel: {{ rootLevel }}<br>
 parentlevel: {{ parentLevel }}<br>
 levels: {{ levels }}<br>
 minLevel: {{ minLevel }}<br>
-maxLevel: {{ maxLevel }}{% endcomment %}
+maxLevel: {{ maxLevel }}
 
 <nav class="navigation-wrapper">
 	<ul class="navigation navigation-level1 current-level{{ levels }}">
@@ -63,6 +64,16 @@ maxLevel: {{ maxLevel }}{% endcomment %}
 				CHECK IF HIDDEN PAGE
 			{% endcomment %}
 			{% assign hidden = thisPage.weight | split: "-" %}
+
+
+			{% comment %}
+				CHECK IF HIDDEN PAGE
+			{% endcomment %}
+			{% if hidden.size <= 1 %}
+				{% assign _isShown = true %}
+			{% else %}
+				{% assign _isShown = false %}
+			{% endif %}
 
 
 			{% comment %}
@@ -79,13 +90,9 @@ maxLevel: {{ maxLevel }}{% endcomment %}
 
 			{% if thisPage.weight == parentLevel %}
 				{% assign _isParent = true %}
-			{% else %}
-				{% assign _isParent = false %}
-			{% endif %}
-
-			{% if thisPage.weight == parentLevel %}
 				{% assign _isThislevel = true %}
 			{% else %}
+				{% assign _isParent = false %}
 				{% assign _isThislevel = false %}
 			{% endif %}
 
@@ -101,9 +108,9 @@ maxLevel: {{ maxLevel }}{% endcomment %}
 
 
 			{% comment %}
-				IF THIS IS THE RELEVANT NAV, IS NOT HIDDEN AND WITHIN THE LEVELS WE ALLOW
+				IF THIS IS WITHIN THE LEVELS WE ALLOW
 			{% endcomment %}
-			{% if thisPage.nav == include.nav and hidden.size <= 1 and thisLevel >= minLevel and thisLevel < maxLevel and _isIndented %}
+			{% if thisLevel >= minLevel and thisLevel < maxLevel and _isIndented %}
 				{% assign _isMidLevel = true %}
 			{% else %}
 				{% assign _isMidLevel = false %}
@@ -111,9 +118,9 @@ maxLevel: {{ maxLevel }}{% endcomment %}
 
 
 			{% comment %}
-				IF THIS IS THE RELEVANT NAV, IS NOT HIDDEN AND THE MAXIMUM LEVEL BUT ONLY IF THIS IS A SIBLING OF THE PARENT
+				IF THIS IS THE MAXIMUM LEVEL BUT ONLY IF THIS IS A SIBLING OF THE PARENT
 			{% endcomment %}
-			{% if thisPage.nav == include.nav and hidden.size <= 1 and thisLevel >= minLevel and thisLevel == maxLevel and _isSibling and _isIndented %}
+			{% if thisLevel >= minLevel and thisLevel == maxLevel and _isSibling and _isIndented %}
 				{% assign _isMaxLevel = true %}
 			{% else %}
 				{% assign _isMaxLevel = false %}
@@ -121,112 +128,125 @@ maxLevel: {{ maxLevel }}{% endcomment %}
 
 
 			{% comment %}
-				IF THE NAVIGATION IS SUPPOSED TO INCLUDE ALL RELEVANT PAGES
+				SHOW ONLY BRAND PAGES
 			{% endcomment %}
-			{% if filter == "all" and hidden.size <= 1 %}
-				{% assign _showAll = true %}
+			{% capture brandPath %}/{{ brand | strip_newlines }}{% endcapture %}
+			{% assign _isBrand = thisPage.url | startwith: brandPath %}
+
+			{% if _isBrand %}
 			{% else %}
-				{% assign _showAll = false %}
+				{% assign _isShown = false %}
 			{% endif %}
 
 
 			{% comment %}
-				SHOW ONLY THIS SECTION
+				SHOW
 			{% endcomment %}
-			{% if _showAll or _isMidLevel or _isMaxLevel %}
-
-				{% comment %}
-					SAME LEVEL
-				{% endcomment %}
-				{% if level == thisLevel %}
-					</li>
-				{% endif %}
+			{% if _isShown %}
 
 
 				{% comment %}
-					NEXT HIGHER LEVEL
+					SHOW ONLY THIS SECTION
 				{% endcomment %}
-				{% if level < thisLevel and level != 0 %}
-					<ul class="navigation-subnav navigation-level{{ thisLevel }}">
-				{% endif %}
+				{% if _showAll or _isMidLevel or _isMaxLevel %}
 
-
-				{% comment %}
-					NEXT LOWER LEVEL
-				{% endcomment %}
-				{% if level > thisLevel %}
-							</li>
-						</ul>
-					</li>
-				{% endif %}
-
-
-				{% comment %}
-					FIND PARENT LEVELS
-				{% endcomment %}
-				{% assign parentClass = "" %}
-				{% case thisLevel %}
-					{% when 1 %}
-						{% if parentLevel == thisPage.weight or superParentLevel == thisPage.weight %}
-							{% assign parentClass = " is-parent" %}
-						{% endif %}
-					{% when 2 %}
-						{% if parentLevel == thisPage.weight %}
-							{% assign parentClass = " is-active" %}
-						{% endif %}
-					{% else %}
-						{% assign parentClass = "" %}
-				{% endcase %}
-
-
-				{% comment %}
-					ASSIGN ACTIVE CLASS
-				{% endcomment %}
-				{% if page.url == thisPage.url %}
-					{% assign activeClass = " is-active" %}
-				{% else %}
-					{% assign activeClass = "" %}
-				{% endif %}
-				{% if _isFirst %}
-					{% assign firstClass = " is-first" %}
-					{% assign _isFirst = false %}
-				{% else %}
-					{% assign firstClass = "" %}
-				{% endif %}
-
-
-				{% comment %}
-					OUTPUT THE LINK
-				{% endcomment %}
-				<li class="navigation-item{{ activeClass }}{{ parentClass }}{{ firstClass }} item-{{ thisPage.title | handleize }} path-{{ thisPage.path | handleize }}">
-					<a class="navigation-link{% if page.url == thisPage.url %} is-active{% endif %}" href="{% include base.liquid %}{{ thisPage.url }}">
-						{{ thisPage.title }}
-					</a>
-
-					{% if thisPage.anchors.size and page.url == thisPage.url %}
-						<ul class="navigation-anchors js-scrolls">
-							{% for anchor in thisPage.anchors %}
-								<li class="navigation-anchor">
-									<a class="navigation-anchor-link js-scroll" href="{{ anchor[1] }}">{{ anchor[0] }}</a>
-								</li>
-							{% endfor %}
-						</ul>
+					{% comment %}
+						SAME LEVEL
+					{% endcomment %}
+					{% if level == thisLevel %}
+						</li>
 					{% endif %}
 
 
-				{% comment %}
-					ASSIGNING CURRENT LEVEL
-				{% endcomment %}
-				{% assign level = thisLevel %}
+					{% comment %}
+						NEXT HIGHER LEVEL
+					{% endcomment %}
+					{% if level < thisLevel and level != 0 %}
+						<ul class="navigation-subnav navigation-level{{ thisLevel }}">
+					{% endif %}
+
+
+					{% comment %}
+						NEXT LOWER LEVEL
+					{% endcomment %}
+					{% if level > thisLevel %}
+								</li>
+							</ul>
+						</li>
+					{% endif %}
+
+
+					{% comment %}
+						FIND PARENT LEVELS
+					{% endcomment %}
+					{% assign parentClass = "" %}
+					{% case thisLevel %}
+						{% when 1 %}
+							{% if parentLevel == thisPage.weight or superParentLevel == thisPage.weight %}
+								{% assign parentClass = " is-parent" %}
+							{% endif %}
+						{% when 2 %}
+							{% if parentLevel == thisPage.weight %}
+								{% assign parentClass = " is-active" %}
+							{% endif %}
+						{% else %}
+							{% assign parentClass = "" %}
+					{% endcase %}
+
+
+					{% comment %}
+						ASSIGN ACTIVE CLASS
+					{% endcomment %}
+					{% if page.url == thisPage.url %}
+						{% assign activeClass = " is-active" %}
+					{% else %}
+						{% assign activeClass = "" %}
+					{% endif %}
+					{% if _isFirst %}
+						{% assign firstClass = " is-first" %}
+						{% assign _isFirst = false %}
+					{% else %}
+						{% assign firstClass = "" %}
+					{% endif %}
+
+
+					{% comment %}
+						OUTPUT THE LINK
+					{% endcomment %}
+					<li class="navigation-item{{ activeClass }}{{ parentClass }}{{ firstClass }} item-{{ thisPage.title | handleize }}">
+						<a class="navigation-link{% if page.url == thisPage.url %} is-active{% endif %}" href="{% include base.liquid %}{{ thisPage.url }}">
+							{{ thisPage.title }}
+						</a>
+
+						{% comment %}{% if thisPage.anchors.size and page.url == thisPage.url %}
+							<ul class="navigation-anchors js-scrolls">
+								{% for anchor in thisPage.anchors %}
+									<li class="navigation-anchor">
+										<a class="navigation-anchor-link js-scroll" href="{{ anchor[1] }}">{{ anchor[0] }}</a>
+									</li>
+								{% endfor %}
+							</ul>
+						{% endif %}{% endcomment %}
+
+
+					{% comment %}
+						ASSIGNING CURRENT LEVEL
+					{% endcomment %}
+					{% assign level = thisLevel %}
+
+				{% endif %}
 
 			{% endif %}
 
 		{% endfor %}
 
 
+		{% comment %}
+			CLOSING ALL LI AND UL
+		{% endcomment %}
 		{% if level > 1 %}
 
-			{% if levels > 2 and filter != "all" %}
+			{% if levels > 2 and brand != "all" %}
 				{% assign level = level | minus: 1 %}
 			{% endif %}
 
