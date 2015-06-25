@@ -1,0 +1,27 @@
+{% comment %}
+	This snippet prints the footer
+
+	Usage:
+		{% include footer.liquid %}
+
+	Return:
+		HTML direct output
+
+	Required:
+		- none -
+{% endcomment %}
+
+
+<footer class="footer">
+	<span class="footer-logo sitesymbol-westpacgrouplogo">Westpac group</span>
+	<span class="footer-text">&copy; 2015</span>
+
+	<div class="pull-right">
+		<a href="{% include base.liquid %}/terms-and-conditions/" class="footer-link">Terms and conditions</a>
+	</div>
+</footer>
+
+{% include footer-code.liquid %}
+
+</body>
+</html>

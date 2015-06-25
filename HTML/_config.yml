@@ -1,0 +1,4 @@
+name: "GUI"
+
+permalink: pretty
+exclude: ["node_modules/"]

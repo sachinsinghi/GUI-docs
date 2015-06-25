@@ -190,6 +190,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-lintspaces');
 	grunt.loadNpmTasks('grunt-grunticon');
 	grunt.loadNpmTasks('grunt-wakeup');
+	grunt.loadNpmTasks('grunt-jekyll');
 	grunt.loadNpmTasks('grunt-font');
 	grunt.loadNpmTasks('grunt-curl');
 	grunt.loadNpmTasks('grunt-zip');
@@ -634,6 +635,7 @@ module.exports = function(grunt) {
 						'_*/**/*.html',
 						'_*/**/*.md',
 						'_*/**/*.liquid',
+						'*.yml',
 						'_plugins/**/*',
 						'!_assets/**/*',
 					],
@@ -641,6 +643,29 @@ module.exports = function(grunt) {
 					filter: 'isFile',
 					expand: true,
 				}],
+			},
+		},
+
+
+		//----------------------------------------------------------------------------------------------------------------------------------------------------------
+		// JEKYLL
+		//----------------------------------------------------------------------------------------------------------------------------------------------------------
+		jekyll: {
+			options: {
+				src : '<%= SETTINGS.folder.prod %>'
+			},
+
+			dev: {
+				options: {
+					dest: '<%= SETTINGS.folder.prod %>/_site',
+					config: '<%= SETTINGS.folder.prod %>/_config.yml',
+				},
+			},
+			prod: {
+				options: {
+					dest: '<%= SETTINGS.folder.prod %>/_site',
+					config: '<%= SETTINGS.folder.prod %>/_config.build.yml',
+				},
 			},
 		},
 
@@ -670,8 +695,7 @@ module.exports = function(grunt) {
 					'**/*.css',
 					'**/*.html',
 
-					'!jekyll/_site/**/*',
-					'!jekyll/**/assets/**/*',
+					'!jekyll/**/*',
 					'!HTML/_assets/js/**/*jquery*.js',
 					'!GUI-source-master/**/*',
 					'!file-server/server.js',
@@ -745,6 +769,7 @@ module.exports = function(grunt) {
 					// 'lintspaces',
 					'uglify',
 					'concat:js',
+					'jekyll:dev',
 					'wakeup',
 				],
 			},
@@ -756,6 +781,7 @@ module.exports = function(grunt) {
 				tasks: [
 					// 'lintspaces',
 					'less',
+					'jekyll:dev',
 					'wakeup',
 				],
 			},
@@ -768,6 +794,7 @@ module.exports = function(grunt) {
 					'grunticon',
 					'copy',
 					'clean:grunticon',
+					'jekyll:dev',
 					'wakeup',
 				],
 			},
@@ -777,14 +804,17 @@ module.exports = function(grunt) {
 					'<%= SETTINGS.folder.html %>/**/*.md',
 					'<%= SETTINGS.folder.html %>/**/*.liquid',
 					'<%= SETTINGS.folder.html %>/**/*.html',
+					'<%= SETTINGS.folder.html %>/**/*.yml',
+					'<%= SETTINGS.folder.html %>/_plugins/**/*',
 				],
 				tasks: [
-					'lintspaces',
+					// 'lintspaces',
 					'copy:HTMLBOM',
 					'copy:HTMLBSA',
 					'copy:HTMLSTG',
 					'copy:HTMLWBC',
 					'copy:HTML_',
+					'jekyll:dev',
 					'wakeup',
 				],
 			},
@@ -829,6 +859,7 @@ module.exports = function(grunt) {
 		'grunticon',
 		'copy',
 		'clean:grunticon',
+		'jekyll:dev',
 	]);
 
 	grunt.registerTask('_buildNode', [
