@@ -48,13 +48,13 @@
 {% assign _isFirst = true %}
 
 
-brand: {{ brand }}<br>
+{% comment %}brand: {{ brand }}<br>
 startwith: {{ rootLevel | startwith: rootLevel }}<br>
 rootlevel: {{ rootLevel }}<br>
 parentlevel: {{ parentLevel }}<br>
 levels: {{ levels }}<br>
 minLevel: {{ minLevel }}<br>
-maxLevel: {{ maxLevel }}
+maxLevel: {{ maxLevel }}{% endcomment %}
 
 <nav class="navigation-wrapper">
 	<ul class="navigation navigation-level1 current-level{{ levels }}">
