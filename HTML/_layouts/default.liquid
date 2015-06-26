@@ -1,40 +1,7 @@
 {% include header.liquid %}
 
-	<div class="outer-wrapper">
-		<div class="container-fluid wrapper js-wrapper">
+	{% include navigation.liquid  brand = page.brand %}
 
-			<aside class="side-nav">
-				{% include navigation.liquid  brand = page.brand %}
-			</aside>
-			<main class="custom-container">
-				<div class="row">
-					<div class="col-sm-12">
-						<div class="content-end">
-							<div class="row">
-								<div class="col-sm-12 content">
-									<h1 class="headline">
-										{{ page.title }}
-									</h1>
-								</div>
-
-								<div class="col-sm-11 col-sm-offset-1">
-									<p class="lead">
-										{{ page.description }}
-									</p>
-								</div>
-							</div>
-
-
-							<div class="content">
-								{{ content }}
-							</div>
-
-						</div>
-					</div>
-				</div>
-			</main>
-
-		</div>
-	</div>
+	{{ content }}
 
 {% include footer.liquid %}
