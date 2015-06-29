@@ -1,0 +1,56 @@
+{% comment %}
+	This snippet prints the blender form
+
+	Usage:
+		{% include showBlender.liquid %}
+
+	Return:
+		HTML direct output
+
+	Required:
+		- none -
+{% endcomment %}
+
+
+<button type="submit" class="btn btn-primary btn-soft">
+	<span class="btn-text">Give me everything</span>
+</button>
+
+<form class="blender" method="POST" action="http://localhost:1337/blender" enctype="multipart/form-data">
+	{% for category in site.data.GUI.modules %}
+		<fieldset class="blender-category">
+			<legend class="blender-category-headline">{{ category[0] }}</legend>
+
+			<ul class="blender-modules">
+				{% for module in category[1] %}
+					{% comment %}
+						checking for fixed elements
+					{% endcomment %}
+					{% if module[1].category == '_fixed' %}
+						{% assign _isFixed = true %}
+					{% else %}
+						{% assign _isFixed = false %}
+					{% endif %}
+
+					<li class="blender-module">
+						<a href="{{ module[1].category }}/#{{ module[1].ID }}">{{ module[1].description }}</a>
+
+						{% include showVersions.liquid  mod = module %}
+
+						<label class="checkbox">
+							<input class="checkbox-input" type="checkbox" name="{{ module[1].ID }}"{% if _isFixed %} checked="checked" disabled{% endif %}>
+							<span class="checkbox-text">Add {{ module[1].name }} to Blender</span>
+						</label>
+					</li>
+
+				{% endfor %}
+			</ul>
+
+		</fieldset>
+	{% endfor %}
+
+	<button type="submit" class="btn btn-primary">
+		<span class="btn-text">Blend</span>
+		<span class="btn-icon icon icon-size-sm icon-download"></span> {% comment %}icon-refresh (icons-group13){% endcomment %}
+	</button>
+</form>

@@ -203,7 +203,7 @@ maxLevel: {{ maxLevel }}{% endcomment %}
 						OUTPUT THE LINK
 					{% endcomment %}
 					<li class="navigation-item{{ activeClass }}{{ parentClass }}{{ firstClass }} item-{{ thisPage.title | handleize }}">
-						<a class="navigation-link{% if page.url == thisPage.url %} is-active{% endif %}" href="{% include base.liquid %}{{ thisPage.url }}">
+						<a class="navigation-link{% if page.url == thisPage.url %} is-active{% endif %}" href="{{ thisPage.url }}">
 							{{ thisPage.title }}
 						</a>
 

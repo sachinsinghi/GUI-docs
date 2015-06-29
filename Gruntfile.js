@@ -342,6 +342,21 @@ module.exports = function(grunt) {
 				],
 			},
 
+			jekyll: {
+				src: [
+					'<%= SETTINGS.folder.prod %>/_includes/**/*',
+					'<%= SETTINGS.folder.prod %>/_layouts/**/*',
+					'<%= SETTINGS.folder.prod %>/_data/**/*',
+				],
+				overwrite: true,
+				replacements: [
+					{
+						from: '[Version]',
+						to: '<%= pkg.version %>',
+					},
+				],
+			},
+
 			BOM: {
 				src: [
 					'<%= SETTINGS.folder.prod %>/BOM/**/*.js',
@@ -482,10 +497,10 @@ module.exports = function(grunt) {
 					plugins : [ new (require('less-plugin-autoprefix'))({ browsers: [ 'last 2 versions', 'ie 8', 'ie 9', 'ie 10' ] }) ],
 				},
 				files: {
-					'<%= SETTINGS.folder.prod %>/BOM/assets/css/style-<%= pkg.version %>.min.css': '<%= SETTINGS.folder.assets %>/less/theme-BOM.less',
-					'<%= SETTINGS.folder.prod %>/BSA/assets/css/style-<%= pkg.version %>.min.css': '<%= SETTINGS.folder.assets %>/less/theme-BSA.less',
-					'<%= SETTINGS.folder.prod %>/STG/assets/css/style-<%= pkg.version %>.min.css': '<%= SETTINGS.folder.assets %>/less/theme-STG.less',
-					'<%= SETTINGS.folder.prod %>/WBC/assets/css/style-<%= pkg.version %>.min.css': '<%= SETTINGS.folder.assets %>/less/theme-WBC.less',
+					'<%= SETTINGS.folder.prod %>/BOM/assets/css/site-<%= pkg.version %>.min.css': '<%= SETTINGS.folder.assets %>/less/theme-BOM.less',
+					'<%= SETTINGS.folder.prod %>/BSA/assets/css/site-<%= pkg.version %>.min.css': '<%= SETTINGS.folder.assets %>/less/theme-BSA.less',
+					'<%= SETTINGS.folder.prod %>/STG/assets/css/site-<%= pkg.version %>.min.css': '<%= SETTINGS.folder.assets %>/less/theme-STG.less',
+					'<%= SETTINGS.folder.prod %>/WBC/assets/css/site-<%= pkg.version %>.min.css': '<%= SETTINGS.folder.assets %>/less/theme-WBC.less',
 				},
 			},
 		},
@@ -505,21 +520,21 @@ module.exports = function(grunt) {
 
 			js: {
 				files: {
-					'<%= SETTINGS.folder.prod %>/BOM/assets/js/script-<%= pkg.version %>.min.js': [
+					'<%= SETTINGS.folder.prod %>/BOM/assets/js/site-<%= pkg.version %>.min.js': [
 						'<%= SETTINGS.folder.js %>/**/*jquery*.js',
-						'<%= SETTINGS.folder.prod %>/BOM/assets/js/script-<%= pkg.version %>.min.js',
+						'<%= SETTINGS.folder.prod %>/BOM/assets/js/site-<%= pkg.version %>.min.js',
 					],
-					'<%= SETTINGS.folder.prod %>/BSA/assets/js/script-<%= pkg.version %>.min.js': [
+					'<%= SETTINGS.folder.prod %>/BSA/assets/js/site-<%= pkg.version %>.min.js': [
 						'<%= SETTINGS.folder.js %>/**/*jquery*.js',
-						'<%= SETTINGS.folder.prod %>/BSA/assets/js/script-<%= pkg.version %>.min.js',
+						'<%= SETTINGS.folder.prod %>/BSA/assets/js/site-<%= pkg.version %>.min.js',
 					],
-					'<%= SETTINGS.folder.prod %>/STG/assets/js/script-<%= pkg.version %>.min.js': [
+					'<%= SETTINGS.folder.prod %>/STG/assets/js/site-<%= pkg.version %>.min.js': [
 						'<%= SETTINGS.folder.js %>/**/*jquery*.js',
-						'<%= SETTINGS.folder.prod %>/STG/assets/js/script-<%= pkg.version %>.min.js',
+						'<%= SETTINGS.folder.prod %>/STG/assets/js/site-<%= pkg.version %>.min.js',
 					],
-					'<%= SETTINGS.folder.prod %>/WBC/assets/js/script-<%= pkg.version %>.min.js': [
+					'<%= SETTINGS.folder.prod %>/WBC/assets/js/site-<%= pkg.version %>.min.js': [
 						'<%= SETTINGS.folder.js %>/**/*jquery*.js',
-						'<%= SETTINGS.folder.prod %>/WBC/assets/js/script-<%= pkg.version %>.min.js',
+						'<%= SETTINGS.folder.prod %>/WBC/assets/js/site-<%= pkg.version %>.min.js',
 					],
 				},
 			},
@@ -537,19 +552,19 @@ module.exports = function(grunt) {
 
 			BOM: {
 				files: {
-					'<%= SETTINGS.folder.prod %>/BOM/assets/js/script-<%= pkg.version %>.min.js': [
+					'<%= SETTINGS.folder.prod %>/BOM/assets/js/site-<%= pkg.version %>.min.js': [
 						'<%= SETTINGS.folder.js %>/**/*.js',
 						'!<%= SETTINGS.folder.js %>/**/*jquery*.js',
 					],
-					'<%= SETTINGS.folder.prod %>/BSA/assets/js/script-<%= pkg.version %>.min.js': [
+					'<%= SETTINGS.folder.prod %>/BSA/assets/js/site-<%= pkg.version %>.min.js': [
 						'<%= SETTINGS.folder.js %>/**/*.js',
 						'!<%= SETTINGS.folder.js %>/**/*jquery*.js',
 					],
-					'<%= SETTINGS.folder.prod %>/STG/assets/js/script-<%= pkg.version %>.min.js': [
+					'<%= SETTINGS.folder.prod %>/STG/assets/js/site-<%= pkg.version %>.min.js': [
 						'<%= SETTINGS.folder.js %>/**/*.js',
 						'!<%= SETTINGS.folder.js %>/**/*jquery*.js',
 					],
-					'<%= SETTINGS.folder.prod %>/WBC/assets/js/script-<%= pkg.version %>.min.js': [
+					'<%= SETTINGS.folder.prod %>/WBC/assets/js/site-<%= pkg.version %>.min.js': [
 						'<%= SETTINGS.folder.js %>/**/*.js',
 						'!<%= SETTINGS.folder.js %>/**/*jquery*.js',
 					],
@@ -880,6 +895,7 @@ module.exports = function(grunt) {
 					// 'lintspaces',
 					'uglify',
 					'concat:js',
+					'replace:jekyll',
 					'replace:BOM',
 					'replace:BSA',
 					'replace:STG',
@@ -896,6 +912,7 @@ module.exports = function(grunt) {
 				tasks: [
 					// 'lintspaces',
 					'less',
+					'replace:jekyll',
 					'replace:BOM',
 					'replace:BSA',
 					'replace:STG',
@@ -933,6 +950,7 @@ module.exports = function(grunt) {
 					'copy:HTMLSTG',
 					'copy:HTMLWBC',
 					'copy:HTML_',
+					'replace:jekyll',
 					'replace:BOM',
 					'replace:BSA',
 					'replace:STG',
@@ -981,6 +999,7 @@ module.exports = function(grunt) {
 		'concat:js',
 		'grunticon',
 		'copy',
+		'replace:jekyll',
 		'replace:BOM',
 		'replace:BSA',
 		'replace:STG',

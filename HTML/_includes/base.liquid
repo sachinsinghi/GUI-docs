@@ -1,1 +1,15 @@
-{% comment %}/prototype{% endcomment %}
+{% comment %}
+	This snippet prints a base tag in the header
+
+	Usage:
+		{% include base.liquid  brand = "BOM" %}
+
+	Return:
+		HTML direct output
+
+	Required:
+		- none -
+{% endcomment %}
+
+
+<base href="/{{ include.brand }}/">
