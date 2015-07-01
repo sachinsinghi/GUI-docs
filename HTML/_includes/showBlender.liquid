@@ -16,7 +16,7 @@
 	<span class="btn-text">Give me everything</span>
 </button>
 
-<form class="blender" method="POST" action="http://localhost:1337/blender" enctype="multipart/form-data">
+<form class="blender" method="POST" action="http://localhost:1337/blender">
 	{% for category in site.data.GUI.modules %}
 		<fieldset class="blender-category">
 			<legend class="blender-category-headline">{{ category[0] }}</legend>
@@ -38,7 +38,7 @@
 						{% include showVersions.liquid  mod = module %}
 
 						<label class="checkbox">
-							<input class="checkbox-input" type="checkbox" name="{{ module[1].ID }}"{% if _isFixed %} checked="checked" disabled{% endif %}>
+							<input class="checkbox-input" type="checkbox" name="{{ module[1].ID }}-enable"{% if _isFixed %} checked="checked" disabled{% endif %}>
 							<span class="checkbox-text">Add {{ module[1].name }} to Blender</span>
 						</label>
 					</li>
@@ -48,6 +48,35 @@
 
 		</fieldset>
 	{% endfor %}
+
+	<fieldset class="blender-category">
+		<legend class="blender-category-headline">Blend</legend>
+
+		<ul class="blender-modules">
+			<li class="blender-module">
+				<label class="checkbox checkbox-flip">
+					<input class="checkbox-input" type="checkbox" name="jquery" checked="checked">
+					<span class="checkbox-text">Include jQuery in blend</span>
+				</label>
+			</li>
+
+			<li class="blender-module">
+				<label class="checkbox checkbox-flip">
+					<input class="checkbox-input" type="checkbox" name="jsunminified">
+					<span class="checkbox-text">Include unminified js</span>
+				</label>
+			</li>
+
+			<li class="blender-module">
+				<label class="checkbox checkbox-flip">
+					<input class="checkbox-input" type="checkbox" name="includeless">
+					<span class="checkbox-text">Include less files</span>
+				</label>
+			</li>
+		</ul>
+	</fieldset>
+
+	<input type="hidden" name="brand" value="{{ page.brand }}">
 
 	<button type="submit" class="btn btn-primary">
 		<span class="btn-text">Blend</span>

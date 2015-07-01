@@ -1,8 +1,6 @@
 /***************************************************************************************************************************************************************
  *
- * Files
- *
- * Route to all files for concatenating, compiling and if necessary branding.
+ * Get modules infos
  *
  **************************************************************************************************************************************************************/
 
@@ -10,8 +8,6 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Dependencies
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
-var UglifyJS = require('uglify-js');
-var Less = require('less');
 
 
 (function(App) {
@@ -22,22 +18,26 @@ var Less = require('less');
 	// Module init method
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	module.init = function() {
-		App.debugging( 'Files: new query', 'report' );
-
-
-		// App.zip.queuing('css', true);
-		App.zip.queuing('js', true);
-		// App.zip.queuing('html', true);
-		// App.zip.queuing('symbole', true);
-
-		// App.css.get();
-		App.js.get();
-		// App.html.get();
-		// App.symbole.get();
+		App.debugging( 'Modules: Initiating', 'report' );
 	};
 
 
-	App.files = module;
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	// Returns json object of a specific module.json
+	//
+	// @param   module  [sting]  ID of module
+	//
+	// @return  [object]  Json object of module.json
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	module.getJson = function( module ) {
+		App.debugging( 'Modules: getting JSON for ' + module, 'report' );
+
+		return JSON.parse( Fs.readFileSync( App.GUIPATH + module + '/module.json', 'utf8') );
+
+	};
+
+
+	App.modules = module;
 
 
 }(App));

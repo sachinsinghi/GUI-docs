@@ -514,6 +514,7 @@ module.exports = function(grunt) {
 				src: [
 					'<%= SETTINGS.folder.fileserver %>/*.js',
 					'!<%= SETTINGS.folder.fileserver %>/server.js',
+					'!<%= SETTINGS.folder.fileserver %>/-*.js',
 				],
 				dest: '<%= SETTINGS.folder.fileserver %>/server.js',
 			},
@@ -1024,6 +1025,15 @@ module.exports = function(grunt) {
 		'_buildNode',
 		'wakeup',
 		'connect',
+		'watch',
+	]);
+
+	grunt.registerTask('node', [
+		'font:title',
+		'_checkGUI',
+		'_buildDocs',
+		'_buildNode',
+		'wakeup',
 		'watch',
 	]);
 

@@ -1,8 +1,6 @@
 /***************************************************************************************************************************************************************
  *
- * Files
- *
- * Route to all files for concatenating, compiling and if necessary branding.
+ * Brand all content
  *
  **************************************************************************************************************************************************************/
 
@@ -10,8 +8,6 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Dependencies
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
-var UglifyJS = require('uglify-js');
-var Less = require('less');
 
 
 (function(App) {
@@ -22,22 +18,27 @@ var Less = require('less');
 	// Module init method
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	module.init = function() {
-		App.debugging( 'Files: new query', 'report' );
-
-
-		// App.zip.queuing('css', true);
-		App.zip.queuing('js', true);
-		// App.zip.queuing('html', true);
-		// App.zip.queuing('symbole', true);
-
-		// App.css.get();
-		App.js.get();
-		// App.html.get();
-		// App.symbole.get();
+		App.debugging( 'Branding: Initiating', 'report' );
 	};
 
 
-	App.files = module;
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	// Returns content with elements replaced
+	//
+	// @param   content  [string]  Content that needs parsing
+	// @param   replace  [array]   First element is replaced with second
+	//
+	// @return  [string]  Finished parsed content
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	module.replace = function( content, replace ) {
+		App.debugging( 'Branding: Replaceing content', 'report' );
+
+		return content.replace(replace[0], replace[1]);
+
+	};
+
+
+	App.branding = module;
 
 
 }(App));

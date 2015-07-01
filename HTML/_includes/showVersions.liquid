@@ -14,7 +14,7 @@
 
 {% assign mod = include.mod %}
 
-<select class="blender-version" name="{{ mod[1].ID }}">
+<select class="blender-version" name="{{ mod[1].ID }}-version">
 	{% for version in mod[1].versions %}
 		<option value="{{ version[0] }}">v{{ version[0] }}</option>
 	{% endfor %}
