@@ -23,16 +23,34 @@
 
 
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	// Get the banner text
+	//
+	// @return  [string]  Content with attached banner
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	module.get = function() {
+		App.debugging( 'Banner: Generating banner', 'report' );
+
+		return '/* GUI flavour ' + App.banner.getFlavourURL() + ' */' + "\n";
+
+	};
+
+
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	// Attach the banner to some content
 	//
 	// @param   content  [string]  Content the banner needs to be attached to
 	//
 	// @return  [string]  Content with attached banner
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	module.get = function( content ) {
-		App.debugging( 'Banner: generating banner', 'report' );
+	module.attach = function( content ) {
+		App.debugging( 'Banner: Attaching banner', 'report' );
 
-		return '/* GUI flavour ' + App.banner.getFlavourURL() + ' */' + "\n" + content;
+		if( content.length > 0 ) {
+			return App.banner.get() + content;
+		}
+		else {
+			return '';
+		}
 
 	};
 
@@ -43,11 +61,13 @@
 	// @return  [string]  The URL string to this build
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	module.getFlavourURL = function() {
-		App.debugging( 'Banner: generating flavour link', 'report' );
+		App.debugging( 'Banner: Generating flavour link', 'report' );
 
 		var url = App.BLENDERURL + '#';
 
-		App.selectedModules.forEach(function(module) {
+		url += '/' + App.selectedModules.base.ID + ':' + App.selectedModules.base.version; //adding base
+
+		App.selectedModules.modules.forEach(function(module) { //adding modules
 			url += '/' + module.ID + ':' + module.version;
 		});
 

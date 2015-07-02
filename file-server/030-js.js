@@ -47,17 +47,19 @@
 
 
 		//////////////////////////////////////////////////| BASE
-		files.push( App.GUIPATH + '_base/' + POST['_base-version'] + '/js/020-base.js' ); //include base js
+		if( App.selectedModules.js ) {
+			files.push( App.GUIPATH + '_base/' + POST['_base-version'] + '/js/020-base.js' ); //include base js
 
-		if( _includeOriginal ) {
-			file = Fs.readFileSync( App.GUIPATH + '_base/' + POST['_base-version'] + '/js/020-base.js', 'utf8');
-			file = App.branding.replace(file, ['[Module-Version]', ' Base v' + POST['_base-version'] + ' ']); //name the current version
-			App.zip.addFiles( file, '/GUI-flavour/source/js/020-base.js' );
+			if( _includeOriginal ) {
+				file = Fs.readFileSync( App.GUIPATH + '_base/' + POST['_base-version'] + '/js/020-base.js', 'utf8');
+				file = App.branding.replace(file, ['[Module-Version]', ' Base v' + POST['_base-version'] + ' ']); //name the current version
+				App.zip.addFiles( file, '/GUI-flavour/source/js/020-base.js' );
+			}
 		}
 
 
 		//////////////////////////////////////////////////| MODULES
-		App.selectedModules.forEach(function(module) {
+		App.selectedModules.modules.forEach(function(module) {
 			var _hasJS = module.js; //look if this module has js
 
 			if( _hasJS ) {
@@ -74,8 +76,15 @@
 
 
 		//uglify js
-		var result = UglifyJS.minify( files );
-		var source = App.banner.get( jquery ) + result.code; //attach a banner to the top of the file with a URL of this build
+		if( files.length > 0 ) {
+			var result = UglifyJS.minify( files );
+		}
+		else {
+			result = {};
+			result.code = '';
+		}
+
+		var source = App.banner.attach( jquery + result.code ); //attach a banner to the top of the file with a URL of this build
 
 		App.zip.queuing('js', false); //js queue is done
 		App.zip.addFiles( source, '/GUI-flavour/assets/js/gui.min.js' ); //add minified file to zip

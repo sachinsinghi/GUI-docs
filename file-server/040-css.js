@@ -52,7 +52,7 @@
 
 
 		//////////////////////////////////////////////////| MODULES
-		App.selectedModules.forEach(function(module) {
+		App.selectedModules.modules.forEach(function(module) {
 			lessContent = App.branding.replace(
 				Fs.readFileSync( App.GUIPATH + module.ID + '/' + module.version + '/less/module-mixins.less', 'utf8'),
 				['[Module-Version-Brand]', ' ' + module.name + ' v' + module.version + ' ' + POST['brand'] + ' ']
@@ -77,7 +77,7 @@
 		},
 		function(e, output) {
 
-			var source = App.banner.get( output.css ); //attach a banner to the top of the file with a URL of this build
+			var source = App.banner.attach( output.css ); //attach a banner to the top of the file with a URL of this build
 
 			App.zip.queuing('css', false); //css queue is done
 			App.zip.addFiles( source, '/GUI-flavour/assets/css/gui.min.css' );

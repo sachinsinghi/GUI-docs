@@ -30,6 +30,11 @@
 
 		var index = Fs.readFileSync( App.TEMPPATH + 'index.html', 'utf8');
 
+		index = _.template( index )({
+			_hasJS: App.selectedModules.js,
+			_hasSVG: App.selectedModules.svg,
+		});
+
 		//some logic to remove or add: grunticon code and reference, js
 
 		App.zip.queuing('html', false); //html queue is done

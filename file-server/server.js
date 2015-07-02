@@ -148,17 +148,28 @@ var Less = require('less');
 	module.init = function() {
 		App.debugging( 'Files: new query', 'report' );
 
+		//////////////////////////////////////////////////| PARSING POST
 		App.files.getPost();
 
+		//////////////////////////////////////////////////| QUEUING FILES
 		App.zip.queuing('css', true);
-		App.zip.queuing('js', true);
 		App.zip.queuing('html', true);
-		// App.zip.queuing('assets', true);
 
+		if( App.selectedModules.js ) {
+			App.zip.queuing('js', true);
+		}
+		App.zip.queuing('assets', true);
+
+
+		//////////////////////////////////////////////////| GENERATING FILES
 		App.css.get();
-		App.js.get();
+
+		if( App.selectedModules.js ) {
+			App.js.get();
+		}
+
 		App.html.get();
-		// App.assets.get();
+		App.assets.get();
 	};
 
 
@@ -169,9 +180,14 @@ var Less = require('less');
 		App.debugging( 'Files: Parsing POST', 'report' );
 
 		var POST = App.POST;
-		var fromPOST = [];
+		var fromPOST = {};
+		fromPOST.modules = [];
+		var _hasJS = false;
+		var _hasSVG = false;
+		var _includeJquery = POST.hasOwnProperty('jquery');
 
 
+		//////////////////////////////////////////////////| ADDING MODULES
 		Object.keys( POST ).forEach(function( moduleName ) {
 			if( moduleName.indexOf('-enable', moduleName.length - 7) !== -1 ) { //only look at enabled checkboxes
 
@@ -181,9 +197,35 @@ var Less = require('less');
 				var newObject = _.extend(json, json.versions[version]); //merge version to the same level
 				newObject.version = version;
 
-				fromPOST.push( newObject );
+				if( newObject.js && module.ID !== '_base' || !_includeJquery ) {
+					_hasJS = true;
+				}
+
+				if( newObject.svg ) {
+					_hasSVG = true;
+				}
+
+				fromPOST.modules.push( newObject );
 			}
 		});
+
+
+		//////////////////////////////////////////////////| ADDING BASE
+		var json = App.modules.getJson( '_base' );
+		var newObject = _.extend(json, json.versions[ POST['_base-version'] ]); //merge version to the same level
+		newObject.version = POST['_base-version'];
+
+		fromPOST.base = newObject;
+
+
+		//////////////////////////////////////////////////| ADDING OPTIONS
+		if( _includeJquery ) { //include jquery even if no other js is needed... controversial!
+			_hasJS = true;
+		}
+
+		fromPOST.js = _hasJS;
+		fromPOST.svg = _hasSVG;
+
 
 		App.selectedModules = fromPOST; //save globally
 	};
@@ -242,17 +284,19 @@ var Less = require('less');
 
 
 		//////////////////////////////////////////////////| BASE
-		files.push( App.GUIPATH + '_base/' + POST['_base-version'] + '/js/020-base.js' ); //include base js
+		if( App.selectedModules.js ) {
+			files.push( App.GUIPATH + '_base/' + POST['_base-version'] + '/js/020-base.js' ); //include base js
 
-		if( _includeOriginal ) {
-			file = Fs.readFileSync( App.GUIPATH + '_base/' + POST['_base-version'] + '/js/020-base.js', 'utf8');
-			file = App.branding.replace(file, ['[Module-Version]', ' Base v' + POST['_base-version'] + ' ']); //name the current version
-			App.zip.addFiles( file, '/GUI-flavour/source/js/020-base.js' );
+			if( _includeOriginal ) {
+				file = Fs.readFileSync( App.GUIPATH + '_base/' + POST['_base-version'] + '/js/020-base.js', 'utf8');
+				file = App.branding.replace(file, ['[Module-Version]', ' Base v' + POST['_base-version'] + ' ']); //name the current version
+				App.zip.addFiles( file, '/GUI-flavour/source/js/020-base.js' );
+			}
 		}
 
 
 		//////////////////////////////////////////////////| MODULES
-		App.selectedModules.forEach(function(module) {
+		App.selectedModules.modules.forEach(function(module) {
 			var _hasJS = module.js; //look if this module has js
 
 			if( _hasJS ) {
@@ -269,8 +313,15 @@ var Less = require('less');
 
 
 		//uglify js
-		var result = UglifyJS.minify( files );
-		var source = App.banner.get( jquery ) + result.code; //attach a banner to the top of the file with a URL of this build
+		if( files.length > 0 ) {
+			var result = UglifyJS.minify( files );
+		}
+		else {
+			result = {};
+			result.code = '';
+		}
+
+		var source = App.banner.attach( jquery + result.code ); //attach a banner to the top of the file with a URL of this build
 
 		App.zip.queuing('js', false); //js queue is done
 		App.zip.addFiles( source, '/GUI-flavour/assets/js/gui.min.js' ); //add minified file to zip
@@ -336,7 +387,7 @@ var Less = require('less');
 
 
 		//////////////////////////////////////////////////| MODULES
-		App.selectedModules.forEach(function(module) {
+		App.selectedModules.modules.forEach(function(module) {
 			lessContent = App.branding.replace(
 				Fs.readFileSync( App.GUIPATH + module.ID + '/' + module.version + '/less/module-mixins.less', 'utf8'),
 				['[Module-Version-Brand]', ' ' + module.name + ' v' + module.version + ' ' + POST['brand'] + ' ']
@@ -361,7 +412,7 @@ var Less = require('less');
 		},
 		function(e, output) {
 
-			var source = App.banner.get( output.css ); //attach a banner to the top of the file with a URL of this build
+			var source = App.banner.attach( output.css ); //attach a banner to the top of the file with a URL of this build
 
 			App.zip.queuing('css', false); //css queue is done
 			App.zip.addFiles( source, '/GUI-flavour/assets/css/gui.min.css' );
@@ -406,6 +457,11 @@ var Less = require('less');
 		App.debugging( 'HTML: Getting all HTML files', 'report' );
 
 		var index = Fs.readFileSync( App.TEMPPATH + 'index.html', 'utf8');
+
+		index = _.template( index )({
+			_hasJS: App.selectedModules.js,
+			_hasSVG: App.selectedModules.svg,
+		});
 
 		//some logic to remove or add: grunticon code and reference, js
 
@@ -582,16 +638,34 @@ var Less = require('less');
 
 
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	// Get the banner text
+	//
+	// @return  [string]  Content with attached banner
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	module.get = function() {
+		App.debugging( 'Banner: Generating banner', 'report' );
+
+		return '/* GUI flavour ' + App.banner.getFlavourURL() + ' */' + "\n";
+
+	};
+
+
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	// Attach the banner to some content
 	//
 	// @param   content  [string]  Content the banner needs to be attached to
 	//
 	// @return  [string]  Content with attached banner
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	module.get = function( content ) {
-		App.debugging( 'Banner: generating banner', 'report' );
+	module.attach = function( content ) {
+		App.debugging( 'Banner: Attaching banner', 'report' );
 
-		return '/* GUI flavour ' + App.banner.getFlavourURL() + ' */' + "\n" + content;
+		if( content.length > 0 ) {
+			return App.banner.get() + content;
+		}
+		else {
+			return '';
+		}
 
 	};
 
@@ -602,11 +676,13 @@ var Less = require('less');
 	// @return  [string]  The URL string to this build
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	module.getFlavourURL = function() {
-		App.debugging( 'Banner: generating flavour link', 'report' );
+		App.debugging( 'Banner: Generating flavour link', 'report' );
 
 		var url = App.BLENDERURL + '#';
 
-		App.selectedModules.forEach(function(module) {
+		url += '/' + App.selectedModules.base.ID + ':' + App.selectedModules.base.version; //adding base
+
+		App.selectedModules.modules.forEach(function(module) { //adding modules
 			url += '/' + module.ID + ':' + module.version;
 		});
 
