@@ -30,9 +30,23 @@
 	// @return  [object]  Json object of module.json
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	module.getJson = function( module ) {
-		App.debugging( 'Modules: getting JSON for ' + module, 'report' );
+		App.debugging( 'Modules: Getting JSON for ' + module, 'report' );
 
-		return JSON.parse( Fs.readFileSync( App.GUIPATH + module + '/module.json', 'utf8') );
+
+		if( App.GUImodules === undefined ) { //flatten GUI json and assign to global
+
+			App.GUImodules = {};
+			Object.keys( App.GUI.modules ).forEach(function( category ) {
+
+				Object.keys( App.GUI.modules[ category ] ).forEach(function( mod ) {
+					App.GUImodules[ mod ] = App.GUI.modules[ category ][ mod ];
+				});
+
+			});
+		}
+
+		return App.GUImodules[module];
+		// JSON.parse( Fs.readFileSync( App.GUIPATH + module + '/module.json', 'utf8') ); //getting from module.json if we want to have a lot of I/O (we don't)
 
 	};
 

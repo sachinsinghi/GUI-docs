@@ -47,11 +47,11 @@
 
 		var url = App.BLENDERURL + '#';
 
-		//some js stuff
-		url += '-module:1.0.0-module2:1.0.1-module3:2.0.0';
+		App.selectedModules.forEach(function(module) {
+			url += '/' + module.ID + ':' + module.version;
+		});
 
 		return url;
-
 	};
 
 

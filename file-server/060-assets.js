@@ -18,20 +18,20 @@
 	// Module init method
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	module.init = function() {
-		App.debugging( 'Symbole: Initiating', 'report' );
+		App.debugging( 'Assets: Initiating', 'report' );
 	};
 
 
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	// Get all symbol files and concat them
+	// Get all assets files
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	module.get = function() {
-		App.debugging( 'Symbole: Getting all files', 'report' );
+		App.debugging( 'Assets: Getting all files', 'report' );
 
 	};
 
 
-	App.symbole = module;
+	App.assets = module;
 
 
 }(App));

@@ -26,23 +26,27 @@
 	// Get all js files and concat them
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	module.get = function() {
-		App.debugging( 'JS: uglifying js files', 'report' );
+		App.debugging( 'JS: Generating js', 'report' );
 
 		var files = [];
 		var file = '';
 		var POST = App.POST;
+		var jquery = '';
 		var _includeJquery = POST.hasOwnProperty('jquery');
 		var _includeOriginal  = POST.hasOwnProperty('jsunminified');
 
+
+		//////////////////////////////////////////////////| JQUERY
 		if( _includeJquery ) { //optional include jquery
-			files.push( App.GUIPATH + '_base/' + POST['_base-version'] + '/js/010-jquery-1.11.2.min.js' );
+			jquery = Fs.readFileSync( App.GUIPATH + '_base/' + POST['_base-version'] + '/js/010-jquery-1.11.2.min.js', 'utf8');
 
 			if( _includeOriginal ) {
-				file = Fs.readFileSync( App.GUIPATH + '_base/' + POST['_base-version'] + '/js/010-jquery-1.11.2.min.js', 'utf8');
-				App.zip.addFiles( file, '/GUI-flavour/source/js/010-jquery-1.11.2.min.js' );
+				App.zip.addFiles( jquery, '/GUI-flavour/source/js/010-jquery-1.11.2.min.js' );
 			}
 		}
 
+
+		//////////////////////////////////////////////////| BASE
 		files.push( App.GUIPATH + '_base/' + POST['_base-version'] + '/js/020-base.js' ); //include base js
 
 		if( _includeOriginal ) {
@@ -52,32 +56,29 @@
 		}
 
 
-		Object.keys( POST ).forEach(function( moduleName ) {
-			if( moduleName.indexOf('-enable', moduleName.length - 7) !== -1 ) { //only look at enabled checkboxes
+		//////////////////////////////////////////////////| MODULES
+		App.selectedModules.forEach(function(module) {
+			var _hasJS = module.js; //look if this module has js
 
-				var module = moduleName.substr(0, moduleName.length - 7);
-				var version = POST[module + '-version'];
-				var json = App.modules.getJson( module );
-				var _hasJS = json.versions[version].js; //look into module.json and see if this module has js
+			if( _hasJS ) {
+				files.push( App.GUIPATH + module.ID + '/' + module.version + '/js/' + module.ID + '.js' ); //add js to uglify
 
-				if( _hasJS ) {
-					files.push( App.GUIPATH + module + '/' + version + '/js/' + module + '.js' ); //add js to uglify
+				file = Fs.readFileSync( App.GUIPATH + module.ID + '/' + module.version + '/js/' + module.ID + '.js', 'utf8');
 
-					file = Fs.readFileSync( App.GUIPATH + module + '/' + version + '/js/' + module + '.js', 'utf8');
-
-					if( _includeOriginal ) {
-						file = App.branding.replace(file, ['[Module-Version]', ' ' + json.name + ' v' + version + ' ']); //name the current version
-						App.zip.addFiles( file, '/GUI-flavour/source/js/' + module + '.js' );
-					}
+				if( _includeOriginal ) {
+					file = App.branding.replace(file, ['[Module-Version]', ' ' + module.name + ' v' + module.version + ' ']); //name the current version
+					App.zip.addFiles( file, '/GUI-flavour/source/js/' + module.ID + '.js' );
 				}
 			}
 		});
 
+
+		//uglify js
 		var result = UglifyJS.minify( files );
-		var source = App.banner.get( result.code ); //attach a banner to the top of the file with a URL of this build
+		var source = App.banner.get( jquery ) + result.code; //attach a banner to the top of the file with a URL of this build
 
 		App.zip.queuing('js', false); //js queue is done
-		App.zip.addFiles( source, '/GUI-flavour/assets/js/site.min.js' ); //add minified file to zip
+		App.zip.addFiles( source, '/GUI-flavour/assets/js/gui.min.js' ); //add minified file to zip
 
 	};
 

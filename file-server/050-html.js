@@ -26,7 +26,14 @@
 	// Get all html files
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	module.get = function() {
-		App.debugging( 'HTML: Getting all files', 'report' );
+		App.debugging( 'HTML: Getting all HTML files', 'report' );
+
+		var index = Fs.readFileSync( App.TEMPPATH + 'index.html', 'utf8');
+
+		//some logic to remove or add: grunticon code and reference, js
+
+		App.zip.queuing('html', false); //html queue is done
+		App.zip.addFiles( index, '/GUI-flavour/index.html' );
 
 	};
 

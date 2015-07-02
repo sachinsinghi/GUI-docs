@@ -31,7 +31,7 @@
 	// @return  [string]  Finished parsed content
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	module.replace = function( content, replace ) {
-		App.debugging( 'Branding: Replaceing content', 'report' );
+		App.debugging( 'Branding: Replacing "' + replace[0] + '" with "' + replace[1] + '"', 'report' );
 
 		return content.replace(replace[0], replace[1]);
 

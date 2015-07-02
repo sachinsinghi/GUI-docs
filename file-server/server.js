@@ -16,6 +16,7 @@ var Fs = require('fs');
 var Http = require('http');
 var Path = require('path');
 var Chalk = require('chalk');
+var _ = require("underscore");
 var CFonts = require('cfonts');
 var Express = require('express');
 var BodyParser = require('body-parser');
@@ -30,7 +31,7 @@ var App = (function() {
 		DEBUG: true, //debugging infos
 		BLENDERURL: 'http://gel.westpacgroup.com.au/blender/', //server url to blender
 		GUIPATH: Path.normalize(__dirname + '/../GUI-source-master/'),
-		GUI: {},
+		TEMPPATH: Path.normalize(__dirname + '/._template/'),
 
 
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -69,6 +70,7 @@ var App = (function() {
 		//------------------------------------------------------------------------------------------------------------------------------------------------------------
 		response: {}, //server response object
 		POST: {}, //POST values from client
+		GUI: {}, //GUI.json contents
 
 
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -146,16 +148,44 @@ var Less = require('less');
 	module.init = function() {
 		App.debugging( 'Files: new query', 'report' );
 
+		App.files.getPost();
 
-		// App.zip.queuing('css', true);
+		App.zip.queuing('css', true);
 		App.zip.queuing('js', true);
-		// App.zip.queuing('html', true);
-		// App.zip.queuing('symbole', true);
+		App.zip.queuing('html', true);
+		// App.zip.queuing('assets', true);
 
-		// App.css.get();
+		App.css.get();
 		App.js.get();
-		// App.html.get();
-		// App.symbole.get();
+		App.html.get();
+		// App.assets.get();
+	};
+
+
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	// Saves an array of the selected modules globally
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	module.getPost = function() {
+		App.debugging( 'Files: Parsing POST', 'report' );
+
+		var POST = App.POST;
+		var fromPOST = [];
+
+
+		Object.keys( POST ).forEach(function( moduleName ) {
+			if( moduleName.indexOf('-enable', moduleName.length - 7) !== -1 ) { //only look at enabled checkboxes
+
+				var module = moduleName.substr(0, moduleName.length - 7);
+				var version = POST[module + '-version'];
+				var json = App.modules.getJson( module );
+				var newObject = _.extend(json, json.versions[version]); //merge version to the same level
+				newObject.version = version;
+
+				fromPOST.push( newObject );
+			}
+		});
+
+		App.selectedModules = fromPOST; //save globally
 	};
 
 
@@ -191,23 +221,27 @@ var Less = require('less');
 	// Get all js files and concat them
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	module.get = function() {
-		App.debugging( 'JS: uglifying js files', 'report' );
+		App.debugging( 'JS: Generating js', 'report' );
 
 		var files = [];
 		var file = '';
 		var POST = App.POST;
+		var jquery = '';
 		var _includeJquery = POST.hasOwnProperty('jquery');
 		var _includeOriginal  = POST.hasOwnProperty('jsunminified');
 
+
+		//////////////////////////////////////////////////| JQUERY
 		if( _includeJquery ) { //optional include jquery
-			files.push( App.GUIPATH + '_base/' + POST['_base-version'] + '/js/010-jquery-1.11.2.min.js' );
+			jquery = Fs.readFileSync( App.GUIPATH + '_base/' + POST['_base-version'] + '/js/010-jquery-1.11.2.min.js', 'utf8');
 
 			if( _includeOriginal ) {
-				file = Fs.readFileSync( App.GUIPATH + '_base/' + POST['_base-version'] + '/js/010-jquery-1.11.2.min.js', 'utf8');
-				App.zip.addFiles( file, '/GUI-flavour/source/js/010-jquery-1.11.2.min.js' );
+				App.zip.addFiles( jquery, '/GUI-flavour/source/js/010-jquery-1.11.2.min.js' );
 			}
 		}
 
+
+		//////////////////////////////////////////////////| BASE
 		files.push( App.GUIPATH + '_base/' + POST['_base-version'] + '/js/020-base.js' ); //include base js
 
 		if( _includeOriginal ) {
@@ -217,32 +251,29 @@ var Less = require('less');
 		}
 
 
-		Object.keys( POST ).forEach(function( moduleName ) {
-			if( moduleName.indexOf('-enable', moduleName.length - 7) !== -1 ) { //only look at enabled checkboxes
+		//////////////////////////////////////////////////| MODULES
+		App.selectedModules.forEach(function(module) {
+			var _hasJS = module.js; //look if this module has js
 
-				var module = moduleName.substr(0, moduleName.length - 7);
-				var version = POST[module + '-version'];
-				var json = App.modules.getJson( module );
-				var _hasJS = json.versions[version].js; //look into module.json and see if this module has js
+			if( _hasJS ) {
+				files.push( App.GUIPATH + module.ID + '/' + module.version + '/js/' + module.ID + '.js' ); //add js to uglify
 
-				if( _hasJS ) {
-					files.push( App.GUIPATH + module + '/' + version + '/js/' + module + '.js' ); //add js to uglify
+				file = Fs.readFileSync( App.GUIPATH + module.ID + '/' + module.version + '/js/' + module.ID + '.js', 'utf8');
 
-					file = Fs.readFileSync( App.GUIPATH + module + '/' + version + '/js/' + module + '.js', 'utf8');
-
-					if( _includeOriginal ) {
-						file = App.branding.replace(file, ['[Module-Version]', ' ' + json.name + ' v' + version + ' ']); //name the current version
-						App.zip.addFiles( file, '/GUI-flavour/source/js/' + module + '.js' );
-					}
+				if( _includeOriginal ) {
+					file = App.branding.replace(file, ['[Module-Version]', ' ' + module.name + ' v' + module.version + ' ']); //name the current version
+					App.zip.addFiles( file, '/GUI-flavour/source/js/' + module.ID + '.js' );
 				}
 			}
 		});
 
+
+		//uglify js
 		var result = UglifyJS.minify( files );
-		var source = App.banner.get( result.code ); //attach a banner to the top of the file with a URL of this build
+		var source = App.banner.get( jquery ) + result.code; //attach a banner to the top of the file with a URL of this build
 
 		App.zip.queuing('js', false); //js queue is done
-		App.zip.addFiles( source, '/GUI-flavour/assets/js/site.min.js' ); //add minified file to zip
+		App.zip.addFiles( source, '/GUI-flavour/assets/js/gui.min.js' ); //add minified file to zip
 
 	};
 
@@ -279,52 +310,61 @@ var Less = require('less');
 	// Get all less files and compile them
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	module.get = function() {
-		App.debugging( 'CSS: generating css', 'report' );
+		App.debugging( 'CSS: Generating css', 'report' );
 
-		//some js stuff
-		var files = [
-			App.GUIPATH + '_base/1.0.0/less/base-mixins.less',
-			App.GUIPATH + '_base/1.0.0/less/settings.less',
-		];
+		var POST = App.POST;
+		var lessContents = '';
+		var _includeOriginal  = POST.hasOwnProperty('includeless');
 
-		var combinedStream = CombinedStream.create();
-		var lessContent = '';
 
-		files.forEach(function(file) {
-			App.debugging( 'CSS: get less content', 'send' );
+		//////////////////////////////////////////////////| BASE
+		var lessContent = App.branding.replace(
+			Fs.readFileSync(App.GUIPATH + '_base/' + POST['_base-version'] + '/less/base-mixins.less', 'utf8'),
+			['[Module-Version-Brand]', ' _base v' + POST['_base-version'] + ' ' + POST['brand']]
+		);
 
-			combinedStream.append(Fs.createReadStream( file ));
+		lessContent += "\n" + App.branding.replace(
+			Fs.readFileSync( App.GUIPATH + '_base/' + POST['_base-version'] + '/less/settings.less', 'utf8'),
+			['[Brand]', POST['brand']]
+		);
+
+		if( _includeOriginal ) {
+			App.zip.addFiles( lessContent, '/GUI-flavour/source/less/_base.less' );
+		}
+
+		lessContents += lessContent;
+
+
+		//////////////////////////////////////////////////| MODULES
+		App.selectedModules.forEach(function(module) {
+			lessContent = App.branding.replace(
+				Fs.readFileSync( App.GUIPATH + module.ID + '/' + module.version + '/less/module-mixins.less', 'utf8'),
+				['[Module-Version-Brand]', ' ' + module.name + ' v' + module.version + ' ' + POST['brand'] + ' ']
+			);
+
+			lessContent += "\n" + App.branding.replace(
+				Fs.readFileSync( App.GUIPATH + module.ID + '/' + module.version + '/less/settings.less', 'utf8'),
+				['[Brand]', POST['brand']]
+			);
+
+			if( _includeOriginal ) {
+				App.zip.addFiles( lessContent, '/GUI-flavour/source/less/' + module.ID + '.less' );
+			}
+
+			lessContents += lessContent;
 		});
 
 
-		//collect all less
-		var compileLess = Through({ objectMode: true }, function(chunk, enc, callback) {
-			App.debugging( 'CSS: got less content', 'receive' );
+		//compile less
+		Less.render(lessContents, {
+			compress: true
+		},
+		function(e, output) {
 
-			lessContent += chunk.toString();
+			var source = App.banner.get( output.css ); //attach a banner to the top of the file with a URL of this build
 
-			this.push( lessContent );
-			callback();
-		});
-
-		combinedStream.pipe(compileLess);
-
-		combinedStream.on('end', function() {
-			App.debugging( 'CSS: compiling less', 'report' );
-
-			//replace the brand placeholder
-			lessContent = lessContent.replace(/\[Brand\]/g, 'BOM');
-
-			//compile less
-			Less
-				.render(lessContent, {
-					compress: true
-				},
-				function(e, output) {
-
-					App.files.getZip( response, POST, output );
-
-				});
+			App.zip.queuing('css', false); //css queue is done
+			App.zip.addFiles( source, '/GUI-flavour/assets/css/gui.min.css' );
 
 		});
 
@@ -363,7 +403,14 @@ var Less = require('less');
 	// Get all html files
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	module.get = function() {
-		App.debugging( 'HTML: Getting all files', 'report' );
+		App.debugging( 'HTML: Getting all HTML files', 'report' );
+
+		var index = Fs.readFileSync( App.TEMPPATH + 'index.html', 'utf8');
+
+		//some logic to remove or add: grunticon code and reference, js
+
+		App.zip.queuing('html', false); //html queue is done
+		App.zip.addFiles( index, '/GUI-flavour/index.html' );
 
 	};
 
@@ -392,20 +439,20 @@ var Less = require('less');
 	// Module init method
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	module.init = function() {
-		App.debugging( 'Symbole: Initiating', 'report' );
+		App.debugging( 'Assets: Initiating', 'report' );
 	};
 
 
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	// Get all symbol files and concat them
+	// Get all assets files
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	module.get = function() {
-		App.debugging( 'Symbole: Getting all files', 'report' );
+		App.debugging( 'Assets: Getting all files', 'report' );
 
 	};
 
 
-	App.symbole = module;
+	App.assets = module;
 
 
 }(App));
@@ -442,7 +489,7 @@ var Less = require('less');
 	// @return  [string]  Finished parsed content
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	module.replace = function( content, replace ) {
-		App.debugging( 'Branding: Replaceing content', 'report' );
+		App.debugging( 'Branding: Replacing "' + replace[0] + '" with "' + replace[1] + '"', 'report' );
 
 		return content.replace(replace[0], replace[1]);
 
@@ -485,9 +532,23 @@ var Less = require('less');
 	// @return  [object]  Json object of module.json
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	module.getJson = function( module ) {
-		App.debugging( 'Modules: getting JSON for ' + module, 'report' );
+		App.debugging( 'Modules: Getting JSON for ' + module, 'report' );
 
-		return JSON.parse( Fs.readFileSync( App.GUIPATH + module + '/module.json', 'utf8') );
+
+		if( App.GUImodules === undefined ) { //flatten GUI json and assign to global
+
+			App.GUImodules = {};
+			Object.keys( App.GUI.modules ).forEach(function( category ) {
+
+				Object.keys( App.GUI.modules[ category ] ).forEach(function( mod ) {
+					App.GUImodules[ mod ] = App.GUI.modules[ category ][ mod ];
+				});
+
+			});
+		}
+
+		return App.GUImodules[module];
+		// JSON.parse( Fs.readFileSync( App.GUIPATH + module + '/module.json', 'utf8') ); //getting from module.json if we want to have a lot of I/O (we don't)
 
 	};
 
@@ -545,11 +606,11 @@ var Less = require('less');
 
 		var url = App.BLENDERURL + '#';
 
-		//some js stuff
-		url += '-module:1.0.0-module2:1.0.1-module3:2.0.0';
+		App.selectedModules.forEach(function(module) {
+			url += '/' + module.ID + ':' + module.version;
+		});
 
 		return url;
-
 	};
 
 
@@ -586,7 +647,7 @@ var Archiver = require('archiver');
 	// Zip all files up and send to response
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	module.getZip = function() {
-		App.debugging( 'Zip: compiling zip', 'report' );
+		App.debugging( 'Zip: Compiling zip', 'report' );
 
 		App.response.writeHead(200, {
 			'Content-Type': 'application/zip',
@@ -596,6 +657,11 @@ var Archiver = require('archiver');
 		App.zip.archive.pipe( App.response );
 
 		App.zip.archive.finalize(); //send to server
+
+		//clearning up
+		App.zip.archive = Archiver('zip'); //new archive
+		App.zip.files = []; //empty files
+		module.queue = {}; // empty queue
 
 	};
 
@@ -607,12 +673,26 @@ var Archiver = require('archiver');
 	// @param   archivePath  [string]  The path this file will have inside the archive
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	module.addFiles = function( content, archivePath ) {
-		App.debugging( 'Zip: Adding files', 'report' );
+		App.debugging( 'Zip: Adding file: ' + archivePath, 'report' );
 
-		App.zip.archive.append( content, { name: archivePath } );
+		if(typeof content !== 'string') {
+			App.debugging( 'Zip: Adding file: Zipfile can only be string, is ' + (typeof content), 'error' );
+		}
+		else {
+			App.zip.files.push({ //collecting all files
+				content: content,
+				name: archivePath,
+			});
+		}
 
-		if( App.zip.isQueuingEmpty() ) {
-			App.zip.getZip();
+
+		if( App.zip.isQueuingEmpty() ) { //if this is the last file, add them all to the archive
+
+			App.zip.files.forEach(function( file ) {
+				App.zip.archive.append( file.content, { name: file.name } );
+			});
+
+			App.zip.getZip(); //finalize the zip
 		}
 
 	};
@@ -628,10 +708,14 @@ var Archiver = require('archiver');
 		App.debugging( 'Zip: Queuing files', 'report' );
 
 		if( _isBeingAdded ) {
+			App.debugging( 'Zip: Queue: Adding ' + type, 'report' );
+
 			App.zip.queue[type] = true;
 		}
 		else {
 			if( App.zip.queue[type] ) {
+				App.debugging( 'Zip: Queue: Removing ' + type, 'report' );
+
 				delete App.zip.queue[type];
 			}
 		}
@@ -649,10 +733,13 @@ var Archiver = require('archiver');
 
 		for( var prop in App.zip.queue ) {
 			if( App.zip.queue.hasOwnProperty(prop) ) {
+				App.debugging( 'Zip: Queue: Still things in the queue', 'report' );
+
 				return false;
 			}
 		}
 
+		App.debugging( 'Zip: Queue: Queue is empty', 'report' );
 		return true;
 	};
 
@@ -662,6 +749,7 @@ var Archiver = require('archiver');
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	module.queue = {}; //global object to hold queue
 	module.archive = Archiver('zip'); //class to add files to zip globally
+	module.files = []; //an array of all files to be added to the archive
 
 
 	App.zip = module;

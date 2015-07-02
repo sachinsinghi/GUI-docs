@@ -16,6 +16,7 @@ var Fs = require('fs');
 var Http = require('http');
 var Path = require('path');
 var Chalk = require('chalk');
+var _ = require("underscore");
 var CFonts = require('cfonts');
 var Express = require('express');
 var BodyParser = require('body-parser');
@@ -30,7 +31,7 @@ var App = (function() {
 		DEBUG: true, //debugging infos
 		BLENDERURL: 'http://gel.westpacgroup.com.au/blender/', //server url to blender
 		GUIPATH: Path.normalize(__dirname + '/../GUI-source-master/'),
-		GUI: {},
+		TEMPPATH: Path.normalize(__dirname + '/._template/'),
 
 
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -69,6 +70,7 @@ var App = (function() {
 		//------------------------------------------------------------------------------------------------------------------------------------------------------------
 		response: {}, //server response object
 		POST: {}, //POST values from client
+		GUI: {}, //GUI.json contents
 
 
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------

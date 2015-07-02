@@ -27,7 +27,7 @@ var Archiver = require('archiver');
 	// Zip all files up and send to response
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	module.getZip = function() {
-		App.debugging( 'Zip: compiling zip', 'report' );
+		App.debugging( 'Zip: Compiling zip', 'report' );
 
 		App.response.writeHead(200, {
 			'Content-Type': 'application/zip',
@@ -37,6 +37,11 @@ var Archiver = require('archiver');
 		App.zip.archive.pipe( App.response );
 
 		App.zip.archive.finalize(); //send to server
+
+		//clearning up
+		App.zip.archive = Archiver('zip'); //new archive
+		App.zip.files = []; //empty files
+		module.queue = {}; // empty queue
 
 	};
 
@@ -48,12 +53,26 @@ var Archiver = require('archiver');
 	// @param   archivePath  [string]  The path this file will have inside the archive
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	module.addFiles = function( content, archivePath ) {
-		App.debugging( 'Zip: Adding files', 'report' );
+		App.debugging( 'Zip: Adding file: ' + archivePath, 'report' );
 
-		App.zip.archive.append( content, { name: archivePath } );
+		if(typeof content !== 'string') {
+			App.debugging( 'Zip: Adding file: Zipfile can only be string, is ' + (typeof content), 'error' );
+		}
+		else {
+			App.zip.files.push({ //collecting all files
+				content: content,
+				name: archivePath,
+			});
+		}
 
-		if( App.zip.isQueuingEmpty() ) {
-			App.zip.getZip();
+
+		if( App.zip.isQueuingEmpty() ) { //if this is the last file, add them all to the archive
+
+			App.zip.files.forEach(function( file ) {
+				App.zip.archive.append( file.content, { name: file.name } );
+			});
+
+			App.zip.getZip(); //finalize the zip
 		}
 
 	};
@@ -69,10 +88,14 @@ var Archiver = require('archiver');
 		App.debugging( 'Zip: Queuing files', 'report' );
 
 		if( _isBeingAdded ) {
+			App.debugging( 'Zip: Queue: Adding ' + type, 'report' );
+
 			App.zip.queue[type] = true;
 		}
 		else {
 			if( App.zip.queue[type] ) {
+				App.debugging( 'Zip: Queue: Removing ' + type, 'report' );
+
 				delete App.zip.queue[type];
 			}
 		}
@@ -90,10 +113,13 @@ var Archiver = require('archiver');
 
 		for( var prop in App.zip.queue ) {
 			if( App.zip.queue.hasOwnProperty(prop) ) {
+				App.debugging( 'Zip: Queue: Still things in the queue', 'report' );
+
 				return false;
 			}
 		}
 
+		App.debugging( 'Zip: Queue: Queue is empty', 'report' );
 		return true;
 	};
 
@@ -103,6 +129,7 @@ var Archiver = require('archiver');
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	module.queue = {}; //global object to hold queue
 	module.archive = Archiver('zip'); //class to add files to zip globally
+	module.files = []; //an array of all files to be added to the archive
 
 
 	App.zip = module;
