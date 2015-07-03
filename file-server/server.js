@@ -53,6 +53,11 @@ var App = (function() {
 				});
 
 
+			app.get('/', function(request, response){
+				response.send('Hello world!');
+			});
+
+
 			//listening to post request
 			app.post('/blender', function(request, response) {
 				App.debugging( 'Received new request', 'interaction' );
