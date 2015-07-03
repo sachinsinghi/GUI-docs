@@ -47,26 +47,12 @@ var Archiver = require('archiver');
 
 
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	// Add a file to the zip archive
-	//
-	// @param   content      [string]  The content of the file
-	// @param   archivePath  [string]  The path this file will have inside the archive
+	// Check if queue is clear
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	module.addFiles = function( content, archivePath ) {
-		App.debugging( 'Zip: Adding file: ' + archivePath, 'report' );
+	module.readyZip = function() {
+		App.debugging( 'Zip: Readying zip', 'report' );
 
-		if(typeof content !== 'string') {
-			App.debugging( 'Zip: Adding file: Zipfile can only be string, is ' + (typeof content), 'error' );
-		}
-		else {
-			App.zip.files.push({ //collecting all files
-				content: content,
-				name: archivePath,
-			});
-		}
-
-
-		if( App.zip.isQueuingEmpty() ) { //if this is the last file, add them all to the archive
+		if( App.zip.isQueuingEmpty() ) { //if queue is clear, add all files to the archive
 
 			App.zip.files.forEach(function( file ) {
 				App.zip.archive.append( file.content, { name: file.name } );
@@ -75,6 +61,60 @@ var Archiver = require('archiver');
 			App.zip.getZip(); //finalize the zip
 		}
 
+	};
+
+
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	// Add a file to the zip archive
+	//
+	// @param   content      [string]  The content of the file
+	// @param   archivePath  [string]  The path this file will have inside the archive
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	module.addFile = function( content, archivePath ) {
+		App.debugging( 'Zip: Adding file: ' + archivePath, 'report' );
+
+		if(typeof content !== 'string') {
+			App.debugging( 'Zip: Adding file: Content can only be string, is ' + (typeof content), 'error' );
+		}
+		else {
+			if( content.length > 0 ) { //don't need no empty files ;)
+				App.zip.files.push({ //collect file for later adding
+					content: content,
+					name: archivePath,
+				});
+			}
+		}
+
+		App.zip.readyZip();
+	};
+
+
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	// Add a file to the zip archive
+	//
+	// @param  cwd          [string]  The current working directory to flatten the paths in the archive
+	// @param  files        [array]   The file extensions of the files
+	// @param  archivePath  [string]  The path these files will have inside the archive
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	module.addBulk = function( cwd, files, archivePath ) {
+		App.debugging( 'Zip: Adding bluk: ' + archivePath, 'report' );
+
+		if(typeof files !== 'object') {
+			App.debugging( 'Zip: Adding files: Path can only be array/object, is ' + (typeof files), 'error' );
+		}
+		else {
+
+			App.zip.archive.bulk({ //add them all to the archive
+				expand: true,
+				cwd: cwd,
+				src: files,
+				dest: archivePath,
+				filter: 'isFile',
+			});
+
+		}
+
+		App.zip.readyZip();
 	};
 
 

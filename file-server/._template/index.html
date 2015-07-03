@@ -19,14 +19,14 @@
 
 	<title>GUI example page</title>
 
-	<% if( _hasSVG ) { %>
-		<script>
-			/*! grunt-grunticon Stylesheet Loader - v2.1.7 | https://github.com/filamentgroup/grunticon | (c) 2015 Scott Jehl, Filament Group, Inc. | MIT license. */
-			(function(e){function n(n,t,o,a){"use strict";var i=e.document.createElement("link"),r=t||e.document.getElementsByTagName("script")[0],d=e.document.styleSheets;return i.rel="stylesheet",i.href=n,i.media="only x",a&&(i.onload=a),r.parentNode.insertBefore(i,r),i.onloadcssdefined=function(e){for(var t,o=0;d.length>o;o++)d[o].href&&d[o].href.indexOf(n)>-1&&(t=!0);t?e():setTimeout(function(){i.onloadcssdefined(e)})},i.onloadcssdefined(function(){i.media=o||"all"}),i}function t(e,n){e.onload=function(){e.onload=null,n&&n.call(e)},"isApplicationInstalled"in navigator&&"onloadcssdefined"in e&&e.onloadcssdefined(n)}var o=function(a,i){"use strict";if(a&&3===a.length){var r=e.Image,d=!(!document.createElementNS||!document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||e.opera&&-1===navigator.userAgent.indexOf("Chrome")||-1!==navigator.userAgent.indexOf("Series40")),c=new r;c.onerror=function(){o.method="png",o.href=a[2],n(a[2])},c.onload=function(){var e=1===c.width&&1===c.height,r=a[e&&d?0:e?1:2];o.method=e&&d?"svg":e?"datapng":"png",o.href=r,t(n(r),i)},c.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==",document.documentElement.className+=" grunticon"}};o.loadCSS=n,o.onloadCSS=t,e.grunticon=o})(this);(function(e,n){"use strict";var t=n.document,o="grunticon:",r=function(e){if(t.attachEvent?"complete"===t.readyState:"loading"!==t.readyState)e();else{var n=!1;t.addEventListener("readystatechange",function(){n||(n=!0,e())},!1)}},a=function(e){return n.document.querySelector('link[href$="'+e+'"]')},i=function(e){var n,t,r,a,i,c,s={};if(n=e.sheet,!n)return s;t=n.cssRules?n.cssRules:n.rules;for(var d=0;t.length>d;d++)r=t[d].cssText,a=o+t[d].selectorText,i=r.split(");")[0].match(/US\-ASCII\,([^"']+)/),i&&i[1]&&(c=decodeURIComponent(i[1]),s[a]=c);return s},c=function(e){var n,r,a,i;a="data-grunticon-embed";for(var c in e){i=c.slice(o.length);try{n=t.querySelectorAll(i)}catch(s){continue}r=[];for(var d=0;n.length>d;d++)null!==n[d].getAttribute(a)&&r.push(n[d]);if(r.length)for(d=0;r.length>d;d++)r[d].innerHTML=e[c],r[d].style.backgroundImage="none",r[d].removeAttribute(a)}return r},s=function(n){"svg"===e.method&&r(function(){c(i(a(e.href))),"function"==typeof n&&n()})};e.embedIcons=c,e.getCSS=a,e.getIcons=i,e.ready=r,e.svgLoadedCallback=s,e.embedSVG=s})(grunticon,this);
-			grunticon(["assets/css/symbols.data.svg.css", "assets/css/symbols.data.png.css", "assets/css/symbols.fallback.css"], grunticon.svgLoadedCallback);
-		</script>
-		<noscript><link href="assets/css/symbols.fallback.css" rel="stylesheet"></noscript>
-	<% } %>
+<% if( _hasSVG ) { %>
+	<script>
+		/*! grunt-grunticon Stylesheet Loader - v2.1.7 | https://github.com/filamentgroup/grunticon | (c) 2015 Scott Jehl, Filament Group, Inc. | MIT license. */
+		(function(e){function n(n,t,o,a){"use strict";var i=e.document.createElement("link"),r=t||e.document.getElementsByTagName("script")[0],d=e.document.styleSheets;return i.rel="stylesheet",i.href=n,i.media="only x",a&&(i.onload=a),r.parentNode.insertBefore(i,r),i.onloadcssdefined=function(e){for(var t,o=0;d.length>o;o++)d[o].href&&d[o].href.indexOf(n)>-1&&(t=!0);t?e():setTimeout(function(){i.onloadcssdefined(e)})},i.onloadcssdefined(function(){i.media=o||"all"}),i}function t(e,n){e.onload=function(){e.onload=null,n&&n.call(e)},"isApplicationInstalled"in navigator&&"onloadcssdefined"in e&&e.onloadcssdefined(n)}var o=function(a,i){"use strict";if(a&&3===a.length){var r=e.Image,d=!(!document.createElementNS||!document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||e.opera&&-1===navigator.userAgent.indexOf("Chrome")||-1!==navigator.userAgent.indexOf("Series40")),c=new r;c.onerror=function(){o.method="png",o.href=a[2],n(a[2])},c.onload=function(){var e=1===c.width&&1===c.height,r=a[e&&d?0:e?1:2];o.method=e&&d?"svg":e?"datapng":"png",o.href=r,t(n(r),i)},c.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==",document.documentElement.className+=" grunticon"}};o.loadCSS=n,o.onloadCSS=t,e.grunticon=o})(this);(function(e,n){"use strict";var t=n.document,o="grunticon:",r=function(e){if(t.attachEvent?"complete"===t.readyState:"loading"!==t.readyState)e();else{var n=!1;t.addEventListener("readystatechange",function(){n||(n=!0,e())},!1)}},a=function(e){return n.document.querySelector('link[href$="'+e+'"]')},i=function(e){var n,t,r,a,i,c,s={};if(n=e.sheet,!n)return s;t=n.cssRules?n.cssRules:n.rules;for(var d=0;t.length>d;d++)r=t[d].cssText,a=o+t[d].selectorText,i=r.split(");")[0].match(/US\-ASCII\,([^"']+)/),i&&i[1]&&(c=decodeURIComponent(i[1]),s[a]=c);return s},c=function(e){var n,r,a,i;a="data-grunticon-embed";for(var c in e){i=c.slice(o.length);try{n=t.querySelectorAll(i)}catch(s){continue}r=[];for(var d=0;n.length>d;d++)null!==n[d].getAttribute(a)&&r.push(n[d]);if(r.length)for(d=0;r.length>d;d++)r[d].innerHTML=e[c],r[d].style.backgroundImage="none",r[d].removeAttribute(a)}return r},s=function(n){"svg"===e.method&&r(function(){c(i(a(e.href))),"function"==typeof n&&n()})};e.embedIcons=c,e.getCSS=a,e.getIcons=i,e.ready=r,e.svgLoadedCallback=s,e.embedSVG=s})(grunticon,this);
+		grunticon(["assets/css/symbols.data.svg.css", "assets/css/symbols.data.png.css", "assets/css/symbols.fallback.css"], grunticon.svgLoadedCallback);
+	</script>
+	<noscript><link href="assets/css/symbols.fallback.css" rel="stylesheet"></noscript>
+<% } %>
 
 	<script type="text/javascript" sync>
 		var $html=document.documentElement;if($html.classList)$html.classList.remove("no-js"),$html.classList.add("js");else{var className="no-js";$html.className=$html.className.replace(new RegExp("(^|\\b)"+className.split(" ").join("|")+"(\\b|$)","gi")," "),$html.className+=" js"}
@@ -49,15 +49,23 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-8 col-sm-offset-2">
+			<div class="col-sm-9 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-7 col-lg-offset-3">
 				<header>
-					<h1>Have a sip of your GUI blend</h1>
+					<h1>Have a sip of your GUI Blend</h1>
 				</header>
 
 				<main>
 					<p>
-						This is an example page to show you how you implement the GUI asstets properly.<br>
-						The header has the following elements:
+						This is an example page to show you how you implement the GUI asstets properly.
+						<a href="<%= GUIRURL %>/getting-started/installing-the-framework" target="_blank">Read more in our GUI pages</a>.<br>
+						You can extend this very GUI Blend or remove elements by going <a href="<%= blendURL %>" target="_blank">to the Blender</a>
+						and reblend another selection. Note your GUI Blend URL below.
+					</p>
+					<p>
+						<strong>Your GUI Blend URL:</strong> <a href="<%= blendURL %>" target="_blank"><%= blendURL %></a>
+					</p>
+					<p>
+						<strong>To install</strong> this GUI Blend you need to follow the below points:
 					</p>
 					<ol>
 						<li>
@@ -72,17 +80,18 @@
 								<small>Those are for encoding, compatibility and viewport sizing.</small>
 							</p>
 						</li>
-						<% if( _hasSVG ) { %>
-							<li>
-								<p>
-									<strong>Inside the header:</strong> The grunticon stylesheet loader.<br>
-									<small>
-										To allow us to SVGs in the GUI we need some smarts to load the appropriate stylesheet.
-										<a href="http://www.grunticon.com/" target="_blank">Read more about this technique</a>.
-									</small>
-								</p>
-							</li>
-						<% } %>
+<% if( _hasSVG ) { %>
+						<li>
+							<p>
+								<strong>Inside the header:</strong> The grunticon stylesheet loader.<br>
+								<small>
+									To allow us to SVGs in the GUI we need some smarts to load the appropriate stylesheet.
+									To use your icons now include them like so: &lt;span class="icon icon-size-sm icon-face-happy"&gt;&lt;/span&gt;
+									<a href="http://www.grunticon.com/" target="_blank">Read more about this technique</a>.
+								</small>
+							</p>
+						</li>
+<% } %>
 						<li>
 							<p>
 								<strong>Inside the header:</strong> A minified inline script.<br>
@@ -101,28 +110,28 @@
 								<small>These scripts are important to enable responsive layouts and HTML5 elements in IE8.</small>
 							</p>
 						</li>
-						<% if( _hasJS ) { %>
-							<li>
-								<p>
-									<strong>Brefor the closing &lt;/body&gt; tag:</strong> The gui.min.js file.<br>
-									<small>Your GUI-blend script.</small>
-								</p>
-							</li>
-						<% } %>
+<% if( _hasJS ) { %>
+						<li>
+							<p>
+								<strong>Before the closing &lt;/body&gt; tag:</strong> The gui.min.js file.<br>
+								<small>Your GUI-blend script.</small>
+							</p>
+						</li>
+<% } %>
 					</ol>
 				</main>
 
 				<footer>
 					<p>
-						If you have questions or trouble, please rais them in our <a href="https://github.com/WestpacCXTeam/GUI-source" target="_blank">GitHub repo</a>.
+						If you have questions or trouble, please raise them in our <a href="https://github.com/WestpacCXTeam/GUI-source" target="_blank">GitHub repo</a>.
 					</p>
 				</footer>
 			</div>
 		</div>
 	</div>
 
-	<% if( _hasJS ) { %>
-		<script src="assets/js/gui.min.js"></script>
-	<% } %>
+<% if( _hasJS ) { %>
+	<script src="assets/js/gui.min.js"></script>
+<% } %>
 </body>
 </html>

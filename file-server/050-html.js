@@ -33,12 +33,14 @@
 		index = _.template( index )({
 			_hasJS: App.selectedModules.js,
 			_hasSVG: App.selectedModules.svg,
+			blendURL: App.banner.getFlavourURL(),
+			GUIRURL: App.GUIRURL,
 		});
 
 		//some logic to remove or add: grunticon code and reference, js
 
 		App.zip.queuing('html', false); //html queue is done
-		App.zip.addFiles( index, '/GUI-flavour/index.html' );
+		App.zip.addFile( index, '/GUI-flavour/index.html' );
 
 	};
 

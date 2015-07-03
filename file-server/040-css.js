@@ -45,14 +45,14 @@
 		);
 
 		if( _includeOriginal ) {
-			App.zip.addFiles( lessContent, '/GUI-flavour/source/less/_base.less' );
+			App.zip.addFile( lessContent, '/GUI-flavour/source/less/_base.less' );
 		}
 
 		lessContents += lessContent;
 
 
 		//////////////////////////////////////////////////| MODULES
-		App.selectedModules.modules.forEach(function(module) {
+		App.selectedModules.modules.forEach(function( module ) {
 			lessContent = App.branding.replace(
 				Fs.readFileSync( App.GUIPATH + module.ID + '/' + module.version + '/less/module-mixins.less', 'utf8'),
 				['[Module-Version-Brand]', ' ' + module.name + ' v' + module.version + ' ' + POST['brand'] + ' ']
@@ -64,7 +64,7 @@
 			);
 
 			if( _includeOriginal ) {
-				App.zip.addFiles( lessContent, '/GUI-flavour/source/less/' + module.ID + '.less' );
+				App.zip.addFile( lessContent, '/GUI-flavour/source/less/' + module.ID + '.less' );
 			}
 
 			lessContents += lessContent;
@@ -80,7 +80,7 @@
 			var source = App.banner.attach( output.css ); //attach a banner to the top of the file with a URL of this build
 
 			App.zip.queuing('css', false); //css queue is done
-			App.zip.addFiles( source, '/GUI-flavour/assets/css/gui.min.css' );
+			App.zip.addFile( source, '/GUI-flavour/assets/css/gui.min.css' );
 
 		});
 

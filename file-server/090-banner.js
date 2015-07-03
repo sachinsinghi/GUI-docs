@@ -67,7 +67,7 @@
 
 		url += '/' + App.selectedModules.base.ID + ':' + App.selectedModules.base.version; //adding base
 
-		App.selectedModules.modules.forEach(function(module) { //adding modules
+		App.selectedModules.modules.forEach(function( module ) { //adding modules
 			url += '/' + module.ID + ':' + module.version;
 		});
 

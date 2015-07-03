@@ -1039,7 +1039,10 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('gui', [
 		'font:title',
-		'_checkGUI',
+		'font:updating',
+		'downloadGUI',
+		'clean:GUI',
+		'unzip:GUI',
 		'wakeup',
 	]);
 

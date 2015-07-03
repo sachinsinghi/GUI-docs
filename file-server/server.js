@@ -29,7 +29,8 @@ var App = (function() {
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	return {
 		DEBUG: true, //debugging infos
-		BLENDERURL: 'http://gel.westpacgroup.com.au/blender/', //server url to blender
+		GUIRURL: 'http://gel.westpacgroup.com.au/',
+		BLENDERURL: 'http://gel.westpacgroup.com.au/blender/',
 		GUIPATH: Path.normalize(__dirname + '/../GUI-source-master/'),
 		TEMPPATH: Path.normalize(__dirname + '/._template/'),
 
@@ -275,10 +276,10 @@ var Less = require('less');
 
 		//////////////////////////////////////////////////| JQUERY
 		if( _includeJquery ) { //optional include jquery
-			jquery = Fs.readFileSync( App.GUIPATH + '_base/' + POST['_base-version'] + '/js/010-jquery-1.11.2.min.js', 'utf8');
+			jquery = Fs.readFileSync( App.GUIPATH + '_base/' + POST['_base-version'] + '/js/010-jquery.js', 'utf8');
 
 			if( _includeOriginal ) {
-				App.zip.addFiles( jquery, '/GUI-flavour/source/js/010-jquery-1.11.2.min.js' );
+				App.zip.addFile( jquery, '/GUI-flavour/source/js/010-jquery.js' );
 			}
 		}
 
@@ -290,13 +291,13 @@ var Less = require('less');
 			if( _includeOriginal ) {
 				file = Fs.readFileSync( App.GUIPATH + '_base/' + POST['_base-version'] + '/js/020-base.js', 'utf8');
 				file = App.branding.replace(file, ['[Module-Version]', ' Base v' + POST['_base-version'] + ' ']); //name the current version
-				App.zip.addFiles( file, '/GUI-flavour/source/js/020-base.js' );
+				App.zip.addFile( file, '/GUI-flavour/source/js/020-base.js' );
 			}
 		}
 
 
 		//////////////////////////////////////////////////| MODULES
-		App.selectedModules.modules.forEach(function(module) {
+		App.selectedModules.modules.forEach(function( module ) {
 			var _hasJS = module.js; //look if this module has js
 
 			if( _hasJS ) {
@@ -306,7 +307,7 @@ var Less = require('less');
 
 				if( _includeOriginal ) {
 					file = App.branding.replace(file, ['[Module-Version]', ' ' + module.name + ' v' + module.version + ' ']); //name the current version
-					App.zip.addFiles( file, '/GUI-flavour/source/js/' + module.ID + '.js' );
+					App.zip.addFile( file, '/GUI-flavour/source/js/' + module.ID + '.js' );
 				}
 			}
 		});
@@ -324,7 +325,7 @@ var Less = require('less');
 		var source = App.banner.attach( jquery + result.code ); //attach a banner to the top of the file with a URL of this build
 
 		App.zip.queuing('js', false); //js queue is done
-		App.zip.addFiles( source, '/GUI-flavour/assets/js/gui.min.js' ); //add minified file to zip
+		App.zip.addFile( source, '/GUI-flavour/assets/js/gui.min.js' ); //add minified file to zip
 
 	};
 
@@ -380,14 +381,14 @@ var Less = require('less');
 		);
 
 		if( _includeOriginal ) {
-			App.zip.addFiles( lessContent, '/GUI-flavour/source/less/_base.less' );
+			App.zip.addFile( lessContent, '/GUI-flavour/source/less/_base.less' );
 		}
 
 		lessContents += lessContent;
 
 
 		//////////////////////////////////////////////////| MODULES
-		App.selectedModules.modules.forEach(function(module) {
+		App.selectedModules.modules.forEach(function( module ) {
 			lessContent = App.branding.replace(
 				Fs.readFileSync( App.GUIPATH + module.ID + '/' + module.version + '/less/module-mixins.less', 'utf8'),
 				['[Module-Version-Brand]', ' ' + module.name + ' v' + module.version + ' ' + POST['brand'] + ' ']
@@ -399,7 +400,7 @@ var Less = require('less');
 			);
 
 			if( _includeOriginal ) {
-				App.zip.addFiles( lessContent, '/GUI-flavour/source/less/' + module.ID + '.less' );
+				App.zip.addFile( lessContent, '/GUI-flavour/source/less/' + module.ID + '.less' );
 			}
 
 			lessContents += lessContent;
@@ -415,7 +416,7 @@ var Less = require('less');
 			var source = App.banner.attach( output.css ); //attach a banner to the top of the file with a URL of this build
 
 			App.zip.queuing('css', false); //css queue is done
-			App.zip.addFiles( source, '/GUI-flavour/assets/css/gui.min.css' );
+			App.zip.addFile( source, '/GUI-flavour/assets/css/gui.min.css' );
 
 		});
 
@@ -461,12 +462,14 @@ var Less = require('less');
 		index = _.template( index )({
 			_hasJS: App.selectedModules.js,
 			_hasSVG: App.selectedModules.svg,
+			blendURL: App.banner.getFlavourURL(),
+			GUIRURL: App.GUIRURL,
 		});
 
 		//some logic to remove or add: grunticon code and reference, js
 
 		App.zip.queuing('html', false); //html queue is done
-		App.zip.addFiles( index, '/GUI-flavour/index.html' );
+		App.zip.addFile( index, '/GUI-flavour/index.html' );
 
 	};
 
@@ -505,7 +508,89 @@ var Less = require('less');
 	module.get = function() {
 		App.debugging( 'Assets: Getting all files', 'report' );
 
+		var POST = App.POST;
+
+
+		//////////////////////////////////////////////////| BASE
+		if( App.selectedModules.base.font ) {
+			App.assets.getFonts( App.GUIPATH + '_base/' + POST['_base-version'] + '/_assets/' + POST['brand'] + '/font/' );
+		}
+
+		if( App.selectedModules.base.svg ) {
+			App.assets.getSVG( App.GUIPATH + '_base/' + POST['_base-version'] + '/tests/' + POST['brand'] + '/assets/' );
+		}
+
+
+		//////////////////////////////////////////////////| MODULES
+		App.selectedModules.modules.forEach(function( module ) {
+
+			if( module.font ) {
+				App.assets.getFonts( App.GUIPATH + module.ID + '/' + module.version + '/_assets/' + POST['brand'] );
+			}
+
+			if( module.svg ) {
+				App.assets.getSVG( App.GUIPATH + module.ID + '/' + module.version + '/tests/' + POST['brand'] + '/assets/' );
+			}
+
+		});
+
+
+		//adding files to zip
+		App.zip.addFile( App.assets.svgfiles.svg, '/GUI-flavour/assets/css/symbols.data.svg.css' );
+		App.zip.addFile( App.assets.svgfiles.png, '/GUI-flavour/assets/css/symbols.data.png.css' );
+		App.zip.queuing('assets', false); //assets queue is done
+		App.zip.addFile( App.assets.svgfiles.fallback, '/GUI-flavour/assets/css/symbols.fallback.css' );
+
 	};
+
+
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	// Get all font files from a specific folder
+	//
+	// @param  [string]  Path to a folder of the font files
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	module.getFonts = function( folder ) {
+		App.debugging( 'Assets: Getting font files', 'report' );
+
+		var files = [
+			'*.eot',
+			'*.svg',
+			'*.ttf',
+			'*.woff',
+			'*.woff2',
+		];
+
+		App.zip.addBulk( folder, files, '/GUI-flavour/assets/font/' );
+
+	};
+
+
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	// Get all svg string and png fallback files from a specific folder
+	//
+	// @param  [string]  Path to a tests folder
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	module.getSVG = function( folder ) {
+		App.debugging( 'Assets: Getting svg files', 'report' );
+
+		//////////////////////////////////////////////////| ADDING PNGs
+		App.zip.addBulk( folder + 'img/', [ '*.png' ], '/GUI-flavour/assets/img/' );
+
+		//////////////////////////////////////////////////| BUILDING CSS FILES
+		App.assets.svgfiles.svg += Fs.readFileSync( folder + 'css/symbols.data.svg.css', 'utf8'); //svg
+		App.assets.svgfiles.png += Fs.readFileSync( folder + 'css/symbols.data.png.css', 'utf8'); //png
+		App.assets.svgfiles.fallback += Fs.readFileSync( folder + 'css/symbols.fallback.css', 'utf8'); //fallack
+
+	};
+
+
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	// Global vars
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	module.svgfiles = {};
+	module.svgfiles.svg = '';
+	module.svgfiles.png = '';
+	module.svgfiles.fallback = '';
 
 
 	App.assets = module;
@@ -682,7 +767,7 @@ var Less = require('less');
 
 		url += '/' + App.selectedModules.base.ID + ':' + App.selectedModules.base.version; //adding base
 
-		App.selectedModules.modules.forEach(function(module) { //adding modules
+		App.selectedModules.modules.forEach(function( module ) { //adding modules
 			url += '/' + module.ID + ':' + module.version;
 		});
 
@@ -743,26 +828,12 @@ var Archiver = require('archiver');
 
 
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	// Add a file to the zip archive
-	//
-	// @param   content      [string]  The content of the file
-	// @param   archivePath  [string]  The path this file will have inside the archive
+	// Check if queue is clear
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	module.addFiles = function( content, archivePath ) {
-		App.debugging( 'Zip: Adding file: ' + archivePath, 'report' );
+	module.readyZip = function() {
+		App.debugging( 'Zip: Readying zip', 'report' );
 
-		if(typeof content !== 'string') {
-			App.debugging( 'Zip: Adding file: Zipfile can only be string, is ' + (typeof content), 'error' );
-		}
-		else {
-			App.zip.files.push({ //collecting all files
-				content: content,
-				name: archivePath,
-			});
-		}
-
-
-		if( App.zip.isQueuingEmpty() ) { //if this is the last file, add them all to the archive
+		if( App.zip.isQueuingEmpty() ) { //if queue is clear, add all files to the archive
 
 			App.zip.files.forEach(function( file ) {
 				App.zip.archive.append( file.content, { name: file.name } );
@@ -771,6 +842,60 @@ var Archiver = require('archiver');
 			App.zip.getZip(); //finalize the zip
 		}
 
+	};
+
+
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	// Add a file to the zip archive
+	//
+	// @param   content      [string]  The content of the file
+	// @param   archivePath  [string]  The path this file will have inside the archive
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	module.addFile = function( content, archivePath ) {
+		App.debugging( 'Zip: Adding file: ' + archivePath, 'report' );
+
+		if(typeof content !== 'string') {
+			App.debugging( 'Zip: Adding file: Content can only be string, is ' + (typeof content), 'error' );
+		}
+		else {
+			if( content.length > 0 ) { //don't need no empty files ;)
+				App.zip.files.push({ //collect file for later adding
+					content: content,
+					name: archivePath,
+				});
+			}
+		}
+
+		App.zip.readyZip();
+	};
+
+
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	// Add a file to the zip archive
+	//
+	// @param  cwd          [string]  The current working directory to flatten the paths in the archive
+	// @param  files        [array]   The file extensions of the files
+	// @param  archivePath  [string]  The path these files will have inside the archive
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	module.addBulk = function( cwd, files, archivePath ) {
+		App.debugging( 'Zip: Adding bluk: ' + archivePath, 'report' );
+
+		if(typeof files !== 'object') {
+			App.debugging( 'Zip: Adding files: Path can only be array/object, is ' + (typeof files), 'error' );
+		}
+		else {
+
+			App.zip.archive.bulk({ //add them all to the archive
+				expand: true,
+				cwd: cwd,
+				src: files,
+				dest: archivePath,
+				filter: 'isFile',
+			});
+
+		}
+
+		App.zip.readyZip();
 	};
 
 
