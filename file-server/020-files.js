@@ -2,7 +2,7 @@
  *
  * Files
  *
- * Get all files, concatenate them, compile them if necessary and serve them as zip.
+ * Route to all files for concatenating, compiling and if necessary branding.
  *
  **************************************************************************************************************************************************************/
 
@@ -10,11 +10,7 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Dependencies
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
-var CombinedStream = require('combined-stream2');
-var Archiver = require('archiver');
 var UglifyJS = require('uglify-js');
-var Through = require('through2');
-var Wait = require('wait.for');
 var Less = require('less');
 
 
@@ -23,134 +19,91 @@ var Less = require('less');
 	var module = {};
 
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	// module init method
+	// Module init method
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	module.init = function( response, POST ) {
-		App.debugging( 'File server: new query', 'report' );
+	module.init = function() {
+		App.debugging( 'Files: new query', 'report' );
 
-		App.files.getCSS( response, POST );
+		//////////////////////////////////////////////////| PARSING POST
+		App.files.getPost();
+
+		//////////////////////////////////////////////////| QUEUING FILES
+		App.zip.queuing('css', true);
+		App.zip.queuing('html', true);
+
+		if( App.selectedModules.js ) {
+			App.zip.queuing('js', true);
+		}
+		App.zip.queuing('assets', true);
+
+
+		//////////////////////////////////////////////////| GENERATING FILES
+		App.css.get();
+
+		if( App.selectedModules.js ) {
+			App.js.get();
+		}
+
+		App.html.get();
+		App.assets.get();
 	};
 
 
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	// get the download zip file
+	// Saves an array of the selected modules globally
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	module.getZip = function( response, POST, cssContent ) {
-		App.debugging( 'File server: compiling zip', 'report' );
+	module.getPost = function() {
+		App.debugging( 'Files: Parsing POST', 'report' );
 
-		var zip = Archiver('zip');
-
-		var flavourURL = App.files.getFlavourURL( POST );
-		var jsContent = '/* GUI flavor ' + flavourURL + ' */' + "\n" + App.files.getJS( POST );
-		var cssContent = '/* GUI flavor ' + flavourURL + ' */' + "\n" + cssContent.css;
-
-		response.writeHead(200, {
-			'Content-Type': 'application/zip',
-			'Content-disposition': 'attachment; filename=GUI-flavour.zip',
-		});
-
-		zip.pipe(response);
-
-		zip
-			.append(jsContent, { name: 'GUI/assets/js/site.js' })
-			.append(cssContent, { name: 'GUI/assets/css/site.css' });
-
-		//some js magic (all mixins in one file, all setting sin one?)
-		zip.file('./../GUI-source/base/1.0.0/less/base-mixins.less', { name: 'GUI/assets/less/base-mixins.less' })
-
-		zip.finalize(); //send to server
-
-	};
+		var POST = App.POST;
+		var fromPOST = {};
+		fromPOST.modules = [];
+		var _hasJS = false;
+		var _hasSVG = false;
+		var _includeJquery = POST.hasOwnProperty('jquery');
 
 
-	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	// get all js files and concat them
-	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	module.getJS = function( POST ) {
-		App.debugging( 'File server: uglifying js files', 'report' );
+		//////////////////////////////////////////////////| ADDING MODULES
+		Object.keys( POST ).forEach(function( moduleName ) {
+			if( moduleName.indexOf('-enable', moduleName.length - 7) !== -1 ) { //only look at enabled checkboxes
 
-		//some js stuff
-		var files = [
-			'./../GUI-source/base/1.0.0/js/010-jquery-1.11.2.min.js',
-			'./../GUI-source/base/1.0.0/js/020-base.js',
-		];
+				var module = moduleName.substr(0, moduleName.length - 7);
+				var version = POST[module + '-version'];
+				var json = App.modules.getJson( module );
+				var newObject = _.extend(json, json.versions[version]); //merge version to the same level
+				newObject.version = version;
 
-		var result = UglifyJS.minify( files );
+				if( newObject.js && module.ID !== '_base' || !_includeJquery ) {
+					_hasJS = true;
+				}
 
-		return result.code;
+				if( newObject.svg ) {
+					_hasSVG = true;
+				}
 
-	};
-
-
-	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	// get all less files and compile them
-	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	module.getCSS = function( response, POST ) {
-		App.debugging( 'File server: generating css', 'report' );
-
-		//some js stuff
-		var files = [
-			'./../GUI-source/base/1.0.0/less/base-mixins.less',
-			'./../GUI-source/base/1.0.0/less/settings.less',
-		];
-
-		var combinedStream = CombinedStream.create();
-		var lessContent = '';
-
-		files.forEach(function(file) {
-			App.debugging( 'File server: get less content', 'send' );
-
-			combinedStream.append(Fs.createReadStream( file ));
+				fromPOST.modules.push( newObject );
+			}
 		});
 
 
-		//collect all less
-		var compileLess = Through({ objectMode: true }, function(chunk, enc, callback) {
-			App.debugging( 'File server: got less content', 'receive' );
+		//////////////////////////////////////////////////| ADDING BASE
+		var json = App.modules.getJson( '_base' );
+		var newObject = _.extend(json, json.versions[ POST['_base-version'] ]); //merge version to the same level
+		newObject.version = POST['_base-version'];
 
-			lessContent += chunk.toString();
-
-			this.push( lessContent );
-			callback();
-		});
-
-		combinedStream.pipe(compileLess);
-
-		combinedStream.on('end', function() {
-			App.debugging( 'File server: compiling less', 'report' );
-
-			//replace the brand placeholder
-			lessContent = lessContent.replace(/\[Brand\]/g, 'BOM');
-
-			//compile less
-			Less
-				.render(lessContent, {
-					compress: true
-				},
-				function(e, output) {
-
-					App.files.getZip( response, POST, output );
-
-				});
-
-		});
-
-	};
+		fromPOST.base = newObject;
 
 
-	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	// get the flavour url
-	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	module.getFlavourURL = function( POST ) {
-		App.debugging( 'File server: generating flavour link', 'report' );
+		//////////////////////////////////////////////////| ADDING OPTIONS
+		if( _includeJquery ) { //include jquery even if no other js is needed... controversial!
+			_hasJS = true;
+		}
 
-		var url = App.BLENDERURL + '#';
+		fromPOST.js = _hasJS;
+		fromPOST.svg = _hasSVG;
 
-		//some js stuff
-		url += '-module:1.0.0-module2:1.0.1-module3:2.0.0';
 
-		return url;
-
+		App.selectedModules = fromPOST; //save globally
 	};
 
 

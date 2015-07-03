@@ -1,0 +1,21 @@
+{% comment %}
+	This snippet prints a version dropdown for a specific module
+
+	Usage:
+		{% include showVersions.liquid  mod = site.data.GUI.modules.buttons.buttons %}
+
+	Return:
+		HTML direct output
+
+	Required:
+		mod  [object]  The GUI.json object for this particular module
+{% endcomment %}
+
+
+{% assign mod = include.mod %}
+
+<select class="blender-version" name="{{ mod[1].ID }}-version">
+	{% for version in mod[1].versions %}
+		<option value="{{ version[0] }}">v{{ version[0] }}</option>
+	{% endfor %}
+</select>

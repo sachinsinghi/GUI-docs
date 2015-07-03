@@ -14,7 +14,9 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 var Fs = require('fs');
 var Http = require('http');
+var Path = require('path');
 var Chalk = require('chalk');
+var _ = require("underscore");
 var CFonts = require('cfonts');
 var Express = require('express');
 var BodyParser = require('body-parser');
@@ -23,11 +25,14 @@ var BodyParser = require('body-parser');
 var App = (function() {
 
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	// settings
+	// Settings
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	return {
 		DEBUG: true, //debugging infos
-		BLENDERURL: 'http://gel.westpacgroup.com.au/blender/', //server url to blender
+		GUIRURL: 'http://gel.westpacgroup.com.au/',
+		BLENDERURL: 'http://gel.westpacgroup.com.au/blender/',
+		GUIPATH: Path.normalize(__dirname + '/../GUI-source-master/'),
+		TEMPPATH: Path.normalize(__dirname + '/._template/'),
 
 
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -36,6 +41,7 @@ var App = (function() {
 		init: function() {
 			if( App.DEBUG ) App.debugging( ' DEBUGGING| INFORMATION', 'headline' );
 
+			App.GUI = JSON.parse( Fs.readFileSync( App.GUIPATH + '/GUI.json', 'utf8') );
 			var app = Express();
 
 			//starting server
@@ -51,21 +57,30 @@ var App = (function() {
 			app.post('/blender', function(request, response) {
 				App.debugging( 'Received new request', 'interaction' );
 
-				var q = request.body.q;
+				App.response = response;
+				App.POST = request.body;
 
-				App.files.init( response, request.body );
-
-
+				App.files.init();
 			});
 
 		},
 
 
+		//------------------------------------------------------------------------------------------------------------------------------------------------------------
+		// Global vars
+		//------------------------------------------------------------------------------------------------------------------------------------------------------------
+		response: {}, //server response object
+		POST: {}, //POST values from client
+		GUI: {}, //GUI.json contents
+
+
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
-		// debugging prettiness
+		// Debugging prettiness
 		//
-		// text  [string]   Text to be printed to debugger
-		// code  [string]   The urgency as a string: ['report', 'error', 'interaction', 'send', 'receive']
+		// @param  text  [string]   Text to be printed to debugger
+		// @param  code  [string]   The urgency as a string: ['report', 'error', 'interaction', 'send', 'receive']
+		//
+		// @return  [output]  console.log output
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
 		debugging: function( text, code ) {
 
