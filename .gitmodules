@@ -1,0 +1,3 @@
+[submodule "GUI-source-master"]
+	path = GUI-source-master
+	url = git@github.com:WestpacCXTeam/GUI-source.git
