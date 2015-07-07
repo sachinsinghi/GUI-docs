@@ -12,7 +12,10 @@
 {% endcomment %}
 
 
-<form class="blender js-blender" method="POST" action="http://localhost:8080/blender">
+{% assign server = 'http://localhost' %}
+{% comment %}{% assign server = 'http://128.199.237.107' %}{% endcomment %}
+
+<form class="blender js-blender" method="POST" action="{{ server }}:8080/blender">
 	{% for category in site.data.GUI.modules %}
 		<fieldset class="blender-category">
 			<legend class="blender-category-headline">{{ category[0] }}</legend>
@@ -29,7 +32,8 @@
 					{% endif %}
 
 					<li class="blender-module">
-						<a href="{{ module[1].category }}/#{{ module[1].ID }}">{{ module[1].description }}</a>
+						<label for="{{ module[1].ID }}">{{ module[1].description }}</label>
+						<a href="{{ module[1].category }}/#{{ module[1].ID }}" target="_blank">(i)</a>
 
 						{% include showVersions.liquid  mod = module %}
 					</li>
@@ -47,7 +51,7 @@
 			<li class="blender-module">
 				<label class="checkbox checkbox-flip">
 					<input class="checkbox-input" type="checkbox" name="jquery" checked="checked">
-					<span class="checkbox-text">Include jQuery in blend</span>
+					<span class="checkbox-text">Bundle jQuery with your js</span>
 				</label>
 			</li>
 

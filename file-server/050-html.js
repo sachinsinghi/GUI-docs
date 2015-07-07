@@ -30,14 +30,12 @@
 
 		var index = Fs.readFileSync( App.TEMPPATH + 'index.html', 'utf8');
 
-		index = _.template( index )({
+		index = _.template( index )({ //render the index template
 			_hasJS: App.selectedModules.js,
 			_hasSVG: App.selectedModules.svg,
 			blendURL: App.banner.getFlavourURL(),
-			GUIRURL: App.GUIRURL,
+			GUIRURL: App.GUIRURL + App.selectedModules.brand + '/blender/',
 		});
-
-		//some logic to remove or add: grunticon code and reference, js
 
 		App.zip.queuing('html', false); //html queue is done
 		App.zip.addFile( index, '/GUI-flavour/index.html' );

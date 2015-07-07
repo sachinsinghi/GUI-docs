@@ -30,7 +30,6 @@ var App = (function() {
 	return {
 		DEBUG: true, //debugging infos
 		GUIRURL: 'http://gel.westpacgroup.com.au/',
-		BLENDERURL: 'http://gel.westpacgroup.com.au/blender/',
 		GUIPATH: Path.normalize(__dirname + '/../GUI-source-master/'),
 		TEMPPATH: Path.normalize(__dirname + '/._template/'),
 

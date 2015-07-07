@@ -30,7 +30,6 @@ var App = (function() {
 	return {
 		DEBUG: true, //debugging infos
 		GUIRURL: 'http://gel.westpacgroup.com.au/',
-		BLENDERURL: 'http://gel.westpacgroup.com.au/blender/',
 		GUIPATH: Path.normalize(__dirname + '/../GUI-source-master/'),
 		TEMPPATH: Path.normalize(__dirname + '/._template/'),
 
@@ -225,12 +224,13 @@ var Less = require('less');
 
 
 		//////////////////////////////////////////////////| ADDING OPTIONS
-		if( _includeJquery ) { //when checkbox is ticked include jquery even if no other js is needed... controversial!
-			_hasJS = true;
+		if( _includeJquery ) { //when checkbox is ticked but you don't have any modules with js then don't include jquery... controversial!
+			// _hasJS = true;
 		}
 
 		fromPOST.js = _hasJS;
 		fromPOST.svg = _hasSVG;
+		fromPOST.brand = POST.brand;
 
 
 		App.selectedModules = fromPOST; //save globally
@@ -464,14 +464,12 @@ var Less = require('less');
 
 		var index = Fs.readFileSync( App.TEMPPATH + 'index.html', 'utf8');
 
-		index = _.template( index )({
+		index = _.template( index )({ //render the index template
 			_hasJS: App.selectedModules.js,
 			_hasSVG: App.selectedModules.svg,
 			blendURL: App.banner.getFlavourURL(),
-			GUIRURL: App.GUIRURL,
+			GUIRURL: App.GUIRURL + App.selectedModules.brand + '/blender/',
 		});
-
-		//some logic to remove or add: grunticon code and reference, js
 
 		App.zip.queuing('html', false); //html queue is done
 		App.zip.addFile( index, '/GUI-flavour/index.html' );
@@ -768,7 +766,7 @@ var Less = require('less');
 	module.getFlavourURL = function() {
 		App.debugging( 'Banner: Generating flavour link', 'report' );
 
-		var url = App.BLENDERURL + '#';
+		var url = App.GUIRURL + App.selectedModules.brand + '/blender/#';
 
 		url += '/' + App.selectedModules.base.ID + ':' + App.selectedModules.base.version; //adding base
 

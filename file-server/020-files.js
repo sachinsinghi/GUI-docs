@@ -95,12 +95,13 @@ var Less = require('less');
 
 
 		//////////////////////////////////////////////////| ADDING OPTIONS
-		if( _includeJquery ) { //when checkbox is ticked include jquery even if no other js is needed... controversial!
-			_hasJS = true;
+		if( _includeJquery ) { //when checkbox is ticked but you don't have any modules with js then don't include jquery... controversial!
+			// _hasJS = true;
 		}
 
 		fromPOST.js = _hasJS;
 		fromPOST.svg = _hasSVG;
+		fromPOST.brand = POST.brand;
 
 
 		App.selectedModules = fromPOST; //save globally

@@ -36,6 +36,7 @@
 				else { //otherwise select precise version
 					$depend.prop('selected', true);
 				}
+				$depend.trigger('change');
 
 
 				$this.siblings('.js-blender-newer').remove(); //remove warnings
