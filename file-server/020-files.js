@@ -50,7 +50,7 @@ var Less = require('less');
 
 
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	// Saves an array of the selected modules globally
+	// Saves an array of the selected modules globally so we don't work with the raw data that comes from the client... as that could be a mess ;)
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	module.getPost = function() {
 		App.debugging( 'Files: Parsing POST', 'report' );
@@ -65,12 +65,12 @@ var Less = require('less');
 
 		//////////////////////////////////////////////////| ADDING MODULES
 		Object.keys( POST ).forEach(function( moduleName ) {
-			if( moduleName.indexOf('-enable', moduleName.length - 7) !== -1 ) { //only look at enabled checkboxes
+			if( moduleName.substr(0, 7) === 'module-' && POST[ moduleName ] !== 'nil' && moduleName !== 'module-_base' ) { //only look at enabled checkboxes
 
-				var module = moduleName.substr(0, moduleName.length - 7);
-				var version = POST[module + '-version'];
+				var module = moduleName.substr(7);
+				var version = POST[ moduleName ];
 				var json = App.modules.getJson( module );
-				var newObject = _.extend(json, json.versions[version]); //merge version to the same level
+				var newObject = _.extend( json, json.versions[ version ] ); //merge version to the same level
 				newObject.version = version;
 
 				if( newObject.js && module.ID !== '_base' || !_includeJquery ) {
@@ -88,14 +88,14 @@ var Less = require('less');
 
 		//////////////////////////////////////////////////| ADDING BASE
 		var json = App.modules.getJson( '_base' );
-		var newObject = _.extend(json, json.versions[ POST['_base-version'] ]); //merge version to the same level
-		newObject.version = POST['_base-version'];
+		var newObject = _.extend(json, json.versions[ POST['module-_base'] ]); //merge version to the same level
+		newObject.version = POST['module-_base'];
 
 		fromPOST.base = newObject;
 
 
 		//////////////////////////////////////////////////| ADDING OPTIONS
-		if( _includeJquery ) { //include jquery even if no other js is needed... controversial!
+		if( _includeJquery ) { //when checkbox is ticked include jquery even if no other js is needed... controversial!
 			_hasJS = true;
 		}
 

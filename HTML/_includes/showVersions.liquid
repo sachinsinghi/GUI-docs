@@ -13,16 +13,26 @@
 
 
 {% assign mod = include.mod %}
+{% assign versions = '' %}
 
-<select class="blender-version js-blender-versions" name="{{ mod[1].ID }}-version">
-	{% for version in mod[1].versions %}
-		{% assign dependencies = "" %}
-		{% for dep in version[1].dependencies %}
-			{% capture dependencies %}{{ dependencies }}, .js-blender-{{ dep }}{% endcapture %}
-		{% endfor %}
-
-		<option value="{{ version[0] }}"
-			{% if dependencies.size > 0 %}data-dependencies="{{ dependencies | slice: 2, dependencies.size }}"{% endif %}
-		>v{{ version[0] }}</option>
+{% comment %}Reverse order to have newest option on top{% endcomment %}
+{% for version in mod[1].versions %}
+	{% assign dependencies = "" %}
+	{% for dep in version[1].dependencies %}
+		{% capture dependencies %}{{ dependencies }}, .js-blender-{{ dep | handleize }}{% endcapture %}
 	{% endfor %}
+
+	{% capture versions %}
+		<option class="js-blender-{{ mod[1].ID }} js-blender-{{ mod[1].ID }}{{ version[0] | handleize }}" value="{{ version[0] }}"
+			{% if dependencies.size > 0 %}data-dependencies="{{ dependencies | slice: 2, dependencies.size }}"{% endif %}
+		>Add version {{ version[0] }}</option>
+		{{ versions }}
+	{% endcapture %}
+{% endfor %}
+
+<select class="blender-version js-blender-module" name="module-{{ mod[1].ID }}">
+	{% unless mod[1].ID == "_base" %}
+		<option value="nil">Don't add</option>
+	{% endunless %}
+	{{ versions }}
 </select>

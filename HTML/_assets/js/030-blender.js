@@ -22,26 +22,27 @@
 
 		if( $('.js-blender').length ) {
 
-			//////////////////////////////////////////////////| SELECT-EVERYTHING BUTTON
-			$('.js-blender-everything').on('click', function() {
-				App.debugging( 'Blender: Select-everything button slicked', 'interaction' );
-
-				$('.js-blender-checkbox').prop('checked', 'checked');
-				$(this).addClass('is-active');
-			});
-
-
 			//////////////////////////////////////////////////| CHECKING DEPENDENCIES
-			$('.js-blender-checkbox').on('change', function() {
+			$('.js-blender-module').on('change', function() {
 				App.debugging( 'Blender: Module selected', 'interaction' );
 
 				var $this = $(this);
-				var module = $this.attr('name').replace('-enable', '');
-				var $version = $('.js-blender-versions[name="' + module + '-version"] option:selected');
-				var dependencies = $version.attr('data-dependencies');
-				var $dependencies = $( dependencies );
+				var dependencies = $this.find(':checked').attr('data-dependencies');
+				var $depend = $( '.js-blender-module option' + dependencies );
 
-				$dependencies.prop('checked', 'checked');
+				if( $depend.length > 1 ) { //select latest if no version is given
+					$depend.first().prop('selected', true);
+				}
+				else { //otherwise select precise version
+					$depend.prop('selected', true);
+				}
+
+
+				$this.siblings('.js-blender-newer').remove(); //remove warnings
+
+				if( this.selectedIndex > 1 ) {
+					$this.after('<small class="js-blender-newer blender-newer">There is a newer version.</small>'); //add warning is not latest version
+				}
 			});
 
 
@@ -66,12 +67,11 @@
 			if( hash[i] !== undefined ) {
 
 				var module = hash[i].split(':');
-				var $module = $('.js-blender-checkbox[name="' + module[0] + '-enable"]');
-				var $version = $('.js-blender-checkbox[name="' + module[0] + '-version"]');
+				var $version = $('.js-blender-module[name="module-' + module[0] + '"]');
 
-				$module.prop('checked', 'checked'); //check checkbox
-				$version.val( module[1] ); //select version
-
+				$version
+					.val( module[1] ) //select version
+					.trigger('change'); //executing event handler
 			}
 		};
 	};

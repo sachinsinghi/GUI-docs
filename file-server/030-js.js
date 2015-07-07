@@ -38,7 +38,7 @@
 
 		//////////////////////////////////////////////////| JQUERY
 		if( _includeJquery ) { //optional include jquery
-			jquery = Fs.readFileSync( App.GUIPATH + '_base/' + POST['_base-version'] + '/js/010-jquery.js', 'utf8');
+			jquery = Fs.readFileSync( App.GUIPATH + '_base/' + POST['module-_base'] + '/js/010-jquery.js', 'utf8');
 
 			if( _includeOriginal ) {
 				App.zip.addFile( jquery, '/GUI-flavour/source/js/010-jquery.js' );
@@ -48,11 +48,11 @@
 
 		//////////////////////////////////////////////////| BASE
 		if( App.selectedModules.js ) {
-			files.push( App.GUIPATH + '_base/' + POST['_base-version'] + '/js/020-base.js' ); //include base js
+			files.push( App.GUIPATH + '_base/' + POST['module-_base'] + '/js/020-base.js' ); //include base js
 
 			if( _includeOriginal ) {
-				file = Fs.readFileSync( App.GUIPATH + '_base/' + POST['_base-version'] + '/js/020-base.js', 'utf8');
-				file = App.branding.replace(file, ['[Module-Version]', ' Base v' + POST['_base-version'] + ' ']); //name the current version
+				file = Fs.readFileSync( App.GUIPATH + '_base/' + POST['module-_base'] + '/js/020-base.js', 'utf8');
+				file = App.branding.replace(file, ['[Module-Version]', ' Base v' + POST['module-_base'] + ' ']); //name the current version
 				App.zip.addFile( file, '/GUI-flavour/source/js/020-base.js' );
 			}
 		}

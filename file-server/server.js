@@ -48,8 +48,8 @@ var App = (function() {
 			app
 				.use( BodyParser.urlencoded({ extended: false }) )
 
-				.listen(1337, function(){
-					App.debugging( 'Server started on port 1337', 'report' );
+				.listen(8080, function(){
+					App.debugging( 'Server started on port 8080', 'report' );
 				});
 
 
@@ -60,7 +60,7 @@ var App = (function() {
 
 			//listening to post request
 			app.post('/blender', function(request, response) {
-				App.debugging( 'Received new request', 'interaction' );
+				App.debugging( 'Received new request from: ' + request.headers['x-forwarded-for'] + ' / ' + request.connection.remoteAddress, 'interaction' );
 
 				App.response = response;
 				App.POST = request.body;
@@ -180,7 +180,7 @@ var Less = require('less');
 
 
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	// Saves an array of the selected modules globally
+	// Saves an array of the selected modules globally so we don't work with the raw data that comes from the client... as that could be a mess ;)
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	module.getPost = function() {
 		App.debugging( 'Files: Parsing POST', 'report' );
@@ -195,12 +195,12 @@ var Less = require('less');
 
 		//////////////////////////////////////////////////| ADDING MODULES
 		Object.keys( POST ).forEach(function( moduleName ) {
-			if( moduleName.indexOf('-enable', moduleName.length - 7) !== -1 ) { //only look at enabled checkboxes
+			if( moduleName.substr(0, 7) === 'module-' && POST[ moduleName ] !== 'nil' && moduleName !== 'module-_base' ) { //only look at enabled checkboxes
 
-				var module = moduleName.substr(0, moduleName.length - 7);
-				var version = POST[module + '-version'];
+				var module = moduleName.substr(7);
+				var version = POST[ moduleName ];
 				var json = App.modules.getJson( module );
-				var newObject = _.extend(json, json.versions[version]); //merge version to the same level
+				var newObject = _.extend( json, json.versions[ version ] ); //merge version to the same level
 				newObject.version = version;
 
 				if( newObject.js && module.ID !== '_base' || !_includeJquery ) {
@@ -218,14 +218,14 @@ var Less = require('less');
 
 		//////////////////////////////////////////////////| ADDING BASE
 		var json = App.modules.getJson( '_base' );
-		var newObject = _.extend(json, json.versions[ POST['_base-version'] ]); //merge version to the same level
-		newObject.version = POST['_base-version'];
+		var newObject = _.extend(json, json.versions[ POST['module-_base'] ]); //merge version to the same level
+		newObject.version = POST['module-_base'];
 
 		fromPOST.base = newObject;
 
 
 		//////////////////////////////////////////////////| ADDING OPTIONS
-		if( _includeJquery ) { //include jquery even if no other js is needed... controversial!
+		if( _includeJquery ) { //when checkbox is ticked include jquery even if no other js is needed... controversial!
 			_hasJS = true;
 		}
 
@@ -281,7 +281,7 @@ var Less = require('less');
 
 		//////////////////////////////////////////////////| JQUERY
 		if( _includeJquery ) { //optional include jquery
-			jquery = Fs.readFileSync( App.GUIPATH + '_base/' + POST['_base-version'] + '/js/010-jquery.js', 'utf8');
+			jquery = Fs.readFileSync( App.GUIPATH + '_base/' + POST['module-_base'] + '/js/010-jquery.js', 'utf8');
 
 			if( _includeOriginal ) {
 				App.zip.addFile( jquery, '/GUI-flavour/source/js/010-jquery.js' );
@@ -291,11 +291,11 @@ var Less = require('less');
 
 		//////////////////////////////////////////////////| BASE
 		if( App.selectedModules.js ) {
-			files.push( App.GUIPATH + '_base/' + POST['_base-version'] + '/js/020-base.js' ); //include base js
+			files.push( App.GUIPATH + '_base/' + POST['module-_base'] + '/js/020-base.js' ); //include base js
 
 			if( _includeOriginal ) {
-				file = Fs.readFileSync( App.GUIPATH + '_base/' + POST['_base-version'] + '/js/020-base.js', 'utf8');
-				file = App.branding.replace(file, ['[Module-Version]', ' Base v' + POST['_base-version'] + ' ']); //name the current version
+				file = Fs.readFileSync( App.GUIPATH + '_base/' + POST['module-_base'] + '/js/020-base.js', 'utf8');
+				file = App.branding.replace(file, ['[Module-Version]', ' Base v' + POST['module-_base'] + ' ']); //name the current version
 				App.zip.addFile( file, '/GUI-flavour/source/js/020-base.js' );
 			}
 		}
@@ -376,12 +376,12 @@ var Less = require('less');
 
 		//////////////////////////////////////////////////| BASE
 		var lessContent = App.branding.replace(
-			Fs.readFileSync(App.GUIPATH + '_base/' + POST['_base-version'] + '/less/base-mixins.less', 'utf8'),
-			['[Module-Version-Brand]', ' _base v' + POST['_base-version'] + ' ' + POST['brand']]
+			Fs.readFileSync(App.GUIPATH + '_base/' + POST['module-_base'] + '/less/base-mixins.less', 'utf8'),
+			['[Module-Version-Brand]', ' _base v' + POST['module-_base'] + ' ' + POST['brand']]
 		);
 
 		lessContent += "\n" + App.branding.replace(
-			Fs.readFileSync( App.GUIPATH + '_base/' + POST['_base-version'] + '/less/settings.less', 'utf8'),
+			Fs.readFileSync( App.GUIPATH + '_base/' + POST['module-_base'] + '/less/settings.less', 'utf8'),
 			['[Brand]', POST['brand']]
 		);
 
@@ -518,11 +518,11 @@ var Less = require('less');
 
 		//////////////////////////////////////////////////| BASE
 		if( App.selectedModules.base.font ) {
-			App.assets.getFonts( App.GUIPATH + '_base/' + POST['_base-version'] + '/_assets/' + POST['brand'] + '/font/' );
+			App.assets.getFonts( App.GUIPATH + '_base/' + POST['module-_base'] + '/_assets/' + POST['brand'] + '/font/' );
 		}
 
 		if( App.selectedModules.base.svg ) {
-			App.assets.getSVG( App.GUIPATH + '_base/' + POST['_base-version'] + '/tests/' + POST['brand'] + '/assets/' );
+			App.assets.getSVG( App.GUIPATH + '_base/' + POST['module-_base'] + '/tests/' + POST['brand'] + '/assets/' );
 		}
 
 

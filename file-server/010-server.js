@@ -48,8 +48,8 @@ var App = (function() {
 			app
 				.use( BodyParser.urlencoded({ extended: false }) )
 
-				.listen(1337, function(){
-					App.debugging( 'Server started on port 1337', 'report' );
+				.listen(8080, function(){
+					App.debugging( 'Server started on port 8080', 'report' );
 				});
 
 
@@ -60,7 +60,7 @@ var App = (function() {
 
 			//listening to post request
 			app.post('/blender', function(request, response) {
-				App.debugging( 'Received new request', 'interaction' );
+				App.debugging( 'Received new request from: ' + request.headers['x-forwarded-for'] + ' / ' + request.connection.remoteAddress, 'interaction' );
 
 				App.response = response;
 				App.POST = request.body;
