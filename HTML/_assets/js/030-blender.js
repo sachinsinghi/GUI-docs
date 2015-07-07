@@ -28,13 +28,20 @@
 
 				var $this = $(this);
 				var dependencies = $this.find(':checked').attr('data-dependencies');
+				var $depend = $( '.js-blender-module option' + dependencies );
 
-				$( '.js-blender-module option' + dependencies ).prop('selected', true);
+				if( $depend.length > 1 ) { //select latest if no version is given
+					$depend.first().prop('selected', true);
+				}
+				else { //otherwise select precise version
+					$depend.prop('selected', true);
+				}
 
-				$this.siblings('.js-blender-newer').remove();
+
+				$this.siblings('.js-blender-newer').remove(); //remove warnings
 
 				if( this.selectedIndex > 1 ) {
-					$this.after('<small class="js-blender-newer blender-newer">There is a newer version!</small>');
+					$this.after('<small class="js-blender-newer blender-newer">There is a newer version.</small>'); //add warning is not latest version
 				}
 			});
 
