@@ -1,7 +1,7 @@
 GUI-docs
 ==========
 
-> This is the repository in which we develop the documentation of the gUI including the file server and generator
+> This is the repository in which we develop the documentation of the GUI including the file server and generator
 
 ### Content
 

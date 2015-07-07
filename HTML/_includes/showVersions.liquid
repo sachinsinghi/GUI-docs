@@ -19,18 +19,20 @@
 {% for version in mod[1].versions %}
 	{% assign dependencies = "" %}
 	{% for dep in version[1].dependencies %}
-		{% capture dependencies %}{{ dependencies }}, .js-blender-{{ dep }}{% endcapture %}
+		{% capture dependencies %}{{ dependencies }}, .js-blender-{{ dep | handleize }}{% endcapture %}
 	{% endfor %}
 
 	{% capture versions %}
-		<option value="{{ version[0] }}"
+		<option class="js-blender-{{ mod[1].ID }} js-blender-{{ mod[1].ID }}{{ version[0] | handleize }}" value="{{ version[0] }}"
 			{% if dependencies.size > 0 %}data-dependencies="{{ dependencies | slice: 2, dependencies.size }}"{% endif %}
 		>Add version {{ version[0] }}</option>
 		{{ versions }}
 	{% endcapture %}
 {% endfor %}
 
-<select class="blender-version js-blender-versions" name="module-{{ mod[1].ID }}">
-	<option>Don't add</option>
+<select class="blender-version js-blender-module" name="module-{{ mod[1].ID }}">
+	{% unless mod[1].ID == "_base" %}
+		<option value="nil">Don't add</option>
+	{% endunless %}
 	{{ versions }}
 </select>

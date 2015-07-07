@@ -33,11 +33,11 @@
 
 		//////////////////////////////////////////////////| BASE
 		if( App.selectedModules.base.font ) {
-			App.assets.getFonts( App.GUIPATH + '_base/' + POST['_base-version'] + '/_assets/' + POST['brand'] + '/font/' );
+			App.assets.getFonts( App.GUIPATH + '_base/' + POST['module-_base'] + '/_assets/' + POST['brand'] + '/font/' );
 		}
 
 		if( App.selectedModules.base.svg ) {
-			App.assets.getSVG( App.GUIPATH + '_base/' + POST['_base-version'] + '/tests/' + POST['brand'] + '/assets/' );
+			App.assets.getSVG( App.GUIPATH + '_base/' + POST['module-_base'] + '/tests/' + POST['brand'] + '/assets/' );
 		}
 
 

@@ -35,12 +35,12 @@
 
 		//////////////////////////////////////////////////| BASE
 		var lessContent = App.branding.replace(
-			Fs.readFileSync(App.GUIPATH + '_base/' + POST['_base-version'] + '/less/base-mixins.less', 'utf8'),
-			['[Module-Version-Brand]', ' _base v' + POST['_base-version'] + ' ' + POST['brand']]
+			Fs.readFileSync(App.GUIPATH + '_base/' + POST['module-_base'] + '/less/base-mixins.less', 'utf8'),
+			['[Module-Version-Brand]', ' _base v' + POST['module-_base'] + ' ' + POST['brand']]
 		);
 
 		lessContent += "\n" + App.branding.replace(
-			Fs.readFileSync( App.GUIPATH + '_base/' + POST['_base-version'] + '/less/settings.less', 'utf8'),
+			Fs.readFileSync( App.GUIPATH + '_base/' + POST['module-_base'] + '/less/settings.less', 'utf8'),
 			['[Brand]', POST['brand']]
 		);
 
