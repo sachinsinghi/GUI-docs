@@ -1,7 +1,7 @@
 /*![Module-Version]*/
 /***************************************************************************************************************************************************************
  *
- * Westpac GUI framework
+ * Westpac GUI pages
  *
  * This base includes a debugging console and debounce and throttle functions.
  *
@@ -10,7 +10,7 @@
 'use strict';
 
 
-var GUI = (function guiInit() {
+var App = (function Init() {
 
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	// settings
@@ -20,16 +20,16 @@ var GUI = (function guiInit() {
 
 
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
-		// Initiate GUI
+		// Initiate App
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
-		init: function GuiInit() {
+		init: function AppInit() {
 			if( !window.console ) { //removing console.log from IE8
 				console = {
 					log: function() {}
 				};
 			}
 
-			if( GUI.DEBUG ) console.log('%cDEBUGGING INFORMATION', 'font-size: 25px;');
+			if( App.DEBUG ) console.log('%cDEBUGGING INFORMATION', 'font-size: 25px;');
 
 			//remove fallback HTML class
 			$('html')
@@ -49,7 +49,7 @@ var GUI = (function guiInit() {
 		// @return  [function]
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
 		debounce: function Debounce(func, wait, immediate) {
-			GUI.debugging( 'Base: Debounce called', 'report' );
+			App.debugging( 'Base: Debounce called', 'report' );
 
 			var timeout;
 			return function() {
@@ -60,7 +60,7 @@ var GUI = (function guiInit() {
 					timeout = null;
 
 					if(!immediate) {
-						GUI.debugging( 'Base: Debounce executed (1)', 'report' );
+						App.debugging( 'Base: Debounce executed (1)', 'report' );
 
 						func.apply(context, args);
 					}
@@ -71,7 +71,7 @@ var GUI = (function guiInit() {
 				timeout = setTimeout(later, wait);
 
 				if(callNow) {
-					GUI.debugging( 'Base: Debounce executed (2)', 'report' );
+					App.debugging( 'Base: Debounce executed (2)', 'report' );
 
 					func.apply(context, args);
 				}
@@ -88,7 +88,7 @@ var GUI = (function guiInit() {
 		// @return  [function]
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
 		throttle: function Throttle(func, wait) {
-			GUI.debugging( 'Base: Throttle called', 'report' );
+			App.debugging( 'Base: Throttle called', 'report' );
 
 			wait || (wait = 250);
 			var last;
@@ -103,14 +103,14 @@ var GUI = (function guiInit() {
 					clearTimeout(deferTimer);
 
 					deferTimer = setTimeout(function() {
-						GUI.debugging( 'Base: Throttle executed (1)', 'report' );
+						App.debugging( 'Base: Throttle executed (1)', 'report' );
 
 						last = now;
 						func.apply(context, args);
 					}, wait);
 				}
 				else {
-					GUI.debugging( 'Base: Throttle executed (2)', 'report' );
+					App.debugging( 'Base: Throttle executed (2)', 'report' );
 
 					last = now;
 					func.apply(context, args);
@@ -130,23 +130,23 @@ var GUI = (function guiInit() {
 		debugging: function Debug( text, code ) {
 
 			if( code === 'report' ) {
-				if( GUI.DEBUG ) console.log('%c\u2611 ', 'color: green; font-size: 18px;', text);
+				if( App.DEBUG ) console.log('%c\u2611 ', 'color: green; font-size: 18px;', text);
 			}
 
 			else if( code === 'error' ) {
-				if( GUI.DEBUG ) console.log('%c\u2612 ', 'color: red; font-size: 18px;', text);
+				if( App.DEBUG ) console.log('%c\u2612 ', 'color: red; font-size: 18px;', text);
 			}
 
 			else if( code === 'interaction' ) {
-				if( GUI.DEBUG ) console.log('%c\u261C ', 'color: blue; font-size: 18px;', text);
+				if( App.DEBUG ) console.log('%c\u261C ', 'color: blue; font-size: 18px;', text);
 			}
 
 			else if( code === 'send' ) {
-				if( GUI.DEBUG ) console.log('%c\u219D ', 'color: pink; font-size: 18px;', text);
+				if( App.DEBUG ) console.log('%c\u219D ', 'color: pink; font-size: 18px;', text);
 			}
 
 			else if( code === 'receive' ) {
-				if( GUI.DEBUG ) console.log('%c\u219C ', 'color: pink; font-size: 18px;', text);
+				if( App.DEBUG ) console.log('%c\u219C ', 'color: pink; font-size: 18px;', text);
 			}
 
 		}
@@ -157,4 +157,4 @@ var GUI = (function guiInit() {
 
 
 //run GUI
-GUI.init();
+App.init();

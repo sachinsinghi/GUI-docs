@@ -12,11 +12,11 @@
 {% endcomment %}
 
 
-<button type="submit" class="btn btn-primary btn-soft">
+<button type="submit" class="btn btn-primary btn-soft js-blender-everything">
 	<span class="btn-text">Give me everything</span>
 </button>
 
-<form class="blender" method="POST" action="http://localhost:1337/blender">
+<form class="blender js-blender" method="POST" action="http://localhost:1337/blender">
 	{% for category in site.data.GUI.modules %}
 		<fieldset class="blender-category">
 			<legend class="blender-category-headline">{{ category[0] }}</legend>
@@ -38,7 +38,9 @@
 						{% include showVersions.liquid  mod = module %}
 
 						<label class="checkbox">
-							<input class="checkbox-input" type="checkbox" name="{{ module[1].ID }}-enable"{% if _isFixed %} checked="checked" disabled{% endif %}>
+							<input class="checkbox-input js-blender-checkbox js-blender-{{ module[1].ID }}" type="checkbox" name="{{ module[1].ID }}-enable"
+								{% if _isFixed %}checked="checked" disabled{% endif %}
+							>
 							<span class="checkbox-text">Add {{ module[1].name }} to Blender</span>
 						</label>
 					</li>

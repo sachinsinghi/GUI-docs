@@ -6,5 +6,4 @@ npm-debug.log
 *.sublime-project
 *.sublime-workspace
 .idea
-GUI-source-master
 jekyll/

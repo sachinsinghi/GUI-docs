@@ -14,8 +14,15 @@
 
 {% assign mod = include.mod %}
 
-<select class="blender-version" name="{{ mod[1].ID }}-version">
+<select class="blender-version js-blender-versions" name="{{ mod[1].ID }}-version">
 	{% for version in mod[1].versions %}
-		<option value="{{ version[0] }}">v{{ version[0] }}</option>
+		{% assign dependencies = "" %}
+		{% for dep in version[1].dependencies %}
+			{% capture dependencies %}{{ dependencies }}, .js-blender-{{ dep }}{% endcapture %}
+		{% endfor %}
+
+		<option value="{{ version[0] }}"
+			{% if dependencies.size > 0 %}data-dependencies="{{ dependencies | slice: 2, dependencies.size }}"{% endif %}
+		>v{{ version[0] }}</option>
 	{% endfor %}
 </select>
