@@ -31,7 +31,7 @@ var Archiver = require('archiver');
 
 		App.response.writeHead(200, {
 			'Content-Type': 'application/zip',
-			'Content-disposition': 'attachment; filename=GUI-flavour.zip',
+			'Content-disposition': 'attachment; filename=GUI-flavour-' + App.selectedModules.brand + '.zip',
 		});
 
 		App.zip.archive.pipe( App.response );
