@@ -157,6 +157,9 @@ var SETTINGS = function() {
 			'js': 'HTML/_assets/js',
 			'less': 'HTML/_assets/less',
 			'svg': 'HTML/_assets/svg',
+			'css': 'HTML/_assets/css',
+			'font': 'HTML/_assets/font',
+			'img': 'HTML/_assets/img',
 			'fileserver': 'file-server',
 			'temp': '.temp',
 			'root': '',
@@ -325,6 +328,52 @@ module.exports = function(grunt) {
 		// Replace version
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
 		replace: {
+			debugDev: {
+				src: [
+					'<%= SETTINGS.folder.prod %>/**/*.html',
+					'<%= SETTINGS.folder.prod %>/**/*.md',
+					'<%= SETTINGS.folder.prod %>/**/*.js',
+					'<%= SETTINGS.folder.prod %>/**/*.css',
+					'<%= SETTINGS.folder.prod %>/**/*.liquid',
+					'<%= SETTINGS.folder.fileserver %>/server.js',
+					'!<%= SETTINGS.folder.prod %>/_site/**/*',
+				],
+				overwrite: true,
+				replacements: [
+					{
+						from: '[Debug]',
+						to: 'true',
+					},
+					{
+						from: '[-Debug-]',
+						to: '[Debug]',
+					},
+				],
+			},
+
+			debugProd: {
+				src: [
+					'<%= SETTINGS.folder.prod %>/**/*.html',
+					'<%= SETTINGS.folder.prod %>/**/*.md',
+					'<%= SETTINGS.folder.prod %>/**/*.js',
+					'<%= SETTINGS.folder.prod %>/**/*.css',
+					'<%= SETTINGS.folder.prod %>/**/*.liquid',
+					'<%= SETTINGS.folder.fileserver %>/server.js',
+					'!<%= SETTINGS.folder.prod %>/_site/**/*',
+				],
+				overwrite: true,
+				replacements: [
+					{
+						from: '[Debug]',
+						to: 'false',
+					},
+					{
+						from: '[-Debug-]',
+						to: '[Debug]',
+					},
+				],
+			},
+
 			node: {
 				src: [
 					'<%= SETTINGS.folder.fileserver %>/server.js',
@@ -344,7 +393,7 @@ module.exports = function(grunt) {
 
 			jekyll: {
 				src: [
-					'<%= SETTINGS.folder.prod %>/_includes/**/*',
+					'<%= SETTINGS.folder.prod %>/_includes/**/*.liquid',
 					'<%= SETTINGS.folder.prod %>/_layouts/**/*',
 					'<%= SETTINGS.folder.prod %>/_data/**/*',
 				],
@@ -360,7 +409,7 @@ module.exports = function(grunt) {
 			BOM: {
 				src: [
 					'<%= SETTINGS.folder.prod %>/BOM/**/*.js',
-					'<%= SETTINGS.folder.prod %>/BOM/**/*.less',
+					'<%= SETTINGS.folder.prod %>/BOM/**/*.css',
 					'<%= SETTINGS.folder.prod %>/BOM/**/*.html',
 					'<%= SETTINGS.folder.prod %>/BOM/**/*.md',
 					'<%= SETTINGS.folder.prod %>/BOM/**/*.liquid',
@@ -384,7 +433,7 @@ module.exports = function(grunt) {
 			BSA: {
 				src: [
 					'<%= SETTINGS.folder.prod %>/BSA/**/*.js',
-					'<%= SETTINGS.folder.prod %>/BSA/**/*.less',
+					'<%= SETTINGS.folder.prod %>/BSA/**/*.css',
 					'<%= SETTINGS.folder.prod %>/BSA/**/*.html',
 					'<%= SETTINGS.folder.prod %>/BSA/**/*.md',
 					'<%= SETTINGS.folder.prod %>/BSA/**/*.liquid',
@@ -408,7 +457,7 @@ module.exports = function(grunt) {
 			STG: {
 				src: [
 					'<%= SETTINGS.folder.prod %>/STG/**/*.js',
-					'<%= SETTINGS.folder.prod %>/STG/**/*.less',
+					'<%= SETTINGS.folder.prod %>/STG/**/*.css',
 					'<%= SETTINGS.folder.prod %>/STG/**/*.html',
 					'<%= SETTINGS.folder.prod %>/STG/**/*.md',
 					'<%= SETTINGS.folder.prod %>/STG/**/*.liquid',
@@ -432,7 +481,7 @@ module.exports = function(grunt) {
 			WBC: {
 				src: [
 					'<%= SETTINGS.folder.prod %>/WBC/**/*.js',
-					'<%= SETTINGS.folder.prod %>/WBC/**/*.less',
+					'<%= SETTINGS.folder.prod %>/WBC/**/*.css',
 					'<%= SETTINGS.folder.prod %>/WBC/**/*.html',
 					'<%= SETTINGS.folder.prod %>/WBC/**/*.md',
 					'<%= SETTINGS.folder.prod %>/WBC/**/*.liquid',
@@ -519,6 +568,74 @@ module.exports = function(grunt) {
 				dest: '<%= SETTINGS.folder.fileserver %>/server.js',
 			},
 
+			grunticonBOM: {
+				files: {
+					'<%= SETTINGS.folder.prod %>/BOM/assets/css/symbols-<%= pkg.version %>.data.svg.css': [
+						'<%= SETTINGS.folder.prod %>/BOM/assets/css/symbols-<%= pkg.version %>.data.svg.css',
+						'<%= SETTINGS.folder.css %>/BOM/symbols.data.svg.css',
+					],
+					'<%= SETTINGS.folder.prod %>/BOM/assets/css/symbols-<%= pkg.version %>.data.png.css': [
+						'<%= SETTINGS.folder.prod %>/BOM/assets/css/symbols-<%= pkg.version %>.data.png.css',
+						'<%= SETTINGS.folder.css %>/BOM/symbols.data.png.css',
+					],
+					'<%= SETTINGS.folder.prod %>/BOM/assets/css/symbols-<%= pkg.version %>.fallback.css': [
+						'<%= SETTINGS.folder.prod %>/BOM/assets/css/symbols-<%= pkg.version %>.fallback.css',
+						'<%= SETTINGS.folder.css %>/BOM/symbols.fallback.css',
+					],
+				},
+			},
+
+			grunticonBSA: {
+				files: {
+					'<%= SETTINGS.folder.prod %>/BSA/assets/css/symbols-<%= pkg.version %>.data.svg.css': [
+						'<%= SETTINGS.folder.prod %>/BSA/assets/css/symbols-<%= pkg.version %>.data.svg.css',
+						'<%= SETTINGS.folder.css %>/BSA/symbols.data.svg.css',
+					],
+					'<%= SETTINGS.folder.prod %>/BSA/assets/css/symbols-<%= pkg.version %>.data.png.css': [
+						'<%= SETTINGS.folder.prod %>/BSA/assets/css/symbols-<%= pkg.version %>.data.png.css',
+						'<%= SETTINGS.folder.css %>/BSA/symbols.data.png.css',
+					],
+					'<%= SETTINGS.folder.prod %>/BSA/assets/css/symbols-<%= pkg.version %>.fallback.css': [
+						'<%= SETTINGS.folder.prod %>/BSA/assets/css/symbols-<%= pkg.version %>.fallback.css',
+						'<%= SETTINGS.folder.css %>/BSA/symbols.fallback.css',
+					],
+				},
+			},
+
+			grunticonSTG: {
+				files: {
+					'<%= SETTINGS.folder.prod %>/STG/assets/css/symbols-<%= pkg.version %>.data.svg.css': [
+						'<%= SETTINGS.folder.prod %>/STG/assets/css/symbols-<%= pkg.version %>.data.svg.css',
+						'<%= SETTINGS.folder.css %>/STG/symbols.data.svg.css',
+					],
+					'<%= SETTINGS.folder.prod %>/STG/assets/css/symbols-<%= pkg.version %>.data.png.css': [
+						'<%= SETTINGS.folder.prod %>/STG/assets/css/symbols-<%= pkg.version %>.data.png.css',
+						'<%= SETTINGS.folder.css %>/STG/symbols.data.png.css',
+					],
+					'<%= SETTINGS.folder.prod %>/STG/assets/css/symbols-<%= pkg.version %>.fallback.css': [
+						'<%= SETTINGS.folder.prod %>/STG/assets/css/symbols-<%= pkg.version %>.fallback.css',
+						'<%= SETTINGS.folder.css %>/STG/symbols.fallback.css',
+					],
+				},
+			},
+
+			grunticonWBC: {
+				files: {
+					'<%= SETTINGS.folder.prod %>/WBC/assets/css/symbols-<%= pkg.version %>.data.svg.css': [
+						'<%= SETTINGS.folder.prod %>/WBC/assets/css/symbols-<%= pkg.version %>.data.svg.css',
+						'<%= SETTINGS.folder.css %>/WBC/symbols.data.svg.css',
+					],
+					'<%= SETTINGS.folder.prod %>/WBC/assets/css/symbols-<%= pkg.version %>.data.png.css': [
+						'<%= SETTINGS.folder.prod %>/WBC/assets/css/symbols-<%= pkg.version %>.data.png.css',
+						'<%= SETTINGS.folder.css %>/WBC/symbols.data.png.css',
+					],
+					'<%= SETTINGS.folder.prod %>/WBC/assets/css/symbols-<%= pkg.version %>.fallback.css': [
+						'<%= SETTINGS.folder.prod %>/WBC/assets/css/symbols-<%= pkg.version %>.fallback.css',
+						'<%= SETTINGS.folder.css %>/WBC/symbols.fallback.css',
+					],
+				},
+			},
+
 			js: {
 				files: {
 					'<%= SETTINGS.folder.prod %>/BOM/assets/js/site-<%= pkg.version %>.min.js': [
@@ -582,7 +699,7 @@ module.exports = function(grunt) {
 				datasvgcss: 'symbols-<%= pkg.version %>.data.svg.css',
 				datapngcss: 'symbols-<%= pkg.version %>.data.png.css',
 				urlpngcss: 'symbols-<%= pkg.version %>.fallback.css',
-				cssprefix: '.symbol-',
+				cssprefix: '.sitesymbol-',
 				enhanceSVG: true,
 			},
 
@@ -740,6 +857,118 @@ module.exports = function(grunt) {
 				}],
 			},
 
+			//fonts
+			fontsBOM: {
+				files: [{
+					cwd: '<%= SETTINGS.folder.font %>/BOM/',
+					src: [
+						'**/*.eot',
+						'**/*.svg',
+						'**/*.ttf',
+						'**/*.woff',
+						'**/*.woff2',
+					],
+					dest: '<%= SETTINGS.folder.prod %>/BOM/assets/font/',
+					filter: 'isFile',
+					expand: true,
+				}],
+			},
+			fontsBSA: {
+				files: [{
+					cwd: '<%= SETTINGS.folder.font %>/BSA/',
+					src: [
+						'**/*.eot',
+						'**/*.svg',
+						'**/*.ttf',
+						'**/*.woff',
+						'**/*.woff2',
+					],
+					dest: '<%= SETTINGS.folder.prod %>/BSA/assets/font/',
+					filter: 'isFile',
+					expand: true,
+				}],
+			},
+			fontsSTG: {
+				files: [{
+					cwd: '<%= SETTINGS.folder.font %>/STG/',
+					src: [
+						'**/*.eot',
+						'**/*.svg',
+						'**/*.ttf',
+						'**/*.woff',
+						'**/*.woff2',
+					],
+					dest: '<%= SETTINGS.folder.prod %>/STG/assets/font/',
+					filter: 'isFile',
+					expand: true,
+				}],
+			},
+			fontsWBC: {
+				files: [{
+					cwd: '<%= SETTINGS.folder.font %>/WBC/',
+					src: [
+						'**/*.eot',
+						'**/*.svg',
+						'**/*.ttf',
+						'**/*.woff',
+						'**/*.woff2',
+					],
+					dest: '<%= SETTINGS.folder.prod %>/WBC/assets/font/',
+					filter: 'isFile',
+					expand: true,
+				}],
+			},
+
+			//fonts
+			imgBOM: {
+				files: [{
+					cwd: '<%= SETTINGS.folder.img %>/BOM/',
+					src: [
+						'**/*.png',
+						'**/*.jpg',
+					],
+					dest: '<%= SETTINGS.folder.prod %>/BOM/assets/img/',
+					filter: 'isFile',
+					expand: true,
+				}],
+			},
+			imgBSA: {
+				files: [{
+					cwd: '<%= SETTINGS.folder.img %>/BSA/',
+					src: [
+						'**/*.png',
+						'**/*.jpg',
+					],
+					dest: '<%= SETTINGS.folder.prod %>/BSA/assets/img/',
+					filter: 'isFile',
+					expand: true,
+				}],
+			},
+			imgSTG: {
+				files: [{
+					cwd: '<%= SETTINGS.folder.img %>/STG/',
+					src: [
+						'**/*.png',
+						'**/*.jpg',
+					],
+					dest: '<%= SETTINGS.folder.prod %>/STG/assets/img/',
+					filter: 'isFile',
+					expand: true,
+				}],
+			},
+			imgWBC: {
+				files: [{
+					cwd: '<%= SETTINGS.folder.img %>/WBC/',
+					src: [
+						'**/*.png',
+						'**/*.jpg',
+					],
+					dest: '<%= SETTINGS.folder.prod %>/WBC/assets/img/',
+					filter: 'isFile',
+					expand: true,
+				}],
+			},
+
 			//HTML underscore folders
 			HTML_: {
 				files: [{
@@ -884,11 +1113,12 @@ module.exports = function(grunt) {
 					// 'lintspaces',
 					'_buildNode',
 					'replace:node',
+					'replace:debugDev',
 					'wakeup',
 				],
 			},
 
-			GUIjs: {
+			js: {
 				files: [
 					'<%= SETTINGS.folder.js %>/**/*.js',
 				],
@@ -901,12 +1131,13 @@ module.exports = function(grunt) {
 					'replace:BSA',
 					'replace:STG',
 					'replace:WBC',
+					'replace:debugDev',
 					'jekyll:dev',
 					'wakeup',
 				],
 			},
 
-			GUIless: {
+			less: {
 				files: [
 					'<%= SETTINGS.folder.less %>/**/*.less',
 				],
@@ -918,25 +1149,30 @@ module.exports = function(grunt) {
 					'replace:BSA',
 					'replace:STG',
 					'replace:WBC',
+					'replace:debugDev',
 					'jekyll:dev',
 					'wakeup',
 				],
 			},
 
-			GUIsvg: {
+			svg: {
 				files: [
 					'<%= SETTINGS.folder.less %>/svg/**/*.svg',
 				],
 				tasks: [
 					'grunticon',
 					'copy',
+					'concat:grunticonBOM',
+					'concat:grunticonBSA',
+					'concat:grunticonSTG',
+					'concat:grunticonWBC',
 					'clean:grunticon',
 					'jekyll:dev',
 					'wakeup',
 				],
 			},
 
-			GUIhtml: {
+			html: {
 				files: [
 					'<%= SETTINGS.folder.html %>/**/*.md',
 					'<%= SETTINGS.folder.html %>/**/*.liquid',
@@ -956,6 +1192,7 @@ module.exports = function(grunt) {
 					'replace:BSA',
 					'replace:STG',
 					'replace:WBC',
+					'replace:debugDev',
 					'jekyll:dev',
 					'wakeup',
 				],
@@ -1000,13 +1237,16 @@ module.exports = function(grunt) {
 		'concat:js',
 		'grunticon',
 		'copy',
+		'concat:grunticonBOM',
+		'concat:grunticonBSA',
+		'concat:grunticonSTG',
+		'concat:grunticonWBC',
 		'replace:jekyll',
 		'replace:BOM',
 		'replace:BSA',
 		'replace:STG',
 		'replace:WBC',
 		'clean:grunticon',
-		'jekyll:dev',
 	]);
 
 	grunt.registerTask('_buildNode', [
@@ -1018,17 +1258,19 @@ module.exports = function(grunt) {
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	// Build tasks
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	grunt.registerTask('default', [
+	grunt.registerTask('default', [ //run everything and watch with debug on
 		'font:title',
 		'_checkGUI',
 		'_buildDocs',
 		'_buildNode',
+		'replace:debugDev',
+		'jekyll:dev',
 		'wakeup',
 		'connect',
 		'watch',
 	]);
 
-	grunt.registerTask('node', [
+	grunt.registerTask('node', [ //run only node build and watch
 		'font:title',
 		'_checkGUI',
 		'_buildDocs',
@@ -1037,7 +1279,7 @@ module.exports = function(grunt) {
 		'watch',
 	]);
 
-	grunt.registerTask('gui', [
+	grunt.registerTask('gui', [ //check gui
 		'font:title',
 		'font:updating',
 		'downloadGUI',
@@ -1046,11 +1288,23 @@ module.exports = function(grunt) {
 		'wakeup',
 	]);
 
-	grunt.registerTask('build', [
+	grunt.registerTask('build', [ //run everything with debug on
 		'font:title',
 		'_checkGUI',
 		'_buildDocs',
 		'_buildNode',
+		'replace:debugProd',
+		'jekyll:prod',
+		'wakeup',
+	]);
+
+	grunt.registerTask('prod', [ //run everything with debug off
+		'font:title',
+		'_checkGUI',
+		'_buildDocs',
+		'_buildNode',
+		'replace:debugProd',
+		'jekyll:prod',
 		'wakeup',
 	]);
 

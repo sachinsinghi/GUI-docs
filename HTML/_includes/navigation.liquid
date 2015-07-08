@@ -20,6 +20,11 @@
 {% assign pages = site.pages | sort: "weight" %}
 {% assign rootLevel = page.weight %}
 
+{% assign hidden = page.weight | split: "-" %}
+{% if hidden.size > 1 %}
+	{% assign rootLevel = '0' %}
+{% endif %}
+
 {% assign levels = rootLevel | split: "." %}
 {% assign levels = levels.size %}
 
@@ -200,10 +205,25 @@ maxLevel: {{ maxLevel }}{% endcomment %}
 
 
 					{% comment %}
+						MAKING URL RELATIVE
+					{% endcomment %}
+					{% assign thisUrl = thisPage.url %}
+					{% assign urlPrefix = thisUrl | slice: 0, 5 %}
+					{% capture urlBrand %}/{{ page.brand }}/{% endcapture %}
+
+					{% if urlPrefix == urlBrand %}
+						{% assign thisUrl = thisUrl | slice: 5, thisUrl.size %}
+					{% endif %}
+					{% if thisUrl == '' %}
+						{% assign thisUrl = '.' %}
+					{% endif %}
+
+
+					{% comment %}
 						OUTPUT THE LINK
 					{% endcomment %}
 					<li class="navigation-item{{ activeClass }}{{ parentClass }}{{ firstClass }} item-{{ thisPage.title | handleize }}">
-						<a class="navigation-link{% if page.url == thisPage.url %} is-active{% endif %}" href="{{ thisPage.url }}">
+						<a class="navigation-link{% if page.url == thisPage.url %} is-active{% endif %}" href="{{ thisUrl }}">
 							{{ thisPage.title }}
 						</a>
 

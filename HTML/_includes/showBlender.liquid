@@ -12,36 +12,45 @@
 {% endcomment %}
 
 
-{% assign server = 'http://localhost' %}
-{% comment %}{% assign server = 'http://128.199.237.107' %}{% endcomment %}
+{% comment %}Set the file-server url depending on the local environment{% endcomment %}
+{% if "[Debug]" == "true" %}
+	{% assign server = 'http://localhost' %}
+	{% assign exclude = '' %}
+{% else %}
+	{% assign server = 'http://128.199.237.107' %}
+	{% assign exclude = '_testing' %}
+{% endif %}
 
+{% comment %}Print the form{% endcomment %}
 <form class="blender js-blender" method="POST" action="{{ server }}:8080/blender">
 	{% for category in site.data.GUI.modules %}
-		<fieldset class="blender-category">
-			<legend class="blender-category-headline">{{ category[0] }}</legend>
+		{% unless category[0] == exclude %}
+			<fieldset class="blender-category">
+				<legend class="blender-category-headline">{{ category[0] }}</legend>
 
-			<ul class="blender-modules">
-				{% for module in category[1] %}
-					{% comment %}
-						checking for fixed elements
-					{% endcomment %}
-					{% if module[1].category == '_fixed' %}
-						{% assign _isFixed = true %}
-					{% else %}
-						{% assign _isFixed = false %}
-					{% endif %}
+				<ul class="blender-modules">
+					{% for module in category[1] %}
+						{% comment %}
+							checking for fixed elements
+						{% endcomment %}
+						{% if module[1].category == '_fixed' %}
+							{% assign _isFixed = true %}
+						{% else %}
+							{% assign _isFixed = false %}
+						{% endif %}
 
-					<li class="blender-module">
-						<label for="{{ module[1].ID }}">{{ module[1].description }}</label>
-						<a href="{{ module[1].category }}/#{{ module[1].ID }}" target="_blank">(i)</a>
+						<li class="blender-module">
+							<label for="{{ module[1].ID }}">{{ module[1].description }}</label>
+							<a href="{{ module[1].category }}/#{{ module[1].ID }}" target="_blank">(i)</a>
 
-						{% include showVersions.liquid  mod = module %}
-					</li>
+							{% include showVersions.liquid  mod = module %}
+						</li>
 
-				{% endfor %}
-			</ul>
+					{% endfor %}
+				</ul>
 
-		</fieldset>
+			</fieldset>
+		{% endunless %}
 	{% endfor %}
 
 	<fieldset class="blender-category">

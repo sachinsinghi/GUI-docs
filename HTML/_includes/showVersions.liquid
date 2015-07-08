@@ -30,6 +30,7 @@
 	{% endcapture %}
 {% endfor %}
 
+{% comment %}Print select{% endcomment %}
 <select class="blender-version js-blender-module" name="module-{{ mod[1].ID }}" id="{{ mod[1].ID }}">
 	{% unless mod[1].ID == "_base" %}
 		<option value="nil">Don't add</option>
