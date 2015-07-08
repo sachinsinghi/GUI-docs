@@ -63,7 +63,7 @@
 	module.getFlavourURL = function() {
 		App.debugging( 'Banner: Generating flavour link', 'report' );
 
-		var url = App.BLENDERURL + '#';
+		var url = App.GUIRURL + App.selectedModules.brand + '/blender/#';
 
 		url += '/' + App.selectedModules.base.ID + ':' + App.selectedModules.base.version; //adding base
 

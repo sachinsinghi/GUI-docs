@@ -30,6 +30,7 @@
 
 		var files = [];
 		var file = '';
+		var base = '';
 		var POST = App.POST;
 		var jquery = '';
 		var _includeJquery = POST.hasOwnProperty('jquery');
@@ -48,11 +49,15 @@
 
 		//////////////////////////////////////////////////| BASE
 		if( App.selectedModules.js ) {
-			files.push( App.GUIPATH + '_base/' + POST['module-_base'] + '/js/020-base.js' ); //include base js
+			base = Fs.readFileSync( App.GUIPATH + '_base/' + POST['module-_base'] + '/js/020-base.js', 'utf8');
+			base = App.branding.replace(base, ['[-Debug-]', 'false']); //remove debugging infos
+
+			var base = UglifyJS.minify( base, { fromString: true });
 
 			if( _includeOriginal ) {
 				file = Fs.readFileSync( App.GUIPATH + '_base/' + POST['module-_base'] + '/js/020-base.js', 'utf8');
 				file = App.branding.replace(file, ['[Module-Version]', ' Base v' + POST['module-_base'] + ' ']); //name the current version
+				file = App.branding.replace(file, ['[Debug]', 'false']); //remove debugging infos
 				App.zip.addFile( file, '/GUI-flavour/source/js/020-base.js' );
 			}
 		}
@@ -84,7 +89,7 @@
 			result.code = '';
 		}
 
-		var source = App.banner.attach( jquery + result.code ); //attach a banner to the top of the file with a URL of this build
+		var source = App.banner.attach( jquery + base.code + result.code ); //attach a banner to the top of the file with a URL of this build
 
 		App.zip.queuing('js', false); //js queue is done
 		App.zip.addFile( source, '/GUI-flavour/assets/js/gui.min.js' ); //add minified file to zip

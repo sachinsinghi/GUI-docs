@@ -1,5 +1,5 @@
 {% comment %}
-	This snippet prints a base tag in the header
+	This snippet prints a base tag in the header depending on it's current weight
 
 	Usage:
 		{% include base.liquid  brand = "BOM" %}
@@ -8,9 +8,16 @@
 		HTML direct output
 
 	Required:
-		- none -
+		The page needs a correct weight value in it's front matter
 {% endcomment %}
 
 
-<base href="/{{ include.brand }}/">
-{% comment %}<base href="http://gel.westpacgroup.com.au/newGUI/_site/{{ include.brand }}/">{% endcomment %}
+{% assign level = page.weight | split: "." %}
+{% assign level = level.size %}
+{% assign base = '' %}
+
+{% for l in (1..level) %}
+	{% capture base %}{{ base }}../{% endcapture %}
+{% endfor %}
+
+<base href="{{ base }}{{ include.brand }}/">

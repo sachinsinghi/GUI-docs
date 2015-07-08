@@ -2,9 +2,3 @@ name: "GUI"
 
 permalink: pretty
 exclude: ["node_modules/"]
-
-jekyll-press:
-	exclude: ['css/*', 'js/*'] # Exclude files from processing - file name, glob pattern or array of file names and glob patterns
-	js_options: {}      # js minifier options
-	css_options: {}     # css minifier options
-	html_options: {}    # html minifier options

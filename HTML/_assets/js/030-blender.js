@@ -21,6 +21,7 @@
 		App.debugging( 'Blender: Initiating', 'report' );
 
 		if( $('.js-blender').length ) {
+			App.debugging( 'Blender: Found instance', 'report' );
 
 			//////////////////////////////////////////////////| CHECKING DEPENDENCIES
 			$('.js-blender-module').on('change', function() {
@@ -36,6 +37,7 @@
 				else { //otherwise select precise version
 					$depend.prop('selected', true);
 				}
+				$depend.trigger('change');
 
 
 				$this.siblings('.js-blender-newer').remove(); //remove warnings
