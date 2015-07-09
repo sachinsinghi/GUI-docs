@@ -46,6 +46,11 @@
 	<![endif]-->
 </head>
 <body>
+<% if( _hasJS ) { %>
+	<noscript>
+		<p role="alert">This website needs Javascript to work properly.</p>
+	</noscript>
+<% } %>
 
 	<div class="container">
 		<div class="row">
@@ -111,6 +116,12 @@
 							</p>
 						</li>
 <% if( _hasJS ) { %>
+						<li>
+							<p>
+								<strong>Right after the opening &lt;body&gt; tag:</strong> A conditional noscript block.<br>
+								<small>This informs screenreaders and visitors in general that javascript is turned off and that it is needed for this page.</small>
+							</p>
+						</li>
 						<li>
 							<p>
 								<strong>Before the closing &lt;/body&gt; tag:</strong> The gui.min.js file.<br>
