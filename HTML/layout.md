@@ -5,4 +5,4 @@ weight: "010.150"
 brand: [Brand]
 ---
 
-Layout
+{% include showModules.liquid  cat = "Layout" %}

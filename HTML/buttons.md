@@ -5,4 +5,4 @@ weight: "010.030"
 brand: [Brand]
 ---
 
-Buttons
+{% include showModules.liquid  cat = "Buttons" %}

@@ -1,0 +1,23 @@
+{% comment %}
+	This snippet prints all modules in a specified category
+
+	Usage:
+		{% include showModules.liquid  cat = "Other stuff" %}
+
+	Return:
+		HTML direct output
+
+	Required:
+		site.data.GUI  [jekyll data object]  The GUI.json in jekylls _data folder
+		cat            [string]              The name of the category in the GUI.json
+{% endcomment %}
+
+
+{% assign category = include.cat %}
+
+<div class="category">
+	{% for module in site.data.GUI.modules[category] %}
+		{% assign thisModule = module[1] %}
+		{% include showVersions.liquid  mod = thisModule %}
+	{% endfor %}
+</div>

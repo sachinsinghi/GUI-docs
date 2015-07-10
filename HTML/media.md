@@ -5,4 +5,4 @@ weight: "010.110"
 brand: [Brand]
 ---
 
-Media
+{% include showModules.liquid  cat = "Media" %}

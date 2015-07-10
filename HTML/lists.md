@@ -5,4 +5,4 @@ weight: "010.020"
 brand: [Brand]
 ---
 
-Lists
+{% include showModules.liquid  cat = "Lists" %}

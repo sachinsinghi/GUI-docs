@@ -24,12 +24,12 @@
 			App.debugging( 'Blender: Found instance', 'report' );
 
 			//////////////////////////////////////////////////| CHECKING DEPENDENCIES
-			$('.js-blender-module').on('change', function() {
-				App.debugging( 'Blender: Module selected', 'interaction' );
+			$('.js-blender-version').on('change', function() {
+				App.debugging( 'Blender: Version selected', 'interaction' );
 
 				var $this = $(this);
 				var dependencies = $this.find(':checked').attr('data-dependencies');
-				var $depend = $( '.js-blender-module option' + dependencies );
+				var $depend = $( '.js-blender-version option' + dependencies );
 
 				if( $depend.length > 1 ) { //select latest if no version is given
 					$depend.first().prop('selected', true);
@@ -69,7 +69,7 @@
 			if( hash[i] !== undefined ) {
 
 				var module = hash[i].split(':');
-				var $version = $('.js-blender-module[name="module-' + module[0] + '"]');
+				var $version = $('.js-blender-version[name="module-' + module[0] + '"]');
 
 				$version
 					.val( module[1] ) //select version

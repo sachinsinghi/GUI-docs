@@ -1,0 +1,47 @@
+{% comment %}
+	This snippet prints a version dropdown for a specific module
+
+	Usage:
+		{% include showVersionDropdown.liquid  mod = site.data.GUI.modules.buttons.buttons %}
+
+	Return:
+		HTML direct output
+
+	Required:
+		site.data.GUI  [jekyll data object]  The GUI.json in jekylls _data folder
+		mod            [object]              The GUI.json object for this particular module
+{% endcomment %}
+
+
+{% assign mod = include.mod %}
+{% assign versions = '' %}
+
+<div class="input-field-select-wrapper">
+	{% unless mod[1].versions.size == nil %}
+
+		{% comment %}Reverse order to have newest option on top{% endcomment %}
+		{% for version in mod[1].versions %}
+			{% assign dependencies = "" %}
+			{% for dep in version[1].dependencies %}
+				{% capture dependencies %}{{ dependencies }}, .js-blender-{{ dep | handleize }}{% endcapture %}
+			{% endfor %}
+
+			{% capture versions %}
+				<option class="js-blender-{{ mod[1].ID }} js-blender-{{ mod[1].ID }}{{ version[0] | handleize }}" value="{{ version[0] }}"
+					{% if dependencies.size > 0 %}data-dependencies="{{ dependencies | slice: 2, dependencies.size }}"{% endif %}
+					data-version="{{ version[0] | handleize }}"
+				>Add {{ mod[1].name }} v{{ version[0] }}</option>
+				{{ versions }}
+			{% endcapture %}
+		{% endfor %}
+
+		{% comment %}Print select{% endcomment %}
+		<select class="input-field-select blender-version js-blender-version" name="module-{{ mod[1].ID }}" id="{{ mod[1].ID }}" data-module="{{ mod[1].ID }}">
+			{% unless mod[1].ID == "_base" %}
+				<option value="nil">Don't add</option>
+			{% endunless %}
+			{{ versions }}
+		</select>
+
+	{% endunless %}
+</div>

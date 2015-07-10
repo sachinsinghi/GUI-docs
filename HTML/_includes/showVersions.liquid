@@ -1,5 +1,5 @@
 {% comment %}
-	This snippet prints a version dropdown for a specific module
+	This snippet prints a module HTML for each version
 
 	Usage:
 		{% include showVersions.liquid  mod = site.data.GUI.modules.buttons.buttons %}
@@ -8,34 +8,22 @@
 		HTML direct output
 
 	Required:
-		mod  [object]  The GUI.json object for this particular module
+		site.data.GUI  [jekyll data object]  The GUI.json in jekylls _data folder
+		mod            [object]              The GUI.json object for this particular module
 {% endcomment %}
 
 
-{% assign mod = include.mod %}
-{% assign versions = '' %}
+{% assign module = include.mod %}
 
-{% comment %}Reverse order to have newest option on top{% endcomment %}
-{% for version in mod[1].versions %}
-	{% assign dependencies = "" %}
-	{% for dep in version[1].dependencies %}
-		{% capture dependencies %}{{ dependencies }}, .js-blender-{{ dep | handleize }}{% endcapture %}
+<div class="modules js-modules js-blender-module{{ module[1].ID }}">
+	{% include showVersionDropdown.liquid  mod = module %}
+
+	{% for version in module[1].versions %}
+		<div class="module js-blender-versionhtml js-blender-version{{ version[0] | handleize }}
+			{% if forloop.last %}is-visible{% endif %}
+		">
+			{% capture path %}modules/{{ module[1].ID }}/{{ version[0] }}.liquid{% endcapture %}
+			{% include {{ path }} %}
+		</div>
 	{% endfor %}
-
-	{% capture versions %}
-		<option class="js-blender-{{ mod[1].ID }} js-blender-{{ mod[1].ID }}{{ version[0] | handleize }}" value="{{ version[0] }}"
-			{% if dependencies.size > 0 %}data-dependencies="{{ dependencies | slice: 2, dependencies.size }}"{% endif %}
-		>Add {{ mod[1].name }} v{{ version[0] }}</option>
-		{{ versions }}
-	{% endcapture %}
-{% endfor %}
-
-{% comment %}Print select{% endcomment %}
-<div class="input-field-select-wrapper">
-	<select class="input-field-select blender-version js-blender-module" name="module-{{ mod[1].ID }}" id="{{ mod[1].ID }}">
-		{% unless mod[1].ID == "_base" %}
-			<option value="nil">Don't add</option>
-		{% endunless %}
-		{{ versions }}
-	</select>
 </div>
