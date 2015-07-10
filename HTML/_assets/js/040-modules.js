@@ -34,7 +34,7 @@
 				var $version = $('.js-blender-module' + module + ' .js-blender-version' + version);
 				var $modules = $('.js-blender-module' + module + ' .js-blender-versionhtml');
 
-				if( $this.val() != '' ) {
+				if( $this.val() !== 'nil' ) {
 					$modules.removeClass('is-visible');
 					$version.addClass('is-visible');
 				}
