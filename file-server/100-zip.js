@@ -79,7 +79,7 @@ var Archiver = require('archiver');
 		else {
 			if( content.length > 0 ) { //don't need no empty files ;)
 				App.zip.files.push({ //collect file for later adding
-					content: content,
+					content: '/GUI-flavour' + content,
 					name: archivePath,
 				});
 			}

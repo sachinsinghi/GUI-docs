@@ -42,7 +42,7 @@
 		});
 
 		App.zip.queuing('html', false); //html queue is done
-		App.zip.addFile( index, '/GUI-flavour/index.html' );
+		App.zip.addFile( index, '/index.html' );
 
 	};
 
