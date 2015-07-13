@@ -56,10 +56,10 @@
 
 
 		//adding files to zip
-		App.zip.addFile( App.assets.svgfiles.svg, '/GUI-flavour/assets/css/symbols.data.svg.css' );
-		App.zip.addFile( App.assets.svgfiles.png, '/GUI-flavour/assets/css/symbols.data.png.css' );
+		App.zip.addFile( App.assets.svgfiles.svg, '/assets/css/symbols.data.svg.css' );
+		App.zip.addFile( App.assets.svgfiles.png, '/assets/css/symbols.data.png.css' );
 		App.zip.queuing('assets', false); //assets queue is done
-		App.zip.addFile( App.assets.svgfiles.fallback, '/GUI-flavour/assets/css/symbols.fallback.css' );
+		App.zip.addFile( App.assets.svgfiles.fallback, '/assets/css/symbols.fallback.css' );
 
 	};
 
@@ -80,7 +80,7 @@
 			'*.woff2',
 		];
 
-		App.zip.addBulk( folder, files, '/GUI-flavour/assets/font/' );
+		App.zip.addBulk( folder, files, '/assets/font/' );
 
 	};
 
@@ -94,7 +94,7 @@
 		App.debugging( 'Assets: Getting svg files', 'report' );
 
 		//////////////////////////////////////////////////| ADDING PNGs
-		App.zip.addBulk( folder + 'img/', [ '*.png' ], '/GUI-flavour/assets/img/' );
+		App.zip.addBulk( folder + 'img/', [ '*.png' ], '/assets/img/' );
 
 		//////////////////////////////////////////////////| BUILDING CSS FILES
 		App.assets.svgfiles.svg += Fs.readFileSync( folder + 'css/symbols.data.svg.css', 'utf8'); //svg

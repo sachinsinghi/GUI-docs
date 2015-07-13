@@ -8,7 +8,7 @@
 		HTML direct output
 
 	Required:
-		- none -
+		site.data.GUI  [jekyll data object]  The GUI.json in jekylls _data folder
 {% endcomment %}
 
 
@@ -43,7 +43,7 @@
 							<label for="{{ module[1].ID }}">{{ module[1].description }}</label>
 							<a href="{{ module[1].category }}/#{{ module[1].ID }}" target="_blank">(i)</a>
 
-							{% include showVersions.liquid  mod = module %}
+							{% include showVersionDropdown.liquid  mod = module %}
 						</li>
 
 					{% endfor %}

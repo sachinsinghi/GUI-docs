@@ -14,7 +14,6 @@
 
 <head>
 	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width">
 
 	<title>GUI example page</title>
@@ -46,6 +45,11 @@
 	<![endif]-->
 </head>
 <body>
+<% if( _hasJS ) { %>
+	<noscript>
+		<p role="alert">This website needs Javascript to work properly.</p>
+	</noscript>
+<% } %>
 
 	<div class="container">
 		<div class="row">
@@ -65,25 +69,34 @@
 						<strong>Your GUI Blend URL:</strong> <a href="<%= blendURL %>" target="_blank"><%= blendURL %></a>
 					</p>
 					<p>
-						<strong>To install</strong> this GUI Blend you need to follow the below points:
+						You can find all brand blends here:
+						<ul>
+							<li><a href="<%= blendURLBOM %>" target="_blank">BOM</a></li>
+							<li><a href="<%= blendURLBSA %>" target="_blank">BSA</a></li>
+							<li><a href="<%= blendURLSTG %>" target="_blank">STG</a></li>
+							<li><a href="<%= blendURLWBC %>" target="_blank">WBC</a></li>
+						</ul>
+					</p>
+					<p>
+						To install <strong>this GUI Blend you need to follow the below points:</strong>
 					</p>
 					<ol>
 						<li>
 							<p>
-								<strong>On the very top:</strong> Conditional &lt;html&gt; tag with "no-js" class.<br>
+								On the very top: <strong>Conditional &lt;html&gt; tag with "no-js" class.</strong><br>
 								<small>This is so our CSS can select older IE versions. The "no-js" class is replaced with "js" as soon as js runs.</small>
 							</p>
 						</li>
 						<li>
 							<p>
-								<strong>Inside the header:</strong> Three meta tags.<br>
-								<small>Those are for encoding, compatibility and viewport sizing.</small>
+								Inside the header: <strong>Two meta tags.</strong><br>
+								<small>Those are for encoding and viewport sizing.</small>
 							</p>
 						</li>
 <% if( _hasSVG ) { %>
 						<li>
 							<p>
-								<strong>Inside the header:</strong> The grunticon stylesheet loader.<br>
+								Inside the header: <strong>The grunticon stylesheet loader.</strong><br>
 								<small>
 									To allow us to SVGs in the GUI we need some smarts to load the appropriate stylesheet.
 									To use your icons now include them like so: &lt;span class="icon icon-size-sm icon-face-happy"&gt;&lt;/span&gt;
@@ -94,26 +107,32 @@
 <% } %>
 						<li>
 							<p>
-								<strong>Inside the header:</strong> A minified inline script.<br>
+								Inside the header: <strong>A minified inline script.</strong><br>
 								<small>We remove the aformentioned "no-js" class here to avoid any flashes of styling.</small>
 							</p>
 						</li>
 						<li>
 							<p>
-								<strong>Inside the header:</strong> The gui.min.css file.<br>
+								Inside the header: <strong>The gui.min.css file.</strong><br>
 								<small>Your GUI-blend styles.</small>
 							</p>
 						</li>
 						<li>
 							<p>
-								<strong>Inside the header:</strong> Conditional scripts for older IE.<br>
+								Inside the header: <strong>Conditional scripts for older IE.</strong><br>
 								<small>These scripts are important to enable responsive layouts and HTML5 elements in IE8.</small>
 							</p>
 						</li>
 <% if( _hasJS ) { %>
 						<li>
 							<p>
-								<strong>Before the closing &lt;/body&gt; tag:</strong> The gui.min.js file.<br>
+								Right after the opening &lt;body&gt; tag: <strong>A conditional noscript block.</strong><br>
+								<small>This informs screenreaders and visitors in general that javascript is turned off and that it is needed for this page.</small>
+							</p>
+						</li>
+						<li>
+							<p>
+								Before the closing &lt;/body&gt; tag: <strong>The gui.min.js file.</strong><br>
 								<small>Your GUI-blend script.</small>
 							</p>
 						</li>

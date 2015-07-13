@@ -5,4 +5,4 @@ weight: "010.010"
 brand: [Brand]
 ---
 
-Typography
+{% include showModules.liquid  cat = "Typography" %}

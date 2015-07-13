@@ -5,4 +5,4 @@ weight: "010.140"
 brand: [Brand]
 ---
 
-Popovers
+{% include showModules.liquid  cat = "Popovers" %}

@@ -45,7 +45,7 @@
 		);
 
 		if( _includeOriginal ) {
-			App.zip.addFile( lessContent, '/GUI-flavour/source/less/_base.less' );
+			App.zip.addFile( lessContent, '/source/less/_base.less' );
 		}
 
 		lessContents += lessContent;
@@ -63,8 +63,8 @@
 				['[Brand]', POST['brand']]
 			);
 
-			if( _includeOriginal ) {
-				App.zip.addFile( lessContent, '/GUI-flavour/source/less/' + module.ID + '.less' );
+			if( _includeOriginal && module.less ) {
+				App.zip.addFile( lessContent, '/source/less/' + module.ID + '.less' );
 			}
 
 			lessContents += lessContent;
@@ -80,7 +80,7 @@
 			var source = App.banner.attach( output.css ); //attach a banner to the top of the file with a URL of this build
 
 			App.zip.queuing('css', false); //css queue is done
-			App.zip.addFile( source, '/GUI-flavour/assets/css/gui.min.css' );
+			App.zip.addFile( source, '/assets/css/gui.min.css' );
 
 		});
 

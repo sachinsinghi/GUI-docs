@@ -13,26 +13,23 @@
 
 
 <!DOCTYPE html>
-<!--[if lt IE 7]>
-	<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en">
-<![endif]-->
-<!--[if IE 7]>
-	<html class="no-js lt-ie9 lt-ie8" lang="en">
+<!--[if lt IE 8]>
+	<html class="no-js lt-ie8 lt-ie9" lang="en">
 <![endif]-->
 <!--[if IE 8]>
-	<html class="no-js lt-ie9" lang="en">
+	<html class="no-js lt-ie9 ie8" lang="en">
 <![endif]-->
 <!--[if IE 9 ]>
-	<html class="ie9">
+	<html class="no-js ie9" lang="en">
 <![endif]-->
 <!--[if !(IE)]><!-->
-	<html lang="en">
+	<html class="no-js" lang="en">
 <!--<![endif]-->
 
 <head>
 	<meta charset="UTF-8">
 	<meta name=viewport content="width=device-width, initial-scale=1">
-	{% include base.liquid  brand = "BOM" %}
+	{% include base.liquid  brand = page.brand %}
 
 	<title>{{ page.title }}</title>
 
@@ -40,5 +37,14 @@
 
 </head>
 <body class="js-body layout-{{ page.layout | handleize }} page-{{ page.title | handleize }}">
+	<noscript>
+		<p role="alert">This website needs Javascript to work properly.</p>
+	</noscript>
 
 	{% include IEwarning.liquid %}
+
+	<header>
+		{% include navigation.liquid  brand = page.brand %}
+
+		<a href="blender/">click here for blender</a>
+	</header>

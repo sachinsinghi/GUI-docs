@@ -1,8 +1,8 @@
 ---
 layout: default
-title: Accesibility
+title: Accessibility
 weight: "010.050"
 brand: [Brand]
 ---
 
-Accesibility
+{% include showModules.liquid  cat = "Accessibility" %}

@@ -33,12 +33,16 @@
 		index = _.template( index )({ //render the index template
 			_hasJS: App.selectedModules.js,
 			_hasSVG: App.selectedModules.svg,
-			blendURL: App.banner.getFlavourURL(),
+			blendURL: App.banner.getFlavourURL( App.selectedModules.brand ),
+			blendURLBOM: App.banner.getFlavourURL( 'BOM' ),
+			blendURLBSA: App.banner.getFlavourURL( 'BSA' ),
+			blendURLSTG: App.banner.getFlavourURL( 'STG' ),
+			blendURLWBC: App.banner.getFlavourURL( 'WBC' ),
 			GUIRURL: App.GUIRURL + App.selectedModules.brand + '/blender/',
 		});
 
 		App.zip.queuing('html', false); //html queue is done
-		App.zip.addFile( index, '/GUI-flavour/index.html' );
+		App.zip.addFile( index, '/index.html' );
 
 	};
 

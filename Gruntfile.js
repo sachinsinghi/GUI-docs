@@ -153,6 +153,7 @@ var SETTINGS = function() {
 	return {
 		'folder': {
 			'html': 'HTML',
+			'modules': 'HTML/_includes/modules',
 			'assets': 'HTML/_assets',
 			'js': 'HTML/_assets/js',
 			'less': 'HTML/_assets/less',
@@ -276,6 +277,38 @@ module.exports = function(grunt) {
 
 
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	// Custom grunt task to check all includes are there
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	grunt.registerTask('checkIncludes', 'Check if includes and GUI.json are aligned.', function( target ) {
+		var GUI = grunt.file.readJSON( SETTINGS().folder.GUIjson );
+		var target = target ? target : 'dev';
+
+		Object.keys( GUI.modules ).forEach(function iterateCategories( category ) {
+			Object.keys( GUI.modules[category] ).forEach(function iterateModules( module ) {
+
+				if( target == 'prod' && category != '_testing' || target == 'dev' ) { //exclude the _testing category all together in prod
+					var moduleObj = GUI.modules[category][module];
+
+					Object.keys( moduleObj.versions ).forEach(function interateVersions( version ) {
+						var path = SETTINGS().folder.modules + '/' + module + '/' + version + '.liquid';
+
+						grunt.verbose.writeln( 'Testing path: ' + path );
+
+						if( !grunt.file.exists(path) ) {
+							grunt.log.writeln();
+							grunt.log.error('The include for the module "' + Chalk.bgWhite.red(module) + '" in version "' + Chalk.bgWhite.red(version) + '" doesn\'t exist.');
+							grunt.log.writeln();
+							grunt.fail.warn('Create the file in "' + Chalk.bgWhite.red(path) + Chalk.styles.yellow.open + '" to proceed: ');
+						}
+
+					});
+				}
+			});
+		});
+	});
+
+
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	// Grunt tasks
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	grunt.initConfig({
@@ -320,6 +353,13 @@ module.exports = function(grunt) {
 
 			temp: [
 				'<%= SETTINGS.folder.temp %>/',
+			],
+
+			testing: [
+				'<%= SETTINGS.folder.prod %>/BOM/testing.md',
+				'<%= SETTINGS.folder.prod %>/BSA/testing.md',
+				'<%= SETTINGS.folder.prod %>/STG/testing.md',
+				'<%= SETTINGS.folder.prod %>/WBC/testing.md',
 			],
 		},
 
@@ -1258,14 +1298,8 @@ module.exports = function(grunt) {
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	// Build tasks
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	grunt.registerTask('default', [ //run everything and watch with debug on
-		'font:title',
-		'_checkGUI',
-		'_buildDocs',
-		'_buildNode',
-		'replace:debugDev',
-		'jekyll:dev',
-		'wakeup',
+	grunt.registerTask('default', [ //run build with watch
+		'build',
 		'connect',
 		'watch',
 	]);
@@ -1293,8 +1327,9 @@ module.exports = function(grunt) {
 		'_checkGUI',
 		'_buildDocs',
 		'_buildNode',
-		'replace:debugProd',
-		'jekyll:prod',
+		'replace:debugDev',
+		'checkIncludes:dev',
+		'jekyll:dev',
 		'wakeup',
 	]);
 
@@ -1304,6 +1339,8 @@ module.exports = function(grunt) {
 		'_buildDocs',
 		'_buildNode',
 		'replace:debugProd',
+		'checkIncludes:prod',
+		'clean:testing',
 		'jekyll:prod',
 		'wakeup',
 	]);
