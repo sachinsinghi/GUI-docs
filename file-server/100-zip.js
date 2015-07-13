@@ -79,8 +79,8 @@ var Archiver = require('archiver');
 		else {
 			if( content.length > 0 ) { //don't need no empty files ;)
 				App.zip.files.push({ //collect file for later adding
-					content: '/GUI-flavour' + content,
-					name: archivePath,
+					content: content,
+					name: '/GUI-flavour' + archivePath,
 				});
 			}
 		}
@@ -106,7 +106,7 @@ var Archiver = require('archiver');
 
 			App.zip.archive.bulk({ //add them all to the archive
 				expand: true,
-				cwd: cwd,
+				cwd: '/GUI-flavour' + cwd,
 				src: files,
 				dest: archivePath,
 				filter: 'isFile',
