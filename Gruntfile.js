@@ -680,18 +680,22 @@ module.exports = function(grunt) {
 				files: {
 					'<%= SETTINGS.folder.prod %>/BOM/assets/js/site-<%= pkg.version %>.min.js': [
 						'<%= SETTINGS.folder.js %>/**/*jquery*.js',
+						'<%= SETTINGS.folder.js %>/**/*store*.js',
 						'<%= SETTINGS.folder.prod %>/BOM/assets/js/site-<%= pkg.version %>.min.js',
 					],
 					'<%= SETTINGS.folder.prod %>/BSA/assets/js/site-<%= pkg.version %>.min.js': [
 						'<%= SETTINGS.folder.js %>/**/*jquery*.js',
+						'<%= SETTINGS.folder.js %>/**/*store*.js',
 						'<%= SETTINGS.folder.prod %>/BSA/assets/js/site-<%= pkg.version %>.min.js',
 					],
 					'<%= SETTINGS.folder.prod %>/STG/assets/js/site-<%= pkg.version %>.min.js': [
 						'<%= SETTINGS.folder.js %>/**/*jquery*.js',
+						'<%= SETTINGS.folder.js %>/**/*store*.js',
 						'<%= SETTINGS.folder.prod %>/STG/assets/js/site-<%= pkg.version %>.min.js',
 					],
 					'<%= SETTINGS.folder.prod %>/WBC/assets/js/site-<%= pkg.version %>.min.js': [
 						'<%= SETTINGS.folder.js %>/**/*jquery*.js',
+						'<%= SETTINGS.folder.js %>/**/*store*.js',
 						'<%= SETTINGS.folder.prod %>/WBC/assets/js/site-<%= pkg.version %>.min.js',
 					],
 				},
@@ -713,18 +717,22 @@ module.exports = function(grunt) {
 					'<%= SETTINGS.folder.prod %>/BOM/assets/js/site-<%= pkg.version %>.min.js': [
 						'<%= SETTINGS.folder.js %>/**/*.js',
 						'!<%= SETTINGS.folder.js %>/**/*jquery*.js',
+						'!<%= SETTINGS.folder.js %>/**/*store*.js',
 					],
 					'<%= SETTINGS.folder.prod %>/BSA/assets/js/site-<%= pkg.version %>.min.js': [
 						'<%= SETTINGS.folder.js %>/**/*.js',
 						'!<%= SETTINGS.folder.js %>/**/*jquery*.js',
+						'!<%= SETTINGS.folder.js %>/**/*store*.js',
 					],
 					'<%= SETTINGS.folder.prod %>/STG/assets/js/site-<%= pkg.version %>.min.js': [
 						'<%= SETTINGS.folder.js %>/**/*.js',
 						'!<%= SETTINGS.folder.js %>/**/*jquery*.js',
+						'!<%= SETTINGS.folder.js %>/**/*store*.js',
 					],
 					'<%= SETTINGS.folder.prod %>/WBC/assets/js/site-<%= pkg.version %>.min.js': [
 						'<%= SETTINGS.folder.js %>/**/*.js',
 						'!<%= SETTINGS.folder.js %>/**/*jquery*.js',
+						'!<%= SETTINGS.folder.js %>/**/*store*.js',
 					],
 				},
 			},

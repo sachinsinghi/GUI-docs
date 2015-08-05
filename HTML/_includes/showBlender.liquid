@@ -40,8 +40,11 @@
 						{% endif %}
 
 						<li class="blender-module">
-							<label for="{{ module[1].ID }}">{{ module[1].description }}</label>
-							<a href="{{ module[1].category }}/#{{ module[1].ID }}" target="_blank">(i)</a>
+							<label for="{{ module[1].ID }}">
+								<strong>{{ module[1].name }}</strong>
+								<span>{{ module[1].description }}</span>
+							</label>
+							<a href="{{ module[1].category }}/#{{ module[1].ID }}" target="_blank">view</a>
 
 							{% include showVersionDropdown.liquid  mod = module %}
 						</li>
