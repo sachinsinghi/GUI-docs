@@ -30,7 +30,7 @@
 
 		var POST = App.POST;
 		var lessContents = '';
-		var _includeOriginal  = POST.hasOwnProperty('includeless');
+		var _includeOriginal  = App.selectedModules.includeLess; //POST.hasOwnProperty('includeless');
 
 
 		//////////////////////////////////////////////////| BASE

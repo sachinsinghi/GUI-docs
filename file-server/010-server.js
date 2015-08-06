@@ -52,7 +52,7 @@ var App = (function() {
 				});
 
 
-			app.get('/', function(request, response){
+			app.get('/', function(request, response) { //TODO: send header to forward to App.GUIURL + 'GUI/' and a little text
 				response.send('Hello world!');
 			});
 

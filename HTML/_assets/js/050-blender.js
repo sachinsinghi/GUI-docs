@@ -163,7 +163,7 @@
 					App.debugging( 'Blender: Parsing hash: parsing module "' + hash[i] + '"', 'report' );
 
 					var module = hash[i].split(':');
-					var size = $('.js-blender-version option.js-blender-' + module[0] + '[data-version="' + module[1] + '"]').attr('data-size');
+					var size = $('.js-blender-version option.js-blender-' + module[0] + '[value="' + module[1] + '"]').attr('data-size');
 
 					App.blender.save( module[0], module[1], size );
 				}

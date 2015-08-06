@@ -33,8 +33,8 @@
 		var base = '';
 		var POST = App.POST;
 		var jquery = '';
-		var _includeJquery = POST.hasOwnProperty('jquery');
-		var _includeOriginal  = POST.hasOwnProperty('jsunminified');
+		var _includeJquery = App.selectedModules.includeJquery; //POST.hasOwnProperty('jquery');
+		var _includeOriginal  = App.selectedModules.includeUnminifiedJS; //POST.hasOwnProperty('jsunminified');
 
 
 		//////////////////////////////////////////////////| JQUERY
