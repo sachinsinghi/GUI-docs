@@ -1,0 +1,27 @@
+{% comment %}
+	This snippet gets and prints theblender size span with base size already inside and a reference to the latest base version for js
+
+	Usage:
+		{% include blenderSize.liquid %}
+
+	Return:
+		HTML direct output
+
+	Required:
+		site.data.GUI  [jekyll data object]  The GUI.json in jekylls _data folder
+{% endcomment %}
+
+
+{% for version in site.data.GUI.modules._fixed._base.versions %}
+	{% assign baseVersion = version[0] %}
+	{% assign baseSize = version[1].size %}
+{% endfor %}
+
+
+<span>
+	Your blend: &asymp;
+
+	<strong>
+		<span class="js-blender-size" data-base-version="{{ baseVersion }}" data-base-size="{{ baseSize }}">{{ baseSize }}</span>kb
+	</strong>
+</span>
