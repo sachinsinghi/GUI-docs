@@ -60,9 +60,9 @@ var Less = require('less');
 		fromPOST.modules = [];
 		var _hasJS = false;
 		var _hasSVG = false;
-		var _includeJquery = POST.jquery === 'yes';
-		var _includeUnminifiedJS = POST.jsunminified === 'yes';
-		var _includeLess = POST.includeless === 'yes';
+		var _includeJquery = POST.includeJquery === 'yes';
+		var _includeUnminifiedJS = POST.includeUnminifiedJS === 'yes';
+		var _includeLess = POST.includeLess === 'yes';
 
 
 		//////////////////////////////////////////////////| ADDING MODULES

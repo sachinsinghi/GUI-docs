@@ -25,7 +25,7 @@
 		var dependencies = dependencies || '';
 		var dep = dependencies.split(', ');
 
-		$.each(dep, function(index, dep) {
+		$.each(dep, function(index, dep) { //handel multiple dependencies
 			App.debugging( 'Blender: handleDep: selecting ' + dep, 'report' );
 
 			var $depend = $( '.js-blender-version option.js-blender-' + dep );
@@ -38,9 +38,9 @@
 				$depend.prop('selected', true);
 			}
 
-			$tick.prop('checked', true);
+			$tick.prop('checked', true); //make the ticks
 
-			$depend.parent().trigger('change');
+			$depend.parent().trigger('change'); //call events
 		});
 	}
 
@@ -55,6 +55,7 @@
 			App.debugging( 'Blender: Found instance', 'report' );
 
 
+			//////////////////////////////////////////////////| SAVING BASE
 			var baseVersion = $('.js-blender-size').attr('data-base-version');
 			var baseSize = parseInt( $('.js-blender-size').attr('data-base-size') );
 
@@ -134,6 +135,18 @@
 					App.blender.remove( moduleName, size );
 				}
 
+			});
+
+
+			//////////////////////////////////////////////////| OPTIONS HAVE BEEN CHANGED
+			$('.js-blender-option').on('change', function() {
+				App.debugging( 'Blender: Blender options changed', 'interaction' );
+
+				var $this = $(this);
+				var name = 'option-' + App.PREFIX + $this.attr('name');
+				var value = $this.val();
+
+				store.set( name, value );
 			});
 
 		}
@@ -217,9 +230,11 @@
 		App.debugging( 'Blender: Loading modules from LocalStorage', 'report' );
 
 		store.forEach(function( moduleName, options ) {
-			App.debugging( 'Blender: Loading modules: loading module "' + moduleName + '" version "' + options.version + '"(' + options.size + 'kb)', 'report' );
 
+			//////////////////////////////////////////////////| MODULES
 			if( moduleName.substring(0, App.PREFIX.length) === App.PREFIX ) {
+				App.debugging( 'Blender: Loading modules: loading module "' + moduleName + '" version "' + options.version + '"(' + options.size + 'kb)', 'report' );
+
 				moduleName = moduleName.substring( App.PREFIX.length );
 				var $tick = $( '#tick-' + moduleName );
 				var $select = $( '#' + moduleName );
@@ -228,6 +243,16 @@
 					$select.find('option[value="' + options.version + '"]').prop('selected', true);
 					$tick.prop('checked', true);
 				}
+			}
+
+
+			//////////////////////////////////////////////////| OPTIONS
+			if( moduleName.substring(0, (App.PREFIX.length + 7) ) === 'option-' + App.PREFIX ) {
+				App.debugging( 'Blender: Loading modules: option for ' + moduleName + ' found', 'report' );
+
+				moduleName = moduleName.substring( (App.PREFIX.length + 7) );
+
+				$('.js-blender-option[name="' + moduleName + '"]').prop( 'checked', true );
 			}
 		});
 
@@ -244,7 +269,7 @@
 		var count = 0;
 		var size = 0;
 
-		store.forEach(function( moduleName, options ) {
+		store.forEach(function( moduleName, options ) { //iterate over localStorage and see what we got
 			if( moduleName.substring(0, App.PREFIX.length) === App.PREFIX ) {
 				size += parseInt( options.size );
 				count++;
