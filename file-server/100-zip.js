@@ -97,7 +97,7 @@ var Archiver = require('archiver');
 	// @param  archivePath  [string]  The path these files will have inside the archive
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	module.addBulk = function( cwd, files, archivePath ) {
-		App.debugging( 'Zip: Adding bluk: ' + archivePath, 'report' );
+		App.debugging( 'Zip: Adding bluk: ' + cwd + files + ' to: ' + archivePath, 'report' );
 
 		if(typeof files !== 'object') {
 			App.debugging( 'Zip: Adding files: Path can only be array/object, is ' + (typeof files), 'error' );
@@ -106,9 +106,9 @@ var Archiver = require('archiver');
 
 			App.zip.archive.bulk({ //add them all to the archive
 				expand: true,
-				cwd: '/GUI-flavour' + cwd,
+				cwd: cwd,
 				src: files,
-				dest: archivePath,
+				dest: '/GUI-flavour' + archivePath,
 				filter: 'isFile',
 			});
 
