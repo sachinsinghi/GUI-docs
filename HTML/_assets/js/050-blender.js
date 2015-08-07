@@ -149,6 +149,23 @@
 				store.set( name, value );
 			});
 
+
+			//////////////////////////////////////////////////| OPTIONS HAVE BEEN CHANGED
+			$('.js-blender').on('submit', function(e) {
+				App.debugging( 'Blender: Blender submitted', 'interaction' );
+
+				$('.js-blender-submit').prop( 'disabled', true );
+				$('.js-blender-submit .icon-download').toggle();
+				$('.js-blender-submit .icon-refresh').toggle();
+
+				setTimeout(function() {
+					$('.js-blender-submit').prop( 'disabled', false ).focus();
+					$('.js-blender-submit .icon-download').toggle();
+					$('.js-blender-submit .icon-refresh').toggle();
+				}, 2000);
+
+			});
+
 		}
 	};
 
@@ -278,6 +295,14 @@
 
 		$('.js-blender-count').text( ( count - 1 ) );
 		$('.js-blender-size').text( size );
+
+		$('.js-blender-count, .js-blender-size')
+			.removeClass('isBouncing')
+			.addClass('isBouncing')
+			.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+				$(this).removeClass('isBouncing');
+			});
+
 	};
 
 
