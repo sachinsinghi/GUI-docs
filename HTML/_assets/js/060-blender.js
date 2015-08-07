@@ -51,23 +51,6 @@
 	module.init = function() {
 		App.debugging( 'Blender: Initiating', 'report' );
 
-		//////////////////////////////////////////////////| SAVING BASE
-		var baseVersion = $('.js-blender-size').attr('data-base-version');
-		var baseSize = parseInt( $('.js-blender-size').attr('data-base-size') );
-
-		App.blender.save( '_base', baseVersion, baseSize );
-
-
-		//////////////////////////////////////////////////| RESOLVING HASH
-		if( window.location.hash ) {
-			App.blender.hash();
-		}
-
-
-		//////////////////////////////////////////////////| LOAD FROM LOCAL STORAGE
-		App.blender.load();
-
-
 		//////////////////////////////////////////////////| BLENDER PAGE LISTENERS
 		if( $('.js-module-version').length ) {
 			App.debugging( 'Blender: Found instance', 'report' );
@@ -104,8 +87,20 @@
 
 				$wrapper.find('.js-blender-newer').remove(); //remove warnings
 
+				var warning = '' +
+					'<button type="button" class="btn btn-link popover popover-dismissible js-popover js-blender-newer">' +
+					'	<span class="icon icon-size-sm icon-alert">Out of date</span>' +
+					'	<span class="popover-popup" aria-hidden="true" tabindex="-1">' +
+					'		<span class="popover-popup-body">' +
+					'			A newer version of this module exists.' +
+					// '			<button type="button" class="btn btn-link js-selectLatest" data-id="' + ID + '">select latest</button>' +
+					'		</span>' +
+					'	</span>' +
+					'</button>';
+
 				if( this.selectedIndex > 0 ) {
-					$wrapper.append('<small class="js-blender-newer blender-newer">There is a newer version.</small>'); //add warning is not latest version
+					$wrapper.append(warning); //add warning is not latest version
+					GUI.popovers.init(); //run GUI for added elements
 				}
 			});
 
@@ -178,6 +173,23 @@
 			});
 
 		}
+
+
+		//////////////////////////////////////////////////| SAVING BASE
+		var baseVersion = $('.js-blender-size').attr('data-base-version');
+		var baseSize = parseInt( $('.js-blender-size').attr('data-base-size') );
+
+		App.blender.save( '_base', baseVersion, baseSize );
+
+
+		//////////////////////////////////////////////////| RESOLVING HASH
+		if( window.location.hash ) {
+			App.blender.hash();
+		}
+
+
+		//////////////////////////////////////////////////| LOAD FROM LOCAL STORAGE
+		App.blender.load();
 	};
 
 
@@ -261,14 +273,18 @@
 
 			//////////////////////////////////////////////////| MODULES
 			if( moduleName.substring(0, App.PREFIX.length) === App.PREFIX ) {
-				App.debugging( 'Blender: Loading modules: loading module "' + moduleName + '" version "' + options.version + '"(' + options.size + 'kb)', 'report' );
+				App.debugging( 'Blender: Loading modules: "' + moduleName + '" version "' + options.version + '"(' + options.size + 'kb)', 'report' );
 
 				moduleName = moduleName.substring( App.PREFIX.length );
 				var $tick = $( '#tick-' + moduleName );
 				var $select = $( '#' + moduleName );
 
 				if( $tick.length ) {
-					$select.find('option[value="' + options.version + '"]').prop('selected', true);
+					$select
+						.find('option[value="' + options.version + '"]')
+						.prop('selected', true)
+						.trigger('change');
+
 					$tick.prop('checked', true);
 				}
 			}

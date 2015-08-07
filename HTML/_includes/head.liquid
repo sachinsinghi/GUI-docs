@@ -1,0 +1,38 @@
+{% comment %}
+	This snippet prints the head HTML
+
+	Usage:
+		{% include head.liquid %}
+
+	Return:
+		HTML direct output
+
+	Required:
+		- none -
+{% endcomment %}
+
+
+<!DOCTYPE html>
+<!--[if lt IE 8]>
+	<html class="no-js lt-ie8 lt-ie9" lang="en">
+<![endif]-->
+<!--[if IE 8]>
+	<html class="no-js lt-ie9 ie8" lang="en">
+<![endif]-->
+<!--[if IE 9 ]>
+	<html class="no-js ie9" lang="en">
+<![endif]-->
+<!--[if !(IE)]><!-->
+	<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+	<meta charset="UTF-8">
+	<meta name=viewport content="width=device-width, initial-scale=1">
+	{% include base.liquid  brand = page.brand %}
+
+	<title>{{ page.title }}</title>
+
+	{% include head-code.liquid %}
+
+</head>

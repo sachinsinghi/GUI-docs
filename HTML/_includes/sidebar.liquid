@@ -1,0 +1,29 @@
+{% comment %}
+	This snippet prints the sidebar HTML
+
+	Usage:
+		{% include sidebar.liquid %}
+
+	Return:
+		HTML direct output
+
+	Required:
+		- none -
+{% endcomment %}
+
+
+<aside class="sidebar js-menu">
+	<div class="sidebar-wrapper">
+
+		<div class="logo js-logo">
+			<a class="logo-img symbol-logo-phone" href="index.html" data-grunticon-embed></a>
+		</div>
+
+		<a class="sidebar-gel sitesymbol-back-to-gel" href="/">Back to GEL</a>
+
+		{% include navigation.liquid  brand = page.brand %}
+
+		<a class="sidebar-blender" href="blender/">The Blender</a>
+
+	</div>
+</aside>

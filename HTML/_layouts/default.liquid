@@ -1,7 +1,38 @@
-{% include header.liquid %}
+{% include head.liquid %}
 
-	<main class="container">
-		{{ content }}
-	</main>
+<body class="js-body layout-{{ page.layout | handleize }} page-{{ page.title | handleize }}">
+	<noscript>
+		<h1 class="text-center" role="alert">This website needs Javascript to work properly.</h1>
+	</noscript>
 
-{% include footer.liquid %}
+	{% include IEwarning.liquid %}
+
+	{% comment %} CONTAINER {% endcomment %}
+	<div class="container-fluid clearfix">
+
+		{% include sidebar.liquid %}
+
+		{% include header.liquid %}
+
+
+		{% comment %} MAIN CONTENT {% endcomment %}
+		<main class="main-content">
+			<div class="container-fluid">
+
+				{% include gridly.liquid %}
+
+				<div class="content">
+					{{ content }}
+				</div>
+
+			</div>
+		</main>
+
+	</div>
+
+
+	{% comment %} FOOTER {% endcomment %}
+	{% include footer.liquid %}
+
+</body>
+</html>

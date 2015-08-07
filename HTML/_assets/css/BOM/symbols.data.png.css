@@ -64,6 +64,7 @@
 .icon-shop,
 .symbol-shop { background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxMBAJqcGAAAAMNJREFUWIXtlDsOAiEQhmfAO9gYb0BN5cabuXszs1bU3MDExktgYTTg8lJ5bDF/BWEy35cJGYRIhDyMAHiK1YRjJq0uY6qK14EDAOBxu9vj/XY9fy3wPzxfYiFQDp4n4QiUh6cl3gL14HEJ3gYeluDt4H4J5sLN9DppNaNWM5a6271tJrMLchbHr3n2tiU+BGrCYwzmqaP0iZCDEXIwrft3/wMksAk9lPoP7jZcZr0TSJmXyvomUHMX+NJ9AiRAAiRAeQBWrGZ8Ma85pwAAAABJRU5ErkJggg=='); background-repeat: no-repeat; }
 
+.icon-house,
 .symbol-house { background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxMBAJqcGAAAAORJREFUWIXt0z8OgjAYh+Gv6h26NOgFmDvVcDPLyUSZmHsCSVi4BA4EBO0f2q/Bpb9Vy/tgKkBa4HIuZM6FxD7nGBoHIDcAUlCWkb5rq90An/g0HMILsI4PJQA8AEiBQWwGfMdVU8u+ayvKMoJBbALo4jkXkrJzoZpaYhBOgCm+vIQYhBVgj0/DIYyAbXE8Qgvwi+MQP4CweDhiBcDFwxAzIE7cHzEDKLvc48TtiL57latv6Y7i48uNL2T61HEJY8x+CQ+aAxHj7mdqAPsuAU6+B1TzNPxzrkMI4O+/QAIkQAKkvQGm27/+ClVpDwAAAABJRU5ErkJggg=='); background-repeat: no-repeat; }
 
 .icon-people,
@@ -474,6 +475,7 @@
 .icon-shop,
 .symbol-shop { background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxMBAJqcGAAAALNJREFUWIXtlDEOwyAMRQ1UYvKderOEm/VO3liSpa0IIUArGzL4TZBY/k8WsoEKiLgCwFKrqRCIaG0VOaFwAICn997EGF8/CzCEd0ucBBjDuyQOAgLhTYmvgGB4VcINCr+UcAPDixI2Cw+fAxEZIjJc97R3mmnTgp7F8S/v3iH/brMCUUoZtlCnzAERN0TcRvef/gZU4HH1g+s9ZNvwxH0n0DLn4n4TkNwFJaZPQAVUQAWUHVCxYusIZvlAAAAAAElFTkSuQmCC'); background-repeat: no-repeat; }
 
+.icon-house,
 .symbol-house { background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxMBAJqcGAAAANBJREFUWIXtkzEOwyAMRU1byZPvxM0KJ2t7Jm9ekqVFNEBSwDQLX2IhQe/JfABmGkNEjojcmfDlvbokri1wALhHWxYRjYg8hwts4B4AXgBgeyV+hufGrnkdVfC4hEMlduCHe/+Ad0sUS7gtHDM7Sl/AJxYRDTM7RDRQUcysQCW8SyIRaIQ3S3wJdMKbJIKAErxaIggg4kMJvishIj7+yeROKsDjeGZ2pY9HJdTIbgmTCRDRoggPYebstC8jYDWZArfaA6W7bO3O6ROYAlNgCsysIHefL9U9f+gAAAAASUVORK5CYII='); background-repeat: no-repeat; }
 
 .icon-people,

@@ -28,7 +28,7 @@
 				App.debugging( 'Modules: Version selected', 'interaction' );
 
 				var $this = $(this);
-				var module = $this.attr('data-module');
+				var module = $this.attr('id');
 				var $selected = $this.find('option:selected');
 				var version = $selected.attr('data-version');
 				var $version = $('.js-blender-module' + module + ' .js-blender-version' + version);
