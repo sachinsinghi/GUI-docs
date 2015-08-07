@@ -27,7 +27,7 @@ var Less = require('less');
 		//////////////////////////////////////////////////| PARSING POST
 		App.files.getPost();
 
-		//////////////////////////////////////////////////| QUEUING FILES
+		//////////////////////////////////////////////////| SETTING QUE
 		App.zip.queuing('css', true);
 		App.zip.queuing('html', true);
 
@@ -60,14 +60,22 @@ var Less = require('less');
 		fromPOST.modules = [];
 		var _hasJS = false;
 		var _hasSVG = false;
-		var _includeJquery = POST.hasOwnProperty('jquery');
+		var _includeJquery = POST.includeJquery === 'yes';
+		var _includeUnminifiedJS = POST.includeUnminifiedJS === 'yes';
+		var _includeLess = POST.includeLess === 'yes';
 
 
 		//////////////////////////////////////////////////| ADDING MODULES
 		Object.keys( POST ).forEach(function( moduleName ) {
-			if( moduleName.substr(0, 7) === 'module-' && POST[ moduleName ] !== 'nil' && moduleName !== 'module-_base' ) { //only look at enabled checkboxes
+			var module = moduleName.substr(7);
 
-				var module = moduleName.substr(7);
+			if(
+				moduleName.substr(0, 7) === 'module-' &&
+				POST[ moduleName ] !== 'nil' &&
+				moduleName !== 'module-_base' &&
+				POST[ 'tick-' + module ] === 'on'
+			) { //only look at enabled checkboxes
+
 				var version = POST[ moduleName ];
 				var json = App.modules.getJson( module );
 				var newObject = _.extend( json, json.versions[ version ] ); //merge version to the same level
@@ -102,9 +110,13 @@ var Less = require('less');
 		fromPOST.js = _hasJS;
 		fromPOST.svg = _hasSVG;
 		fromPOST.brand = POST.brand;
+		fromPOST.includeJquery = _includeJquery;
+		fromPOST.includeUnminifiedJS = _includeUnminifiedJS;
+		fromPOST.includeLess = _includeLess;
 
 
-		App.selectedModules = fromPOST; //save globally
+		//////////////////////////////////////////////////| SAVIG GLOBALLY
+		App.selectedModules = fromPOST;
 	};
 
 

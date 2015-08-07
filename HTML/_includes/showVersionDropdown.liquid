@@ -15,33 +15,53 @@
 
 {% assign mod = include.mod %}
 {% assign versions = '' %}
+{% assign _isBase = false %}
 
-<div class="input-field-select-wrapper">
+{% if mod[1].ID == "_base" %}
+	{% assign _isBase = true %}
+{% endif %}
+
+<div class="module-version js-module-version
+	{% if _isBase %}js-module-base{% endif %}
+">
 	{% unless mod[1].versions.size == nil %}
 
 		{% comment %}Reverse order to have newest option on top{% endcomment %}
 		{% for version in mod[1].versions %}
 			{% assign dependencies = "" %}
 			{% for dep in version[1].dependencies %}
-				{% capture dependencies %}{{ dependencies }}, .js-blender-{{ dep | handleize }}{% endcapture %}
+				{% capture dependencies %}{{ dependencies }}, {{ dep | handleize }}{% endcapture %}
 			{% endfor %}
 
 			{% capture versions %}
 				<option class="js-blender-{{ mod[1].ID }} js-blender-{{ mod[1].ID }}{{ version[0] | handleize }}" value="{{ version[0] }}"
 					{% if dependencies.size > 0 %}data-dependencies="{{ dependencies | slice: 2, dependencies.size }}"{% endif %}
 					data-version="{{ version[0] | handleize }}"
-				>Add {{ mod[1].name }} v{{ version[0] }}</option>
+					data-size="{{ version[1].size }}"
+				>
+					{{ version[0] }}
+				</option>
 				{{ versions }}
 			{% endcapture %}
 		{% endfor %}
 
 		{% comment %}Print select{% endcomment %}
-		<select class="input-field-select blender-version js-blender-version" name="module-{{ mod[1].ID }}" id="{{ mod[1].ID }}" data-module="{{ mod[1].ID }}">
-			{% unless mod[1].ID == "_base" %}
-				<option value="nil">Don't add</option>
-			{% endunless %}
-			{{ versions }}
-		</select>
+		<label for="tick-{{ mod[1].ID }}">Add version</label>
+
+		<div class="input-field-select-wrapper">
+			<select class="input-field-select blender-version js-blender-version" name="module-{{ mod[1].ID }}" id="{{ mod[1].ID }}">
+				{{ versions }}
+			</select>
+		</div>
+
+		<label class="checkbox">
+			<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-{{ mod[1].ID }}" id="tick-{{ mod[1].ID }}"
+				{% if _isBase %}checked="checked" disabled="disabled"{% endif %}
+			>
+			<span class="checkbox-text">
+				<span class="sr-only">Add the {{ mod[1].name }} module</span>
+			</span>
+		</label>
 
 	{% endunless %}
 </div>

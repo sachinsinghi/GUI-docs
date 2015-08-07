@@ -12,39 +12,46 @@
 {% endcomment %}
 
 
-<!DOCTYPE html>
-<!--[if lt IE 8]>
-	<html class="no-js lt-ie8 lt-ie9" lang="en">
-<![endif]-->
-<!--[if IE 8]>
-	<html class="no-js lt-ie9 ie8" lang="en">
-<![endif]-->
-<!--[if IE 9 ]>
-	<html class="no-js ie9" lang="en">
-<![endif]-->
-<!--[if !(IE)]><!-->
-	<html class="no-js" lang="en">
-<!--<![endif]-->
+<header class="header">
 
-<head>
-	<meta charset="UTF-8">
-	<meta name=viewport content="width=device-width, initial-scale=1">
-	{% include base.liquid  brand = page.brand %}
+	<button class="header-hamburger js-toggleMenu">
+		<span class="cheese">Click</span>
+		<span class="patty">to</span>
+		<span class="salad">Open Menu</span>
+	</button>
 
-	<title>{{ page.title }}</title>
+	<h1 class="header-headline js-headerHeadline">{{ page.title }}</h1>
 
-	{% include header-code.liquid %}
+	<div class="gridly-button-wrapper">
+		<span class="visible-lg-inline">lg</span>
+		<span class="visible-md-inline">md</span>
+		<span class="visible-sm-inline">sm</span>
+		<span class="visible-xs-inline">xs</span>
+		<span class="hidden-xs">breakpoint</span>
 
-</head>
-<body class="js-body layout-{{ page.layout | handleize }} page-{{ page.title | handleize }}">
-	<noscript>
-		<p role="alert">This website needs Javascript to work properly.</p>
-	</noscript>
+		<button class="gridly-button js-gridly">
+			<span class="gridly-show">Show</span>
+			<span class="gridly-hide">or hide</span>
+			<span>the grid</span>
+		</button>
+	</div>
 
-	{% include IEwarning.liquid %}
+	<div class="blenderline">
+		<span class="blenderline-logo sitesymbol-gui-blender">GUI Blender</span>
+		<span class="blenderline-item blenderline-item-count js-blender-count">0</span>
 
-	<header>
-		{% include navigation.liquid  brand = page.brand %}
+		{% for version in site.data.GUI.modules._fixed._base.versions %}
+			{% assign baseVersion = version[0] %}
+			{% assign baseSize = version[1].size %}
+		{% endfor %}
 
-		<a href="blender/">click here for blender</a>
-	</header>
+		<span class="blenderline-item-right">
+			Your blend is: &asymp;
+
+			<strong>
+				<span class="blenderline-item blenderline-item-size js-blender-size"
+					data-base-version="{{ baseVersion }}" data-base-size="{{ baseSize }}">{{ baseSize }}</span>kb
+			</strong>
+		</span>
+	</div>
+</header>

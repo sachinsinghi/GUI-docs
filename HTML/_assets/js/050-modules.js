@@ -18,17 +18,17 @@
 	// Module init method
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	module.init = function() {
-		App.debugging( 'Module: Initiating', 'report' );
+		App.debugging( 'Modules: Initiating', 'report' );
 
 		if( $('.js-modules').length ) {
-			App.debugging( 'Module: Found instance', 'report' );
+			App.debugging( 'Modules: Found instance', 'report' );
 
 			//////////////////////////////////////////////////| CHECKING DEPENDENCIES
 			$('.js-blender-version').on('change', function() {
-				App.debugging( 'Module: Version selected', 'interaction' );
+				App.debugging( 'Modules: Version selected', 'interaction' );
 
 				var $this = $(this);
-				var module = $this.attr('data-module');
+				var module = $this.attr('id');
 				var $selected = $this.find('option:selected');
 				var version = $selected.attr('data-version');
 				var $version = $('.js-blender-module' + module + ' .js-blender-version' + version);

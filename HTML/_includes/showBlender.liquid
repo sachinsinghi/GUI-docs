@@ -22,6 +22,8 @@
 {% endif %}
 
 {% comment %}Print the form{% endcomment %}
+<button class="btn btn-primary btn-soft js-blender-clear">Start new blend</button>
+
 <form class="blender js-blender" method="POST" action="{{ server }}:8080/blender">
 	{% for category in site.data.GUI.modules %}
 		{% unless category[0] == exclude %}
@@ -40,8 +42,11 @@
 						{% endif %}
 
 						<li class="blender-module">
-							<label for="{{ module[1].ID }}">{{ module[1].description }}</label>
-							<a href="{{ module[1].category }}/#{{ module[1].ID }}" target="_blank">(i)</a>
+							<label for="{{ module[1].ID }}">
+								<strong>{{ module[1].name }}</strong>
+								<span>{{ module[1].description }}</span>
+							</label>
+							<a href="{{ module[1].category }}/#{{ module[1].ID }}" target="_blank">view</a>
 
 							{% include showVersionDropdown.liquid  mod = module %}
 						</li>
@@ -57,33 +62,62 @@
 		<legend class="blender-category-headline">Blend</legend>
 
 		<ul class="blender-modules">
+
 			<li class="blender-module">
-				<label class="checkbox checkbox-flip">
-					<input class="checkbox-input" type="checkbox" name="jquery" checked="checked">
-					<span class="checkbox-text">Bundle jQuery with your js</span>
+				<label for="includeJquery">
+					Would you like to include jQuery in your blend?
 				</label>
+				<div class="btn-group">
+					<label class="btn-group-item">
+						<input class="btn-group-input js-blender-option" type="radio" name="includeJquery" value="yes" id="includeJquery" checked="checked">
+						<span class="btn-group-text btn btn-hero">Yes</span>
+					</label>
+					<label class="btn-group-item">
+						<input class="btn-group-input js-blender-option" type="radio" name="includeJquery" value="no">
+						<span class="btn-group-text btn btn-hero">No</span>
+					</label>
+				</div>
 			</li>
 
 			<li class="blender-module">
-				<label class="checkbox checkbox-flip">
-					<input class="checkbox-input" type="checkbox" name="jsunminified">
-					<span class="checkbox-text">Include unminified js</span>
+				<label for="includeUnminifiedJS">
+					Would you like to include unminified JavaScript in your blend?
 				</label>
+				<div class="btn-group">
+					<label class="btn-group-item">
+						<input class="btn-group-input js-blender-option" type="radio" name="includeUnminifiedJS" value="yes" id="includeUnminifiedJS">
+						<span class="btn-group-text btn btn-hero">Yes</span>
+					</label>
+					<label class="btn-group-item">
+						<input class="btn-group-input js-blender-option" type="radio" name="includeUnminifiedJS" value="no" checked="checked">
+						<span class="btn-group-text btn btn-hero">No</span>
+					</label>
+				</div>
 			</li>
 
 			<li class="blender-module">
-				<label class="checkbox checkbox-flip">
-					<input class="checkbox-input" type="checkbox" name="includeless">
-					<span class="checkbox-text">Include less files</span>
+				<label for="includeLess">
+					Would you like to include the LESS files in your blend?
 				</label>
+				<div class="btn-group">
+					<label class="btn-group-item">
+						<input class="btn-group-input js-blender-option" type="radio" name="includeLess" value="yes" id="includeLess">
+						<span class="btn-group-text btn btn-hero">Yes</span>
+					</label>
+					<label class="btn-group-item">
+						<input class="btn-group-input js-blender-option" type="radio" name="includeLess" value="no" checked="checked">
+						<span class="btn-group-text btn btn-hero">No</span>
+					</label>
+				</div>
 			</li>
 		</ul>
 	</fieldset>
 
 	<input type="hidden" name="brand" value="{{ page.brand }}">
 
-	<button type="submit" class="btn btn-primary">
+	<button type="submit" class="btn btn-primary blender-submit js-blender-submit">
 		<span class="btn-text">Blend</span>
-		<span class="btn-icon icon icon-size-sm icon-download"></span> {% comment %}icon-refresh (icons-group13){% endcomment %}
+		<span class="btn-icon icon icon-size-md icon-download" data-grunticon-embed></span>
+		<span class="btn-icon icon icon-size-md icon-refresh" data-grunticon-embed style="display:none;"></span>
 	</button>
 </form>
