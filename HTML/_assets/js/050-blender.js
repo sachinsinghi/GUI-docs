@@ -51,25 +51,26 @@
 	module.init = function() {
 		App.debugging( 'Blender: Initiating', 'report' );
 
+		//////////////////////////////////////////////////| SAVING BASE
+		var baseVersion = $('.js-blender-size').attr('data-base-version');
+		var baseSize = parseInt( $('.js-blender-size').attr('data-base-size') );
+
+		App.blender.save( '_base', baseVersion, baseSize );
+
+
+		//////////////////////////////////////////////////| RESOLVING HASH
+		if( window.location.hash ) {
+			App.blender.hash();
+		}
+
+
+		//////////////////////////////////////////////////| LOAD FROM LOCAL STORAGE
+		App.blender.load();
+
+
+		//////////////////////////////////////////////////| BLENDER PAGE LISTENERS
 		if( $('.js-module-version').length ) {
 			App.debugging( 'Blender: Found instance', 'report' );
-
-
-			//////////////////////////////////////////////////| SAVING BASE
-			var baseVersion = $('.js-blender-size').attr('data-base-version');
-			var baseSize = parseInt( $('.js-blender-size').attr('data-base-size') );
-
-			App.blender.save( '_base', baseVersion, baseSize );
-
-
-			//////////////////////////////////////////////////| RESOLVING HASH
-			if( window.location.hash ) {
-				App.blender.hash();
-			}
-
-
-			//////////////////////////////////////////////////| LOAD FROM LOCAL STORAGE
-			App.blender.load();
 
 
 			//////////////////////////////////////////////////| SELECT HAS CHANGED
@@ -164,6 +165,16 @@
 					$('.js-blender-submit .icon-refresh').toggle();
 				}, 2000);
 
+			});
+
+
+			//////////////////////////////////////////////////| OPTIONS HAVE BEEN CHANGED
+			$('.js-blender-clear').on('click', function(e) {
+				App.debugging( 'Blender: Blender claer button clicked', 'interaction' );
+
+				store.clear();
+
+				location.reload();
 			});
 
 		}

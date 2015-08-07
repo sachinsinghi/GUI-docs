@@ -22,6 +22,8 @@
 {% endif %}
 
 {% comment %}Print the form{% endcomment %}
+<button class="btn btn-primary btn-soft js-blender-clear">Start new blend</button>
+
 <form class="blender js-blender" method="POST" action="{{ server }}:8080/blender">
 	{% for category in site.data.GUI.modules %}
 		{% unless category[0] == exclude %}
