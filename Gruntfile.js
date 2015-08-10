@@ -749,6 +749,7 @@ module.exports = function(grunt) {
 				urlpngcss: 'symbols-<%= pkg.version %>.fallback.css',
 				cssprefix: '.sitesymbol-',
 				enhanceSVG: true,
+				pngpath: '../img',
 			},
 
 			BOM: {

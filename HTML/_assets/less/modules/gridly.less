@@ -1,0 +1,27 @@
+/* Gridly */
+
+
+.gridly {
+	opacity: 0;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: -320px;
+	bottom: -70px;
+	transition: opacity 0.4s;
+	z-index: 5;
+
+	.has-gridly & {
+		opacity: 0.6;
+	}
+
+	.row,
+	.col-xs-1 {
+		height: 100%;
+	}
+
+	.gridy-block {
+		background-color: #fff;
+		height: 100%;
+	}
+}

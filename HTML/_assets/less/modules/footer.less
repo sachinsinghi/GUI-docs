@@ -1,0 +1,58 @@
+/* Footer */
+
+
+.footer {
+	position: fixed;
+	right: 0;
+	left: 0;
+	bottom: -65px;
+	z-index: 205;
+	transition: bottom 0.4s;
+	border-top: 1px solid @color-Border;
+	background-color: #fff;
+	overflow: hidden;
+
+	@media (min-width: @screen-md-lg) {
+		padding-left: 276px;
+	}
+
+	.has-scrolledContentFooter & {
+		bottom: 0;
+	}
+
+	.footer-button {
+		float: right;
+		padding: 21px;
+	}
+}
+
+.footer-social {
+	padding: 21px;
+	display: inline-block;
+
+	.footer-social-text {
+		margin-right: 21px;
+		vertical-align: middle;
+	}
+
+	.footer-social-item {
+		display: inline-block;
+		text-indent: -99999em;
+		overflow: hidden;
+		height: 25px;
+		vertical-align: middle;
+		margin-right: 12px;
+		background-position: center;
+
+		&.sitesymbol-email {
+			width: 32px;
+		}
+		&.sitesymbol-yammer {
+			width: 27px;
+		}
+		&.sitesymbol-slack {
+			width: 25px;
+		}
+	}
+}
+
