@@ -21,7 +21,17 @@
 			<span class="salad">Open Menu</span>
 		</button>
 
-		<h1 class="header-headline js-headerHeadline">{{ page.title }}</h1>
+		<h1 class="header-headline js-headerHeadline">
+			{% if page.parent.size > 0 %}
+				<span class="header-subline">{{ page.parent }}</span>
+			{% endif %}
+			{% assign title = page.title | handleize %}
+			{% if title == 'getting-started' %}
+				<strong>UI</strong> Framework
+			{% else %}
+				{{ page.title }}
+			{% endif %}
+		</h1>
 
 		<div class="gridly-button-wrapper">
 			<span class="visible-lg-inline">Lg</span>
@@ -43,8 +53,12 @@
 		<span class="blenderline-logo sitesymbol-gui-blender">GUI Blender</span>
 
 		<span class="blenderline-ingredients">
-			<span class="blenderline-item blenderline-item-count js-blender-count">0</span>
+			<span class="blenderline-item badge js-blender-count">0</span>
 			Ingredients added to <a href="blender/">the blender</a>
+		</span>
+
+		<span class="blenderline-ingredients blenderline-ingredients-empty">
+			Add Ingredients to <a href="blender/">the blender</a>
 		</span>
 
 		{% for version in site.data.GUI.modules._fixed._base.versions %}

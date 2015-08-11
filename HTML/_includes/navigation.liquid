@@ -189,6 +189,18 @@ maxLevel: {{ maxLevel }}{% endcomment %}
 
 
 					{% comment %}
+						PARENT ASSIGNMENTS
+					{% endcomment %}
+					{% assign pageParent = page.parent | handleize %}
+					{% assign thisPageParent = thisPage.title | handleize %}
+					{% if pageParent == thisPageParent %}
+						{% assign parentActiveClass = " is-activeParent" %}
+					{% else %}
+						{% assign parentActiveClass = "" %}
+					{% endif %}
+
+
+					{% comment %}
 						ASSIGN ACTIVE CLASS
 					{% endcomment %}
 					{% if page.url == thisPage.url %}
@@ -222,7 +234,7 @@ maxLevel: {{ maxLevel }}{% endcomment %}
 					{% comment %}
 						OUTPUT THE LINK
 					{% endcomment %}
-					<li class="navigation-item{{ activeClass }}{{ parentClass }}{{ firstClass }} item-{{ thisPage.title | handleize }}">
+					<li class="navigation-item{{ activeClass }}{{ parentClass }}{{ parentActiveClass }}{{ firstClass }} item-{{ thisPage.title | handleize }}">
 						<a class="navigation-link{% if page.url == thisPage.url %} is-active{% endif %}" href="{{ thisUrl }}">
 							{{ thisPage.title }}
 						</a>

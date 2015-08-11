@@ -6,14 +6,14 @@
 	right: 0;
 	left: 0;
 	bottom: -65px;
-	z-index: 205;
+	z-index: 204;
 	transition: bottom 0.4s;
 	border-top: 1px solid @color-Border;
 	background-color: #fff;
 	overflow: hidden;
 
 	@media (min-width: @screen-md-lg) {
-		padding-left: 276px;
+		padding-left: 240px;
 	}
 
 	.has-scrolledContentFooter & {
@@ -22,13 +22,25 @@
 
 	.footer-button {
 		float: right;
-		padding: 21px;
+		padding: 10px 12px 10px 12px;
+
+		@media (min-width: @screen-sm) {
+			padding-right: 25px;
+		}
 	}
 }
 
 .footer-social {
-	padding: 21px;
+	padding: 11px 21px 11px 12px;
 	display: inline-block;
+
+	@media (min-width: @screen-sm) {
+		padding-left: 24px;
+	}
+
+	@media (min-width: @screen-md-lg) {
+		padding-left: 36px;
+	}
 
 	.footer-social-text {
 		margin-right: 21px;

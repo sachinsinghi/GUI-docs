@@ -337,6 +337,13 @@
 			}
 		});
 
+		if( count <= 1 ) {
+			$('.js-body').addClass('has-onlyBase');
+		}
+		else {
+			$('.js-body').removeClass('has-onlyBase');
+		}
+
 		$('.js-blender-count').text( ( count - 1 ) );
 		$('.js-blender-size').text( size );
 

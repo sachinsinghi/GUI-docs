@@ -22,7 +22,7 @@
 
 		var scroll = $(window).scrollTop();
 
-		if(scroll > 89) { //header headline
+		if(scroll > 66) { //header headline
 			// App.debugging( 'Scroll: checkPos: Passed 89px', 'report' );
 
 			$('.js-body').addClass('has-halfScrolledContent');
@@ -34,7 +34,7 @@
 		}
 
 
-		if(scroll > 192) { //header
+		if(scroll > 162) { //header
 			// App.debugging( 'Scroll: checkPos: Passed 192px', 'report' );
 
 			$('.js-body').addClass('has-scrolledContent');

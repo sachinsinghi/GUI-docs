@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Support
-weight: "010.-0.030"
+title: Getting started
+weight: "010.-0.000"
 brand: [Brand]
 parent: Getting Started
 ---
 
-Support
+Getting started
