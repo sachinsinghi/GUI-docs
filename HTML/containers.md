@@ -5,4 +5,4 @@ weight: "010.120"
 brand: [Brand]
 ---
 
-{% include showModules.liquid  cat = "Containers" %}
+{% include showCategory.liquid  cat = "Containers" %}

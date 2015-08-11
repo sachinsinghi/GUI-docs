@@ -61,7 +61,7 @@
 				App.debugging( 'Blender: Version changed', 'interaction' );
 
 				var $this = $(this);
-				var ID = $this.attr('id');
+				var ID = $this.attr('id').replace('select-', '');
 				var $tick = $( '#tick-' + ID + ':checked' );
 				var $wrapper = $this.parents('.js-module-version');
 
@@ -72,7 +72,7 @@
 					App.debugging( 'Blender: ' + ID + ' module ticked', 'report' );
 
 					var $select = $wrapper.find('.js-blender-version');
-					var moduleName = $select.attr('id');
+					var moduleName = $select.attr('id').replace('select-', '');
 					var $version = $select.find('option:selected');
 					var version = $version.val();
 					var size = $version.attr('data-size');
@@ -94,7 +94,7 @@
 					'	<div class="popover-popup" aria-hidden="true" tabindex="-1">' +
 					'		<p class="popover-popup-body">' +
 					'			A newer version of this module exists.' +
-					'			<button type="button" class="btn btn-link js-selectLatest" data-id="' + ID + '">select latest</button>' +
+					'			<button type="button" class="btn btn-link js-selectLatest" data-id="' + ID + '">Select latest</button>' +
 					'		</p>' +
 					'	</div>' +
 					'</div>';
@@ -115,7 +115,7 @@
 				var $wrapper = $this.parents('.js-module-version');
 				var $select = $wrapper.find('.js-blender-version');
 				var dependencies = $select.find(':checked').attr('data-dependencies');
-				var moduleName = $select.attr('id');
+				var moduleName = $select.attr('id').replace('select-', '');
 				var $version = $select.find('option:selected');
 				var size = $version.attr('data-size');
 
@@ -179,7 +179,7 @@
 
 				var $this = $(this);
 				var ID = $this.attr('data-id');
-				var $select = $('#' + ID);
+				var $select = $('#select-' + ID);
 
 				$select
 					.find('option:first')

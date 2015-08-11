@@ -1,0 +1,74 @@
+{% comment %}
+	This snippet prints an example from a module
+
+	Usage:
+		{% include showExample.liquid %}
+
+	Return:
+		HTML direct output
+
+	Required:
+		{{ thisVersion }}  [string]    Version string
+		{{ title }}        [variable]  Title
+		{{ description }}  [variable]  Description
+		{{ example }}      [variable]  Example code
+		{{ HTML }}         [variable]  HTML tab
+		{{ CSS }}          [variable]  CSS tab [optional]
+		{{ LESS }}         [variable]  LESS tab [optional]
+		{{ JS }}           [variable]  JS tab [optional]
+{% endcomment %}
+
+
+<div class="row">
+	<div class="col-sm-12">
+		<small>{{ thisVersion }}</small>
+	</div>
+	<div class="col-sm-4">
+		<h3>{{ title }}</h3>
+		<p>{{ description }}</p>
+	</div>
+
+	<div class="col-sm-8">
+		<div>{{ HTML }}</div>
+
+		<ul>
+			<li>
+				<a href="#">HTML</a>
+			</li>
+			{% if CSS.size > 2 %}
+				<li>
+					<a href="#">CSS</a>
+				</li>
+			{% endif %}
+			{% if LESS.size > 2 %}
+				<li>
+					<a href="#">LESS</a>
+				</li>
+			{% endif %}
+			{% if JS.size > 2 %}
+				<li>
+					<a href="#">JS</a>
+				</li>
+			{% endif %}
+		</ul>
+
+		<div id="">
+			<code>{{ HTML }}</code>
+		</div>
+		{% if CSS.size > 2 %}
+			<div id="">
+				{{ CSS }}
+			</div>
+		{% endif %}
+		{% if LESS.size > 2 %}
+			<div id="">
+				{{ LESS }}
+			</div>
+		{% endif %}
+		{% if JS.size > 2 %}
+			<div id="">
+				{{ JS }}
+			</div>
+		{% endif %}
+	</div>
+</div>
