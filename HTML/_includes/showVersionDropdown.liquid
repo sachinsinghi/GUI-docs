@@ -19,7 +19,7 @@
 {% assign versions = '' %}
 {% assign _isBase = false %}
 
-{% if mod[1].ID == "_base" %}
+{% if mod[1].core == true %}
 	{% assign _isBase = true %}
 {% endif %}
 

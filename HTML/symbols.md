@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Symbols
-weight: "010.070"
+weight: "010.110"
 brand: [Brand]
 ---
 

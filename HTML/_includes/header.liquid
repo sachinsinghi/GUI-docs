@@ -61,17 +61,11 @@
 			Add Ingredients to <a href="blender/">the blender</a>
 		</span>
 
-		{% for version in site.data.GUI.modules._fixed._base.versions %}
-			{% assign baseVersion = version[0] %}
-			{% assign baseSize = version[1].size %}
-		{% endfor %}
-
 		<span class="blenderline-item-sizes">
 			Your blend is: &asymp;
 
 			<strong>
-				<span class="blenderline-item blenderline-item-size js-blender-size"
-					data-base-version="{{ baseVersion }}" data-base-size="{{ baseSize }}">{{ baseSize }}</span>kb
+				<span class="blenderline-item blenderline-item-size js-blender-size">{{ baseSize }}</span>kb
 			</strong>
 		</span>
 	</div>

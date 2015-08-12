@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Buttons
-weight: "010.030"
+weight: "010.050"
 brand: [Brand]
 ---
 

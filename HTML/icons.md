@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Icons
-weight: "010.060"
+weight: "010.100"
 brand: [Brand]
 ---
 

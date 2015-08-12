@@ -1,7 +1,7 @@
 ---
 layout: default
 title: The Blender
-weight: "010.-1"
+weight: "010.-170"
 brand: [Brand]
 ---
 

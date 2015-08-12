@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Navigation
-weight: "010.130"
+weight: "010.120"
 brand: [Brand]
 ---
 

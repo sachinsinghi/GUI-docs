@@ -235,7 +235,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('downloadGUI', 'Download the GUI zip from GitHub.', function() {
 
 		grunt.log.writeln('Downloading the GUI zip file can take a long time.');
-		grunt.log.writeln( Chalk.yellow.bold('Time to replax and get a cup of tea...') );
+		grunt.log.writeln( Chalk.yellow.bold('Time to relax and get a cup of tea...') );
 
 		grunt.task.run('spinnerStart');
 		grunt.task.run('curl:GUI');

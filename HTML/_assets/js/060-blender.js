@@ -193,10 +193,19 @@
 
 
 		//////////////////////////////////////////////////| SAVING BASE
-		var baseVersion = $('.js-blender-size').attr('data-base-version');
-		var baseSize = parseInt( $('.js-blender-size').attr('data-base-size') );
+		var coreModuleString = $('.js-body').attr('data-coremodules');
+		var coreSize = parseInt( $('.js-body').attr('data-coresize') );
+		var coreModules = coreModuleString.split(',');
+		App.blender.core = 0;
 
-		App.blender.save( '_base', baseVersion, baseSize );
+		for(var i = coreModules.length - 1; i >= 0; i--) {
+			var module = coreModules[i].split(':');
+
+			App.blender.save( module[0], module[1], coreSize );
+
+			coreSize = 0;
+			App.blender.core++;
+		};
 
 
 		//////////////////////////////////////////////////| RESOLVING HASH
@@ -329,6 +338,7 @@
 
 		var count = 0;
 		var size = 0;
+		var core = App.blender.core;
 
 		store.forEach(function( moduleName, options ) { //iterate over localStorage and see what we got
 			if( moduleName.substring(0, App.PREFIX.length) === App.PREFIX ) {
@@ -344,7 +354,7 @@
 			$('.js-body').removeClass('has-onlyBase');
 		}
 
-		$('.js-blender-count').text( ( count - 1 ) );
+		$('.js-blender-count').text( ( count - core ) );
 		$('.js-blender-size').text( size );
 
 		$('.js-blender-count, .js-blender-size')

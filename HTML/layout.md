@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Layout
-weight: "010.150"
+weight: "010.130"
 brand: [Brand]
 ---
 

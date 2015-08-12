@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Alerts
-weight: "010.100"
+weight: "010.090"
 brand: [Brand]
 ---
 

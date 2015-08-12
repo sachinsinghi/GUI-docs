@@ -16,9 +16,11 @@
 {% if "[Debug]" == "true" %}
 	{% assign server = 'http://localhost' %}
 	{% assign exclude = '' %}
+	{% assign exclude2 = '_core' %}
 {% else %}
 	{% assign server = 'http://128.199.237.107' %}
 	{% assign exclude = '_testing' %}
+	{% assign exclude2 = '_core' %}
 {% endif %}
 
 {% comment %}Print the form{% endcomment %}
@@ -26,7 +28,7 @@
 
 <form class="blender js-blender" method="POST" action="{{ server }}:8080/blender">
 	{% for category in site.data.GUI.modules %}
-		{% unless category[0] == exclude %}
+		{% if category[0] != exclude and category[0] != exclude2 %}
 			<fieldset class="blender-category">
 				<legend class="blender-category-headline">{{ category[0] }}</legend>
 
@@ -55,7 +57,7 @@
 				</ul>
 
 			</fieldset>
-		{% endunless %}
+		{% endif %}
 	{% endfor %}
 
 	<fieldset class="blender-category">

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Tables
-weight: "010.090"
+weight: "010.070"
 brand: [Brand]
 ---
 

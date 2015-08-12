@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Popovers
-weight: "010.140"
+weight: "010.100"
 brand: [Brand]
 ---
 

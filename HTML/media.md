@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Media
-weight: "010.110"
+weight: "010.130"
 brand: [Brand]
 ---
 

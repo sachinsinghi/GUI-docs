@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Lists
-weight: "010.020"
+weight: "010.080"
 brand: [Brand]
 ---
 
