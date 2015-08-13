@@ -11,19 +11,20 @@
 
 
 /* ---------------------------------------| GUI |--------------------------------------- */
-@import (inline) 'modules/stg-gui.min.css';
-@import 'modules/base-mixins.less';
+@import (inline) 'modules/wbc-gui.min.css';
+@import 'modules/_colors.less';
+@import 'modules/_grid.less';
 
-// ._base-colors( @brand );
-// ._base-breakpoints();
+._colors( @brand );
+._grid-breakpoints();
 
 
 /* ---------------------------------------| modules |--------------------------------------- */
-// @import 'modules/structure.less';
-// @import 'modules/header.less';
-// @import 'modules/sidebar.less';
-// @import 'modules/navigation.less';
-// @import 'modules/gridly.less';
-// @import 'modules/modules.less';
-// @import 'modules/blender.less';
-// @import 'modules/footer.less';
+@import 'modules/structure.less';
+@import 'modules/header.less';
+@import 'modules/sidebar.less';
+@import 'modules/navigation.less';
+@import 'modules/gridly.less';
+@import 'modules/modules.less';
+@import 'modules/blender.less';
+@import 'modules/footer.less';

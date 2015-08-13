@@ -192,7 +192,7 @@
 		}
 
 
-		//////////////////////////////////////////////////| SAVING BASE
+		//////////////////////////////////////////////////| SAVING CORE
 		var coreModuleString = $('.js-body').attr('data-coremodules');
 		var coreSize = parseInt( $('.js-body').attr('data-coresize') );
 		var coreModules = coreModuleString.split(',');
@@ -203,7 +203,6 @@
 
 			App.blender.save( module[0], module[1], coreSize );
 
-			coreSize = 0;
 			App.blender.core++;
 		};
 
@@ -347,11 +346,11 @@
 			}
 		});
 
-		if( count <= 1 ) {
-			$('.js-body').addClass('has-onlyBase');
+		if( count <= core ) {
+			$('.js-body').addClass('has-onlyCore');
 		}
 		else {
-			$('.js-body').removeClass('has-onlyBase');
+			$('.js-body').removeClass('has-onlyCore');
 		}
 
 		$('.js-blender-count').text( ( count - core ) );

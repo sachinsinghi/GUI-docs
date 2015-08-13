@@ -52,8 +52,8 @@ var App = (function() {
 				});
 
 
-			app.get('/', function(request, response) { //TODO: send header to forward to App.GUIURL + 'GUI/' and a little text
-				response.send('Hello world!');
+			app.get('*', function(request, response) {
+				response.redirect(301, App.GUIRURL + 'blender/');
 			});
 
 
