@@ -67,7 +67,9 @@
 
 		var url = App.GUIRURL + brand + '/blender/#';
 
-		url += '/' + App.selectedModules.base.ID + ':' + App.selectedModules.base.version; //adding base
+		App.selectedModules.core.forEach(function iterateCore( module ) { //adding core
+			url += '/' + module.ID + ':' + module.version;
+		});
 
 		App.selectedModules.modules.forEach(function( module ) { //adding modules
 			url += '/' + module.ID + ':' + module.version;

@@ -33,7 +33,8 @@
 	module.replace = function( content, replace ) {
 		App.debugging( 'Branding: Replacing "' + replace[0] + '" with "' + replace[1] + '"', 'report' );
 
-		return content.replace(replace[0], replace[1]);
+		var pattern = new RegExp('\\[(' + replace[0] + ')\\]', 'g');
+		return content.replace(pattern, replace[1]);
 
 	};
 

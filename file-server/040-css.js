@@ -33,35 +33,31 @@
 		var _includeOriginal  = App.selectedModules.includeLess; //POST.hasOwnProperty('includeless');
 
 
-		//////////////////////////////////////////////////| BASE
-		var lessContent = App.branding.replace(
-			Fs.readFileSync(App.GUIPATH + '_base/' + POST['module-_base'] + '/less/base-mixins.less', 'utf8'),
-			['[Module-Version-Brand]', ' _base v' + POST['module-_base'] + ' ' + POST['brand']]
-		);
+		//////////////////////////////////////////////////| CORE
+		App.selectedModules.core.forEach(function iterateCore( module ) {
+			var lessContent = App.branding.replace(
+				Fs.readFileSync(App.GUIPATH + module.ID + '/' + module.version + '/less/module-mixins.less', 'utf8'),
+				['Module-Version-Brand', ' ' + module.name + ' v' + module.version + ' ' + POST['brand']]
+			);
 
-		lessContent += "\n" + App.branding.replace(
-			Fs.readFileSync( App.GUIPATH + '_base/' + POST['module-_base'] + '/less/settings.less', 'utf8'),
-			['[Brand]', POST['brand']]
-		);
+			lessContent = App.branding.replace( lessContent, [ 'Brand', POST['brand'] ] );
 
-		if( _includeOriginal ) {
-			App.zip.addFile( lessContent, '/source/less/_base.less' );
-		}
+			if( _includeOriginal ) {
+				App.zip.addFile( lessContent, '/source/less/' + module.ID + '.less' );
+			}
 
-		lessContents += lessContent;
+			lessContents += lessContent;
+		});
 
 
 		//////////////////////////////////////////////////| MODULES
 		App.selectedModules.modules.forEach(function( module ) {
-			lessContent = App.branding.replace(
+			var lessContent = App.branding.replace(
 				Fs.readFileSync( App.GUIPATH + module.ID + '/' + module.version + '/less/module-mixins.less', 'utf8'),
-				['[Module-Version-Brand]', ' ' + module.name + ' v' + module.version + ' ' + POST['brand'] + ' ']
+				['Module-Version-Brand', ' ' + module.name + ' v' + module.version + ' ' + POST['brand'] + ' ']
 			);
 
-			lessContent += "\n" + App.branding.replace(
-				Fs.readFileSync( App.GUIPATH + module.ID + '/' + module.version + '/less/settings.less', 'utf8'),
-				['[Brand]', POST['brand']]
-			);
+			lessContent = App.branding.replace( lessContent, [ 'Brand', POST['brand'] ] );
 
 			if( _includeOriginal && module.less ) {
 				App.zip.addFile( lessContent, '/source/less/' + module.ID + '.less' );
@@ -76,6 +72,7 @@
 			compress: true
 		},
 		function(e, output) {
+			//TODO: error handling
 
 			var source = App.banner.attach( output.css ); //attach a banner to the top of the file with a URL of this build
 

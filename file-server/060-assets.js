@@ -31,14 +31,16 @@
 		var POST = App.POST;
 
 
-		//////////////////////////////////////////////////| BASE
-		if( App.selectedModules.base.font ) {
-			App.assets.getFonts( App.GUIPATH + '_base/' + POST['module-_base'] + '/_assets/' + POST['brand'] + '/font/' );
-		}
+		//////////////////////////////////////////////////| CORE
+		App.selectedModules.core.forEach(function iterateCore( module ) {
+			if( module.font ) {
+				App.assets.getFonts( App.GUIPATH + module.ID + '/' + module.version + '/_assets/' + POST['brand'] + '/font/' );
+			}
 
-		if( App.selectedModules.base.svg ) {
-			App.assets.getSVG( App.GUIPATH + '_base/' + POST['module-_base'] + '/tests/' + POST['brand'] + '/assets/' );
-		}
+			if( module.svg ) {
+				App.assets.getSVG( App.GUIPATH + module.ID + '/' + module.version + '/tests/' + POST['brand'] + '/assets/' );
+			}
+		});
 
 
 		//////////////////////////////////////////////////| MODULES
