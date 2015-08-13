@@ -39,6 +39,27 @@
 					$version.addClass('is-visible');
 				}
 			});
+
+
+			//////////////////////////////////////////////////| CHECKING DEPENDENCIES
+			$('.js-exampletab').on('click', function(e) {
+				App.debugging( 'Modules: Tab clicked', 'interaction' );
+
+				e.preventDefault();
+				var $this = $(this);
+				var href = $this.attr('href').split('#');
+				var $target = $( '#' + href[ (href.length - 1) ] );
+				var _isOpen = $this.parent().hasClass('is-active');
+
+				$this.parents('.js-exampletabs').find('.js-examplecontent').removeClass('is-open');
+				$this.parents('.js-exampletabs').find('.js-exampletab').parent().removeClass('is-active');
+
+				if( !_isOpen ) {
+					$target.addClass('is-open');
+					$this.parent().addClass('is-active');
+				}
+
+			});
 		}
 	};
 

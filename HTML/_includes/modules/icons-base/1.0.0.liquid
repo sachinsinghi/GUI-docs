@@ -6,13 +6,71 @@
 
 {% comment %} TITLE {% endcomment %}
 {% capture title %}
-	FILL-ME
+	Sizing
 {% endcapture %}
 
 
 {% comment %} DESCRIPTION {% endcomment %}
 {% capture description %}
+	These icons are designed on a 16px grid. They must only be used at the following sizes: 16px, 32px and 64px. If the icons are not used at these sizes they
+	will appear blurred. Some of the icons should only be used at the small size. These are indicated below.
+{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% capture example %}
 	FILL-ME
+{% endcapture %}
+
+
+{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% capture HTML %}
+	{{ example }}
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+	FILL-ME
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	FILL-ME
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+	FILL-ME
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+
+
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Embedding
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	There are two ways to embed svg&rsquo;s: As a background image or direct embedding. Both methods are valid however it&rsquo;s important to understand the
+	implications. For example using the background method is not semantic or accessible where as direct embedding is accessible as every svg comes with a title
+	attribute that reflects it&rsquo;s name.
 {% endcapture %}
 
 

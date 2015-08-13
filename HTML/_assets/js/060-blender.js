@@ -87,7 +87,7 @@
 
 				$wrapper.find('.js-blender-newer').remove(); //remove warnings
 
-				var warning = '<div class="popover-wrapper js-blender-newer">' +
+				var warning = '<div class="popover-wrapper blender-newer js-blender-newer">' +
 					'	<button type="button" class="btn btn-link popover popover-dismissible js-popover">' +
 					'		<span class="icon icon-size-sm icon-alert">Out of date</span>' +
 					'	</button>' +
@@ -192,7 +192,7 @@
 		}
 
 
-		//////////////////////////////////////////////////| SAVING BASE
+		//////////////////////////////////////////////////| SAVING CORE
 		var coreModuleString = $('.js-body').attr('data-coremodules');
 		var coreSize = parseInt( $('.js-body').attr('data-coresize') );
 		var coreModules = coreModuleString.split(',');
@@ -347,11 +347,11 @@
 			}
 		});
 
-		if( count <= 1 ) {
-			$('.js-body').addClass('has-onlyBase');
+		if( count <= core ) {
+			$('.js-body').addClass('has-onlyCore');
 		}
 		else {
-			$('.js-body').removeClass('has-onlyBase');
+			$('.js-body').removeClass('has-onlyCore');
 		}
 
 		$('.js-blender-count').text( ( count - core ) );

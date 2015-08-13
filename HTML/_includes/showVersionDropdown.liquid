@@ -55,7 +55,9 @@
 			TICK
 		{% endcomment %}
 		{% capture tick %}
-			<label class="checkbox module-version-checkbox">
+			<label class="checkbox module-version-checkbox
+				{% if layout == 'blender' %}checkbox-flip{% endif %}
+			">
 				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-{{ mod[1].ID }}" id="tick-{{ mod[1].ID }}"
 					{% if _isBase %}checked="checked" disabled="disabled"{% endif %}
 				>
