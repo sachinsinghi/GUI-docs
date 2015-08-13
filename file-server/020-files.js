@@ -67,21 +67,20 @@ var Less = require('less');
 
 		//////////////////////////////////////////////////| ADDING MODULES
 		Object.keys( POST ).forEach(function( moduleName ) {
-			var module = moduleName.substr(7);
+			var module = moduleName.substr(5);
 
 			if(
-				moduleName.substr(0, 7) === 'module-' &&
-				POST[ moduleName ] !== 'nil' &&
-				moduleName !== 'module-_base' &&
-				POST[ 'tick-' + module ] === 'on'
+				moduleName.substr(0, 5) === 'tick-' &&
+				POST[ moduleName ] === 'on'
 			) { //only look at enabled checkboxes
 
-				var version = POST[ moduleName ];
 				var json = App.modules.getJson( module );
+
+				var version = POST[ 'module-' + module ];
 				var newObject = _.extend( json, json.versions[ version ] ); //merge version to the same level
 				newObject.version = version;
 
-				if( newObject.js && module.ID !== '_base' || !_includeJquery ) {
+				if( newObject.js ) {
 					_hasJS = true;
 				}
 
@@ -94,12 +93,17 @@ var Less = require('less');
 		});
 
 
-		//////////////////////////////////////////////////| ADDING BASE
-		var json = App.modules.getJson( '_base' );
-		var newObject = _.extend(json, json.versions[ POST['module-_base'] ]); //merge version to the same level
-		newObject.version = POST['module-_base'];
+		//////////////////////////////////////////////////| ADDING CORE
+		fromPOST.core = [];
 
-		fromPOST.base = newObject;
+		Object.keys( App.GUI.modules._core ).forEach(function( moduleName ) {
+			var module = App.GUI.modules._core[moduleName]
+
+			var newObject = _.extend(module, module.versions[ POST[ 'module-' + module.ID ] ]); //merge version to the same level
+			newObject.version = POST[ 'module-' + module.ID ];
+
+			fromPOST.core.push(newObject);
+		});
 
 
 		//////////////////////////////////////////////////| ADDING OPTIONS
