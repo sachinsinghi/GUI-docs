@@ -6,13 +6,77 @@
 
 {% comment %} TITLE {% endcomment %}
 {% capture title %}
-	FILL-ME
+	Headings
 {% endcapture %}
 
 
 {% comment %} DESCRIPTION {% endcomment %}
 {% capture description %}
+	All HTML headings, are available. h1 through to h6 classes are also available, for when you want to match the font styling of a heading but still want your
+	text to be displayed inline. The default spacing used in these headings may not be suitable in all cases. Use the margin classes to adjust spacing above and
+	below headings.
+{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% capture example %}
 	FILL-ME
+{% endcapture %}
+
+
+{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% capture HTML %}
+	{{ example }}
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+	FILL-ME
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	FILL-ME
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+	FILL-ME
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+
+
+
+
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Editorial text
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	Paragraph: The baseline body text.<br>
+	Small: De-emphasise inline or blocks of text.<br>
+	Strong: Emphasise a snippet of text. The default behaviour being a heavier font weight.<br>
+	Emphasis: Emphasise a snippet of text. The default behaviour being italics.<br>
+	Abbreviation: Explain abbreviations and acronyms by showing the expanded version on hover. Abbreviations with a title attribute have a light dotted bottom
+	border and a help cursor on hover, providing additional context on hover.
 {% endcapture %}
 
 
