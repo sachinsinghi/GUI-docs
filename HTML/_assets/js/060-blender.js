@@ -203,6 +203,7 @@
 
 			App.blender.save( module[0], module[1], coreSize );
 
+			coreSize = 0;
 			App.blender.core++;
 		};
 
