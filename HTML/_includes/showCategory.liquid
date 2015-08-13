@@ -22,44 +22,48 @@
 {% assign LESS = '' %}
 {% assign JS = '' %}
 
-<div class="col-sm-12 category">
-	{% for module in site.data.GUI.modules[category] %}
-		{% assign thisModule = module[1] %}
+<div class="row">
+	<div class="col-sm-12 category">
+		{% for module in site.data.GUI.modules[category] %}
+			{% assign thisModule = module[1] %}
 
-		<section class="modules js-modules js-blender-module{{ module[1].ID }}
-			{% unless site.data.GUI.modules[category].size == 1 %}has-border{% endunless %}
-		" id="{{ module[1].ID }}">
-			<div class="row">
-				<div class="col-sm-4">
-					{% if site.data.GUI.modules[category].size > 1 %}
-						<h2 class="module-headline">{{ module[1].name }}</h2>
-					{% endif %}
-				</div>
-				<div class="col-sm-8 hidden-xs module-version">
-					{% include showVersionDropdown.liquid  mod = module  layout = 'inner' %}
-				</div>
-			</div>
-
-			{% for version in thisModule.versions %}
-				<div class="module js-blender-versionhtml js-blender-version{{ version[0] | handleize }}
-					{% if forloop.last %}is-visible{% endif %}
-				">
-					{% capture path %}modules/{{ thisModule.ID }}/{{ version[0] }}.liquid{% endcapture %}
-					{% assign ID = thisModule.ID %}
-					{% assign category = thisModule.category %}
-					{% assign count = 0 %}
-					{% assign thisVersion = version[0] %}
-
-					<div class="row">
-						<div class="col-sm-12">
-							<small class="module-version-string">{{ thisVersion }}</small>
-						</div>
+			<section class="modules js-modules js-blender-module{{ module[1].ID }}
+				{% unless site.data.GUI.modules[category].size == 1 %}
+					has-border
+				{% endunless %}" id="{{ module[1].ID }}">
+				<div class="row">
+					<div class="col-sm-4">
+						{% if site.data.GUI.modules[category].size > 1 %}
+							<h2 class="module-headline">{{ module[1].name }}</h2>
+						{% endif %}
 					</div>
-
-					{% include {{ path }}  mod = thisModule  ver = thisVersion %}
+					<div class="col-sm-8 hidden-xs module-version">
+						{% include showVersionDropdown.liquid  mod = module  layout = 'inner' %}
+					</div>
 				</div>
-			{% endfor %}
-		</section>
 
-	{% endfor %}
+				{% comment %}ALL VERSIONS{% endcomment %}
+				{% for version in thisModule.versions %}
+					<div class="module js-blender-versionhtml js-blender-version{{ version[0] | handleize }}
+						{% if forloop.last %}is-visible{% endif %}
+					">
+						{% capture path %}modules/{{ thisModule.ID }}/{{ version[0] }}.liquid{% endcapture %}
+						{% assign ID = thisModule.ID %}
+						{% assign category = thisModule.category %}
+						{% assign count = 0 %}
+						{% assign thisVersion = version[0] %}
+
+						<div class="row">
+							<div class="col-sm-12">
+								<small class="module-version-string">{{ thisVersion }}</small>
+							</div>
+						</div>
+
+						{% include {{ path }}  mod = thisModule  ver = thisVersion %}
+					</div>
+				{% endfor %}
+			</section>
+
+		{% endfor %}
+	</div>
 </div>

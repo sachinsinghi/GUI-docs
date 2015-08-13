@@ -87,7 +87,7 @@
 
 				$wrapper.find('.js-blender-newer').remove(); //remove warnings
 
-				var warning = '<div class="popover-wrapper js-blender-newer">' +
+				var warning = '<div class="popover-wrapper blender-newer js-blender-newer">' +
 					'	<button type="button" class="btn btn-link popover popover-dismissible js-popover">' +
 					'		<span class="icon icon-size-sm icon-alert">Out of date</span>' +
 					'	</button>' +
