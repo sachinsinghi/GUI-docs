@@ -6,9 +6,8 @@ brand: [Brand]
 ---
 
 <div class="col-sm-8 col-sm-offset-4">
-	Section to describe Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, sequi in eum voluptas, veniam voluptatum ducimus assumenda dolor earum
-	optio. Velit dignissimos, laboriosam earum corporis natus beatae! Ab, obcaecati. Tenetur! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus,
-	sequi in eum voluptas, veniam voluptatum ducimus assumenda dolor earum optio. Velit dignissimos, laboriosam earum corporis natus beatae! Ab, obcaecati.
+	Sometimes you need to group elements either for visual structure or as a functional requirement so you can manipulate the group. For those situations
+	we&rsquo;ve created several containers to get you started.
 </div>
 
 {% include showCategory.liquid  cat = "Containers" %}

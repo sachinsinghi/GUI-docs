@@ -6,9 +6,7 @@ brand: [Brand]
 ---
 
 <div class="col-sm-8 col-sm-offset-4">
-	Section to describe Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, sequi in eum voluptas, veniam voluptatum ducimus assumenda dolor earum
-	optio. Velit dignissimos, laboriosam earum corporis natus beatae! Ab, obcaecati. Tenetur! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus,
-	sequi in eum voluptas, veniam voluptatum ducimus assumenda dolor earum optio. Velit dignissimos, laboriosam earum corporis natus beatae! Ab, obcaecati.
+	Navigation is a little light on at the moment as we&rsquo;re still working on UI patterns for navigation. We&rsquo;ll be adding lots more soon.
 </div>
 
 {% include showCategory.liquid  cat = "Navigation" %}

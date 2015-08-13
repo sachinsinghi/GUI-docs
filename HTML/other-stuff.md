@@ -6,9 +6,8 @@ brand: [Brand]
 ---
 
 <div class="col-sm-8 col-sm-offset-4">
-	Section to describe Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, sequi in eum voluptas, veniam voluptatum ducimus assumenda dolor earum
-	optio. Velit dignissimos, laboriosam earum corporis natus beatae! Ab, obcaecati. Tenetur! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus,
-	sequi in eum voluptas, veniam voluptatum ducimus assumenda dolor earum optio. Velit dignissimos, laboriosam earum corporis natus beatae! Ab, obcaecati.
+	Other stuff is a collection of components and elements that don&rsquo;t belong in any other category. There are some useful assets in this category and
+	we&rsquo;ll no doubt be adding to it in the future.
 </div>
 
 {% include showCategory.liquid  cat = "Other stuff" %}

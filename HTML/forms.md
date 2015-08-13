@@ -6,9 +6,8 @@ brand: [Brand]
 ---
 
 <div class="col-sm-8 col-sm-offset-4">
-	Section to describe Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, sequi in eum voluptas, veniam voluptatum ducimus assumenda dolor earum
-	optio. Velit dignissimos, laboriosam earum corporis natus beatae! Ab, obcaecati. Tenetur! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus,
-	sequi in eum voluptas, veniam voluptatum ducimus assumenda dolor earum optio. Velit dignissimos, laboriosam earum corporis natus beatae! Ab, obcaecati.
+	Forms play an important role in our brands products and services. All roads lead to a form so it&rsquo;s important to get them right. These basic form
+	elements have been carefully crafted and rigorously tested. Use them as the foundation for any form creation.
 </div>
 
 {% include showCategory.liquid  cat = "Forms" %}
