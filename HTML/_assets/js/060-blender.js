@@ -61,7 +61,7 @@
 				App.debugging( 'Blender: Version changed', 'interaction' );
 
 				var $this = $(this);
-				var ID = $this.attr('id');
+				var ID = $this.attr('id').replace('select-', '');
 				var $tick = $( '#tick-' + ID + ':checked' );
 				var $wrapper = $this.parents('.js-module-version');
 
@@ -72,7 +72,7 @@
 					App.debugging( 'Blender: ' + ID + ' module ticked', 'report' );
 
 					var $select = $wrapper.find('.js-blender-version');
-					var moduleName = $select.attr('id');
+					var moduleName = $select.attr('id').replace('select-', '');
 					var $version = $select.find('option:selected');
 					var version = $version.val();
 					var size = $version.attr('data-size');
@@ -87,20 +87,21 @@
 
 				$wrapper.find('.js-blender-newer').remove(); //remove warnings
 
-				var warning = '' +
-					'<button type="button" class="btn btn-link popover popover-dismissible js-popover js-blender-newer">' +
-					'	<span class="icon icon-size-sm icon-alert">Out of date</span>' +
-					'	<span class="popover-popup" aria-hidden="true" tabindex="-1">' +
-					'		<span class="popover-popup-body">' +
+				var warning = '<div class="popover-wrapper js-blender-newer">' +
+					'	<button type="button" class="btn btn-link popover popover-dismissible js-popover">' +
+					'		<span class="icon icon-size-sm icon-alert">Out of date</span>' +
+					'	</button>' +
+					'	<div class="popover-popup" aria-hidden="true" tabindex="-1">' +
+					'		<p class="popover-popup-body">' +
 					'			A newer version of this module exists.' +
-					// '			<button type="button" class="btn btn-link js-selectLatest" data-id="' + ID + '">select latest</button>' +
-					'		</span>' +
-					'	</span>' +
-					'</button>';
+					'			<button type="button" class="btn btn-link js-selectLatest" data-id="' + ID + '">Select latest</button>' +
+					'		</p>' +
+					'	</div>' +
+					'</div>';
 
 				if( this.selectedIndex > 0 ) {
 					$wrapper.append(warning); //add warning is not latest version
-					GUI.popovers.init(); //run GUI for added elements
+					GUI.popovers.init(); //reinitiate GUI for added elements
 				}
 			});
 
@@ -114,7 +115,7 @@
 				var $wrapper = $this.parents('.js-module-version');
 				var $select = $wrapper.find('.js-blender-version');
 				var dependencies = $select.find(':checked').attr('data-dependencies');
-				var moduleName = $select.attr('id');
+				var moduleName = $select.attr('id').replace('select-', '');
 				var $version = $select.find('option:selected');
 				var size = $version.attr('data-size');
 
@@ -172,14 +173,39 @@
 				location.reload();
 			});
 
+			//////////////////////////////////////////////////| CHECKBOX HAS BEEN CLICKED
+			$('.js-module-version').on('click', '.js-selectLatest', function() {
+				App.debugging( 'Blender: Select latest button clicked', 'interaction' );
+
+				var $this = $(this);
+				var ID = $this.attr('data-id');
+				var $select = $('#select-' + ID);
+
+				$select
+					.find('option:first')
+					.prop('selected', true)
+					.trigger('change');
+
+				$this.parents('.js-blender-newer').remove();
+			});
+
 		}
 
 
 		//////////////////////////////////////////////////| SAVING BASE
-		var baseVersion = $('.js-blender-size').attr('data-base-version');
-		var baseSize = parseInt( $('.js-blender-size').attr('data-base-size') );
+		var coreModuleString = $('.js-body').attr('data-coremodules');
+		var coreSize = parseInt( $('.js-body').attr('data-coresize') );
+		var coreModules = coreModuleString.split(',');
+		App.blender.core = 0;
 
-		App.blender.save( '_base', baseVersion, baseSize );
+		for(var i = coreModules.length - 1; i >= 0; i--) {
+			var module = coreModules[i].split(':');
+
+			App.blender.save( module[0], module[1], coreSize );
+
+			coreSize = 0;
+			App.blender.core++;
+		};
 
 
 		//////////////////////////////////////////////////| RESOLVING HASH
@@ -312,6 +338,7 @@
 
 		var count = 0;
 		var size = 0;
+		var core = App.blender.core;
 
 		store.forEach(function( moduleName, options ) { //iterate over localStorage and see what we got
 			if( moduleName.substring(0, App.PREFIX.length) === App.PREFIX ) {
@@ -320,7 +347,14 @@
 			}
 		});
 
-		$('.js-blender-count').text( ( count - 1 ) );
+		if( count <= 1 ) {
+			$('.js-body').addClass('has-onlyBase');
+		}
+		else {
+			$('.js-body').removeClass('has-onlyBase');
+		}
+
+		$('.js-blender-count').text( ( count - core ) );
 		$('.js-blender-size').text( size );
 
 		$('.js-blender-count, .js-blender-size')

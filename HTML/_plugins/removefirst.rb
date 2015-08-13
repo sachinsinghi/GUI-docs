@@ -1,6 +1,6 @@
 # Startwith Filter
 #
-# Ussage: {{ string | startwith: 'string' }}
+# Ussage: {{ string | remove_first }}
 # Output: {boolen}
 
 module Jekyll

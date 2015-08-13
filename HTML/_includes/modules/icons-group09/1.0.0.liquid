@@ -1,15 +1,52 @@
 {% comment %}
-	This snippet prints the docs for this version
-
-	Usage:
-		{% include modules/[module.ID]/[version].liquid %}
-
-	Return:
-		HTML direct output
-
-	Required:
-		- none -
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
 {% endcomment %}
 
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	FILL-ME
+{% endcapture %}
 
-icons-group09
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	FILL-ME
+{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% capture example %}
+	FILL-ME
+{% endcapture %}
+
+
+{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% capture HTML %}
+	{{ example }}
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+	FILL-ME
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	FILL-ME
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+	FILL-ME
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}

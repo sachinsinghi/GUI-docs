@@ -14,43 +14,58 @@
 
 <header class="header">
 
-	<button class="header-hamburger js-toggleMenu">
-		<span class="cheese">Click</span>
-		<span class="patty">to</span>
-		<span class="salad">Open Menu</span>
-	</button>
-
-	<h1 class="header-headline js-headerHeadline">{{ page.title }}</h1>
-
-	<div class="gridly-button-wrapper">
-		<span class="visible-lg-inline">lg</span>
-		<span class="visible-md-inline">md</span>
-		<span class="visible-sm-inline">sm</span>
-		<span class="visible-xs-inline">xs</span>
-		<span class="hidden-xs">breakpoint</span>
-
-		<button class="gridly-button js-gridly">
-			<span class="gridly-show">Show</span>
-			<span class="gridly-hide">or hide</span>
-			<span>the grid</span>
+	<div class="headerline">
+		<button class="header-hamburger js-toggleMenu">
+			<span class="cheese">Click</span>
+			<span class="patty">to</span>
+			<span class="salad">Open Menu</span>
 		</button>
+
+		<h1 class="header-headline js-headerHeadline">
+			{% if page.parent.size > 0 %}
+				<span class="header-subline">{{ page.parent }}</span>
+			{% endif %}
+			{% assign title = page.title | handleize %}
+			{% if title == 'getting-started' %}
+				<strong>UI</strong> Framework
+			{% else %}
+				{{ page.title }}
+			{% endif %}
+		</h1>
+
+		<div class="gridly-button-wrapper">
+			<span class="visible-lg-inline">Lg</span>
+			<span class="visible-md-inline">Md</span>
+			<span class="visible-sm-inline">Sm</span>
+			<span class="visible-xs-inline">Xs</span>
+			<span class="sr-only">breakpoint</span>
+
+			<button class="gridly-button js-gridly">
+				<span class="gridly-line gridly-show">Show</span>
+				<span class="gridly-line gridly-hide">or hide</span>
+				<span class="gridly-line">the</span>
+				<span class="gridly-line">grid</span>
+			</button>
+		</div>
 	</div>
 
 	<div class="blenderline">
 		<span class="blenderline-logo sitesymbol-gui-blender">GUI Blender</span>
-		<span class="blenderline-item blenderline-item-count js-blender-count">0</span>
 
-		{% for version in site.data.GUI.modules._fixed._base.versions %}
-			{% assign baseVersion = version[0] %}
-			{% assign baseSize = version[1].size %}
-		{% endfor %}
+		<span class="blenderline-ingredients">
+			<span class="blenderline-item badge js-blender-count">0</span>
+			Ingredients added to <a href="blender/">the blender</a>
+		</span>
 
-		<span class="blenderline-item-right">
+		<span class="blenderline-ingredients blenderline-ingredients-empty">
+			Add Ingredients to <a href="blender/">the blender</a>
+		</span>
+
+		<span class="blenderline-item-sizes">
 			Your blend is: &asymp;
 
 			<strong>
-				<span class="blenderline-item blenderline-item-size js-blender-size"
-					data-base-version="{{ baseVersion }}" data-base-size="{{ baseSize }}">{{ baseSize }}</span>kb
+				<span class="blenderline-item blenderline-item-size js-blender-size">{{ baseSize }}</span>kb
 			</strong>
 		</span>
 	</div>

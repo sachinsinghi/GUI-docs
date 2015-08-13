@@ -33,11 +33,11 @@
 		index = _.template( index )({ //render the index template
 			_hasJS: App.selectedModules.js,
 			_hasSVG: App.selectedModules.svg,
-			blendURL: App.banner.getFlavourURL( App.selectedModules.brand ),
-			blendURLBOM: App.banner.getFlavourURL( 'BOM' ),
-			blendURLBSA: App.banner.getFlavourURL( 'BSA' ),
-			blendURLSTG: App.banner.getFlavourURL( 'STG' ),
-			blendURLWBC: App.banner.getFlavourURL( 'WBC' ),
+			blendURL: App.banner.getBlendURL( App.selectedModules.brand ),
+			blendURLBOM: App.banner.getBlendURL( 'BOM' ),
+			blendURLBSA: App.banner.getBlendURL( 'BSA' ),
+			blendURLSTG: App.banner.getBlendURL( 'STG' ),
+			blendURLWBC: App.banner.getBlendURL( 'WBC' ),
 			GUIRURL: App.GUIRURL + App.selectedModules.brand + '/blender/',
 		});
 

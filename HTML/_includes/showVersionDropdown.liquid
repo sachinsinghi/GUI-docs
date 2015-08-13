@@ -2,7 +2,7 @@
 	This snippet prints a version dropdown for a specific module
 
 	Usage:
-		{% include showVersionDropdown.liquid  mod = site.data.GUI.modules.buttons.buttons %}
+		{% include showVersionDropdown.liquid  mod = site.data.GUI.modules.buttons.buttons layout = 'inner' %}
 
 	Return:
 		HTML direct output
@@ -10,14 +10,16 @@
 	Required:
 		site.data.GUI  [jekyll data object]  The GUI.json in jekylls _data folder
 		mod            [object]              The GUI.json object for this particular module
+		layout         [string]              Option to align the elements to a specific layout. Options: ['inner', 'blender']
 {% endcomment %}
 
 
 {% assign mod = include.mod %}
+{% assign layout = include.layout %}
 {% assign versions = '' %}
 {% assign _isBase = false %}
 
-{% if mod[1].ID == "_base" %}
+{% if mod[1].core == true %}
 	{% assign _isBase = true %}
 {% endif %}
 
@@ -26,7 +28,10 @@
 ">
 	{% unless mod[1].versions.size == nil %}
 
-		{% comment %}Reverse order to have newest option on top{% endcomment %}
+		{% comment %}
+			OPTIONS
+			Reverse order to have newest option on top
+		{% endcomment %}
 		{% for version in mod[1].versions %}
 			{% assign dependencies = "" %}
 			{% for dep in version[1].dependencies %}
@@ -45,23 +50,57 @@
 			{% endcapture %}
 		{% endfor %}
 
-		{% comment %}Print select{% endcomment %}
-		<label for="tick-{{ mod[1].ID }}">Add version</label>
 
-		<div class="input-field-select-wrapper">
-			<select class="input-field-select blender-version js-blender-version" name="module-{{ mod[1].ID }}" id="{{ mod[1].ID }}">
-				{{ versions }}
-			</select>
-		</div>
+		{% comment %}
+			TICK
+		{% endcomment %}
+		{% capture tick %}
+			<label class="checkbox module-version-checkbox">
+				<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-{{ mod[1].ID }}" id="tick-{{ mod[1].ID }}"
+					{% if _isBase %}checked="checked" disabled="disabled"{% endif %}
+				>
+				<span class="checkbox-text">
+					<span class="sr-only">Add the {{ mod[1].name }} module</span>
+				</span>
+			</label>
+		{% endcapture %}
 
-		<label class="checkbox">
-			<input class="checkbox-input js-blender-tick" type="checkbox" name="tick-{{ mod[1].ID }}" id="tick-{{ mod[1].ID }}"
-				{% if _isBase %}checked="checked" disabled="disabled"{% endif %}
-			>
-			<span class="checkbox-text">
-				<span class="sr-only">Add the {{ mod[1].name }} module</span>
-			</span>
-		</label>
+
+		{% comment %}
+			LABEL
+		{% endcomment %}
+		{% capture label %}
+			<label class="module-version-label" for="tick-{{ mod[1].ID }}">Add version</label>
+		{% endcapture %}
+
+
+		{% comment %}
+			SELECT
+		{% endcomment %}
+		{% capture select %}
+			<div class="input-field-select-wrapper module-version-select">
+				<select class="input-field-select blender-version js-blender-version" name="module-{{ mod[1].ID }}" id="select-{{ mod[1].ID }}">
+					{{ versions }}
+				</select>
+			</div>
+		{% endcapture %}
+
+
+
+		{% comment %}
+			Layout
+		{% endcomment %}
+		{% if layout == 'inner' %}
+			{{ tick }}
+			{{ label }}
+			{{ select }}
+			<label class="module-version-label2" for="tick-{{ mod[1].ID }}">to the blender</label>
+		{% else if layout == 'blender' %}
+			{{ label }}
+			{{ select }}
+			{{ tick }}
+		{% endif %}
+
 
 	{% endunless %}
 </div>

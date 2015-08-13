@@ -1,0 +1,277 @@
+/* Header */
+
+
+.header {
+	position: fixed;
+	height: 66px;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 200;
+	transition: height 0s, padding 0.4s, box-shadow 0.2s;
+
+	@media (min-width: @screen-sm) {
+		height: 294px;
+		position: absolute;
+	}
+
+	@media (min-width: @screen-md-lg) {
+		padding-left: 240px;
+	}
+
+	.headerline {
+		height: 66px;
+		overflow: hidden;
+		font-size: 16px;
+		background-color: @color-B;
+		background-size: cover;
+		background-attachment: scroll;
+
+		@media (min-width: @screen-sm) {
+			height: 228px;
+		}
+	}
+
+	.blenderline {
+		height: 66px;
+		background-color: #fff;
+		vertical-align: middle;
+		padding: 24px;
+		overflow: hidden;
+		display: none;
+		transition: margin 0.2s;
+
+		@media (min-width: @screen-sm) {
+			display: block;
+		}
+
+		.blenderline-logo {
+			text-indent: -999999em;
+			color: transparent;
+			width: 139px;
+			vertical-align: middle;
+			position: relative;
+			margin: 0 12px 0 0;
+			background-position: left center;
+			display: none;
+
+			&:after {
+				content: ' ';
+				position: absolute;
+				right: 0;
+				top: -10px;
+				bottom: -10px;
+				background-color: @color-Border;
+				width: 1px;
+			}
+
+			@media (min-width: @screen-sm) {
+				display: inline-block;
+			}
+
+			@media (min-width: @screen-md-lg) {
+				margin: 0 12px;
+			}
+		}
+
+		.blenderline-ingredients-empty {
+			display: none;
+		}
+
+		.has-onlyBase & {
+			.blenderline-ingredients {
+				display: none;
+
+				&.blenderline-ingredients-empty {
+					display: inline-block;
+				}
+			}
+		}
+
+		.blenderline-item-sizes {
+			float: right;
+			display: none;
+
+			@media (min-width: @screen-sm) {
+				display: inline-block;
+			}
+
+			.has-onlyBase & {
+				display: none;
+			}
+		}
+
+		// .blenderline-item-size {
+		// 	animation-delay: 0.4s;
+		// }
+
+
+	}
+
+	.has-halfScrolledContent & {
+		box-shadow: 0 2px 5px rgba(0, 0, 0, .25);
+
+		@media (min-width: @screen-sm) {
+			box-shadow: none;
+		}
+	}
+
+	.has-scrolledContent & {
+		position: fixed;
+		height: 66px;
+
+		@media (min-width: @screen-sm) {
+			height: 132px;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, .4);
+		}
+
+		.headerline {
+			height: 66px;
+		}
+	}
+}
+
+
+.header-headline {
+	margin: 24px 0 0 48px;
+	font-family: "Helvetica Neue", "Roboto", Arial, sans-serif;
+	font-weight: 400;
+	font-size: 18px;
+	white-space: nowrap;
+	color: #fff;
+
+	.has-halfScrolledContent & {
+		@media (min-width: @screen-sm) {
+			margin: 187px 0 0 60px;
+			font-size: 18px;
+			font-weight: 400;
+		}
+
+		@media (min-width: @screen-md-lg) {
+			margin: 182px 0 0 36px;
+		}
+	}
+
+	.has-scrolledContent & {
+		margin: 24px 0 0 48px;
+
+		@media (min-width: @screen-sm) {
+			margin-left: 60px;
+		}
+
+		@media (min-width: @screen-md-lg) {
+			margin: 24px 0 0 36px;
+		}
+	}
+
+	@media (min-width: @screen-sm) {
+		margin: 118px 0 0px 36px;
+		font-size: 54px;
+		font-weight: 100;
+	}
+
+	.header-subline {
+		&:after {
+			content: ' ';
+			display: inline-block;
+			width: 0.55555555555em;
+			height: 0.55555555555em;
+			margin: 0 0.407407407em;
+			border-right: 2px solid #fff;
+			border-top: 2px solid#fff;
+			transform: rotate(45deg);
+		}
+	}
+}
+
+.header-hamburger {
+	position: fixed;
+	width: 44px;
+	text-indent: -99999em;
+	overflow: hidden;
+	display: inline-block;
+	border: 0;
+	background: transparent;
+	padding: 12px;
+	margin: 14px 0 0 0;
+	z-index: 205;
+	left: 0;
+
+	@media (min-width: @screen-sm) {
+		margin-left: 12px;
+	}
+
+	@media (min-width: @screen-md-lg) {
+		display: none;
+	}
+
+	.cheese,
+	.patty,
+	.salad {
+		display: block;
+		background-color: #fff;
+		height: 0;
+		border: 1px solid #fff;
+		margin-bottom: 4px;
+		overflow: hidden;
+	}
+
+	.salad {
+		margin-bottom: 0;
+	}
+
+	.has-openSidebar & {
+		bottom: 0;
+
+		.cheese,
+		.patty,
+		.salad {
+			display: none;
+		}
+
+		&:after {
+			content: ' ';
+			position: fixed;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background-color: rgba(0, 0, 0, 0.4);
+		}
+	}
+}
+
+
+.gridly-button-wrapper {
+	position: fixed;
+	top: 12px;
+	right: 0;
+	color: #fff;
+
+	@media (min-width: @screen-sm) {
+		right: 12px;
+	}
+
+	.gridly-button {
+		height: 48px;
+		text-indent: -99999em;
+		overflow: hidden;
+		display: inline-block;
+		border: 0;
+		background: transparent;
+		padding: 8px 12px 12px 3px;
+		margin: 0;
+		z-index: 205;
+		left: 0;
+		vertical-align: middle;
+
+		.gridly-line {
+			float: left;
+			background-color: @color-B-70;
+			width: 4px;
+			height: 24px;
+			margin-right: 2px;
+			overflow: hidden;
+		}
+	}
+}

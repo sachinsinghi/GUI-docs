@@ -31,7 +31,7 @@ var Archiver = require('archiver');
 
 		App.response.writeHead(200, {
 			'Content-Type': 'application/zip',
-			'Content-disposition': 'attachment; filename=GUI-flavour-' + App.selectedModules.brand + '.zip',
+			'Content-disposition': 'attachment; filename=GUI-blend-' + App.selectedModules.brand + '.zip',
 		});
 
 		App.zip.archive.pipe( App.response );
@@ -80,7 +80,7 @@ var Archiver = require('archiver');
 			if( content.length > 0 ) { //don't need no empty files ;)
 				App.zip.files.push({ //collect file for later adding
 					content: content,
-					name: '/GUI-flavour' + archivePath,
+					name: '/GUI-blend' + archivePath,
 				});
 			}
 		}
@@ -108,7 +108,7 @@ var Archiver = require('archiver');
 				expand: true,
 				cwd: cwd,
 				src: files,
-				dest: '/GUI-flavour' + archivePath,
+				dest: '/GUI-blend' + archivePath,
 				filter: 'isFile',
 			});
 

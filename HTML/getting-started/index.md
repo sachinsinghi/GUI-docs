@@ -1,9 +1,9 @@
 ---
 layout: default
 title: Getting started
-weight: "010.-0"
+weight: "010.-0.000"
 brand: [Brand]
+parent: Getting Started
 ---
 
-
-getting started referal back to index
+Getting started

@@ -30,7 +30,7 @@
 	module.get = function() {
 		App.debugging( 'Banner: Generating banner', 'report' );
 
-		return '/* GUI flavour ' + App.banner.getFlavourURL( App.selectedModules.brand ) + ' */' + "\n";
+		return '/* GUI blend ' + App.banner.getBlendURL( App.selectedModules.brand ) + ' */' + "\n";
 
 	};
 
@@ -56,14 +56,14 @@
 
 
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	// Get the flavour url
+	// Get the blend url
 	//
 	// @param   brand  [string]  The brand for the URL
 	//
 	// @return  [string]  The URL string to this build
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	module.getFlavourURL = function( brand ) {
-		App.debugging( 'Banner: Generating flavour link', 'report' );
+	module.getBlendURL = function( brand ) {
+		App.debugging( 'Banner: Generating blend link', 'report' );
 
 		var url = App.GUIRURL + brand + '/blender/#';
 

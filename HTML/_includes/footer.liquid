@@ -12,15 +12,15 @@
 {% endcomment %}
 
 
-<div class="footer js-footer">
+<footer class="footer js-footer">
 	<span class="footer-social">
-		<span>Talk to us</span>
-		<a class="sitesymbol-email" href="mailto:pclancy@westpac.com.au" target="_blank">Email us</a>
-		<a class="sitesymbol-yammer" href="https://www.yammer.com/westpac.com.au" target="_blank">Yammer us</a>
-		<a class="sitesymbol-slack" href="https://westpac-digital.slack.com" target="_blank">Slack us</a>
+		<span class="footer-social-text">Talk to us</span>
+		<a class="footer-social-item sitesymbol-email" href="mailto:gel@westpac.com.au">Email us</a>
+		<a class="footer-social-item sitesymbol-yammer" href="https://www.yammer.com/westpac.com.au" target="_blank">Yammer us</a>
+		<a class="footer-social-item sitesymbol-slack" href="https://westpac-digital.slack.com" target="_blank">Slack us</a>
 	</span>
 
-	<a class="footer-topbutton js-scrollTo" href="#top">Top</a>
-</div>
+	<a class="btn btn-link footer-button js-scrollToTop" href="{{ page.url | slice: 5,9999999 }}#top">Top</a>
+</footer>
 
 {% include footer-code.liquid %}

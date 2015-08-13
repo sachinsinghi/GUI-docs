@@ -40,84 +40,84 @@ var App = (function Init() {
 		},
 
 
-		//----------------------------------------------------------------------------------------------------------------------------------------------------------
-		// debounce function by _underscore.js
-		//
-		// @param   func       [function]  Function to be executed
-		// @param   wait       [integer]   Wait for next iteration for n in milliseconds
-		// @param   immediate  [boolean]   Trigger the function on the leading edge [true], instead of the trailing [false]
-		//
-		// @return  [function]
-		//----------------------------------------------------------------------------------------------------------------------------------------------------------
-		debounce: function Debounce(func, wait, immediate) {
-			App.debugging( 'Base: Debounce called', 'report' );
+		// //----------------------------------------------------------------------------------------------------------------------------------------------------------
+		// // debounce function by _underscore.js
+		// //
+		// // @param   func       [function]  Function to be executed
+		// // @param   wait       [integer]   Wait for next iteration for n in milliseconds
+		// // @param   immediate  [boolean]   Trigger the function on the leading edge [true], instead of the trailing [false]
+		// //
+		// // @return  [function]
+		// //----------------------------------------------------------------------------------------------------------------------------------------------------------
+		// debounce: function Debounce(func, wait, immediate) {
+		// 	App.debugging( 'Base: Debounce called', 'report' );
 
-			var timeout;
-			return function() {
-				var context = this;
-				var args = arguments;
+		// 	var timeout;
+		// 	return function() {
+		// 		var context = this;
+		// 		var args = arguments;
 
-				var later = function() {
-					timeout = null;
+		// 		var later = function() {
+		// 			timeout = null;
 
-					if(!immediate) {
-						App.debugging( 'Base: Debounce executed (1)', 'report' );
+		// 			if(!immediate) {
+		// 				App.debugging( 'Base: Debounce executed (1)', 'report' );
 
-						func.apply(context, args);
-					}
-				};
+		// 				func.apply(context, args);
+		// 			}
+		// 		};
 
-				var callNow = immediate && !timeout;
-				clearTimeout(timeout);
-				timeout = setTimeout(later, wait);
+		// 		var callNow = immediate && !timeout;
+		// 		clearTimeout(timeout);
+		// 		timeout = setTimeout(later, wait);
 
-				if(callNow) {
-					App.debugging( 'Base: Debounce executed (2)', 'report' );
+		// 		if(callNow) {
+		// 			App.debugging( 'Base: Debounce executed (2)', 'report' );
 
-					func.apply(context, args);
-				}
-			};
-		},
+		// 			func.apply(context, args);
+		// 		}
+		// 	};
+		// },
 
 
-		//----------------------------------------------------------------------------------------------------------------------------------------------------------
-		// throttle function
-		//
-		// @param   func       [function]  Function to be executed
-		// @param   wait       [integer]   Run as much as possible without ever going more than once per [n in milliseconds] duration
-		//
-		// @return  [function]
-		//----------------------------------------------------------------------------------------------------------------------------------------------------------
-		throttle: function Throttle(func, wait) {
-			App.debugging( 'Base: Throttle called', 'report' );
+		// //----------------------------------------------------------------------------------------------------------------------------------------------------------
+		// // throttle function
+		// //
+		// // @param   func       [function]  Function to be executed
+		// // @param   wait       [integer]   Run as much as possible without ever going more than once per [n in milliseconds] duration
+		// //
+		// // @return  [function]
+		// //----------------------------------------------------------------------------------------------------------------------------------------------------------
+		// throttle: function Throttle(func, wait) {
+		// 	App.debugging( 'Base: Throttle called', 'report' );
 
-			wait || (wait = 250);
-			var last;
-			var deferTimer;
+		// 	wait || (wait = 250);
+		// 	var last;
+		// 	var deferTimer;
 
-			return function() {
-				var context = this;
-				var now = +new Date;
-				var args = arguments;
+		// 	return function() {
+		// 		var context = this;
+		// 		var now = +new Date;
+		// 		var args = arguments;
 
-				if(last && now < last + wait) {
-					clearTimeout(deferTimer);
+		// 		if(last && now < last + wait) {
+		// 			clearTimeout(deferTimer);
 
-					deferTimer = setTimeout(function() {
-						App.debugging( 'Base: Throttle executed (1)', 'report' );
+		// 			deferTimer = setTimeout(function() {
+		// 				App.debugging( 'Base: Throttle executed (1)', 'report' );
 
-						last = now;
-						func.apply(context, args);
-					}, wait);
-				}
-				else {
-					App.debugging( 'Base: Throttle executed (2)', 'report' );
+		// 				last = now;
+		// 				func.apply(context, args);
+		// 			}, wait);
+		// 		}
+		// 		else {
+		// 			App.debugging( 'Base: Throttle executed (2)', 'report' );
 
-					last = now;
-					func.apply(context, args);
-				}
-			};
-		},
+		// 			last = now;
+		// 			func.apply(context, args);
+		// 		}
+		// 	};
+		// },
 
 
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------

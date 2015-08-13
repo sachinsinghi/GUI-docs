@@ -13,17 +13,18 @@
 
 
 <aside class="sidebar js-menu">
-	<div class="sidebar-wrapper">
+	<div class="sidebar-wrapper js-sidebar">
 
-		<div class="logo js-logo">
-			<a class="logo-img symbol-logo-phone" href="index.html" data-grunticon-embed></a>
+		<div class="sidebar-logo js-logo">
+			<a class="sidebar-logo-img symbol-logo-tablet" href="index.html" data-grunticon-embed>Logo</a>
 		</div>
 
-		<a class="sidebar-gel sitesymbol-back-to-gel" href="/">Back to GEL</a>
+		<a class="navigation-link sidebar-gel sitesymbol-back-to-gel" href="/" data-grunticon-embed>Back to GEL</a>
 
 		{% include navigation.liquid  brand = page.brand %}
 
-		<a class="sidebar-blender" href="blender/">The Blender</a>
+		{% capture url %}/{{ page.brand }}/blender/{% endcapture %}
+		<a class="navigation-link sidebar-blender{% if page.url == url %} is-active{% endif %}" href="blender/">The Blender</a>
 
 	</div>
 </aside>

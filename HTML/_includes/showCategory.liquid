@@ -1,0 +1,51 @@
+{% comment %}
+	This snippet prints all modules in a specified category
+
+	Usage:
+		{% include showCategory.liquid  cat = "Other stuff" %}
+
+	Return:
+		HTML direct output
+
+	Required:
+		site.data.GUI  [jekyll data object]  The GUI.json in jekylls _data folder
+		cat            [string]              The name of the category in the GUI.json
+{% endcomment %}
+
+
+{% assign category = include.cat %}
+{% assign title = '' %}
+{% assign description = '' %}
+{% assign example = '' %}
+{% assign HTML = '' %}
+{% assign CSS = '' %}
+{% assign LESS = '' %}
+{% assign JS = '' %}
+
+<div class="category">
+	{% for module in site.data.GUI.modules[category] %}
+		{% assign thisModule = module[1] %}
+
+		<section class="modules js-modules js-blender-module{{ module[1].ID }}" id="{{ module[1].ID }}">
+			<div class="row">
+				<div class="col-sm-4">
+					<h2>{{ module[1].name }}</h2>
+				</div>
+				<div class="col-sm-8 hidden-xs">
+					{% include showVersionDropdown.liquid  mod = module  layout = 'inner' %}
+				</div>
+			</div>
+
+			{% for version in thisModule.versions %}
+				<div class="module js-blender-versionhtml js-blender-version{{ version[0] | handleize }}
+					{% if forloop.last %}is-visible{% endif %}
+				">
+					{% capture path %}modules/{{ thisModule.ID }}/{{ version[0] }}.liquid{% endcapture %}
+					{% assign thisVersion = version[0] %}
+					{% include {{ path }}  mod = thisModule  ver = thisVersion %}
+				</div>
+			{% endfor %}
+		</section>
+
+	{% endfor %}
+</div>
