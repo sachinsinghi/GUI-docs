@@ -1,11 +1,38 @@
 /* Modules */
 
 .modules {
+	&.has-border {
+		border-top: 1px solid @color-Border;
+		padding-top: 12px;
+		margin-bottom: 30px;
+	}
+
 	.module {
 		display: none;
+		margin-top: 60px;
 
 		&.is-visible {
 			display: block;
+		}
+	}
+
+	.module-version-string {
+		font-size: 10px;
+		color: @color-Border;
+		float: right;
+		margin-bottom: 6px;
+	}
+
+	.module-headline {
+		font-family: @fontfamily;
+		color: @color-B;
+		font-weight: 300;
+		margin-top: 0;
+	}
+
+	.module-version {
+		.module-version-select {
+			margin: 0 6px;
 		}
 	}
 }

@@ -24,102 +24,145 @@
 {% endif %}
 
 {% comment %}Print the form{% endcomment %}
-<button class="btn btn-primary btn-soft js-blender-clear">Start new blend</button>
+<section class="blender">
+	<div class="row">
+		<div class="col-sm-12 text-right">
+			<button class="btn btn-primary btn-soft js-blender-clear blender-button-clear">Start new blend</button>
+		</div>
+	</div>
 
-<form class="blender js-blender" method="POST" action="{{ server }}:8080/blender">
-	{% for category in site.data.GUI.modules %}
-		{% if category[0] != exclude and category[0] != exclude2 %}
-			<fieldset class="blender-category">
-				<legend class="blender-category-headline">{{ category[0] }}</legend>
+	<form class="blender-form js-blender" method="POST" action="{{ server }}:8080/blender">
+		{% for category in site.data.GUI.modules %}
+			{% if category[0] != exclude and category[0] != exclude2 %}
+				<fieldset class="blender-category">
+					<div class="row">
+						<div class="col-sm-4">
+							<legend class="blender-category-headline">{{ category[0] }}</legend>
+						</div>
 
-				<ul class="blender-modules">
-					{% for module in category[1] %}
-						{% comment %}
-							checking for fixed elements
-						{% endcomment %}
-						{% if module[1].category == '_fixed' %}
-							{% assign _isFixed = true %}
-						{% else %}
-							{% assign _isFixed = false %}
-						{% endif %}
+						<div class="col-sm-8">
+							<ul class="blender-modules">
+								{% for module in category[1] %}
+									{% comment %}
+										checking for fixed elements
+									{% endcomment %}
+									{% if module[1].category == '_fixed' %}
+										{% assign _isFixed = true %}
+									{% else %}
+										{% assign _isFixed = false %}
+									{% endif %}
 
-						<li class="blender-module">
-							<label for="{{ module[1].ID }}">
-								<strong>{{ module[1].name }}</strong>
-								<span>{{ module[1].description }}</span>
-							</label>
-							<a href="{{ module[1].category }}/#{{ module[1].ID }}">view</a>
+									{% assign _isIcons = module[1].ID | startwith: "icons-group" %}
 
-							{% include showVersionDropdown.liquid  mod = module  layout = 'blender' %}
+									{% capture link %}<a class="blender-module-link" href="{{ module[1].category }}/#{{ module[1].ID }}">view</a>{% endcapture %}
+
+									<li class="blender-module row">
+										<div class="col-sm-6 blender-module-text">
+											<label for="{{ module[1].ID }}">
+												<strong class="blender-module-name
+													{% unless _isIcons %}is-block{% endunless %}
+												">{{ module[1].name }}</strong>
+											</label>{% if _isIcons %}{{ link }}{% endif %}
+											<label for="{{ module[1].ID }}">
+												<span class="blender-module-description
+													{% if _isIcons %}is-block{% endif %}
+												">{{ module[1].description }}</span>
+											</label>
+											{% unless _isIcons %}{{ link }}{% endunless %}
+										</div>
+
+										<div class="col-sm-6 text-right">
+											{% include showVersionDropdown.liquid  mod = module  layout = 'blender' %}
+										</div>
+									</li>
+
+								{% endfor %}
+							</ul>
+						</div>
+					</div>
+				</fieldset>
+			{% endif %}
+		{% endfor %}
+
+		<fieldset class="blender-category">
+			<div class="row">
+				<div class="col-sm-8 col-sm-offset-4">
+					<ul class="blender-modules blender-modules-options">
+
+						<li class="blender-module row">
+							<div class="col-sm-6 blender-module-text">
+								<label class="blender-module-label" for="includeJquery">
+									Include jQuery in your blend?
+								</label>
+							</div>
+							<div class="col-sm-6 text-right">
+								<div class="btn-group">
+									<label class="btn-group-item">
+										<input class="btn-group-input js-blender-option" type="radio" name="includeJquery" value="yes" id="includeJquery" checked="checked">
+										<span class="btn-group-text btn btn-hero">Yes</span>
+									</label>
+									<label class="btn-group-item">
+										<input class="btn-group-input js-blender-option" type="radio" name="includeJquery" value="no">
+										<span class="btn-group-text btn btn-hero">No</span>
+									</label>
+								</div>
+							</div>
 						</li>
 
-					{% endfor %}
-				</ul>
+						<li class="blender-module row">
+							<div class="col-sm-6 blender-module-text">
+								<label class="blender-module-label" for="includeUnminifiedJS">
+									Include unminified JavaScript in your blend?
+								</label>
+							</div>
+							<div class="col-sm-6 text-right">
+								<div class="btn-group">
+									<label class="btn-group-item">
+										<input class="btn-group-input js-blender-option" type="radio" name="includeUnminifiedJS" value="yes" id="includeUnminifiedJS">
+										<span class="btn-group-text btn btn-hero">Yes</span>
+									</label>
+									<label class="btn-group-item">
+										<input class="btn-group-input js-blender-option" type="radio" name="includeUnminifiedJS" value="no" checked="checked">
+										<span class="btn-group-text btn btn-hero">No</span>
+									</label>
+								</div>
+							</div>
+						</li>
 
-			</fieldset>
-		{% endif %}
-	{% endfor %}
-
-	<fieldset class="blender-category">
-		<legend class="blender-category-headline">Blend</legend>
-
-		<ul class="blender-modules">
-
-			<li class="blender-module">
-				<label for="includeJquery">
-					Would you like to include jQuery in your blend?
-				</label>
-				<div class="btn-group">
-					<label class="btn-group-item">
-						<input class="btn-group-input js-blender-option" type="radio" name="includeJquery" value="yes" id="includeJquery" checked="checked">
-						<span class="btn-group-text btn btn-hero">Yes</span>
-					</label>
-					<label class="btn-group-item">
-						<input class="btn-group-input js-blender-option" type="radio" name="includeJquery" value="no">
-						<span class="btn-group-text btn btn-hero">No</span>
-					</label>
+						<li class="blender-module row">
+							<div class="col-sm-6 blender-module-text">
+								<label class="blender-module-label" for="includeLess">
+									Include the LESS files in your blend?
+								</label>
+							</div>
+							<div class="col-sm-6 text-right">
+								<div class="btn-group">
+									<label class="btn-group-item">
+										<input class="btn-group-input js-blender-option" type="radio" name="includeLess" value="yes" id="includeLess">
+										<span class="btn-group-text btn btn-hero">Yes</span>
+									</label>
+									<label class="btn-group-item">
+										<input class="btn-group-input js-blender-option" type="radio" name="includeLess" value="no" checked="checked">
+										<span class="btn-group-text btn btn-hero">No</span>
+									</label>
+								</div>
+							</div>
+						</li>
+					</ul>
 				</div>
-			</li>
+			</div>
+		</fieldset>
 
-			<li class="blender-module">
-				<label for="includeUnminifiedJS">
-					Would you like to include unminified JavaScript in your blend?
-				</label>
-				<div class="btn-group">
-					<label class="btn-group-item">
-						<input class="btn-group-input js-blender-option" type="radio" name="includeUnminifiedJS" value="yes" id="includeUnminifiedJS">
-						<span class="btn-group-text btn btn-hero">Yes</span>
-					</label>
-					<label class="btn-group-item">
-						<input class="btn-group-input js-blender-option" type="radio" name="includeUnminifiedJS" value="no" checked="checked">
-						<span class="btn-group-text btn btn-hero">No</span>
-					</label>
-				</div>
-			</li>
+		<div class="row">
+			<div class="col-sm-12 blender-action text-right">
+				<input type="hidden" name="brand" value="{{ page.brand }}">
 
-			<li class="blender-module">
-				<label for="includeLess">
-					Would you like to include the LESS files in your blend?
-				</label>
-				<div class="btn-group">
-					<label class="btn-group-item">
-						<input class="btn-group-input js-blender-option" type="radio" name="includeLess" value="yes" id="includeLess">
-						<span class="btn-group-text btn btn-hero">Yes</span>
-					</label>
-					<label class="btn-group-item">
-						<input class="btn-group-input js-blender-option" type="radio" name="includeLess" value="no" checked="checked">
-						<span class="btn-group-text btn btn-hero">No</span>
-					</label>
-				</div>
-			</li>
-		</ul>
-	</fieldset>
-
-	<input type="hidden" name="brand" value="{{ page.brand }}">
-
-	<button type="submit" class="btn btn-primary blender-submit js-blender-submit">
-		<span class="btn-text">Blend</span>
-		<span class="btn-icon icon icon-size-md icon-download" data-grunticon-embed></span>
-		<span class="btn-icon icon icon-size-md icon-refresh" data-grunticon-embed style="display:none;"></span>
-	</button>
-</form>
+				<button type="submit" class="btn btn-primary blender-submit js-blender-submit">
+					<span class="btn-text">Blend</span>
+					<span class="btn-icon icon icon-size-md icon-download" data-grunticon-embed></span>
+					<span class="btn-icon icon icon-size-md icon-refresh" data-grunticon-embed style="display:none;"></span>
+				</button>
+			</div>
+		</div>
+	</form>
+</section>

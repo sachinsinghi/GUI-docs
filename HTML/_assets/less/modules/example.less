@@ -1,0 +1,79 @@
+/* Example */
+
+.example {
+	margin-bottom: 60px;
+
+	.example-headline {
+		font-family: @fontfamily;
+		color: @color-B;
+		font-weight: 300;
+		margin: 0 0 24px 0;
+	}
+
+	.example-description {
+		margin: 0;
+	}
+
+	.example-box {
+		background-color: #fff;
+		min-height: 300px;
+		padding: 12px;
+	}
+
+	.example-tabs-wrapper {
+		font-size: 0;
+	}
+
+	.example-tabs {
+		list-style: none;
+		padding: 0;
+		display: table;
+		width: 100%;
+		margin: 2px 0 0 0;
+		font-size: 14px;
+	}
+
+	.example-tab-link {
+		display: block;
+		padding: 12px;
+		background-color: #fff;
+		margin-right: 2px;
+	}
+
+	.example-tab {
+		display: table-cell;
+		padding-bottom: 2px;
+
+		&:last-child {
+			.example-tab-link {
+				margin-right: 0;
+			}
+		}
+
+		&.is-active {
+			padding-bottom: 0;
+
+			.example-tab-link {
+				padding-bottom: 14px;
+			}
+		}
+	}
+
+	.example-tabcontent {
+		overflow: hidden;
+		font-size: 14px;
+
+		.js & {
+			max-height: 0;
+		}
+
+		&.is-open {
+			max-height: 450px;
+		}
+	}
+
+	.example-tabcontent-wrapper {
+		padding: 12px;
+		background-color: #fff;
+	}
+}

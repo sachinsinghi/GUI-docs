@@ -8,6 +8,8 @@
 		HTML direct output
 
 	Required:
+		{{ ID }}           [string]    ID of module
+		{{ category }}     [string]    Name of category for links
 		{{ thisVersion }}  [string]    Version string
 		{{ title }}        [variable]  Title
 		{{ description }}  [variable]  Description
@@ -19,56 +21,82 @@
 {% endcomment %}
 
 
-<div class="row">
-	<div class="col-sm-12">
-		<small>{{ thisVersion }}</small>
-	</div>
+{% capture IDhtml %}{{ ID }}-{{ thisVersion | handleize }}html{% endcapture %}
+{% capture IDcss %}{{ ID }}-{{ thisVersion | handleize }}css{% endcapture %}
+{% capture IDless %}{{ ID }}-{{ thisVersion | handleize }}less{% endcapture %}
+{% capture IDjs %}{{ ID }}-{{ thisVersion | handleize }}js{% endcapture %}
+
+{% assign titleHandle = title | handleize %}
+{% assign descriptionHandle = description | handleize %}
+{% assign CSSHandle = CSS | handleize %}
+{% assign LESSHandle = LESS | handleize %}
+{% assign JSHandle = JS | handleize %}
+
+{% assign count = count | plus: 1 %}
+
+<div class="row example">
 	<div class="col-sm-4">
-		<h3>{{ title }}</h3>
-		<p>{{ description }}</p>
+		<div class="row">
+			<div class="col-sm-10">
+				{% if titleHandle.size > 2 %}
+					<h3 class="example-headline">{{ title }}</h3>
+				{% endif %}
+				<p class="example-description">{{ description }}</p>
+			</div>
+		</div>
 	</div>
 
 	<div class="col-sm-8">
-		<div>{{ HTML }}</div>
+		<div class="example-box">{{ HTML }}</div>
 
-		<ul>
-			<li>
-				<a href="#">HTML</a>
-			</li>
-			{% if CSS.size > 2 %}
-				<li>
-					<a href="#">CSS</a>
+		<div class="example-tabs-wrapper js-exampletabs">
+			<ul class="example-tabs">
+				<li class="example-tab">
+					<a class="example-tab-link js-exampletab" href="{{ category }}/#{{ IDhtml }}{{ count }}">HTML</a>
 				</li>
-			{% endif %}
-			{% if LESS.size > 2 %}
-				<li>
-					<a href="#">LESS</a>
-				</li>
-			{% endif %}
-			{% if JS.size > 2 %}
-				<li>
-					<a href="#">JS</a>
-				</li>
-			{% endif %}
-		</ul>
+				{% if CSSHandle.size > 2 %}
+					<li class="example-tab">
+						<a class="example-tab-link js-exampletab" href="{{ category }}/#{{ IDcss }}{{ count }}">CSS</a>
+					</li>
+				{% endif %}
+				{% if LESSHandle.size > 2 %}
+					<li class="example-tab">
+						<a class="example-tab-link js-exampletab" href="{{ category }}/#{{ IDless }}{{ count }}">LESS</a>
+					</li>
+				{% endif %}
+				{% if JSHandle.size > 2 %}
+					<li class="example-tab">
+						<a class="example-tab-link js-exampletab" href="{{ category }}/#{{ IDjs }}{{ count }}">JS</a>
+					</li>
+				{% endif %}
+			</ul>
 
-		<div id="">
-			<code>{{ HTML }}</code>
+			<div class="example-tabcontent js-examplecontent" id="{{ IDhtml }}{{ count }}">
+				<div class="example-tabcontent-wrapper">
+					<code>{{ HTML }}</code>
+				</div>
+			</div>
+			{% if CSSHandle.size > 2 %}
+				<div class="example-tabcontent js-examplecontent" id="{{ IDcss }}{{ count }}">
+					<div class="example-tabcontent-wrapper">
+						{{ CSS }}
+					</div>
+				</div>
+			{% endif %}
+			{% if LESSHandle.size > 2 %}
+				<div class="example-tabcontent js-examplecontent" id="{{ IDless }}{{ count }}">
+					<div class="example-tabcontent-wrapper">
+						{{ LESS }}
+					</div>
+				</div>
+			{% endif %}
+			{% if JSHandle.size > 2 %}
+				<div class="example-tabcontent js-examplecontent" id="{{ IDjs }}{{ count }}">
+					<div class="example-tabcontent-wrapper">
+						{{ JS }}
+					</div>
+				</div>
+			{% endif %}
 		</div>
-		{% if CSS.size > 2 %}
-			<div id="">
-				{{ CSS }}
-			</div>
-		{% endif %}
-		{% if LESS.size > 2 %}
-			<div id="">
-				{{ LESS }}
-			</div>
-		{% endif %}
-		{% if JS.size > 2 %}
-			<div id="">
-				{{ JS }}
-			</div>
-		{% endif %}
 	</div>
 </div>
