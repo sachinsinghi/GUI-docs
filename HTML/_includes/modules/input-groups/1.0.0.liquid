@@ -6,19 +6,38 @@
 
 {% comment %} TITLE {% endcomment %}
 {% capture title %}
-	FILL-ME
 {% endcapture %}
 
 
 {% comment %} DESCRIPTION {% endcomment %}
 {% capture description %}
-	FILL-ME
+	Styled input fields with attached attributes ie $ or %.
 {% endcapture %}
 
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-	FILL-ME
+<label class="input-group">
+	<span class="input-group-text">Username:</span>
+
+	<span class="input-group-addon">AUS $</span>
+	<input type="text" class="input-group-input" placeholder="Username">
+</label>
+
+<label class="input-group">
+	<span class="input-group-text">Username:</span>
+
+	<input type="text" class="input-group-input" placeholder="Username">
+	<span class="input-group-addon">.00</span>
+</label>
+
+<label class="input-group">
+	<span class="input-group-text">Username:</span>
+
+	<span class="input-group-addon">AUS $</span>
+	<input type="text" class="input-group-input" placeholder="Username">
+	<span class="input-group-addon">.00</span>
+</label>
 {% endcapture %}
 
 

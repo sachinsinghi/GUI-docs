@@ -6,13 +6,553 @@
 
 {% comment %} TITLE {% endcomment %}
 {% capture title %}
-	FILL-ME
+	Input elements
 {% endcapture %}
 
 
 {% comment %} DESCRIPTION {% endcomment %}
 {% capture description %}
+	Inputs are the most common form controls. Text-based input fields include support for all HTML5 types: text, password, datetime, datetime-local, date, month,
+	time, week, number, email, url, search, tel, and color. The Date element triggers the date selector in compliant browsers.
+{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% capture example %}
+<label for="ex70">Input text label</label>
+<input type="text" id="ex70" class="input-field" placeholder="I'm a default text input">
+
+<label for="ex15">Password label</label>
+<input type="password" id="ex15" class="input-field" placeholder="I'm a default password input">
+
+<label for="ex22">Input number label</label>
+<input type="number" id="ex22" class="input-field" placeholder="I'm a default number input">
+
+<label for="ex29">Input date label</label>
+<input type="date" id="ex29" class="input-field" placeholder="I'm a default date input">
+
+<label for="ex71">Textarea label</label>
+<textarea id="ex71" class="input-field" placeholder="I'm a default textarea"></textarea>
+
+<label for="ex85">Select label</label>
+<div class="input-field-select-wrapper">
+	<select id="ex85" class="input-field-select">
+		<option>Please select</option>
+		<option>Option A</option>
+		<option>Option B</option>
+		<option>Option C</option>
+		<option>Option D</option>
+		<option>Option E</option>
+		<option>Option F</option>
+		<option>Option G</option>
+	</select>
+</div>
+{% endcapture %}
+
+
+{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% capture HTML %}
+	{{ example }}
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
 	FILL-ME
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	FILL-ME
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+	FILL-ME
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+
+
+
+
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Input heights
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	Set heights using these classes to create larger or smaller form controls that match button sizes. There are only 2 sizes default and large. Use large for
+	mobile apps.
+{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% capture example %}
+<label for="ex70">Default height text input</label>
+<input type="text" id="ex70" class="input-field" placeholder="I'm a default text input">
+
+<label for="ex85">Default height select menu</label>
+<div class="input-field-select-wrapper">
+	<select id="ex85" class="input-field-select">
+		<option>Please select</option>
+		<option>Option A</option>
+		<option>Option B</option>
+		<option>Option C</option>
+		<option>Option D</option>
+		<option>Option E</option>
+		<option>Option F</option>
+		<option>Option G</option>
+	</select>
+</div>
+
+<label for="ex3">Large height text input</label>
+<input type="text" id="ex3" class="input-field input-field-lg" placeholder="I'm a lg text input">
+
+<label for="ex87">Large height select menu</label>
+<div class="input-field-select-wrapper input-field-select-lg">
+	<select id="ex87" class="input-field-select">
+		<option>Please select</option>
+		<option>Option A</option>
+		<option>Option B</option>
+		<option>Option C</option>
+		<option>Option D</option>
+		<option>Option E</option>
+		<option>Option F</option>
+		<option>Option G</option>
+	</select>
+</div>
+{% endcapture %}
+
+
+{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% capture HTML %}
+	{{ example }}
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+	FILL-ME
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	FILL-ME
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+	FILL-ME
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+
+
+
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Validation states
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	Contextual styles for error, warning, and success on form controls. Any label, .form-control, and .help-block within that element will receive the validation
+	styles.
+{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% capture example %}
+
+<label for="ex4">Input with sucess</label>
+<div class="alert-form has-success">
+	<input type="text" id="ex4" class="input-field" placeholder="I'm a default text input" aria-describedby="txt4">
+	<p id="txt4" class="alert-form-msg">Success! We can approve this amount.</p>
+</div>
+
+
+<label for="ex4">Input with warning</label>
+<div class="alert-form has-warning">
+	<input type="text" id="ex4" class="input-field" placeholder="I'm a default text input" aria-describedby="txt4">
+	<p id="txt4" class="alert-form-msg">Warning! Are you sure this is your name?</p>
+</div>
+
+
+<label for="ex4">Input with error</label>
+<div class="alert-form has-danger">
+	<input type="text" id="ex4" class="input-field" placeholder="I'm a default text input" aria-describedby="txt4">
+	<p id="txt4" class="alert-form-msg">Danger! Your email address has an error in it.</p>
+</div>
+
+<label for="ex7">Select menu with error</label>
+<div class="alert-form has-danger">
+	<div class="input-field-select-wrapper">
+		<select class="input-field-select" id="ex7" aria-describedby="txt7">
+			<option>Please select</option>
+			<option>Option A</option>
+			<option>Option B</option>
+			<option>Option C</option>
+			<option>Option D</option>
+			<option>Option E</option>
+			<option>Option F</option>
+			<option>Option G</option>
+		</select>
+	</div>
+
+	<p id="txt7" class="alert-form-msg">Hey, wait! You need to select something.</p>
+</div>
+{% endcapture %}
+
+
+{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% capture HTML %}
+	{{ example }}
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+	FILL-ME
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	FILL-ME
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+	FILL-ME
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+
+
+
+
+
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Help text
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	Help text for form controls further explains the input required. This is useful when labels get too long.
+{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% capture example %}
+	FILL-ME
+{% endcapture %}
+
+
+{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% capture HTML %}
+	{{ example }}
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+	FILL-ME
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	FILL-ME
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+	FILL-ME
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+
+
+
+
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Disabled states
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	Add the disabled attribute on an input to prevent user input and trigger a slightly different look.
+{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% capture example %}
+<form>
+	<fieldset disabled>
+		<legend>Legend</legend>
+
+		<p>
+			<label for="ex64">Some label</label>
+			<input type="text" id="ex64" class="input-field" placeholder="I'm a default text input">
+		</p>
+
+		<p>
+			<label for="ex65">Some label</label>
+			<input type="email" id="ex65" class="input-field" placeholder="I'm a default email input">
+		</p>
+
+		<p>
+			<label for="ex66">Some label</label>
+			<input type="password" id="ex66" class="input-field" placeholder="I'm a default password input">
+		</p>
+
+		<p>
+			<label for="ex67">Some label</label>
+			<input type="number" id="ex67" class="input-field" placeholder="I'm a default number input">
+		</p>
+
+		<p>
+			<label for="ex68">Some label</label>
+			<input type="date" id="ex68" class="input-field" placeholder="I'm a default date input">
+		</p>
+
+		<label for="ex82">Some label</label>
+		<textarea id="ex82" class="input-field" placeholder="I'm a default textarea"></textarea>
+
+		<label for="ex93">Some label</label>
+		<div class="input-field-select-wrapper">
+			<select id="ex93" class="input-field-select">
+				<option>Please select</option>
+				<option>Option A</option>
+				<option>Option B</option>
+				<option>Option C</option>
+				<option>Option D</option>
+				<option>Option E</option>
+				<option>Option F</option>
+				<option>Option G</option>
+			</select>
+		</div>
+
+	</fieldset>
+</form>
+{% endcapture %}
+
+
+{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% capture HTML %}
+	{{ example }}
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+	FILL-ME
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	FILL-ME
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+	FILL-ME
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+
+
+
+
+
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Example basic form layout
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	Individual form controls automatically receive some global styling. All textual input, textarea, and select elements with .form-control are set to
+	width: 100%; by default. Wrap labels and controls in .form-group for optimum spacing.
+{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% capture example %}
+<form>
+	<fieldset>
+		<legend>Legend</legend>
+
+		<p>
+			<label for="ex40">Some label</label>
+			<input type="text" id="ex40" class="input-field" placeholder="I'm a default text input">
+		</p>
+
+		<p>
+			<label for="ex41">Some label</label>
+			<input type="email" id="ex41" class="input-field" placeholder="I'm a default email input">
+		</p>
+
+		<p>
+			<label for="ex42">Some label</label>
+			<input type="password" id="ex42" class="input-field" placeholder="I'm a default password input">
+		</p>
+
+		<p>
+			<label for="ex43">Some label</label>
+			<input type="number" id="ex43" class="input-field" placeholder="I'm a default number input">
+		</p>
+
+		<p>
+			<label for="ex44">Some label</label>
+			<input type="date" id="ex44" class="input-field" placeholder="I'm a default date input">
+		</p>
+
+		<label for="ex78">Some label</label>
+		<textarea id="ex78" class="input-field" placeholder="I'm a default textarea"></textarea>
+
+		<label for="ex90">Some label</label>
+		<div class="input-field-select-wrapper">
+			<select id="ex90" class="input-field-select">
+				<option>Please select</option>
+				<option>Option A</option>
+				<option>Option B</option>
+				<option>Option C</option>
+				<option>Option D</option>
+				<option>Option E</option>
+				<option>Option F</option>
+				<option>Option G</option>
+			</select>
+		</div>
+
+	</fieldset>
+</form>
+{% endcapture %}
+
+
+{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% capture HTML %}
+	{{ example }}
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+	FILL-ME
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	FILL-ME
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+	FILL-ME
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+
+
+
+
+
+
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Example horizontal form layout
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	Use the predefined grid classes to align labels and groups of form controls in a horizontal layout by adding .form-horizontal to the form. Doing so changes
+	.form-groups to behave as grid rows, so no need for .row.
 {% endcapture %}
 
 
