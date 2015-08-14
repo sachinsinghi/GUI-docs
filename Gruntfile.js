@@ -1027,6 +1027,8 @@ module.exports = function(grunt) {
 						'_*/**/*.md',
 						'_*/**/*.liquid',
 						'*.yml',
+						'*.htaccess',
+						'*.json',
 						'_plugins/**/*',
 						'!_assets/**/*',
 					],
@@ -1227,6 +1229,8 @@ module.exports = function(grunt) {
 					'<%= SETTINGS.folder.html %>/**/*.liquid',
 					'<%= SETTINGS.folder.html %>/**/*.html',
 					'<%= SETTINGS.folder.html %>/**/*.yml',
+					'<%= SETTINGS.folder.html %>/**/*.htaccess',
+					'<%= SETTINGS.folder.html %>/**/*.json',
 					'<%= SETTINGS.folder.html %>/_plugins/**/*',
 				],
 				tasks: [
