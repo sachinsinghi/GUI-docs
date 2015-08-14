@@ -1,0 +1,87 @@
+{% comment %}
+	This snippet prints an example box
+
+	Usage:
+		{% include exampleBox.liquid %}
+
+	Return:
+		HTML direct output
+
+	Required:
+		{{ ID }}           [string]    ID of module
+		{{ category }}     [string]    Name of category for links
+		{{ thisVersion }}  [string]    Version string
+		{{ counter }}      [integer]   Counter to keep IDs unique
+		{{ example }}      [variable]  Example code
+		{{ HTML }}         [variable]  HTML tab
+		{{ CSS }}          [variable]  CSS tab [optional]
+		{{ LESS }}         [variable]  LESS tab [optional]
+		{{ JS }}           [variable]  JS tab [optional]
+{% endcomment %}
+
+
+{% capture IDhtml %}{{ ID }}-{{ thisVersion | handleize }}html{% endcapture %}
+{% capture IDcss %}{{ ID }}-{{ thisVersion | handleize }}css{% endcapture %}
+{% capture IDless %}{{ ID }}-{{ thisVersion | handleize }}less{% endcapture %}
+{% capture IDjs %}{{ ID }}-{{ thisVersion | handleize }}js{% endcapture %}
+
+{% assign descriptionHandle = description | handleize %}
+{% assign CSSHandle = CSS | handleize %}
+{% assign LESSHandle = LESS | handleize %}
+{% assign JSHandle = JS | handleize %}
+
+{% assign count = count | plus: 1 %}
+
+<div class="example-box">{{ HTML }}</div>
+
+<div class="example-tabs-wrapper js-exampletabs">
+	<ul class="example-tabs">
+		<li class="example-tab">
+			<a class="example-tab-link js-exampletab" href="{{ category }}/#{{ IDhtml }}{{ count }}">HTML</a>
+		</li>
+		{% if CSSHandle.size > 2 %}
+			<li class="example-tab">
+				<a class="example-tab-link js-exampletab" href="{{ category }}/#{{ IDcss }}{{ count }}">CSS</a>
+			</li>
+		{% endif %}
+		{% if LESSHandle.size > 2 %}
+			<li class="example-tab">
+				<a class="example-tab-link js-exampletab" href="{{ category }}/#{{ IDless }}{{ count }}">LESS</a>
+			</li>
+		{% endif %}
+		{% if JSHandle.size > 2 %}
+			<li class="example-tab">
+				<a class="example-tab-link js-exampletab" href="{{ category }}/#{{ IDjs }}{{ count }}">JS</a>
+			</li>
+		{% endif %}
+	</ul>
+
+	<div class="example-tabcontent js-examplecontent" id="{{ IDhtml }}{{ count }}">
+		<div class="example-tabcontent-wrapper">
+			{% highlight html linenos %}
+			{{ HTML }}
+			{% endhighlight %}
+		</div>
+	</div>
+	{% if CSSHandle.size > 2 %}
+		<div class="example-tabcontent js-examplecontent" id="{{ IDcss }}{{ count }}">
+			<div class="example-tabcontent-wrapper">
+				{{ CSS }}
+			</div>
+		</div>
+	{% endif %}
+	{% if LESSHandle.size > 2 %}
+		<div class="example-tabcontent js-examplecontent" id="{{ IDless }}{{ count }}">
+			<div class="example-tabcontent-wrapper">
+				{{ LESS }}
+			</div>
+		</div>
+	{% endif %}
+	{% if JSHandle.size > 2 %}
+		<div class="example-tabcontent js-examplecontent" id="{{ IDjs }}{{ count }}">
+			<div class="example-tabcontent-wrapper">
+				{{ JS }}
+			</div>
+		</div>
+	{% endif %}
+</div>
