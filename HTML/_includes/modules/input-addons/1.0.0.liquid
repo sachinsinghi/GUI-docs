@@ -6,19 +6,84 @@
 
 {% comment %} TITLE {% endcomment %}
 {% capture title %}
-	FILL-ME
 {% endcapture %}
 
 
 {% comment %} DESCRIPTION {% endcomment %}
 {% capture description %}
-	FILL-ME
+	Styled input fields with attached selects or buttons.
 {% endcapture %}
 
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-	FILL-ME
+<div class="input-addon">
+	<label class="input-addon-label">
+		<span class="input-addon-text">eMail:</span>
+		<input type="text" class="input-addon-input" placeholder="email">
+	</label>
+	<button type="submit" class="input-addon-btn">Go</button>
+</div>
+
+<div class="input-addon input-addon-flip">
+	<label class="input-addon-label">
+		<span class="input-addon-text">eMail:</span>
+		<input type="text" class="input-addon-input" placeholder="email">
+	</label>
+	<button type="submit" class="input-addon-btn">Go</button>
+</div>
+
+<div class="input-addon">
+	<label class="input-addon-select-wrapper">
+		<span class="input-addon-text">Title:</span>
+		<select class="input-addon-select">
+			<option>Please select</option>
+			<option>AUS $</option>
+			<option>US $</option>
+			<option>GB &pound;</option>
+		</select>
+	</label>
+
+	<label class="input-addon-label">
+		<span class="input-addon-text">Income:</span>
+		<input type="text" class="input-addon-input" placeholder="email">
+	</label>
+</div>
+
+<div class="input-addon input-addon-faint">
+	<label class="input-addon-select-wrapper">
+		<span class="input-addon-text">Title:</span>
+		<select class="input-addon-select">
+			<option>Please select</option>
+			<option>AUS $</option>
+			<option>US $</option>
+			<option>GB &pound;</option>
+		</select>
+	</label>
+
+	<label class="input-addon-label">
+		<span class="input-addon-text">Income:</span>
+		<input type="text" class="input-addon-input" placeholder="email">
+	</label>
+</div>
+
+<div class="input-addon">
+	<label class="input-addon-label">
+		<span class="input-addon-text">Income:</span>
+		<input type="text" class="input-addon-input" placeholder="email">
+	</label>
+
+	<label class="input-addon-select-wrapper">
+		<span class="input-addon-text">Currency:</span>
+		<select class="input-addon-select">
+			<option>Please select</option>
+			<option>AUS $</option>
+			<option>US $</option>
+			<option>GB &pound;</option>
+		</select>
+	</label>
+</div>
+
 {% endcapture %}
 
 
