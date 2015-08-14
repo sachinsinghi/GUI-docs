@@ -21,7 +21,7 @@
 		App.debugging( 'Modules: Initiating', 'report' );
 
 		if( $('.js-modules').length ) {
-			App.debugging( 'Modules: Found instance', 'report' );
+			App.debugging( 'Modules: Found version instance', 'report' );
 
 			//////////////////////////////////////////////////| CHECKING DEPENDENCIES
 			$('.js-blender-version').on('change', function() {
@@ -39,7 +39,10 @@
 					$version.addClass('is-visible');
 				}
 			});
+		}
 
+		if( $('.js-exampletab').length ) {
+			App.debugging( 'Modules: Found examplebox instance', 'report' );
 
 			//////////////////////////////////////////////////| CHECKING DEPENDENCIES
 			$('.js-exampletab').on('click', function(e) {

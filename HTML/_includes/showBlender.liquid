@@ -27,7 +27,7 @@
 <section class="blender">
 	<div class="row">
 		<div class="col-sm-12 text-right">
-			<button class="btn btn-primary btn-soft js-blender-clear blender-button-clear">Start new blend</button>
+			<button class="btn btn-primary btn-soft js-blender-clear blender-button-clear">Clear selections</button>
 		</div>
 	</div>
 
@@ -36,11 +36,11 @@
 			{% if category[0] != exclude and category[0] != exclude2 %}
 				<fieldset class="blender-category">
 					<div class="row">
-						<div class="col-sm-4">
+						<div class="col-md-4">
 							<legend class="blender-category-headline">{{ category[0] }}</legend>
 						</div>
 
-						<div class="col-sm-8">
+						<div class="col-md-8">
 							<ul class="blender-modules">
 								{% for module in category[1] %}
 									{% comment %}
@@ -57,7 +57,7 @@
 									{% capture link %}<a class="blender-module-link" href="{{ module[1].category }}/#{{ module[1].ID }}">view</a>{% endcapture %}
 
 									<li class="blender-module row">
-										<div class="col-sm-6 blender-module-text">
+										<div class="col-sm-5 blender-module-text">
 											<label for="{{ module[1].ID }}">
 												<strong class="blender-module-name
 													{% unless _isIcons %}is-block{% endunless %}
@@ -71,7 +71,7 @@
 											{% unless _isIcons %}{{ link }}{% endunless %}
 										</div>
 
-										<div class="col-sm-6 text-right">
+										<div class="col-sm-7 text-right">
 											{% include showVersionDropdown.liquid  mod = module  layout = 'blender' %}
 										</div>
 									</li>
@@ -86,16 +86,16 @@
 
 		<fieldset class="blender-category">
 			<div class="row">
-				<div class="col-sm-8 col-sm-offset-4">
+				<div class="col-md-8 col-sm-offset-4">
 					<ul class="blender-modules blender-modules-options">
 
 						<li class="blender-module row">
-							<div class="col-sm-6 blender-module-text">
+							<div class="col-sm-5 blender-module-text">
 								<label class="blender-module-label" for="includeJquery">
 									Include jQuery in your blend?
 								</label>
 							</div>
-							<div class="col-sm-6 text-right">
+							<div class="col-sm-7 text-right">
 								<div class="btn-group">
 									<label class="btn-group-item">
 										<input class="btn-group-input js-blender-option" type="radio" name="includeJquery" value="yes" id="includeJquery" checked="checked">
@@ -110,12 +110,12 @@
 						</li>
 
 						<li class="blender-module row">
-							<div class="col-sm-6 blender-module-text">
+							<div class="col-sm-5 blender-module-text">
 								<label class="blender-module-label" for="includeUnminifiedJS">
 									Include unminified JavaScript in your blend?
 								</label>
 							</div>
-							<div class="col-sm-6 text-right">
+							<div class="col-sm-7 text-right">
 								<div class="btn-group">
 									<label class="btn-group-item">
 										<input class="btn-group-input js-blender-option" type="radio" name="includeUnminifiedJS" value="yes" id="includeUnminifiedJS">
@@ -130,12 +130,12 @@
 						</li>
 
 						<li class="blender-module row">
-							<div class="col-sm-6 blender-module-text">
+							<div class="col-sm-5 blender-module-text">
 								<label class="blender-module-label" for="includeLess">
 									Include the LESS files in your blend?
 								</label>
 							</div>
-							<div class="col-sm-6 text-right">
+							<div class="col-sm-7 text-right">
 								<div class="btn-group">
 									<label class="btn-group-item">
 										<input class="btn-group-input js-blender-option" type="radio" name="includeLess" value="yes" id="includeLess">
