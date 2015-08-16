@@ -18,7 +18,24 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-	FILL-ME
+<p>
+	<span class="badge">
+		<span class="badge-text">5</span>
+		<span class="badge-sronly">Unread messages</span>
+	</span>
+</p>
+<p>
+	<span class="badge">
+		<span class="badge-text">95</span>
+		<span class="badge-sronly">Notifications</span>
+	</span>
+</p>
+<p>
+	<span class="badge">
+		<span class="badge-text">595</span>
+		<span class="badge-sronly">Clicks</span>
+	</span>
+</p>
 {% endcapture %}
 
 
@@ -76,7 +93,13 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-	FILL-ME
+<a href="#url">
+	Inbox
+	<span class="badge">
+		<span class="badge-text">42</span>
+		<span class="badge-sronly">Messages</span>
+	</span>
+</a>
 {% endcapture %}
 
 
@@ -134,7 +157,37 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-	FILL-ME
+<button type="button" class="btn btn-primary">
+	Primary
+	<span class="badge">
+		<span class="badge-text">13</span>
+		<span class="badge-sronly">Screen-reader text</span>
+	</span>
+</button>
+
+<button type="button" class="btn btn-primary btn-xl">
+	Primary LG
+	<span class="badge">
+		<span class="badge-text">13</span>
+		<span class="badge-sronly">Screen-reader text</span>
+	</span>
+</button>
+
+<button type="button" class="btn btn-primary btn-lg">
+	Primary LG
+	<span class="badge">
+		<span class="badge-text">13</span>
+		<span class="badge-sronly">Screen-reader text</span>
+	</span>
+</button>
+
+<button type="button" class="btn btn-primary btn-sm">
+	Primary SM
+	<span class="badge">
+		<span class="badge-text">13</span>
+		<span class="badge-sronly">Screen-reader text</span>
+	</span>
+</button>
 {% endcapture %}
 
 
@@ -192,7 +245,50 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-	FILL-ME
+<div class="row">
+	<div class="col-sm-4 col-sm-offset-4">
+
+		<ul class="lists lists-linklist">
+			<li class="clearfix">
+				<a href="#url">
+					Inbox
+					<span class="badge">
+						<span class="badge-text">17</span>
+						<span class="badge-sronly">Unread messages</span>
+					</span>
+				</a>
+			</li>
+			<li class="clearfix">
+				<a href="#url">
+					Archive
+					<span class="badge">
+						<span class="badge-text">1</span>
+						<span class="badge-sronly">Unread messages</span>
+					</span>
+				</a>
+			</li>
+			<li class="clearfix">
+				<a href="#url">
+					Projects
+					<span class="badge">
+						<span class="badge-text">783</span>
+						<span class="badge-sronly">Unread messages</span>
+					</span>
+				</a>
+			</li>
+			<li class="clearfix">
+				<a href="#url">
+					Done
+					<span class="badge">
+						<span class="badge-text">0</span>
+						<span class="badge-sronly">Unread messages</span>
+					</span>
+				</a>
+			</li>
+		</ul>
+
+	</div>
+</div>
 {% endcapture %}
 
 

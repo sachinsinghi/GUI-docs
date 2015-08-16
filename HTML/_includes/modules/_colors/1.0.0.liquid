@@ -1,52 +1,1754 @@
-{% comment %}
-	--------------------------------------------------------------------------------------------------------------------------------------------------------------
-	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
-	--------------------------------------------------------------------------------------------------------------------------------------------------------------
-{% endcomment %}
-
-{% comment %} TITLE {% endcomment %}
-{% capture title %}
-	FILL-ME
-{% endcapture %}
+{% assign brand = [Brand] %}
+{% if brand == 'BOM' %}
 
 
-{% comment %} DESCRIPTION {% endcomment %}
-{% capture description %}
-	FILL-ME
-{% endcapture %}
+<!-- PRIMARY PALETTE
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<div class="row">
+		<div class="col-sm-4 col-xs-12">
+			<h1 class="h4 no-top-margin-xs">Primary Palette</h1>
+			<div class="row top-margin3-xs">
+				<p class="col-xs-12 col-sm-10 elegant">These are the ten core colours used in the digital the brand. It's important to use these colours correctly for their specified purpose.</p>
+			</div>
+		</div>
+
+		<div class="col-sm-8 col-xs-12">
+			<section>
+				<article class="row">
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#D60C8C">A</div>
+							<div class="swatch-values">
+								<h5>Primary - Link</h5>
+								<p>R=214 G=12 B=140</p>
+								<p>#D60C8C</p>
+							</div>
+						</div>
+					</div>
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#685AC0">B</div>
+							<div class="swatch-values">
+								<h5>Hero</h5>
+								<p>R=104 G=90 B=192</p>
+								<p>#685AC0</p>
+							</div>
+						</div>
+					</div>
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#716F7D">C</div>
+							<div class="swatch-values">
+								<h5>Neutral</h5>
+								<p>R=113 G=111 B=125</p>
+								<p>#716F7D</p>
+							</div>
+						</div>
+					</div>
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#403489">D</div>
+							<div class="swatch-values">
+								<h5>Complementary A</h5>
+								<p>R=64 G=52 B=137</p>
+								<p>#403489</p>
+							</div>
+						</div>
+					</div>
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#11b6af">E</div>
+							<div class="swatch-values">
+								<h5>Complementary B</h5>
+								<p>R=17 G=182 B=175</p>
+								<p>#11B6AF</p>
+							</div>
+						</div>
+					</div>
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#0D0d0d">F</div>
+							<div class="swatch-values">
+								<h5>Text</h5>
+								<p>R=13 G=13 B=13</p>
+								<p>#0D0d0d</p>
+							</div>
+						</div>
+					</div>
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#716F7D">G</div>
+							<div class="swatch-values">
+								<h5>Muted</h5>
+								<p>R=113 G=111 B=125</p>
+								<p>#716F7D</p>
+							</div>
+						</div>
+					</div>
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#C6C5CB">H</div>
+							<div class="swatch-values">
+								<h5>Border</h5>
+								<p>R=198 G=197 B=203</p>
+								<p>#C6C5CB</p>
+							</div>
+						</div>
+					</div>
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#F1F1F2">I</div>
+							<div class="swatch-values">
+								<h5>Background</h5>
+								<p>R=241 G=241 B=242</p>
+								<p>#F1F1F2</p>
+							</div>
+						</div>
+					</div>
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#f8f8f8">J</div>
+							<div class="swatch-values">
+								<h5>Light</h5>
+								<p>R=248 G=248 B=248</p>
+								<p>#f8f8f8</p>
+							</div>
+						</div>
+					</div>
+				</article>
+			</section>
+		</div>
+	</div>
+
+	<!-- EXTRA COLOURS
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<div class="row">
+		<div class="col-sm-4 col-xs-12">
+			<h1 class="h4 no-top-margin-xs">Additional Colours</h1>
+			<div class="row top-margin3-xs">
+				<p class="col-xs-12 col-sm-10 elegant">These colours add variation to the palette.</p>
+			</div>
+		</div>
+
+		<div class="col-sm-8 col-xs-12">
+			<section>
+				<article class="row">
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#20024E"></div>
+							<div class="swatch-values">
+								<h5>Deep Purple</h5>
+								<p>R=32 G=2 B=78</p>
+								<p>#20024E</p>
+							</div>
+						</div>
+					</div>
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#A094FC"></div>
+							<div class="swatch-values">
+								<h5>Violet</h5>
+								<p>R=160 G=148 B=252</p>
+								<p>#A094FC</p>
+							</div>
+						</div>
+					</div>
+				</article>
+			</section>
+		</div>
+	</div>
+
+	<!-- NEUTRAL TINTS
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<div class="row">
+		<div class="col-sm-4 col-xs-12">
+			<h1 class="h4 no-top-margin-xs">Neutral Tints</h1>
+			<div class="row top-margin3-xs">
+				<p class="col-xs-12 col-sm-10 elegant">Each brand has a neutral colour with a set of eleven tints for subtle colouring. Three of these tints are already used in the primary palette for borders backgrounds and super light backgrounds.</p>
+			</div>
+		</div>
+
+		<div class="col-sm-8 col-xs-12">
+			<section>
+				<article class="row">
+
+				<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#716F7D">100%</div>
+							<div class="swatch-values">
+								<h5>Muted</h5>
+								<p>R=113 G=111 B=125</p>
+								<p>#716F7D</p>
+							</div>
+						</div>
+				</div>
+				<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#7F7D8A">90%</div>
+							<div class="swatch-values">
+								<p>R=127 G=125 B=138</p>
+								<p>#7F7D8A</p>
+							</div>
+						</div>
+				</div>
+				<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#8D8C97">80%</div>
+							<div class="swatch-values">
+								<p>R=141 G=140 B=151</p>
+								<p>#8D8C97</p>
+							</div>
+						</div>
+				</div>
+				<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#9C9AA4">70%</div>
+							<div class="swatch-values">
+								<p>R=156 G=154 B=164</p>
+								<p>#9C9AA4</p>
+							</div>
+						</div>
+				</div>
+				<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#AAA9B1">60%</div>
+							<div class="swatch-values">
+								<p>R=170 G=169 B=177</p>
+								<p>#AAA9B1</p>
+							</div>
+						</div>
+				</div>
+				<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#B8B7BE">50%</div>
+							<div class="swatch-values">
+								<p>R=184 G=183 B=190</p>
+								<p>#B8B7BE</p>
+							</div>
+						</div>
+				</div>
+				<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#C6C5CB">40%</div>
+							<div class="swatch-values">
+								<h5>Borders</h5>
+								<p>R=198 G=197 B=203</p>
+								<p>#C6C5CB</p>
+							</div>
+						</div>
+				</div>
+				<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#D4D4D8">30%</div>
+							<div class="swatch-values">
+								<p>R=212 G=212 B=216</p>
+								<p>#D4D4D8</p>
+							</div>
+						</div>
+				</div>
+				<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#E3E2E5">20%</div>
+							<div class="swatch-values">
+								<p>R=227 G=226 B=229</p>
+								<p>#E3E2E5</p>
+							</div>
+						</div>
+				</div>
+				<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#F1F1F2">10%</div>
+							<div class="swatch-values">
+								<h5>Background</h5>
+								<p>R=241 G=241 B=242</p>
+								<p>#F1F1F2</p>
+							</div>
+						</div>
+				</div>
+				<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#f8f8f8">5%</div>
+							<div class="swatch-values">
+								<h5>Light</h5>
+								<p>R=248 G=248 B=248</p>
+								<p>#f8f8f8</p>
+							</div>
+						</div>
+				</div>
+				</article>
+			</section>
+		</div>
+	</div>
 
 
-{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
-{% capture example %}
-	FILL-ME
-{% endcapture %}
+	<!-- ACCESSIBILLITY
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<div class="row">
+				<div class="col-sm-4 col-xs-12">
+					<h1 class="h4 no-top-margin-xs">Accessibility</h1>
+					<div class="row top-margin3-xs">
+						<p class="col-xs-12 col-sm-10 elegant">This is a quick and dirty accessibility guide. The Westpac group have committed to comply with WCAG2 AA standards. Certain colours used in palette have to be accessible. Ignore at your peril</p>
+					</div>
+				</div>
+
+				<div class="col-sm-8 col-xs-12">
+					<section>
+						<article class="row">
+							<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#D60C8C">A. Yes</div>
+									<div class="swatch-values">
+										<h5 style="color:#D60C8C">Primary<br/>Accessible</h5>
+									</div>
+								</div>
+							</div>
+							<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#685AC0">B. Yes</div>
+									<div class="swatch-values">
+										<h5 style="color:#685AC0">Hero<br/>Accessible</h5>
+									</div>
+								</div>
+							</div>
+							<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#716F7D">C. Yes</div>
+									<div class="swatch-values">
+										<h5 style="color:#716F7D">Neutral<br/>Accessible</h5>
+									</div>
+								</div>
+							</div>
+							<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#403489">D. Yes</div>
+									<div class="swatch-values">
+										<h5 style="color:#403489">Complementary A<br/>Accessible</h5>
+									</div>
+								</div>
+							</div>
+							<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#11B6AF">E. No</div>
+									<div class="swatch-values">
+										<h5 style="color:#11B6AF">Complementary B<br/>Not Accessible</h5>
+									</div>
+								</div>
+							</div>
+							<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#0D0D0D">F. Yes</div>
+									<div class="swatch-values">
+										<h5 style="color:#0D0D0D">Text<br/>Accessible</h5>
+									</div>
+								</div>
+							</div>
+							<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#716F7D">G. Yes</div>
+									<div class="swatch-values">
+										<h5 style="color:#716F7D">Muted<br/>Accessible</h5>
+									</div>
+								</div>
+							</div>
+						</article>
+					</section>
+				</div>
+			</div>
 
 
-{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
-{% capture HTML %}
-	{{ example }}
-{% endcapture %}
+	<!-- RESERVED
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
 
-{% comment %} CSS TAB {% endcomment %}
-{% capture CSS %}
-	FILL-ME
-{% endcapture %}
+	<div class="row">
+		<div class="col-sm-4 col-xs-12">
+			<h1 class="h4 no-top-margin-xs">Reserved Colours</h1>
+			<div class="row top-margin3-xs">
+				<p class="col-xs-12 col-sm-10 elegant">These are important contextual colours used throughout the interface. Do not use these colours for any other purpose than shown here. All these colours are accessible.</p>
+			</div>
+		</div>
+
+		<div class="col-sm-8 col-xs-12">
+			<div class="bs-callout bs-callout-warning">
+			<h4>Warning</h4>
+			<p>Do not use these colours for any other purpose than shown here.</p>
+		</div>
+		</div>
+
+		<div class="col-sm-8 col-xs-12">
+			<section>
+				<article class="row">
+					<!-- Success -->
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#008000"></div>
+							<div class="swatch-values">
+								<h5>Success</h5>
+								<p>R=0 G=128 B=0</p>
+								<p>#008000</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- Information -->
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#0074c4"></div>
+							<div class="swatch-values">
+								<h5>Information</h5>
+								<p>R=0 G=116 B=196</p>
+								<p>#0074c4</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- Warning -->
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#C53B00"></div>
+							<div class="swatch-values">
+								<h5>Warning</h5>
+								<p>R=197 G=59 B=0</p>
+								<p>#C53B00</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- Danger -->
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#c40000"></div>
+							<div class="swatch-values">
+								<h5>Danger</h5>
+								<p>R=196 G=0 B=0</p>
+								<p>#c40000</p>
+							</div>
+						</div>
+					</div>
+				</article>
+			</section>
+		</div>
+	</div>
+
+{% else if brand == 'BSA' %}
+
+	<!-- PRIMARY PALETTE
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<div class="row">
+		<div class="col-sm-4 col-xs-12">
+			<h1 class="h4 no-top-margin-xs">Primary Palette</h1>
+			<div class="row top-margin3-xs">
+				<p class="col-xs-12 col-sm-10 elegant">These are the most commonly used colours in the brand. That's not to say that they are used in abundance. Some primary colours are used very sparingly. Less is more.</p>
+			</div>
+		</div>
+
+				<div class="col-sm-8 col-xs-12">
+					<section>
+						<article class="row">
+							<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#C0142E">A</div>
+									<div class="swatch-values">
+										<h5>Primary - Link</h5>
+										<p>R=192 G=20 B=46</p>
+										<p>#C0142E</p>
+									</div>
+								</div>
+							</div>
+							<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#365FB4">B</div>
+									<div class="swatch-values">
+										<h5>Hero</h5>
+										<p>R=54 G=95 B=180</p>
+										<p>#365FB4</p>
+									</div>
+								</div>
+							</div>
+							<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#333333">C</div>
+									<div class="swatch-values">
+										<h5>Neutral</h5>
+										<p>R=51 G=51 B=51</p>
+										<p>#333333</p>
+									</div>
+								</div>
+							</div>
+							<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#36528A">D</div>
+									<div class="swatch-values">
+										<h5>Complementary A</h5>
+										<p>R=54 G=82 B=138</p>
+										<p>#36528A</p>
+									</div>
+								</div>
+							</div>
+							<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#178bc4">E</div>
+									<div class="swatch-values">
+										<h5>Complementary B</h5>
+										<p>R=23 G=139 B=196</p>
+										<p>#178bc4</p>
+									</div>
+								</div>
+							</div>
+							<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#333333">F</div>
+									<div class="swatch-values">
+										<h5>Text</h5>
+										<p>R=51 G=51 B=51</p>
+										<p>#333333</p>
+									</div>
+								</div>
+							</div>
+							<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#707070">G</div>
+									<div class="swatch-values">
+										<h5>Muted</h5>
+										<p>R=112 G=112 B=112</p>
+										<p>#707070</p>
+									</div>
+								</div>
+							</div>
+							<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#C2C2C2">H</div>
+									<div class="swatch-values">
+										<h5>Border</h5>
+										<p>R=194 G=194 B=194</p>
+										<p>#C2C2C2</p>
+									</div>
+								</div>
+							</div>
+							<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#EBEBEB">I</div>
+									<div class="swatch-values">
+										<h5>Background</h5>
+										<p>R=235 G=235 B=235</p>
+										<p>#EBEBEB</p>
+									</div>
+								</div>
+							</div>
+							<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#F5F5F5">J</div>
+									<div class="swatch-values">
+										<h5>Light</h5>
+										<p>R=245 G=245 B=245</p>
+										<p>#F5F5F5</p>
+									</div>
+								</div>
+							</div>
+						</article>
+					</section>
+				</div>
+			</div>
 
 
-{% comment %} LESS TAB {% endcomment %}
-{% capture LESS %}
-	FILL-ME
-{% endcapture %}
+
+	<!-- SECONDARY PALETTE
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
 
-{% comment %} JS TAB {% endcomment %}
-{% capture JS %}
-	FILL-ME
-{% endcapture %}
+	<div class="row">
+				<div class="col-sm-4 col-xs-12">
+					<h1 class="h4 no-top-margin-xs">Secondary Palette</h1>
+					<div class="row top-margin3-xs">
+						<p class="col-xs-12 col-sm-10 elegant">Commonly used for content specific tasks such as charts, info graphics, diagrams etc.</p>
+					</div>
+				</div>
+
+				<div class="col-sm-8 col-xs-12">
+					<section>
+						<article class="row">
+							<div class="bs-callout bs-callout-info no-top-margin-xs">
+								<h4>Not available</h4>
+							<p>There are currently no colours in the BSA secondary palette however the BSA re-brand will implement a secondary palette.</p>
+						</div>
+						</article>
+					</section>
+				</div>
+			</div>
 
 
-{% include showExample.liquid %}
-{% comment %}
-	--------------------------------------------------------------------------------------------------------------------------------------------------------------
-{% endcomment %}
+	<!-- NEUTRAL TINTS
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+	<div class="row">
+				<div class="col-sm-4 col-xs-12">
+					<h1 class="h4 no-top-margin-xs">Neutral Tints</h1>
+					<div class="row top-margin3-xs">
+						<p class="col-xs-12 col-sm-10 elegant">Each brand has a neutral colour with a set of eleven tints for subtle colouring. Three of these tints are already used in the primary palette for borders backgrounds and super light backgrounds.</p>
+					</div>
+				</div>
+
+			<div class="col-sm-8 col-xs-12">
+					<section>
+						<article class="row">
+
+						<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#333333">100%</div>
+									<div class="swatch-values">
+										<h5>Text</h5>
+										<p>R=51 G=51 B=51</p>
+										<p>#333333</p>
+									</div>
+								</div>
+						</div>
+						<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#474747">90%</div>
+									<div class="swatch-values">
+										<p>R=71 G=71 B=71</p>
+										<p>#474747</p>
+									</div>
+								</div>
+						</div>
+						<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#5C5C5C">80%</div>
+									<div class="swatch-values">
+										<p>R=92 G=92 B=92</p>
+										<p>#5C5C5C</p>
+									</div>
+								</div>
+						</div>
+						<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#707070">70%</div>
+									<div class="swatch-values">
+										<h5>Muted</h5>
+										<p>R=112 G=112 B=112</p>
+										<p>#707070</p>
+									</div>
+								</div>
+						</div>
+						<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#858585">60%</div>
+									<div class="swatch-values">
+										<p>R=133 G=133 B=133</p>
+										<p>#858585</p>
+									</div>
+								</div>
+						</div>
+						<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#999999">50%</div>
+									<div class="swatch-values">
+										<p>R=153 G=153 B=153</p>
+										<p>#999999</p>
+									</div>
+								</div>
+						</div>
+						<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#ADADAD">40%</div>
+									<div class="swatch-values">
+										<p>R=173 G=173 B=173</p>
+										<p>#ADADAD</p>
+									</div>
+								</div>
+						</div>
+						<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#C2C2C2">30%</div>
+									<div class="swatch-values">
+										<h5>Borders</h5>
+										<p>R=194 G=194 B=194</p>
+										<p>#C2C2C2</p>
+									</div>
+								</div>
+						</div>
+						<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#D6D6D6">20%</div>
+									<div class="swatch-values">
+										<p>R=214 G=214 B=214</p>
+										<p>#D6D6D6</p>
+									</div>
+								</div>
+						</div>
+						<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#EBEBEB">10%</div>
+									<div class="swatch-values">
+										<h5>Background</h5>
+										<p>R=235 G=235 B=235</p>
+										<p>#EBEBEB</p>
+									</div>
+								</div>
+						</div>
+						<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#f5f5f5">5%</div>
+									<div class="swatch-values">
+										<h5>Light</h5>
+										<p>R=245 G=245 B=245</p>
+										<p>#f5f5f5</p>
+									</div>
+								</div>
+						</div>
+
+						</article>
+					</section>
+				</div>
+			</div>
+
+
+	<!-- ACCESSIBILLITY
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+	<div class="row">
+				<div class="col-sm-4 col-xs-12">
+					<h1 class="h4 no-top-margin-xs">Accessibility</h1>
+					<div class="row top-margin3-xs">
+						<p class="col-xs-12 col-sm-10 elegant">This is a quick and dirty accessibility guide. The Westpac group have committed to comply with WCAG2 AA standards. Certain colours used in palette have to be accessible. Ignore at your peril.</p>
+					</div>
+				</div>
+
+				<div class="col-sm-8 col-xs-12">
+					<section>
+						<article class="row">
+							<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#c0142e">A. Yes</div>
+									<div class="swatch-values">
+										<h5 style="color:#c0142e">Primary<br/>Accessible</h5>
+									</div>
+								</div>
+							</div>
+							<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#365fb4">B. Yes</div>
+									<div class="swatch-values">
+										<h5 style="color:#365fb4">Hero<br/>Accessible</h5>
+									</div>
+								</div>
+							</div>
+							<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#333333">C. Yes</div>
+									<div class="swatch-values">
+										<h5 style="color:#333333">Neutral<br/>Accessible</h5>
+									</div>
+								</div>
+							</div>
+							<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#36528a">D. Yes</div>
+									<div class="swatch-values">
+										<h5 style="color:#36528a">Complementary A<br/>Accessible</h5>
+									</div>
+								</div>
+							</div>
+							<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#178BC4">E. No</div>
+									<div class="swatch-values">
+										<h5 style="color:#178BC4">Complementary B<br/>Not Accessible</h5>
+									</div>
+								</div>
+							</div>
+							<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#333333">F. Yes</div>
+									<div class="swatch-values">
+										<h5 style="color:#333333">Text<br/>Accessible</h5>
+									</div>
+								</div>
+							</div>
+							<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#707070">G. Yes</div>
+									<div class="swatch-values">
+										<h5 style="color:#707070">Muted<br/>Accessible</h5>
+									</div>
+								</div>
+							</div>
+						</article>
+					</section>
+				</div>
+			</div>
+
+
+
+	<!-- RESERVED
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+	<div class="row">
+		<div class="col-sm-4 col-xs-12">
+			<h1 class="h4 no-top-margin-xs">Reserved Colours</h1>
+			<div class="row top-margin3-xs">
+				<p class="col-xs-12 col-sm-10 elegant">These are important contextual colours used throughout the interface. Do not use these colours for any other purpose than shown here. All these colours are accessible.</p>
+			</div>
+		</div>
+
+		<div class="col-sm-8 col-xs-12">
+			<div class="bs-callout bs-callout-warning">
+			<h4>Warning</h4>
+			<p>Do not use these colours for any other purpose than shown here.</p>
+		</div>
+		</div>
+
+		<div class="col-sm-8 col-xs-12">
+			<section>
+				<article class="row">
+					<!-- Success -->
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#008000"></div>
+							<div class="swatch-values">
+								<h5>Success</h5>
+								<p>R=0 G=128 B=0</p>
+								<p>#008000</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- Information -->
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#0074c4"></div>
+							<div class="swatch-values">
+								<h5>Information</h5>
+								<p>R=0 G=116 B=196</p>
+								<p>#0074c4</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- Warning -->
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#C53B00"></div>
+							<div class="swatch-values">
+								<h5>Warning</h5>
+								<p>R=197 G=59 B=0</p>
+								<p>#C53B00</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- Danger -->
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#c40000"></div>
+							<div class="swatch-values">
+								<h5>Danger</h5>
+								<p>R=196 G=0 B=0</p>
+								<p>#c40000</p>
+							</div>
+						</div>
+					</div>
+				</article>
+			</section>
+		</div>
+	</div>
+
+{% else if brand == 'STG' %}
+
+	<!-- PRIMARY PALETTE
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+	<div class="row">
+				<div class="col-sm-4 col-xs-12">
+					<h1 class="h4 no-top-margin-xs">Primary UI Palette</h1>
+					<div class="row top-margin3-xs">
+						<p class="col-xs-12 col-sm-10 elegant">These are the ten core colours used in the digital the brand. It's important to use these colours correctly for their specified purpose.</p>
+					</div>
+				</div>
+
+				<div class="col-sm-8 col-xs-12">
+					<section>
+						<article class="row">
+							<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#E30000">A</div>
+									<div class="swatch-values">
+										<h5>Primary - Link</h5>
+										<p>R=227 G=0 B=0</p>
+										<p>#E30000</p>
+									</div>
+								</div>
+							</div>
+							<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#78BE20">B</div>
+									<div class="swatch-values">
+										<h5>Hero</h5>
+										<p>R=120 G=190 B=32</p>
+										<p>#78BE20</p>
+									</div>
+								</div>
+							</div>
+							<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#757463">C</div>
+									<div class="swatch-values">
+										<h5>Neutral</h5>
+										<p>R=117 G=116 B=99</p>
+										<p>#757463</p>
+									</div>
+								</div>
+							</div>
+							<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#004833">D</div>
+									<div class="swatch-values">
+										<h5>Complementary A</h5>
+										<p>R=0 G=72 B=51</p>
+										<p>#004833</p>
+									</div>
+								</div>
+							</div>
+							<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#FFCD00">E</div>
+									<div class="swatch-values">
+										<h5>Complementary B</h5>
+										<p>R=255 G=205 B=0</p>
+										<p>#FFCD00</p>
+									</div>
+								</div>
+							</div>
+							<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#004833">F</div>
+									<div class="swatch-values">
+										<h5>Text</h5>
+										<p>R=0 G=72 B=51</p>
+										<p>#004833</p>
+									</div>
+								</div>
+							</div>
+							<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#757463">G</div>
+									<div class="swatch-values">
+										<h5>Muted</h5>
+										<p>R=117 G=116 B=99</p>
+										<p>#757463</p>
+									</div>
+								</div>
+							</div>
+							<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#cecdc6">H</div>
+									<div class="swatch-values">
+										<h5>Border</h5>
+										<p>R=206 G=205 B=198</p>
+										<p>#cecdc6</p>
+									</div>
+								</div>
+							</div>
+							<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#f3f3f1">I</div>
+									<div class="swatch-values">
+										<h5>Background</h5>
+										<p>R=243 G=243 B=241</p>
+										<p>#f3f3f1</p>
+									</div>
+								</div>
+							</div>
+							<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#f9f9f8">J</div>
+									<div class="swatch-values">
+										<h5>Light</h5>
+										<p>R=249 G=249 B=248</p>
+										<p>#f9f9f8</p>
+									</div>
+								</div>
+							</div>
+						</article>
+					</section>
+				</div>
+			</div>
+
+
+
+	<!-- SECONDARY PALETTE
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+	<div class="row">
+				<div class="col-sm-4 col-xs-12">
+					<h1 class="h4 no-top-margin-xs">Secondary Palette</h1>
+					<div class="row top-margin3-xs">
+						<p class="col-xs-12 col-sm-10 elegant">These colours add variation to the palette. They are commonly used for content specific tasks such as charts, info graphics, diagrams etc.</p>
+					</div>
+				</div>
+
+				<div class="col-sm-8 col-xs-12">
+					<section>
+						<article class="row">
+							<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+									<div class="swatch-info">
+										<div class="swatch-colour" style="background-color:#f68d39"></div>
+										<div class="swatch-values">
+											<h5>Ember</h5>
+											<p>R=246 G=141 B=57</p>
+											<p>#f68d39</p>
+										</div>
+									</div>
+							</div>
+							<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+									<div class="swatch-info">
+										<div class="swatch-colour" style="background-color:#f8df5c"></div>
+										<div class="swatch-values">
+											<h5>Citrus</h5>
+											<p>R=248 G=223 B=92</p>
+											<p>#f8df5c</p>
+										</div>
+									</div>
+							</div>
+							<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+									<div class="swatch-info">
+										<div class="swatch-colour" style="background-color:#dddf4b"></div>
+										<div class="swatch-values">
+											<h5>Spring</h5>
+											<p>R=221 G=223 B=75</p>
+											<p>#dddf4b</p>
+										</div>
+									</div>
+							</div>
+							<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+									<div class="swatch-info">
+										<div class="swatch-colour" style="background-color:#3fc3eb"></div>
+										<div class="swatch-values">
+											<h5>Sky</h5>
+											<p>R=63 G=195 B=235</p>
+											<p>#3fc3eb</p>
+										</div>
+									</div>
+							</div>
+							<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+									<div class="swatch-info">
+										<div class="swatch-colour" style="background-color:#502d79"></div>
+										<div class="swatch-values">
+											<h5>Plumb</h5>
+											<p>R=80 G=45 B=121</p>
+											<p>#502d79</p>
+										</div>
+									</div>
+							</div>
+						</article>
+					</section>
+				</div>
+			</div>
+
+
+
+	<!-- NEUTRAL TINTS
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+	<div class="row">
+				<div class="col-sm-4 col-xs-12">
+					<h1 class="h4 no-top-margin-xs">Neutral Tints</h1>
+					<div class="row top-margin3-xs">
+						<p class="col-xs-12 col-sm-10 elegant">Each brand has a neutral colour with a set of eleven tints for subtle colouring. Three of these tints are already used in the primary palette for borders backgrounds and super light backgrounds.</p>
+					</div>
+				</div>
+
+			<div class="col-sm-8 col-xs-12">
+					<section>
+						<article class="row">
+
+						<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#757463">100%</div>
+									<div class="swatch-values">
+										<h5>Muted text</h5>
+										<p>R=117 G=116 B=99</p>
+										<p>#757463</p>
+									</div>
+								</div>
+						</div>
+						<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#918f7e">90%</div>
+									<div class="swatch-values">
+										<p>R=145 G=143 B=126</p>
+										<p>#918f7e</p>
+									</div>
+								</div>
+						</div>
+						<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#9d9c8d">80%</div>
+									<div class="swatch-values">
+										<p>R=157 G=156 B=141</p>
+										<p>#9d9c8d</p>
+									</div>
+								</div>
+						</div>
+						<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#aaa89b">70%</div>
+									<div class="swatch-values">
+										<p>R=170 G=168 B=155</p>
+										<p>#aaa89b</p>
+									</div>
+								</div>
+						</div>
+						<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#b6b5a9">60%</div>
+									<div class="swatch-values">
+										<p>R=182 G=181 B=169</p>
+										<p>#b6b5a9</p>
+									</div>
+								</div>
+						</div>
+						<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#c2c1b7">50%</div>
+									<div class="swatch-values">
+										<p>R= 194 G=193 B=183</p>
+										<p>#c2c1b7</p>
+									</div>
+								</div>
+						</div>
+						<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#cecdc6">40%</div>
+									<div class="swatch-values">
+										<h5>Borders</h5>
+										<p>R=206 G=205 B=198</p>
+										<p>#cecdc6</p>
+									</div>
+								</div>
+						</div>
+						<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#dadad4">30%</div>
+									<div class="swatch-values">
+										<p>R=218 G=218 B=212</p>
+										<p>#dadad4</p>
+									</div>
+								</div>
+						</div>
+						<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#e7e6e2">20%</div>
+									<div class="swatch-values">
+										<p>R=231 G=230 B=226</p>
+										<p>#e7e6e2</p>
+									</div>
+								</div>
+						</div>
+						<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#f3f3f1">10%</div>
+									<div class="swatch-values">
+										<h5>Background</h5>
+										<p>R=243 G=243 B=241</p>
+										<p>#f3f3f1</p>
+									</div>
+								</div>
+						</div>
+						<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#f9f9f8">5%</div>
+									<div class="swatch-values">
+										<h5>Light</h5>
+										<p>R=249 G=249 B=248</p>
+										<p>#f9f9f8</p>
+									</div>
+								</div>
+						</div>
+
+
+						</article>
+					</section>
+				</div>
+			</div>
+
+	<!-- ACCESSIBILLITY
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<div class="row">
+				<div class="col-sm-4 col-xs-12">
+					<h1 class="h4 no-top-margin-xs">Accessibility</h1>
+					<div class="row top-margin3-xs">
+						<p class="col-xs-12 col-sm-10 elegant">This is a quick and dirty accessibility guide. The Westpac group have committed to comply with WCAG2 AA standards. Certain colours used in palette have to be accessible. Ignore at your peril</p>
+					</div>
+				</div>
+
+				<div class="col-sm-8 col-xs-12">
+					<section>
+						<article class="row">
+							<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#E30000">A. Yes</div>
+									<div class="swatch-values">
+										<h5 style="color:#E30000">Primary<br/>Accessible</h5>
+									</div>
+								</div>
+							</div>
+							<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#78BE20">B. No</div>
+									<div class="swatch-values">
+										<h5 style="color:#78BE20">Hero<br/>Not Accessible</h5>
+									</div>
+								</div>
+							</div>
+							<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#757463">C. Yes</div>
+									<div class="swatch-values">
+										<h5 style="color:#757463">Neutral<br/>Accessible</h5>
+									</div>
+								</div>
+							</div>
+							<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#004833">D. Yes</div>
+									<div class="swatch-values">
+										<h5 style="color:#004833">Complementary A<br/>Accessible</h5>
+									</div>
+								</div>
+							</div>
+							<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#FFCD00">E. No</div>
+									<div class="swatch-values">
+										<h5 style="color:#FFCD00">Complementary B<br/>Not Accessible</h5>
+									</div>
+								</div>
+							</div>
+							<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#004833">F. Yes</div>
+									<div class="swatch-values">
+										<h5 style="color:#004833">Text<br/>Accessible</h5>
+									</div>
+								</div>
+							</div>
+							<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+								<div class="swatch-info">
+									<div class="swatch-colour" style="background-color:#757463">G. Yes</div>
+									<div class="swatch-values">
+										<h5 style="color:#757463">Muted<br/>Accessible</h5>
+									</div>
+								</div>
+							</div>
+						</article>
+					</section>
+				</div>
+			</div>
+
+
+	<!-- RESERVED
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+	<div class="row">
+		<div class="col-sm-4 col-xs-12">
+			<h1 class="h4 no-top-margin-xs">Reserved Colours</h1>
+			<div class="row top-margin3-xs">
+				<p class="col-xs-12 col-sm-10 elegant">These are important contextual colours used throughout the interface. Do not use these colours for any other purpose than shown here. All these colours are accessible.</p>
+			</div>
+		</div>
+
+		<div class="col-sm-8 col-xs-12">
+			<div class="bs-callout bs-callout-warning">
+			<h4>Warning</h4>
+			<p>Do not use these colours for any other purpose than shown here.</p>
+		</div>
+		</div>
+
+		<div class="col-sm-8 col-xs-12">
+			<section>
+				<article class="row">
+					<!-- Success -->
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#008000"></div>
+							<div class="swatch-values">
+								<h5>Success</h5>
+								<p>R=0 G=128 B=0</p>
+								<p>#008000</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- Information -->
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#0074c4"></div>
+							<div class="swatch-values">
+								<h5>Information</h5>
+								<p>R=0 G=116 B=196</p>
+								<p>#0074c4</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- Warning -->
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#C53B00"></div>
+							<div class="swatch-values">
+								<h5>Warning</h5>
+								<p>R=197 G=59 B=0</p>
+								<p>#C53B00</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- Danger -->
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#c40000"></div>
+							<div class="swatch-values">
+								<h5>Danger</h5>
+								<p>R=196 G=0 B=0</p>
+								<p>#c40000</p>
+							</div>
+						</div>
+					</div>
+				</article>
+			</section>
+		</div>
+	</div>
+{% else if brand == 'WBC' %}
+
+	<!-- PRIMARY PALETTE
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<div class="row">
+		<div class="col-sm-4 col-xs-12">
+			<h1 class="h4 no-top-margin-xs">Primary Palette</h1>
+			<div class="row top-margin3-xs">
+				<p class="col-xs-12 col-sm-10 elegant">These are the ten core colours used in the digital the brand. It's important to use these colours correctly for their specified purpose.</p>
+			</div>
+		</div>
+
+		<div class="col-sm-8 col-xs-12">
+			<section>
+				<article class="row">
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#d5002b">A</div>
+							<div class="swatch-values">
+								<h5>Primary - Link</h5>
+								<p>R=213 G=0 B=43</p>
+								<p>#d5002b</p>
+							</div>
+						</div>
+					</div>
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#621A4B">B</div>
+							<div class="swatch-values">
+								<h5>Hero</h5>
+								<p>R=98 G=26 B=75</p>
+								<p>#621A4B</p>
+							</div>
+						</div>
+					</div>
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#2D373E">C</div>
+							<div class="swatch-values">
+								<h5>Neutral</h5>
+								<p>R=45 G=55 B=62</p>
+								<p>#2D373E</p>
+							</div>
+						</div>
+					</div>
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#9f0029">D</div>
+							<div class="swatch-values">
+								<h5>Complementary A</h5>
+								<p>R=159 G=0 B=41</p>
+								<p>#9f0029</p>
+							</div>
+						</div>
+					</div>
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#680000">E</div>
+							<div class="swatch-values">
+								<h5>Complementary B</h5>
+								<p>R=104 G=0 B=0</p>
+								<p>#680000</p>
+							</div>
+						</div>
+					</div>
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#2D373E">F</div>
+							<div class="swatch-values">
+								<h5>Text</h5>
+								<p>R=45 G=55 B=62</p>
+								<p>#2D373E</p>
+							</div>
+						</div>
+					</div>
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#575F65">G</div>
+							<div class="swatch-values">
+								<h5>Muted</h5>
+								<p>R=87 G=95 B=101</p>
+								<p>#575F65</p>
+							</div>
+						</div>
+					</div>
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#D7D2CB">H</div>
+							<div class="swatch-values">
+								<h5>Border</h5>
+								<p>R=215 G=210 B=203</p>
+								<p>#D7D2CB</p>
+							</div>
+						</div>
+					</div>
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#F4F3F0">I</div>
+							<div class="swatch-values">
+								<h5>Background</h5>
+								<p>R=244 G=243 B=240</p>
+								<p>#F4F3F0</p>
+							</div>
+						</div>
+					</div>
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#F9f9f8">J</div>
+							<div class="swatch-values">
+								<h5>Light</h5>
+								<p>R=249 G=249 B=248</p>
+								<p>#F9f9f8</p>
+							</div>
+						</div>
+					</div>
+				</article>
+			</section>
+		</div>
+	</div>
+
+	<!-- EXTRA COLOURS
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<div class="row">
+		<div class="col-sm-4 col-xs-12">
+			<h1 class="h4 no-top-margin-xs">Additional Colours</h1>
+			<div class="row top-margin3-xs">
+				<p class="col-xs-12 col-sm-10 elegant">These additional colours can also be used for backgrounds etc if required.</p>
+			</div>
+		</div>
+
+		<div class="col-sm-8 col-xs-12">
+			<section>
+				<article class="row">
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#E4E1DA">G</div>
+							<div class="swatch-values">
+								<h5>Stone</h5>
+								<p>R=228 G=225 B=218</p>
+								<p>#E4E1DA</p>
+							</div>
+						</div>
+					</div>
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#EFEDE9">H</div>
+							<div class="swatch-values">
+								<h5>Stone 60</h5>
+								<p>R=239 G=237 B=233</p>
+								<p>#EFEDE9</p>
+							</div>
+						</div>
+					</div>
+				</article>
+			</section>
+		</div>
+	</div>
+
+
+	<!-- NEUTRAL TINTS
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+<!--
+	<div class="row">
+		<div class="col-sm-4 col-xs-12">
+			<h1 class="h4 no-top-margin-xs">Neutral Tints</h1>
+			<div class="row top-margin3-xs">
+				<p class="col-xs-12 col-sm-10 elegant">Each brand has a neutral colour with a set of eleven tints for subtle colouring. In Westpac these neutral colours are not used as the brand uses a set of stone colours for borders and backgrounds etc.</p>
+			</div>
+		</div>
+
+		<div class="col-sm-8 col-xs-12">
+			<section>
+				<article class="row">
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#2D373E">100%</div>
+							<div class="swatch-values">
+								<h5>Text</h5>
+								<p>R=45 G=55 B=62</p>
+								<p>#2D373E</p>
+							</div>
+						</div>
+					</div>
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#424B51">90%</div>
+							<div class="swatch-values">
+								<p>R=66 G=75 B=81</p>
+								<p>#424B51</p>
+							</div>
+						</div>
+					</div>
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#575F65">80%</div>
+							<div class="swatch-values">
+								<h5>Muted</h5>
+								<p>R=87 G=95 B=101</p>
+								<p>#575F65</p>
+							</div>
+						</div>
+					</div>
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#6C7378">70%</div>
+							<div class="swatch-values">
+								<p>R=108 G=115 B=120</p>
+								<p>#6C7378</p>
+							</div>
+						</div>
+					</div>
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#81878B">60%</div>
+							<div class="swatch-values">
+								<p>R=129 G=135 B=139</p>
+								<p>#81878B</p>
+							</div>
+						</div>
+					</div>
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#969B9E">50%</div>
+							<div class="swatch-values">
+								<p>R=150 G=155 B=158</p>
+								<p>#969B9E</p>
+							</div>
+						</div>
+					</div>
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#ABAFB2">40%</div>
+							<div class="swatch-values">
+								<p>R=171 G=175 B=178</p>
+								<p>#ABAFB2</p>
+							</div>
+						</div>
+					</div>
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#C0C3C5">30%</div>
+							<div class="swatch-values">
+								<p>R=192 G=195 B=197</p>
+								<p>#C0C3C5</p>
+							</div>
+						</div>
+					</div>
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#D5D7D8">20%</div>
+							<div class="swatch-values">
+								<p>R=213 G=215 B=216</p>
+								<p>#D5D7D8</p>
+							</div>
+						</div>
+					</div>
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#EAEBEC">10%</div>
+							<div class="swatch-values">
+								<p>R=234 G=235 B=236</p>
+								<p>#EAEBEC</p>
+							</div>
+						</div>
+					</div>
+				</article>
+			</section>
+		</div>
+	</div>
+-->
+
+	<!-- ACCESSIBILLITY
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<div class="row">
+		<div class="col-sm-4 col-xs-12">
+			<h1 class="h4 no-top-margin-xs">Accessibility</h1>
+			<div class="row top-margin3-xs">
+				<p class="col-xs-12 col-sm-10 elegant">This is a quick and dirty accessibility guide. The Westpac group have committed to comply with WCAG2 AA standards. Certain colours used in the palette have to be accessible. Ignore at your peril</p>
+			</div>
+		</div>
+
+		<div class="col-sm-8 col-xs-12">
+			<section>
+				<article class="row">
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#d5002b">A. Yes</div>
+							<div class="swatch-values">
+								<h5 style="color:#d5002b">Primary<br/>Accessible</h5>
+							</div>
+						</div>
+					</div>
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#621A4B">B. Yes</div>
+							<div class="swatch-values">
+								<h5 style="color:#621A4B">Hero<br/>Accessible</h5>
+							</div>
+						</div>
+					</div>
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#2D373E">C. Yes</div>
+							<div class="swatch-values">
+								<h5 style="color:#2D373E">Neutral<br/>Accessible</h5>
+							</div>
+						</div>
+					</div>
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#9f0029">D. Yes</div>
+							<div class="swatch-values">
+								<h5 style="color:#9f0029">Complementary A<br/>Accessible</h5>
+							</div>
+						</div>
+					</div>
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#680000">E. Yes</div>
+							<div class="swatch-values">
+								<h5 style="color:#680000">Complementary B<br/>Accessible</h5>
+							</div>
+						</div>
+					</div>
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#2D373E">F. Yes</div>
+							<div class="swatch-values">
+								<h5 style="color:#2D373E">Text<br/>Accessible</h5>
+							</div>
+						</div>
+					</div>
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#575f65">G. Yes</div>
+							<div class="swatch-values">
+								<h5 style="color:#575f65">Muted<br/>Accessible</h5>
+							</div>
+						</div>
+					</div>
+				</article>
+			</section>
+		</div>
+	</div>
+
+	<!-- RESERVED
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+	<div class="row">
+		<div class="col-sm-4 col-xs-12">
+			<h1 class="h4 no-top-margin-xs">Reserved Colours</h1>
+			<div class="row top-margin3-xs">
+				<p class="col-xs-12 col-sm-10 elegant">These are important contextual colours used throughout the interface. Do not use these colours for any other purpose than shown here. All these colours are accessible.</p>
+			</div>
+		</div>
+
+		<div class="col-sm-8 col-xs-12">
+			<div class="bs-callout bs-callout-warning">
+			<h4>Warning</h4>
+			<p>Do not use these colours for any other purpose than shown here.</p>
+		</div>
+		</div>
+
+		<div class="col-sm-8 col-xs-12">
+			<section>
+				<article class="row">
+					<!-- Success -->
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#008000"></div>
+							<div class="swatch-values">
+								<h5>Success</h5>
+								<p>R=0 G=128 B=0</p>
+								<p>#008000</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- Information -->
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#0074c4"></div>
+							<div class="swatch-values">
+								<h5>Information</h5>
+								<p>R=0 G=116 B=196</p>
+								<p>#0074c4</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- Warning -->
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#C53B00"></div>
+							<div class="swatch-values">
+								<h5>Warning</h5>
+								<p>R=197 G=59 B=0</p>
+								<p>#C53B00</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- Danger -->
+					<div class="swatch col-xs-12 col-sm-6 col-lg-4">
+						<div class="swatch-info">
+							<div class="swatch-colour" style="background-color:#c40000"></div>
+							<div class="swatch-values">
+								<h5>Danger</h5>
+								<p>R=196 G=0 B=0</p>
+								<p>#c40000</p>
+							</div>
+						</div>
+					</div>
+				</article>
+			</section>
+		</div>
+	</div>
+{% endif %}
