@@ -147,7 +147,7 @@
 			});
 
 
-			//////////////////////////////////////////////////| OPTIONS HAVE BEEN CHANGED
+			//////////////////////////////////////////////////| SUBMITTING THE FORM
 			$('.js-blender').on('submit', function(e) {
 				App.debugging( 'Blender: Blender submitted', 'interaction' );
 
@@ -164,7 +164,7 @@
 			});
 
 
-			//////////////////////////////////////////////////| OPTIONS HAVE BEEN CHANGED
+			//////////////////////////////////////////////////| CLEARING LOCALSTORAGE
 			$('.js-blender-clear').on('click', function(e) {
 				App.debugging( 'Blender: Blender claer button clicked', 'interaction' );
 
@@ -322,7 +322,7 @@
 
 				moduleName = moduleName.substring( (App.PREFIX.length + 7) );
 
-				$('.js-blender-option[name="' + moduleName + '"]').prop( 'checked', true );
+				$('.js-blender-option[name="' + moduleName + '"][value="' + options + '"]').prop( 'checked', true );
 			}
 		});
 

@@ -32,7 +32,7 @@
 
 {% assign count = count | plus: 1 %}
 
-<div class="example-box">{{ HTML }}</div>
+<div class="example-box">{{ example }}</div>
 
 <div class="example-tabs-wrapper js-exampletabs">
 	<ul class="example-tabs">
@@ -59,28 +59,34 @@
 	<div class="example-tabcontent js-examplecontent" id="{{ IDhtml }}{{ count }}">
 		<div class="example-tabcontent-wrapper">
 			{% highlight html linenos %}
-			{{ HTML }}
+{{ HTML }}
 			{% endhighlight %}
 		</div>
 	</div>
 	{% if CSSHandle.size > 2 %}
 		<div class="example-tabcontent js-examplecontent" id="{{ IDcss }}{{ count }}">
 			<div class="example-tabcontent-wrapper">
-				{{ CSS }}
+				<div class="example-tabcontent-content">
+					{{ CSS }}
+				</div>
 			</div>
 		</div>
 	{% endif %}
 	{% if LESSHandle.size > 2 %}
 		<div class="example-tabcontent js-examplecontent" id="{{ IDless }}{{ count }}">
 			<div class="example-tabcontent-wrapper">
-				{{ LESS }}
+				<div class="example-tabcontent-content">
+					{{ LESS }}
+				</div>
 			</div>
 		</div>
 	{% endif %}
 	{% if JSHandle.size > 2 %}
 		<div class="example-tabcontent js-examplecontent" id="{{ IDjs }}{{ count }}">
 			<div class="example-tabcontent-wrapper">
-				{{ JS }}
+				<div class="example-tabcontent-content">
+					{{ JS }}
+				</div>
 			</div>
 		</div>
 	{% endif %}
