@@ -18,35 +18,28 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-<p>
-	<a href="#contentSkipper">click to see</a>
-</p>
-
-<a id="contentSkipper" class="sr-skiplink" href="#content">Skip to main content</a>
 {% endcapture %}
 
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-	{{ example }}
+	<a id="contentSkipper" class="sr-skiplink" href="#content">Skip to main content</a>
 {% endcapture %}
 
 
 {% comment %} CSS TAB {% endcomment %}
 {% capture CSS %}
-	FILL-ME
 {% endcapture %}
 
 
 {% comment %} LESS TAB {% endcomment %}
 {% capture LESS %}
-	FILL-ME
+	The main mixin is called: <code class="classes">_accessibility-helpers({{ page.brand }})</code>
 {% endcapture %}
 
 
 {% comment %} JS TAB {% endcomment %}
 {% capture JS %}
-	FILL-ME
 {% endcapture %}
 
 
@@ -78,31 +71,28 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-<span class="sr-only">Text hidden from user but visible to screen readers</span>
 {% endcapture %}
 
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-	{{ example }}
+	<span class="sr-only">Text hidden from user but visible to screen readers</span>
 {% endcapture %}
 
 
 {% comment %} CSS TAB {% endcomment %}
 {% capture CSS %}
-	FILL-ME
 {% endcapture %}
 
 
 {% comment %} LESS TAB {% endcomment %}
 {% capture LESS %}
-	FILL-ME
+	The main mixin is called: <code class="classes">_accessibility-helpers({{ page.brand }})</code>
 {% endcapture %}
 
 
 {% comment %} JS TAB {% endcomment %}
 {% capture JS %}
-	FILL-ME
 {% endcapture %}
 
 

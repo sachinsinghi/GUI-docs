@@ -18,65 +18,74 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-<div class="breadcrumb">
-	<span class="breadcrumb-sronly">Page navigation:</span>
+	<div class="breadcrumb">
+		<span class="breadcrumb-sronly">Page navigation:</span>
 
-	<ol class="breadcrumb-list">
-		<li class="is-active">
-			<span class="breadcrumb-sronly">Current page:</span>
-			Home
-		</li>
-	</ol>
-</div>
+		<ol class="breadcrumb-list">
+			<li class="is-active">
+				<span class="breadcrumb-sronly">Current page:</span>
+				Home
+			</li>
+		</ol>
+	</div>
 
-<div class="breadcrumb">
-	<span class="breadcrumb-sronly">Page navigation:</span>
+	<div class="breadcrumb">
+		<span class="breadcrumb-sronly">Page navigation:</span>
 
-	<ol class="breadcrumb-list">
-		<li><a href="#url">Home</a></li>
-		<li class="is-active">
-			<span class="breadcrumb-sronly">Current page:</span>
-			Personal
-		</li>
-	</ol>
-</div>
+		<ol class="breadcrumb-list">
+			<li><a href="#url">Home</a></li>
+			<li class="is-active">
+				<span class="breadcrumb-sronly">Current page:</span>
+				Personal
+			</li>
+		</ol>
+	</div>
 
-<div class="breadcrumb">
-	<span class="breadcrumb-sronly">Page navigation:</span>
+	<div class="breadcrumb">
+		<span class="breadcrumb-sronly">Page navigation:</span>
 
-	<ol class="breadcrumb-list">
-		<li><a href="#url">Home</a></li>
-		<li><a href="#url">Personal</a></li>
-		<li class="is-active">
-			<span class="breadcrumb-sronly">Current page:</span>
-			Business
-		</li>
-	</ol>
-</div>
+		<ol class="breadcrumb-list">
+			<li><a href="#url">Home</a></li>
+			<li><a href="#url">Personal</a></li>
+			<li class="is-active">
+				<span class="breadcrumb-sronly">Current page:</span>
+				Business
+			</li>
+		</ol>
+	</div>
 {% endcapture %}
 
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-	{{ example }}
+	<div class="breadcrumb">
+		<span class="breadcrumb-sronly">Page navigation:</span>
+
+		<ol class="breadcrumb-list">
+			<li><a href="#url">Home</a></li>
+			<li><a href="#url">Personal</a></li>
+			<li class="is-active">
+				<span class="breadcrumb-sronly">Current page:</span>
+				Business
+			</li>
+		</ol>
+	</div>
 {% endcapture %}
 
 
 {% comment %} CSS TAB {% endcomment %}
 {% capture CSS %}
-	FILL-ME
 {% endcapture %}
 
 
 {% comment %} LESS TAB {% endcomment %}
 {% capture LESS %}
-	FILL-ME
+	The main mixin is called: <code class="classes">_breadcrumbs({{ page.brand }})</code>
 {% endcapture %}
 
 
 {% comment %} JS TAB {% endcomment %}
 {% capture JS %}
-	FILL-ME
 {% endcapture %}
 
 

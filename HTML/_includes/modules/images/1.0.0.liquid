@@ -16,44 +16,53 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-<p>Responsive image</p>
-<img class="img-responsive" src="//placehold.it/1500x100" alt="Placeholder images">
+	<p>Responsive image</p>
+	<img class="img-responsive" src="//placehold.it/1500x100" alt="Placeholder images">
 
+	<hr>
+	<p>Rounded corner</p>
 
-<hr>
-<p>Rounded corner</p>
+	<img class="img-rounded" src="//placehold.it/200x200" alt="Placeholder images">
 
-<img class="img-rounded" src="//placehold.it/200x200" alt="Placeholder images">
+	<hr>
+	<p>Round image</p>
 
-
-<hr>
-<p>Round image</p>
-
-<img class="img-circle" src="//placehold.it/200x200" alt="Placeholder images">
+	<img class="img-circle" src="//placehold.it/200x200" alt="Placeholder images">
 {% endcapture %}
 
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-	{{ example }}
+	<img class="img-rounded" src="http://YOUR-IMG-URL.com.au" alt="YOUR PLACEHOLDER TEXT">
 {% endcapture %}
 
 
 {% comment %} CSS TAB {% endcomment %}
 {% capture CSS %}
-	FILL-ME
+	Modifier classes:
+
+	<ul>
+		<li>
+			<code class="classes">img-responsive</code>
+		</li>
+		<li>
+			<code class="classes">img-rounded</code>
+		</li>
+		<li>
+			<code class="classes">img-circle</code>
+		</li>
+	</ul>
 {% endcapture %}
 
 
 {% comment %} LESS TAB {% endcomment %}
 {% capture LESS %}
-	FILL-ME
+	The main mixin is called: <code class="classes">_images({{ page.brand }})</code>
 {% endcapture %}
 
 
 {% comment %} JS TAB {% endcomment %}
 {% capture JS %}
-	FILL-ME
 {% endcapture %}
 
 

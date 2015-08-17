@@ -17,31 +17,41 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-	FILL-ME
 {% endcapture %}
 
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-	{{ example }}
 {% endcapture %}
 
 
 {% comment %} CSS TAB {% endcomment %}
 {% capture CSS %}
-	FILL-ME
 {% endcapture %}
 
 
 {% comment %} LESS TAB {% endcomment %}
 {% capture LESS %}
-	FILL-ME
 {% endcapture %}
 
 
 {% comment %} JS TAB {% endcomment %}
 {% capture JS %}
-	FILL-ME
+	The javascript framework comes with three public methods:
+
+	<ul>
+		<li>
+			<code class="classes">GUI.DEBUG</code> To toggle debugging information simply run <code class="classes">GUI.DEBUG = true || false</code>
+		</li>
+		<li>
+			<code class="classes">GUI.debounce()</code>
+			A common debounce method. Read <a href="https://css-tricks.com/the-difference-between-throttling-and-debouncing/" target="_blank">more here</a>
+		</li>
+		<li>
+			<code class="classes">GUI.throttle()</code>
+			A common throttle method. Read <a href="https://css-tricks.com/the-difference-between-throttling-and-debouncing/" target="_blank">more here</a>
+		</li>
+	</ul>
 {% endcapture %}
 
 
