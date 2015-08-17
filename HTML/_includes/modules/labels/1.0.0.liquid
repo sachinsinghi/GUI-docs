@@ -17,39 +17,50 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-<span class="label">Default</span>
-<span class="label label-primary">Primary</span>
-<span class="label label-hero">Hero</span>
+	<span class="label">Default</span>
+	<span class="label label-primary">Primary</span>
+	<span class="label label-hero">Hero</span>
 
-<hr>
-<p>With links</p>
-<a href="#url" class="label">Default</a>
-<a href="#url" class="label label-primary">Primary</a>
-<a href="#url" class="label label-hero">Hero</a>
+	<hr>
+	<p>As a link</p>
+
+	<a href="#url" class="label">Default</a>
+	<a href="#url" class="label label-primary">Primary</a>
+	<a href="#url" class="label label-hero">Hero</a>
 {% endcapture %}
 
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-	{{ example }}
+	<span class="label">LABEL TEXT</span>
+
+	<a href="#url" class="label">Default</a>
 {% endcapture %}
 
 
 {% comment %} CSS TAB {% endcomment %}
 {% capture CSS %}
-	FILL-ME
+	Modifier classes:
+
+	<ul>
+		<li>
+			<code class="classes">label-primary</code>
+		</li>
+		<li>
+			<code class="classes">label-hero</code>
+		</li>
+	</ul>
 {% endcapture %}
 
 
 {% comment %} LESS TAB {% endcomment %}
 {% capture LESS %}
-	FILL-ME
+	The main mixin is called: <code class="classes">_labels({{ page.brand }})</code>
 {% endcapture %}
 
 
 {% comment %} JS TAB {% endcomment %}
 {% capture JS %}
-	FILL-ME
 {% endcapture %}
 
 

@@ -6,7 +6,6 @@
 
 {% comment %} TITLE {% endcomment %}
 {% capture title %}
-	Badge
 {% endcapture %}
 
 
@@ -18,54 +17,55 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-<p>
 	<span class="badge">
 		<span class="badge-text">95</span>
 		<span class="badge-sronly">Notifications</span>
 	</span>
-</p>
 
-<hr>
-<a href="#url">
-	Inbox
-	<span class="badge">
-		<span class="badge-text">42</span>
-		<span class="badge-sronly">Messages</span>
-	</span>
-</a>
+	<hr>
 
-<hr>
-<button type="button" class="btn btn-primary">
-	Primary
-	<span class="badge">
-		<span class="badge-text">13</span>
-		<span class="badge-sronly">Screen-reader text</span>
-	</span>
-</button>
+	<a href="#url">
+		Inbox
+		<span class="badge">
+			<span class="badge-text">42</span>
+			<span class="badge-sronly">Messages</span>
+		</span>
+	</a>
+
+	<hr>
+
+	<button type="button" class="btn btn-primary">
+		Primary
+		<span class="badge">
+			<span class="badge-text">13</span>
+			<span class="badge-sronly">Screen-reader text</span>
+		</span>
+	</button>
 {% endcapture %}
 
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-	{{ example }}
+	<span class="badge">
+		<span class="badge-text">YOUR TEXT</span>
+		<span class="badge-sronly">CONTEXT FOR SCREEN READERS</span>
+	</span>
 {% endcapture %}
 
 
 {% comment %} CSS TAB {% endcomment %}
 {% capture CSS %}
-	FILL-ME
 {% endcapture %}
 
 
 {% comment %} LESS TAB {% endcomment %}
 {% capture LESS %}
-	FILL-ME
+	The main mixin is called: <code class="classes">_labels({{ page.brand }})</code>
 {% endcapture %}
 
 
 {% comment %} JS TAB {% endcomment %}
 {% capture JS %}
-	FILL-ME
 {% endcapture %}
 
 
