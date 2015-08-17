@@ -6,76 +6,21 @@
 
 {% comment %} TITLE {% endcomment %}
 {% capture title %}
-	Well
 {% endcapture %}
 
 
 {% comment %} DESCRIPTION {% endcomment %}
 {% capture description %}
-	Similar to panels, without the header or footer.
+	Similar to panels, without the header or footer. Using a responsive well will apply additional padding at larger break points.
 {% endcapture %}
 
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
 <div class="well">
-	Look, I&rsquo;m in a well and my paddings are responsive!
+	Look, I&rsquo;m a basic well - you can use me to group content.
 </div>
-{% endcapture %}
 
-
-{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
-{% capture HTML %}
-	{{ example }}
-{% endcapture %}
-
-
-{% comment %} CSS TAB {% endcomment %}
-{% capture CSS %}
-	FILL-ME
-{% endcapture %}
-
-
-{% comment %} LESS TAB {% endcomment %}
-{% capture LESS %}
-	FILL-ME
-{% endcapture %}
-
-
-{% comment %} JS TAB {% endcomment %}
-{% capture JS %}
-	FILL-ME
-{% endcapture %}
-
-
-{% include showExample.liquid %}
-{% comment %}
-	--------------------------------------------------------------------------------------------------------------------------------------------------------------
-{% endcomment %}
-
-
-
-
-{% comment %}
-	--------------------------------------------------------------------------------------------------------------------------------------------------------------
-	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
-	--------------------------------------------------------------------------------------------------------------------------------------------------------------
-{% endcomment %}
-
-{% comment %} TITLE {% endcomment %}
-{% capture title %}
-	Responsive well
-{% endcapture %}
-
-
-{% comment %} DESCRIPTION {% endcomment %}
-{% capture description %}
-	Applies additional padding for larger break points.
-{% endcapture %}
-
-
-{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
-{% capture example %}
 <div class="well well-responsive">
 	Look, I&rsquo;m in a well and my paddings are responsive!
 </div>
@@ -110,3 +55,4 @@
 {% comment %}
 	--------------------------------------------------------------------------------------------------------------------------------------------------------------
 {% endcomment %}
+
