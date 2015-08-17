@@ -26,19 +26,25 @@
 {% capture IDjs %}{{ ID }}-{{ thisVersion | handleize }}js{% endcapture %}
 
 {% assign descriptionHandle = description | handleize %}
+{% assign exampleHandle = example | handleize %}
+{% assign HTMLHandle = HTML | handleize %}
 {% assign CSSHandle = CSS | handleize %}
 {% assign LESSHandle = LESS | handleize %}
 {% assign JSHandle = JS | handleize %}
 
 {% assign count = count | plus: 1 %}
 
-<div class="example-box">{{ example }}</div>
+{% if exampleHandle.size > 2 %}
+	<div class="example-box">{{ example }}</div>
+{% endif %}
 
 <div class="example-tabs-wrapper js-exampletabs">
 	<ul class="example-tabs">
-		<li class="example-tab">
-			<a class="example-tab-link js-exampletab" href="{{ category }}/#{{ IDhtml }}{{ count }}">HTML</a>
-		</li>
+		{% if HTMLHandle.size > 2 %}
+			<li class="example-tab">
+				<a class="example-tab-link js-exampletab" href="{{ category }}/#{{ IDhtml }}{{ count }}">HTML</a>
+			</li>
+		{% endif %}
 		{% if CSSHandle.size > 2 %}
 			<li class="example-tab">
 				<a class="example-tab-link js-exampletab" href="{{ category }}/#{{ IDcss }}{{ count }}">CSS</a>
@@ -56,13 +62,15 @@
 		{% endif %}
 	</ul>
 
-	<div class="example-tabcontent js-examplecontent" id="{{ IDhtml }}{{ count }}">
-		<div class="example-tabcontent-wrapper">
-			{% highlight html linenos %}
-{{ HTML }}
-			{% endhighlight %}
+	{% if HTMLHandle.size > 2 %}
+		<div class="example-tabcontent js-examplecontent" id="{{ IDhtml }}{{ count }}">
+			<div class="example-tabcontent-wrapper">
+				{% highlight html linenos %}
+					{{ HTML }}
+				{% endhighlight %}
+			</div>
 		</div>
-	</div>
+	{% endif %}
 	{% if CSSHandle.size > 2 %}
 		<div class="example-tabcontent js-examplecontent" id="{{ IDcss }}{{ count }}">
 			<div class="example-tabcontent-wrapper">

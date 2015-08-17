@@ -19,78 +19,67 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-<div class="example">
-	visible-xs-block:
-	<div class="example-div visible-xs-block">visible-xs-block</div>
-</div>
-<div class="example">
-	visible-sm-block:
-	<div class="example-div visible-sm-block">visible-sm-block</div>
-</div>
-<div class="example">
-	visible-md-block:
-	<div class="example-div visible-md-block">visible-md-block</div>
-</div>
-<div class="example">
-	visible-lg-block:
-	<div class="example-div visible-lg-block">visible-lg-block</div>
-</div>
-<div class="example">
-	visible-xs-inline:
-	<div class="example-div visible-xs-inline">visible-xs-inline</div>
-</div>
-<div class="example">
-	visible-sm-inline:
-	<div class="example-div visible-sm-inline">visible-sm-inline</div>
-</div>
-<div class="example">
-	visible-md-inline:
-	<div class="example-div visible-md-inline">visible-md-inline</div>
-</div>
-<div class="example">
-	visible-lg-inline:
-	<div class="example-div visible-lg-inline">visible-lg-inline</div>
-</div>
-<div class="example">
-	visible-xs-inline-block:
-	<div class="example-div visible-xs-inline-block">visible-xs-inline-block</div>
-</div>
-<div class="example">
-	visible-sm-inline-block:
-	<div class="example-div visible-sm-inline-block">visible-sm-inline-block</div>
-</div>
-<div class="example">
-	visible-md-inline-block:
-	<div class="example-div visible-md-inline-block">visible-md-inline-block</div>
-</div>
-<div class="example">
-	visible-lg-inline-block:
-	<div class="example-div visible-lg-inline-block">visible-lg-inline-block</div>
-</div>
 {% endcapture %}
 
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-	{{ example }}
 {% endcapture %}
 
 
 {% comment %} CSS TAB {% endcomment %}
 {% capture CSS %}
-	FILL-ME
+	Modifier classes:
+
+	<ul>
+		<li>
+			<code class="classes">visible-xs-block</code>
+		</li>
+		<li>
+			<code class="classes">visible-sm-block</code>
+		</li>
+		<li>
+			<code class="classes">visible-md-block</code>
+		</li>
+		<li>
+			<code class="classes">visible-lg-block</code>
+		</li>
+		<li>
+			<code class="classes">visible-xs-inline</code>
+		</li>
+		<li>
+			<code class="classes">visible-sm-inline</code>
+		</li>
+		<li>
+			<code class="classes">visible-md-inline</code>
+		</li>
+		<li>
+			<code class="classes">visible-lg-inline</code>
+		</li>
+		<li>
+			<code class="classes">visible-xs-inline-block</code>
+		</li>
+		<li>
+			<code class="classes">visible-sm-inline-block</code>
+		</li>
+		<li>
+			<code class="classes">visible-md-inline-block</code>
+		</li>
+		<li>
+			<code class="classes">visible-lg-inline-block</code>
+		</li>
+	</ul>
 {% endcapture %}
 
 
 {% comment %} LESS TAB {% endcomment %}
 {% capture LESS %}
-	FILL-ME
+	The main mixin is called: <code class="classes">_responsive-toggles({{ page.brand }})</code>
 {% endcapture %}
 
 
 {% comment %} JS TAB {% endcomment %}
 {% capture JS %}
-	FILL-ME
 {% endcapture %}
 
 
@@ -124,46 +113,43 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-<div class="example">
-	hidden-xs:
-	<div class="example-div hidden-xs">hidden-xs</div>
-</div>
-<div class="example">
-	hidden-sm:
-	<div class="example-div hidden-sm">hidden-sm</div>
-</div>
-<div class="example">
-	hidden-md:
-	<div class="example-div hidden-md">hidden-md</div>
-</div>
-<div class="example">
-	hidden-lg:
-	<div class="example-div hidden-lg">hidden-lg</div>
-</div>
 {% endcapture %}
 
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-	{{ example }}
 {% endcapture %}
 
 
 {% comment %} CSS TAB {% endcomment %}
 {% capture CSS %}
-	FILL-ME
+	Modifier classes:
+
+	<ul>
+		<li>
+			<code class="classes">hidden-xs</code>
+		</li>
+		<li>
+			<code class="classes">hidden-sm</code>
+		</li>
+		<li>
+			<code class="classes">hidden-md</code>
+		</li>
+		<li>
+			<code class="classes">hidden-lg</code>
+		</li>
+	</ul>
 {% endcapture %}
 
 
 {% comment %} LESS TAB {% endcomment %}
 {% capture LESS %}
-	FILL-ME
+	{{ LESS }}
 {% endcapture %}
 
 
 {% comment %} JS TAB {% endcomment %}
 {% capture JS %}
-	FILL-ME
 {% endcapture %}
 
 
@@ -196,46 +182,43 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-<div class="example">
-	visible-print-block:
-	<div class="example-div visible-print-block">visible-print-block</div>
-</div>
-<div class="example">
-	visible-print-inline:
-	<div class="example-div visible-print-inline">visible-print-inline</div>
-</div>
-<div class="example">
-	visible-print-inline-block:
-	<div class="example-div visible-print-inline-block">visible-print-inline-block</div>
-</div>
-<div class="example">
-	hidden-print:
-	<div class="example-div hidden-print">hidden-print</div>
-</div>
 {% endcapture %}
 
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-	{{ example }}
 {% endcapture %}
 
 
 {% comment %} CSS TAB {% endcomment %}
 {% capture CSS %}
-	FILL-ME
+	Modifier classes:
+
+	<ul>
+		<li>
+			<code class="classes">visible-print-block</code>
+		</li>
+		<li>
+			<code class="classes">visible-print-inline</code>
+		</li>
+		<li>
+			<code class="classes">visible-print-inline-block</code>
+		</li>
+		<li>
+			<code class="classes">hidden-print</code>
+		</li>
+	</ul>
 {% endcapture %}
 
 
 {% comment %} LESS TAB {% endcomment %}
 {% capture LESS %}
-	FILL-ME
+	{{ LESS }}
 {% endcapture %}
 
 
 {% comment %} JS TAB {% endcomment %}
 {% capture JS %}
-	FILL-ME
 {% endcapture %}
 
 

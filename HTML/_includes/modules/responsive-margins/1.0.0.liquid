@@ -12,60 +12,35 @@
 
 {% comment %} DESCRIPTION {% endcomment %}
 {% capture description %}
-	To maintain a visual rhythm and consistency in the UI we have a set of classes that use multiples of 6 when applying vertical spacing between elements. The
-	lead visual designer will stipulate which margin to use.
+	<p class="lead">
+		To maintain a visual rhythm and consistency in the UI we have a set of classes that use multiples of 6 when applying vertical spacing between elements. The
+		lead visual designer will stipulate which margin to use.
+	</p>
 {% endcapture %}
 
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-<div class="margin-classes">
-	<div class="top-margin1-xs top-margin3-sm top-margin5-md top-margin7-lg">
-		top-margin1-xs top-margin3-sm top-margin5-md top-margin7-lg
-	</div>
-</div>
-
-<div class="margin-classes">
-	<div class="no-top-margin-xs top-margin2-sm top-margin4-md top-margin6-lg">
-		no-top-margin-xs top-margin2-sm top-margin4-md top-margin6-lg
-	</div>
-</div>
-
-<div class="margin-classes">
-	<div class="no-bottom-margin-xs bottom-margin2-sm bottom-margin4-md bottom-margin6-lg">
-		no-bottom-margin-xs bottom-margin2-sm bottom-margin4-md bottom-margin6-lg
-	</div>
-</div>
-
-<div class="margin-classes">
-	<div class="bottom-margin1-xs bottom-margin3-sm bottom-margin5-md bottom-margin7-lg">
-		bottom-margin1-xs bottom-margin3-sm bottom-margin5-md bottom-margin7-lg
-	</div>
-</div>
 {% endcapture %}
 
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-	{{ example }}
 {% endcapture %}
 
 
 {% comment %} CSS TAB {% endcomment %}
 {% capture CSS %}
-	FILL-ME
 {% endcapture %}
 
 
 {% comment %} LESS TAB {% endcomment %}
 {% capture LESS %}
-	FILL-ME
 {% endcapture %}
 
 
 {% comment %} JS TAB {% endcomment %}
 {% capture JS %}
-	FILL-ME
 {% endcapture %}
 
 
@@ -98,54 +73,80 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-<div class="margin-classes">
-	<div class="no-top-margin-xs text-center">no-top-margin-xs (0px)</div>
-</div>
-<div class="margin-classes">
-	<div class="top-margin1-xs text-center">top-margin1-xs (6px)</div>
-</div>
-<div class="margin-classes">
-	<div class="top-margin2-xs text-center">top-margin2-xs (12px)</div>
-</div>
-<div class="margin-classes">
-	<div class="top-margin3-xs text-center">top-margin3-xs (18px)</div>
-</div>
-<div class="margin-classes">
-	<div class="top-margin4-xs text-center">top-margin4-xs (24px)</div>
-</div>
-<div class="margin-classes">
-	<div class="top-margin5-xs text-center">top-margin5-xs (30px)</div>
-</div>
-<div class="margin-classes">
-	<div class="top-margin6-xs text-center">top-margin6-xs (36px)</div>
-</div>
-<div class="margin-classes">
-	<div class="top-margin7-xs text-center">top-margin7-xs (42px)</div>
-</div>
+	<div class="margin-classes">
+		<div class="no-top-margin-xs text-center">no-top-margin-xs (0px)</div>
+	</div>
+	<div class="margin-classes">
+		<div class="top-margin1-xs text-center">top-margin1-xs (6px)</div>
+	</div>
+	<div class="margin-classes">
+		<div class="top-margin2-xs text-center">top-margin2-xs (12px)</div>
+	</div>
+	<div class="margin-classes">
+		<div class="top-margin3-xs text-center">top-margin3-xs (18px)</div>
+	</div>
+	<div class="margin-classes">
+		<div class="top-margin4-xs text-center">top-margin4-xs (24px)</div>
+	</div>
+	<div class="margin-classes">
+		<div class="top-margin5-xs text-center">top-margin5-xs (30px)</div>
+	</div>
+	<div class="margin-classes">
+		<div class="top-margin6-xs text-center">top-margin6-xs (36px)</div>
+	</div>
+	<div class="margin-classes">
+		<div class="top-margin7-xs text-center">top-margin7-xs (42px)</div>
+	</div>
 {% endcapture %}
 
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-	{{ example }}
+	<div class="top-margin3-xs">top-margin3-xs (18px)</div>
 {% endcapture %}
 
 
 {% comment %} CSS TAB {% endcomment %}
 {% capture CSS %}
-	FILL-ME
+	Modifier classes:
+
+	<ul>
+		<li>
+			<code class="classes">no-top-margin-xs</code>
+		</li>
+		<li>
+			<code class="classes">top-margin1-xs</code>
+		</li>
+		<li>
+			<code class="classes">top-margin2-xs</code>
+		</li>
+		<li>
+			<code class="classes">top-margin3-xs</code>
+		</li>
+		<li>
+			<code class="classes">top-margin4-xs</code>
+		</li>
+		<li>
+			<code class="classes">top-margin5-xs</code>
+		</li>
+		<li>
+			<code class="classes">top-margin6-xs</code>
+		</li>
+		<li>
+			<code class="classes">top-margin7-xs</code>
+		</li>
+	</ul>
 {% endcapture %}
 
 
 {% comment %} LESS TAB {% endcomment %}
 {% capture LESS %}
-	FILL-ME
+	The main mixin is called: <code class="classes">_responsive-margins({{ page.brand }})</code>
 {% endcapture %}
 
 
 {% comment %} JS TAB {% endcomment %}
 {% capture JS %}
-	FILL-ME
 {% endcapture %}
 
 
@@ -178,54 +179,80 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-<div class="margin-classes">
-	<div class="no-bottom-margin-xs text-center">no-bottom-margin-xs (0px)</div>
-</div>
-<div class="margin-classes">
-	<div class="bottom-margin1-xs text-center">bottom-margin1-xs (6px)</div>
-</div>
-<div class="margin-classes">
-	<div class="bottom-margin2-xs text-center">bottom-margin2-xs (12px)</div>
-</div>
-<div class="margin-classes">
-	<div class="bottom-margin3-xs text-center">bottom-margin3-xs (18px)</div>
-</div>
-<div class="margin-classes">
-	<div class="bottom-margin4-xs text-center">bottom-margin4-xs (24px)</div>
-</div>
-<div class="margin-classes">
-	<div class="bottom-margin5-xs text-center">bottom-margin5-xs (30px)</div>
-</div>
-<div class="margin-classes">
-	<div class="bottom-margin6-xs text-center">bottom-margin6-xs (36px)</div>
-</div>
-<div class="margin-classes">
-	<div class="bottom-margin7-xs text-center">bottom-margin7-xs (42px)</div>
-</div>
+	<div class="margin-classes">
+		<div class="no-bottom-margin-xs text-center">no-bottom-margin-xs (0px)</div>
+	</div>
+	<div class="margin-classes">
+		<div class="bottom-margin1-xs text-center">bottom-margin1-xs (6px)</div>
+	</div>
+	<div class="margin-classes">
+		<div class="bottom-margin2-xs text-center">bottom-margin2-xs (12px)</div>
+	</div>
+	<div class="margin-classes">
+		<div class="bottom-margin3-xs text-center">bottom-margin3-xs (18px)</div>
+	</div>
+	<div class="margin-classes">
+		<div class="bottom-margin4-xs text-center">bottom-margin4-xs (24px)</div>
+	</div>
+	<div class="margin-classes">
+		<div class="bottom-margin5-xs text-center">bottom-margin5-xs (30px)</div>
+	</div>
+	<div class="margin-classes">
+		<div class="bottom-margin6-xs text-center">bottom-margin6-xs (36px)</div>
+	</div>
+	<div class="margin-classes">
+		<div class="bottom-margin7-xs text-center">bottom-margin7-xs (42px)</div>
+	</div>
 {% endcapture %}
 
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-	{{ example }}
+	<div class="bottom-margin3-xs">bottom-margin3-xs (18px)</div>
 {% endcapture %}
 
 
 {% comment %} CSS TAB {% endcomment %}
 {% capture CSS %}
-	FILL-ME
+	Modifier classes:
+
+	<ul>
+		<li>
+			<code class="classes">no-bottom-margin-xs</code>
+		</li>
+		<li>
+			<code class="classes">bottom-margin1-xs</code>
+		</li>
+		<li>
+			<code class="classes">bottom-margin2-xs</code>
+		</li>
+		<li>
+			<code class="classes">bottom-margin3-xs</code>
+		</li>
+		<li>
+			<code class="classes">bottom-margin4-xs</code>
+		</li>
+		<li>
+			<code class="classes">bottom-margin5-xs</code>
+		</li>
+		<li>
+			<code class="classes">bottom-margin6-xs</code>
+		</li>
+		<li>
+			<code class="classes">bottom-margin7-xs</code>
+		</li>
+	</ul>
 {% endcapture %}
 
 
 {% comment %} LESS TAB {% endcomment %}
 {% capture LESS %}
-	FILL-ME
+	{{ LESS }}
 {% endcapture %}
 
 
 {% comment %} JS TAB {% endcomment %}
 {% capture JS %}
-	FILL-ME
 {% endcapture %}
 
 

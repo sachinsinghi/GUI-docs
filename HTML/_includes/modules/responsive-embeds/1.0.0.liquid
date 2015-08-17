@@ -19,8 +19,6 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-	<p>16 x 9</p>
-
 	<div class="responsive-embeds responsive-embeds-16by9">
 		<iframe class="responsive-embeds-item" src="//www.youtube.com/embed/vD0vHZxAmso"></iframe>
 	</div>
@@ -29,25 +27,41 @@
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-	{{ example }}
+	<div class="responsive-embeds responsive-embeds-16by9">
+		<iframe class="responsive-embeds-item" src="http://LINK-TO-YOUTUBE"></iframe>
+	</div>
 {% endcapture %}
 
 
 {% comment %} CSS TAB {% endcomment %}
 {% capture CSS %}
-	FILL-ME
+	Modifier classes:
+
+	<ul>
+		<li>
+			<code class="classes">responsive-embeds-16by9</code>
+		</li>
+		<li>
+			<code class="classes">responsive-embeds-4by3</code>
+		</li>
+		<li>
+			<code class="classes">responsive-embeds-185by1</code>
+		</li>
+		<li>
+			<code class="classes">responsive-embeds-235by1</code>
+		</li>
+	</ul>
 {% endcapture %}
 
 
 {% comment %} LESS TAB {% endcomment %}
 {% capture LESS %}
-	FILL-ME
+	The main mixin is called: <code class="classes">_responsive-embeds({{ page.brand }})</code>
 {% endcapture %}
 
 
 {% comment %} JS TAB {% endcomment %}
 {% capture JS %}
-	FILL-ME
 {% endcapture %}
 
 
