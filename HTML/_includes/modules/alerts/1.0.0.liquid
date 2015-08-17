@@ -18,21 +18,21 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-<p class="text-success">
-	I'm text-success. I'm accessible.
-</p>
+	<p class="text-success">
+		I'm text-success. I'm accessible.
+	</p>
 
-<p class="text-info">
-	I'm text-info. I'm accessible. Please don't use me for anything else.
-</p>
+	<p class="text-info">
+		I'm text-info. I'm accessible. Please don't use me for anything else.
+	</p>
 
-<p class="text-warning">
-	I'm text-warning. I'm accessible. Don't use me for anything else either.
-</p>
+	<p class="text-warning">
+		I'm text-warning. I'm accessible. Don't use me for anything else either.
+	</p>
 
-<p class="text-danger">
-	I'm text-danger. I'm accessible too
-</p>
+	<p class="text-danger">
+		I'm text-danger. I'm accessible too
+	</p>
 {% endcapture %}
 
 
@@ -44,19 +44,40 @@
 
 {% comment %} CSS TAB {% endcomment %}
 {% capture CSS %}
-	FILL-ME
+	Main classes:
+
+	<ul>
+		<li>
+			<code class="classes">text-success</code>
+		</li>
+		<li>
+			<code class="classes">text-info</code>
+		</li>
+		<li>
+			<code class="classes">text-warning</code>
+		</li>
+		<li>
+			<code class="classes">text-danger</code>
+		</li>
+	</ul>
 {% endcapture %}
 
 
 {% comment %} LESS TAB {% endcomment %}
 {% capture LESS %}
-	FILL-ME
+	The main mixin is called: <code class="classes">_alerts({{ page.brand }})</code>
 {% endcapture %}
 
 
 {% comment %} JS TAB {% endcomment %}
 {% capture JS %}
-	FILL-ME
+	This module comes with the usual init method:
+
+	<ul>
+		<li>
+			<code class="classes">GUI.alerts.init();</code>
+		</li>
+	</ul>
 {% endcapture %}
 
 
@@ -85,140 +106,80 @@
 {% comment %} DESCRIPTION {% endcomment %}
 {% capture description %}
 	Use alert boxes to differentiate and emphasise inline messaging. These are simple functional elements designed to clearly separate messaging from content.
-	Avoid formatting text.
+	Avoid formatting text.<br>
+	Add the close button to allow the message to be dismissed and removed from the content flow.
 {% endcapture %}
 
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-<div class="alert alert-success" role="alert">
-	<strong>Well done!</strong> You successfully read this important alert message.
-	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo dolor provident quasi nisi officia tempore fuga autem, animi iste molestiae, qui omnis
-	doloribus aliquid ipsam rem fugiat veniam voluptatem accusamus! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, unde quis, molestias nisi
-	quae voluptates nemo quaerat nihil, consequuntur nobis ratione rerum asperiores eveniet dicta maiores quia nostrum. Pariatur, natus.
-	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, magnam illum harum consequatur, quo sunt impedit quam minus eaque saepe voluptas
-	corrupti voluptatum, sapiente dolor sequi tempore maxime? Neque, obcaecati.
-</div>
+	<div class="alert alert-success" role="alert">
+		<button type="button" class="alert-close js-alertclose icon icon-cross" data-grunticon-embed>close</button>
 
-<div class="alert alert-info" role="alert">
-	<strong>Heads up!</strong> This alert needs your attention, but it's not super important.
-</div>
+		<strong>Well done!</strong> You successfully read this important alert message.
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo dolor provident quasi nisi officia tempore fuga autem, animi iste molestiae, qui omnis
+		doloribus aliquid ipsam rem fugiat veniam voluptatem accusamus! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, unde quis, molestias nisi
+		quae voluptates nemo quaerat nihil, consequuntur nobis ratione rerum asperiores eveniet dicta maiores quia nostrum. Pariatur, natus.
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, magnam illum harum consequatur, quo sunt impedit quam minus eaque saepe voluptas
+		corrupti voluptatum, sapiente dolor sequi tempore maxime? Neque, obcaecati.
+	</div>
 
-<div class="alert alert-warning" role="alert">
-	<strong>Warning!</strong> Better check yourself, you're not looking too good.
-</div>
+	<div class="alert alert-info" role="alert">
+		<strong>Heads up!</strong> This alert needs your attention, but it's not super important.
+	</div>
 
-<div class="alert alert-danger" role="alert">
-	<strong>Oh snap!</strong> Change a few things up and try submitting again.
-</div>
+	<div class="alert alert-warning" role="alert">
+		<strong>Warning!</strong> Better check yourself, you're not looking too good.
+	</div>
+
+	<div class="alert alert-danger" role="alert">
+		<button type="button" class="alert-close js-alertclose icon icon-cross" data-grunticon-embed>close</button>
+
+		<strong>Oh snap!</strong> Change a few things up and try submitting again.
+	</div>
 {% endcapture %}
 
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-	{{ example }}
+	<div class="alert alert-success" role="alert">
+		<button type="button" class="alert-close js-alertclose icon icon-cross" data-grunticon-embed>close</button>
+
+		<strong>HERE!</strong> YOUR ALERT TEXT!
+	</div>
 {% endcapture %}
 
 
 {% comment %} CSS TAB {% endcomment %}
 {% capture CSS %}
-	FILL-ME
+	Modifier classes:
+
+	<ul>
+		<li>
+			<code class="classes">alert-success</code>
+		</li>
+		<li>
+			<code class="classes">alert-info</code>
+		</li>
+		<li>
+			<code class="classes">alert-warning</code>
+		</li>
+		<li>
+			<code class="classes">alert-danger</code>
+		</li>
+	</ul>
 {% endcapture %}
 
 
 {% comment %} LESS TAB {% endcomment %}
 {% capture LESS %}
-	FILL-ME
+	{{ LESS }}
 {% endcapture %}
 
 
 {% comment %} JS TAB {% endcomment %}
 {% capture JS %}
-	FILL-ME
-{% endcapture %}
-
-
-{% include showExample.liquid %}
-{% comment %}
-	--------------------------------------------------------------------------------------------------------------------------------------------------------------
-{% endcomment %}
-
-
-
-
-
-{% comment %}
-	--------------------------------------------------------------------------------------------------------------------------------------------------------------
-	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
-	--------------------------------------------------------------------------------------------------------------------------------------------------------------
-{% endcomment %}
-
-{% comment %} TITLE {% endcomment %}
-{% capture title %}
-	Alert boxes with dismiss buttons
-{% endcapture %}
-
-
-{% comment %} DESCRIPTION {% endcomment %}
-{% capture description %}
-	Addition of the close button to allow message to be dismissed and removed from the content flow.
-{% endcapture %}
-
-
-{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
-{% capture example %}
-<div class="alert alert-success" role="alert">
-	<button type="button" class="alert-close js-alertclose icon icon-cross" data-grunticon-embed>close</button>
-
-	<strong>Well done!</strong> You successfully read this important alert message.
-	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo dolor provident quasi nisi officia tempore fuga autem, animi iste molestiae, qui omnis
-	doloribus aliquid ipsam rem fugiat veniam voluptatem accusamus! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, unde quis, molestias nisi
-	quae voluptates nemo quaerat nihil, consequuntur nobis ratione rerum asperiores eveniet dicta maiores quia nostrum. Pariatur, natus.
-	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, magnam illum harum consequatur, quo sunt impedit quam minus eaque saepe voluptas
-	corrupti voluptatum, sapiente dolor sequi tempore maxime? Neque, obcaecati.
-</div>
-
-<div class="alert alert-info" role="alert">
-	<button type="button" class="alert-close js-alertclose icon icon-cross" data-grunticon-embed>close</button>
-
-	<strong>Heads up!</strong> This alert needs your attention, but it's not super important.
-</div>
-
-<div class="alert alert-warning" role="alert">
-	<button type="button" class="alert-close js-alertclose icon icon-cross" data-grunticon-embed>close</button>
-
-	<strong>Warning!</strong> Better check yourself, you're not looking too good.
-</div>
-
-<div class="alert alert-danger" role="alert">
-	<button type="button" class="alert-close js-alertclose icon icon-cross" data-grunticon-embed>close</button>
-
-	<strong>Oh snap!</strong> Change a few things up and try submitting again.
-</div>
-{% endcapture %}
-
-
-{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
-{% capture HTML %}
-	{{ example }}
-{% endcapture %}
-
-
-{% comment %} CSS TAB {% endcomment %}
-{% capture CSS %}
-	FILL-ME
-{% endcapture %}
-
-
-{% comment %} LESS TAB {% endcomment %}
-{% capture LESS %}
-	FILL-ME
-{% endcapture %}
-
-
-{% comment %} JS TAB {% endcomment %}
-{% capture JS %}
-	FILL-ME
+	{{ JS }}
 {% endcapture %}
 
 
@@ -254,64 +215,55 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-
-<div class="alert-form has-success">
-	<input type="text" class="input-field" placeholder="I'm a default text input" aria-describedby="txt4">
-	<p id="txt4" class="alert-form-msg">Success! It worked.</p>
-</div>
-
-
-<div class="alert-form has-warning">
-	<input type="text" class="input-field" placeholder="I'm a default text input" aria-describedby="txt4">
-	<p id="txt4" class="alert-form-msg">Warning! Are you sure this is what you want to do?</p>
-</div>
-
-
-<div class="alert-form has-danger">
-	<input type="text" class="input-field" placeholder="I'm a default text input" aria-describedby="txt4">
-	<p id="txt4" class="alert-form-msg">Danger! Your email address has an error in it.</p>
-</div>
-
-<div class="alert-form has-danger">
-	<div class="input-field-select-wrapper">
-		<select class="input-field-select" aria-describedby="txt7">
-			<option>Please select</option>
-			<option>Option A</option>
-			<option>Option B</option>
-			<option>Option C</option>
-			<option>Option D</option>
-			<option>Option E</option>
-			<option>Option F</option>
-			<option>Option G</option>
-		</select>
+	<div class="alert-form has-warning">
+		<input type="text" class="input-field" placeholder="I'm a default text input" aria-describedby="txt4">
+		<p id="txt4" class="alert-form-msg">Warning! Are you sure this is what you want to do?</p>
 	</div>
 
-	<p id="txt7" class="alert-form-msg">Hey, wait! You need to select something.</p>
-</div>
+
+	<div class="alert-form has-danger">
+		<div class="input-field-select-wrapper">
+			<select class="input-field-select" aria-describedby="txt7">
+				<option>Please select</option>
+				<option>Option A</option>
+				<option>Option B</option>
+				<option>Option C</option>
+				<option>Option D</option>
+				<option>Option E</option>
+				<option>Option F</option>
+				<option>Option G</option>
+			</select>
+		</div>
+
+		<p id="txt7" class="alert-form-msg">Hey, wait! You need to select something.</p>
+	</div>
 {% endcapture %}
 
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-	{{ example }}
+	<div class="alert-form has-danger">
+		<input type="text" class="input-field" placeholder="I'm a default text input" aria-describedby="txt5">
+		<p id="txt5" class="alert-form-msg">YOUR ALERT MESSAGE HERE.</p>
+	</div>
 {% endcapture %}
 
 
 {% comment %} CSS TAB {% endcomment %}
 {% capture CSS %}
-	FILL-ME
+	{{ CSS }}
 {% endcapture %}
 
 
 {% comment %} LESS TAB {% endcomment %}
 {% capture LESS %}
-	FILL-ME
+	{{ LESS }}
 {% endcapture %}
 
 
 {% comment %} JS TAB {% endcomment %}
 {% capture JS %}
-	FILL-ME
+	{{ JS }}
 {% endcapture %}
 
 
@@ -319,6 +271,3 @@
 {% comment %}
 	--------------------------------------------------------------------------------------------------------------------------------------------------------------
 {% endcomment %}
-
-
-

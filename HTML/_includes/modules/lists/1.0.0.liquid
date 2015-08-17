@@ -19,91 +19,98 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-<h6>primary</h6>
-<ul class="lists">
-	<li>Styled bullet list - primary</li>
-	<li>Styled bullet list - primary</li>
-	<li>
-		Styled bullet list - primary
+	<ul class="lists">
+		<li>Styled bullet list - primary</li>
+		<li>Styled bullet list - primary</li>
+		<li>
+			Styled bullet list - primary
 
-		<ul class="lists">
-			<li>Styled bullet list - primary</li>
-			<li>Styled bullet list - primary</li>
-			<li>
-				Styled bullet list - primary
+			<ul class="lists">
+				<li>Styled bullet list - primary</li>
+				<li>Styled bullet list - primary</li>
+				<li>
+					Styled bullet list - primary
 
-				<ul class="lists">
-					<li>Styled bullet list - primary</li>
-					<li>Styled bullet list - primary</li>
-					<li>Styled bullet list - primary</li>
-					<li>Styled bullet list - primary</li>
-				</ul>
-			</li>
-			<li>Styled bullet list - primary</li>
-		</ul>
-	</li>
-	<li>Styled bullet list - primary</li>
-</ul>
+					<ul class="lists">
+						<li>Styled bullet list - primary</li>
+						<li>Styled bullet list - primary</li>
+					</ul>
+				</li>
+				<li>Styled bullet list - primary</li>
+			</ul>
+		</li>
+		<li>Styled bullet list - primary</li>
+	</ul>
 
+	<hr>
 
-<h6>hero</h6>
-<ul class="lists lists-hero">
-	<li>Styled bullet list - hero</li>
-	<li>
-		Styled bullet list - hero
+	<ul class="lists lists-hero">
+		<li>Styled bullet list - hero</li>
+		<li>Styled bullet list - hero</li>
+		<li>
+			Styled bullet list - hero
 
-		<ul class="lists">
-			<li>Styled bullet list - primary</li>
-			<li>Styled bullet list - primary</li>
-			<li>Styled bullet list - primary</li>
-			<li>Styled bullet list - primary</li>
-		</ul>
-	</li>
-	<li>Styled bullet list - hero</li>
-	<li>Styled bullet list - hero</li>
-</ul>
+			<ul class="lists lists-hero">
+				<li>Styled bullet list - primary</li>
+				<li>Styled bullet list - primary</li>
+				<li>Styled bullet list - primary</li>
+			</ul>
+		</li>
+		<li>Styled bullet list - hero</li>
+	</ul>
 
+	<hr>
 
-<h6>neutral</h6>
-<ul class="lists lists-neutral">
-	<li>Styled bullet list - neutral</li>
-	<li>Styled bullet list - neutral</li>
-	<li>
-		Styled bullet list - neutral
+	<ul class="lists lists-neutral">
+		<li>Styled bullet list - neutral</li>
+		<li>Styled bullet list - neutral</li>
+		<li>
+			Styled bullet list - neutral
 
-		<ul class="lists lists-neutral">
-			<li>Styled bullet list - neutral</li>
-			<li>Styled bullet list - neutral</li>
-			<li>Styled bullet list - neutral</li>
-			<li>Styled bullet list - neutral</li>
-		</ul>
-	</li>
-	<li>Styled bullet list - neutral</li>
-</ul>
+			<ul class="lists lists-neutral">
+				<li>Styled bullet list - neutral</li>
+				<li>Styled bullet list - neutral</li>
+				<li>Styled bullet list - neutral</li>
+			</ul>
+		</li>
+		<li>Styled bullet list - neutral</li>
+	</ul>
 {% endcapture %}
 
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-	{{ example }}
+	<ul class="lists">
+		<li>Styled bullet list - primary</li>
+		<li>Styled bullet list - primary</li>
+		<li>Styled bullet list - primary</li>
+	</ul>
 {% endcapture %}
 
 
 {% comment %} CSS TAB {% endcomment %}
 {% capture CSS %}
-	FILL-ME
+	Modifier classes:
+
+	<ul>
+		<li>
+			<code class="classes">lists-hero</code>
+		</li>
+		<li>
+			<code class="classes">lists-neutral</code>
+		</li>
+	</ul>
 {% endcapture %}
 
 
 {% comment %} LESS TAB {% endcomment %}
 {% capture LESS %}
-	FILL-ME
+	The main mixin is called: <code class="classes">_lists({{ page.brand }})</code>
 {% endcapture %}
 
 
 {% comment %} JS TAB {% endcomment %}
 {% capture JS %}
-	FILL-ME
 {% endcapture %}
 
 
@@ -111,6 +118,9 @@
 {% comment %}
 	--------------------------------------------------------------------------------------------------------------------------------------------------------------
 {% endcomment %}
+
+
+
 
 
 
@@ -134,49 +144,53 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-<ul class="lists lists-linklist">
-	<li><a href="#url">Styled link list</a></li>
-	<li><a href="#url">Styled link list</a></li>
-	<li><a href="#url">Styled link list</a></li>
-	<li>
-		<a href="#url">Styled link list</a>
+	<ul class="lists lists-linklist">
+		<li><a href="#url">Styled link list</a></li>
+		<li><a href="#url">Styled link list</a></li>
+		<li>
+			<a href="#url">Styled link list</a>
 
-		<ul class="lists lists-linklist">
-			<li><a href="#url">Styled link list</a></li>
-			<li><a href="#url">Styled link list</a></li>
-			<li><a href="#url">Styled link list</a></li>
-			<li><a href="#url">Styled link list</a></li>
-			<li><a href="#url">Styled link list</a></li>
-			<li><a href="#url">Styled link list</a></li>
-		</ul>
-	</li>
-	<li><a href="#url">Styled link list</a></li>
-	<li><a href="#url">Styled link list</a></li>
-</ul>
+			<ul class="lists lists-linklist">
+				<li><a href="#url">Styled link list</a></li>
+				<li><a href="#url">Styled link list</a></li>
+				<li><a href="#url">Styled link list</a></li>
+			</ul>
+		</li>
+		<li><a href="#url">Styled link list</a></li>
+	</ul>
 {% endcapture %}
 
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-	{{ example }}
+	<ul class="lists lists-linklist">
+		<li><a href="#url">Styled link list</a></li>
+		<li><a href="#url">Styled link list</a></li>
+		<li><a href="#url">Styled link list</a></li>
+	</ul>
 {% endcapture %}
 
 
 {% comment %} CSS TAB {% endcomment %}
 {% capture CSS %}
-	FILL-ME
+	Modifier classes:
+
+	<ul>
+		<li>
+			<code class="classes">lists-linklist</code>
+		</li>
+	</ul>
 {% endcapture %}
 
 
 {% comment %} LESS TAB {% endcomment %}
 {% capture LESS %}
-	FILL-ME
+	{{ LESS }}
 {% endcapture %}
 
 
 {% comment %} JS TAB {% endcomment %}
 {% capture JS %}
-	FILL-ME
 {% endcapture %}
 
 
@@ -184,6 +198,8 @@
 {% comment %}
 	--------------------------------------------------------------------------------------------------------------------------------------------------------------
 {% endcomment %}
+
+
 
 
 
@@ -207,45 +223,53 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-<ul class="lists lists-tick">
-	<li>Styled tick list</li>
-	<li>
-		Styled tick list
+	<ul class="lists lists-tick">
+		<li>Styled tick list</li>
+		<li>Styled tick list</li>
+		<li>
+			Styled tick list
 
-		<ul class="lists lists-tick">
-			<li>Styled tick list</li>
-			<li>Styled tick list</li>
-			<li>Styled tick list</li>
-			<li>Styled tick list</li>
-		</ul>
-	</li>
-	<li>Styled tick list</li>
-	<li>Styled tick list</li>
-</ul>
+			<ul class="lists lists-tick">
+				<li>Styled tick list</li>
+				<li>Styled tick list</li>
+				<li>Styled tick list</li>
+			</ul>
+		</li>
+		<li>Styled tick list</li>
+	</ul>
 {% endcapture %}
 
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-	{{ example }}
+	<ul class="lists lists-tick">
+		<li>Styled tick list</li>
+		<li>Styled tick list</li>
+		<li>Styled tick list</li>
+	</ul>
 {% endcapture %}
 
 
 {% comment %} CSS TAB {% endcomment %}
 {% capture CSS %}
-	FILL-ME
+	Modifier classes:
+
+	<ul>
+		<li>
+			<code class="classes">lists-tick</code>
+		</li>
+	</ul>
 {% endcapture %}
 
 
 {% comment %} LESS TAB {% endcomment %}
 {% capture LESS %}
-	FILL-ME
+	{{ LESS }}
 {% endcapture %}
 
 
 {% comment %} JS TAB {% endcomment %}
 {% capture JS %}
-	FILL-ME
 {% endcapture %}
 
 

@@ -13,86 +13,92 @@
 {% comment %} DESCRIPTION {% endcomment %}
 {% capture description %}
 	List groups are a flexible and powerful component for displaying not only simple lists of elements, but complex ones with custom content. This can also be a
-	list of links if required.
+	list of links if required.<br>
+	The badges in this example are not included and will have to be added to the blend seperately.
 {% endcapture %}
 
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-<ul class="list-group">
-	<li>
-		<a class="list-group-item" href="#url">
-			<span class="list-group-text">Personal messages</span>
+	<ul class="list-group">
+		<li>
+			<a class="list-group-item" href="#url">
+				<span class="list-group-text">Personal messages</span>
 
-			<span class="list-group-element">
-				<span class="badge">
-					<span class="badge-text">195</span>
-					<span class="badge-sronly">Unread messages</span>
+				<span class="list-group-element">
+					<span class="badge">
+						<span class="badge-text">195</span>
+						<span class="badge-sronly">Unread messages</span>
+					</span>
 				</span>
-			</span>
-		</a>
-	</li>
-	<li>
-		<a class="list-group-item" href="#url">
-			<span class="list-group-text">Work messages</span>
+			</a>
+		</li>
+		<li>
+			<a class="list-group-item" href="#url">
+				<span class="list-group-text">Work messages</span>
 
-			<span class="list-group-element">
-				<span class="badge">
-					<span class="badge-text">5</span>
-					<span class="badge-sronly">Unread messages</span>
+				<span class="list-group-element">
+					<span class="badge">
+						<span class="badge-text">5</span>
+						<span class="badge-sronly">Unread messages</span>
+					</span>
 				</span>
-			</span>
-		</a>
-	</li>
-	<li>
-		<a class="list-group-item" href="#url">
-			<span class="list-group-text">Unread messages</span>
+			</a>
+		</li>
+		<li>
+			<a class="list-group-item" href="#url">
+				<span class="list-group-text">Deleted messages</span>
 
-			<span class="list-group-element">
-				<span class="badge">
-					<span class="badge-text">2758</span>
-					<span class="badge-sronly">Unread messages</span>
+				<span class="list-group-element">
+					<span class="badge">
+						<span class="badge-text">2</span>
+						<span class="badge-sronly">Unread messages</span>
+					</span>
 				</span>
-			</span>
-		</a>
-	</li>
-	<li>
-		<a class="list-group-item" href="#url">
-			<span class="list-group-text">Deleted messages</span>
-
-			<span class="list-group-element">
-				<span class="badge">
-					<span class="badge-text">2</span>
-					<span class="badge-sronly">Unread messages</span>
-				</span>
-			</span>
-		</a>
-	</li>
-</ul>
+			</a>
+		</li>
+	</ul>
 {% endcapture %}
 
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-	{{ example }}
+	<ul class="list-group">
+		<li>
+			<a class="list-group-item" href="#url">
+				<span class="list-group-text">YOUR ITEM TEXT</span>
+
+				<span class="list-group-element">
+					YOUR ITEM ADDON
+				</span>
+			</a>
+		</li>
+		<li>
+			<a class="list-group-item" href="#url">
+				<span class="list-group-text">YOUR ITEM TEXT</span>
+
+				<span class="list-group-element">
+					YOUR ITEM ADDON
+				</span>
+			</a>
+		</li>
+	</ul>
 {% endcapture %}
 
 
 {% comment %} CSS TAB {% endcomment %}
 {% capture CSS %}
-	FILL-ME
 {% endcapture %}
 
 
 {% comment %} LESS TAB {% endcomment %}
 {% capture LESS %}
-	FILL-ME
+	The main mixin is called: <code class="classes">_list-groups({{ page.brand }})</code>
 {% endcapture %}
 
 
 {% comment %} JS TAB {% endcomment %}
 {% capture JS %}
-	FILL-ME
 {% endcapture %}
 
 
@@ -119,122 +125,121 @@
 
 {% comment %} DESCRIPTION {% endcomment %}
 {% capture description %}
-	Other UI elements can be added. Ideal for settings pages or preferences.
+	Other UI elements can be added. Ideal for settings pages or preferences.<br>
+	The toggle button in this example are not included and will have to be added to the blend seperately.
 {% endcapture %}
 
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-<ul class="list-group">
-	<li>
-		<span class="list-group-item">
-			<span class="list-group-text">Send me sms reminders</span>
+	<ul class="list-group">
+		<li>
+			<span class="list-group-item">
+				<span class="list-group-text">Send me sms reminders</span>
 
-			<span class="list-group-element">
-				<span class="btn-group">
+				<span class="list-group-element">
+					<span class="btn-group">
 
-					<label class="btn-group-item">
-						<input class="btn-group-input" type="radio" name="options1">
-						<span class="btn-group-text btn btn-hero btn-sm">Yes</span>
-					</label>
+						<label class="btn-group-item">
+							<input class="btn-group-input" type="radio" name="options1">
+							<span class="btn-group-text btn btn-hero btn-sm">Yes</span>
+						</label>
 
-					<label class="btn-group-item">
-						<input class="btn-group-input" type="radio" name="options1">
-						<span class="btn-group-text btn btn-hero btn-sm">No</span>
-					</label>
+						<label class="btn-group-item">
+							<input class="btn-group-input" type="radio" name="options1">
+							<span class="btn-group-text btn btn-hero btn-sm">No</span>
+						</label>
 
+					</span>
 				</span>
 			</span>
-		</span>
-	</li>
-	<li>
-		<span class="list-group-item">
-			<span class="list-group-text">Give me free money</span>
+		</li>
+		<li>
+			<span class="list-group-item">
+				<span class="list-group-text">Give me free money</span>
 
-			<span class="list-group-element">
-				<span class="btn-group">
+				<span class="list-group-element">
+					<span class="btn-group">
 
-					<label class="btn-group-item">
-						<input class="btn-group-input" type="radio" name="options2">
-						<span class="btn-group-text btn btn-hero btn-sm">Yes</span>
-					</label>
+						<label class="btn-group-item">
+							<input class="btn-group-input" type="radio" name="options2">
+							<span class="btn-group-text btn btn-hero btn-sm">Yes</span>
+						</label>
 
-					<label class="btn-group-item">
-						<input class="btn-group-input" type="radio" name="options2">
-						<span class="btn-group-text btn btn-hero btn-sm">No</span>
-					</label>
+						<label class="btn-group-item">
+							<input class="btn-group-input" type="radio" name="options2">
+							<span class="btn-group-text btn btn-hero btn-sm">No</span>
+						</label>
 
+					</span>
 				</span>
 			</span>
-		</span>
-	</li>
-	<li>
-		<span class="list-group-item">
-			<span class="list-group-text">Call me all the time</span>
+		</li>
+		<li>
+			<span class="list-group-item">
+				<span class="list-group-text">Call me all the time</span>
 
-			<span class="list-group-element">
-				<span class="btn-group">
+				<span class="list-group-element">
+					<span class="btn-group">
 
-					<label class="btn-group-item">
-						<input class="btn-group-input" type="radio" name="options3">
-						<span class="btn-group-text btn btn-hero btn-sm">Yes</span>
-					</label>
+						<label class="btn-group-item">
+							<input class="btn-group-input" type="radio" name="options3">
+							<span class="btn-group-text btn btn-hero btn-sm">Yes</span>
+						</label>
 
-					<label class="btn-group-item">
-						<input class="btn-group-input" type="radio" name="options3">
-						<span class="btn-group-text btn btn-hero btn-sm">No</span>
-					</label>
+						<label class="btn-group-item">
+							<input class="btn-group-input" type="radio" name="options3">
+							<span class="btn-group-text btn btn-hero btn-sm">No</span>
+						</label>
 
+					</span>
 				</span>
 			</span>
-		</span>
-	</li>
-	<li>
-		<span class="list-group-item">
-			<span class="list-group-text">Deleted messages</span>
+		</li>
+		<li>
+			<span class="list-group-item">
+				<span class="list-group-text">Deleted messages</span>
 
-			<span class="list-group-element">
-				<span class="btn-group">
+				<span class="list-group-element">
+					<span class="btn-group">
 
-					<label class="btn-group-item">
-						<input class="btn-group-input" type="radio" name="options4">
-						<span class="btn-group-text btn btn-hero btn-sm">Yes</span>
-					</label>
+						<label class="btn-group-item">
+							<input class="btn-group-input" type="radio" name="options4">
+							<span class="btn-group-text btn btn-hero btn-sm">Yes</span>
+						</label>
 
-					<label class="btn-group-item">
-						<input class="btn-group-input" type="radio" name="options4">
-						<span class="btn-group-text btn btn-hero btn-sm">No</span>
-					</label>
+						<label class="btn-group-item">
+							<input class="btn-group-input" type="radio" name="options4">
+							<span class="btn-group-text btn btn-hero btn-sm">No</span>
+						</label>
 
+					</span>
 				</span>
 			</span>
-		</span>
-	</li>
-</ul>
+		</li>
+	</ul>
 {% endcapture %}
 
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-	{{ example }}
+	{{ HTML }}
 {% endcapture %}
 
 
 {% comment %} CSS TAB {% endcomment %}
 {% capture CSS %}
-	FILL-ME
 {% endcapture %}
 
 
 {% comment %} LESS TAB {% endcomment %}
 {% capture LESS %}
-	FILL-ME
+	{{ LESS }}
 {% endcapture %}
 
 
 {% comment %} JS TAB {% endcomment %}
 {% capture JS %}
-	FILL-ME
 {% endcapture %}
 
 

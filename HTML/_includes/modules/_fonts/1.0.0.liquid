@@ -21,9 +21,10 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-	<p>Chronicle Display</p>
 	<h1 class="text-primary">I’m Chronicle Display bold</h1>
+
 	<h1 class="text-primary">I’m Chronicle Display semi bold</h1>
+
 	<h1 class="text-primary">I’m Chronicle Display roman</h1>
 {% endcapture %}
 
@@ -36,19 +37,17 @@
 
 {% comment %} CSS TAB {% endcomment %}
 {% capture CSS %}
-	FILL-ME
 {% endcapture %}
 
 
 {% comment %} LESS TAB {% endcomment %}
 {% capture LESS %}
-	FILL-ME
+	The main mixin is called: <code class="classes">_fonts({{ page.brand }})</code>
 {% endcapture %}
 
 
 {% comment %} JS TAB {% endcomment %}
 {% capture JS %}
-	FILL-ME
 {% endcapture %}
 
 
@@ -56,6 +55,9 @@
 {% comment %}
 	--------------------------------------------------------------------------------------------------------------------------------------------------------------
 {% endcomment %}
+
+
+
 
 
 
@@ -82,9 +84,10 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-	<p>Helvetica Neue</p>
 	<h1 class="body-font text-primary">I’m Helvetica Neue bold</h1>
+
 	<h1 class="body-font text-primary">I’m Helvetica Neue regular</h1>
+
 	<h1 class="body-font text-primary">I’m Helvetica Neue light</h1>
 {% endcapture %}
 
@@ -97,19 +100,24 @@
 
 {% comment %} CSS TAB {% endcomment %}
 {% capture CSS %}
-	FILL-ME
+	Modifier class:
+
+	<ul>
+		<li>
+			<code class="classes">body-font</code>
+		</li>
+	</ul>
 {% endcapture %}
 
 
 {% comment %} LESS TAB {% endcomment %}
 {% capture LESS %}
-	FILL-ME
+	{{ LESS }}
 {% endcapture %}
 
 
 {% comment %} JS TAB {% endcomment %}
 {% capture JS %}
-	FILL-ME
 {% endcapture %}
 
 
@@ -117,6 +125,8 @@
 {% comment %}
 	--------------------------------------------------------------------------------------------------------------------------------------------------------------
 {% endcomment %}
+
+
 
 
 
@@ -143,6 +153,7 @@
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
 	<h1 class="brand-font">I’m a Heading using the brand font</h1>
+
 	<h1 class="body-font">I’m a Heading using the body font</h1>
 {% endcapture %}
 
@@ -155,19 +166,27 @@
 
 {% comment %} CSS TAB {% endcomment %}
 {% capture CSS %}
-	FILL-ME
+	Modifier classes:
+
+	<ul>
+		<li>
+			<code class="classes">brand-font</code>
+		</li>
+		<li>
+			<code class="classes">body-font</code>
+		</li>
+	</ul>
 {% endcapture %}
 
 
 {% comment %} LESS TAB {% endcomment %}
 {% capture LESS %}
-	FILL-ME
+	{{ LESS }}
 {% endcapture %}
 
 
 {% comment %} JS TAB {% endcomment %}
 {% capture JS %}
-	FILL-ME
 {% endcapture %}
 
 

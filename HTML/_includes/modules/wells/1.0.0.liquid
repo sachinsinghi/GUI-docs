@@ -17,13 +17,13 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-<div class="well">
-	Look, I&rsquo;m a basic well - you can use me to group content.
-</div>
+	<div class="well">
+		Look, I&rsquo;m a basic well - you can use me to group content.
+	</div>
 
-<div class="well well-responsive">
-	Look, I&rsquo;m in a well and my paddings are responsive!
-</div>
+	<div class="well well-responsive">
+		Look, I&rsquo;m in a well and my paddings are responsive!
+	</div>
 {% endcapture %}
 
 
@@ -35,19 +35,24 @@
 
 {% comment %} CSS TAB {% endcomment %}
 {% capture CSS %}
-	FILL-ME
+	Modifier class:
+
+	<ul>
+		<li>
+			<code class="classes">well-responsive</code>
+		</li>
+	</ul>
 {% endcapture %}
 
 
 {% comment %} LESS TAB {% endcomment %}
 {% capture LESS %}
-	FILL-ME
+	The main mixin is called: <code class="classes">_wells({{ page.brand }})</code>
 {% endcapture %}
 
 
 {% comment %} JS TAB {% endcomment %}
 {% capture JS %}
-	FILL-ME
 {% endcapture %}
 
 
@@ -55,4 +60,3 @@
 {% comment %}
 	--------------------------------------------------------------------------------------------------------------------------------------------------------------
 {% endcomment %}
-

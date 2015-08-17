@@ -17,22 +17,23 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-<label class="checkbox">
-	<input class="checkbox-input" type="checkbox" name="option1a">
-	<span class="checkbox-text">Setting 1</span>
-</label>
+	<label class="checkbox">
+		<input class="checkbox-input" type="checkbox" name="option1a">
+		<span class="checkbox-text">Setting 1</span>
+	</label>
 
-<label class="checkbox">
-	<input class="checkbox-input" type="checkbox" name="option1b">
-	<span class="checkbox-text">Setting 1</span>
-</label>
+	<label class="checkbox">
+		<input class="checkbox-input" type="checkbox" name="option1b">
+		<span class="checkbox-text">Setting 1</span>
+	</label>
 
-<label class="checkbox">
-	<input class="checkbox-input" type="checkbox" name="option1c" disabled>
-	<span class="checkbox-text">Setting 1</span>
-</label>
+	<label class="checkbox">
+		<input class="checkbox-input" type="checkbox" name="option1c">
+		<span class="checkbox-text">Setting 1</span>
+	</label>
 
-<hr>
+	<hr>
+
 	<label class="checkbox checkbox-flip">
 		<input class="checkbox-input" type="checkbox" name="option2a">
 		<span class="checkbox-text">Setting 2</span>
@@ -44,7 +45,7 @@
 	</label>
 
 	<label class="checkbox checkbox-flip">
-		<input class="checkbox-input" type="checkbox" name="option2c" disabled checked>
+		<input class="checkbox-input" type="checkbox" name="option2c">
 		<span class="checkbox-text">Setting 2</span>
 	</label>
 {% endcapture %}
@@ -52,102 +53,33 @@
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-	{{ example }}
+	<label class="checkbox">
+		<input class="checkbox-input" type="checkbox" name="checkboxName">
+		<span class="checkbox-text">YOUR TITLE</span>
+	</label>
 {% endcapture %}
 
 
 {% comment %} CSS TAB {% endcomment %}
 {% capture CSS %}
-	FILL-ME
+	Modifier class:
+
+	<ul>
+		<li>
+			<code class="classes">checkbox-flip</code>
+		</li>
+	</ul>
 {% endcapture %}
 
 
 {% comment %} LESS TAB {% endcomment %}
 {% capture LESS %}
-	FILL-ME
+	The main mixin is called: <code class="classes">_checkboxes({{ page.brand }})</code>
 {% endcapture %}
 
 
 {% comment %} JS TAB {% endcomment %}
 {% capture JS %}
-	FILL-ME
-{% endcapture %}
-
-
-{% include showExample.liquid %}
-{% comment %}
-	--------------------------------------------------------------------------------------------------------------------------------------------------------------
-{% endcomment %}
-
-
-
-
-
-
-{% comment %}
-	--------------------------------------------------------------------------------------------------------------------------------------------------------------
-	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
-	--------------------------------------------------------------------------------------------------------------------------------------------------------------
-{% endcomment %}
-
-{% comment %} TITLE {% endcomment %}
-{% capture title %}
-	Checkboxes stacked
-{% endcapture %}
-
-
-{% comment %} DESCRIPTION {% endcomment %}
-{% capture description %}
-	Checkboxes with long labels sometimes need to stack.
-{% endcapture %}
-
-
-{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
-{% capture example %}
-	<p>
-		<label class="checkbox">
-			<input class="checkbox-input" type="checkbox" name="option3">
-			<span class="checkbox-text">Setting 1</span>
-		</label>
-	</p>
-
-	<p>
-		<label class="checkbox">
-			<input class="checkbox-input" type="checkbox" name="option4">
-			<span class="checkbox-text">Setting 2</span>
-		</label>
-	</p>
-
-	<p>
-		<label class="checkbox">
-			<input class="checkbox-input" type="checkbox" name="option5">
-			<span class="checkbox-text">Setting 3 with lots of text<br>and so mach that it might even wrap.</span>
-		</label>
-	</p>
-{% endcapture %}
-
-
-{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
-{% capture HTML %}
-	{{ example }}
-{% endcapture %}
-
-
-{% comment %} CSS TAB {% endcomment %}
-{% capture CSS %}
-	FILL-ME
-{% endcapture %}
-
-
-{% comment %} LESS TAB {% endcomment %}
-{% capture LESS %}
-	FILL-ME
-{% endcapture %}
-
-
-{% comment %} JS TAB {% endcomment %}
-{% capture JS %}
-	FILL-ME
 {% endcapture %}
 
 

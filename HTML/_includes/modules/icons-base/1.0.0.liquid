@@ -19,31 +19,52 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-	FILL-ME
+	<span class="icon icon-size-sm icon-face-happy"></span>
+
+	<hr>
+
+	<span class="icon icon-size-md icon-face-happy"></span>
+
+	<hr>
+
+	<span class="icon icon-size-lg icon-face-happy"></span>
 {% endcapture %}
 
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-	{{ example }}
+	<span class="icon icon-size-sm icon-face-happy"></span>
+	<span class="icon icon-size-md icon-face-happy"></span>
+	<span class="icon icon-size-lg icon-face-happy"></span>
 {% endcapture %}
 
 
 {% comment %} CSS TAB {% endcomment %}
 {% capture CSS %}
-	FILL-ME
+	Modifier classes:
+
+	<ul>
+		<li>
+			<code class="classes">icon-size-sm</code>
+		</li>
+		<li>
+			<code class="classes">icon-size-md</code>
+		</li>
+		<li>
+			<code class="classes">icon-size-lg</code>
+		</li>
+	</ul>
 {% endcapture %}
 
 
 {% comment %} LESS TAB {% endcomment %}
 {% capture LESS %}
-	FILL-ME
+	The main mixin is called: <code class="classes">_icons-base({{ page.brand }})</code>
 {% endcapture %}
 
 
 {% comment %} JS TAB {% endcomment %}
 {% capture JS %}
-	FILL-ME
 {% endcapture %}
 
 
@@ -51,6 +72,9 @@
 {% comment %}
 	--------------------------------------------------------------------------------------------------------------------------------------------------------------
 {% endcomment %}
+
+
+
 
 
 
@@ -76,31 +100,40 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-	FILL-ME
+	<span class="icon icon-size-sm icon-face-happy" data-grunticon-embed></span>
+
+	<hr>
+
+	<span class="icon icon-size-md icon-face-happy" data-grunticon-embed></span>
+
+	<hr>
+
+	<span class="icon icon-size-lg icon-face-happy" data-grunticon-embed></span>
 {% endcapture %}
 
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-	{{ example }}
+	<span class="icon icon-size-sm icon-face-happy" data-grunticon-embed></span>
+	<span class="icon icon-size-md icon-face-happy" data-grunticon-embed></span>
+	<span class="icon icon-size-lg icon-face-happy" data-grunticon-embed></span>
 {% endcapture %}
 
 
 {% comment %} CSS TAB {% endcomment %}
 {% capture CSS %}
-	FILL-ME
+	{{ CSS }}
 {% endcapture %}
 
 
 {% comment %} LESS TAB {% endcomment %}
 {% capture LESS %}
-	FILL-ME
+	{{ LESS }}
 {% endcapture %}
 
 
 {% comment %} JS TAB {% endcomment %}
 {% capture JS %}
-	FILL-ME
 {% endcapture %}
 
 
