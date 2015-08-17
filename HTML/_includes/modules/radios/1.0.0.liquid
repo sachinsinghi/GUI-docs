@@ -6,13 +6,12 @@
 
 {% comment %} TITLE {% endcomment %}
 {% capture title %}
-	Radio button - Left
 {% endcapture %}
 
 
 {% comment %} DESCRIPTION {% endcomment %}
 {% capture description %}
-	Radio button sits to the left of the label.
+	Radio buttons can sit either to the left or the right of the label.
 {% endcapture %}
 
 
@@ -30,6 +29,22 @@
 
 <label class="radio">
 	<input class="radio-input" type="radio" name="options" value="option3" disabled>
+	<span class="radio-text">Option 3</span>
+</label>
+
+<hr>
+<label class="radio radio-flip">
+	<input class="radio-input" type="radio" name="options2" value="option1">
+	<span class="radio-text">Option 1</span>
+</label>
+
+<label class="radio radio-flip">
+	<input class="radio-input" type="radio" name="options2" value="option2">
+	<span class="radio-text">Option 2</span>
+</label>
+
+<label class="radio radio-flip">
+	<input class="radio-input" type="radio" name="options2" value="option3" disabled checked>
 	<span class="radio-text">Option 3</span>
 </label>
 {% endcapture %}
@@ -63,76 +78,6 @@
 {% comment %}
 	--------------------------------------------------------------------------------------------------------------------------------------------------------------
 {% endcomment %}
-
-
-
-
-{% comment %}
-	--------------------------------------------------------------------------------------------------------------------------------------------------------------
-	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
-	--------------------------------------------------------------------------------------------------------------------------------------------------------------
-{% endcomment %}
-
-{% comment %} TITLE {% endcomment %}
-{% capture title %}
-	Radio button - Right
-{% endcapture %}
-
-
-{% comment %} DESCRIPTION {% endcomment %}
-{% capture description %}
-	Radio button sits to the right of the label.
-{% endcapture %}
-
-
-{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
-{% capture example %}
-	<label class="radio radio-flip">
-		<input class="radio-input" type="radio" name="options2" value="option1">
-		<span class="radio-text">Option 1</span>
-	</label>
-
-	<label class="radio radio-flip">
-		<input class="radio-input" type="radio" name="options2" value="option2">
-		<span class="radio-text">Option 2</span>
-	</label>
-
-	<label class="radio radio-flip">
-		<input class="radio-input" type="radio" name="options2" value="option3" disabled checked>
-		<span class="radio-text">Option 3</span>
-	</label>
-{% endcapture %}
-
-
-{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
-{% capture HTML %}
-	{{ example }}
-{% endcapture %}
-
-
-{% comment %} CSS TAB {% endcomment %}
-{% capture CSS %}
-	FILL-ME
-{% endcapture %}
-
-
-{% comment %} LESS TAB {% endcomment %}
-{% capture LESS %}
-	FILL-ME
-{% endcapture %}
-
-
-{% comment %} JS TAB {% endcomment %}
-{% capture JS %}
-	FILL-ME
-{% endcapture %}
-
-
-{% include showExample.liquid %}
-{% comment %}
-	--------------------------------------------------------------------------------------------------------------------------------------------------------------
-{% endcomment %}
-
 
 
 
