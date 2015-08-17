@@ -6,13 +6,12 @@
 
 {% comment %} TITLE {% endcomment %}
 {% capture title %}
-	Checkbox - Left
 {% endcapture %}
 
 
 {% comment %} DESCRIPTION {% endcomment %}
 {% capture description %}
-	Checkbox sits to the left of the label.
+	Checkboxes can sit either to the left or the right of the label.
 {% endcapture %}
 
 
@@ -32,61 +31,8 @@
 	<input class="checkbox-input" type="checkbox" name="option1c" disabled>
 	<span class="checkbox-text">Setting 1</span>
 </label>
-{% endcapture %}
 
-
-{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
-{% capture HTML %}
-	{{ example }}
-{% endcapture %}
-
-
-{% comment %} CSS TAB {% endcomment %}
-{% capture CSS %}
-	FILL-ME
-{% endcapture %}
-
-
-{% comment %} LESS TAB {% endcomment %}
-{% capture LESS %}
-	FILL-ME
-{% endcapture %}
-
-
-{% comment %} JS TAB {% endcomment %}
-{% capture JS %}
-	FILL-ME
-{% endcapture %}
-
-
-{% include showExample.liquid %}
-{% comment %}
-	--------------------------------------------------------------------------------------------------------------------------------------------------------------
-{% endcomment %}
-
-
-
-
-{% comment %}
-	--------------------------------------------------------------------------------------------------------------------------------------------------------------
-	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
-	--------------------------------------------------------------------------------------------------------------------------------------------------------------
-{% endcomment %}
-
-{% comment %} TITLE {% endcomment %}
-{% capture title %}
-	Checkbox - Right
-{% endcapture %}
-
-
-{% comment %} DESCRIPTION {% endcomment %}
-{% capture description %}
-	Checkbox sits to the right of the label.
-{% endcapture %}
-
-
-{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
-{% capture example %}
+<hr>
 	<label class="checkbox checkbox-flip">
 		<input class="checkbox-input" type="checkbox" name="option2a">
 		<span class="checkbox-text">Setting 2</span>
@@ -175,21 +121,7 @@
 	<p>
 		<label class="checkbox">
 			<input class="checkbox-input" type="checkbox" name="option5">
-			<span class="checkbox-text">Setting 3 with lots of text<br>and so mach<br>that it might even wrap.</span>
-		</label>
-	</p>
-
-	<p>
-		<label class="checkbox">
-			<input class="checkbox-input" type="checkbox" name="option6">
-			<span class="checkbox-text">Setting 4</span>
-		</label>
-	</p>
-
-	<p>
-		<label class="checkbox">
-			<input class="checkbox-input" type="checkbox" name="option7" disabled>
-			<span class="checkbox-text">Setting 4</span>
+			<span class="checkbox-text">Setting 3 with lots of text<br>and so mach that it might even wrap.</span>
 		</label>
 	</p>
 {% endcapture %}

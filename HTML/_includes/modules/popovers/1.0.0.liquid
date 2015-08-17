@@ -6,15 +6,16 @@
 
 {% comment %} TITLE {% endcomment %}
 {% capture title %}
-	Toggle switch popover
 {% endcapture %}
 
 
 {% comment %} DESCRIPTION {% endcomment %}
 {% capture description %}
-	Small overlays of content for housing secondary information. This example has a toggle function requiring the user to click on the original trigger to close
-	the overlay.  Allowing multiple popovers to be open simultaneously.<br>
-	Logic has also been applied to ensure that the popover fits in the viewport on all devices
+	Small overlays of content for housing secondary information. There are two popover ptions:<br><br>
+	<strong>Toggle switch:</strong> Has a toggle function requiring the user to click on the original trigger to close the overlay. This allows
+	multiple popovers to be open simultaneously.<br><br>
+	<strong>Dismissible:</strong> Allows the user to click anywhere else on the screen to close the overlay. This allows only one popover to be open at time.<br><br>
+	Logic has also been applied to ensure that the popover fits in the viewport on all devices.
 {% endcapture %}
 
 
@@ -22,94 +23,21 @@
 {% capture example %}
 <div class="popover-wrapper">
 	<button class="btn popover js-popover">
-		Popover button
+		Toggle switch popover
 	</button>
 
 	<div class="popover-popup" aria-hidden="true" tabindex="-1">
 		<p class="popover-popup-title">
-			Hello Popover on top
+			Toggle switch popover
 		</p>
 		<p class="popover-popup-body">
-			This is the first popover.<br>
-			Hello vivamus sagittis lacus vel augue laoreet rutrum faucibus.
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt laboriosam, mollitia magnam ad magni consequuntur hic et quos optio
-			corrupti praesentium veniam aspernatur minima aperiam ut quas, possimus non architecto.
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut animi velit in? Suscipit nostrum itaque voluptatibus dolorem qui soluta nobis
-			modi officia incidunt eos dolores atque, unde error delectus officiis.
+			The Caterpillar and Alice looked at each other for some time in silence: at last the Caterpillar took the hookah out of its mouth, and addressed her in a
+			languid, sleepy voice.
 		</p>
 	</div>
 </div>
 
-<div class="popover-wrapper" style="float:right;">
-	<button class="btn popover js-popover">
-		Popover button
-	</button>
-
-	<div class="popover-popup" aria-hidden="true" tabindex="-1">
-		<p class="popover-popup-title">
-			Hello Popover on top
-		</p>
-		<p class="popover-popup-body">
-			This is the first popover.<br>
-			Hello vivamus sagittis lacus vel augue laoreet rutrum faucibus.
-		</p>
-	</div>
-</div>
-{% endcapture %}
-
-
-{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
-{% capture HTML %}
-	{{ example }}
-{% endcapture %}
-
-
-{% comment %} CSS TAB {% endcomment %}
-{% capture CSS %}
-	FILL-ME
-{% endcapture %}
-
-
-{% comment %} LESS TAB {% endcomment %}
-{% capture LESS %}
-	FILL-ME
-{% endcapture %}
-
-
-{% comment %} JS TAB {% endcomment %}
-{% capture JS %}
-	FILL-ME
-{% endcapture %}
-
-
-{% include showExample.liquid %}
-{% comment %}
-	--------------------------------------------------------------------------------------------------------------------------------------------------------------
-{% endcomment %}
-
-
-
-
-{% comment %}
-	--------------------------------------------------------------------------------------------------------------------------------------------------------------
-	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
-	--------------------------------------------------------------------------------------------------------------------------------------------------------------
-{% endcomment %}
-
-{% comment %} TITLE {% endcomment %}
-{% capture title %}
-	Dismissible popovers
-{% endcapture %}
-
-
-{% comment %} DESCRIPTION {% endcomment %}
-{% capture description %}
-	This example allows the user to click anywhere else on the screen to close the overlay. This allows only one popover to be open at time.
-{% endcapture %}
-
-
-{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
-{% capture example %}
+<hr>
 <div class="popover-wrapper">
 	<button class="btn popover popover-dismissible js-popover">
 		Dismissible popover
@@ -117,36 +45,14 @@
 
 	<div class="popover-popup" aria-hidden="true" tabindex="-1">
 		<p class="popover-popup-title">
-			Hello Popover on top
+			Dismissible popover
 		</p>
 		<p class="popover-popup-body">
-			This is the first popover.<br>
-			Hello vivamus sagittis lacus vel augue laoreet rutrum faucibus.
+			The Caterpillar and Alice looked at each other for some time in silence: at last the Caterpillar took the hookah out of its mouth, and addressed her in a
+			languid, sleepy voice.
 		</p>
 	</div>
 </div>
-
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-
-<div class="popover-wrapper">
-	<button class="btn popover js-popover">
-		Popover button
-	</button>
-
-	<div class="popover-popup" aria-hidden="true" tabindex="-1">
-		<p class="popover-popup-title">
-			Hello Popover on top
-		</p>
-		<p class="popover-popup-body">
-			This is the first popover.<br>
-			Hello vivamus sagittis lacus vel augue laoreet rutrum faucibus.
-		</p>
-	</div>
-</div>
-
-
-<br><br><br><br><br><br>
 {% endcapture %}
 
 
@@ -178,3 +84,4 @@
 {% comment %}
 	--------------------------------------------------------------------------------------------------------------------------------------------------------------
 {% endcomment %}
+

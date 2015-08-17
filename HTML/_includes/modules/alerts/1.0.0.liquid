@@ -111,10 +111,6 @@
 <div class="alert alert-danger" role="alert">
 	<strong>Oh snap!</strong> Change a few things up and try submitting again.
 </div>
-
-<div class="alert alert-system" role="alert">
-	<strong>System Error 8942:</strong> The server is no responding. Please try again later. Sorry for the inconvenience.
-</div>
 {% endcapture %}
 
 
@@ -199,12 +195,6 @@
 
 	<strong>Oh snap!</strong> Change a few things up and try submitting again.
 </div>
-
-<div class="alert alert-system" role="alert">
-	<button type="button" class="alert-close js-alertclose icon icon-cross" data-grunticon-embed>close</button>
-
-	<strong>System Error 8942:</strong> The server is no responding. Please try again later. Sorry for the inconvenience.
-</div>
 {% endcapture %}
 
 
@@ -251,58 +241,40 @@
 
 {% comment %} TITLE {% endcomment %}
 {% capture title %}
-	Alerts in forms
+	Alerts in forms - validaiton
 {% endcapture %}
 
 
 {% comment %} DESCRIPTION {% endcomment %}
 {% capture description %}
-	Use contextual colours to communicate status by highlighting input fields in forms. Primarily used for error messaging.
+	Contextual styles for error, warning, and success on form controls. Any label, .form-control, and .help-block within that element will receive the validation
+	styles.
 {% endcapture %}
 
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-<label for="ex1">Some label</label>
-<div class="alert-form">
-	<input type="text" id="ex1" class="input-field" placeholder="I'm a xl text input" aria-describedby="txt1">
-	<p id="txt1" class="alert-form-msg">This should not show.</p>
-</div>
 
-<label for="ex2">Some label</label>
 <div class="alert-form has-success">
-	<input type="text" id="ex2" class="input-field input-field-xl" placeholder="I'm a xl text input" aria-describedby="txt2">
-	<p id="txt2" class="alert-form-msg">Success! We can approve this amount.</p>
+	<input type="text" class="input-field" placeholder="I'm a default text input" aria-describedby="txt4">
+	<p id="txt4" class="alert-form-msg">Success! It worked.</p>
 </div>
 
-<label for="ex3">Some label</label>
-<div class="alert-form has-info">
-	<input type="password" id="ex3" class="input-field input-field-lg" placeholder="I'm a lg text input" aria-describedby="txt3">
-	<p id="txt3" class="alert-form-msg">Info! At least 10 characters</p>
-</div>
 
-<label for="ex4">Some label</label>
 <div class="alert-form has-warning">
-	<input type="text" id="ex4" class="input-field" placeholder="I'm a default text input" aria-describedby="txt4">
-	<p id="txt4" class="alert-form-msg">Warning! Are you sure this is your name?</p>
+	<input type="text" class="input-field" placeholder="I'm a default text input" aria-describedby="txt4">
+	<p id="txt4" class="alert-form-msg">Warning! Are you sure this is what you want to do?</p>
 </div>
 
-<label for="ex5">Some label</label>
+
 <div class="alert-form has-danger">
-	<input type="text" id="ex5" class="input-field input-field-sm" placeholder="I'm a sm text input" aria-describedby="txt5">
-	<p id="txt5" class="alert-form-msg">Danger! Your email address has an error in it.</p>
+	<input type="text" class="input-field" placeholder="I'm a default text input" aria-describedby="txt4">
+	<p id="txt4" class="alert-form-msg">Danger! Your email address has an error in it.</p>
 </div>
 
-<label for="ex6">Some label</label>
-<div class="alert-form has-danger">
-	<textarea class="input-field" id="ex6" placeholder="I'm a default textarea" aria-describedby="txt6"></textarea>
-	<p id="txt6" class="alert-form-msg">We can approve this amount.</p>
-</div>
-
-<label for="ex7">Some label</label>
 <div class="alert-form has-danger">
 	<div class="input-field-select-wrapper">
-		<select class="input-field-select" id="ex7" aria-describedby="txt7">
+		<select class="input-field-select" aria-describedby="txt7">
 			<option>Please select</option>
 			<option>Option A</option>
 			<option>Option B</option>
@@ -314,7 +286,7 @@
 		</select>
 	</div>
 
-	<p id="txt7" class="alert-form-msg">We can approve this amount.</p>
+	<p id="txt7" class="alert-form-msg">Hey, wait! You need to select something.</p>
 </div>
 {% endcapture %}
 
@@ -347,3 +319,6 @@
 {% comment %}
 	--------------------------------------------------------------------------------------------------------------------------------------------------------------
 {% endcomment %}
+
+
+
