@@ -1,0 +1,40 @@
+{% comment %}
+	This snippet prints a swatch box
+
+	Usage:
+		{% include showSwatch.liquid  title = 'Primary - Link'  color = 'A'  hex = '#d5002b'  rgb = 'R=213 G=0 B=43'  textcolor = '#000' %}
+
+	Return:
+		HTML direct output
+
+	Required:
+		- none -
+{% endcomment %}
+
+
+{% assign title = include.title %}
+{% assign color = include.color %}
+{% assign hex = include.hex %}
+{% assign rgb = include.rgb %}
+{% assign textcolor = include.textcolor %}
+
+{% if textcolor.size %}
+	{% assign hex = textcolor %}
+	{% assign _showHex = false %}
+{% else %}
+	{% assign textcolor = '#000' %}
+	{% assign _showHex = true %}
+{% endif %}
+
+<div class="swatch">
+	<div class="swatch-colour" style="background-color:{{ hex }}">
+		{{ color }}
+	</div>
+	<div class="swatch-values">
+		<strong class="swatch-value" style="color:{{ textcolor }};">{{ title }}</strong>
+		<p class="swatch-value">{{ rgb }}</p>
+		{% if _showHex %}
+			<p class="swatch-value">{{ hex }}</p>
+		{% endif %}
+	</div>
+</div>
