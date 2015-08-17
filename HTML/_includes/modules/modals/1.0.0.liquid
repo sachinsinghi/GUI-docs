@@ -13,154 +13,145 @@
 {% comment %} DESCRIPTION {% endcomment %}
 {% capture description %}
 	Modals are streamlined, but flexible, dialog prompts with the minimum required functionality and smart defaults. Modals should be easy to digest so the user
-	can quickly get back to what they were doing.
-{% endcapture %}
-
-
-{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
-{% capture example %}
-<button class="btn btn-primary js-modal" data-modal="#myModal" aria-label="Hit enter to open modal">Open sesame!</button>
-
-<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="modal-header-title1" aria-describedby="modal-body1" aria-hidden="true">
-	<div class="modal-header">
-		<button class="modal-header-close js-modalclose icon icon-size-sm icon-cross">Close modal</button>
-		<span class="modal-header-title" id="modal-header-title1">Modal title</span>
-	</div>
-	<div class="modal-body" id="modal-body1">
-		<p>
-			'It was much pleasanter at home,' thought poor Alice, 'when one wasn't always growing larger and smaller, and being ordered about by mice and rabbits.
-			I almost wish I hadn't gone down that rabbit-hole — and yet — and yet — it's rather curious, you know, this sort of life! I do wonder what can have
-			happened to me! When I used to read fairy-tales, I fancied that kind of thing never happened, and now here I am in the middle of one! There ought to be a
-			book written about me, that there ought! And when I grow up, I'll write one.'
-		</p>
-	</div>
-	<div class="modal-footer">
-		<button type="button" class="btn btn-faint js-modalclose">Close</button>
-		<button type="button" class="btn btn-hero">Save changes</button>
-	</div>
-</div>
-{% endcapture %}
-
-
-{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
-{% capture HTML %}
-	{{ example }}
-{% endcapture %}
-
-
-{% comment %} CSS TAB {% endcomment %}
-{% capture CSS %}
-	FILL-ME
-{% endcapture %}
-
-
-{% comment %} LESS TAB {% endcomment %}
-{% capture LESS %}
-	FILL-ME
-{% endcapture %}
-
-
-{% comment %} JS TAB {% endcomment %}
-{% capture JS %}
-	FILL-ME
-{% endcapture %}
-
-
-{% include showExample.liquid %}
-{% comment %}
-	--------------------------------------------------------------------------------------------------------------------------------------------------------------
-{% endcomment %}
-
-
-
-
-
-
-
-{% comment %}
-	--------------------------------------------------------------------------------------------------------------------------------------------------------------
-	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
-	--------------------------------------------------------------------------------------------------------------------------------------------------------------
-{% endcomment %}
-
-{% comment %} TITLE {% endcomment %}
-{% capture title %}
-	Modal sizes
-{% endcapture %}
-
-
-{% comment %} DESCRIPTION {% endcomment %}
-{% capture description %}
+	can quickly get back to what they were doing.<br>
 	Set the initial width of your modal depending on the amount of content you are showing.
 {% endcapture %}
 
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-<button class="btn btn-primary js-modal" data-modal="#myModal2" aria-label="Hit enter to open modal">Open a big one</button>
+	<button class="btn btn-primary js-modal" data-modal="#myModal" aria-label="Open sesame! Hit enter to open modal">Open sesame!</button>
 
-<div class="modal modal-lg" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="modal-header-title2" aria-describedby="modal-body2" aria-hidden="true">
-	<div class="modal-header">
-		<button class="modal-header-close js-modalclose icon icon-size-sm icon-cross">Close modal</button>
-		<span class="modal-header-title" id="modal-header-title2">Modal title</span>
-	</div>
-	<div class="modal-body" id="modal-body2">
-		<p>
-			'It was much pleasanter at home,' thought poor Alice, 'when one wasn't always growing larger and smaller, and being ordered about by mice and rabbits.
-			I almost wish I hadn't gone down that rabbit-hole — and yet — and yet — it's rather curious, you know, this sort of life! I do wonder what can have
-			happened to me! When I used to read fairy-tales, I fancied that kind of thing never happened, and now here I am in the middle of one! There ought to be a
-			book written about me, that there ought! And when I grow up, I'll write one.'
-		</p>
-	</div>
-	<div class="modal-footer">
-		<button type="button" class="btn btn-faint js-modalclose">Close</button>
-		<button type="button" class="btn btn-hero">Save changes</button>
-	</div>
-</div>
+	<hr>
+
+	<button class="btn btn-primary js-modal" data-modal="#myModal2" aria-label="Open a big one. Hit enter to open modal">Open a big one</button>
+
+	<hr>
+
+	<button class="btn btn-primary js-modal" data-modal="#myModal3" aria-label="Open a small one. Hit enter to open modal">Open a small one</button>
 
 
-<button class="btn btn-primary js-modal" data-modal="#myModal3" aria-label="Hit enter to open modal">Open a small one</button>
+	<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="modal-header-title1" aria-describedby="modal-body1" aria-hidden="true">
+		<div class="modal-header">
+			<button class="modal-header-close js-modalclose icon icon-size-sm icon-cross">Close modal and return to GUI page</button>
+			<span class="modal-header-title" id="modal-header-title1">Modal title</span>
+		</div>
+		<div class="modal-body" id="modal-body1">
+			&laquo; 'It was much pleasanter at home,' thought poor Alice, 'when one wasn't always growing larger and smaller, and being ordered about by mice and
+			rabbits. I almost wish I hadn't gone down that rabbit-hole — and yet — and yet — it's rather curious, you know, this sort of life! I do wonder what
+			can have happened to me! When I used to read fairy-tales, I fancied that kind of thing never happened, and now here I am in the middle of one!
+			There ought to be a book written about me, that there ought!' &raquo;
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-faint js-modalclose">
+				Close
+				<span class="modal-sronly">modal and return to GUI page</span>
+			</button>
+			<button type="button" class="btn btn-hero">Save changes</button>
+		</div>
+	</div>
 
-<div class="modal modal-sm" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="modal-header-title3" aria-describedby="modal-body3" aria-hidden="true">
-	<div class="modal-header">
-		<button class="modal-header-close js-modalclose icon icon-size-sm icon-cross">Close modal</button>
-		<span class="modal-header-title" id="modal-header-title3">Modal title</span>
+	<div class="modal modal-lg" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="modal-header-title2" aria-describedby="modal-body2" aria-hidden="true">
+		<div class="modal-header">
+			<button class="modal-header-close js-modalclose icon icon-size-sm icon-cross">Close modal and return to GUI page</button>
+			<span class="modal-header-title" id="modal-header-title2">Modal title</span>
+		</div>
+		<div class="modal-body" id="modal-body2">
+			&laquo; It was much pleasanter at home,' thought poor Alice, 'when one wasn't always growing larger and smaller, and being ordered about by mice and
+			rabbits. I almost wish I hadn't gone down that rabbit-hole — and yet — and yet — it's rather curious, you know, this sort of life! I do wonder what
+			can have happened to me! When I used to read fairy-tales, I fancied that kind of thing never happened, and now here I am in the middle of one!
+			There ought to be a book written about me, that there ought!' &raquo;
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-faint js-modalclose">
+				Close
+				<span class="modal-sronly">modal and return to GUI page</span>
+			</button>
+			<button type="button" class="btn btn-hero">Save changes</button>
+		</div>
 	</div>
-	<div class="modal-body" id="modal-body3">
-		<p>
-			'It was much pleasanter at home,' thought poor Alice, 'when one wasn't always growing larger and smaller, and being ordered about by mice and rabbits. I
-			almost wish I hadn't gone down that rabbit-hole…
-		</p>
+
+	<div class="modal modal-sm" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="modal-header-title3" aria-describedby="modal-body3" aria-hidden="true">
+		<div class="modal-header">
+			<button class="modal-header-close js-modalclose icon icon-size-sm icon-cross">Close modal and return to GUI page</button>
+			<span class="modal-header-title" id="modal-header-title3">Modal title</span>
+		</div>
+		<div class="modal-body" id="modal-body3">
+			&laquo; 'It was much pleasanter at home,' thought poor Alice, 'when one wasn't always growing larger and smaller, and being ordered about by mice and rabbits. I
+			almost wish I hadn't gone down that rabbit-hole&hellip; &raquo;
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-faint js-modalclose">
+				Close
+				<span class="modal-sronly">modal and return to test-page</span>
+			</button>
+			<button type="button" class="btn btn-hero">Save changes</button>
+		</div>
 	</div>
-	<div class="modal-footer">
-		<button type="button" class="btn btn-faint js-modalclose">Close</button>
-		<button type="button" class="btn btn-hero">Save changes</button>
-	</div>
-</div>
 {% endcapture %}
 
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-	{{ example }}
+	<button class="btn btn-primary js-modal" data-modal="#myModalID" aria-label="YOUR BUTTON DESCRIPTION Hit enter to open modal">YOUR BUTTON DESCRIPTION</button>
+
+	<div class="modal" id="myModalID" tabindex="-1" role="dialog" aria-labelledby="modal-header-title1" aria-describedby="modal-bodyID" aria-hidden="true">
+		<div class="modal-header">
+			<button class="modal-header-close js-modalclose icon icon-size-sm icon-cross">Close modal and return to GUI page</button>
+			<span class="modal-header-title" id="modal-header-title1">YOUR MODAL TITLE</span>
+		</div>
+		<div class="modal-body" id="modal-bodyID">
+			YOUR MODAL CONTENT
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-faint js-modalclose">
+				Close
+				<span class="modal-sronly">modal and return to GUI page</span>
+			</button>
+			<button type="button" class="btn btn-hero">Save changes</button>
+		</div>
+	</div>
 {% endcapture %}
 
 
 {% comment %} CSS TAB {% endcomment %}
 {% capture CSS %}
-	FILL-ME
+	Modifier classes:
+
+	<ul>
+		<li>
+			<code class="classes">modal-lg</code>
+		</li>
+		<li>
+			<code class="classes">modal-sm</code>
+		</li>
+	</ul>
 {% endcapture %}
 
 
 {% comment %} LESS TAB {% endcomment %}
 {% capture LESS %}
-	FILL-ME
+	The main mixin is called: <code class="classes">_modals({{ page.brand }})</code>
 {% endcapture %}
 
 
 {% comment %} JS TAB {% endcomment %}
 {% capture JS %}
-	FILL-ME
+	This module comes with the usual init method and a public method:
+
+	<ul>
+		<li>
+			<code class="classes">GUI.modals.init();</code>
+		</li>
+		<li>
+			<code class="classes">GUI.modals.toggelModal( _isOpen, $modal, target )</code>
+			<ul>
+				<li>@param   <code class="classes">_isOpen</code>  [boolean]        Whether to open or close the modal</li>
+				<li>@param   <code class="classes">$modal</code>   [jquery object]  The modal element</li>
+				<li>@param   <code class="classes">target</code>   [string]         Selector string to id the modal for opening only</li>
+			</ul>
+		</li>
+	</ul>
 {% endcapture %}
 
 

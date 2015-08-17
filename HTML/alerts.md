@@ -6,7 +6,7 @@ brand: [Brand]
 ---
 
 <div class="row">
-	<div class="col-sm-8 col-sm-offset-4 category-head">
+	<div class="col-sm-8 col-sm-offset-4 category-head lead">
 		User feedback and messaging is essential in UI design. Using a cross-brand palette of reserved, contextual colours you have a flexible, consistent message
 		system for common user interactions.
 	</div>

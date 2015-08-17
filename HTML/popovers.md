@@ -6,7 +6,7 @@ brand: [Brand]
 ---
 
 <div class="row">
-	<div class="col-sm-8 col-sm-offset-4 category-head">
+	<div class="col-sm-8 col-sm-offset-4 category-head lead">
 		Popovers add small overlays of content for housing secondary information. It&rsquo;s important to keep secondary information simple and to a minimum. Also,
 		avoid complex functionality.
 	</div>

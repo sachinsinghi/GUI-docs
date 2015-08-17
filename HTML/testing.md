@@ -6,7 +6,7 @@ brand: [Brand]
 ---
 
 <div class="row">
-	<div class="col-sm-8 col-sm-offset-4 category-head">
+	<div class="col-sm-8 col-sm-offset-4 category-head lead">
 		This category is for testing only and only visible on local dev environments. Modules contained in this category are not for production.
 	</div>
 </div>

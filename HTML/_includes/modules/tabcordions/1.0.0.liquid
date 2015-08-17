@@ -18,13 +18,13 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-<button class="js-collapsible" data-collapsible="#ex0-1">toggle below</button>
-<div id="ex0-1" class="collapsible-body" aria-hidden="true" tabindex="-1">
-	&lsquo;It was much pleasanter at home,&rsquo; thought poor Alice, &lsquo;when one wasn&rsquo;t always growing larger and smaller, and being ordered about by
-	mice and rabbits. I almost wish I hadn&rsquo;t gone down that rabbit-hole — and yet — and yet — it&rsquo;s rather curious, you know, this sort of life! I do
-	wonder what can have happened to me! When I used to read fairy-tales, I fancied that kind of thing never happened, and now here I am in the middle of one!
-	There ought to be a book written about me, that there ought! And when I grow up, I&rsquo;ll write one.
-</div>
+	<button class="btn btn-link js-collapsible" data-collapsible="#ex0-1">toggle below</button>
+	<div id="ex0-1" class="collapsible-body" aria-hidden="true" tabindex="-1">
+		&lsquo;It was much pleasanter at home,&rsquo; thought poor Alice, &lsquo;when one wasn&rsquo;t always growing larger and smaller, and being ordered about by
+		mice and rabbits. I almost wish I hadn&rsquo;t gone down that rabbit-hole — and yet — and yet — it&rsquo;s rather curious, you know, this sort of life! I do
+		wonder what can have happened to me! When I used to read fairy-tales, I fancied that kind of thing never happened, and now here I am in the middle of one!
+		There ought to be a book written about me, that there ought! And when I grow up, I&rsquo;ll write one.
+	</div>
 {% endcapture %}
 
 
@@ -36,19 +36,49 @@
 
 {% comment %} CSS TAB {% endcomment %}
 {% capture CSS %}
-	FILL-ME
 {% endcapture %}
 
 
 {% comment %} LESS TAB {% endcomment %}
 {% capture LESS %}
-	FILL-ME
+	The main mixin is called: <code class="classes">_tabcordions({{ page.brand }})</code>
 {% endcapture %}
 
 
 {% comment %} JS TAB {% endcomment %}
 {% capture JS %}
-	FILL-ME
+	This module comes with the usual init method and three public methods:
+
+	<ul>
+		<li>
+			<code class="classes">GUI.tabcordions.init();</code>
+		</li>
+		<li>
+			<code class="classes">GUI.collapsible.toggle( target, _isAnimated, Callback )</code>
+			<ul>
+				<li>@param   <code class="classes">target</code>       [string]    Selector for target element to toggle is-open class</li>
+				<li>@param   <code class="classes">_isAnimated</code>  [boolean]   Wether or not to animate the height</li>
+				<li>@param   <code class="classes">Callback</code>     [function]  Callback function executed after completion</li>
+			</ul>
+		</li>
+		<li>
+			<code class="classes">GUI.collapsible.close( target, _isAnimated, Callback )</code>
+			<ul>
+				<li>@param   <code class="classes">target</code>       [string]    Selector for target element to toggle is-open class</li>
+				<li>@param   <code class="classes">_isAnimated</code>  [boolean]   Wether or not to animate the height</li>
+				<li>@param   <code class="classes">Callback</code>     [function]  Callback function executed after completion</li>
+			</ul>
+		</li>
+		<li>
+			<code class="classes">GUI.collapsible.open( target, _isAnimated, Callback, withFocus )</code>
+			<ul>
+				<li>@param   <code class="classes">target</code>       [string]    Selector for target element to toggle is-open class</li>
+				<li>@param   <code class="classes">_isAnimated</code>  [boolean]   Whether or not to animate the height</li>
+				<li>@param   <code class="classes">Callback</code>     [function]  Callback function executed after completion</li>
+				<li>@param   <code class="classes">withFocus</code>    [boolean]   Should the focus move to the opened element? Default true</li>
+			</ul>
+		</li>
+	</ul>
 {% endcapture %}
 
 
@@ -56,6 +86,7 @@
 {% comment %}
 	--------------------------------------------------------------------------------------------------------------------------------------------------------------
 {% endcomment %}
+
 
 
 
@@ -81,76 +112,103 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-<div class="tabcordion tabcordion-tabs">
-	<ul class="tabcordion-tabs">
-		<li class="tabcordion-tab is-active">
-			<a class="js-collapsible" href="#ex1-tab1">Tab 1</a>
-		</li>
-		<li class="tabcordion-tab">
-			<a class="js-collapsible" href="#ex1-tab2">Tab 2</a>
-		</li>
-		<li class="tabcordion-tab">
-			<a class="js-collapsible" href="#ex1-tab3">Tab 3</a>
-		</li>
-	</ul>
+	<div class="tabcordion tabcordion-tabs">
+		<ul class="tabcordion-tabs">
+			<li class="tabcordion-tab is-active">
+				<a class="js-collapsible" href="#ex1-tab1">Tab 1</a>
+			</li>
+			<li class="tabcordion-tab">
+				<a class="js-collapsible" href="#ex1-tab2">Tab 2</a>
+			</li>
+			<li class="tabcordion-tab">
+				<a class="js-collapsible" href="#ex1-tab3">Tab 3</a>
+			</li>
+		</ul>
 
-	<div id="ex1-tab1" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
-		<div class="tabcordion-body">
-			&lsquo;It was much pleasanter at home,&rsquo; thought poor Alice, &lsquo;when one wasn&rsquo;t always growing larger and smaller, and being ordered about by
-			mice and rabbits. I almost wish I hadn&rsquo;t gone down that rabbit-hole — and yet — and yet — it&rsquo;s rather curious, you know, this sort of life! I do
-			wonder what can have happened to me! When I used to read fairy-tales, I fancied that kind of thing never happened, and now here I am in the middle of one!
-			There ought to be a book written about me, that there ought! And when I grow up, I&rsquo;ll write one.
+		<div id="ex1-tab1" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
+			<div class="tabcordion-body">
+				&lsquo;It was much pleasanter at home,&rsquo; thought poor Alice, &lsquo;when one wasn&rsquo;t always growing larger and smaller, and being ordered about by
+				mice and rabbits. I almost wish I hadn&rsquo;t gone down that rabbit-hole — and yet — and yet — it&rsquo;s rather curious, you know, this sort of life! I do
+				wonder what can have happened to me! When I used to read fairy-tales, I fancied that kind of thing never happened, and now here I am in the middle of one!
+				There ought to be a book written about me, that there ought! And when I grow up, I&rsquo;ll write one.
+			</div>
+		</div>
+		<div id="ex1-tab2" class="collapsible-body" aria-hidden="true" tabindex="-1">
+			<div class="tabcordion-body">
+				The chief difficulty Alice found at first was in managing her flamingo: she succeeded in getting its body tucked away, comfortably enough, under her arm,
+				with its legs hanging down, but generally, just as she had got its neck nicely straightened out, and was going to give the hedgehog a blow with its head,
+				it would twist itself round and look up in her face, with such a puzzled expression that she could not help bursting out laughing: and when she had got
+				its head down, and was going to begin again, it was very provoking to find that the hedgehog had unrolled itself, and was in the act of crawling away:
+				besides all this, there was generally a ridge or furrow in the way wherever she wanted to send the hedgehog to, and, as the doubled-up soldiers were
+				always getting up and walking off to other parts of the ground, Alice soon came to the conclusion that it was a very difficult game indeed.
+			</div>
+		</div>
+		<div id="ex1-tab3" class="collapsible-body" aria-hidden="true" tabindex="-1">
+			<div class="tabcordion-body">
+				The Caterpillar and Alice looked at each other for some time in silence: at last the Caterpillar took the hookah out of its mouth, and addressed her in a
+				languid, sleepy voice.<br>
+				&lsquo;Who are you?&rsquo; said the Caterpillar.<br>
+				This was not an encouraging opening for a conversation. Alice replied, rather shyly, &lsquo;I — I hardly know, sir, just at present — at least I know who I was
+				when I got up this morning, but I think I must have been changed several times since then.&rsquo;<br>
+				&lsquo;What do you mean by that?&rsquo; said the Caterpillar sternly. &lsquo;Explain yourself!&rsquo;<br>
+				&lsquo;I can&rsquo;t explain myself, I&rsquo;m afraid, sir&rsquo; said Alice, &rsquo;because I&rsquo;m not myself, you see.&rsquo;<br>
+				&lsquo;I don&rsquo;t see,&rsquo; said the Caterpillar.<br>
+				&lsquo;I&rsquo;m afraid I can&rsquo;t put it more clearly,&rsquo; Alice replied very politely, &lsquo;for I can&rsquo;t understand it myself to begin
+				with; and being so many different sizes in a day is very confusing.&rsquo;
+			</div>
 		</div>
 	</div>
-	<div id="ex1-tab2" class="collapsible-body" aria-hidden="true" tabindex="-1">
-		<div class="tabcordion-body">
-			The chief difficulty Alice found at first was in managing her flamingo: she succeeded in getting its body tucked away, comfortably enough, under her arm,
-			with its legs hanging down, but generally, just as she had got its neck nicely straightened out, and was going to give the hedgehog a blow with its head,
-			it would twist itself round and look up in her face, with such a puzzled expression that she could not help bursting out laughing: and when she had got
-			its head down, and was going to begin again, it was very provoking to find that the hedgehog had unrolled itself, and was in the act of crawling away:
-			besides all this, there was generally a ridge or furrow in the way wherever she wanted to send the hedgehog to, and, as the doubled-up soldiers were
-			always getting up and walking off to other parts of the ground, Alice soon came to the conclusion that it was a very difficult game indeed.
-		</div>
-	</div>
-	<div id="ex1-tab3" class="collapsible-body" aria-hidden="true" tabindex="-1">
-		<div class="tabcordion-body">
-			The Caterpillar and Alice looked at each other for some time in silence: at last the Caterpillar took the hookah out of its mouth, and addressed her in a
-			languid, sleepy voice.<br>
-			&lsquo;Who are you?&rsquo; said the Caterpillar.<br>
-			This was not an encouraging opening for a conversation. Alice replied, rather shyly, &lsquo;I — I hardly know, sir, just at present — at least I know who I was
-			when I got up this morning, but I think I must have been changed several times since then.&rsquo;<br>
-			&lsquo;What do you mean by that?&rsquo; said the Caterpillar sternly. &lsquo;Explain yourself!&rsquo;<br>
-			&lsquo;I can&rsquo;t explain myself, I&rsquo;m afraid, sir&rsquo; said Alice, &rsquo;because I&rsquo;m not myself, you see.&rsquo;<br>
-			&lsquo;I don&rsquo;t see,&rsquo; said the Caterpillar.<br>
-			&lsquo;I&rsquo;m afraid I can&rsquo;t put it more clearly,&rsquo; Alice replied very politely, &lsquo;for I can&rsquo;t understand it myself to begin
-			with; and being so many different sizes in a day is very confusing.&rsquo;
-		</div>
-	</div>
-</div>
 {% endcapture %}
 
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-	{{ example }}
+	<div class="tabcordion tabcordion-tabs">
+		<ul class="tabcordion-tabs">
+			<li class="tabcordion-tab is-active">
+				<a class="js-collapsible" href="#ex1-tab1">YOUR TAB</a>
+			</li>
+			<li class="tabcordion-tab">
+				<a class="js-collapsible" href="#ex1-tab2">YOUR TAB</a>
+			</li>
+			<li class="tabcordion-tab">
+				<a class="js-collapsible" href="#ex1-tab3">YOUR TAB</a>
+			</li>
+		</ul>
+
+		<div id="ex1-tab1" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
+			<div class="tabcordion-body">
+				YOUR TEXT
+			</div>
+		</div>
+		<div id="ex1-tab2" class="collapsible-body" aria-hidden="true" tabindex="-1">
+			<div class="tabcordion-body">
+				YOUR TEXT
+			</div>
+		</div>
+		<div id="ex1-tab3" class="collapsible-body" aria-hidden="true" tabindex="-1">
+			<div class="tabcordion-body">
+				YOUR TEXT
+			</div>
+		</div>
+	</div>
 {% endcapture %}
 
 
 {% comment %} CSS TAB {% endcomment %}
 {% capture CSS %}
-	FILL-ME
 {% endcapture %}
 
 
 {% comment %} LESS TAB {% endcomment %}
 {% capture LESS %}
-	FILL-ME
+	{{ LESS }}
 {% endcapture %}
 
 
 {% comment %} JS TAB {% endcomment %}
 {% capture JS %}
-	FILL-ME
+	{{ JS }}
 {% endcapture %}
 
 
@@ -158,6 +216,9 @@
 {% comment %}
 	--------------------------------------------------------------------------------------------------------------------------------------------------------------
 {% endcomment %}
+
+
+
 
 
 
@@ -181,78 +242,111 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
+	<div class="tabcordion tabcordion-tabs">
+		<ul class="tabcordion-tabs tabcordion-tabs-justified">
+			<li class="tabcordion-tab is-active">
+				<a class="js-collapsible" href="#ex2-tab1">Tab 1</a>
+			</li>
+			<li class="tabcordion-tab">
+				<a class="js-collapsible" href="#ex2-tab2">Tab 2</a>
+			</li>
+			<li class="tabcordion-tab">
+				<a class="js-collapsible" href="#ex2-tab3">Tab 3</a>
+			</li>
+		</ul>
 
-<div class="tabcordion tabcordion-tabs">
-	<ul class="tabcordion-tabs tabcordion-tabs-justified">
-		<li class="tabcordion-tab is-active">
-			<a class="js-collapsible" href="#ex2-tab1">Tab 1</a>
-		</li>
-		<li class="tabcordion-tab">
-			<a class="js-collapsible" href="#ex2-tab2">Tab 2</a>
-		</li>
-		<li class="tabcordion-tab">
-			<a class="js-collapsible" href="#ex2-tab3">Tab 3</a>
-		</li>
-	</ul>
+		<div id="ex2-tab1" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
+			<div class="tabcordion-body">
+				&lsquo;It was much pleasanter at home,&rsquo; thought poor Alice, &lsquo;when one wasn&rsquo;t always growing larger and smaller, and being ordered about by
+				mice and rabbits. I almost wish I hadn&rsquo;t gone down that rabbit-hole — and yet — and yet — it&rsquo;s rather curious, you know, this sort of life! I do
+				wonder what can have happened to me! When I used to read fairy-tales, I fancied that kind of thing never happened, and now here I am in the middle of one!
+				There ought to be a book written about me, that there ought! And when I grow up, I&rsquo;ll write one.
+			</div>
+		</div>
+		<div id="ex2-tab2" class="collapsible-body" aria-hidden="true" tabindex="-1">
+			<div class="tabcordion-body">
+				The chief difficulty Alice found at first was in managing her flamingo: she succeeded in getting its body tucked away, comfortably enough, under her arm,
+				with its legs hanging down, but generally, just as she had got its neck nicely straightened out, and was going to give the hedgehog a blow with its head,
+				it would twist itself round and look up in her face, with such a puzzled expression that she could not help bursting out laughing: and when she had got
+				its head down, and was going to begin again, it was very provoking to find that the hedgehog had unrolled itself, and was in the act of crawling away:
+				besides all this, there was generally a ridge or furrow in the way wherever she wanted to send the hedgehog to, and, as the doubled-up soldiers were
+				always getting up and walking off to other parts of the ground, Alice soon came to the conclusion that it was a very difficult game indeed.
+			</div>
+		</div>
+		<div id="ex2-tab3" class="collapsible-body" aria-hidden="true" tabindex="-1">
+			<div class="tabcordion-body">
+				The Caterpillar and Alice looked at each other for some time in silence: at last the Caterpillar took the hookah out of its mouth, and addressed her in a
+				languid, sleepy voice.<br>
+				&lsquo;Who are you?&rsquo; said the Caterpillar.<br>
+				This was not an encouraging opening for a conversation. Alice replied, rather shyly, &lsquo;I — I hardly know, sir, just at present — at least I know who I was
+				when I got up this morning, but I think I must have been changed several times since then.&rsquo;<br>
+				&lsquo;What do you mean by that?&rsquo; said the Caterpillar sternly. &lsquo;Explain yourself!&rsquo;<br>
+				&lsquo;I can&rsquo;t explain myself, I&rsquo;m afraid, sir&rsquo; said Alice, &rsquo;because I&rsquo;m not myself, you see.&rsquo;<br>
+				&lsquo;I don&rsquo;t see,&rsquo; said the Caterpillar.<br>
+				&lsquo;I&rsquo;m afraid I can&rsquo;t put it more clearly,&rsquo; Alice replied very politely, &lsquo;for I can&rsquo;t understand it myself to begin
+				with; and being so many different sizes in a day is very confusing.&rsquo;
+			</div>
+		</div>
 
-	<div id="ex2-tab1" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
-		<div class="tabcordion-body">
-			&lsquo;It was much pleasanter at home,&rsquo; thought poor Alice, &lsquo;when one wasn&rsquo;t always growing larger and smaller, and being ordered about by
-			mice and rabbits. I almost wish I hadn&rsquo;t gone down that rabbit-hole — and yet — and yet — it&rsquo;s rather curious, you know, this sort of life! I do
-			wonder what can have happened to me! When I used to read fairy-tales, I fancied that kind of thing never happened, and now here I am in the middle of one!
-			There ought to be a book written about me, that there ought! And when I grow up, I&rsquo;ll write one.
-		</div>
 	</div>
-	<div id="ex2-tab2" class="collapsible-body" aria-hidden="true" tabindex="-1">
-		<div class="tabcordion-body">
-			The chief difficulty Alice found at first was in managing her flamingo: she succeeded in getting its body tucked away, comfortably enough, under her arm,
-			with its legs hanging down, but generally, just as she had got its neck nicely straightened out, and was going to give the hedgehog a blow with its head,
-			it would twist itself round and look up in her face, with such a puzzled expression that she could not help bursting out laughing: and when she had got
-			its head down, and was going to begin again, it was very provoking to find that the hedgehog had unrolled itself, and was in the act of crawling away:
-			besides all this, there was generally a ridge or furrow in the way wherever she wanted to send the hedgehog to, and, as the doubled-up soldiers were
-			always getting up and walking off to other parts of the ground, Alice soon came to the conclusion that it was a very difficult game indeed.
-		</div>
-	</div>
-	<div id="ex2-tab3" class="collapsible-body" aria-hidden="true" tabindex="-1">
-		<div class="tabcordion-body">
-			The Caterpillar and Alice looked at each other for some time in silence: at last the Caterpillar took the hookah out of its mouth, and addressed her in a
-			languid, sleepy voice.<br>
-			&lsquo;Who are you?&rsquo; said the Caterpillar.<br>
-			This was not an encouraging opening for a conversation. Alice replied, rather shyly, &lsquo;I — I hardly know, sir, just at present — at least I know who I was
-			when I got up this morning, but I think I must have been changed several times since then.&rsquo;<br>
-			&lsquo;What do you mean by that?&rsquo; said the Caterpillar sternly. &lsquo;Explain yourself!&rsquo;<br>
-			&lsquo;I can&rsquo;t explain myself, I&rsquo;m afraid, sir&rsquo; said Alice, &rsquo;because I&rsquo;m not myself, you see.&rsquo;<br>
-			&lsquo;I don&rsquo;t see,&rsquo; said the Caterpillar.<br>
-			&lsquo;I&rsquo;m afraid I can&rsquo;t put it more clearly,&rsquo; Alice replied very politely, &lsquo;for I can&rsquo;t understand it myself to begin
-			with; and being so many different sizes in a day is very confusing.&rsquo;
-		</div>
-	</div>
-
-</div>
 {% endcapture %}
 
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-	{{ example }}
+	<div class="tabcordion tabcordion-tabs">
+		<ul class="tabcordion-tabs tabcordion-tabs-justified">
+			<li class="tabcordion-tab is-active">
+				<a class="js-collapsible" href="#ex1-tab1">YOUR TAB</a>
+			</li>
+			<li class="tabcordion-tab">
+				<a class="js-collapsible" href="#ex1-tab2">YOUR TAB</a>
+			</li>
+			<li class="tabcordion-tab">
+				<a class="js-collapsible" href="#ex1-tab3">YOUR TAB</a>
+			</li>
+		</ul>
+
+		<div id="ex1-tab1" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
+			<div class="tabcordion-body">
+				YOUR TEXT
+			</div>
+		</div>
+		<div id="ex1-tab2" class="collapsible-body" aria-hidden="true" tabindex="-1">
+			<div class="tabcordion-body">
+				YOUR TEXT
+			</div>
+		</div>
+		<div id="ex1-tab3" class="collapsible-body" aria-hidden="true" tabindex="-1">
+			<div class="tabcordion-body">
+				YOUR TEXT
+			</div>
+		</div>
+	</div>
 {% endcapture %}
 
 
 {% comment %} CSS TAB {% endcomment %}
 {% capture CSS %}
-	FILL-ME
+	Modifier class:
+
+	<ul>
+		<li>
+			<code class="classes">tabcordion-tabs-justified</code>
+		</li>
+	</ul>
 {% endcapture %}
 
 
 {% comment %} LESS TAB {% endcomment %}
 {% capture LESS %}
-	FILL-ME
+	{{ LESS }}
 {% endcapture %}
 
 
 {% comment %} JS TAB {% endcomment %}
 {% capture JS %}
-	FILL-ME
+	{{ JS }}
 {% endcapture %}
 
 
@@ -284,77 +378,111 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-<div class="tabcordion tabcordion-lego tabcordion-tabs">
-	<ul class="tabcordion-tabs">
-		<li class="tabcordion-tab is-active">
-			<a class="js-collapsible" href="#ex5-tab1">Tab 1</a>
-		</li>
-		<li class="tabcordion-tab">
-			<a class="js-collapsible" href="#ex5-tab2">Tab 2</a>
-		</li>
-		<li class="tabcordion-tab">
-			<a class="js-collapsible" href="#ex5-tab3">Tab 3</a>
-		</li>
-	</ul>
+	<div class="tabcordion tabcordion-lego tabcordion-tabs">
+		<ul class="tabcordion-tabs">
+			<li class="tabcordion-tab is-active">
+				<a class="js-collapsible" href="#ex5-tab1">Tab 1</a>
+			</li>
+			<li class="tabcordion-tab">
+				<a class="js-collapsible" href="#ex5-tab2">Tab 2</a>
+			</li>
+			<li class="tabcordion-tab">
+				<a class="js-collapsible" href="#ex5-tab3">Tab 3</a>
+			</li>
+		</ul>
 
-	<div id="ex5-tab1" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
-		<div class="tabcordion-body">
-			&lsquo;It was much pleasanter at home,&rsquo; thought poor Alice, &lsquo;when one wasn&rsquo;t always growing larger and smaller, and being ordered about by
-			mice and rabbits. I almost wish I hadn&rsquo;t gone down that rabbit-hole — and yet — and yet — it&rsquo;s rather curious, you know, this sort of life! I do
-			wonder what can have happened to me! When I used to read fairy-tales, I fancied that kind of thing never happened, and now here I am in the middle of one!
-			There ought to be a book written about me, that there ought! And when I grow up, I&rsquo;ll write one.
+		<div id="ex5-tab1" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
+			<div class="tabcordion-body">
+				&lsquo;It was much pleasanter at home,&rsquo; thought poor Alice, &lsquo;when one wasn&rsquo;t always growing larger and smaller, and being ordered about by
+				mice and rabbits. I almost wish I hadn&rsquo;t gone down that rabbit-hole — and yet — and yet — it&rsquo;s rather curious, you know, this sort of life! I do
+				wonder what can have happened to me! When I used to read fairy-tales, I fancied that kind of thing never happened, and now here I am in the middle of one!
+				There ought to be a book written about me, that there ought! And when I grow up, I&rsquo;ll write one.
+			</div>
 		</div>
-	</div>
-	<div id="ex5-tab2" class="collapsible-body" aria-hidden="true" tabindex="-1">
-		<div class="tabcordion-body">
-			The chief difficulty Alice found at first was in managing her flamingo: she succeeded in getting its body tucked away, comfortably enough, under her arm,
-			with its legs hanging down, but generally, just as she had got its neck nicely straightened out, and was going to give the hedgehog a blow with its head,
-			it would twist itself round and look up in her face, with such a puzzled expression that she could not help bursting out laughing: and when she had got
-			its head down, and was going to begin again, it was very provoking to find that the hedgehog had unrolled itself, and was in the act of crawling away:
-			besides all this, there was generally a ridge or furrow in the way wherever she wanted to send the hedgehog to, and, as the doubled-up soldiers were
-			always getting up and walking off to other parts of the ground, Alice soon came to the conclusion that it was a very difficult game indeed.
+		<div id="ex5-tab2" class="collapsible-body" aria-hidden="true" tabindex="-1">
+			<div class="tabcordion-body">
+				The chief difficulty Alice found at first was in managing her flamingo: she succeeded in getting its body tucked away, comfortably enough, under her arm,
+				with its legs hanging down, but generally, just as she had got its neck nicely straightened out, and was going to give the hedgehog a blow with its head,
+				it would twist itself round and look up in her face, with such a puzzled expression that she could not help bursting out laughing: and when she had got
+				its head down, and was going to begin again, it was very provoking to find that the hedgehog had unrolled itself, and was in the act of crawling away:
+				besides all this, there was generally a ridge or furrow in the way wherever she wanted to send the hedgehog to, and, as the doubled-up soldiers were
+				always getting up and walking off to other parts of the ground, Alice soon came to the conclusion that it was a very difficult game indeed.
+			</div>
 		</div>
-	</div>
-	<div id="ex5-tab3" class="collapsible-body" aria-hidden="true" tabindex="-1">
-		<div class="tabcordion-body">
-			The Caterpillar and Alice looked at each other for some time in silence: at last the Caterpillar took the hookah out of its mouth, and addressed her in a
-			languid, sleepy voice.<br>
-			&lsquo;Who are you?&rsquo; said the Caterpillar.<br>
-			This was not an encouraging opening for a conversation. Alice replied, rather shyly, &lsquo;I — I hardly know, sir, just at present — at least I know who I was
-			when I got up this morning, but I think I must have been changed several times since then.&rsquo;<br>
-			&lsquo;What do you mean by that?&rsquo; said the Caterpillar sternly. &lsquo;Explain yourself!&rsquo;<br>
-			&lsquo;I can&rsquo;t explain myself, I&rsquo;m afraid, sir&rsquo; said Alice, &rsquo;because I&rsquo;m not myself, you see.&rsquo;<br>
-			&lsquo;I don&rsquo;t see,&rsquo; said the Caterpillar.<br>
-			&lsquo;I&rsquo;m afraid I can&rsquo;t put it more clearly,&rsquo; Alice replied very politely, &lsquo;for I can&rsquo;t understand it myself to begin
-			with; and being so many different sizes in a day is very confusing.&rsquo;
+		<div id="ex5-tab3" class="collapsible-body" aria-hidden="true" tabindex="-1">
+			<div class="tabcordion-body">
+				The Caterpillar and Alice looked at each other for some time in silence: at last the Caterpillar took the hookah out of its mouth, and addressed her in a
+				languid, sleepy voice.<br>
+				&lsquo;Who are you?&rsquo; said the Caterpillar.<br>
+				This was not an encouraging opening for a conversation. Alice replied, rather shyly, &lsquo;I — I hardly know, sir, just at present — at least I know who I was
+				when I got up this morning, but I think I must have been changed several times since then.&rsquo;<br>
+				&lsquo;What do you mean by that?&rsquo; said the Caterpillar sternly. &lsquo;Explain yourself!&rsquo;<br>
+				&lsquo;I can&rsquo;t explain myself, I&rsquo;m afraid, sir&rsquo; said Alice, &rsquo;because I&rsquo;m not myself, you see.&rsquo;<br>
+				&lsquo;I don&rsquo;t see,&rsquo; said the Caterpillar.<br>
+				&lsquo;I&rsquo;m afraid I can&rsquo;t put it more clearly,&rsquo; Alice replied very politely, &lsquo;for I can&rsquo;t understand it myself to begin
+				with; and being so many different sizes in a day is very confusing.&rsquo;
+			</div>
 		</div>
-	</div>
 
-</div>
+	</div>
 {% endcapture %}
 
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-	{{ example }}
+	<div class="tabcordion tabcordion-lego tabcordion-tabs">
+		<ul class="tabcordion-tabs">
+			<li class="tabcordion-tab is-active">
+				<a class="js-collapsible" href="#ex1-tab1">YOUR TAB</a>
+			</li>
+			<li class="tabcordion-tab">
+				<a class="js-collapsible" href="#ex1-tab2">YOUR TAB</a>
+			</li>
+			<li class="tabcordion-tab">
+				<a class="js-collapsible" href="#ex1-tab3">YOUR TAB</a>
+			</li>
+		</ul>
+
+		<div id="ex1-tab1" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
+			<div class="tabcordion-body">
+				YOUR TEXT
+			</div>
+		</div>
+		<div id="ex1-tab2" class="collapsible-body" aria-hidden="true" tabindex="-1">
+			<div class="tabcordion-body">
+				YOUR TEXT
+			</div>
+		</div>
+		<div id="ex1-tab3" class="collapsible-body" aria-hidden="true" tabindex="-1">
+			<div class="tabcordion-body">
+				YOUR TEXT
+			</div>
+		</div>
+	</div>
 {% endcapture %}
 
 
 {% comment %} CSS TAB {% endcomment %}
 {% capture CSS %}
-	FILL-ME
+	Modifier class:
+
+	<ul>
+		<li>
+			<code class="classes">tabcordion-lego</code>
+		</li>
+	</ul>
 {% endcapture %}
 
 
 {% comment %} LESS TAB {% endcomment %}
 {% capture LESS %}
-	FILL-ME
+	{{ LESS }}
 {% endcapture %}
 
 
 {% comment %} JS TAB {% endcomment %}
 {% capture JS %}
-	FILL-ME
+	{{ JS }}
 {% endcapture %}
 
 
@@ -386,77 +514,111 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-<div class="tabcordion tabcordion-lego tabcordion-tabs">
-	<ul class="tabcordion-tabs tabcordion-tabs-justified">
-		<li class="tabcordion-tab is-active">
-			<a class="js-collapsible" href="#ex6-tab1">Tab 1</a>
-		</li>
-		<li class="tabcordion-tab">
-			<a class="js-collapsible" href="#ex6-tab2">Tab 2</a>
-		</li>
-		<li class="tabcordion-tab">
-			<a class="js-collapsible" href="#ex6-tab3">Tab 3</a>
-		</li>
-	</ul>
+	<div class="tabcordion tabcordion-lego tabcordion-tabs">
+		<ul class="tabcordion-tabs tabcordion-tabs-justified">
+			<li class="tabcordion-tab is-active">
+				<a class="js-collapsible" href="#ex6-tab1">Tab 1</a>
+			</li>
+			<li class="tabcordion-tab">
+				<a class="js-collapsible" href="#ex6-tab2">Tab 2</a>
+			</li>
+			<li class="tabcordion-tab">
+				<a class="js-collapsible" href="#ex6-tab3">Tab 3</a>
+			</li>
+		</ul>
 
-	<div id="ex6-tab1" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
-		<div class="tabcordion-body">
-			&lsquo;It was much pleasanter at home,&rsquo; thought poor Alice, &lsquo;when one wasn&rsquo;t always growing larger and smaller, and being ordered about by
-			mice and rabbits. I almost wish I hadn&rsquo;t gone down that rabbit-hole — and yet — and yet — it&rsquo;s rather curious, you know, this sort of life! I do
-			wonder what can have happened to me! When I used to read fairy-tales, I fancied that kind of thing never happened, and now here I am in the middle of one!
-			There ought to be a book written about me, that there ought! And when I grow up, I&rsquo;ll write one.
+		<div id="ex6-tab1" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
+			<div class="tabcordion-body">
+				&lsquo;It was much pleasanter at home,&rsquo; thought poor Alice, &lsquo;when one wasn&rsquo;t always growing larger and smaller, and being ordered about by
+				mice and rabbits. I almost wish I hadn&rsquo;t gone down that rabbit-hole — and yet — and yet — it&rsquo;s rather curious, you know, this sort of life! I do
+				wonder what can have happened to me! When I used to read fairy-tales, I fancied that kind of thing never happened, and now here I am in the middle of one!
+				There ought to be a book written about me, that there ought! And when I grow up, I&rsquo;ll write one.
+			</div>
 		</div>
-	</div>
-	<div id="ex6-tab2" class="collapsible-body" aria-hidden="true" tabindex="-1">
-		<div class="tabcordion-body">
-			The chief difficulty Alice found at first was in managing her flamingo: she succeeded in getting its body tucked away, comfortably enough, under her arm,
-			with its legs hanging down, but generally, just as she had got its neck nicely straightened out, and was going to give the hedgehog a blow with its head,
-			it would twist itself round and look up in her face, with such a puzzled expression that she could not help bursting out laughing: and when she had got
-			its head down, and was going to begin again, it was very provoking to find that the hedgehog had unrolled itself, and was in the act of crawling away:
-			besides all this, there was generally a ridge or furrow in the way wherever she wanted to send the hedgehog to, and, as the doubled-up soldiers were
-			always getting up and walking off to other parts of the ground, Alice soon came to the conclusion that it was a very difficult game indeed.
+		<div id="ex6-tab2" class="collapsible-body" aria-hidden="true" tabindex="-1">
+			<div class="tabcordion-body">
+				The chief difficulty Alice found at first was in managing her flamingo: she succeeded in getting its body tucked away, comfortably enough, under her arm,
+				with its legs hanging down, but generally, just as she had got its neck nicely straightened out, and was going to give the hedgehog a blow with its head,
+				it would twist itself round and look up in her face, with such a puzzled expression that she could not help bursting out laughing: and when she had got
+				its head down, and was going to begin again, it was very provoking to find that the hedgehog had unrolled itself, and was in the act of crawling away:
+				besides all this, there was generally a ridge or furrow in the way wherever she wanted to send the hedgehog to, and, as the doubled-up soldiers were
+				always getting up and walking off to other parts of the ground, Alice soon came to the conclusion that it was a very difficult game indeed.
+			</div>
 		</div>
-	</div>
-	<div id="ex6-tab3" class="collapsible-body" aria-hidden="true" tabindex="-1">
-		<div class="tabcordion-body">
-			The Caterpillar and Alice looked at each other for some time in silence: at last the Caterpillar took the hookah out of its mouth, and addressed her in a
-			languid, sleepy voice.<br>
-			&lsquo;Who are you?&rsquo; said the Caterpillar.<br>
-			This was not an encouraging opening for a conversation. Alice replied, rather shyly, &lsquo;I — I hardly know, sir, just at present — at least I know who I was
-			when I got up this morning, but I think I must have been changed several times since then.&rsquo;<br>
-			&lsquo;What do you mean by that?&rsquo; said the Caterpillar sternly. &lsquo;Explain yourself!&rsquo;<br>
-			&lsquo;I can&rsquo;t explain myself, I&rsquo;m afraid, sir&rsquo; said Alice, &rsquo;because I&rsquo;m not myself, you see.&rsquo;<br>
-			&lsquo;I don&rsquo;t see,&rsquo; said the Caterpillar.<br>
-			&lsquo;I&rsquo;m afraid I can&rsquo;t put it more clearly,&rsquo; Alice replied very politely, &lsquo;for I can&rsquo;t understand it myself to begin
-			with; and being so many different sizes in a day is very confusing.&rsquo;
+		<div id="ex6-tab3" class="collapsible-body" aria-hidden="true" tabindex="-1">
+			<div class="tabcordion-body">
+				The Caterpillar and Alice looked at each other for some time in silence: at last the Caterpillar took the hookah out of its mouth, and addressed her in a
+				languid, sleepy voice.<br>
+				&lsquo;Who are you?&rsquo; said the Caterpillar.<br>
+				This was not an encouraging opening for a conversation. Alice replied, rather shyly, &lsquo;I — I hardly know, sir, just at present — at least I know who I was
+				when I got up this morning, but I think I must have been changed several times since then.&rsquo;<br>
+				&lsquo;What do you mean by that?&rsquo; said the Caterpillar sternly. &lsquo;Explain yourself!&rsquo;<br>
+				&lsquo;I can&rsquo;t explain myself, I&rsquo;m afraid, sir&rsquo; said Alice, &rsquo;because I&rsquo;m not myself, you see.&rsquo;<br>
+				&lsquo;I don&rsquo;t see,&rsquo; said the Caterpillar.<br>
+				&lsquo;I&rsquo;m afraid I can&rsquo;t put it more clearly,&rsquo; Alice replied very politely, &lsquo;for I can&rsquo;t understand it myself to begin
+				with; and being so many different sizes in a day is very confusing.&rsquo;
+			</div>
 		</div>
-	</div>
 
-</div>
+	</div>
 {% endcapture %}
 
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-	{{ example }}
+	<div class="tabcordion tabcordion-lego tabcordion-tabs">
+		<ul class="tabcordion-tabs tabcordion-tabs-justified">
+			<li class="tabcordion-tab is-active">
+				<a class="js-collapsible" href="#ex1-tab1">YOUR TAB</a>
+			</li>
+			<li class="tabcordion-tab">
+				<a class="js-collapsible" href="#ex1-tab2">YOUR TAB</a>
+			</li>
+			<li class="tabcordion-tab">
+				<a class="js-collapsible" href="#ex1-tab3">YOUR TAB</a>
+			</li>
+		</ul>
+
+		<div id="ex1-tab1" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
+			<div class="tabcordion-body">
+				YOUR TEXT
+			</div>
+		</div>
+		<div id="ex1-tab2" class="collapsible-body" aria-hidden="true" tabindex="-1">
+			<div class="tabcordion-body">
+				YOUR TEXT
+			</div>
+		</div>
+		<div id="ex1-tab3" class="collapsible-body" aria-hidden="true" tabindex="-1">
+			<div class="tabcordion-body">
+				YOUR TEXT
+			</div>
+		</div>
+	</div>
 {% endcapture %}
 
 
 {% comment %} CSS TAB {% endcomment %}
 {% capture CSS %}
-	FILL-ME
+	Modifier class:
+
+	<ul>
+		<li>
+			<code class="classes">tabcordion-tabs-justified</code>
+		</li>
+	</ul>
 {% endcapture %}
 
 
 {% comment %} LESS TAB {% endcomment %}
 {% capture LESS %}
-	FILL-ME
+	{{ LESS }}
 {% endcapture %}
 
 
 {% comment %} JS TAB {% endcomment %}
 {% capture JS %}
-	FILL-ME
+	{{ JS }}
 {% endcapture %}
 
 
@@ -492,75 +654,108 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-<div class="tabcordion tabcordion-accordion">
-	<div class="tabcordion-body-header is-active">
-		<a href="#ex3-tab1" class="tabcordion-body-headline js-collapsible">Tab 1</a>
-	</div>
-	<div id="ex3-tab1" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
-		<div class="tabcordion-body">
-			&lsquo;It was much pleasanter at home,&rsquo; thought poor Alice, &lsquo;when one wasn&rsquo;t always growing larger and smaller, and being ordered about by
-			mice and rabbits. I almost wish I hadn&rsquo;t gone down that rabbit-hole — and yet — and yet — it&rsquo;s rather curious, you know, this sort of life! I do
-			wonder what can have happened to me! When I used to read fairy-tales, I fancied that kind of thing never happened, and now here I am in the middle of one!
-			There ought to be a book written about me, that there ought! And when I grow up, I&rsquo;ll write one.
+	<div class="tabcordion tabcordion-accordion">
+		<div class="tabcordion-body-header is-active">
+			<a href="#ex3-tab1" class="tabcordion-body-headline js-collapsible">Tab 1</a>
 		</div>
-	</div>
+		<div id="ex3-tab1" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
+			<div class="tabcordion-body">
+				&lsquo;It was much pleasanter at home,&rsquo; thought poor Alice, &lsquo;when one wasn&rsquo;t always growing larger and smaller, and being ordered about by
+				mice and rabbits. I almost wish I hadn&rsquo;t gone down that rabbit-hole — and yet — and yet — it&rsquo;s rather curious, you know, this sort of life! I do
+				wonder what can have happened to me! When I used to read fairy-tales, I fancied that kind of thing never happened, and now here I am in the middle of one!
+				There ought to be a book written about me, that there ought! And when I grow up, I&rsquo;ll write one.
+			</div>
+		</div>
 
-	<div class="tabcordion-body-header">
-		<a href="#ex3-tab2" class="tabcordion-body-headline js-collapsible">Tab 2</a>
-	</div>
-	<div id="ex3-tab2" class="collapsible-body" aria-hidden="true" tabindex="-1">
-		<div class="tabcordion-body">
-			The chief difficulty Alice found at first was in managing her flamingo: she succeeded in getting its body tucked away, comfortably enough, under her arm,
-			with its legs hanging down, but generally, just as she had got its neck nicely straightened out, and was going to give the hedgehog a blow with its head,
-			it would twist itself round and look up in her face, with such a puzzled expression that she could not help bursting out laughing: and when she had got
-			its head down, and was going to begin again, it was very provoking to find that the hedgehog had unrolled itself, and was in the act of crawling away:
-			besides all this, there was generally a ridge or furrow in the way wherever she wanted to send the hedgehog to, and, as the doubled-up soldiers were
-			always getting up and walking off to other parts of the ground, Alice soon came to the conclusion that it was a very difficult game indeed.
+		<div class="tabcordion-body-header">
+			<a href="#ex3-tab2" class="tabcordion-body-headline js-collapsible">Tab 2</a>
 		</div>
-	</div>
+		<div id="ex3-tab2" class="collapsible-body" aria-hidden="true" tabindex="-1">
+			<div class="tabcordion-body">
+				The chief difficulty Alice found at first was in managing her flamingo: she succeeded in getting its body tucked away, comfortably enough, under her arm,
+				with its legs hanging down, but generally, just as she had got its neck nicely straightened out, and was going to give the hedgehog a blow with its head,
+				it would twist itself round and look up in her face, with such a puzzled expression that she could not help bursting out laughing: and when she had got
+				its head down, and was going to begin again, it was very provoking to find that the hedgehog had unrolled itself, and was in the act of crawling away:
+				besides all this, there was generally a ridge or furrow in the way wherever she wanted to send the hedgehog to, and, as the doubled-up soldiers were
+				always getting up and walking off to other parts of the ground, Alice soon came to the conclusion that it was a very difficult game indeed.
+			</div>
+		</div>
 
-	<div class="tabcordion-body-header">
-		<a href="#ex3-tab3" class="tabcordion-body-headline js-collapsible">Tab 3 with long text and whatnot to see the wrapping of the text</a>
-	</div>
-	<div id="ex3-tab3" class="collapsible-body" aria-hidden="true" tabindex="-1">
-		<div class="tabcordion-body">
-			The Caterpillar and Alice looked at each other for some time in silence: at last the Caterpillar took the hookah out of its mouth, and addressed her in a
-			languid, sleepy voice.<br>
-			&lsquo;Who are you?&rsquo; said the Caterpillar.<br>
-			This was not an encouraging opening for a conversation. Alice replied, rather shyly, &lsquo;I — I hardly know, sir, just at present — at least I know who I was
-			when I got up this morning, but I think I must have been changed several times since then.&rsquo;<br>
-			&lsquo;What do you mean by that?&rsquo; said the Caterpillar sternly. &lsquo;Explain yourself!&rsquo;<br>
-			&lsquo;I can&rsquo;t explain myself, I&rsquo;m afraid, sir&rsquo; said Alice, &rsquo;because I&rsquo;m not myself, you see.&rsquo;<br>
-			&lsquo;I don&rsquo;t see,&rsquo; said the Caterpillar.<br>
-			&lsquo;I&rsquo;m afraid I can&rsquo;t put it more clearly,&rsquo; Alice replied very politely, &lsquo;for I can&rsquo;t understand it myself to begin
-			with; and being so many different sizes in a day is very confusing.&rsquo;
+		<div class="tabcordion-body-header">
+			<a href="#ex3-tab3" class="tabcordion-body-headline js-collapsible">Tab 3 with long text and whatnot to see the wrapping of the text</a>
+		</div>
+		<div id="ex3-tab3" class="collapsible-body" aria-hidden="true" tabindex="-1">
+			<div class="tabcordion-body">
+				The Caterpillar and Alice looked at each other for some time in silence: at last the Caterpillar took the hookah out of its mouth, and addressed her in a
+				languid, sleepy voice.<br>
+				&lsquo;Who are you?&rsquo; said the Caterpillar.<br>
+				This was not an encouraging opening for a conversation. Alice replied, rather shyly, &lsquo;I — I hardly know, sir, just at present — at least I know who I was
+				when I got up this morning, but I think I must have been changed several times since then.&rsquo;<br>
+				&lsquo;What do you mean by that?&rsquo; said the Caterpillar sternly. &lsquo;Explain yourself!&rsquo;<br>
+				&lsquo;I can&rsquo;t explain myself, I&rsquo;m afraid, sir&rsquo; said Alice, &rsquo;because I&rsquo;m not myself, you see.&rsquo;<br>
+				&lsquo;I don&rsquo;t see,&rsquo; said the Caterpillar.<br>
+				&lsquo;I&rsquo;m afraid I can&rsquo;t put it more clearly,&rsquo; Alice replied very politely, &lsquo;for I can&rsquo;t understand it myself to begin
+				with; and being so many different sizes in a day is very confusing.&rsquo;
+			</div>
 		</div>
 	</div>
-</div>
 {% endcapture %}
 
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-	{{ example }}
+	<div class="tabcordion tabcordion-accordion">
+		<div class="tabcordion-body-header is-active">
+			<a href="#ex3-tab1" class="tabcordion-body-headline js-collapsible">YOUR TAB</a>
+		</div>
+		<div id="ex3-tab1" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
+			<div class="tabcordion-body">
+				YOUR TEXT
+			</div>
+		</div>
+
+		<div class="tabcordion-body-header">
+			<a href="#ex3-tab2" class="tabcordion-body-headline js-collapsible">YOUR TAB</a>
+		</div>
+		<div id="ex3-tab2" class="collapsible-body" aria-hidden="true" tabindex="-1">
+			<div class="tabcordion-body">
+				YOUR TEXT
+			</div>
+		</div>
+
+		<div class="tabcordion-body-header">
+			<a href="#ex3-tab3" class="tabcordion-body-headline js-collapsible">YOUR TAB</a>
+		</div>
+		<div id="ex3-tab3" class="collapsible-body" aria-hidden="true" tabindex="-1">
+			<div class="tabcordion-body">
+				YOUR TEXT
+			</div>
+		</div>
+	</div>
 {% endcapture %}
 
 
 {% comment %} CSS TAB {% endcomment %}
 {% capture CSS %}
-	FILL-ME
+	Modifier class:
+
+	<ul>
+		<li>
+			<code class="classes">tabcordion-accordion</code>
+		</li>
+	</ul>
 {% endcapture %}
 
 
 {% comment %} LESS TAB {% endcomment %}
 {% capture LESS %}
-	FILL-ME
+	{{ LESS }}
 {% endcapture %}
 
 
 {% comment %} JS TAB {% endcomment %}
 {% capture JS %}
-	FILL-ME
+	{{ JS }}
 {% endcapture %}
 
 
@@ -568,6 +763,7 @@
 {% comment %}
 	--------------------------------------------------------------------------------------------------------------------------------------------------------------
 {% endcomment %}
+
 
 
 
@@ -593,77 +789,110 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-<div class="tabcordion tabcordion-lego tabcordion-accordion">
-	<div class="tabcordion-body-header is-active">
-		<a href="#ex7-tab1" class="tabcordion-body-headline js-collapsible">Tab 1</a>
-	</div>
-	<div id="ex7-tab1" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
-		<div class="tabcordion-body">
-			&lsquo;It was much pleasanter at home,&rsquo; thought poor Alice, &lsquo;when one wasn&rsquo;t always growing larger and smaller, and being ordered about by
-			mice and rabbits. I almost wish I hadn&rsquo;t gone down that rabbit-hole — and yet — and yet — it&rsquo;s rather curious, you know, this sort of life! I do
-			wonder what can have happened to me! When I used to read fairy-tales, I fancied that kind of thing never happened, and now here I am in the middle of one!
-			There ought to be a book written about me, that there ought! And when I grow up, I&rsquo;ll write one.
+	<div class="tabcordion tabcordion-lego tabcordion-accordion">
+		<div class="tabcordion-body-header is-active">
+			<a href="#ex7-tab1" class="tabcordion-body-headline js-collapsible">Tab 1</a>
 		</div>
-	</div>
+		<div id="ex7-tab1" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
+			<div class="tabcordion-body">
+				&lsquo;It was much pleasanter at home,&rsquo; thought poor Alice, &lsquo;when one wasn&rsquo;t always growing larger and smaller, and being ordered about by
+				mice and rabbits. I almost wish I hadn&rsquo;t gone down that rabbit-hole — and yet — and yet — it&rsquo;s rather curious, you know, this sort of life! I do
+				wonder what can have happened to me! When I used to read fairy-tales, I fancied that kind of thing never happened, and now here I am in the middle of one!
+				There ought to be a book written about me, that there ought! And when I grow up, I&rsquo;ll write one.
+			</div>
+		</div>
 
-	<div class="tabcordion-body-header">
-		<a href="#ex7-tab2" class="tabcordion-body-headline js-collapsible">
-			Tab 2
-		</a>
-	</div>
-	<div id="ex7-tab2" class="collapsible-body" aria-hidden="true" tabindex="-1">
-		<div class="tabcordion-body">
-			The chief difficulty Alice found at first was in managing her flamingo: she succeeded in getting its body tucked away, comfortably enough, under her arm,
-			with its legs hanging down, but generally, just as she had got its neck nicely straightened out, and was going to give the hedgehog a blow with its head,
-			it would twist itself round and look up in her face, with such a puzzled expression that she could not help bursting out laughing: and when she had got
-			its head down, and was going to begin again, it was very provoking to find that the hedgehog had unrolled itself, and was in the act of crawling away:
-			besides all this, there was generally a ridge or furrow in the way wherever she wanted to send the hedgehog to, and, as the doubled-up soldiers were
-			always getting up and walking off to other parts of the ground, Alice soon came to the conclusion that it was a very difficult game indeed.
+		<div class="tabcordion-body-header">
+			<a href="#ex7-tab2" class="tabcordion-body-headline js-collapsible">
+				Tab 2
+			</a>
 		</div>
-	</div>
+		<div id="ex7-tab2" class="collapsible-body" aria-hidden="true" tabindex="-1">
+			<div class="tabcordion-body">
+				The chief difficulty Alice found at first was in managing her flamingo: she succeeded in getting its body tucked away, comfortably enough, under her arm,
+				with its legs hanging down, but generally, just as she had got its neck nicely straightened out, and was going to give the hedgehog a blow with its head,
+				it would twist itself round and look up in her face, with such a puzzled expression that she could not help bursting out laughing: and when she had got
+				its head down, and was going to begin again, it was very provoking to find that the hedgehog had unrolled itself, and was in the act of crawling away:
+				besides all this, there was generally a ridge or furrow in the way wherever she wanted to send the hedgehog to, and, as the doubled-up soldiers were
+				always getting up and walking off to other parts of the ground, Alice soon came to the conclusion that it was a very difficult game indeed.
+			</div>
+		</div>
 
-	<div class="tabcordion-body-header">
-		<a href="#ex7-tab3" class="tabcordion-body-headline js-collapsible">Tab 3 with long text and whatnot to see the wrapping of the text</a>
-	</div>
-	<div id="ex7-tab3" class="collapsible-body" aria-hidden="true" tabindex="-1">
-		<div class="tabcordion-body">
-			The Caterpillar and Alice looked at each other for some time in silence: at last the Caterpillar took the hookah out of its mouth, and addressed her in a
-			languid, sleepy voice.<br>
-			&lsquo;Who are you?&rsquo; said the Caterpillar.<br>
-			This was not an encouraging opening for a conversation. Alice replied, rather shyly, &lsquo;I — I hardly know, sir, just at present — at least I know who I was
-			when I got up this morning, but I think I must have been changed several times since then.&rsquo;<br>
-			&lsquo;What do you mean by that?&rsquo; said the Caterpillar sternly. &lsquo;Explain yourself!&rsquo;<br>
-			&lsquo;I can&rsquo;t explain myself, I&rsquo;m afraid, sir&rsquo; said Alice, &rsquo;because I&rsquo;m not myself, you see.&rsquo;<br>
-			&lsquo;I don&rsquo;t see,&rsquo; said the Caterpillar.<br>
-			&lsquo;I&rsquo;m afraid I can&rsquo;t put it more clearly,&rsquo; Alice replied very politely, &lsquo;for I can&rsquo;t understand it myself to begin
-			with; and being so many different sizes in a day is very confusing.&rsquo;
+		<div class="tabcordion-body-header">
+			<a href="#ex7-tab3" class="tabcordion-body-headline js-collapsible">Tab 3 with long text and whatnot to see the wrapping of the text</a>
+		</div>
+		<div id="ex7-tab3" class="collapsible-body" aria-hidden="true" tabindex="-1">
+			<div class="tabcordion-body">
+				The Caterpillar and Alice looked at each other for some time in silence: at last the Caterpillar took the hookah out of its mouth, and addressed her in a
+				languid, sleepy voice.<br>
+				&lsquo;Who are you?&rsquo; said the Caterpillar.<br>
+				This was not an encouraging opening for a conversation. Alice replied, rather shyly, &lsquo;I — I hardly know, sir, just at present — at least I know who I was
+				when I got up this morning, but I think I must have been changed several times since then.&rsquo;<br>
+				&lsquo;What do you mean by that?&rsquo; said the Caterpillar sternly. &lsquo;Explain yourself!&rsquo;<br>
+				&lsquo;I can&rsquo;t explain myself, I&rsquo;m afraid, sir&rsquo; said Alice, &rsquo;because I&rsquo;m not myself, you see.&rsquo;<br>
+				&lsquo;I don&rsquo;t see,&rsquo; said the Caterpillar.<br>
+				&lsquo;I&rsquo;m afraid I can&rsquo;t put it more clearly,&rsquo; Alice replied very politely, &lsquo;for I can&rsquo;t understand it myself to begin
+				with; and being so many different sizes in a day is very confusing.&rsquo;
+			</div>
 		</div>
 	</div>
-</div>
 {% endcapture %}
 
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-	{{ example }}
+	<div class="tabcordion tabcordion-lego tabcordion-accordion">
+		<div class="tabcordion-body-header is-active">
+			<a href="#ex3-tab1" class="tabcordion-body-headline js-collapsible">YOUR TAB</a>
+		</div>
+		<div id="ex3-tab1" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
+			<div class="tabcordion-body">
+				YOUR TEXT
+			</div>
+		</div>
+
+		<div class="tabcordion-body-header">
+			<a href="#ex3-tab2" class="tabcordion-body-headline js-collapsible">YOUR TAB</a>
+		</div>
+		<div id="ex3-tab2" class="collapsible-body" aria-hidden="true" tabindex="-1">
+			<div class="tabcordion-body">
+				YOUR TEXT
+			</div>
+		</div>
+
+		<div class="tabcordion-body-header">
+			<a href="#ex3-tab3" class="tabcordion-body-headline js-collapsible">YOUR TAB</a>
+		</div>
+		<div id="ex3-tab3" class="collapsible-body" aria-hidden="true" tabindex="-1">
+			<div class="tabcordion-body">
+				YOUR TEXT
+			</div>
+		</div>
+	</div>
 {% endcapture %}
 
 
 {% comment %} CSS TAB {% endcomment %}
 {% capture CSS %}
-	FILL-ME
+	Modifier class:
+
+	<ul>
+		<li>
+			<code class="classes">tabcordion-lego</code>
+		</li>
+	</ul>
 {% endcapture %}
 
 
 {% comment %} LESS TAB {% endcomment %}
 {% capture LESS %}
-	FILL-ME
+	{{ LESS }}
 {% endcapture %}
 
 
 {% comment %} JS TAB {% endcomment %}
 {% capture JS %}
-	FILL-ME
+	{{ JS }}
 {% endcapture %}
 
 
@@ -671,6 +900,7 @@
 {% comment %}
 	--------------------------------------------------------------------------------------------------------------------------------------------------------------
 {% endcomment %}
+
 
 
 
@@ -696,88 +926,125 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-<div class="tabcordion">
-	<ul class="tabcordion-tabs">
-		<li class="tabcordion-tab is-active">
-			<a class="js-collapsible" href="#ex4-tab1">Tab 1</a>
-		</li>
-		<li class="tabcordion-tab">
-			<a class="js-collapsible" href="#ex4-tab2">Tab 2</a>
-		</li>
-		<li class="tabcordion-tab">
-			<a class="js-collapsible" href="#ex4-tab3">Tab 3</a>
-		</li>
-	</ul>
+	<div class="tabcordion">
+		<ul class="tabcordion-tabs">
+			<li class="tabcordion-tab is-active">
+				<a class="js-collapsible" href="#ex4-tab1">Tab 1</a>
+			</li>
+			<li class="tabcordion-tab">
+				<a class="js-collapsible" href="#ex4-tab2">Tab 2</a>
+			</li>
+			<li class="tabcordion-tab">
+				<a class="js-collapsible" href="#ex4-tab3">Tab 3</a>
+			</li>
+		</ul>
 
-	<div class="tabcordion-body-header is-active">
-		<a href="#ex4-tab1" class="tabcordion-body-headline js-collapsible">Tab 1</a>
-	</div>
-	<div id="ex4-tab1" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
-		<div class="tabcordion-body">
-			&lsquo;It was much pleasanter at home,&rsquo; thought poor Alice, &lsquo;when one wasn&rsquo;t always growing larger and smaller, and being ordered about by
-			mice and rabbits. I almost wish I hadn&rsquo;t gone down that rabbit-hole — and yet — and yet — it&rsquo;s rather curious, you know, this sort of life! I do
-			wonder what can have happened to me! When I used to read fairy-tales, I fancied that kind of thing never happened, and now here I am in the middle of one!
-			There ought to be a book written about me, that there ought! And when I grow up, I&rsquo;ll write one.
+		<div class="tabcordion-body-header is-active">
+			<a href="#ex4-tab1" class="tabcordion-body-headline js-collapsible">Tab 1</a>
+		</div>
+		<div id="ex4-tab1" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
+			<div class="tabcordion-body">
+				&lsquo;It was much pleasanter at home,&rsquo; thought poor Alice, &lsquo;when one wasn&rsquo;t always growing larger and smaller, and being ordered about by
+				mice and rabbits. I almost wish I hadn&rsquo;t gone down that rabbit-hole — and yet — and yet — it&rsquo;s rather curious, you know, this sort of life! I do
+				wonder what can have happened to me! When I used to read fairy-tales, I fancied that kind of thing never happened, and now here I am in the middle of one!
+				There ought to be a book written about me, that there ought! And when I grow up, I&rsquo;ll write one.
+			</div>
+		</div>
+
+		<div class="tabcordion-body-header">
+			<a href="#ex4-tab2" class="tabcordion-body-headline js-collapsible">Tab 2</a>
+		</div>
+		<div id="ex4-tab2" class="collapsible-body" aria-hidden="true" tabindex="-1">
+			<div class="tabcordion-body">
+				The chief difficulty Alice found at first was in managing her flamingo: she succeeded in getting its body tucked away, comfortably enough, under her arm,
+				with its legs hanging down, but generally, just as she had got its neck nicely straightened out, and was going to give the hedgehog a blow with its head,
+				it would twist itself round and look up in her face, with such a puzzled expression that she could not help bursting out laughing: and when she had got
+				its head down, and was going to begin again, it was very provoking to find that the hedgehog had unrolled itself, and was in the act of crawling away:
+				besides all this, there was generally a ridge or furrow in the way wherever she wanted to send the hedgehog to, and, as the doubled-up soldiers were
+				always getting up and walking off to other parts of the ground, Alice soon came to the conclusion that it was a very difficult game indeed.
+			</div>
+		</div>
+
+		<div class="tabcordion-body-header">
+			<a href="#ex4-tab3" class="tabcordion-body-headline js-collapsible">Tab 3</a>
+		</div>
+		<div id="ex4-tab3" class="collapsible-body" aria-hidden="true" tabindex="-1">
+			<div class="tabcordion-body">
+				The Caterpillar and Alice looked at each other for some time in silence: at last the Caterpillar took the hookah out of its mouth, and addressed her in a
+				languid, sleepy voice.<br>
+				&lsquo;Who are you?&rsquo; said the Caterpillar.<br>
+				This was not an encouraging opening for a conversation. Alice replied, rather shyly, &lsquo;I — I hardly know, sir, just at present — at least I know who I was
+				when I got up this morning, but I think I must have been changed several times since then.&rsquo;<br>
+				&lsquo;What do you mean by that?&rsquo; said the Caterpillar sternly. &lsquo;Explain yourself!&rsquo;<br>
+				&lsquo;I can&rsquo;t explain myself, I&rsquo;m afraid, sir&rsquo; said Alice, &rsquo;because I&rsquo;m not myself, you see.&rsquo;<br>
+				&lsquo;I don&rsquo;t see,&rsquo; said the Caterpillar.<br>
+				&lsquo;I&rsquo;m afraid I can&rsquo;t put it more clearly,&rsquo; Alice replied very politely, &lsquo;for I can&rsquo;t understand it myself to begin
+				with; and being so many different sizes in a day is very confusing.&rsquo;
+			</div>
 		</div>
 	</div>
-
-	<div class="tabcordion-body-header">
-		<a href="#ex4-tab2" class="tabcordion-body-headline js-collapsible">Tab 2</a>
-	</div>
-	<div id="ex4-tab2" class="collapsible-body" aria-hidden="true" tabindex="-1">
-		<div class="tabcordion-body">
-			The chief difficulty Alice found at first was in managing her flamingo: she succeeded in getting its body tucked away, comfortably enough, under her arm,
-			with its legs hanging down, but generally, just as she had got its neck nicely straightened out, and was going to give the hedgehog a blow with its head,
-			it would twist itself round and look up in her face, with such a puzzled expression that she could not help bursting out laughing: and when she had got
-			its head down, and was going to begin again, it was very provoking to find that the hedgehog had unrolled itself, and was in the act of crawling away:
-			besides all this, there was generally a ridge or furrow in the way wherever she wanted to send the hedgehog to, and, as the doubled-up soldiers were
-			always getting up and walking off to other parts of the ground, Alice soon came to the conclusion that it was a very difficult game indeed.
-		</div>
-	</div>
-
-	<div class="tabcordion-body-header">
-		<a href="#ex4-tab3" class="tabcordion-body-headline js-collapsible">Tab 3</a>
-	</div>
-	<div id="ex4-tab3" class="collapsible-body" aria-hidden="true" tabindex="-1">
-		<div class="tabcordion-body">
-			The Caterpillar and Alice looked at each other for some time in silence: at last the Caterpillar took the hookah out of its mouth, and addressed her in a
-			languid, sleepy voice.<br>
-			&lsquo;Who are you?&rsquo; said the Caterpillar.<br>
-			This was not an encouraging opening for a conversation. Alice replied, rather shyly, &lsquo;I — I hardly know, sir, just at present — at least I know who I was
-			when I got up this morning, but I think I must have been changed several times since then.&rsquo;<br>
-			&lsquo;What do you mean by that?&rsquo; said the Caterpillar sternly. &lsquo;Explain yourself!&rsquo;<br>
-			&lsquo;I can&rsquo;t explain myself, I&rsquo;m afraid, sir&rsquo; said Alice, &rsquo;because I&rsquo;m not myself, you see.&rsquo;<br>
-			&lsquo;I don&rsquo;t see,&rsquo; said the Caterpillar.<br>
-			&lsquo;I&rsquo;m afraid I can&rsquo;t put it more clearly,&rsquo; Alice replied very politely, &lsquo;for I can&rsquo;t understand it myself to begin
-			with; and being so many different sizes in a day is very confusing.&rsquo;
-		</div>
-	</div>
-</div>
-
 {% endcapture %}
 
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-	{{ example }}
+	<div class="tabcordion">
+		<ul class="tabcordion-tabs">
+			<li class="tabcordion-tab is-active">
+				<a class="js-collapsible" href="#ex4-tab1">YOUR TAB</a>
+			</li>
+			<li class="tabcordion-tab">
+				<a class="js-collapsible" href="#ex4-tab2">YOUR TAB</a>
+			</li>
+			<li class="tabcordion-tab">
+				<a class="js-collapsible" href="#ex4-tab3">YOUR TAB</a>
+			</li>
+		</ul>
+
+		<div class="tabcordion-body-header is-active">
+			<a href="#ex4-tab1" class="tabcordion-body-headline js-collapsible">YOUR TAB</a>
+		</div>
+		<div id="ex4-tab1" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
+			<div class="tabcordion-body">
+				YOUR TEXT
+			</div>
+		</div>
+
+		<div class="tabcordion-body-header">
+			<a href="#ex4-tab2" class="tabcordion-body-headline js-collapsible">YOUR TAB</a>
+		</div>
+		<div id="ex4-tab2" class="collapsible-body" aria-hidden="true" tabindex="-1">
+			<div class="tabcordion-body">
+				YOUR TEXT
+			</div>
+		</div>
+
+		<div class="tabcordion-body-header">
+			<a href="#ex4-tab3" class="tabcordion-body-headline js-collapsible">YOUR TAB</a>
+		</div>
+		<div id="ex4-tab3" class="collapsible-body" aria-hidden="true" tabindex="-1">
+			<div class="tabcordion-body">
+				YOUR TEXT
+			</div>
+		</div>
+	</div>
 {% endcapture %}
 
 
 {% comment %} CSS TAB {% endcomment %}
 {% capture CSS %}
-	FILL-ME
 {% endcapture %}
 
 
 {% comment %} LESS TAB {% endcomment %}
 {% capture LESS %}
-	FILL-ME
+	{{ LESS }}
 {% endcapture %}
 
 
 {% comment %} JS TAB {% endcomment %}
 {% capture JS %}
-	FILL-ME
+	{{ JS }}
 {% endcapture %}
 
 
@@ -785,6 +1052,7 @@
 {% comment %}
 	--------------------------------------------------------------------------------------------------------------------------------------------------------------
 {% endcomment %}
+
 
 
 
@@ -810,88 +1078,133 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-<div class="tabcordion tabcordion-lego">
-	<ul class="tabcordion-tabs">
-		<li class="tabcordion-tab is-active">
-			<a class="js-collapsible" href="#ex8-tab1">Tab 1</a>
-		</li>
-		<li class="tabcordion-tab">
-			<a class="js-collapsible" href="#ex8-tab2">Tab 2</a>
-		</li>
-		<li class="tabcordion-tab">
-			<a class="js-collapsible" href="#ex8-tab3">Tab 3</a>
-		</li>
-	</ul>
+	<div class="tabcordion tabcordion-lego">
+		<ul class="tabcordion-tabs">
+			<li class="tabcordion-tab is-active">
+				<a class="js-collapsible" href="#ex8-tab1">Tab 1</a>
+			</li>
+			<li class="tabcordion-tab">
+				<a class="js-collapsible" href="#ex8-tab2">Tab 2</a>
+			</li>
+			<li class="tabcordion-tab">
+				<a class="js-collapsible" href="#ex8-tab3">Tab 3</a>
+			</li>
+		</ul>
 
-	<div class="tabcordion-body-header is-active">
-		<a href="#ex8-tab1" class="tabcordion-body-headline js-collapsible">Tab 1</a>
-	</div>
-	<div id="ex8-tab1" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
-		<div class="tabcordion-body">
-			&lsquo;It was much pleasanter at home,&rsquo; thought poor Alice, &lsquo;when one wasn&rsquo;t always growing larger and smaller, and being ordered about by
-			mice and rabbits. I almost wish I hadn&rsquo;t gone down that rabbit-hole — and yet — and yet — it&rsquo;s rather curious, you know, this sort of life! I do
-			wonder what can have happened to me! When I used to read fairy-tales, I fancied that kind of thing never happened, and now here I am in the middle of one!
-			There ought to be a book written about me, that there ought! And when I grow up, I&rsquo;ll write one.
+		<div class="tabcordion-body-header is-active">
+			<a href="#ex8-tab1" class="tabcordion-body-headline js-collapsible">Tab 1</a>
 		</div>
-	</div>
-
-	<div class="tabcordion-body-header">
-		<a href="#ex8-tab2" class="tabcordion-body-headline js-collapsible">Tab 2</a>
-	</div>
-	<div id="ex8-tab2" class="collapsible-body" aria-hidden="true" tabindex="-1">
-		<div class="tabcordion-body">
-			The chief difficulty Alice found at first was in managing her flamingo: she succeeded in getting its body tucked away, comfortably enough, under her arm,
-			with its legs hanging down, but generally, just as she had got its neck nicely straightened out, and was going to give the hedgehog a blow with its head,
-			it would twist itself round and look up in her face, with such a puzzled expression that she could not help bursting out laughing: and when she had got
-			its head down, and was going to begin again, it was very provoking to find that the hedgehog had unrolled itself, and was in the act of crawling away:
-			besides all this, there was generally a ridge or furrow in the way wherever she wanted to send the hedgehog to, and, as the doubled-up soldiers were
-			always getting up and walking off to other parts of the ground, Alice soon came to the conclusion that it was a very difficult game indeed.
+		<div id="ex8-tab1" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
+			<div class="tabcordion-body">
+				&lsquo;It was much pleasanter at home,&rsquo; thought poor Alice, &lsquo;when one wasn&rsquo;t always growing larger and smaller, and being ordered about by
+				mice and rabbits. I almost wish I hadn&rsquo;t gone down that rabbit-hole — and yet — and yet — it&rsquo;s rather curious, you know, this sort of life! I do
+				wonder what can have happened to me! When I used to read fairy-tales, I fancied that kind of thing never happened, and now here I am in the middle of one!
+				There ought to be a book written about me, that there ought! And when I grow up, I&rsquo;ll write one.
+			</div>
 		</div>
-	</div>
 
-	<div class="tabcordion-body-header">
-		<a href="#ex8-tab3" class="tabcordion-body-headline js-collapsible">Tab 3</a>
-	</div>
-	<div id="ex8-tab3" class="collapsible-body" aria-hidden="true" tabindex="-1">
-		<div class="tabcordion-body">
-			The Caterpillar and Alice looked at each other for some time in silence: at last the Caterpillar took the hookah out of its mouth, and addressed her in a
-			languid, sleepy voice.<br>
-			&lsquo;Who are you?&rsquo; said the Caterpillar.<br>
-			This was not an encouraging opening for a conversation. Alice replied, rather shyly, &lsquo;I — I hardly know, sir, just at present — at least I know who I was
-			when I got up this morning, but I think I must have been changed several times since then.&rsquo;<br>
-			&lsquo;What do you mean by that?&rsquo; said the Caterpillar sternly. &lsquo;Explain yourself!&rsquo;<br>
-			&lsquo;I can&rsquo;t explain myself, I&rsquo;m afraid, sir&rsquo; said Alice, &rsquo;because I&rsquo;m not myself, you see.&rsquo;<br>
-			&lsquo;I don&rsquo;t see,&rsquo; said the Caterpillar.<br>
-			&lsquo;I&rsquo;m afraid I can&rsquo;t put it more clearly,&rsquo; Alice replied very politely, &lsquo;for I can&rsquo;t understand it myself to begin
-			with; and being so many different sizes in a day is very confusing.&rsquo;
+		<div class="tabcordion-body-header">
+			<a href="#ex8-tab2" class="tabcordion-body-headline js-collapsible">Tab 2</a>
 		</div>
-	</div>
+		<div id="ex8-tab2" class="collapsible-body" aria-hidden="true" tabindex="-1">
+			<div class="tabcordion-body">
+				The chief difficulty Alice found at first was in managing her flamingo: she succeeded in getting its body tucked away, comfortably enough, under her arm,
+				with its legs hanging down, but generally, just as she had got its neck nicely straightened out, and was going to give the hedgehog a blow with its head,
+				it would twist itself round and look up in her face, with such a puzzled expression that she could not help bursting out laughing: and when she had got
+				its head down, and was going to begin again, it was very provoking to find that the hedgehog had unrolled itself, and was in the act of crawling away:
+				besides all this, there was generally a ridge or furrow in the way wherever she wanted to send the hedgehog to, and, as the doubled-up soldiers were
+				always getting up and walking off to other parts of the ground, Alice soon came to the conclusion that it was a very difficult game indeed.
+			</div>
+		</div>
 
-</div>
+		<div class="tabcordion-body-header">
+			<a href="#ex8-tab3" class="tabcordion-body-headline js-collapsible">Tab 3</a>
+		</div>
+		<div id="ex8-tab3" class="collapsible-body" aria-hidden="true" tabindex="-1">
+			<div class="tabcordion-body">
+				The Caterpillar and Alice looked at each other for some time in silence: at last the Caterpillar took the hookah out of its mouth, and addressed her in a
+				languid, sleepy voice.<br>
+				&lsquo;Who are you?&rsquo; said the Caterpillar.<br>
+				This was not an encouraging opening for a conversation. Alice replied, rather shyly, &lsquo;I — I hardly know, sir, just at present — at least I know who I was
+				when I got up this morning, but I think I must have been changed several times since then.&rsquo;<br>
+				&lsquo;What do you mean by that?&rsquo; said the Caterpillar sternly. &lsquo;Explain yourself!&rsquo;<br>
+				&lsquo;I can&rsquo;t explain myself, I&rsquo;m afraid, sir&rsquo; said Alice, &rsquo;because I&rsquo;m not myself, you see.&rsquo;<br>
+				&lsquo;I don&rsquo;t see,&rsquo; said the Caterpillar.<br>
+				&lsquo;I&rsquo;m afraid I can&rsquo;t put it more clearly,&rsquo; Alice replied very politely, &lsquo;for I can&rsquo;t understand it myself to begin
+				with; and being so many different sizes in a day is very confusing.&rsquo;
+			</div>
+		</div>
+
+	</div>
 {% endcapture %}
 
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-	{{ example }}
+	<div class="tabcordion tabcordion-lego">
+		<ul class="tabcordion-tabs">
+			<li class="tabcordion-tab is-active">
+				<a class="js-collapsible" href="#ex4-tab1">YOUR TAB</a>
+			</li>
+			<li class="tabcordion-tab">
+				<a class="js-collapsible" href="#ex4-tab2">YOUR TAB</a>
+			</li>
+			<li class="tabcordion-tab">
+				<a class="js-collapsible" href="#ex4-tab3">YOUR TAB</a>
+			</li>
+		</ul>
+
+		<div class="tabcordion-body-header is-active">
+			<a href="#ex4-tab1" class="tabcordion-body-headline js-collapsible">YOUR TAB</a>
+		</div>
+		<div id="ex4-tab1" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
+			<div class="tabcordion-body">
+				YOUR TEXT
+			</div>
+		</div>
+
+		<div class="tabcordion-body-header">
+			<a href="#ex4-tab2" class="tabcordion-body-headline js-collapsible">YOUR TAB</a>
+		</div>
+		<div id="ex4-tab2" class="collapsible-body" aria-hidden="true" tabindex="-1">
+			<div class="tabcordion-body">
+				YOUR TEXT
+			</div>
+		</div>
+
+		<div class="tabcordion-body-header">
+			<a href="#ex4-tab3" class="tabcordion-body-headline js-collapsible">YOUR TAB</a>
+		</div>
+		<div id="ex4-tab3" class="collapsible-body" aria-hidden="true" tabindex="-1">
+			<div class="tabcordion-body">
+				YOUR TEXT
+			</div>
+		</div>
+	</div>
 {% endcapture %}
 
 
 {% comment %} CSS TAB {% endcomment %}
 {% capture CSS %}
-	FILL-ME
+	Modifier class:
+
+	<ul>
+		<li>
+			<code class="classes">tabcordion-lego</code>
+		</li>
+	</ul>
 {% endcapture %}
 
 
 {% comment %} LESS TAB {% endcomment %}
 {% capture LESS %}
-	FILL-ME
+	{{ LESS }}
 {% endcapture %}
 
 
 {% comment %} JS TAB {% endcomment %}
 {% capture JS %}
-	FILL-ME
+	{{ JS }}
 {% endcapture %}
 
 

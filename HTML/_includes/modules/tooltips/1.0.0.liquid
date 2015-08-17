@@ -11,63 +11,48 @@
 
 {% comment %} DESCRIPTION {% endcomment %}
 {% capture description %}
-	Tool tips display when a hover event is triggered. On touch devices the information is displayed inline.
+	Tool tips display when a hover event is triggered. On small devices the information is displayed inline.
 {% endcapture %}
 
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-<p>
-	This shows how a tool tip can be added to
+	<p>
+		This shows how a tool tip can be added to
 
-	<abbr class="js-tooltip tooltip" title="This explains stuff">a word</abbr>
+		<abbr class="js-tooltip tooltip" title="A word can have a lot of different meanings..." tabindex="0">a word</abbr>
 
-	within a sentance.
-</p>
-
-<hr>
-This example is to demonstrate a tooltip appearing from an icon.
-
-	<span class="icon icon-size-sm icon-info js-tooltip tooltip" title="Some text to explain why we have an info icon here"></span>
-
-<hr>
-<div class="js-tooltip tooltip" title="This is another tooltip">
-	Tool tips can also be added to entire blocks of content. This is not something that you would see very often, having a tooltip on such a large amount of text
-	they are more commonly used to explain the meaning of words.
-</div>
-
-<hr>
-<button class="js-tooltip tooltip" title="This is another very long tooltip to see what happens with long tooltips">Tooltip as a button</button>
-
-<hr>
-<span class="js-tooltip tooltip" title="This is a medium long tooltip Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione voluptatibus
-consequatur vitae rem unde, eius magnam eligendi neque ex vero et incidunt asperiores tempore. Magnam voluptate minima eveniet recusandae dicta!">
-	Another way of adding a tooltip, is as a normal span with long text.
-</span>
+		within a sentance.
+	</p>
 {% endcapture %}
 
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-	{{ example }}
+	<span class="js-tooltip tooltip" title="YOUR TOOLTIP" tabindex="0">YOUR WORD</span>
 {% endcapture %}
 
 
 {% comment %} CSS TAB {% endcomment %}
 {% capture CSS %}
-	FILL-ME
 {% endcapture %}
 
 
 {% comment %} LESS TAB {% endcomment %}
 {% capture LESS %}
-	FILL-ME
+	The main mixin is called: <code class="classes">_tooltips({{ page.brand }})</code>
 {% endcapture %}
 
 
 {% comment %} JS TAB {% endcomment %}
 {% capture JS %}
-	FILL-ME
+	This module comes with the usual init method:
+
+	<ul>
+		<li>
+			<code class="classes">GUI.tooltips.init();</code>
+		</li>
+	</ul>
 {% endcapture %}
 
 
@@ -75,4 +60,3 @@ consequatur vitae rem unde, eius magnam eligendi neque ex vero et incidunt asper
 {% comment %}
 	--------------------------------------------------------------------------------------------------------------------------------------------------------------
 {% endcomment %}
-

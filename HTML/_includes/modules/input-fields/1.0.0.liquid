@@ -20,51 +20,61 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-<input type="text" class="input-field" placeholder="I'm a default text input">
+	<input type="text" class="input-field" placeholder="I'm a default text input">
 
-<hr>
-<input type="password" class="input-field" placeholder="I'm a default password input">
+	<hr>
 
-<hr>
-<textarea class="input-field" placeholder="I'm a default textarea"></textarea>
+	<input type="password" class="input-field" placeholder="I'm a default password input">
 
-<hr>
-<div class="input-field-select-wrapper">
-	<select class="input-field-select">
-		<option>Please select</option>
-		<option>Option A</option>
-		<option>Option B</option>
-		<option>Option C</option>
-		<option>Option D</option>
-		<option>Option E</option>
-		<option>Option F</option>
-		<option>Option G</option>
-	</select>
-</div>
+	<hr>
+
+	<textarea class="input-field" placeholder="I'm a default textarea"></textarea>
+
+	<hr>
+
+	<div class="input-field-select-wrapper">
+		<select class="input-field-select">
+			<option>Please select</option>
+			<option>Option A</option>
+			<option>Option B</option>
+			<option>Option C</option>
+			<option>Option D</option>
+			<option>Option E</option>
+			<option>Option F</option>
+			<option>Option G</option>
+		</select>
+	</div>
 {% endcapture %}
 
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-	{{ example }}
+	<input type="text" class="input-field" placeholder="YOUR PLACEHOLDER">
+
+	<div class="input-field-select-wrapper">
+		<select class="input-field-select">
+			<option>Please select</option>
+			<option>YOUR Option</option>
+			<option>YOUR Option</option>
+			<option>YOUR Option</option>
+		</select>
+	</div>
 {% endcapture %}
 
 
 {% comment %} CSS TAB {% endcomment %}
 {% capture CSS %}
-	FILL-ME
 {% endcapture %}
 
 
 {% comment %} LESS TAB {% endcomment %}
 {% capture LESS %}
-	FILL-ME
+	The main mixin is called: <code class="classes">_input-fields({{ page.brand }})</code>
 {% endcapture %}
 
 
 {% comment %} JS TAB {% endcomment %}
 {% capture JS %}
-	FILL-ME
 {% endcapture %}
 
 
@@ -72,6 +82,7 @@
 {% comment %}
 	--------------------------------------------------------------------------------------------------------------------------------------------------------------
 {% endcomment %}
+
 
 
 
@@ -85,77 +96,70 @@
 
 {% comment %} TITLE {% endcomment %}
 {% capture title %}
-	Input heights
+	Input size
 {% endcapture %}
 
 
 {% comment %} DESCRIPTION {% endcomment %}
 {% capture description %}
-	Set heights using these classes to create larger or smaller form controls that match button sizes. There are only 2 sizes default and large. Use large for
+	Set size using these classes to create larger or smaller form controls that match button sizes. There are only 2 sizes default and large. Use large for
 	mobile apps.
 {% endcapture %}
 
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-<input type="text" class="input-field" placeholder="I'm a default text input">
+	<input type="text" class="input-field input-field-lg" placeholder="I'm a LG text input">
 
-<br><br>
+	<hr>
 
-<div class="input-field-select-wrapper">
-	<select class="input-field-select">
-		<option>Select default</option>
-		<option>Option A</option>
-		<option>Option B</option>
-		<option>Option C</option>
-		<option>Option D</option>
-		<option>Option E</option>
-		<option>Option F</option>
-		<option>Option G</option>
-	</select>
-</div>
-
-<hr>
-<input type="text" class="input-field input-field-lg" placeholder="I'm a LG text input">
-
-<br><br>
-
-<div class="input-field-select-wrapper input-field-select-lg">
-	<select class="input-field-select">
-		<option>Select LG</option>
-		<option>Option A</option>
-		<option>Option B</option>
-		<option>Option C</option>
-		<option>Option D</option>
-		<option>Option E</option>
-		<option>Option F</option>
-		<option>Option G</option>
-	</select>
-</div>
+	<div class="input-field-select-wrapper input-field-select-lg">
+		<select class="input-field-select">
+			<option>Select LG</option>
+			<option>Option A</option>
+			<option>Option B</option>
+			<option>Option C</option>
+			<option>Option D</option>
+			<option>Option E</option>
+			<option>Option F</option>
+			<option>Option G</option>
+		</select>
+	</div>
 {% endcapture %}
 
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-	{{ example }}
+	<input type="text" class="input-field input-field-lg" placeholder="YOUR PLACEHOLDER">
 {% endcapture %}
 
 
 {% comment %} CSS TAB {% endcomment %}
 {% capture CSS %}
-	FILL-ME
+	Modifier classes:
+
+	<ul>
+		{% comment %}<li>
+			<code class="classes">input-field-sm</code>
+		</li>{% endcomment %}
+		<li>
+			<code class="classes">input-field-lg</code>
+		</li>
+		{% comment %}<li>
+			<code class="classes">input-field-xl</code>
+		</li>{% endcomment %}
+	</ul>
 {% endcapture %}
 
 
 {% comment %} LESS TAB {% endcomment %}
 {% capture LESS %}
-	FILL-ME
+	{{ LESS }}
 {% endcapture %}
 
 
 {% comment %} JS TAB {% endcomment %}
 {% capture JS %}
-	FILL-ME
 {% endcapture %}
 
 
@@ -163,6 +167,8 @@
 {% comment %}
 	--------------------------------------------------------------------------------------------------------------------------------------------------------------
 {% endcomment %}
+
+
 
 
 
@@ -187,55 +193,58 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-<p>Individual fields</p>
-<input type="text" class="input-field" placeholder="I'm a default text input" disabled>
+	<p>Individual fields</p>
 
-<div class="input-field-select-wrapper">
-	<select class="input-field-select" disabled>
-		<option>Please select</option>
-		<option>Option A</option>
-		<option>Option B</option>
-		<option>Option C</option>
-		<option>Option D</option>
-		<option>Option E</option>
-		<option>Option F</option>
-		<option>Option G</option>
-	</select>
-</div>
+	<input type="text" class="input-field" placeholder="I'm a default text input" disabled>
 
-<hr>
-<p>Field set</p>
-<form>
-	<fieldset disabled>
-		<input type="text" class="input-field" placeholder="I'm a default text input">
-		<input type="text" class="input-field" placeholder="I'm a default text input">
-	</fieldset>
-</form>
+	<div class="input-field-select-wrapper">
+		<select class="input-field-select" disabled>
+			<option>Please select</option>
+			<option>Option A</option>
+			<option>Option B</option>
+			<option>Option C</option>
+			<option>Option D</option>
+			<option>Option E</option>
+			<option>Option F</option>
+			<option>Option G</option>
+		</select>
+	</div>
 
+	<hr>
+	<p>Field set</p>
+
+	<form>
+		<fieldset disabled>
+			<input type="text" class="input-field" placeholder="I'm a default text input">
+			<input type="text" class="input-field" placeholder="I'm a default text input">
+		</fieldset>
+	</form>
 {% endcapture %}
 
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-	{{ example }}
+	<input type="text" class="input-field" placeholder="I'm a default text input" disabled>
+
+	<fieldset disabled>
+		<input type="text" class="input-field" placeholder="I'm a default text input">
+	</fieldset>
 {% endcapture %}
 
 
 {% comment %} CSS TAB {% endcomment %}
 {% capture CSS %}
-	FILL-ME
 {% endcapture %}
 
 
 {% comment %} LESS TAB {% endcomment %}
 {% capture LESS %}
-	FILL-ME
+	{{ LESS }}
 {% endcapture %}
 
 
 {% comment %} JS TAB {% endcomment %}
 {% capture JS %}
-	FILL-ME
 {% endcapture %}
 
 

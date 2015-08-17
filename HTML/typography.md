@@ -6,7 +6,7 @@ brand: [Brand]
 ---
 
 <div class="row">
-	<div class="col-sm-8 col-sm-offset-4 category-head">
+	<div class="col-sm-8 col-sm-offset-4 category-head lead">
 		The typography system caters for our multi-brand framework allowing us to implement brand specific web typography. Due to licensing issues we currently
 		don&rsquo;t use many brand specific web fonts however we&rsquo;re hoping to resolve this soon. The system will then help us implement brand specific fonts
 		very easily.<br>
