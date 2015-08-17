@@ -18,11 +18,31 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-<button type="button" class="btn btn-primary">Primary</button>
-<button type="button" class="btn btn-hero">Hero</button>
-<button type="button" class="btn btn-neutral">Neutral</button>
-<button type="button" class="btn btn-faint">Faint</button>
-<button type="button" class="btn btn-link">Link button</button>
+<button type="button" class="btn btn-primary">Primary button</button>
+
+<hr>
+<button type="button" class="btn btn-hero">Hero button</button>
+
+<hr>
+<button type="button" class="btn btn-neutral">Neutral button</button>
+
+<hr>
+<button type="button" class="btn btn-faint">Faint button</button>
+
+<hr>
+<a href="#url" class="btn btn-primary">Link button primary</a>
+
+<hr>
+<a href="#url" class="btn btn-hero">Link button hero</a>
+
+<hr>
+<a href="#url" class="btn btn-neutral">Link button neutral</a>
+
+<hr>
+<a href="#url" class="btn btn-faint">Link button faint</a>
+
+<hr>
+<button type="button" class="btn btn-link">Make a button look like a link</button>
 {% endcapture %}
 
 
@@ -79,10 +99,16 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-<button type="button" class="btn btn-primary btn-soft">Primary</button>
-<button type="button" class="btn btn-hero btn-soft">Hero</button>
-<button type="button" class="btn btn-neutral btn-soft">Neutral</button>
-<button type="button" class="btn btn-faint btn-soft">Faint</button>
+<button type="button" class="btn btn-primary btn-soft">Primary button</button>
+
+<hr>
+<button type="button" class="btn btn-hero btn-soft">Hero button</button>
+
+<hr>
+<button type="button" class="btn btn-neutral btn-soft">Neutral button</button>
+
+<hr>
+<button type="button" class="btn btn-faint btn-soft">Faint button</button>
 {% endcapture %}
 
 
@@ -139,14 +165,28 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-<button type="button" class="btn btn-primary" disabled>Primary</button>
-<button type="button" class="btn btn-hero" disabled>Hero</button>
-<button type="button" class="btn btn-neutral" disabled>Neutral</button>
-<button type="button" class="btn btn-faint" disabled>Faint</button>
-<button type="button" class="btn btn-primary btn-soft" disabled>Primary</button>
-<button type="button" class="btn btn-hero btn-soft" disabled>Hero</button>
-<button type="button" class="btn btn-neutral btn-soft" disabled>Neutral</button>
-<button type="button" class="btn btn-faint btn-soft" disabled>Faint</button>
+<button type="button" class="btn btn-primary" disabled>Primary button</button>
+
+<hr>
+<button type="button" class="btn btn-hero" disabled>Hero button</button>
+
+<hr>
+<button type="button" class="btn btn-neutral" disabled>Neutral button</button>
+
+<hr>
+<button type="button" class="btn btn-faint" disabled>Faint button</button>
+
+<hr>
+<button type="button" class="btn btn-primary btn-soft" disabled>Primary button</button>
+
+<hr>
+<button type="button" class="btn btn-hero btn-soft" disabled>Hero button</button>
+
+<hr>
+<button type="button" class="btn btn-neutral btn-soft" disabled>Neutral button</button>
+
+<hr>
+<button type="button" class="btn btn-faint btn-soft" disabled>Faint button</button>
 {% endcapture %}
 
 
@@ -197,30 +237,58 @@
 
 {% comment %} DESCRIPTION {% endcomment %}
 {% capture description %}
-	Icons in buttons add clarity to the intention of the button action.
+	Icons in buttons add clarity to the intention of the button action. The icon should inherit the button text colour. Read more about
+	<a href="icons">embedding icons</a>.
 {% endcapture %}
 
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
 <button type="button" class="btn btn-primary">
-	<span class="btn-text">Primary</span>
-	<span class="btn-icon icon icon-size-sm icon-face-happy"></span>
+	<span class="btn-text">Icon right</span>
+	<span class="btn-icon icon icon-size-sm icon-print" data-grunticon-embed></span>
 </button>
+
+<br><br>
+<button type="button" class="btn btn-primary btn-soft">
+	<span class="btn-text">Icon right</span>
+	<span class="btn-icon icon icon-size-sm icon-print"></span>
+</button>
+
+<hr>
 <button type="button" class="btn btn-hero">
-	<span class="btn-icon btn-icon-left icon icon-size-sm icon-face-happy"></span>
-	<span class="btn-text">Hero</span>
+	<span class="btn-icon btn-icon-left icon icon-size-sm icon-print" data-grunticon-embed></span>
+	<span class="btn-text">Icon left</span>
 </button>
+
+<br><br>
+<button type="button" class="btn btn-hero btn-soft">
+	<span class="btn-icon btn-icon-left icon icon-size-sm icon-print"></span>
+	<span class="btn-text">Icon left</span>
+</button>
+
+<hr>
 <button type="button" class="btn btn-neutral">
-	<span class="btn-text">Neutral</span>
-
-	<span class="btn-icon icon icon-size-sm icon-face-happy" data-grunticon-embed></span>
+	<span class="btn-text">Icon right</span>
+	<span class="btn-icon icon icon-size-sm icon-print" data-grunticon-embed></span>
 </button>
+
+<br><br>
+<button type="button" class="btn btn-neutral btn-soft">
+	<span class="btn-text">Icon right</span>
+	<span class="btn-icon icon icon-size-sm icon-print"></span>
+</button>
+
+<hr>
 <button type="button" class="btn btn-faint">
+	<span class="btn-icon btn-icon-left icon icon-size-sm icon-print" data-grunticon-embed></span>
+	<span class="btn-text">Icon left</span>
+</button>
 
-	<span class="btn-icon btn-icon-left icon icon-size-sm icon-face-happy" data-grunticon-embed></span>
-
-	<span class="btn-text">Faint</span>
+<br><br>
+<button type="button" class="btn btn-faint btn-soft">
+	<span class="btn-icon btn-icon-left icon icon-size-sm icon-print" data-grunticon-embed></span>
+	<span class="btn-text">Icon left</span>
 </button>
 {% endcapture %}
 
@@ -279,31 +347,34 @@
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
 <p>
-	<button type="button" class="btn btn-primary btn-xl">Primary</button>
-	<button type="button" class="btn btn-primary btn-lg">Primary</button>
-	<button type="button" class="btn btn-primary">Primary</button>
-	<button type="button" class="btn btn-primary btn-sm">Primary</button>
+	<button type="button" class="btn btn-primary btn-xl">Primary XL</button>
+	<button type="button" class="btn btn-primary btn-lg">Primary LG</button>
+	<button type="button" class="btn btn-primary">Primary default</button>
+	<button type="button" class="btn btn-primary btn-sm">Primary SM</button>
 </p>
 
+<hr>
 <p>
-	<button type="button" class="btn btn-hero btn-xl">Hero</button>
-	<button type="button" class="btn btn-hero btn-lg">Hero</button>
-	<button type="button" class="btn btn-hero">Hero</button>
-	<button type="button" class="btn btn-hero btn-sm">Hero</button>
+	<button type="button" class="btn btn-hero btn-xl">Hero XL</button>
+	<button type="button" class="btn btn-hero btn-lg">Hero LG</button>
+	<button type="button" class="btn btn-hero">Hero default</button>
+	<button type="button" class="btn btn-hero btn-sm">Hero SM</button>
 </p>
 
+<hr>
 <p>
-	<button type="button" class="btn btn-neutral btn-xl">Neutral</button>
-	<button type="button" class="btn btn-neutral btn-lg">Neutral</button>
-	<button type="button" class="btn btn-neutral">Neutral</button>
-	<button type="button" class="btn btn-neutral btn-sm">Neutral</button>
+	<button type="button" class="btn btn-neutral btn-xl">Neutral XL</button>
+	<button type="button" class="btn btn-neutral btn-lg">Neutral LG</button>
+	<button type="button" class="btn btn-neutral">Neutral default</button>
+	<button type="button" class="btn btn-neutral btn-sm">Neutral SM</button>
 </p>
 
+<hr>
 <p>
-	<button type="button" class="btn btn-faint btn-xl">Faint</button>
-	<button type="button" class="btn btn-faint btn-lg">Faint</button>
-	<button type="button" class="btn btn-faint">Faint</button>
-	<button type="button" class="btn btn-faint btn-sm">Faint</button>
+	<button type="button" class="btn btn-faint btn-xl">Faint XL</button>
+	<button type="button" class="btn btn-faint btn-lg">Faint LG</button>
+	<button type="button" class="btn btn-faint">Faint default</button>
+	<button type="button" class="btn btn-faint btn-sm">Faint SM</button>
 </p>
 {% endcapture %}
 
@@ -419,12 +490,14 @@
 
 {% comment %} DESCRIPTION {% endcomment %}
 {% capture description %}
-	Group a series of buttons together on a single line to form button group. Button groups inherit Primary, Secondary and Tertiary button styles.
+	Group a series of buttons together on a single line to form button group. Button groups inherit Primary, Hero and Neutral button styles.
 {% endcapture %}
 
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
+
+<p>Primary button group</p>
 <div class="btn-group">
 
 	<label class="btn-group-item">
@@ -440,6 +513,69 @@
 	<label class="btn-group-item">
 		<input class="btn-group-input" type="radio" name="options">
 		<span class="btn-group-text btn btn-primary">Right</span>
+	</label>
+
+</div>
+
+<hr>
+<p>Hero button group</p>
+<div class="btn-group">
+
+	<label class="btn-group-item">
+		<input class="btn-group-input" type="radio" name="options">
+		<span class="btn-group-text btn btn-hero">Left</span>
+	</label>
+
+	<label class="btn-group-item">
+		<input class="btn-group-input" type="radio" name="options">
+		<span class="btn-group-text btn btn-hero">Middle</span>
+	</label>
+
+	<label class="btn-group-item">
+		<input class="btn-group-input" type="radio" name="options">
+		<span class="btn-group-text btn btn-hero">Right</span>
+	</label>
+
+</div>
+
+<hr>
+<p>Neutral button group</p>
+<div class="btn-group">
+
+	<label class="btn-group-item">
+		<input class="btn-group-input" type="radio" name="options">
+		<span class="btn-group-text btn btn-neutral">Left</span>
+	</label>
+
+	<label class="btn-group-item">
+		<input class="btn-group-input" type="radio" name="options">
+		<span class="btn-group-text btn btn-neutral">Middle</span>
+	</label>
+
+	<label class="btn-group-item">
+		<input class="btn-group-input" type="radio" name="options">
+		<span class="btn-group-text btn btn-neutral">Right</span>
+	</label>
+
+</div>
+
+<hr>
+<p>Faint button group</p>
+<div class="btn-group">
+
+	<label class="btn-group-item">
+		<input class="btn-group-input" type="radio" name="options">
+		<span class="btn-group-text btn btn-faint">Left</span>
+	</label>
+
+	<label class="btn-group-item">
+		<input class="btn-group-input" type="radio" name="options">
+		<span class="btn-group-text btn btn-faint">Middle</span>
+	</label>
+
+	<label class="btn-group-item">
+		<input class="btn-group-input" type="radio" name="options">
+		<span class="btn-group-text btn btn-faint">Right</span>
 	</label>
 
 </div>
@@ -502,26 +638,28 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
+<p>Button group XL</p>
 <div class="btn-group">
 
 	<label class="btn-group-item">
 		<input class="btn-group-input" type="radio" name="options1">
-		<span class="btn-group-text btn btn-primary btn-xl">Left</span>
+		<span class="btn-group-text btn btn-hero btn-xl">Left</span>
 	</label>
 
 	<label class="btn-group-item">
 		<input class="btn-group-input" type="radio" name="options1">
-		<span class="btn-group-text btn btn-primary btn-xl">Middle</span>
+		<span class="btn-group-text btn btn-hero btn-xl">Middle</span>
 	</label>
 
 	<label class="btn-group-item">
 		<input class="btn-group-input" type="radio" name="options1">
-		<span class="btn-group-text btn btn-primary btn-xl">Right</span>
+		<span class="btn-group-text btn btn-hero btn-xl">Right</span>
 	</label>
 
 </div>
 
-
+<hr>
+<p>Button group LG</p>
 <div class="btn-group">
 
 	<label class="btn-group-item">
@@ -541,42 +679,44 @@
 
 </div>
 
-
+<hr>
+<p>Button group default</p>
 <div class="btn-group">
 
 	<label class="btn-group-item">
 		<input class="btn-group-input" type="radio" name="options3">
-		<span class="btn-group-text btn btn-neutral">Left</span>
+		<span class="btn-group-text btn btn-hero">Left</span>
 	</label>
 
 	<label class="btn-group-item">
 		<input class="btn-group-input" type="radio" name="options3">
-		<span class="btn-group-text btn btn-neutral">Middle</span>
+		<span class="btn-group-text btn btn-hero">Middle</span>
 	</label>
 
 	<label class="btn-group-item">
 		<input class="btn-group-input" type="radio" name="options3">
-		<span class="btn-group-text btn btn-neutral">Right</span>
+		<span class="btn-group-text btn btn-hero">Right</span>
 	</label>
 
 </div>
 
-
+<hr>
+<p>Button group SM</p>
 <div class="btn-group">
 
 	<label class="btn-group-item">
 		<input class="btn-group-input" type="radio" name="options4">
-		<span class="btn-group-text btn btn-faint btn-sm">Left</span>
+		<span class="btn-group-text btn btn-hero btn-sm">Left</span>
 	</label>
 
 	<label class="btn-group-item">
 		<input class="btn-group-input" type="radio" name="options4">
-		<span class="btn-group-text btn btn-faint btn-sm">Middle</span>
+		<span class="btn-group-text btn btn-hero btn-sm">Middle</span>
 	</label>
 
 	<label class="btn-group-item">
 		<input class="btn-group-input" type="radio" name="options4">
-		<span class="btn-group-text btn btn-faint btn-sm">Right</span>
+		<span class="btn-group-text btn btn-hero btn-sm">Right</span>
 	</label>
 
 </div>
@@ -633,54 +773,17 @@
 
 {% comment %} DESCRIPTION {% endcomment %}
 {% capture description %}
-	Any button can trigger a dropdown menu. Dropdown buttons inherit Primary, Secondary and Tertiary button styles including button sizes.
+	Any button can trigger a dropdown menu. Dropdown buttons inherit Primary, Hero and Neutral button styles including button sizes.
 {% endcapture %}
 
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-
-<div class="btn-dropdown" aria-haspopup="true">
-	<button type="button" class="btn btn-primary js-button-dropdown" aria-label="Hit enter to open dropdown">
-		<span class="btn-dropdown-caret">Dropdown</span>
-	</button>
-	<ul class="dropdown-menu" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
-		<li class="dropdown-menu-headline">Headline 1</li>
-		<li><a href="#url">Link 1</a></li>
-		<li><a href="#url">Another link</a></li>
-		<li class="dropdown-menu-headline">Headline 2</li>
-		<li><a href="#url">Another link</a></li>
-		<li><a href="#url">Another link</a></li>
-		<li class="dropdown-menu-divider"><a href="#url">Another link</a></li>
-		<li><a href="#url">Another link</a></li>
-		<li><a href="#url">Another link</a></li>
-		<li><a href="#url">Last link</a></li>
-	</ul>
-</div>
-
-
-<div class="btn-dropdown" aria-haspopup="true">
-	<button type="button" class="btn btn-primary btn-soft js-button-dropdown" aria-label="Hit enter to open dropdown">
-		<span class="btn-dropdown-caret">Dropdown</span>
-	</button>
-	<ul class="dropdown-menu" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
-		<li class="dropdown-menu-headline">Headline 1</li>
-		<li><a href="#url">Link 1</a></li>
-		<li><a href="#url">Another link</a></li>
-		<li class="dropdown-menu-headline">Headline 2</li>
-		<li><a href="#url">Another link</a></li>
-		<li><a href="#url">Another link</a></li>
-		<li class="dropdown-menu-divider"><a href="#url">Another link</a></li>
-		<li><a href="#url">Another link</a></li>
-		<li><a href="#url">Another link</a></li>
-		<li><a href="#url">Last link</a></li>
-	</ul>
-</div>
-
+<p>Simple menu</p>
 
 <div class="btn-dropdown" aria-haspopup="true">
 	<button type="button" class="btn btn-hero js-button-dropdown" aria-label="Hit enter to open dropdown">
-		<span class="btn-dropdown-caret">Dropdown</span>
+		<span class="btn-dropdown-caret">Hero</span>
 	</button>
 	<ul class="dropdown-menu dropdown-menu-sm" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
 		<li><button class="btn btn-link">Action 1</button></li>
@@ -690,10 +793,10 @@
 	</ul>
 </div>
 
-
+<br><br>
 <div class="btn-dropdown" aria-haspopup="true">
 	<button type="button" class="btn btn-hero btn-soft js-button-dropdown" aria-label="Hit enter to open dropdown">
-		<span class="btn-dropdown-caret">Dropdown</span>
+		<span class="btn-dropdown-caret">Hero soft</span>
 	</button>
 	<ul class="dropdown-menu dropdown-menu-sm" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
 		<li><button class="btn btn-link">Action 1</button></li>
@@ -704,9 +807,51 @@
 </div>
 
 
+<hr>
+<p>Menu with headlines</p>
+<div class="btn-dropdown" aria-haspopup="true">
+	<button type="button" class="btn btn-primary js-button-dropdown" aria-label="Hit enter to open dropdown">
+		<span class="btn-dropdown-caret">Primary</span>
+	</button>
+	<ul class="dropdown-menu" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
+		<li class="dropdown-menu-headline">Headline 1</li>
+		<li><a href="#url">Link 1</a></li>
+		<li><a href="#url">Another link</a></li>
+		<li class="dropdown-menu-headline">Headline 2</li>
+		<li><a href="#url">Another link</a></li>
+		<li><a href="#url">Another link</a></li>
+		<li class="dropdown-menu-divider"><a href="#url">Another link</a></li>
+		<li><a href="#url">Another link</a></li>
+		<li><a href="#url">Another link</a></li>
+		<li><a href="#url">Last link</a></li>
+	</ul>
+</div>
+
+<br><br>
+<div class="btn-dropdown" aria-haspopup="true">
+	<button type="button" class="btn btn-primary btn-soft js-button-dropdown" aria-label="Hit enter to open dropdown">
+		<span class="btn-dropdown-caret">Primary soft</span>
+	</button>
+	<ul class="dropdown-menu" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
+		<li class="dropdown-menu-headline">Headline 1</li>
+		<li><a href="#url">Link 1</a></li>
+		<li><a href="#url">Another link</a></li>
+		<li class="dropdown-menu-headline">Headline 2</li>
+		<li><a href="#url">Another link</a></li>
+		<li><a href="#url">Another link</a></li>
+		<li class="dropdown-menu-divider"><a href="#url">Another link</a></li>
+		<li><a href="#url">Another link</a></li>
+		<li><a href="#url">Another link</a></li>
+		<li><a href="#url">Last link</a></li>
+	</ul>
+</div>
+
+
+<hr>
+<p>Complex menu</p>
 <div class="btn-dropdown" aria-haspopup="true">
 	<button type="button" class="btn btn-neutral js-button-dropdown" aria-label="Hit enter to open dropdown">
-		<span class="btn-dropdown-caret">Dropdown</span>
+		<span class="btn-dropdown-caret">Neutral</span>
 	</button>
 	<ul class="dropdown-menu dropdown-menu-lg" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
 		<li>
@@ -792,10 +937,10 @@
 	</ul>
 </div>
 
-
+<br><br>
 <div class="btn-dropdown" aria-haspopup="true">
 	<button type="button" class="btn btn-neutral btn-soft js-button-dropdown" aria-label="Hit enter to open dropdown">
-		<span class="btn-dropdown-caret">Dropdown</span>
+		<span class="btn-dropdown-caret">Neutral soft</span>
 	</button>
 	<ul class="dropdown-menu dropdown-menu-lg" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
 		<li>
@@ -882,12 +1027,10 @@
 </div>
 
 
-<link rel="stylesheet" href="../../../../checkboxes/1.0.0/tests/[Brand]/assets/css/symbols.data.svg.css">
-<link rel="stylesheet" href="../../../../checkboxes/1.0.0/tests/[Brand]/assets/css/gui.css">
-
+<br><br>
 <div class="btn-dropdown" aria-haspopup="true">
 	<button type="button" class="btn btn-faint js-button-dropdown" aria-label="Hit enter to open dropdown">
-		<span class="btn-dropdown-caret">Dropdown</span>
+		<span class="btn-dropdown-caret">Faint</span>
 	</button>
 	<ul class="dropdown-menu" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
 		<li>
@@ -918,9 +1061,10 @@
 </div>
 
 
+<br><br>
 <div class="btn-dropdown" aria-haspopup="true">
 	<button type="button" class="btn btn-faint btn-soft js-button-dropdown" aria-label="Hit enter to open dropdown">
-		<span class="btn-dropdown-caret">Dropdown</span>
+		<span class="btn-dropdown-caret">Faint soft</span>
 	</button>
 	<ul class="dropdown-menu" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
 		<li>
