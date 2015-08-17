@@ -197,6 +197,10 @@
 	z-index: 81;
 	left: 0;
 
+	&:focus {
+		._text-styling-outline();
+	}
+
 	@media (min-width: @screen-sm) {
 		margin-left: 12px;
 	}
@@ -265,6 +269,10 @@
 		z-index: 81;
 		left: 0;
 		vertical-align: middle;
+
+		&:focus {
+			._text-styling-outline();
+		}
 
 		.gridly-line {
 			float: left;
