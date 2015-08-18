@@ -4,12 +4,12 @@
 	margin-bottom: 60px;
 
 	.example-description {
-		margin: 0;
+		margin: 0 0 12px 0;
 	}
 
 	.example-box {
 		background-color: #fff;
-		min-height: 300px;
+		min-height: 250px;
 		padding: 24px;
 
 		hr {
@@ -56,6 +56,7 @@
 
 	.example-tabs-wrapper {
 		font-size: 0;
+		overflow: auto;
 	}
 
 	.example-tabs {
@@ -63,15 +64,33 @@
 		padding: 0;
 		display: table;
 		width: 100%;
-		margin: 2px 0 0 0;
+		margin: 12px 0 0 0;
 		font-size: 14px;
 	}
 
 	.example-tab-link {
 		display: block;
-		padding: 12px;
+		padding: 12px 44px 12px 12px;
 		background-color: #fff;
 		margin-right: 2px;
+		color: @color-Text;
+		position: relative;
+
+		&:after {
+			content: " ";
+			position: absolute;
+			display: block;
+			vertical-align: middle;
+			border-top: 8px solid @color-Text;
+			border-right: 7px solid transparent;
+			border-bottom: none;
+			border-left: 7px solid transparent;
+			position: absolute;
+			right: 18px;
+			top: 44%;
+			height: 8px;
+			width: 14px;
+		}
 	}
 
 	.example-tab {

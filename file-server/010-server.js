@@ -29,7 +29,7 @@ var App = (function() {
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	return {
 		DEBUG: [Debug], //debugging infos
-		GUIRURL: 'http://gel.westpacgroup.com.au/',
+		GUIRURL: 'http://gel.westpacgroup.com.au/GUI/',
 		GUIPATH: Path.normalize(__dirname + '/../GUI-source-master/'),
 		TEMPPATH: Path.normalize(__dirname + '/._template/'),
 
@@ -53,7 +53,7 @@ var App = (function() {
 
 
 			app.get('*', function(request, response) {
-				response.redirect(301, App.GUIRURL + 'blender/');
+				response.redirect(301, App.GUIRURL);
 			});
 
 

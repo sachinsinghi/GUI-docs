@@ -147,156 +147,6 @@
 
 {% comment %} TITLE {% endcomment %}
 {% capture title %}
-	Basic table with highlights
-{% endcapture %}
-
-
-{% comment %} DESCRIPTION {% endcomment %}
-{% capture description %}
-	Use highlights to call out specific cells in a table. They can be added to an individual cell, multiple cells or to an entire row.
-{% endcapture %}
-
-
-{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
-{% capture example %}
-	<div class="table-responsive">
-		<table class="table">
-			<caption>
-				Table caption this table width is: <em>(100%)</em>
-			</caption>
-			<thead>
-				<tr>
-					<th scope="col">Column 1</th>
-					<th scope="col">Column 2</th>
-					<th scope="col">Column 3</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>Cell 1</td>
-					<td class="table-highlight">Cell 7</td>
-					<td>Cell 13</td>
-				</tr>
-				<tr>
-					<td>Cell 2</td>
-					<td>Cell 8</td>
-					<td>Cell 14</td>
-				</tr>
-				<tr class="table-highlight">
-					<td>Cell 3</td>
-					<td>Cell 9</td>
-					<td>Cell 15</td>
-				</tr>
-				<tr>
-					<td>Cell 4</td>
-					<td>Cell 10</td>
-					<td>Cell 16</td>
-				</tr>
-				<tr>
-					<td>Cell 5</td>
-					<td>Cell 11</td>
-					<td>Cell 17</td>
-				</tr>
-				<tr>
-					<td>Cell 6</td>
-					<td>Cell 12</td>
-					<td>Cell 18</td>
-				</tr>
-			</tbody>
-			<tfoot>
-				<tr>
-					<td colspan="3">
-						Footer goes here and
-						should colspan all columns
-					</td>
-				</tr>
-			</tfoot>
-		</table>
-	</div>
-{% endcapture %}
-
-
-{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
-{% capture HTML %}
-	<div class="table-responsive">
-		<table class="table">
-			<caption>
-				YOUR TABLE CAPTION
-			</caption>
-			<thead>
-				<tr>
-					<th scope="col">YOUR TABLE HEAD</th>
-					<th scope="col">YOUR TABLE HEAD</th>
-					<th scope="col">YOUR TABLE HEAD</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td class="table-highlight">YOUR TABLE CONTENT HIGHLIGHTED PER CELL</td>
-					<td>YOUR TABLE CONTENT</td>
-					<td>YOUR TABLE CONTENT</td>
-				</tr>
-				<tr class="table-highlight">
-					<td>YOUR TABLE CONTENT HIGHLIGHTED PER ROW</td>
-					<td>YOUR TABLE CONTENT HIGHLIGHTED PER ROW</td>
-					<td>YOUR TABLE CONTENT HIGHLIGHTED PER ROW</td>
-				</tr>
-			</tbody>
-			<tfoot>
-				<tr>
-					<td colspan="3">
-						YOUR TABLE FOOTER
-					</td>
-				</tr>
-			</tfoot>
-		</table>
-	</div>
-{% endcapture %}
-
-
-{% comment %} CSS TAB {% endcomment %}
-{% capture CSS %}
-	Modifier class:
-
-	<ul>
-		<li>
-			<code class="classes">table-highlight</code>
-		</li>
-	</ul>
-{% endcapture %}
-
-
-{% comment %} LESS TAB {% endcomment %}
-{% capture LESS %}
-	{{ LESS }}
-{% endcapture %}
-
-
-{% comment %} JS TAB {% endcomment %}
-{% capture JS %}
-{% endcapture %}
-
-
-{% include showExample.liquid %}
-{% comment %}
-	--------------------------------------------------------------------------------------------------------------------------------------------------------------
-{% endcomment %}
-
-
-
-
-
-
-
-
-{% comment %}
-	--------------------------------------------------------------------------------------------------------------------------------------------------------------
-	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
-	--------------------------------------------------------------------------------------------------------------------------------------------------------------
-{% endcomment %}
-
-{% comment %} TITLE {% endcomment %}
-{% capture title %}
 	Striped row table
 {% endcapture %}
 
@@ -744,6 +594,154 @@
 		</li>
 		<li>
 			<code class="classes">table-bordered</code>
+		</li>
+	</ul>
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	{{ LESS }}
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+
+
+
+
+
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Basic table with highlights
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	Use highlights to call out specific cells in a table. They can be added to an individual cell, multiple cells or to an entire row.
+{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% capture example %}
+	<div class="table-responsive">
+		<table class="table">
+			<caption>
+				Table caption this table width is: <em>(100%)</em>
+			</caption>
+			<thead>
+				<tr>
+					<th scope="col">Column 1</th>
+					<th scope="col">Column 2</th>
+					<th scope="col">Column 3</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Cell 1</td>
+					<td class="table-highlight">Cell 7</td>
+					<td>Cell 13</td>
+				</tr>
+				<tr>
+					<td>Cell 2</td>
+					<td>Cell 8</td>
+					<td>Cell 14</td>
+				</tr>
+				<tr class="table-highlight">
+					<td>Cell 3</td>
+					<td>Cell 9</td>
+					<td>Cell 15</td>
+				</tr>
+				<tr>
+					<td>Cell 4</td>
+					<td>Cell 10</td>
+					<td>Cell 16</td>
+				</tr>
+				<tr>
+					<td>Cell 5</td>
+					<td>Cell 11</td>
+					<td>Cell 17</td>
+				</tr>
+				<tr>
+					<td>Cell 6</td>
+					<td>Cell 12</td>
+					<td>Cell 18</td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="3">
+						Footer goes here and
+						should colspan all columns
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+{% endcapture %}
+
+
+{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% capture HTML %}
+	<div class="table-responsive">
+		<table class="table">
+			<caption>
+				YOUR TABLE CAPTION
+			</caption>
+			<thead>
+				<tr>
+					<th scope="col">YOUR TABLE HEAD</th>
+					<th scope="col">YOUR TABLE HEAD</th>
+					<th scope="col">YOUR TABLE HEAD</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="table-highlight">YOUR TABLE CONTENT HIGHLIGHTED PER CELL</td>
+					<td>YOUR TABLE CONTENT</td>
+					<td>YOUR TABLE CONTENT</td>
+				</tr>
+				<tr class="table-highlight">
+					<td>YOUR TABLE CONTENT HIGHLIGHTED PER ROW</td>
+					<td>YOUR TABLE CONTENT HIGHLIGHTED PER ROW</td>
+					<td>YOUR TABLE CONTENT HIGHLIGHTED PER ROW</td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="3">
+						YOUR TABLE FOOTER
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+	Modifier class:
+
+	<ul>
+		<li>
+			<code class="classes">table-highlight</code>
 		</li>
 	</ul>
 {% endcapture %}
