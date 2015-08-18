@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Colors
+title: Colours
 weight: "010.010"
 brand: [Brand]
 ---
@@ -12,4 +12,4 @@ brand: [Brand]
 	</div>
 </div>
 
-{% include showCategory.liquid  cat = "Colors" %}
+{% include showCategory.liquid  cat = "Colours" %}
