@@ -59,57 +59,57 @@
 
 		<div class="row">
 			<div class="col-sm-10">
-				TODO
+				{% comment %}{% endcomment %}
 			</div>
 		</div>
 	</div>
 
 	<div class="col-sm-8 index-section">
-		<div class="index-block">
+		{% comment %}<div class="index-block">
 			<h4 class="content-subline">The Blender</h4>
 			<p>
 				TODO.
 				<a href="getting-started/blender">More</a>
 			</p>
-		</div>
+		</div>{% endcomment %}
 
 		<div class="index-block">
 			<h4 class="content-subline">Installing the framework</h4>
 			<p>
-				TODO.
-				<a href="getting-started/installing">More</a>
+				How do you install the framework into your own project and what do you need to look out for.
+				<a href="getting-started/installing">Read more</a>
 			</p>
 		</div>
 
-		<div class="index-block">
+		{% comment %}<div class="index-block">
 			<h4 class="content-subline">Support</h4>
 			<p>
 				TODO.
-				<a href="getting-started/support">More</a>
+				<a href="getting-started/support">Read more</a>
 			</p>
-		</div>
+		</div>{% endcomment %}
 
-		<div class="index-block">
+		{% comment %}<div class="index-block">
 			<h4 class="content-subline">Accessibility</h4>
 			<p>
 				TODO.
-				<a href="getting-started/accessibility">More</a>
+				<a href="getting-started/accessibility">Read more</a>
 			</p>
-		</div>
+		</div>{% endcomment %}
 
-		<div class="index-block">
+		{% comment %}<div class="index-block">
 			<h4 class="content-subline">Core libraries</h4>
 			<p>
 				TODO.
-				<a href="getting-started/core-libraries">More</a>
+				<a href="getting-started/core-libraries">Read more</a>
 			</p>
-		</div>
+		</div>{% endcomment %}
 
 		<div class="index-block">
 			<h4 class="content-subline">Icon system</h4>
 			<p>
-				TODO.
-				<a href="getting-started/icon-system">More</a>
+				The icon system we use comes with some awesome tips and tricks.
+				<a href="getting-started/icon-system">Read more</a>
 			</p>
 		</div>
 	</div>
@@ -122,26 +122,26 @@
 
 		<div class="row">
 			<div class="col-sm-10">
-				TODO
+				{% comment %}{% endcomment %}
 			</div>
 		</div>
 	</div>
 
 	<div class="col-sm-8 index-section">
-		<ul class="lists lists-linklist">
-			<li>
-				<a href="#FAQ-q1" class="js-collapsible">Do we have to use the GUI source code?</a>
-				<div id="FAQ-q1" class="collapsible-body text-muted" aria-hidden="true" tabindex="-1">
-					<div class="top-margin1-xs">
+		<ul class="lists lists-linklist index-faq">
+			<li class="index-faq-item">
+				<a href="#FAQ-q1" class="js-collapsible index-faq-link">Do we have to use the GUI source code?</a>
+				<div id="FAQ-q1" class="collapsible-body index-faq-content" aria-hidden="true" tabindex="-1">
+					<div class="index-faq-content-wrapper">
 						No you do not have to use the GUI source code. If you would prefer to build from scratch using wireframes and visual designs that is your
 						decision. As long as your final output looks and functions in the same way.
 					</div>
 				</div>
 			</li>
-			<li>
-				<a href="#FAQ-q2" class="js-collapsible">What browsers does this GUI support?</a>
-				<div id="FAQ-q2" class="collapsible-body text-muted" aria-hidden="true" tabindex="-1">
-					<div class="top-margin1-xs">
+			<li class="index-faq-item">
+				<a href="#FAQ-q2" class="js-collapsible index-faq-link">What browsers does this GUI support?</a>
+				<div id="FAQ-q2" class="collapsible-body index-faq-content" aria-hidden="true" tabindex="-1">
+					<div class="index-faq-content-wrapper">
 						<p>
 							Our current browser support philosophy recommends one version forward and two versions back with the exception of the SOE.
 						</p>
@@ -174,89 +174,87 @@
 					</div>
 				</div>
 			</li>
-			<li>
-				<a href="#FAQ-q3" class="js-collapsible">Who is responsible for bug fixing and testing?</a>
-				<div id="FAQ-q3" class="collapsible-body text-muted" aria-hidden="true" tabindex="-1">
-					<div class="top-margin1-xs">
+			<li class="index-faq-item">
+				<a href="#FAQ-q3" class="js-collapsible index-faq-link">Who is responsible for bug fixing and testing?</a>
+				<div id="FAQ-q3" class="collapsible-body index-faq-content" aria-hidden="true" tabindex="-1">
+					<div class="index-faq-content-wrapper">
 						When you download an instance of the GUI and use it in your project you are responsible for testing and bug fixes. If you notice any bugs with the
-						GUI please do let us know and we&rsquo;ll fix it up. Even better... send in a fix. We&rsquo;d be very grateful.
+						GUI please do <a href="https://github.com/WestpacCXTeam/GUI-source/issues/" target="_blank">let us know</a> and we&rsquo;ll fix it up.
+						Even better... send in a <a href="https://github.com/WestpacCXTeam/GUI-source/" target="_blank">pull request</a>. We&rsquo;d be very grateful.
 					</div>
 				</div>
 			</li>
-			<li>
-				<a href="#FAQ-q4" class="js-collapsible">If we use the GUI do we still need UX and UI designers?</a>
-				<div id="FAQ-q4" class="collapsible-body text-muted" aria-hidden="true" tabindex="-1">
-					<div class="top-margin1-xs">
+			<li class="index-faq-item">
+				<a href="#FAQ-q4" class="js-collapsible index-faq-link">If we use the GUI do we still need UX and UI designers?</a>
+				<div id="FAQ-q4" class="collapsible-body index-faq-content" aria-hidden="true" tabindex="-1">
+					<div class="index-faq-content-wrapper">
 						Yes. Every project no matter how small should have a UX designer and a UI designer. This will ensure that the interaction design and interface
 						designs are consistent.
 					</div>
 				</div>
 			</li>
-			<li>
-				<a href="#FAQ-q5" class="js-collapsible">Can I change theme.css?</a>
-				<div id="FAQ-q5" class="collapsible-body text-muted" aria-hidden="true" tabindex="-1">
-					<div class="top-margin1-xs">
-						We do not recommend changing theme.css. To alter or add classes in your project please use an override css file.
+			<li class="index-faq-item">
+				<a href="#FAQ-q5" class="js-collapsible index-faq-link">Can I change less files, css or javascript?</a>
+				<div id="FAQ-q5" class="collapsible-body index-faq-content" aria-hidden="true" tabindex="-1">
+					<div class="index-faq-content-wrapper">
+						We do not recommend changing the files. To alter or add styles in your project please use an override css file and concatenate it at the bottom.
+						This way you stay upgradeable in case we fix things and create a new version of a module.
 					</div>
 				</div>
 			</li>
-			<li>
-				<a href="#FAQ-q6" class="js-collapsible">Can we use our own JavaScript library?</a>
-				<div id="FAQ-q6" class="collapsible-body text-muted" aria-hidden="true" tabindex="-1">
-					<div class="top-margin1-xs">
-						Yes you can use your own JavaScript library however you are responsible for its implementation.</div></div>
+			<li class="index-faq-item">
+				<a href="#FAQ-q6" class="js-collapsible index-faq-link">Can we use our own JavaScript library?</a>
+				<div id="FAQ-q6" class="collapsible-body index-faq-content" aria-hidden="true" tabindex="-1">
+					<div class="index-faq-content-wrapper">
+						Yes you can use your own JavaScript library however you are responsible for its implementation. The GUI currently comes with jQuery but we will try
+						To move to vanilla JS in the future to give you even more flexibility.
+					</div>
+				</div>
 			</li>
-			<li>
-				<a href="#FAQ-q7" class="js-collapsible">Is the GUI accessible?</a>
-				<div id="FAQ-q7" class="collapsible-body text-muted" aria-hidden="true" tabindex="-1">
-					<div class="top-margin1-xs">
+			<li class="index-faq-item">
+				<a href="#FAQ-q7" class="js-collapsible index-faq-link">Is the GUI accessible?</a>
+				<div id="FAQ-q7" class="collapsible-body index-faq-content" aria-hidden="true" tabindex="-1">
+					<div class="index-faq-content-wrapper">
 						Yes as of version 1.0.0. the GUI complies to AA accessibility standards. We have been through a formal accessibility review to meet this
 						requirement.
 					</div>
 				</div>
 			</li>
-			<li>
-				<a href="#FAQ-q8" class="js-collapsible">How often will you do a release?</a>
-				<div id="FAQ-q8" class="collapsible-body text-muted" aria-hidden="true" tabindex="-1">
-					<div class="top-margin1-xs">
-						As this project is in its infancy we are currently doing approximately 1 release per week. Releases will slow down as the GUI becomes more
-						robust and established.
+			<li class="index-faq-item">
+				<a href="#FAQ-q8" class="js-collapsible index-faq-link">How often will you do a release?</a>
+				<div id="FAQ-q8" class="collapsible-body index-faq-content" aria-hidden="true" tabindex="-1">
+					<div class="index-faq-content-wrapper">
+						Each module is effected differently by development and we will always keep every version online so you never have to upgrade if you don't have
+						the resources. This ensures that when a fix is issued or an improvments is made to a module only teams that are using this module are effected.
 					</div>
 				</div>
 			</li>
-			<li>
-				<a href="#FAQ-q9" class="js-collapsible">Do we have to use the updated release?</a>
-				<div id="FAQ-q9" class="collapsible-body text-muted" aria-hidden="true" tabindex="-1">
-					<div class="top-margin1-xs">
-						No you do not have to use the updated release. Every release will come with a change log. If you feel the new release could add value to your
-						project then you can use it.
+			<li class="index-faq-item">
+				<a href="#FAQ-q9" class="js-collapsible index-faq-link">Do we have to use the updated release?</a>
+				<div id="FAQ-q9" class="collapsible-body index-faq-content" aria-hidden="true" tabindex="-1">
+					<div class="index-faq-content-wrapper">
+						No you do not have to use the updated release. You can always stay on your version and the blender is specifically built to cater for every version.
+						However we encurrage you to asses the effort to upgrade as it may be minimal but enabling you to leverage off of the community fixes
+						and testing that has already been done.
 					</div>
 				</div>
 			</li>
-			<li>
-				<a href="#FAQ-10" class="js-collapsible">What frameworks are used to create in the GUI?</a>
-				<div id="FAQ-q10" class="collapsible-body text-muted" aria-hidden="true" tabindex="-1">
-					<div class="top-margin1-xs">
-						The GUI is based on the Bootstrap framework version 3.x. Details can be found on the
-						<a href="http://getbootstrap.com" target="_blank">bootstrap website.</a> Developers should be familiar with the Bootstrap framework in order
-						to use the GUI correctly.
+			<li class="index-faq-item">
+				<a href="#FAQ-q10" class="js-collapsible index-faq-link">What frameworks are used to create in the GUI?</a>
+				<div id="FAQ-q10" class="collapsible-body index-faq-content" aria-hidden="true" tabindex="-1">
+					<div class="index-faq-content-wrapper">
+						As of version 2.0.0 we have rebuilt the GUI from scratch. It is completely custom build for your environment and enables us to be more flexible in
+						its development. We tried to keep the classes and naming convention as close to Bootstrap 3.x as possible.
 					</div>
 				</div>
 			</li>
-			<li>
-				<a href="#FAQ-11" class="js-collapsible">Can we receive a release note with the detail of each change? </a>
-				<div id="FAQ-q11" class="collapsible-body text-muted" aria-hidden="true" tabindex="-1">
-					<div class="top-margin1-xs">
-						We have the GUI in source control, but we only make the HTML changes available in the change log. Each release is announced through BaseCamp
-						for the moment.
-					</div>
-				</div>
-			</li>
-			<li>
-				<a href="#FAQ-12" class="js-collapsible">How do we obtain an unminified version of the theme.css? </a>
-				<div id="FAQ-q12" class="collapsible-body text-muted" aria-hidden="true" tabindex="-1">
-					<div class="top-margin1-xs">
-						Unminified versions are supplied as a download with each brand.
+			<li class="index-faq-item">
+				<a href="#FAQ-q12" class="js-collapsible index-faq-link">Do I have to use version 2.0.0?</a>
+				<div id="FAQ-q12" class="collapsible-body index-faq-content" aria-hidden="true" tabindex="-1">
+					<div class="index-faq-content-wrapper">
+						With improved versioning in the release, project who are using a version of the GUI 1.x will continue to be able to use and implement their
+						corresponding version. Each project should review the GUI 2.0.0 and assess the value, effort and impact of updating their projects before
+						proceeding with the upgrade.
 					</div>
 				</div>
 			</li>
