@@ -9,3 +9,31 @@
 	margin-top: 6px;
 	padding-top: 24px;
 }
+
+.index-faq {
+	.index-faq-item {
+		&:after {
+			transition: transform 0.3s ease;
+		}
+
+		&.is-active:after {
+			transform: rotate(45deg);
+		}
+	}
+
+	.index-faq-link {
+		&:focus,
+		&:active {
+			._text-styling-outline();
+			background-color: transparent;
+		}
+	}
+
+	.index-faq-content {
+		color: @color-Muted;
+	}
+
+	.index-faq-content-wrapper {
+		margin: 12px 0 24px 0;
+	}
+}

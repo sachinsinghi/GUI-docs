@@ -1,10 +1,29 @@
 /* Content */
 
+
+/*
+ *  SETTINGS
+ */
+.getBrand() when (@brand = BOM) {
+	@content-color: @color-B;
+}
+.getBrand() when (@brand = BSA) {
+	@content-color: @color-B;
+}
+.getBrand() when (@brand = STG) {
+	@content-color: @color-F;
+}
+.getBrand() when (@brand = WBC) {
+	@content-color: @color-B;
+}
+.getBrand();
+
+
 .content-headline {
 	font-family: @fontfamily;
 	font-weight: 500;
 	margin-top: 0;
-	color: @color-B;
+	color: @content-color;
 	font-size: 30px;
 }
 
@@ -12,7 +31,7 @@
 	font-family: @fontfamily;
 	font-weight: 300;
 	margin-top: 0;
-	color: @color-B;
+	color: @content-color;
 	font-size: 24px;
 }
 
@@ -20,5 +39,5 @@
 	font-family: @fontfamily;
 	font-weight: 300;
 	margin: 0 0 24px 0;
-	color: @color-B;
+	color: @content-color;
 }

@@ -1,6 +1,23 @@
 /* Header */
 
 
+/*
+ *  SETTINGS
+ */
+ .getBrand() when (@brand = BOM) {
+	@header-color: #fff;
+}
+.getBrand() when (@brand = BSA) {
+	@header-color: #fff;
+}
+.getBrand() when (@brand = STG) {
+	@header-color: @color-F;
+}
+.getBrand() when (@brand = WBC) {
+	@header-color: #fff;
+}
+.getBrand();
+
 .header {
 	position: fixed;
 	height: 66px;
@@ -138,7 +155,7 @@
 	font-weight: 400;
 	font-size: 18px;
 	white-space: nowrap;
-	color: #fff;
+	color: @header-color;
 
 	.has-halfScrolledContent & {
 		@media (min-width: @screen-sm) {
@@ -167,7 +184,7 @@
 	@media (min-width: @screen-sm) {
 		margin: 118px 0 0px 36px;
 		font-size: 54px;
-		font-weight: 100;
+		font-weight: 300;
 	}
 
 	.header-subline {
@@ -177,8 +194,8 @@
 			width: 0.55555555555em;
 			height: 0.55555555555em;
 			margin: 0 0.407407407em;
-			border-right: 2px solid #fff;
-			border-top: 2px solid#fff;
+			border-right: 2px solid @header-color;
+			border-top: 2px solid @header-color;
 			transform: rotate(45deg);
 		}
 	}
@@ -213,9 +230,9 @@
 	.patty,
 	.salad {
 		display: block;
-		background-color: #fff;
+		background-color: @header-color;
 		height: 0;
-		border: 1px solid #fff;
+		border: 1px solid @header-color;
 		margin-bottom: 4px;
 		overflow: hidden;
 	}
@@ -251,7 +268,7 @@
 	position: fixed;
 	top: 12px;
 	right: 0;
-	color: #fff;
+	color: @header-color;
 
 	@media (min-width: @screen-sm) {
 		right: 12px;

@@ -14,20 +14,35 @@
 
 
 {% assign titleHandle = title | handleize %}
+{% assign _hasBox = true %}
+
+{% capture allofthem %}{{ example | handleize }}{{ HTML | handleize }}{{ CSS | handleize }}{{ LESS | handleize }}{{ JS | handleize }}{% endcapture %}
+{% if allofthem == '' %}
+	{% assign _hasBox = false %}
+{% endif %}
 
 <div class="row example">
-	<div class="col-sm-4">
-		<div class="row">
-			<div class="col-sm-10">
-				{% if titleHandle.size > 2 %}
-					<h3 class="content-h">{{ title }}</h3>
-				{% endif %}
-				<p class="example-description">{{ description }}</p>
+	{% if _hasBox %}
+		<div class="col-sm-4">
+			<div class="row">
+				<div class="col-sm-10">
+					{% if titleHandle.size > 2 %}
+						<h3 class="content-h">{{ title }}</h3>
+					{% endif %}
+					<p class="example-description">{{ description }}</p>
+				</div>
 			</div>
 		</div>
-	</div>
 
-	<div class="col-sm-8">
-		{% include exampleBox.liquid %}
-	</div>
+		<div class="col-sm-8">
+			{% include exampleBox.liquid %}
+		</div>
+	{% else %}
+		<div class="col-sm-offset-4 col-sm-8">
+			{% if titleHandle.size > 2 %}
+				<h3 class="content-h">{{ title }}</h3>
+			{% endif %}
+			<p class="example-description">{{ description }}</p>
+		</div>
+	{% endif %}
 </div>
