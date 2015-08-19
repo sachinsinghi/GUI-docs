@@ -20,11 +20,11 @@
 	module.init = function() {
 		App.debugging( 'FAQ: Initiating', 'report' );
 
-		if( $('.js-collapsible').length ) {
+		if( $('.js-faq').length ) {
 			GUI.debugging( 'FAQ: Found instance', 'report' );
 
 			//////////////////////////////////////////////////| BUTTON LISTENER
-			$('.js-collapsible').on('click', function() {
+			$('.js-faq').on('click', function() {
 				App.debugging( 'FAQ: Toggle clicked', 'interaction' );
 
 				$(this).parent().toggleClass('is-active');
