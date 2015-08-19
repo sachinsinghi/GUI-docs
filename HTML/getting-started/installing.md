@@ -25,7 +25,7 @@ parent: Getting Started
 
 	<div class="col-sm-12 example">
 		{% capture ID %}blender2{% endcapture %}
-		{% capture category %}getting-started/blender{% endcapture %}
+		{% capture category %}getting-started/installing{% endcapture %}
 		{% capture thisVersion %}1{% endcapture %}
 		{% assign count = 1 %}
 		{% capture example %}{% endcapture %}
@@ -103,7 +103,7 @@ parent: Getting Started
 
 	<div class="col-sm-12 example">
 		{% capture ID %}blender1{% endcapture %}
-		{% capture category %}getting-started/blender{% endcapture %}
+		{% capture category %}getting-started/installing{% endcapture %}
 		{% capture thisVersion %}2{% endcapture %}
 		{% assign count = 2 %}
 		{% capture example %}{% endcapture %}
@@ -141,7 +141,7 @@ parent: Getting Started
 
 	<div class="col-sm-12 example">
 		{% capture ID %}blender2{% endcapture %}
-		{% capture category %}getting-started/blender{% endcapture %}
+		{% capture category %}getting-started/installing{% endcapture %}
 		{% capture thisVersion %}3{% endcapture %}
 		{% assign count = 3 %}
 		{% capture example %}{% endcapture %}
@@ -196,7 +196,7 @@ parent: Getting Started
 
 	<div class="col-sm-12 example">
 		{% capture ID %}blender2{% endcapture %}
-		{% capture category %}getting-started/blender{% endcapture %}
+		{% capture category %}getting-started/installing{% endcapture %}
 		{% capture thisVersion %}4{% endcapture %}
 		{% assign count = 4 %}
 		{% capture example %}{% endcapture %}
