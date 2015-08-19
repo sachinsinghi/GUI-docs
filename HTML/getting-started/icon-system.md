@@ -36,9 +36,9 @@ parent: Getting Started
 		{% capture example %}
 			<span class="icon icon-size-lg icon-face-happy" data-grunticon-embed></span>
 			<hr>
-			<span class="icon icon-size-lg icon-face-info" data-grunticon-embed></span>
+			<span class="icon icon-size-lg icon-info" data-grunticon-embed></span>
 			<hr>
-			<span class="icon icon-size-lg icon-face-umbrella" data-grunticon-embed></span>
+			<span class="icon icon-size-lg icon-umbrella" data-grunticon-embed></span>
 		{% endcapture %}
 		{% capture HTML %}
 	<span class="icon icon-size-lg icon-face-happy" data-grunticon-embed></span>
@@ -66,9 +66,9 @@ parent: Getting Started
 		{% capture example %}
 			<span class="icon icon-size-lg icon-face-happy"></span>
 			<hr>
-			<span class="icon icon-size-lg icon-face-info"></span>
+			<span class="icon icon-size-lg icon-info"></span>
 			<hr>
-			<span class="icon icon-size-lg icon-face-umbrella"></span>
+			<span class="icon icon-size-lg icon-umbrella"></span>
 		{% endcapture %}
 		{% capture HTML %}
 	<span class="icon icon-size-lg icon-face-happy"></span>
