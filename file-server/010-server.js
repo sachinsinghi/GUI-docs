@@ -29,7 +29,8 @@ var App = (function() {
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	return {
 		DEBUG: [Debug], //debugging infos
-		GUIRURL: 'http://gel.westpacgroup.com.au/GUI/',
+		GELRURL: 'http://gel.westpacgroup.com.au/',
+		GUIRURL: 'http://gel.westpacgroup.com.au/' + 'GUI/',
 		GUIPATH: Path.normalize(__dirname + '/../GUI-source-master/'),
 		TEMPPATH: Path.normalize(__dirname + '/._template/'),
 
