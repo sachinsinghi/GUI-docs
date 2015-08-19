@@ -1,0 +1,4 @@
+RedirectMatch 301 GUI/BOM/docs/(.*) http://gel.westpacgroup.com.au/GUI/BOM/
+RedirectMatch 301 GUI/BSA/docs/(.*) http://gel.westpacgroup.com.au/GUI/BSA/
+RedirectMatch 301 GUI/StGeorge/(.*) http://gel.westpacgroup.com.au/GUI/STG/
+RedirectMatch 301 GUI/Westpac/(.*) http://gel.westpacgroup.com.au/GUI/WBC/
