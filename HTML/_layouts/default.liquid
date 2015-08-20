@@ -15,6 +15,9 @@
 <body class="js-body layout-{{ page.layout | handleize }} page-{{ page.title | handleize }} has-onlyCore"
 	data-coremodules="{{ coreModules | slice: 1, coreModules.size }}"
 	data-coresize="{{ coreSize }}">
+
+	<a class="sr-skiplink" href="/GUI{{ page.url }}#content">Skip to main content</a>
+
 	<noscript>
 		<h1 class="no-js-alert text-center" role="alert">This website needs Javascript to work properly.</h1>
 	</noscript>
@@ -30,7 +33,7 @@
 
 
 		{% comment %} MAIN CONTENT {% endcomment %}
-		<main class="main-content">
+		<main id="content" class="main-content">
 			<div class="container-fluid">
 
 				{% include gridly.liquid %}
