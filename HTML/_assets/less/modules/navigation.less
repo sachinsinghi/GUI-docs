@@ -13,56 +13,58 @@
 	padding: 0;
 }
 
-.navigation-link {
-	color: @color-Text;
-	padding: 12px 12px 12px 42px;
-	border-radius: 3px;
-	display: block;
-	font-weight: 900;
-	transition: background 0.2s ease;
-
-	&:hover,
-	&:active,
-	&:focus,
-	&.is-active,
-	.is-activeParent > & {
-		background-color: @color-I;
+.sidebar {
+	.navigation-link {
 		color: @color-Text;
+		padding: 12px 12px 12px 42px;
+		border-radius: 3px;
 		display: block;
-		text-decoration: none;
-	}
-
-	&.is-active,
-	.is-activeParent > & {
-		background-color: transparent;
-		color: @color-A;
-	}
-
-	&.sidebar-gel {
-		margin: 90px 0 0 0;
-		padding: 12px 18px;
-		line-height: 0;
-		height: 48px;
-		color: transparent;
-		background-position: 18px 12px;
-
-		.letter {
-			transition: fill 0.3s ease;
-		}
+		font-weight: 900;
+		transition: background 0.2s ease;
 
 		&:hover,
 		&:active,
 		&:focus,
-		&.is-active {
+		&.is-active,
+		.is-activeParent > & {
+			background-color: @color-I;
+			color: @color-Text;
+			display: block;
+			text-decoration: none;
+		}
+
+		&.is-active,
+		.is-activeParent > & {
 			background-color: transparent;
+			color: @color-A;
+		}
+
+		&.sidebar-gel {
+			margin: 90px 0 0 0;
+			padding: 12px 18px;
+			line-height: 0;
+			height: 48px;
+			color: transparent;
+			background-position: 18px 12px;
+
 			.letter {
-				fill: @color-A;
+				transition: fill 0.3s ease;
+			}
+
+			&:hover,
+			&:active,
+			&:focus,
+			&.is-active {
+				background-color: transparent;
+				.letter {
+					fill: @color-A;
+				}
 			}
 		}
-	}
 
-	&.sidebar-blender {
-		padding: 12px 0 12px 42px;
-		margin-bottom: 68px;
+		&.sidebar-blender {
+			padding: 12px 0 12px 42px;
+			margin-bottom: 68px;
+		}
 	}
 }

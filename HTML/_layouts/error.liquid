@@ -1,0 +1,51 @@
+{% include head.liquid %}
+
+{% assign coreModules = '' %}
+{% assign coreSize = 0 %}
+
+{% for module in site.data.GUI.modules._core %}
+
+	{% for version in module[1].versions %}
+		{% capture coreModules %}{{ coreModules }},{{ module[0] }}:{{ version[0] }}{% endcapture %}
+		{% assign coreSize = version[1].size %}
+	{% endfor %}
+
+{% endfor %}
+
+<body class="js-body layout-{{ page.layout | handleize }} page-{{ page.title | handleize }} has-onlyCore"
+	data-coremodules="{{ coreModules | slice: 1, coreModules.size }}"
+	data-coresize="{{ coreSize }}">
+
+	<a class="sr-skiplink" href="/GUI{{ page.url }}#content">Skip to main content</a>
+
+	<noscript>
+		<h1 class="no-js-alert text-center" role="alert">This website needs Javascript to work properly.</h1>
+	</noscript>
+
+	{% include IEwarning.liquid %}
+
+	{% comment %} CONTAINER {% endcomment %}
+	<div class="container-fluid clearfix">
+
+		{% comment %} MAIN CONTENT {% endcomment %}
+		<main id="content" class="error-content">
+			<div class="container">
+
+				<div class="content text-center">
+					<span class="sitesymbol-spill" data-grunticon-embed>404 Error</span>
+
+					<h1 class="content-headline">Oops</h1>
+					{{ content }}
+				</div>
+
+			</div>
+		</main>
+
+	</div>
+
+
+	{% comment %} FOOTER {% endcomment %}
+	{% include footer-code.liquid %}
+
+</body>
+</html>

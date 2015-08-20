@@ -161,6 +161,7 @@ var SETTINGS = function() {
 			'css': 'HTML/_assets/css',
 			'font': 'HTML/_assets/font',
 			'img': 'HTML/_assets/img',
+			'htaccess': 'HTML/_assets/htaccess',
 			'fileserver': 'file-server',
 			'temp': '.temp',
 			'root': '',
@@ -1018,6 +1019,56 @@ module.exports = function(grunt) {
 				}],
 			},
 
+			//htaccess files
+			htaccessBOM: {
+				files: [{
+					cwd: '<%= SETTINGS.folder.htaccess %>/BOM/',
+					src: [
+						'*.htaccess',
+						'.htaccess',
+					],
+					dest: '<%= SETTINGS.folder.prod %>/BOM/',
+					filter: 'isFile',
+					expand: true,
+				}],
+			},
+			htaccessBSA: {
+				files: [{
+					cwd: '<%= SETTINGS.folder.htaccess %>/BSA/',
+					src: [
+						'*.htaccess',
+						'.htaccess',
+					],
+					dest: '<%= SETTINGS.folder.prod %>/BSA/',
+					filter: 'isFile',
+					expand: true,
+				}],
+			},
+			htaccessSTG: {
+				files: [{
+					cwd: '<%= SETTINGS.folder.htaccess %>/STG/',
+					src: [
+						'*.htaccess',
+						'.htaccess',
+					],
+					dest: '<%= SETTINGS.folder.prod %>/STG/',
+					filter: 'isFile',
+					expand: true,
+				}],
+			},
+			htaccessWBC: {
+				files: [{
+					cwd: '<%= SETTINGS.folder.htaccess %>/WBC/',
+					src: [
+						'*.htaccess',
+						'.htaccess',
+					],
+					dest: '<%= SETTINGS.folder.prod %>/WBC/',
+					filter: 'isFile',
+					expand: true,
+				}],
+			},
+
 			//HTML underscore folders
 			HTML_: {
 				files: [{
@@ -1230,8 +1281,6 @@ module.exports = function(grunt) {
 					'<%= SETTINGS.folder.html %>/**/*.liquid',
 					'<%= SETTINGS.folder.html %>/**/*.html',
 					'<%= SETTINGS.folder.html %>/**/*.yml',
-					'<%= SETTINGS.folder.html %>/**/*.htaccess',
-					'<%= SETTINGS.folder.html %>/**/.htaccess',
 					'<%= SETTINGS.folder.html %>/**/*.json',
 					'<%= SETTINGS.folder.html %>/_plugins/**/*',
 				],
@@ -1248,6 +1297,22 @@ module.exports = function(grunt) {
 					'replace:STG',
 					'replace:WBC',
 					'replace:debugDev',
+					'jekyll:dev',
+					'wakeup',
+				],
+			},
+
+			htaccess: {
+				files: [
+					'<%= SETTINGS.folder.htaccess %>/**/*.htaccess',
+					'<%= SETTINGS.folder.htaccess %>/**/.htaccess',
+				],
+				tasks: [
+					// 'lintspaces',
+					'copy:htaccessBOM',
+					'copy:htaccessBSA',
+					'copy:htaccessSTG',
+					'copy:htaccessWBC',
 					'jekyll:dev',
 					'wakeup',
 				],
