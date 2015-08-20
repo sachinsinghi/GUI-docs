@@ -46,10 +46,35 @@
 
 
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	// private function: Check localStorage
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	function _HasLocalStorage() {
+		App.debugging( 'Blender: Checking localStorage', 'report' );
+
+		try {
+			App.debugging( 'Blender: Checking localStorage: Yep!', 'report' );
+
+			store.set( 'test', 'isThisThingOn?' );
+			store.remove( 'test' );
+			return true;
+		}
+		catch( error ) {
+			App.debugging( 'Blender: Checking localStorage: Nope!', 'report' );
+
+			$('.js-body').addClass('no-localstorage');
+
+			return false;
+		}
+	}
+
+
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	// init method
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	module.init = function() {
 		App.debugging( 'Blender: Initiating', 'report' );
+
+		App.blender.hasLocalStorage = _HasLocalStorage();
 
 		//////////////////////////////////////////////////| BLENDER PAGE LISTENERS
 		if( $('.js-module-version').length ) {
@@ -143,7 +168,7 @@
 				var name = 'option-' + App.PREFIX + $this.attr('name');
 				var value = $this.val();
 
-				store.set( name, value );
+				App.blender.store.save( name, value );
 			});
 
 
@@ -168,7 +193,7 @@
 			$('.js-blender-clear').on('click', function(e) {
 				App.debugging( 'Blender: Blender claer button clicked', 'interaction' );
 
-				store.clear();
+				App.blender.store.clear();
 
 				location.reload();
 			});
@@ -234,7 +259,7 @@
 			if( hash[1] !== '' ) {
 				App.debugging( 'Blender: Parsing hash: clearing localStorage and overwriting with hash', 'report' );
 
-				store.clear();
+				App.blender.store.clear();
 			}
 
 			for(var i = hash.length - 1; i >= 0; i--) {
@@ -252,7 +277,65 @@
 
 
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	// Save to localStorage
+	// Manipulating data from localStorage
+	//
+	// @method  save  Save data into localStorage
+	//          @param  key     string   The key to store into
+	//          @param  value   string   The value to store
+	//
+	// @method  remove  Remove data from localStorage
+	//          @param  key     string   The key to store into
+	//
+	// @method  clear  Clear all data in localStorage
+	//
+	// @method  get  Get all data from localStorage
+	//
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	module.store = {
+
+		save: function( key, value ) {
+			if( App.blender.hasLocalStorage ) {
+				if( key && value ) {
+					App.debugging( 'Blender: Storing key: ' + key + ' to LocalStorage', 'report' );
+
+					store.set( key, value );
+				}
+			}
+		},
+
+		remove: function( key ) {
+			if( App.blender.hasLocalStorage ) {
+				if( key ) {
+					App.debugging( 'Blender: Removing key: ' + key + ' to LocalStorage', 'report' );
+
+					store.remove( key );
+				}
+			}
+		},
+
+		clear: function() {
+			if( App.blender.hasLocalStorage ) {
+				App.debugging( 'Blender: Clearing LocalStorage', 'report' );
+
+				store.clear();
+			}
+		},
+
+		get: function() {
+			if( App.blender.hasLocalStorage ) {
+				App.debugging( 'Blender: Getting LocalStorage', 'report' );
+
+				return store;
+			}
+			else {
+				return [];
+			}
+		}
+	};
+
+
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	// Save module
 	//
 	// @param  module   string   The ID of the module to be saved
 	// @param  version  string   The version string for that module to be saved
@@ -260,12 +343,12 @@
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	module.save = function( moduleName, version, size ) {
 		if( moduleName && version ) {
-			App.debugging( 'Blender: Saving module ' + moduleName + ':' + version + '(' + size + 'kb) to LocalStorage', 'report' );
+			App.debugging( 'Blender: Saving module ' + moduleName + ':' + version + '(' + size + 'kb)', 'report' );
 
-			store.set( App.PREFIX + moduleName, {
+			App.blender.store.save( App.PREFIX + moduleName, {
 				'version': version,
-				'size': parseInt( size ) }
-			);
+				'size': parseInt( size )
+			});
 
 			App.blender.update();
 		}
@@ -282,7 +365,7 @@
 		if( moduleName ) {
 			App.debugging( 'Blender: Removing module ' + moduleName + '(' + size + 'kb) from LocalStorage', 'report' );
 
-			store.remove( App.PREFIX + moduleName );
+			App.blender.store.remove( App.PREFIX + moduleName );
 
 			App.blender.update();
 		}
@@ -295,7 +378,8 @@
 	module.load = function() {
 		App.debugging( 'Blender: Loading modules from LocalStorage', 'report' );
 
-		store.forEach(function( moduleName, options ) {
+		allModules = App.blender.store.get();
+		allModules.forEach(function( moduleName, options ) {
 
 			//////////////////////////////////////////////////| MODULES
 			if( moduleName.substring(0, App.PREFIX.length) === App.PREFIX ) {
@@ -340,7 +424,8 @@
 		var size = 0;
 		var core = App.blender.core;
 
-		store.forEach(function( moduleName, options ) { //iterate over localStorage and see what we got
+		allModules = App.blender.store.get();
+		allModules.forEach(function( moduleName, options ) { //iterate over localStorage and see what we got
 			if( moduleName.substring(0, App.PREFIX.length) === App.PREFIX ) {
 				size += parseInt( options.size );
 				count++;

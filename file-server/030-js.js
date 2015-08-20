@@ -50,7 +50,7 @@
 		//////////////////////////////////////////////////| CORE
 		if( App.selectedModules.js ) {
 			core = Fs.readFileSync( App.GUIPATH + '_javascript-helpers/' + POST[ 'module-_javascript-helpers' ] + '/js/020-core.js', 'utf8');
-			core = App.branding.replace(core, ['-Debug-', 'false']); //remove debugging infos
+			core = App.branding.replace(core, ['Debug', 'false']); //remove debugging infos
 
 			var core = UglifyJS.minify( core, { fromString: true });
 

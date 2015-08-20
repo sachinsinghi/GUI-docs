@@ -19,22 +19,22 @@
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
 	<button type="button" class="btn btn-primary">Primary button</button>
-	<a href="#url" class="btn btn-primary">Link button primary</a>
+	<a href="{{ page.title | handleize }}/#url" class="btn btn-primary">Link button primary</a>
 
 	<hr>
 
 	<button type="button" class="btn btn-hero">Hero button</button>
-	<a href="#url" class="btn btn-hero">Link button hero</a>
+	<a href="{{ page.title | handleize }}/#url" class="btn btn-hero">Link button hero</a>
 
 	<hr>
 
 	<button type="button" class="btn btn-neutral">Neutral button</button>
-	<a href="#url" class="btn btn-neutral">Link button neutral</a>
+	<a href="{{ page.title | handleize }}/#url" class="btn btn-neutral">Link button neutral</a>
 
 	<hr>
 
 	<button type="button" class="btn btn-faint">Faint button</button>
-	<a href="#url" class="btn btn-faint">Link button faint</a>
+	<a href="{{ page.title | handleize }}/#url" class="btn btn-faint">Link button faint</a>
 
 	<hr>
 
@@ -902,15 +902,15 @@
 		</button>
 		<ul class="dropdown-menu" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
 			<li class="dropdown-menu-headline">Headline 1</li>
-			<li><a href="#url">Link 1</a></li>
-			<li><a href="#url">Another link</a></li>
+			<li><a href="{{ page.title | handleize }}/#url">Link 1</a></li>
+			<li><a href="{{ page.title | handleize }}/#url">Another link</a></li>
 			<li class="dropdown-menu-headline">Headline 2</li>
-			<li><a href="#url">Another link</a></li>
-			<li><a href="#url">Another link</a></li>
-			<li class="dropdown-menu-divider"><a href="#url">Another link</a></li>
-			<li><a href="#url">Another link</a></li>
-			<li><a href="#url">Another link</a></li>
-			<li><a href="#url">Last link</a></li>
+			<li><a href="{{ page.title | handleize }}/#url">Another link</a></li>
+			<li><a href="{{ page.title | handleize }}/#url">Another link</a></li>
+			<li class="dropdown-menu-divider"><a href="{{ page.title | handleize }}/#url">Another link</a></li>
+			<li><a href="{{ page.title | handleize }}/#url">Another link</a></li>
+			<li><a href="{{ page.title | handleize }}/#url">Another link</a></li>
+			<li><a href="{{ page.title | handleize }}/#url">Last link</a></li>
 		</ul>
 	</div>
 
@@ -922,15 +922,15 @@
 		</button>
 		<ul class="dropdown-menu" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
 			<li class="dropdown-menu-headline">Headline 1</li>
-			<li><a href="#url">Link 1</a></li>
-			<li><a href="#url">Another link</a></li>
+			<li><a href="{{ page.title | handleize }}/#url">Link 1</a></li>
+			<li><a href="{{ page.title | handleize }}/#url">Another link</a></li>
 			<li class="dropdown-menu-headline">Headline 2</li>
-			<li><a href="#url">Another link</a></li>
-			<li><a href="#url">Another link</a></li>
-			<li class="dropdown-menu-divider"><a href="#url">Another link</a></li>
-			<li><a href="#url">Another link</a></li>
-			<li><a href="#url">Another link</a></li>
-			<li><a href="#url">Last link</a></li>
+			<li><a href="{{ page.title | handleize }}/#url">Another link</a></li>
+			<li><a href="{{ page.title | handleize }}/#url">Another link</a></li>
+			<li class="dropdown-menu-divider"><a href="{{ page.title | handleize }}/#url">Another link</a></li>
+			<li><a href="{{ page.title | handleize }}/#url">Another link</a></li>
+			<li><a href="{{ page.title | handleize }}/#url">Another link</a></li>
+			<li><a href="{{ page.title | handleize }}/#url">Last link</a></li>
 		</ul>
 	</div>
 

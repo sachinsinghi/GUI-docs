@@ -145,18 +145,18 @@
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
 	<ul class="lists lists-linklist">
-		<li><a href="#url">Styled link list</a></li>
-		<li><a href="#url">Styled link list</a></li>
+		<li><a href="{{ page.title | handleize }}/#url">Styled link list</a></li>
+		<li><a href="{{ page.title | handleize }}/#url">Styled link list</a></li>
 		<li>
-			<a href="#url">Styled link list</a>
+			<a href="{{ page.title | handleize }}/#url">Styled link list</a>
 
 			<ul class="lists lists-linklist">
-				<li><a href="#url">Styled link list</a></li>
-				<li><a href="#url">Styled link list</a></li>
-				<li><a href="#url">Styled link list</a></li>
+				<li><a href="{{ page.title | handleize }}/#url">Styled link list</a></li>
+				<li><a href="{{ page.title | handleize }}/#url">Styled link list</a></li>
+				<li><a href="{{ page.title | handleize }}/#url">Styled link list</a></li>
 			</ul>
 		</li>
-		<li><a href="#url">Styled link list</a></li>
+		<li><a href="{{ page.title | handleize }}/#url">Styled link list</a></li>
 	</ul>
 {% endcapture %}
 
@@ -164,9 +164,9 @@
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
 	<ul class="lists lists-linklist">
-		<li><a href="#url">Styled link list</a></li>
-		<li><a href="#url">Styled link list</a></li>
-		<li><a href="#url">Styled link list</a></li>
+		<li><a href="http://YOUR-URL.com.au">Styled link list</a></li>
+		<li><a href="http://YOUR-URL.com.au">Styled link list</a></li>
+		<li><a href="http://YOUR-URL.com.au">Styled link list</a></li>
 	</ul>
 {% endcapture %}
 

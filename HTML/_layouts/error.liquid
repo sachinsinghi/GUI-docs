@@ -27,18 +27,14 @@
 	{% comment %} CONTAINER {% endcomment %}
 	<div class="container-fluid clearfix">
 
-		{% include sidebar.liquid %}
-
-		{% include header.liquid %}
-
-
 		{% comment %} MAIN CONTENT {% endcomment %}
-		<main id="content" class="main-content">
-			<div class="container-fluid">
+		<main id="content" class="error-content">
+			<div class="container">
 
-				{% include gridly.liquid %}
+				<div class="content text-center">
+					<span class="sitesymbol-spill" data-grunticon-embed>404 Error</span>
 
-				<div class="content">
+					<h1 class="content-headline">Oops</h1>
 					{{ content }}
 				</div>
 
@@ -49,7 +45,7 @@
 
 
 	{% comment %} FOOTER {% endcomment %}
-	{% include footer.liquid %}
+	{% include footer-code.liquid %}
 
 </body>
 </html>

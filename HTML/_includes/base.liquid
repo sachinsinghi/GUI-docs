@@ -20,4 +20,8 @@
 	{% capture base %}{{ base }}../{% endcapture %}
 {% endfor %}
 
+{% if page.layout == 'error' %}
+	{% assign base = '/GUI/' %}
+{% endif %}
+
 <base href="{{ base }}{{ include.brand }}/">

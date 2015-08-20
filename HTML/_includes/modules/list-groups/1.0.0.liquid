@@ -22,7 +22,7 @@
 {% capture example %}
 	<ul class="list-group">
 		<li>
-			<a class="list-group-item" href="#url">
+			<a class="list-group-item" href="{{ page.title | handleize }}/#url">
 				<span class="list-group-text">Personal messages</span>
 
 				<span class="list-group-element">
@@ -34,7 +34,7 @@
 			</a>
 		</li>
 		<li>
-			<a class="list-group-item" href="#url">
+			<a class="list-group-item" href="{{ page.title | handleize }}/#url">
 				<span class="list-group-text">Work messages</span>
 
 				<span class="list-group-element">
@@ -46,7 +46,7 @@
 			</a>
 		</li>
 		<li>
-			<a class="list-group-item" href="#url">
+			<a class="list-group-item" href="{{ page.title | handleize }}/#url">
 				<span class="list-group-text">Deleted messages</span>
 
 				<span class="list-group-element">
@@ -65,7 +65,7 @@
 {% capture HTML %}
 	<ul class="list-group">
 		<li>
-			<a class="list-group-item" href="#url">
+			<a class="list-group-item" href="http://YOUR-URL.com.au">
 				<span class="list-group-text">YOUR ITEM TEXT</span>
 
 				<span class="list-group-element">
@@ -74,7 +74,7 @@
 			</a>
 		</li>
 		<li>
-			<a class="list-group-item" href="#url">
+			<a class="list-group-item" href="http://YOUR-URL.com.au">
 				<span class="list-group-text">YOUR ITEM TEXT</span>
 
 				<span class="list-group-element">
@@ -111,6 +111,7 @@
 
 
 
+
 {% comment %}
 	--------------------------------------------------------------------------------------------------------------------------------------------------------------
 	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
@@ -126,7 +127,7 @@
 {% comment %} DESCRIPTION {% endcomment %}
 {% capture description %}
 	Other UI elements can be added. Ideal for settings pages or preferences.<br>
-	The toggle button in this example are not included and will have to be added to the blend seperately.
+	The toggle buttons in this example are not included and will have to be added to the blend seperately.
 {% endcapture %}
 
 
