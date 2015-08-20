@@ -23,8 +23,8 @@
 	<hr>
 	<p>As a link</p>
 
-	<a href="#url" class="label label-primary">Primary</a>
-	<a href="#url" class="label label-hero">Hero</a>
+	<a href="{{ page.title | handleize }}/#url" class="label label-primary">Primary</a>
+	<a href="{{ page.title | handleize }}/#url" class="label label-hero">Hero</a>
 {% endcapture %}
 
 
@@ -32,7 +32,7 @@
 {% capture HTML %}
 	<span class="label">LABEL TEXT</span>
 
-	<a href="#url" class="label">Default</a>
+	<a href="http://YOUR-URL.com.au" class="label">Default</a>
 {% endcapture %}
 
 
