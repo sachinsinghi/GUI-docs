@@ -5,7 +5,7 @@ weight: "-0"
 brand: [Brand]
 ---
 
-<h2>Bad Request</h2>
+<h2 class="body-font">Bad Request</h2>
 <p>
 	The server did not understand the request due to bad syntax.<br>
 	Look at the links below and go from there.

@@ -5,7 +5,7 @@ weight: "-0"
 brand: [Brand]
 ---
 
-<h2>Forbidden</h2>
+<h2 class="body-font">Forbidden</h2>
 <p>
 	The server understood the request but was unable to execute it.<br>
 	This could be due to an incorrect username and/or password<br>

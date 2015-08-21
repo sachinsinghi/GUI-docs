@@ -5,7 +5,7 @@ weight: "-0"
 brand: [Brand]
 ---
 
-<h2>Internal Server Error</h2>
+<h2 class="body-font">Internal Server Error</h2>
 <p>
 	The server encountered an unexpected condition which prevented<br>
 	it from fulfilling the request.<br>
