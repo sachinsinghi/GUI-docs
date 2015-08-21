@@ -28,11 +28,13 @@
 	module.get = function() {
 		App.debugging( 'HTML: Getting all HTML files', 'report' );
 
+		var POST = App.POST;
 		var index = Fs.readFileSync( App.TEMPPATH + 'index.html', 'utf8');
 
 		index = _.template( index )({ //render the index template
 			_hasJS: App.selectedModules.js,
 			_hasSVG: App.selectedModules.svg,
+			Brand: POST['brand'],
 			blendURL: App.banner.getBlendURL( App.selectedModules.brand ),
 			blendURLBOM: App.banner.getBlendURL( 'BOM' ),
 			blendURLBSA: App.banner.getBlendURL( 'BSA' ),
