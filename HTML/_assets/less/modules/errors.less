@@ -1,7 +1,36 @@
 /* Errors */
 
 .error-content {
-	margin: 90px;
+	padding: 90px 0 0 0;
+	position: relative;
+	margin: 0 -12px;
+
+	&:after {
+		content: ' ';
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		border: 30px solid #fff;
+		z-index: 1;
+	}
+
+	.container {
+		position: relative;
+		z-index: 2;
+	}
+
+	.content {
+		margin: 0 30px;
+	}
+
+	.sitesymbol-spill {
+
+		svg {
+			max-width: 100%;
+		}
+	}
 
 	.content-headline {
 		font-size: 90px;
@@ -12,9 +41,13 @@
 	.navigation {
 		overflow: hidden;
 		display: block;
-		border-top: 1px solid #fff;
-		margin-top: 60px;
+		margin: 60px auto;
 		padding-top: 30px;
+		width: 130px;
+
+		@media (min-width: @screen-sm) {
+			width: 100%;
+		}
 
 		&> .navigation-item {
 			position: relative;
@@ -58,12 +91,23 @@
 
 	.navigation-subnav {
 		overflow: hidden;
+		border-top: 1px solid #fff;
+		margin-top: 18px;
+		padding-top: 18px;
 
 		.navigation-item {
 			position: relative;
 			float: left;
-			width: 25%;
+			width: 100%;
 			margin: 12px 0;
+
+			@media (min-width: @screen-sm) {
+				width: 50%;
+			}
+
+			@media (min-width: @screen-md) {
+				width: 25%;
+			}
 
 			a {
 				margin: 0 0 0 16px;

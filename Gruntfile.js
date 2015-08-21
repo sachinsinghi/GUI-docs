@@ -750,6 +750,9 @@ module.exports = function(grunt) {
 				urlpngcss: 'symbols-<%= pkg.version %>.fallback.css',
 				cssprefix: '.sitesymbol-',
 				enhanceSVG: true,
+				customselectors: {
+					'header-bg': ['.header .headerline'],
+				},
 				pngpath: '../img',
 			},
 

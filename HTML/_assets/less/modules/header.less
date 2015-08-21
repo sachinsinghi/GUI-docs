@@ -7,18 +7,32 @@
 .getBrand() when (@brand = BOM) {
 	@header-color: #fff;
 	@header-bgcolor: @color-D;
+	.head-pos() {
+		background-attachment: scroll;
+	}
 }
 .getBrand() when (@brand = BSA) {
 	@header-color: #fff;
 	@header-bgcolor: @color-B;
+	.head-pos() {
+		background-attachment: scroll;
+	}
 }
 .getBrand() when (@brand = STG) {
 	@header-color: @color-F;
 	@header-bgcolor: @color-B;
+	.head-pos() {
+		background-attachment: fixed;
+		background-size: 2749px 1123px;
+		background-position: top -430px left -600px;
+	}
 }
 .getBrand() when (@brand = WBC) {
 	@header-color: #fff;
 	@header-bgcolor: @color-B;
+	.head-pos() {
+		background-attachment: scroll;
+	}
 }
 .getBrand();
 
@@ -46,7 +60,7 @@
 		font-size: 16px;
 		background-color: @header-bgcolor;
 		background-size: cover;
-		background-attachment: scroll;
+		.head-pos();
 
 		@media (min-width: @screen-sm) {
 			height: 228px;
