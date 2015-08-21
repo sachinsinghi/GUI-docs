@@ -51,93 +51,129 @@
 	</noscript>
 <% } %>
 
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-12">
+				<img src="<%= GUIRURL %>../assets/img/GEL.png">
+			</div>
+		</div>
+	</div>
+
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-9 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-7 col-lg-offset-3">
+			<div class="col-md-10 col-md-offset-1">
 				<header>
-					<h1>Have a sip of your GUI Blend</h1>
+					<img src="<%= GUIRURL %>../assets/img/enjoy.png">
 				</header>
 
 				<main>
+					<h1 class="body-font">Your GUI Blend</h1>
 					<p>
-						This is an example page to show you how you implement the GUI asstets properly.
-						<a href="<%= GUIRURL %>/getting-started/installing-the-framework" target="_blank">Read more in our GUI pages</a>.<br>
-						You can extend this very GUI Blend or remove elements by going <a href="<%= blendURL %>" target="_blank">to the Blender</a>
-						and reblend another selection. Note your GUI Blend URL below.
+						This page contains everything you need to know about your GUI blend and how to implement GUI assets.
 					</p>
+
+					<hr>
+
+					<h2 class="body-font">Your GUI blend URL</h2>
 					<p>
-						<strong>Your GUI Blend URL:</strong> <a href="<%= blendURL %>" target="_blank"><%= blendURL %></a>
+						<a href="<%= blendURL %>" target="_blank"><%= blendURL %></a>
 					</p>
-					<p>
-						You can find all brand blends here:
-						<ul>
-							<li><a href="<%= blendURLBOM %>" target="_blank">BOM</a></li>
-							<li><a href="<%= blendURLBSA %>" target="_blank">BSA</a></li>
-							<li><a href="<%= blendURLSTG %>" target="_blank">STG</a></li>
-							<li><a href="<%= blendURLWBC %>" target="_blank">WBC</a></li>
-						</ul>
-					</p>
-					<p>
-						To install <strong>this GUI Blend you need to follow the below points:</strong>
-					</p>
-					<ol>
-						<li>
-							<p>
-								On the very top: <strong>Conditional &lt;html&gt; tag with "no-js" class.</strong><br>
-								<small>This is so our CSS can select older IE versions. The "no-js" class is replaced with "js" as soon as js runs.</small>
-							</p>
-						</li>
-						<li>
-							<p>
-								Inside the header: <strong>Two meta tags.</strong><br>
-								<small>Those are for encoding and viewport sizing.</small>
-							</p>
-						</li>
+
+					<hr>
+
+					<div class="row">
+						<div class="col-sm-6">
+							<h2 class="body-font">Installing your Blend</h2>
+
+
+							<ol>
+								<li>
+									<p>
+										On the very top: <strong>Conditional &lt;html&gt; tag with "no-js" class.</strong><br>
+										<small>This is so our CSS can select older IE versions. The "no-js" class is replaced with "js" as soon as js runs.</small>
+									</p>
+								</li>
+								<li>
+									<p>
+										Inside the header: <strong>Two meta tags.</strong><br>
+										<small>Those are for encoding and viewport sizing.</small>
+									</p>
+								</li>
 <% if( _hasSVG ) { %>
-						<li>
-							<p>
-								Inside the header: <strong>The grunticon stylesheet loader.</strong><br>
-								<small>
-									To allow us to SVGs in the GUI we need some smarts to load the appropriate stylesheet.
-									To use your icons now include them like so: &lt;span class="icon icon-size-sm icon-face-happy"&gt;&lt;/span&gt;
-									<a href="http://www.grunticon.com/" target="_blank">Read more about this technique</a>.
-								</small>
-							</p>
-						</li>
+								<li>
+									<p>
+										Inside the header: <strong>The grunticon stylesheet loader.</strong><br>
+										<small>
+											To allow us to SVGs in the GUI we need some smarts to load the appropriate stylesheet.
+											To use your icons now include them like so: &lt;span class="icon icon-size-sm icon-face-happy"&gt;&lt;/span&gt;
+											<a href="http://www.grunticon.com/" target="_blank">Read more about this technique</a>.
+										</small>
+									</p>
+								</li>
 <% } %>
-						<li>
-							<p>
-								Inside the header: <strong>A minified inline script.</strong><br>
-								<small>We remove the aformentioned "no-js" class here to avoid any flashes of styling.</small>
-							</p>
-						</li>
-						<li>
-							<p>
-								Inside the header: <strong>The gui.min.css file.</strong><br>
-								<small>Your GUI-blend styles.</small>
-							</p>
-						</li>
-						<li>
-							<p>
-								Inside the header: <strong>Conditional scripts for older IE.</strong><br>
-								<small>These scripts are important to enable responsive layouts and HTML5 elements in IE8.</small>
-							</p>
-						</li>
+								<li>
+									<p>
+										Inside the header: <strong>A minified inline script.</strong><br>
+										<small>We remove the aformentioned "no-js" class here to avoid any flashes of styling.</small>
+									</p>
+								</li>
+								<li>
+									<p>
+										Inside the header: <strong>The gui.min.css file.</strong><br>
+										<small>Your GUI-blend styles.</small>
+									</p>
+								</li>
+								<li>
+									<p>
+										Inside the header: <strong>Conditional scripts for older IE.</strong><br>
+										<small>These scripts are important to enable responsive layouts and HTML5 elements in IE8.</small>
+									</p>
+								</li>
 <% if( _hasJS ) { %>
-						<li>
-							<p>
-								Right after the opening &lt;body&gt; tag: <strong>A conditional noscript block.</strong><br>
-								<small>This informs screenreaders and visitors in general that javascript is turned off and that it is needed for this page.</small>
-							</p>
-						</li>
-						<li>
-							<p>
-								Before the closing &lt;/body&gt; tag: <strong>The gui.min.js file.</strong><br>
-								<small>Your GUI-blend script.</small>
-							</p>
-						</li>
+								<li>
+									<p>
+										Right after the opening &lt;body&gt; tag: <strong>A conditional noscript block.</strong><br>
+										<small>This informs screenreaders and visitors in general that javascript is turned off and that it is needed for this page.</small>
+									</p>
+								</li>
+								<li>
+									<p>
+										Before the closing &lt;/body&gt; tag: <strong>The gui.min.js file.</strong><br>
+										<small>Your GUI-blend script.</small>
+									</p>
+								</li>
 <% } %>
-					</ol>
+							</ol>
+						</div>
+
+						<div class="col-sm-4 col-sm-offset-1">
+							<h2 class="body-font">Changing your Blend</h2>
+							<p>
+								You can change your blend any time you like. Just go to the Blender, add or remove elements and re-blend another selection.
+							</p>
+
+							<h2 class="body-font">Other brands</h2>
+							<p>
+								You can find the other brands version of your GUI Blend here:
+							</p>
+							<ul>
+<% if( Brand != 'BOM' ) { %>
+								<li><a href="<%= blendURLBOM %>" target="_blank">Bank of Melbourne</a></li>
+<% } %>
+<% if( Brand != 'BSA' ) { %>
+								<li><a href="<%= blendURLBSA %>" target="_blank">Bank SA</a></li>
+<% } %>
+<% if( Brand != 'STG' ) { %>
+								<li><a href="<%= blendURLSTG %>" target="_blank">St.George</a></li>
+<% } %>
+<% if( Brand != 'WBC' ) { %>
+								<li><a href="<%= blendURLWBC %>" target="_blank">Westpac</a></li>
+<% } %>
+							</ul>
+						</ul>
+						</div>
+					</div>
+
 				</main>
 
 				<footer>

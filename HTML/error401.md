@@ -5,7 +5,7 @@ weight: "-0"
 brand: [Brand]
 ---
 
-<h2>Unauthorized</h2>
+<h2 class="body-font">Unauthorized</h2>
 <p>
 	The visitor must by authorized (e.g., have a password) to access the page.
 </p>
