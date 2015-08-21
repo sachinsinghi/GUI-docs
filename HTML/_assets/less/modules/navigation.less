@@ -33,8 +33,7 @@
 			text-decoration: none;
 		}
 
-		&.is-active,
-		.is-activeParent > & {
+		&.is-active {
 			background-color: transparent;
 			color: @color-A;
 		}
@@ -65,6 +64,13 @@
 		&.sidebar-blender {
 			padding: 12px 0 12px 42px;
 			margin-bottom: 68px;
+		}
+	}
+
+	.navigation-item {
+		&.is-activeParent > .navigation-link {
+			background-color: transparent;
+			color: @color-A;
 		}
 	}
 }
