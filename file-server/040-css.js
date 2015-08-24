@@ -10,14 +10,14 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-(function(App) {
+(function CssApp(App) {
 
 	var module = {};
 
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	// Module init method
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	module.init = function() {
+	module.init = function CssInit() {
 		App.debugging( 'CSS: Initiating', 'report' );
 	};
 
@@ -25,7 +25,7 @@
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	// Get all less files and compile them
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	module.get = function() {
+	module.get = function CssGet() {
 		App.debugging( 'CSS: Generating css', 'report' );
 
 		var POST = App.POST;
@@ -34,7 +34,7 @@
 
 
 		//////////////////////////////////////////////////| CORE
-		App.selectedModules.core.forEach(function iterateCore( module ) {
+		App.selectedModules.core.forEach(function CssIterateCore( module ) {
 			var lessContent = App.branding.replace(
 				Fs.readFileSync(App.GUIPATH + module.ID + '/' + module.version + '/less/module-mixins.less', 'utf8'),
 				['Module-Version-Brand', ' ' + module.name + ' v' + module.version + ' ' + POST['brand']]
@@ -51,7 +51,7 @@
 
 
 		//////////////////////////////////////////////////| MODULES
-		App.selectedModules.modules.forEach(function( module ) {
+		App.selectedModules.modules.forEach(function CssIterateModules( module ) {
 			var lessContent = App.branding.replace(
 				Fs.readFileSync( App.GUIPATH + module.ID + '/' + module.version + '/less/module-mixins.less', 'utf8'),
 				['Module-Version-Brand', ' ' + module.name + ' v' + module.version + ' ' + POST['brand'] + ' ']
@@ -71,7 +71,7 @@
 		Less.render(lessContents, {
 			compress: true
 		},
-		function(e, output) {
+		function CssRenderLess(e, output) {
 			//TODO: error handling
 
 			var source = App.banner.attach( output.css ); //attach a banner to the top of the file with a URL of this build

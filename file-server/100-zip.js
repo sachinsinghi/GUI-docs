@@ -11,14 +11,14 @@
 var Archiver = require('archiver');
 
 
-(function(App) {
+(function ZipApp(App) {
 
 	var module = {};
 
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	// Module init method
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	module.init = function() {
+	module.init = function ZipInit() {
 		App.debugging( 'Zip: Initiating', 'report' );
 	};
 
@@ -26,7 +26,7 @@ var Archiver = require('archiver');
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	// Zip all files up and send to response
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	module.getZip = function() {
+	module.getZip = function ZipGetZip() {
 		App.debugging( 'Zip: Compiling zip', 'report' );
 
 		App.response.writeHead(200, {
@@ -36,25 +36,33 @@ var Archiver = require('archiver');
 
 		App.zip.archive.pipe( App.response );
 
-		App.zip.archive.finalize(); //send to server
+		try {
+			App.zip.archive.finalize(); //send to server
+
+			App.log.info( '             Zip sent!' );
+		}
+		catch( error ) {
+
+			App.log.error( '             Zip ERROR' );
+			App.log.error( error );
+		}
 
 		//clearning up
 		App.zip.archive = Archiver('zip'); //new archive
 		App.zip.files = []; //empty files
 		module.queue = {}; // empty queue
-
 	};
 
 
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	// Check if queue is clear
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	module.readyZip = function() {
+	module.readyZip = function ZipReadyZip() {
 		App.debugging( 'Zip: Readying zip', 'report' );
 
 		if( App.zip.isQueuingEmpty() ) { //if queue is clear, add all files to the archive
 
-			App.zip.files.forEach(function( file ) {
+			App.zip.files.forEach(function ZipIterateZipFiles( file ) {
 				App.zip.archive.append( file.content, { name: file.name } );
 			});
 
@@ -70,7 +78,7 @@ var Archiver = require('archiver');
 	// @param   content      [string]  The content of the file
 	// @param   archivePath  [string]  The path this file will have inside the archive
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	module.addFile = function( content, archivePath ) {
+	module.addFile = function ZipAddFile( content, archivePath ) {
 		App.debugging( 'Zip: Adding file: ' + archivePath, 'report' );
 
 		if(typeof content !== 'string') {
@@ -96,7 +104,7 @@ var Archiver = require('archiver');
 	// @param  files        [array]   The file extensions of the files
 	// @param  archivePath  [string]  The path these files will have inside the archive
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	module.addBulk = function( cwd, files, archivePath ) {
+	module.addBulk = function ZipAddBulk( cwd, files, archivePath ) {
 		App.debugging( 'Zip: Adding bluk: ' + cwd + files + ' to: ' + archivePath, 'report' );
 
 		if(typeof files !== 'object') {
@@ -124,7 +132,7 @@ var Archiver = require('archiver');
 	// @param   type           [string]   Identifier for a type of file we are waiting for
 	// @param   _isBeingAdded  [boolean]  Whether or not this type is added or removed from the queue
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	module.queuing = function( type, _isBeingAdded ) {
+	module.queuing = function ZipQueuing( type, _isBeingAdded ) {
 		App.debugging( 'Zip: Queuing files', 'report' );
 
 		if( _isBeingAdded ) {
@@ -148,7 +156,7 @@ var Archiver = require('archiver');
 	//
 	// @return  [boolean]  Whether or not it is...
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	module.isQueuingEmpty = function() {
+	module.isQueuingEmpty = function ZipIsQueuingEmpty() {
 		App.debugging( 'Zip: Checking queue', 'report' );
 
 		for( var prop in App.zip.queue ) {

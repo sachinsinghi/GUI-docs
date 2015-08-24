@@ -22,7 +22,7 @@ var Express = require('express');
 var BodyParser = require('body-parser');
 
 
-var App = (function() {
+var App = (function Application() {
 
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	// Settings
@@ -38,7 +38,7 @@ var App = (function() {
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
 		// Initiate app
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
-		init: function() {
+		init: function Init() {
 			if( App.DEBUG ) App.debugging( ' DEBUGGING| INFORMATION', 'headline' );
 
 			App.GUI = JSON.parse( Fs.readFileSync( App.GUIPATH + '/GUI.json', 'utf8') );
@@ -48,19 +48,19 @@ var App = (function() {
 			app
 				.use( BodyParser.urlencoded({ extended: false }) )
 
-				.listen(8080, function(){
+				.listen(8080, function PortListener() {
 					App.debugging( 'Server started on port 8080', 'report' );
 				});
 
 
-			app.get('*', function(request, response) {
+			app.get('*', function GetListener(request, response) {
 				response.redirect(301, App.GUIRURL);
 			});
 
 
 			//listening to post request
-			app.post('/blender', function(request, response) {
-				App.debugging( 'Received new request from: ' + request.headers['x-forwarded-for'] + ' / ' + request.connection.remoteAddress, 'interaction' );
+			app.post('/blender', function PostListener(request, response) {
+				App.log.info( 'New request: ' + request.headers['x-forwarded-for'] + ' / ' + request.connection.remoteAddress );
 
 				App.response = response;
 				App.POST = request.body;
@@ -87,7 +87,7 @@ var App = (function() {
 		//
 		// @return  [output]  console.log output
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
-		debugging: function( text, code ) {
+		debugging: function Debugging( text, code ) {
 
 			if( code === 'headline' ) {
 				if( App.DEBUG ) {
@@ -119,7 +119,31 @@ var App = (function() {
 				if( App.DEBUG ) console.log(Chalk.bgWhite("\n" + Chalk.bold.cyan(' \u219C  ') + Chalk.black(text + ' ')));
 			}
 
-		}
+		},
+
+
+		//------------------------------------------------------------------------------------------------------------------------------------------------------------
+		// Log to console.log
+		//
+		// @method  info     Log info to console.log and in extension to node log file
+		//          @param   text     string   The sting you want to log
+		//          @return  console.log output
+		//
+		// @method  error    Log error to console.log and in extension to node log file
+		//          @param   text     string   The sting you want to log
+		//          @return  console.log output
+		//------------------------------------------------------------------------------------------------------------------------------------------------------------
+		log: {
+
+			info: function LogInfo( text ) {
+				console.log( Chalk.bold.black( 'Info ' ) + new Date().toString() + '  ' + text );
+			},
+
+			error: function LogError( text ) {
+				console.log( Chalk.bold.red( 'ERROR' ) + new Date().toString() + '  ' + text );
+			},
+
+		},
 
 	}
 

@@ -10,14 +10,14 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-(function(App) {
+(function BrandingApp(App) {
 
 	var module = {};
 
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	// Module init method
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	module.init = function() {
+	module.init = function BrandingInit() {
 		App.debugging( 'Branding: Initiating', 'report' );
 	};
 
@@ -30,7 +30,7 @@
 	//
 	// @return  [string]  Finished parsed content
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	module.replace = function( content, replace ) {
+	module.replace = function BrandingReplace( content, replace ) {
 		App.debugging( 'Branding: Replacing "' + replace[0] + '" with "' + replace[1] + '"', 'report' );
 
 		var pattern = new RegExp('\\[(' + replace[0] + ')\\]', 'g');
