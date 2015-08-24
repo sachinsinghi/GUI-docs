@@ -24,7 +24,7 @@ parent: Getting Started
 		<p>
 			There are two ways to use svg&rsquo;s: As a background image or direct embedding. Both methods are valid however it&rsquo;s important to understand the
 			implications. For example using the background method is not semantic or accessible where as direct embedding is accessible as every svg comes
-			with a title attribute that reflects it&rsquo;s name. Embedded icons can be manipulated with CSS or Javascript.
+			with a title attribute that reflects it&rsquo;s name. Embedded icons can be manipulated with CSS or JavaScript.
 		</p>
 	</div>
 
