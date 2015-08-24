@@ -14,14 +14,14 @@ var UglifyJS = require('uglify-js');
 var Less = require('less');
 
 
-(function(App) {
+(function FilesApp(App) {
 
 	var module = {};
 
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	// Module init method
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	module.init = function() {
+	module.init = function FilesInit() {
 		App.debugging( 'Files: new query', 'report' );
 
 		//////////////////////////////////////////////////| PARSING POST
@@ -52,7 +52,7 @@ var Less = require('less');
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	// Saves an array of the selected modules globally so we don't work with the raw data that comes from the client... as that could be a mess ;)
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	module.getPost = function() {
+	module.getPost = function FilesGetPost() {
 		App.debugging( 'Files: Parsing POST', 'report' );
 
 		var POST = App.POST;
@@ -63,10 +63,11 @@ var Less = require('less');
 		var _includeJquery = POST.includeJquery === 'yes';
 		var _includeUnminifiedJS = POST.includeUnminifiedJS === 'yes';
 		var _includeLess = POST.includeLess === 'yes';
+		var log = '';
 
 
 		//////////////////////////////////////////////////| ADDING MODULES
-		Object.keys( POST ).forEach(function( moduleName ) {
+		Object.keys( POST ).forEach(function FilesIteratePost( moduleName ) {
 			var module = moduleName.substr(5);
 
 			if(
@@ -75,8 +76,8 @@ var Less = require('less');
 			) { //only look at enabled checkboxes
 
 				var json = App.modules.getJson( module );
-
 				var version = POST[ 'module-' + module ];
+
 				var newObject = _.extend( json, json.versions[ version ] ); //merge version to the same level
 				newObject.version = version;
 
@@ -89,6 +90,8 @@ var Less = require('less');
 				}
 
 				fromPOST.modules.push( newObject );
+
+				log += ', ' + json.ID + ':' + version;
 			}
 		});
 
@@ -96,14 +99,19 @@ var Less = require('less');
 		//////////////////////////////////////////////////| ADDING CORE
 		fromPOST.core = [];
 
-		Object.keys( App.GUI.modules._core ).forEach(function( moduleName ) {
-			var module = App.GUI.modules._core[moduleName]
+		Object.keys( App.GUI.modules._core ).forEach(function FilesIterateCore( moduleName ) {
+			var module = App.GUI.modules._core[moduleName];
+			var version = POST[ 'module-' + module.ID ];
 
-			var newObject = _.extend(module, module.versions[ POST[ 'module-' + module.ID ] ]); //merge version to the same level
+			var newObject = _.extend(module, module.versions[ version ]); //merge version to the same level
 			newObject.version = POST[ 'module-' + module.ID ];
 
 			fromPOST.core.push(newObject);
+
+			log += ', ' + module.ID + ':' + version;
 		});
+
+		App.log.info( '             ' + log.substr(2) );
 
 
 		//////////////////////////////////////////////////| ADDING OPTIONS

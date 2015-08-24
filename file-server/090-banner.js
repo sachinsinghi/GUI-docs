@@ -10,14 +10,14 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-(function(App) {
+(function BannerApp(App) {
 
 	var module = {};
 
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	// Module init method
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	module.init = function() {
+	module.init = function BannerInit() {
 		App.debugging( 'Banner: Initiating', 'report' );
 	};
 
@@ -27,7 +27,7 @@
 	//
 	// @return  [string]  Content with attached banner
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	module.get = function() {
+	module.get = function BannerGet() {
 		App.debugging( 'Banner: Generating banner', 'report' );
 
 		return '/* GUI blend ' + App.banner.getBlendURL( App.selectedModules.brand ) + ' */' + "\n";
@@ -42,7 +42,7 @@
 	//
 	// @return  [string]  Content with attached banner
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	module.attach = function( content ) {
+	module.attach = function BannerAttach( content ) {
 		App.debugging( 'Banner: Attaching banner', 'report' );
 
 		if( content.length > 0 ) {
@@ -62,16 +62,16 @@
 	//
 	// @return  [string]  The URL string to this build
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	module.getBlendURL = function( brand ) {
+	module.getBlendURL = function BannerGetBlenderUrl( brand ) {
 		App.debugging( 'Banner: Generating blend link', 'report' );
 
 		var url = App.GUIRURL + brand + '/blender/#';
 
-		App.selectedModules.core.forEach(function iterateCore( module ) { //adding core
+		App.selectedModules.core.forEach(function BannerIterateCore( module ) { //adding core
 			url += '/' + module.ID + ':' + module.version;
 		});
 
-		App.selectedModules.modules.forEach(function( module ) { //adding modules
+		App.selectedModules.modules.forEach(function BannerIterateModules( module ) { //adding modules
 			url += '/' + module.ID + ':' + module.version;
 		});
 

@@ -10,14 +10,14 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-(function(App) {
+(function AssetsApp(App) {
 
 	var module = {};
 
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	// Module init method
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	module.init = function() {
+	module.init = function AssetsInit() {
 		App.debugging( 'Assets: Initiating', 'report' );
 	};
 
@@ -25,14 +25,14 @@
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	// Get all assets files
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	module.get = function() {
+	module.get = function AssetsGet() {
 		App.debugging( 'Assets: Getting all files', 'report' );
 
 		var POST = App.POST;
 
 
 		//////////////////////////////////////////////////| CORE
-		App.selectedModules.core.forEach(function iterateCore( module ) {
+		App.selectedModules.core.forEach(function AssetsIterateCore( module ) {
 			if( module.font ) {
 				App.assets.getFonts( App.GUIPATH + module.ID + '/' + module.version + '/_assets/' + POST['brand'] + '/font/' );
 			}
@@ -44,7 +44,7 @@
 
 
 		//////////////////////////////////////////////////| MODULES
-		App.selectedModules.modules.forEach(function( module ) {
+		App.selectedModules.modules.forEach(function AssetsIterateModules( module ) {
 
 			if( module.font ) {
 				App.assets.getFonts( App.GUIPATH + module.ID + '/' + module.version + '/_assets/' + POST['brand'] );
@@ -71,7 +71,7 @@
 	//
 	// @param  [string]  Path to a folder of the font files
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	module.getFonts = function( folder ) {
+	module.getFonts = function AssetsGetFonts( folder ) {
 		App.debugging( 'Assets: Getting font files', 'report' );
 
 		var files = [
@@ -92,7 +92,7 @@
 	//
 	// @param  [string]  Path to a tests folder
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	module.getSVG = function( folder ) {
+	module.getSVG = function AssetsGetSvg( folder ) {
 		App.debugging( 'Assets: Getting svg files', 'report' );
 
 		//////////////////////////////////////////////////| ADDING PNGs

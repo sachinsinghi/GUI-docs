@@ -10,14 +10,14 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-(function(App) {
+(function ModulesApp(App) {
 
 	var module = {};
 
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	// Module init method
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	module.init = function() {
+	module.init = function ModulesInit() {
 		App.debugging( 'Modules: Initiating', 'report' );
 	};
 
@@ -29,16 +29,16 @@
 	//
 	// @return  [object]  Json object of module.json
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	module.getJson = function( module ) {
+	module.getJson = function ModulesGetJson( module ) {
 		App.debugging( 'Modules: Getting JSON for ' + module, 'report' );
 
 
 		if( App.GUImodules === undefined ) { //flatten GUI json and assign to global
 
 			App.GUImodules = {};
-			Object.keys( App.GUI.modules ).forEach(function( category ) {
+			Object.keys( App.GUI.modules ).forEach(function ModulesIterateCategory( category ) {
 
-				Object.keys( App.GUI.modules[ category ] ).forEach(function( mod ) {
+				Object.keys( App.GUI.modules[ category ] ).forEach(function ModulesIterateModules( mod ) {
 					App.GUImodules[ mod ] = App.GUI.modules[ category ][ mod ];
 				});
 
