@@ -30,14 +30,14 @@
 
 .content-subline {
 	font-family: @fontfamily;
-	font-weight: 300;
+	font-weight: 400;
 	margin-top: 0;
 	color: @content-color;
 }
 
 .content-h {
 	font-family: @fontfamily;
-	font-weight: 300;
+	font-weight: 400;
 	margin: 0 0 24px 0;
 	color: @content-color;
 }
@@ -45,7 +45,12 @@
 .content-row {
 	margin-top: 30px;
 
-	@media (min-width: @screen-md) {
+	@media (min-width: @screen-sm) {
 		margin-top: 90px;
 	}
+}
+
+.content-text {
+	font-size: 16px;
+	line-height: 1.6;
 }

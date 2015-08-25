@@ -220,7 +220,7 @@
 }
 
 .header-hamburger {
-	position: fixed;
+	position: absolute;
 	width: 44px;
 	text-indent: -99999em;
 	overflow: hidden;
@@ -261,6 +261,7 @@
 
 	.has-openSidebar & {
 		bottom: 0;
+		overflow: visible;
 
 		.cheese,
 		.patty,
@@ -283,7 +284,7 @@
 
 
 .gridly-button-wrapper {
-	position: fixed;
+	position: absolute;
 	top: 12px;
 	right: 0;
 	color: @header-color;
