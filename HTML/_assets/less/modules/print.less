@@ -1,0 +1,43 @@
+/* Print */
+
+@media print {
+	.sidebar-gel,
+	.navigation-wrapper,
+	.sidebar-blender,
+	.example-tabs-wrapper,
+	.module-version,
+	.header,
+	.footer {
+		display: none !important;
+	}
+
+	.sidebar {
+		position: absolute;
+		top: 0;
+		left: 0;
+		border: none;
+		height: 0;
+		width: 0;
+		overflow: visible;
+	}
+
+	.sidebar-logo {
+		border: none;
+	}
+
+	.main-content {
+		margin: 0;
+	}
+
+	.example-box {
+		border: 1px dotted #000;
+	}
+
+	.modules {
+		background-color: transparent !important;
+	}
+
+	.container-fluid {
+		max-width: 100% !important;
+	}
+}
