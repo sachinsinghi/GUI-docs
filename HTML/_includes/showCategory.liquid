@@ -27,7 +27,7 @@
 		{% for module in site.data.GUI.modules[category] %}
 			{% assign thisModule = module[1] %}
 
-			<section class="modules js-modules js-blender-module{{ module[1].ID }}
+			<section class="modules has-id js-modules js-blender-module{{ module[1].ID }}
 				{% unless site.data.GUI.modules[category].size == 1 %}
 					has-border
 				{% endunless %}" id="{{ module[1].ID }}">
