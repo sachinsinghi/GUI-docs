@@ -21,7 +21,7 @@ parent: Getting Started
 
 	<div class="col-sm-7 col-sm-offset-2">
 		<h3 class="body-font">First you choose</h3>
-		<p>
+		<p class="content-text">
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt beatae dolorum, optio fugiat porro officiis consectetur explicabo cumque, pariatur
 			iusto alias, reiciendis libero, quia nobis itaque obcaecati omnis aut molestias.
 		</p>
@@ -43,7 +43,7 @@ parent: Getting Started
 
 	<div class="col-sm-7 col-sm-offset-2">
 		<h3 class="body-font">First you choose</h3>
-		<p>
+		<p class="content-text">
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt beatae dolorum, optio fugiat porro officiis consectetur explicabo cumque, pariatur
 			iusto alias, reiciendis libero, quia nobis itaque obcaecati omnis aut molestias.
 		</p>

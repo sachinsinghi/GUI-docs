@@ -18,7 +18,7 @@ parent: Getting Started
 
 	<div class="col-sm-7 col-sm-offset-2">
 		<h3 class="body-font">An entire empty page</h3>
-		<p>
+		<p class="content-text">
 			The code below shows an entire GUI page with everything installed. Let's go through each part individually.
 		</p>
 	</div>
@@ -96,7 +96,7 @@ parent: Getting Started
 
 	<div class="col-sm-7 col-sm-offset-2">
 		<h3 class="body-font">First: The HTML5 boilerplate</h3>
-		<p>
+		<p class="content-text">
 			The GUI requires and heavily relies on the commonly known HTML5 boilerplate and needs to be on the very top of your document.
 		</p>
 	</div>
@@ -132,7 +132,7 @@ parent: Getting Started
 
 	<div class="col-sm-7 col-sm-offset-2">
 		<h3 class="body-font">The head</h3>
-		<p>
+		<p class="content-text">
 			The head element includes encoding and viewport tags as well as the grunticon scripts. The second script is to remove the no-js class and replace it with
 			the js class to make sure javaScript is running. It is included as vanilla js in the head to avoid FOUT.
 			The stylsheet of all styles should be included before the IE8 scripts so that those can parse them and hence help IE understand them.
@@ -187,7 +187,7 @@ parent: Getting Started
 
 	<div class="col-sm-7 col-sm-offset-2">
 		<h3 class="body-font">Your body and js script</h3>
-		<p>
+		<p class="content-text">
 			Next comes the body tag which should include a message for those who have js disabled followed by your content.
 			At the very end of your content, right before you close the body we include the javaScript. Concatenate all your own scripts into the bottom of the GUI
 			script.
