@@ -8,58 +8,61 @@ parent: Getting Started
 
 <div class="row">
 	<div class="col-sm-10 col-sm-offset-1">
-		<h2 class="body-font">How to blend</h2>
+		<h2 class="body-font">What is the blender?</h2>
 		<p class="lead">
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo veritatis incidunt mollitia doloremque consequatur quo itaque ipsam vero vel, porro
-			laboriosam, provident, assumenda eveniet! Saepe ad velit ab atque possimus? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit optio
-			voluptatum reprehenderit. Quas aut aliquid doloribus autem reprehenderit. Earum amet quibusdam neque non fugit possimus esse dolorum facilis harum cumque.
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum accusamus placeat, delectus corrupti veniam ab facilis saepe assumenda ad adipisci at
-			ducimus quas blanditiis quis obcaecati rerum. Minus, amet, ipsa. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, libero incidunt velit
-			veniam animi magni quos architecto itaque sint minus odit, necessitatibus dolor! Dolorem excepturi enim, aliquam officiis accusantium suscipit!
+			The blender is a tool that lets you mix the modules you need and leaves out the ones you don&rsquo;t.
 		</p>
 	</div>
 
 	<div class="col-sm-7 col-sm-offset-2">
-		<h3 class="body-font">First you choose</h3>
+		<h3 class="body-font">Why do I have to choose?</h3>
 		<p class="content-text">
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt beatae dolorum, optio fugiat porro officiis consectetur explicabo cumque, pariatur
-			iusto alias, reiciendis libero, quia nobis itaque obcaecati omnis aut molestias.
+			Having the ability to choose which modules are relevant to your project means less overhead for your users, less stress for you when it comes to
+			performance testing and less things that could go wrong. The less modules you choose the smaller the footprint on your network, the faster the user
+			experience for your users.
 		</p>
-	</div>
-
-	<div class="col-sm-12 example">
-		{% capture ID %}blender1{% endcapture %}
-		{% capture category %}getting-started/blender{% endcapture %}
-		{% capture thisVersion %}1{% endcapture %}
-		{% assign count = 0 %}
-		{% capture example %}Here comes the gist{% endcapture %}
-		{% capture HTML %}{{ example }}{% endcapture %}
-		{% capture CSS %}{% endcapture %}
-		{% capture LESS %}{% endcapture %}
-		{% capture JS %}{% endcapture %}
-
-		{% include exampleBox.liquid %}
 	</div>
 
 	<div class="col-sm-7 col-sm-offset-2">
-		<h3 class="body-font">First you choose</h3>
+		<h3 class="body-font">What happens if I choose the wrong module(s) or I changed my mind?</h3>
 		<p class="content-text">
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt beatae dolorum, optio fugiat porro officiis consectetur explicabo cumque, pariatur
-			iusto alias, reiciendis libero, quia nobis itaque obcaecati omnis aut molestias.
+			Don&rsquo;t worry, the blender got you covered. Each module you chose will be saved into the localStorage of your browser so when you return the same
+			selection will be waiting for you. But we know you may want to change computers or haven&rsquo;t been on the GUI site for a while so each download comes
+			with a unique URL that saves all of your selected modules in their versions. Just have a look at the index page included in each download.<br>
+			In case you deleted this one or don&rsquo;t have it handy, look into your CSS or JS file. Both have the URL hardcoded into the very top of the file
+			inside a comment. Following this URL will bring you to The Blender with the very same selection of modules. You can now make adjustments and
+			assess the impact on your project.
 		</p>
 	</div>
 
-	<div class="col-sm-12 example">
-		{% capture ID %}blender2{% endcapture %}
-		{% capture category %}getting-started/blender{% endcapture %}
-		{% capture thisVersion %}1{% endcapture %}
-		{% assign count = 1 %}
-		{% capture example %}Here comes another gist{% endcapture %}
-		{% capture HTML %}{{ example }}{% endcapture %}
-		{% capture CSS %}yo yo yo{% endcapture %}
-		{% capture LESS %}{% endcapture %}
-		{% capture JS %}{% endcapture %}
-
-		{% include exampleBox.liquid %}
+	<div class="col-sm-7 col-sm-offset-2">
+		<h3 class="body-font">What benefits do I get from using the GUI this way?</h3>
+		<p class="content-text">
+			Apart from the smaller footprint to your network you are now also less effected by changes to modules that are not relevant to you. In the previous
+			version of the GUI you had to install the newest version of the theme even though there may have been only changes to modules that you don&rsquo;t even
+			use.<br>
+			You also now have more control over what it is you&rsquo;re downloading. You have options to include LESS or unminified JS and tap right into the guts
+			of it all.
+		</p>
 	</div>
+
+	<div class="col-sm-7 col-sm-offset-2">
+		<h3 class="body-font">What if I don&rsquo;t know what to choose?</h3>
+		<p class="content-text">
+			That&rsquo;s OK, We all start from the beginning. Try to choose as fewer as possible and grow over time. We often feel like just choosing everything and
+			removing later but reality gets into the way and we forget to remove and then our user end up downloading more than they need.<br>
+			Have a look at the example pages and decide together with Designer, UXer and Developer what you probably need for your project and go from there.
+		</p>
+	</div>
+
+	<div class="col-sm-7 col-sm-offset-2">
+		<h3 class="body-font">What&rsquo;s in the download?</h3>
+		<p class="content-text">
+			The zip file that you download contains, at a minimum, the production ready asset files and an index.html page that has all of them installed
+			and explained. You can choose whether you want to include LESS and/or unminified JS files. That is handy if you want to extent on GUI.<br>
+			<em>Remember though you want to stay upgradable in case we fix a couple bugs you don&rsquo;t want to double up on. Make sure you don&rsquo;t edit any of
+			the files but use them and extend on them.</em>
+		</p>
+	</div>
+
 </div>
