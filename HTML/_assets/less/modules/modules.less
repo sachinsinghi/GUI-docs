@@ -4,19 +4,13 @@
 	&.has-border {
 		padding-top: 12px;
 		margin-bottom: 60px;
+		background-image: linear-gradient(@color-Border 50%, @color-Border 50%);
+		background-position: 0 180px;
+		background-repeat: repeat-x;
+		background-size: 1px;
 
 		&.has-id {
 			padding-top: 192px;
-		}
-
-		&:after {
-			content: '';
-			position: absolute;
-			height: 1px;
-			left: 0;
-			right: 0;
-			background-color: @color-Border;
-			top: 180px;
 		}
 
 		@media (min-width: @screen-sm) {
@@ -25,9 +19,12 @@
 	}
 
 	&.has-id {
-		position: relative;
 		padding-top: 180px;
 		margin-top: -180px;
+
+		&.has-singleModule {
+			margin-top: -210px;
+		}
 	}
 
 	.module {

@@ -21,9 +21,11 @@
 {% if textcolor.size %}
 	{% assign hex = textcolor %}
 	{% assign _showHex = false %}
+	{% capture textcolor %}color:{{ textcolor }};{% endcapture %}
 {% else %}
 	{% assign textcolor = '#000' %}
 	{% assign _showHex = true %}
+	{% capture textcolor %}{% endcapture %}
 {% endif %}
 
 <div class="swatch">
@@ -31,7 +33,7 @@
 		{{ color }}
 	</div>
 	<div class="swatch-values">
-		<strong class="swatch-value" style="color:{{ textcolor }};">{{ title }}</strong>
+		<strong class="swatch-value" style="{{ textcolor }}">{{ title }}</strong>
 		<p class="swatch-value">{{ rgb }}</p>
 		{% if _showHex %}
 			<p class="swatch-value">{{ hex }}</p>
