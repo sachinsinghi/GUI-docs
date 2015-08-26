@@ -54,7 +54,7 @@
 
 									{% assign _isIcons = module[1].ID | startwith: "icons-group" %}
 
-									{% capture link %}<a class="blender-module-link" href="{{ module[1].category | downcase }}/#{{ module[1].ID }}">view</a>{% endcapture %}
+									{% capture link %}<a class="blender-module-link" href="{{ module[1].category | handleize }}/#{{ module[1].ID }}">view</a>{% endcapture %}
 
 									<li class="blender-module row">
 										<div class="col-sm-5 blender-module-text">
