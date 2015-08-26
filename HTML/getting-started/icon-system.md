@@ -11,7 +11,7 @@ parent: Getting Started
 		<h2 class="body-font">What is different?</h2>
 		<p class="lead">
 			The new icon system (GUI 2.*) is based on the new svg <a href="http://www.grunticon.com/" target="_blank">Grunticon</a> system from the genius
-			<a href="https://www.filamentgroup.com/" target="_blank">filament group</a>.
+			<a href="https://www.filamentgroup.com/" target="_blank">Filament group</a>.
 		</p>
 		<p class="lead">
 			GUI 1.* uses an icon font where each icon is a character in the font. Although this works well there are a couple of drawbacks; accessibility and
