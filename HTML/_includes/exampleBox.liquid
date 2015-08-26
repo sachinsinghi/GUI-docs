@@ -11,8 +11,9 @@
 		{{ ID }}           [string]    ID of module
 		{{ category }}     [string]    Name of category for links
 		{{ thisVersion }}  [string]    Version string
-		{{ count }}      [integer]   Counter to keep IDs unique
+		{{ count }}        [integer]   Counter to keep IDs unique
 		{{ example }}      [variable]  Example code
+		{{ whatsnew }}     [variable]  What's new tab
 		{{ HTML }}         [variable]  HTML tab
 		{{ CSS }}          [variable]  CSS tab [optional]
 		{{ LESS }}         [variable]  LESS tab [optional]
@@ -20,6 +21,7 @@
 {% endcomment %}
 
 
+{% capture IDwhatsnew %}{{ ID }}-{{ thisVersion | handleize }}whatsnew{% endcapture %}
 {% capture IDhtml %}{{ ID }}-{{ thisVersion | handleize }}html{% endcapture %}
 {% capture IDcss %}{{ ID }}-{{ thisVersion | handleize }}css{% endcapture %}
 {% capture IDless %}{{ ID }}-{{ thisVersion | handleize }}less{% endcapture %}
@@ -27,6 +29,7 @@
 
 {% assign descriptionHandle = description | handleize %}
 {% assign exampleHandle = example | handleize %}
+{% assign WHATSNEWHandle = whatsnew | handleize %}
 {% assign HTMLHandle = HTML | handleize %}
 {% assign CSSHandle = CSS | handleize %}
 {% assign LESSHandle = LESS | handleize %}
@@ -37,6 +40,12 @@
 {% comment %}
 	ASSIGN TAB CONTENT
 {% endcomment %}
+{% capture WHATSNEWtab %}
+	<div class="example-tabcontent-content">
+		{{ whatsnew }}
+	</div>
+{% endcapture %}
+
 {% capture HTMLtab %}
 	{% highlight html linenos=table %}
 		{{ HTML }}
@@ -45,15 +54,23 @@
 
 {% capture CSStab %}
 	<div class="example-tabcontent-content">
-		{{ CSS }}
+		{% if CSSHandle.size > 2 %}
+			<h4 class="body-font">CSS</h4>
+			{{ CSS }}
+		{% endif %}
+
+		{% if LESSHandle.size > 2 %}
+			<h4 class="body-font">LESS</h4>
+			{{ LESS }}
+		{% endif %}
 	</div>
 {% endcapture %}
 
-{% capture LESStab %}
+{% comment %}{% capture LESStab %}
 	<div class="example-tabcontent-content">
 		{{ LESS }}
 	</div>
-{% endcapture %}
+{% endcapture %}{% endcomment %}
 
 {% capture JStab %}
 	<div class="example-tabcontent-content">
@@ -63,9 +80,10 @@
 
 {% assign allTabs = 0 %}
 {% if exampleHandle.size > 2 %}{% assign allTabs = allTabs | plus: 1 %}{% endif %}
+{% if WHATSNEWHandle.size > 2 %}{% assign allTabs = allTabs | plus: 1 %}{% endif %}
 {% if HTMLHandle.size > 2 %}{% assign allTabs = allTabs | plus: 1 %}{% endif %}
-{% if CSSHandle.size > 2 %}{% assign allTabs = allTabs | plus: 1 %}{% endif %}
-{% if LESSHandle.size > 2 %}{% assign allTabs = allTabs | plus: 1 %}{% endif %}
+{% if CSSHandle.size > 2 or LESSHandle.size > 2 %}{% assign allTabs = allTabs | plus: 1 %}{% endif %}
+{% comment %}{% if LESSHandle.size > 2 %}{% assign allTabs = allTabs | plus: 1 %}{% endif %}{% endcomment %}
 {% if JSHandle.size > 2 %}{% assign allTabs = allTabs | plus: 1 %}{% endif %}
 
 {% comment %}
@@ -74,9 +92,10 @@
 {% if allTabs == 1 %}
 
 	{% if exampleHandle.size > 2 %}{% assign BoxContent = example %}{% endif %}
+	{% if WHATSNEWHandle.size > 2 %}{% assign BoxContent = WHATSNEWtab %}{% endif %}
 	{% if HTMLHandle.size > 2 %}{% assign BoxContent = HTMLtab %}{% endif %}
-	{% if CSSHandle.size > 2 %}{% assign BoxContent = CSStab %}{% endif %}
-	{% if LESSHandle.size > 2 %}{% assign BoxContent = LESStab %}{% endif %}
+	{% if CSSHandle.size > 2 or LESSHandle.size > 2 %}{% assign BoxContent = CSStab %}{% endif %}
+	{% comment %}{% if LESSHandle.size > 2 %}{% assign BoxContent = LESStab %}{% endif %}{% endcomment %}
 	{% if JSHandle.size > 2 %}{% assign BoxContent = JStab %}{% endif %}
 
 	<div class="example-box">{{ BoxContent }}</div>
@@ -92,28 +111,40 @@
 
 	<div class="example-tabs-wrapper js-exampletabs">
 		<ul class="example-tabs">
+			{% if WHATSNEWHandle.size > 2 %}
+				<li class="example-tab example-tab-link-new">
+					<a class="example-tab-link js-exampletab" href="{{ category }}/#{{ IDwhatsnew }}{{ count }}">What&rsquo;s New</a>
+				</li>
+			{% endif %}
 			{% if HTMLHandle.size > 2 %}
-				<li class="example-tab">
+				<li class="example-tab example-tab-ltml">
 					<a class="example-tab-link js-exampletab" href="{{ category }}/#{{ IDhtml }}{{ count }}">HTML</a>
 				</li>
 			{% endif %}
-			{% if CSSHandle.size > 2 %}
-				<li class="example-tab">
-					<a class="example-tab-link js-exampletab" href="{{ category }}/#{{ IDcss }}{{ count }}">CSS</a>
+			{% if CSSHandle.size > 2 or LESSHandle.size > 2 %}
+				<li class="example-tab example-tab-css">
+					<a class="example-tab-link js-exampletab" href="{{ category }}/#{{ IDcss }}{{ count }}">CSS/LESS</a>
 				</li>
 			{% endif %}
-			{% if LESSHandle.size > 2 %}
-				<li class="example-tab">
+			{% comment %}{% if LESSHandle.size > 2 %}
+				<li class="example-tab example-tab-less">
 					<a class="example-tab-link js-exampletab" href="{{ category }}/#{{ IDless }}{{ count }}">LESS</a>
 				</li>
-			{% endif %}
+			{% endif %}{% endcomment %}
 			{% if JSHandle.size > 2 %}
-				<li class="example-tab">
+				<li class="example-tab example-tab-js">
 					<a class="example-tab-link js-exampletab" href="{{ category }}/#{{ IDjs }}{{ count }}">JS</a>
 				</li>
 			{% endif %}
 		</ul>
 
+		{% if WHATSNEWHandle.size > 2 %}
+			<div class="example-tabcontent js-examplecontent" id="{{ IDwhatsnew }}{{ count }}">
+				<div class="example-tabcontent-wrapper">
+					{{ WHATSNEWtab }}
+				</div>
+			</div>
+		{% endif %}
 		{% if HTMLHandle.size > 2 %}
 			<div class="example-tabcontent js-examplecontent" id="{{ IDhtml }}{{ count }}">
 				<div class="example-tabcontent-wrapper">
@@ -123,20 +154,20 @@
 				</div>
 			</div>
 		{% endif %}
-		{% if CSSHandle.size > 2 %}
+		{% if CSSHandle.size > 2 or LESSHandle.size > 2 %}
 			<div class="example-tabcontent js-examplecontent" id="{{ IDcss }}{{ count }}">
 				<div class="example-tabcontent-wrapper">
 					{{ CSStab }}
 				</div>
 			</div>
 		{% endif %}
-		{% if LESSHandle.size > 2 %}
+		{% comment %}{% if LESSHandle.size > 2 %}
 			<div class="example-tabcontent js-examplecontent" id="{{ IDless }}{{ count }}">
 				<div class="example-tabcontent-wrapper">
 					{{ LESStab }}
 				</div>
 			</div>
-		{% endif %}
+		{% endif %}{% endcomment %}
 		{% if JSHandle.size > 2 %}
 			<div class="example-tabcontent js-examplecontent" id="{{ IDjs }}{{ count }}">
 				<div class="example-tabcontent-wrapper">

@@ -80,6 +80,17 @@
 		position: relative;
 		font-size: 12px;
 		font-weight: 500;
+		text-transform: uppercase;
+		transition: background 0.3s ease;
+
+		&:focus,
+		&:hover {
+			text-decoration: none;
+		}
+
+		&:hover {
+			background-color: @color-J;
+		}
 
 		&:after {
 			content: " ";
@@ -102,6 +113,17 @@
 		display: table-cell;
 		padding-bottom: 2px;
 
+		&.example-tab-ltml,
+		&.example-tab-css,
+		&.example-tab-less,
+		&.example-tab-js {
+			display: none;
+
+			@media (min-width: @screen-sm) {
+				display: table-cell;
+			}
+		}
+
 		&:last-child {
 			.example-tab-link {
 				margin-right: 0;
@@ -113,6 +135,7 @@
 
 			.example-tab-link {
 				padding-bottom: 14px;
+				background-color: #fff;
 			}
 		}
 	}
@@ -138,6 +161,15 @@
 	.example-tabcontent-content {
 		padding: 1em;
 		background-color: #fff;
+
+		h1:first-child,
+		h2:first-child,
+		h3:first-child,
+		h4:first-child,
+		h5:first-child,
+		h6:first-child {
+			margin-top: 0;
+		}
 	}
 
 	.classes {
