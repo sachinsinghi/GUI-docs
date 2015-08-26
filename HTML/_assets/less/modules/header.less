@@ -54,7 +54,7 @@
 		padding-left: 240px;
 	}
 
-	&.is-small {
+	.is-subpage & {
 		position: fixed;
 		height: 66px;
 	}
@@ -67,7 +67,7 @@
 		background-size: cover;
 		.head-pos();
 
-		.is-small& {
+		.is-subpage & {
 			height: 66px;
 		}
 
@@ -196,7 +196,7 @@
 		}
 	}
 
-	.is-small &,
+	.is-subpage &,
 	.has-scrolledContent & {
 		margin: 24px 0 0 48px;
 
@@ -215,7 +215,7 @@
 		font-weight: 300;
 	}
 
-	.is-small & {
+	.is-subpage & {
 		font-size: 18px;
 		font-weight: 400;
 	}
@@ -235,7 +235,7 @@
 }
 
 .header-hamburger {
-	position: absolute;
+	position: fixed;
 	width: 44px;
 	text-indent: -99999em;
 	overflow: hidden;
@@ -246,6 +246,10 @@
 	margin: 14px 0 0 0;
 	z-index: 81;
 	left: 0;
+
+	.has-scrolledContent & {
+		position: absolute;
+	}
 
 	&:focus {
 		._text-styling-outline();
@@ -299,10 +303,14 @@
 
 
 .gridly-button-wrapper {
-	position: absolute;
+	position: fixed;
 	top: 12px;
 	right: 0;
 	color: @header-color;
+
+	.has-scrolledContent & {
+		position: absolute;
+	}
 
 	@media (min-width: @screen-sm) {
 		right: 12px;

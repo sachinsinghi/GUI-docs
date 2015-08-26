@@ -20,9 +20,13 @@
 	padding: 0;
 
 	.blender-module {
-			margin: 1px 0;
-			background-color: #fff;
-			padding: 12px;
+		margin: 1px 0;
+		background-color: #fff;
+		padding: 12px;
+	}
+
+	.blender-module-core {
+		display: block;
 	}
 
 	.blender-module-name {
@@ -55,6 +59,11 @@
 
 .blender-newer {
 	margin-left: 6px;
+	display: none;
+
+	@media (min-width: @screen-sm) {
+		display: block;
+	}
 
 	.icon {
 		color: transparent;
@@ -62,7 +71,7 @@
 
 	.blender & {
 		position: absolute;
-		right: -42px;
+		right: -36px;
 		top: 9px;
 	}
 }
