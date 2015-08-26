@@ -10,8 +10,8 @@ parent: Getting Started
 	<div class="col-sm-10 col-sm-offset-1">
 		<h2 class="body-font">Installing the framework</h2>
 		<p class="lead">
-			The GUI has some requirements to function correctly which are listed below. Please also have a look at the index.html page within your
-			downloaded blend archive. It details all of the requiremnts specifically to your blend.
+			Requirements for the GUI to function correctly are listed below. Please also have a look at the index.html page within your
+			downloaded blend archive. It details all of the requirements specific to your Blend.
 		</p>
 	</div>
 
@@ -133,9 +133,9 @@ parent: Getting Started
 	<div class="col-sm-7 col-sm-offset-2">
 		<h3 class="body-font">The head</h3>
 		<p class="content-text">
-			The head element includes encoding and viewport tags as well as the grunticon scripts. The second script is to remove the no-js class and replace it with
-			the js class to make sure javaScript is running. It is included as vanilla js in the head to avoid FOUT.
-			The stylsheet of all styles should be included before the IE8 scripts so that those can parse them and hence help IE understand them.
+			The head element includes encoding and viewport tags as well as the Grunticon scripts. The second script is to remove the no-js class and replace it with
+			the js class to make sure JavaScript is running. It is included as vanilla js in the head to avoid FOUT.
+			The stylesheet of all styles should be included before the IE8 scripts so that those can parse them and hence help IE understand them.
 		</p>
 	</div>
 
