@@ -54,6 +54,11 @@
 		padding-left: 240px;
 	}
 
+	&.is-small {
+		position: fixed;
+		height: 66px;
+	}
+
 	.headerline {
 		height: 66px;
 		overflow: hidden;
@@ -61,6 +66,10 @@
 		background-color: @header-bgcolor;
 		background-size: cover;
 		.head-pos();
+
+		.is-small& {
+			height: 66px;
+		}
 
 		@media (min-width: @screen-sm) {
 			height: 228px;
@@ -187,6 +196,7 @@
 		}
 	}
 
+	.is-small &,
 	.has-scrolledContent & {
 		margin: 24px 0 0 48px;
 
@@ -203,6 +213,11 @@
 		margin: 118px 0 0px 36px;
 		font-size: 54px;
 		font-weight: 300;
+	}
+
+	.is-small & {
+		font-size: 18px;
+		font-weight: 400;
 	}
 
 	.header-subline {

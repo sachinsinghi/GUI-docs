@@ -12,7 +12,7 @@
 {% endcomment %}
 
 
-<header class="header">
+<header class="header{% if page.parent.size > 2 %} is-small{% endif %}">
 
 	<div class="headerline">
 		<button class="header-hamburger js-toggleMenu">
