@@ -46,15 +46,15 @@
 									{% comment %}
 										checking for fixed elements
 									{% endcomment %}
-									{% if module[1].category == '_fixed' %}
-										{% assign _isFixed = true %}
+									{% if module[1].core %}
+										{% assign _isCore = true %}
 									{% else %}
-										{% assign _isFixed = false %}
+										{% assign _isCore = false %}
 									{% endif %}
 
 									{% assign _isIcons = module[1].ID | startwith: "icons-group" %}
 
-									{% capture link %}<a class="blender-module-link" href="{{ module[1].category | downcase }}/#{{ module[1].ID }}">view</a>{% endcapture %}
+									{% capture link %}<a class="blender-module-link" href="{{ module[1].category | handleize }}/#{{ module[1].ID }}">view</a>{% endcapture %}
 
 									<li class="blender-module row">
 										<div class="col-sm-5 blender-module-text">
@@ -69,6 +69,11 @@
 												">{{ module[1].description }}</span>
 											</label>
 											{% unless _isIcons %}{{ link }}{% endunless %}
+											{% if _isCore %}
+												<label class="blender-module-core text-info" for="{{ module[1].ID }}">
+													This core module is always added.
+												</label>
+											{% endif %}
 										</div>
 
 										<div class="col-sm-7 text-right">

@@ -12,7 +12,8 @@
 
 {% endfor %}
 
-<body class="js-body layout-{{ page.layout | handleize }} page-{{ page.title | handleize }} has-onlyCore"
+<body class="js-body layout-{{ page.layout | handleize }} page-{{ page.title | handleize }} has-onlyCore
+	{% if page.parent.size > 2 %}is-subpage{% endif %}"
 	data-coremodules="{{ coreModules | slice: 1, coreModules.size }}"
 	data-coresize="{{ coreSize }}">
 

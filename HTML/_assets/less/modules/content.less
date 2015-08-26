@@ -30,16 +30,31 @@
 
 .content-subline {
 	font-family: @fontfamily;
-	font-weight: 400;
+	font-weight: 300;
 	margin-top: 0;
 	color: @content-color;
 }
 
 .content-h {
 	font-family: @fontfamily;
-	font-weight: 400;
+	font-weight: 300;
 	margin: 0 0 24px 0;
 	color: @content-color;
+}
+
+h4,
+h5 {
+	&.content-h,
+	&.content-subline {
+		font-weight: 400;
+	}
+}
+
+h6 {
+	&.content-h,
+	&.content-subline {
+		font-weight: 700;
+	}
 }
 
 .content-row {
