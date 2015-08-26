@@ -28,9 +28,11 @@
 			{% assign thisModule = module[1] %}
 
 			<section class="modules has-id js-modules js-blender-module{{ module[1].ID }}
-				{% unless site.data.GUI.modules[category].size == 1 %}
+				{% if site.data.GUI.modules[category].size == 1 %}
+					has-singleModule
+				{% else %}
 					has-border
-				{% endunless %}" id="{{ module[1].ID }}">
+				{% endif %}" id="{{ module[1].ID }}">
 				<div class="row">
 					<div class="col-sm-4">
 						{% if site.data.GUI.modules[category].size > 1 %}

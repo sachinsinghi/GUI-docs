@@ -3,9 +3,9 @@
 .index-blenderbutton {
 	margin-top: 12px;
 
-	@media (min-width: @screen-md) {
-		margin-top: 74px;
-	}
+	// @media (min-width: @screen-md) {
+	// 	margin-top: 74px;
+	// }
 }
 
 .index-blender-svg {
@@ -17,9 +17,28 @@
 }
 
 .index-section {
-	border-top: 1px solid @color-Border;
+	// border-top: 1px solid @color-Border;
 	margin-top: 6px;
 	padding-top: 24px;
+
+	&:after {
+		content: ' ';
+		position: absolute;
+		display: none;
+		top: 0;
+		left: 12px;
+		right: 12px;
+		height: 1px;
+		background-color: @color-Border;
+
+		@media (min-width: @screen-sm) {
+			display: block;
+		}
+	}
+}
+
+.index-block {
+	margin-bottom: 24px;
 }
 
 .index-faq {

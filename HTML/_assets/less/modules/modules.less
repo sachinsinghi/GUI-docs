@@ -4,7 +4,7 @@
 	&.has-border {
 		padding-top: 12px;
 		margin-bottom: 60px;
-		background-image: linear-gradient(transparent 50%, @color-Border 50%);
+		background-image: linear-gradient(@color-Border 50%, @color-Border 50%);
 		background-position: 0 180px;
 		background-repeat: repeat-x;
 		background-size: 1px;
@@ -21,6 +21,10 @@
 	&.has-id {
 		padding-top: 180px;
 		margin-top: -180px;
+
+		&.has-singleModule {
+			margin-top: -210px;
+		}
 	}
 
 	.module {
