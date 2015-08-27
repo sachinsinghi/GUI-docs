@@ -26,7 +26,7 @@ parent: Getting Started
 	<div class="col-sm-7 col-sm-offset-2">
 		<h3 class="body-font">What happens if I choose the wrong module(s) or I've changed my mind?</h3>
 		<p class="content-text">
-			Don&rsquo;t worry, the blender got you covered. Each module you chose will be saved into the localStorage of your browser so when you return the same
+			Don&rsquo;t worry, the Blender got you covered. Each module you chose will be saved into the localStorage of your browser so when you return the same
 			selection will be waiting for you. But we know you may want to change computers or haven&rsquo;t been on the GUI site for a while so each download comes
 			with a unique URL that saves all of your selected modules in their versions. Just have a look at the index page included in each download.<br>
 			In case you deleted this one or don&rsquo;t have it handy, look into your CSS or JS file. Both have the URL hardcoded into the very top of the file
