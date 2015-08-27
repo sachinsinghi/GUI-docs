@@ -11,7 +11,7 @@ parent: Getting Started
 		<h2 class="body-font">Installing the framework</h2>
 		<p class="lead">
 			Requirements for the GUI to function correctly are listed below. Please also have a look at the index.html page within your
-			downloaded blend archive. It details all of the requirements specific to your Blend.
+			downloaded Blend archive. It details all of the requirements specific to your Blend.
 		</p>
 	</div>
 
@@ -189,7 +189,7 @@ parent: Getting Started
 		<h3 class="body-font">Your body and js script</h3>
 		<p class="content-text">
 			Next comes the body tag which should include a message for those who have js disabled followed by your content.
-			At the very end of your content, right before you close the body we include the javaScript. Concatenate all your own scripts into the bottom of the GUI
+			At the very end of your content, right before you close the body we include the JavaScript. Concatenate all your own scripts into the bottom of the GUI
 			script.
 		</p>
 	</div>

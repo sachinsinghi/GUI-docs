@@ -38,7 +38,7 @@ parent: Getting Started
 	<div class="col-sm-7 col-sm-offset-2">
 		<h3 class="body-font">The _javascript-helpers core module</h3>
 		<p class="content-text">
-			<a href="helpers/#_javascript-helpers">This module</a> includes the javaScript core and a couple useful functionalities.
+			<a href="helpers/#_javascript-helpers">This module</a> includes the JavaScript core and a couple useful functionalities.
 		</p>
 	</div>
 
