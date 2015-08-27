@@ -231,6 +231,14 @@
 			border-top: 2px solid @header-color;
 			transform: rotate(45deg);
 		}
+
+		.is-subpage & {
+			display: none;
+
+			@media (min-width: @screen-sm) {
+				display: inline;
+			}
+		}
 	}
 }
 
