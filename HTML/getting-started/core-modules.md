@@ -10,7 +10,7 @@ parent: Getting Started
 	<div class="col-sm-10 col-sm-offset-1">
 		<h2 class="body-font">Core modules</h2>
 		<p class="lead">
-			There are currenlty five core modules responsible for colours, fonts, the grid, javascript and text styling.
+			There are currenlty five core modules responsible for colours, fonts, the grid, JavaScript and text styling.
 		</p>
 	</div>
 
@@ -38,7 +38,7 @@ parent: Getting Started
 	<div class="col-sm-7 col-sm-offset-2">
 		<h3 class="body-font">The _javascript-helpers core module</h3>
 		<p class="content-text">
-			<a href="helpers/#_javascript-helpers">This module</a> includes the javaScript core and a couple usefull functionalities.
+			<a href="helpers/#_javascript-helpers">This module</a> includes the JavaScript core and a couple useful functionalities.
 		</p>
 	</div>
 
