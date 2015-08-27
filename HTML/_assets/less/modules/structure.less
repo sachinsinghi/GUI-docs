@@ -45,7 +45,12 @@
 	}
 
 	.is-subpage & {
-		margin-top: 90px;
+		margin-top: 110px;
+		padding-top: 0;
+
+		@media (min-width: @screen-sm) {
+			padding-top: 60px;
+		}
 	}
 
 	.content {
