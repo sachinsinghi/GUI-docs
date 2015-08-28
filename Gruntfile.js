@@ -1375,7 +1375,6 @@ module.exports = function(grunt) {
 	grunt.registerTask('_buildNode', [
 		'concat:node',
 		'replace:node',
-		'replace:debugDev',
 	]);
 
 
