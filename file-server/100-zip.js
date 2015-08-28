@@ -40,6 +40,8 @@ var Archiver = require('archiver');
 			App.zip.archive.finalize(); //send to server
 
 			App.log.info( '             Zip sent!' );
+
+			App.slack.post();
 		}
 		catch( error ) {
 
