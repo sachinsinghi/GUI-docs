@@ -14,17 +14,17 @@ parent: Getting Started
 			<a href="https://www.filamentgroup.com/" target="_blank">Filament group</a>.
 		</p>
 		<p class="lead">
-			GUI 1.* uses an icon font where each icon is a character in the font. Although this works well, there are a couple of drawbacks; accessibility and
-			file size. Using the new icon system we can display semantic, accessible icons when they are required.
+			GUI 1.* uses an icon font where each icon is a character in the font. Although this works well, there are a couple of drawbacks, including accessibility and
+			file size. Using the new icon system, we can now display semantic, accessible icons when required.
 		</p>
 	</div>
 
 	<div class="col-sm-7 col-sm-offset-2">
-		<h3 class="body-font">Icons embedding</h3>
+		<h3 class="body-font">Embedding icons</h3>
 		<p class="content-text">
-			There are two ways to use svg&rsquo;s: As a background image or direct embedding. Both methods are valid however it&rsquo;s important to understand the
-			implications. For example using the background method is not semantic or accessible where as direct embedding is accessible as every svg comes
-			with a title attribute that reflects it&rsquo;s name. Embedded icons can be manipulated with CSS or JavaScript.
+			There are two ways to use svg&rsquo;s: as a background image or direct embedding. Both methods are valid however it&rsquo;s important to understand the
+			implications. For example using the background method is not semantic or accessible whereas direct embedding is accessible as every svg comes
+			with a title attribute that reflects its name. Embedded icons can be manipulated with CSS or JavaScript.
 		</p>
 	</div>
 
@@ -53,8 +53,7 @@ parent: Getting Started
 	<div class="col-sm-7 col-sm-offset-2">
 		<h3 class="body-font">Icons as background image</h3>
 		<p class="content-text">
-			Sometimes though you don&rsquo;t want a screenreader to read out your icon as it would just be confusing and not add any value. In those cases you
-			still have the option to use the icon as a background image. This image won&rsquo;t easily print nor will it be read out by assistive technologies.
+			In certain cases where an icon does not add direct value, you may not want a screen reader to detect the icon. In these instances, you still have the option to use the icon as a background image. Doing so will mean that the image will not be read out by assistive technologies, nor will it easily print. 
 		</p>
 	</div>
 
