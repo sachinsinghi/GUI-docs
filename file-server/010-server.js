@@ -19,6 +19,7 @@ var Chalk = require('chalk');
 var _ = require("underscore");
 var CFonts = require('cfonts');
 var Express = require('express');
+var Slack = require('node-slack');
 var BodyParser = require('body-parser');
 
 
@@ -33,6 +34,8 @@ var App = (function Application() {
 		GUIRURL: 'http://gel.westpacgroup.com.au/' + 'GUI/',
 		GUIPATH: Path.normalize(__dirname + '/../GUI-source-master/'),
 		TEMPPATH: Path.normalize(__dirname + '/._template/'),
+		SLACKURL: 'https://hooks.slack.com/services/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',
+		SLACKICON: 'http://gel.westpacgroup.com.au/GUI/WBC/assets/img/blender-icon.png',
 
 
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -60,7 +63,9 @@ var App = (function Application() {
 
 			//listening to post request
 			app.post('/blender', function PostListener(request, response) {
-				App.log.info( 'New request: ' + request.headers['x-forwarded-for'] + ' / ' + request.connection.remoteAddress );
+				App.IP = request.connection.remoteAddress;
+
+				App.log.info( 'New request: ' + request.headers['x-forwarded-for'] + ' / ' + App.IP );
 
 				App.response = response;
 				App.POST = request.body;
@@ -77,6 +82,7 @@ var App = (function Application() {
 		response: {}, //server response object
 		POST: {}, //POST values from client
 		GUI: {}, //GUI.json contents
+		IP: '', //Client IP
 
 
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------

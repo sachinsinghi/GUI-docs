@@ -176,6 +176,8 @@
 			$('.js-blender').on('submit', function(e) {
 				App.debugging( 'Blender: Blender submitted', 'interaction' );
 
+				_gaq.push(['_trackEvent', 'Blender', 'submitted', 'Blender form submitted for brand: [Brand]']); //track the button
+
 				$('.js-blender-submit').prop( 'disabled', true );
 				$('.js-blender-submit .icon-download').toggle();
 				$('.js-blender-submit .icon-refresh').toggle();
