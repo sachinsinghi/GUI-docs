@@ -10,7 +10,7 @@ parent: Getting Started
 	<div class="col-sm-10 col-sm-offset-1">
 		<h2 class="body-font">Installing the framework</h2>
 		<p class="lead">
-			Requirements for the GUI to function correctly are listed below. Please also have a look at the index.html page within your
+			Requirements for the GUI to function correctly are listed below. Please also refer to the index.html page within your
 			downloaded Blend archive. It details all of the requirements specific to your Blend.
 		</p>
 	</div>
@@ -97,7 +97,7 @@ parent: Getting Started
 	<div class="col-sm-7 col-sm-offset-2">
 		<h3 class="body-font">First: The HTML5 boilerplate</h3>
 		<p class="content-text">
-			The GUI requires and heavily relies on the commonly known HTML5 boilerplate and needs to be on the very top of your document.
+			The GUI requires the commonly known HTML5 boilerplate. This needs to be at the very top of your document.
 		</p>
 	</div>
 
@@ -134,8 +134,8 @@ parent: Getting Started
 		<h3 class="body-font">The head</h3>
 		<p class="content-text">
 			The head element includes encoding and viewport tags as well as the Grunticon scripts. The second script is to remove the no-js class and replace it with
-			the js class to make sure JavaScript is running. It is included as vanilla js in the head to avoid FOUT.
-			The stylesheet of all styles should be included before the IE8 scripts so that those can parse them and hence help IE understand them.
+			the js class to make sure that JavaScript is running. It is included as vanilla js in the head to avoid FOUT.
+			The stylesheet of all styles should be included before the IE8 scripts to enable IE to understand the styles.
 		</p>
 	</div>
 
@@ -188,8 +188,8 @@ parent: Getting Started
 	<div class="col-sm-7 col-sm-offset-2">
 		<h3 class="body-font">Your body and js script</h3>
 		<p class="content-text">
-			Next comes the body tag which should include a message for those who have js disabled followed by your content.
-			At the very end of your content, right before you close the body we include the JavaScript. Concatenate all your own scripts into the bottom of the GUI
+			Next comes the body tag which should include a message for user who have js disabled, followed by your content.
+			Include the JavaScript at the very end of your content, immediately before you close the body. Concatenate all of your own scripts into the bottom of the GUI
 			script.
 		</p>
 	</div>
