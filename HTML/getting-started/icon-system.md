@@ -14,8 +14,8 @@ parent: Getting Started
 			<a href="https://www.filamentgroup.com/" target="_blank">Filament group</a>.
 		</p>
 		<p class="lead">
-			GUI 1.* uses an icon font where each icon is a character in the font. Although this works well, there are a couple of drawbacks, including accessibility and
-			file size. Using the new icon system, we can now display semantic, accessible icons when required.
+			GUI 1.* uses an icon font where each icon is a character in the font. Although this works well, there are a couple of drawbacks, including accessibility
+			and file size. Using the new icon system, we can now display semantic, accessible icons when required.
 		</p>
 	</div>
 
@@ -53,7 +53,8 @@ parent: Getting Started
 	<div class="col-sm-7 col-sm-offset-2">
 		<h3 class="body-font">Icons as background image</h3>
 		<p class="content-text">
-			In certain cases where an icon does not add direct value, you may not want a screen reader to detect the icon. In these instances, you still have the option to use the icon as a background image. Doing so will mean that the image will not be read out by assistive technologies, nor will it easily print. 
+			In certain cases where an icon does not add direct value, you may not want a screen reader to detect the icon. In these instances, you still have the
+			option to use the icon as a background image. Doing so will mean that the image will not be read out by assistive technologies, nor will it easily print.
 		</p>
 	</div>
 

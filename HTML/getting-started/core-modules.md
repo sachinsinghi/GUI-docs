@@ -15,9 +15,9 @@ parent: Getting Started
 	</div>
 
 	<div class="col-sm-7 col-sm-offset-2">
-		<h3 class="body-font">The _colours core module</h3>
+		<h3 class="body-font">The _colors core module</h3>
 		<p class="content-text">
-			<a href="colours/">The colours module</a> deals with the brand specific colours and generating their tints.
+			<a href="colours/">The colors module</a> deals with the brand specific colours and generating their tints.
 		</p>
 	</div>
 
