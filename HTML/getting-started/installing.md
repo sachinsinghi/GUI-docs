@@ -19,7 +19,7 @@ parent: Getting Started
 	<div class="col-sm-7 col-sm-offset-2">
 		<h3 class="body-font">An entire empty page</h3>
 		<p class="content-text">
-			The code below shows an entire GUI page with everything installed. Let's go through each part individually.
+			The code below shows an entire GUI page with everything installed. Let&rsquo;s go through each part individually.
 		</p>
 	</div>
 
@@ -97,7 +97,7 @@ parent: Getting Started
 	<div class="col-sm-7 col-sm-offset-2">
 		<h3 class="body-font">First: The HTML5 boilerplate</h3>
 		<p class="content-text">
-			The GUI requires the commonly known HTML5 boilerplate. This needs to be at the very top of your document.
+			The GUI requires (and heavily relies upon) the commonly known HTML5 boilerplate. This needs to be at the very top of your document.
 		</p>
 	</div>
 
@@ -134,8 +134,8 @@ parent: Getting Started
 		<h3 class="body-font">The head</h3>
 		<p class="content-text">
 			The head element includes encoding and viewport tags as well as the Grunticon scripts. The second script is to remove the no-js class and replace it with
-			the js class to make sure that JavaScript is running. It is included as vanilla js in the head to avoid FOUT.
-			The stylesheet of all styles should be included before the IE8 scripts to enable IE to understand the styles.
+			the JS class to make sure that JavaScript is running. It is included as vanilla JS in the head to avoid FOUT.
+			The stylesheet of all CSS should be included before the IE8 scripts to enable IE to understand the styles.
 		</p>
 	</div>
 
@@ -189,8 +189,8 @@ parent: Getting Started
 		<h3 class="body-font">Your body and js script</h3>
 		<p class="content-text">
 			Next comes the body tag which should include a message for user who have js disabled, followed by your content.
-			Include the JavaScript at the very end of your content, immediately before you close the body. Concatenate all of your own scripts into the bottom of the GUI
-			script.
+			Include the JavaScript at the very end of your content, immediately before you close the body. Concatenate all of your own scripts into the bottom of
+			the GUI script.
 		</p>
 	</div>
 
