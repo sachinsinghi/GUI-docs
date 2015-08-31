@@ -19,6 +19,10 @@
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	module.init = function AssetsInit() {
 		App.debugging( 'Assets: Initiating', 'report' );
+
+		module.svgfiles.svg = '';
+		module.svgfiles.png = '';
+		module.svgfiles.fallback = '';
 	};
 
 
@@ -93,7 +97,7 @@
 	// @param  [string]  Path to a tests folder
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	module.getSVG = function AssetsGetSvg( folder ) {
-		App.debugging( 'Assets: Getting svg files', 'report' );
+		App.debugging( 'Assets: Getting svg files from ' + folder, 'report' );
 
 		//////////////////////////////////////////////////| ADDING PNGs
 		App.zip.addBulk( folder + 'img/', [ '*.png' ], '/assets/img/' );
