@@ -33,8 +33,8 @@ parent: Getting Started
 			accurately as you can. You can even upload a screenshot and include your system details to make it easier for us to recreate the bug and fix it.
 		</p>
 		<p class="content-text">
-			If you find a bug and would like to fix it yourself or already have fixed it in the course of your project, we are very happy to accept a
-			<a href="https://help.github.com/articles/using-pull-requests/" target="_blank">pull request</a>. Just have a quick look at our
+			If you find a bug and would like to fix it yourself or already have fixed it in the course of your project, we are very happy to accept 
+			<a href="https://help.github.com/articles/using-pull-requests/" target="_blank">pull requests</a>. Just have a quick look at our
 			<a href="https://github.com/WestpacCXTeam/GUI-source/wiki/Styleguide" target="_blank">code styleguide</a> and work with us. We'd love your contribution.
 		</p>
 	</div>
