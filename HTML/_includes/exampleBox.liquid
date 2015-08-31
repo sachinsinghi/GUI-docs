@@ -80,7 +80,7 @@
 
 {% assign allTabs = 0 %}
 {% if exampleHandle.size > 2 %}{% assign allTabs = allTabs | plus: 1 %}{% endif %}
-{% if WHATSNEWHandle.size > 2 %}{% assign allTabs = allTabs | plus: 1 %}{% endif %}
+{% comment %}{% if WHATSNEWHandle.size > 2 %}{% assign allTabs = allTabs | plus: 1 %}{% endif %}{% endcomment %}
 {% if HTMLHandle.size > 2 %}{% assign allTabs = allTabs | plus: 1 %}{% endif %}
 {% if CSSHandle.size > 2 or LESSHandle.size > 2 %}{% assign allTabs = allTabs | plus: 1 %}{% endif %}
 {% comment %}{% if LESSHandle.size > 2 %}{% assign allTabs = allTabs | plus: 1 %}{% endif %}{% endcomment %}
@@ -92,7 +92,7 @@
 {% if allTabs == 1 %}
 
 	{% if exampleHandle.size > 2 %}{% assign BoxContent = example %}{% endif %}
-	{% if WHATSNEWHandle.size > 2 %}{% assign BoxContent = WHATSNEWtab %}{% endif %}
+	{% comment %}{% if WHATSNEWHandle.size > 2 %}{% assign BoxContent = WHATSNEWtab %}{% endif %}{% endcomment %}
 	{% if HTMLHandle.size > 2 %}{% assign BoxContent = HTMLtab %}{% endif %}
 	{% if CSSHandle.size > 2 or LESSHandle.size > 2 %}{% assign BoxContent = CSStab %}{% endif %}
 	{% comment %}{% if LESSHandle.size > 2 %}{% assign BoxContent = LESStab %}{% endif %}{% endcomment %}

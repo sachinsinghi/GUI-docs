@@ -29,6 +29,9 @@
 		App.debugging( 'Assets: Getting all files', 'report' );
 
 		var POST = App.POST;
+		module.svgfiles.svg = '';
+		module.svgfiles.png = '';
+		module.svgfiles.fallback = '';
 
 
 		//////////////////////////////////////////////////| CORE
@@ -93,7 +96,7 @@
 	// @param  [string]  Path to a tests folder
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	module.getSVG = function AssetsGetSvg( folder ) {
-		App.debugging( 'Assets: Getting svg files', 'report' );
+		App.debugging( 'Assets: Getting svg files from ' + folder, 'report' );
 
 		//////////////////////////////////////////////////| ADDING PNGs
 		App.zip.addBulk( folder + 'img/', [ '*.png' ], '/assets/img/' );
