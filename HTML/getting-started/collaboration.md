@@ -30,7 +30,7 @@ parent: Getting Started
 		<p class="content-text">
 			If you find a bug that we've missed, then please notify us. Head over to the <a href="https://github.com/WestpacCXTeam/GUI-source"
 			target="_blank">issue section</a> in our repo and create an issue. Make sure that you describe the bug as
-			accurately as you can. You can even upload a screenshot and include your system details to make it easier for us to recreate the bug and fix it.
+			accurately as you can. Please upload a screenshot and include your system details to make it easier for us to recreate the bug and fix it.
 		</p>
 		<p class="content-text">
 			If you find a bug and would like to fix it yourself or already have fixed it in the course of your project, we are very happy to accept 
@@ -45,7 +45,7 @@ parent: Getting Started
 			We built a <a href="https://nodejs.org/" target="_blank">NodeJS</a> app that runs on our server. This app is also open source and you can find it
 			<a href="https://github.com/WestpacCXTeam/GUI-docs" target="_blank">here</a>. The repo also includes the GEL website which is built with
 			<a href="http://jekyllrb.com/" target="_blank">Jekyll</a>, a ruby app that generates static files. And yes, we used the GUI to build the front-end
-			though<span class="icon icon-size-sm icon-face-happy"></span>.
+		<span class="icon icon-size-sm icon-face-happy"></span>.
 		</p>
 	</div>
 
