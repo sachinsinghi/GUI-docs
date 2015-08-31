@@ -235,6 +235,9 @@
 .icon-facebook,
 .symbol-facebook { background-image: url('../img/facebook.png'); background-repeat: no-repeat; }
 
+.icon-github,
+.symbol-github { background-image: url('../img/github.png'); background-repeat: no-repeat; }
+
 .icon-google-plus,
 .symbol-google-plus { background-image: url('../img/google-plus.png'); background-repeat: no-repeat; }
 
