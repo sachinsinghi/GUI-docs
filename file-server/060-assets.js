@@ -19,10 +19,6 @@
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	module.init = function AssetsInit() {
 		App.debugging( 'Assets: Initiating', 'report' );
-
-		module.svgfiles.svg = '';
-		module.svgfiles.png = '';
-		module.svgfiles.fallback = '';
 	};
 
 
@@ -33,6 +29,9 @@
 		App.debugging( 'Assets: Getting all files', 'report' );
 
 		var POST = App.POST;
+		module.svgfiles.svg = '';
+		module.svgfiles.png = '';
+		module.svgfiles.fallback = '';
 
 
 		//////////////////////////////////////////////////| CORE
