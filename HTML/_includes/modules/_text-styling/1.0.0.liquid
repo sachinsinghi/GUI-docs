@@ -12,9 +12,9 @@
 
 {% comment %} DESCRIPTION {% endcomment %}
 {% capture description %}
-	All HTML headings, are available. h1 through to h6 classes are also available, for when you want to match the font styling of a heading but still want your
-	text to be displayed inline. The default spacing used in these headings may not be suitable in all cases. Use the margin classes to adjust spacing above and
-	below headings.
+	All HTML headings, are available. h1 through to h6 classes are also available, for when you want to match the font styling of a heading while maintaining
+	inline display. The default spacing used in these headings may not be suitable in all cases. Use the margin classes to adjust spacing above
+	and below headings.
 {% endcapture %}
 
 
@@ -120,11 +120,11 @@
 	<p>Paragraph</p>
 
 	<p>
-		I&rsquo;m a basic paragraph. I provide my own margin bottom to space paragraphs so you don&rsquo;t need to use paragraph returns to add space thats just
-		bad typography. If you&rsquo;re copying and pasting text from some word processing software be sure to remove unnecessary formating.<br>
+		I&rsquo;m a basic paragraph. I provide my own margin bottom to space paragraphs so you don&rsquo;t need to use paragraph returns to add space.
+		If you&rsquo;re copying and pasting text from some word processing software be sure to remove unnecessary formating.<br>
 
-		When you place <a href="{{ page.title | handleize }}/#url">a link</a> inside a paragraph of text this is what it looks like. Avoid using too many long links in your paragraphs. It can get
-		difficult to read and it also starts to look like a christmas tree.
+		When you place <a href="{{ page.title | handleize }}/#url">a link</a> inside a paragraph of text this is what it looks like. Avoid using too many long
+		links in your paragraphs. It can become difficult to read and can start to look like a Christmas tree.
 	</p>
 
 	<hr>
