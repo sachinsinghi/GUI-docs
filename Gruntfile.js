@@ -1396,6 +1396,13 @@ module.exports = function(grunt) {
 		'watch',
 	]);
 
+	grunt.registerTask('checkGui', [ //check gui
+		'font:title',
+		'downloadJSON',
+		'verifyGUI',
+		'wakeup',
+	]);
+
 	grunt.registerTask('gui', [ //check gui
 		'font:title',
 		'font:updating',
