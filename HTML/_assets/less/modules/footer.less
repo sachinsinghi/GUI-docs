@@ -22,7 +22,7 @@
 
 	.footer-button {
 		float: right;
-		padding: 10px 12px 10px 12px;
+		padding: 13px 12px;
 		font-size: 16px;
 
 		@media (min-width: @screen-sm) {
@@ -32,8 +32,9 @@
 }
 
 .footer-social {
-	padding: 11px 21px 11px 12px;
+	padding: 7px 21px 8px 12px;
 	display: inline-block;
+	vertical-align: middle;
 
 	@media (min-width: @screen-sm) {
 		padding-left: 24px;
@@ -52,20 +53,26 @@
 		display: inline-block;
 		text-indent: -99999em;
 		overflow: hidden;
-		height: 25px;
+		height: 32px;
+		width: 32px;
 		vertical-align: middle;
 		margin-right: 12px;
 		background-position: center;
+		vertical-align: middle;
 
-		&.sitesymbol-email {
-			width: 32px;
+		svg {
+			display: block;
 		}
-		&.sitesymbol-yammer {
-			width: 27px;
+
+		.icons-background {
+			fill: @color-Muted;
+			transition: fill 0.3s ease;
 		}
-		&.sitesymbol-slack {
-			width: 25px;
+
+		&:hover {
+			.icons-background {
+				fill: @color-G-70;
+			}
 		}
 	}
 }
-
