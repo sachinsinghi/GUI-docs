@@ -26,6 +26,7 @@
 	<div class="col-sm-12 category">
 		{% for module in site.data.GUI.modules[category] %}
 			{% assign thisModule = module[1] %}
+			{% assign whatsnew = '' %}
 
 			<section class="modules has-id js-modules js-blender-module{{ module[1].ID }}
 				{% if site.data.GUI.modules[category].size == 1 %}
