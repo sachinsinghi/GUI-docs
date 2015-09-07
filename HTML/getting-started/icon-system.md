@@ -7,7 +7,7 @@ parent: Getting Started
 ---
 
 <div class="row">
-	<div class="col-sm-10 col-sm-offset-1">
+	<div class="col-sm-12 col-md-10 col-md-offset-1 content-textblock">
 		<h2 class="body-font">What is different?</h2>
 		<p class="lead">
 			The new icon system (GUI 2.*) is based on the new svg <a href="http://www.grunticon.com/" target="_blank">Grunticon</a> system from the genius
@@ -19,7 +19,12 @@ parent: Getting Started
 		</p>
 	</div>
 
-	<div class="col-sm-7 col-sm-offset-2">
+</div>
+
+
+<div class="row">
+
+	<div class="col-sm-10 col-md-8 col-md-offset-2 col-sm-offset-1 content-textblock">
 		<h3 class="body-font">Embedding icons</h3>
 		<p class="content-text">
 			There are two ways to use svg&rsquo;s: as a background image or direct embedding. Both methods are valid however it&rsquo;s important to understand the
@@ -28,7 +33,12 @@ parent: Getting Started
 		</p>
 	</div>
 
-	<div class="col-sm-12 example">
+</div>
+
+
+<div class="row">
+
+	<div class="col-md-10 col-md-offset-1 example">
 		{% capture ID %}blender1{% endcapture %}
 		{% capture category %}getting-started/icon-system{% endcapture %}
 		{% capture thisVersion %}1{% endcapture %}
@@ -50,7 +60,12 @@ parent: Getting Started
 		{% include exampleBox.liquid %}
 	</div>
 
-	<div class="col-sm-7 col-sm-offset-2">
+</div>
+
+
+<div class="row">
+
+	<div class="col-sm-10 col-md-8 col-md-offset-2 col-sm-offset-1 content-textblock">
 		<h3 class="body-font">Icons as background image</h3>
 		<p class="content-text">
 			In certain cases where an icon does not add direct value, you may not want a screen reader to detect the icon. In these instances, you still have the
@@ -58,7 +73,12 @@ parent: Getting Started
 		</p>
 	</div>
 
-	<div class="col-sm-12 example">
+</div>
+
+
+<div class="row">
+
+	<div class="col-md-10 col-md-offset-1 example">
 		{% capture ID %}blender1{% endcapture %}
 		{% capture category %}getting-started/icon-system{% endcapture %}
 		{% capture thisVersion %}1{% endcapture %}

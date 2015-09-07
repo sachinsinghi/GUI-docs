@@ -7,14 +7,19 @@ parent: Getting Started
 ---
 
 <div class="row">
-	<div class="col-sm-10 col-sm-offset-1">
+	<div class="col-sm-12 col-md-10 col-md-offset-1 content-textblock">
 		<h2 class="body-font">What is the Blender?</h2>
 		<p class="lead">
 			The Blender is a tool that lets you mix the modules you need and leave out the ones you don&rsquo;t.
 		</p>
 	</div>
 
-	<div class="col-sm-7 col-sm-offset-2">
+</div>
+
+
+<div class="row">
+
+	<div class="col-sm-10 col-md-8 col-md-offset-2 col-sm-offset-1 content-textblock">
 		<h3 class="body-font">Why do I have to choose?</h3>
 		<p class="content-text">
 			Having the ability to choose which modules are relevant to your project means less overhead for your users, less stress for you when it comes to
@@ -23,7 +28,12 @@ parent: Getting Started
 		</p>
 	</div>
 
-	<div class="col-sm-7 col-sm-offset-2">
+</div>
+
+
+<div class="row">
+
+	<div class="col-sm-10 col-md-8 col-md-offset-2 col-sm-offset-1 content-textblock">
 		<h3 class="body-font">What happens if I choose the wrong module(s) or if I&rsquo;ve changed my mind?</h3>
 		<p class="content-text">
 			Don&rsquo;t worry, The Blender has got you covered. Each module you chose will be saved into the localStorage of your browser so that when you return
@@ -36,7 +46,12 @@ parent: Getting Started
 		</p>
 	</div>
 
-	<div class="col-sm-7 col-sm-offset-2">
+</div>
+
+
+<div class="row">
+
+	<div class="col-sm-10 col-md-8 col-md-offset-2 col-sm-offset-1 content-textblock">
 		<h3 class="body-font">What benefits do I get from using The Blender?</h3>
 		<p class="content-text">
 			Apart from the smaller footprint to your network, you will also be less affected by changes to modules that are not relevant to you. In the previous
@@ -46,7 +61,12 @@ parent: Getting Started
 		</p>
 	</div>
 
-	<div class="col-sm-7 col-sm-offset-2">
+</div>
+
+
+<div class="row">
+
+	<div class="col-sm-10 col-md-8 col-md-offset-2 col-sm-offset-1 content-textblock">
 		<h3 class="body-font">What if I don&rsquo;t know what to choose?</h3>
 		<p class="content-text">
 			That&rsquo;s OK, we all start from the beginning. Try to choose as few as possible to begin with, and grow your Blend over time. We often feel like
@@ -56,7 +76,12 @@ parent: Getting Started
 		</p>
 	</div>
 
-	<div class="col-sm-7 col-sm-offset-2">
+</div>
+
+
+<div class="row">
+
+	<div class="col-sm-10 col-md-8 col-md-offset-2 col-sm-offset-1 content-textblock">
 		<h3 class="body-font">What&rsquo;s in the download?</h3>
 		<p class="content-text">
 			The zip file that you download contains, at a minimum, the production ready asset files and an index.html page with all modules installed

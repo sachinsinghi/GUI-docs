@@ -3,7 +3,7 @@
  *
  * Westpac GUI pages
  *
- * This base includes a debugging console and debounce and throttle functions.
+ * This base includes a debugging console.
  *
  **************************************************************************************************************************************************************/
 
