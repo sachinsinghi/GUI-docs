@@ -7,7 +7,7 @@ parent: Getting Started
 ---
 
 <div class="row">
-	<div class="col-sm-10 col-sm-offset-1">
+	<div class="col-sm-12 col-md-10 col-md-offset-1 content-textblock">
 		<h2 class="body-font">Installing the framework</h2>
 		<p class="lead">
 			Requirements for the GUI to function correctly are listed below. Please also refer to the index.html page within your
@@ -15,15 +15,24 @@ parent: Getting Started
 		</p>
 	</div>
 
+</div>
 
-	<div class="col-sm-7 col-sm-offset-2">
+
+<div class="row">
+
+	<div class="col-sm-10 col-md-8 col-md-offset-2 col-sm-offset-1 content-textblock">
 		<h3 class="body-font">An entire empty page</h3>
 		<p class="content-text">
 			The code below shows an entire GUI page with everything installed. Let&rsquo;s go through each part individually.
 		</p>
 	</div>
 
-	<div class="col-sm-12 example">
+</div>
+
+
+<div class="row">
+
+	<div class="col-md-10 col-md-offset-1 example">
 		{% capture ID %}blender2{% endcapture %}
 		{% capture category %}getting-started/installing{% endcapture %}
 		{% capture thisVersion %}1{% endcapture %}
@@ -93,15 +102,24 @@ parent: Getting Started
 		{% include exampleBox.liquid %}
 	</div>
 
+</div>
 
-	<div class="col-sm-7 col-sm-offset-2">
+
+<div class="row">
+
+	<div class="col-sm-10 col-md-8 col-md-offset-2 col-sm-offset-1 content-textblock">
 		<h3 class="body-font">First: The HTML5 boilerplate</h3>
 		<p class="content-text">
 			The GUI requires (and heavily relies upon) the commonly known HTML5 boilerplate. This needs to be at the very top of your document.
 		</p>
 	</div>
 
-	<div class="col-sm-12 example">
+</div>
+
+
+<div class="row">
+
+	<div class="col-md-10 col-md-offset-1 example">
 		{% capture ID %}blender1{% endcapture %}
 		{% capture category %}getting-started/installing{% endcapture %}
 		{% capture thisVersion %}2{% endcapture %}
@@ -129,8 +147,12 @@ parent: Getting Started
 		{% include exampleBox.liquid %}
 	</div>
 
+</div>
 
-	<div class="col-sm-7 col-sm-offset-2">
+
+<div class="row">
+
+	<div class="col-sm-10 col-md-8 col-md-offset-2 col-sm-offset-1 content-textblock">
 		<h3 class="body-font">The head</h3>
 		<p class="content-text">
 			The head element includes encoding and viewport tags as well as the Grunticon scripts. The second script is to remove the no-js class and replace it with
@@ -139,7 +161,12 @@ parent: Getting Started
 		</p>
 	</div>
 
-	<div class="col-sm-12 example">
+</div>
+
+
+<div class="row">
+
+	<div class="col-md-10 col-md-offset-1 example">
 		{% capture ID %}blender2{% endcapture %}
 		{% capture category %}getting-started/installing{% endcapture %}
 		{% capture thisVersion %}3{% endcapture %}
@@ -184,8 +211,12 @@ parent: Getting Started
 		{% include exampleBox.liquid %}
 	</div>
 
+</div>
 
-	<div class="col-sm-7 col-sm-offset-2">
+
+<div class="row">
+
+	<div class="col-sm-10 col-md-8 col-md-offset-2 col-sm-offset-1 content-textblock">
 		<h3 class="body-font">Your body and js script</h3>
 		<p class="content-text">
 			Next comes the body tag which should include a message for user who have js disabled, followed by your content.
@@ -194,7 +225,12 @@ parent: Getting Started
 		</p>
 	</div>
 
-	<div class="col-sm-12 example">
+</div>
+
+
+<div class="row">
+
+	<div class="col-md-10 col-md-offset-1 example">
 		{% capture ID %}blender2{% endcapture %}
 		{% capture category %}getting-started/installing{% endcapture %}
 		{% capture thisVersion %}4{% endcapture %}

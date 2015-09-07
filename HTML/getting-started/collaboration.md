@@ -7,7 +7,7 @@ parent: Getting Started
 ---
 
 <div class="row">
-	<div class="col-sm-10 col-sm-offset-1">
+	<div class="col-sm-12 col-md-10 col-md-offset-1 content-textblock">
 		<h2 class="body-font">Open source</h2>
 		<p class="lead">
 			The GUI is an entirely <a href="https://github.com/WestpacCXTeam/GUI-source" target="_blank">open source</a> build and is available to anyone
@@ -15,7 +15,12 @@ parent: Getting Started
 		</p>
 	</div>
 
-	<div class="col-sm-7 col-sm-offset-2">
+</div>
+
+
+<div class="row">
+
+	<div class="col-sm-10 col-md-8 col-md-offset-2 col-sm-offset-1 content-textblock">
 		<h3 class="body-font">Can I see how it is built?</h3>
 		<p class="content-text">
 			We are hosting our source code on <a href="https://github.com/WestpacCXTeam/GUI-source" target="_blank">GitHub</a> where you can fork the repository,
@@ -25,7 +30,12 @@ parent: Getting Started
 		</p>
 	</div>
 
-	<div class="col-sm-7 col-sm-offset-2">
+</div>
+
+
+<div class="row">
+
+	<div class="col-sm-10 col-md-8 col-md-offset-2 col-sm-offset-1 content-textblock">
 		<h3 class="body-font">What if I spot a bug?</h3>
 		<p class="content-text">
 			If you find a bug that we've missed, then please notify us. Head over to the <a href="https://github.com/WestpacCXTeam/GUI-source"
@@ -39,7 +49,12 @@ parent: Getting Started
 		</p>
 	</div>
 
-	<div class="col-sm-7 col-sm-offset-2">
+</div>
+
+
+<div class="row">
+
+	<div class="col-sm-10 col-md-8 col-md-offset-2 col-sm-offset-1 content-textblock">
 		<h3 class="body-font">How did you write The Blender?</h3>
 		<p class="content-text">
 			We built a <a href="https://nodejs.org/" target="_blank">NodeJS</a> app that runs on our server. This app is also open source and you can find it
