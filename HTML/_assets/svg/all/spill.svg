@@ -1,25 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 19.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
-<svg version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="436px"
-	 height="174px" viewBox="0 0 436 174" enable-background="new 0 0 436 174" xml:space="preserve">
-<g id="Non_printing">
-</g>
-<g id="Layer_1">
-	<g>
-		<ellipse fill="#FFA726" cx="315.2" cy="166.1" rx="86.8" ry="7.1"/>
-		<ellipse fill="#FFA726" cx="420.2" cy="165.7" rx="15.8" ry="3.6"/>
-		<g>
-			<g>
-				
-					<line fill="none" stroke="#8D6E63" stroke-width="3.5065" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="355.9" y1="164" x2="262.2" y2="150.1"/>
-				<circle fill="#D50000" cx="262.2" cy="150.1" r="15.8"/>
-			</g>
-			<circle fill="#F6CCCD" cx="257" cy="143.3" r="3.5"/>
-		</g>
-		<path fill="#FFFFFF" d="M223.1,161.7L194.8,2.9c-0.3-1.4-1.3-2.5-2.7-2.8c-1.4-0.3-2.8,0.3-3.6,1.5l-60.9,91.7L20.2,112.4
-			c-4.8-25-12.1-44.2-16.6-43.3c-4.8,0.9-4.8,23.2,0,49.9c4.8,26.7,12.5,47.6,17.3,46.8c4.6-0.8,4.8-21.3,0.6-46.4l107.3-19.2
-			l88.9,64.9c1.2,0.8,2.7,0.9,3.9,0.1C222.8,164.5,223.4,163.1,223.1,161.7z"/>
-	</g>
-</g>
+<svg aria-labelledby="title" version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="436px" height="174px" viewBox="0 0 436 174" enable-background="new 0 0 436 174" xml:space="preserve">
+<title id="title" lang="en">Spilled Blender</title>
+
+<ellipse fill="#FFA726" cx="315.2" cy="166.1" rx="86.8" ry="7.1"/>
+<ellipse fill="#FFA726" cx="420.2" cy="165.7" rx="15.8" ry="3.6"/>
+<line fill="none" stroke="#8D6E63" stroke-width="3.5065" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" x1="355.9" y1="164" x2="262.2" y2="150.1"/>
+<circle fill="#D50000" cx="262.2" cy="150.1" r="15.8"/>
+<circle fill="#F6CCCD" cx="257" cy="143.3" r="3.5"/>
+<path fill="#FFFFFF" d="M223.1,161.7L194.8,2.9c-0.3-1.4-1.3-2.5-2.7-2.8c-1.4-0.3-2.8,0.3-3.6,1.5l-60.9,91.7L20.2,112.4 c-4.8-25-12.1-44.2-16.6-43.3c-4.8,0.9-4.8,23.2,0,49.9c4.8,26.7,12.5,47.6,17.3,46.8c4.6-0.8,4.8-21.3,0.6-46.4l107.3-19.2 l88.9,64.9c1.2,0.8,2.7,0.9,3.9,0.1C222.8,164.5,223.4,163.1,223.1,161.7z"/>
 </svg>
