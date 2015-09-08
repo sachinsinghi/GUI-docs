@@ -231,7 +231,7 @@ module.exports = function(grunt) {
 
 
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	// Custom grunt task to download the GUI files
+	// Custom grunt task to download the GUI files from master
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	grunt.registerTask('downloadGUI', 'Download the GUI zip from GitHub.', function() {
 
@@ -246,7 +246,7 @@ module.exports = function(grunt) {
 
 
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	// Custom grunt task to create list index
+	// Custom grunt task to verify the GUI.json with the online master file
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	grunt.registerTask('verifyGUI', 'Check if there is a new GUI online by comparing the GUI.json.', function() {
 
@@ -597,7 +597,7 @@ module.exports = function(grunt) {
 
 
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
-		// Concat node files
+		// Concat files
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
 		concat: {
 			node: {
@@ -972,7 +972,7 @@ module.exports = function(grunt) {
 				}],
 			},
 
-			//fonts
+			//images
 			imgBOM: {
 				files: [{
 					cwd: '<%= SETTINGS.folder.img %>/BOM/',
