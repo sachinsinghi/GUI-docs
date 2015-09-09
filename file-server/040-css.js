@@ -30,6 +30,7 @@
 
 		var POST = App.POST;
 		var lessContents = '';
+		var lessIndex = "\n\n" + '/* ---------------------------------------| MODULES |--------------------------------------- */' + "\n";
 		var _includeOriginal  = App.selectedModules.includeLess; //POST.hasOwnProperty('includeless');
 
 
@@ -43,6 +44,7 @@
 			lessContent = App.branding.replace( lessContent, [ 'Brand', POST['brand'] ] );
 
 			if( _includeOriginal ) {
+				lessIndex += '@import \'' + module.ID + '.less\';' + "\n";
 				App.zip.addFile( lessContent, '/source/less/' + module.ID + '.less' );
 			}
 
@@ -60,12 +62,16 @@
 			lessContent = App.branding.replace( lessContent, [ 'Brand', POST['brand'] ] );
 
 			if( _includeOriginal && module.less ) {
+				lessIndex += '@import \'' + module.ID + '.less\';' + "\n";
 				App.zip.addFile( lessContent, '/source/less/' + module.ID + '.less' );
 			}
 
 			lessContents += lessContent;
 		});
 
+		if(lessIndex) {
+			App.zip.addFile( App.banner.attach( lessIndex ), '/source/less/gui.less' );
+		}
 
 		//compile less
 		Less.render(lessContents, {
