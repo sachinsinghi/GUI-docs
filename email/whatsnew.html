@@ -404,8 +404,8 @@
 		/* Panels */
 
 		.panel {
-			background: #f2f2f2;
-			border: 1px solid #d9d9d9;
+			/*background: #f2f2f2;
+			border: 1px solid #d9d9d9;*/
 			padding: 10px !important;
 		}
 
@@ -587,8 +587,8 @@
 		@media only screen and (max-width: 600px) {
 
 			table[class="body"] img {
-				width: auto !important;
-				height: auto !important;
+				/*width: auto !important;
+				height: auto !important;*/
 			}
 
 			table[class="body"] center {
@@ -695,17 +695,25 @@
 	</style>
 	<style>
 		.header {
-			background: #c80038;
+			background-color: #c80038;
 			color: #fff;
 		}
 
+		.content {
+			background-color: #f3f5f6;
+		}
+
 		.footer {
-			background: #263238;
+			background-color: #263238;
 			color: #fff;
 		}
 
 		.footer .sub-columns {
 			color: #fff;
+		}
+
+		.inner-padding {
+			padding: 36px;
 		}
 	</style>
 </head>
@@ -717,49 +725,25 @@
 			<td class="center" align="center" valign="top">
 				<center>
 
-					<table class="row header">
-						<tr>
-							<td class="center" align="center">
-								<center>
-
-									<table class="container">
-										<tr>
-											<td class="wrapper last">
-
-												<table class="twelve columns">
-													<tr>
-														<td class="twelve sub-columns last">
-															<img src="http://gel.westpacgroup.com.au/assets/img/gel-mail.png" alt="GEL">
-														</td>
-														<td class="expander"></td>
-													</tr>
-												</table>
-
-											</td>
-										</tr>
-									</table>
-
-								</center>
-							</td>
-						</tr>
-					</table>
-
 					<table class="container">
 						<tr>
 							<td>
 
-								<table class="row">
+								<table class="row header">
 									<tr>
-										<td class="wrapper last">
+										<td class="wrapper">
 
 											<table class="twelve columns">
 												<tr>
-													<td>
-														<br><br>
-														<h1 mc:edit="header" style="margin-bottom: 12px; font-weight: 700;">Hi *|TITLE:FNAME|*</h1>
-														<p mc:edit="lead" class="lead">Phasellus dictum sapien a neque luctus cursus. Pellentesque sem dolor, fringilla et pharetra vitae.</p>
-														<p mc:edit="body">Phasellus dictum sapien a neque luctus cursus. Pellentesque sem dolor, fringilla et pharetra vitae. consequat vel lacus. Sed iaculis pulvinar ligula, ornare fringilla ante viverra et. In hac habitasse platea dictumst. Donec vel orci mi, eu congue justo. Integer eget odio est, eget malesuada lorem. Aenean sed tellus dui, vitae viverra risus. Nullam massa sapien, pulvinar eleifend fringilla id, convallis eget nisi. Mauris a sagittis dui. Pellentesque non lacinia mi. Fusce sit amet libero sit amet erat venenatis sollicitudin vitae vel eros. Cras nunc sapien, interdum sit amet porttitor ut, congue quis urna.</p>
-														<br><br><br><br>
+													<td class="twelve sub-columns last">
+														<table class="twelve columns">
+															<tr>
+																<td class="panel">
+																	<img src="http://gel.westpacgroup.com.au/assets/img/gel-mail.png" alt="GEL" width="105" height="112">
+																</td>
+																<td class="expander"></td>
+															</tr>
+														</table>
 													</td>
 													<td class="expander"></td>
 												</tr>
@@ -769,30 +753,61 @@
 									</tr>
 								</table>
 
-							<!-- container end below -->
-							</td>
-						</tr>
-					</table>
+								<table class="row content">
+									<tr>
+										<td class="wrapper last">
 
+											<table class="twelve columns">
+												<tr>
+													<td>
+														<table class="twelve columns">
+															<tr>
+																<td class="panel">
+																	<h1 style="margin-bottom: 12px; font-weight: 700;">*|IF:FNAME|*Hi *|TITLE:FNAME|*, *|ELSE:|*Hello, *|END:IF|*</h1>
+																	<p mc:edit="header" class="lead">Phasellus dictum sapien a neque luctus cursus. Pellentesque sem dolor, fringilla et pharetra vitae.</p>
+																	<p mc:edit="body">Phasellus dictum sapien a neque luctus cursus. Pellentesque sem dolor, fringilla et pharetra vitae. consequat vel lacus. Sed iaculis pulvinar ligula, ornare fringilla ante viverra et. In hac habitasse platea dictumst. Donec vel orci mi, eu congue justo. Integer eget odio est, eget malesuada lorem. Aenean sed tellus dui, vitae viverra risus. Nullam massa sapien, pulvinar eleifend fringilla id, convallis eget nisi. Mauris a sagittis dui. Pellentesque non lacinia mi. Fusce sit amet libero sit amet erat venenatis sollicitudin vitae vel eros. Cras nunc sapien, interdum sit amet porttitor ut, congue quis urna.</p>
+																	<br>
+																</td>
+																<td class="expander"></td>
+															</tr>
+														</table>
+													</td>
+													<td class="expander"></td>
+												</tr>
+											</table>
 
-					<table class="row footer">
-						<tr>
-							<td class="center" align="center">
-								<center>
+										</td>
+									</tr>
+								</table>
 
-									<table class="container">
-										<tr>
-											<td class="wrapper last">
+								<table class="row footer">
+									<tr>
+										<td class="wrapper last">
 
-												<table class="twelve columns">
+											<table class="twelve columns">
 													<tr>
-														<td class="twelve sub-columns last">
-															<ul style="list-style: none; padding: 0;">
-																<li><a href="http://gel.westpacgroup.com.au/GUI/BOM/">Bank or Melbourne</a></li>
-																<li><a href="http://gel.westpacgroup.com.au/GUI/BSA/">Bank SA</a></li>
-																<li><a href="http://gel.westpacgroup.com.au/GUI/STG/">StGeorge</a></li>
-																<li><a href="http://gel.westpacgroup.com.au/GUI/WBC/">Westpac</a></li>
-															</ul>
+														<td class="six sub-columns" valign="top" style="vertical-align:top;">
+															<table class="six columns">
+																<tr>
+																	<td class="panel">
+																		<a href="http://gel.westpacgroup.com.au/GUI/WBC/">Westpac GUI</a><br>
+																		<a href="http://gel.westpacgroup.com.au/GUI/STG/">St. George GUI</a><br>
+																		<a href="http://gel.westpacgroup.com.au/GUI/BOM/">Bank of Melbourne GUI</a><br>
+																		<a href="http://gel.westpacgroup.com.au/GUI/BSA/">Bank SA GUI</a>
+																	</td>
+																	<td class="expander"></td>
+																</tr>
+															</table>
+														</td>
+														<td class="six sub-columns last" valign="top" align="right" style="vertical-align:top;text-align:right;">
+															<table class="six columns">
+																<tr>
+																	<td class="panel" align="right" style="vertical-align:top;text-align:right;">
+																		*|REWARDS|*
+																	</td>
+																	<td class="expander"></td>
+																</tr>
+															</table>
 														</td>
 														<td class="expander"></td>
 													</tr>
@@ -801,18 +816,24 @@
 												<table class="twelve columns">
 													<tr>
 														<td class="twelve sub-columns last">
-															<a href="*|UPDATE_PROFILE|*">Unsubscribe</a><br>
-															<span style="color: #546e7a;">Copyright &copy; 2015 The Westpac Group. All Rights Reserved</span>
-															<br><br><br><br><br><br><br><br>
+															<table class="twelve columns">
+																<tr>
+																	<td class="panel">
+																		<a href="*|UNSUB|*">Unsubscribe</a><br>
+																		<span style="color: #546e7a;">Copyright &copy; 2015 The Westpac Group. All Rights Reserved</span>
+																		<br><br><br><br>
+																	</td>
+																	<td class="expander"></td>
+																</tr>
+															</table>
 														</td>
 													</tr>
 												</table>
 
-											</td>
-										</tr>
-									</table>
+										</td>
+									</tr>
+								</table>
 
-								</center>
 							</td>
 						</tr>
 					</table>
