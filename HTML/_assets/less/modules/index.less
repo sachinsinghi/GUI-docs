@@ -17,8 +17,6 @@
 }
 
 .index-section {
-	// border-top: 1px solid @color-Border;
-	margin-top: 6px;
 	padding-top: 24px;
 
 	&:after {
@@ -38,12 +36,29 @@
 }
 
 .index-block {
-	margin-bottom: 24px;
+
+	p {
+		margin-bottom: 0;
+	}
+
+	.content-subline {
+		margin-top: 24px;
+
+		&.is-first {
+			margin-top: 0;
+		}
+	}
 }
 
 .index-faq {
+	margin-top: 0;
+
 	.index-faq-item {
 		margin: 12px 0;
+
+		&:first-child {
+			margin-top: 0;
+		}
 
 		&:after {
 			transition: transform 0.3s ease;
@@ -82,9 +97,15 @@
 .index-signup {
 	list-style: none;
 	padding: 0;
+	margin-bottom: 0;
+	margin-top: 0;
 
 	.index-signup-item {
 		margin: 0 0 12px 0;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
 
 		.btn {
 			margin-top: 12px;
