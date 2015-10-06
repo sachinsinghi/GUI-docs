@@ -37,7 +37,10 @@
 				<div class="row">
 					<div class="col-sm-4">
 						{% if site.data.GUI.modules[category].size > 1 %}
-							<h2 class="content-h">{{ module[1].name }}</h2>
+							<h2 class="content-h">
+								<a class="anchor-link" href="{{ category | handleize }}#{{ module[1].ID }}" aria-hidden="true" tabindex="-1">#</a>
+								{{ module[1].name }}
+							</h2>
 						{% endif %}
 					</div>
 					<div class="col-sm-8 hidden-xs module-version">
