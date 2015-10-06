@@ -254,6 +254,8 @@
 	margin: 14px 0 0 0;
 	z-index: 81;
 	left: 0;
+	pointer-events: all;
+	cursor: pointer;
 
 	.has-scrolledContent & {
 		position: absolute;
@@ -305,6 +307,12 @@
 			right: 0;
 			z-index: 126;
 			background-color: rgba(0, 0, 0, 0.4);
+			pointer-events: all;
+			cursor: pointer;
+
+			&:hover {
+				cursor: pointer;
+			}
 		}
 	}
 }
@@ -326,6 +334,7 @@
 
 	.gridly-button {
 		height: 48px;
+		width: 39px;
 		text-indent: -99999em;
 		overflow: hidden;
 		display: inline-block;

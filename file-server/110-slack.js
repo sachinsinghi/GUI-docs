@@ -37,7 +37,7 @@
 					'fields': [
 						{
 							'title': 'Modules',
-							'value': 'Count: ' + App.selectedModules.modules.length + '\nModules: ' + modules.substr(2),
+							'value': 'Count: ' + App.selectedModules.modules.length + '\nBrand: ' + App.selectedModules.brand + '\nModules: ' + modules.substr(2),
 							'short': false
 						},
 						{
