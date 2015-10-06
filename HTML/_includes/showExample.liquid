@@ -21,7 +21,7 @@
 	{% assign _hasBox = false %}
 {% endif %}
 
-<div class="row example" id="{{ ID }}{{ count }}">
+<div class="row example"{% comment %} id="{{ ID }}{{ count }}"{% endcomment %}>
 	{% if _hasBox %}
 		<div class="col-sm-4">
 			<div class="row">

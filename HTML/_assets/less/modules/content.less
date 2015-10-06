@@ -38,8 +38,25 @@
 .content-h {
 	font-family: @fontfamily;
 	font-weight: 300;
-	margin: 0 0 24px 0;
+	margin: 0 0 24px -1em;
 	color: @content-color;
+	position: relative;
+		padding-left: 1em;
+
+	&:hover,
+	&:focus {
+		.anchor-link {
+			display: block;
+		}
+	}
+}
+
+.anchor-link {
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 0;
+	opacity: 0.5;
 }
 
 h4,
