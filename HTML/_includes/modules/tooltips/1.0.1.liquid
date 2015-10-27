@@ -1,0 +1,85 @@
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	Tool tips display when a hover event is triggered. On small devices the information is displayed inline.
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+	<h4 class="body-font whatsnew-headline">What&rsquo;s new since v1.0.0</h4>
+
+	This version changed:
+		<code class="classes">JS</code>
+	but not:
+		<code class="classes">HTML</code>,
+		<code class="classes">CSS/LESS</code>
+
+	<ul class="lists">
+		<li>
+			We got word that using our JavaScript in dynamic DOM application was a bit... clunky. Clunky wasn't good enough for us so we refactored all Javascript
+			modules to unclunk all the things. Beware though, some JavaScript classes had to be injected to keep the modules clunk-free.
+			(<a href="https://github.com/WestpacCXTeam/GUI-source/issues/140" target="_blank">#140</a>)
+		</li>
+	</ul>
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% capture example %}
+	<p>
+		This shows how a tool tip can be added to
+
+		<abbr class="js-tooltip tooltip" title="A word can have a lot of different meanings..." tabindex="0">a word</abbr>
+
+		within a sentence.
+	</p>
+{% endcapture %}
+
+
+{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% capture HTML %}
+	<span class="js-tooltip tooltip" title="YOUR TOOLTIP" tabindex="0">YOUR WORD</span>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	The main mixin is called: <code class="classes">_tooltips({{ page.brand }})</code>
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+	This module comes with the usual init method:
+
+	<ul>
+		<li>
+			<code class="classes">GUI.tooltips.init();</code> after the page has been loaded.
+		</li>
+		<li>
+			<code class="classes">GUI.tooltips.render();</code> for dynamically added elements after page load.
+		</li>
+	</ul>
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
