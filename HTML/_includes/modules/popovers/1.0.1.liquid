@@ -44,12 +44,12 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-	<div class="popover-wrapper">
+	<div class="popover-wrapper js-popover-wrapper">
 		<button class="btn popover js-popover">
 			Toggle switch popover
 		</button>
 
-		<div class="popover-popup" aria-hidden="true" tabindex="-1" aria-label="Use the ESC key to close">
+		<div class="popover-popup js-popoverbody" aria-hidden="true" tabindex="-1" aria-label="Use the ESC key to close">
 			<p class="popover-popup-title">
 				Toggle switch popover
 			</p>
@@ -62,12 +62,12 @@
 
 	<hr>
 
-	<div class="popover-wrapper">
+	<div class="popover-wrapper js-popover-wrapper">
 		<button class="btn popover popover-dismissible js-popover">
 			Dismissible popover
 		</button>
 
-		<div class="popover-popup" aria-hidden="true" tabindex="-1" aria-label="Use the ESC key to close">
+		<div class="popover-popup js-popoverbody" aria-hidden="true" tabindex="-1" aria-label="Use the ESC key to close">
 			<p class="popover-popup-title">
 				Dismissible popover
 			</p>
@@ -82,12 +82,12 @@
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-	<div class="popover-wrapper">
+	<div class="popover-wrapper js-popover-wrapper">
 		<button class="btn popover js-popover">
 			YOUR BUTTON TEXT
 		</button>
 
-		<div class="popover-popup" aria-hidden="true" tabindex="-1" aria-label="Use the ESC key to close">
+		<div class="popover-popup js-popoverbody" aria-hidden="true" tabindex="-1" aria-label="Use the ESC key to close">
 			<p class="popover-popup-title">
 				YOUR POPOVER HEADLINE
 			</p>

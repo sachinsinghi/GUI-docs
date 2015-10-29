@@ -38,8 +38,8 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-	<button class="btn btn-link js-collapsible" data-collapsible="#ex0-1">toggle below</button>
-	<div id="ex0-1" class="collapsible-body" aria-hidden="true" tabindex="-1">
+	<button class="btn btn-link js-collapsible" data-collapsible="#ex0-1{{ version[0] | handleize }}">toggle below</button>
+	<div id="ex0-1{{ version[0] | handleize }}" class="collapsible-body" aria-hidden="true" tabindex="-1">
 		&lsquo;It was much pleasanter at home,&rsquo; thought poor Alice, &lsquo;when one wasn&rsquo;t always growing larger and smaller, and being ordered about by
 		mice and rabbits. I almost wish I hadn&rsquo;t gone down that rabbit-hole — and yet — and yet — it&rsquo;s rather curious, you know, this sort of life! I do
 		wonder what can have happened to me! When I used to read fairy-tales, I fancied that kind of thing never happened, and now here I am in the middle of one!
@@ -142,18 +142,18 @@
 {% capture example %}
 	<div class="tabcordion tabcordion-tabs">
 		<ul class="tabcordion-tabs">
-			<li class="tabcordion-tab is-active">
-				<a class="js-collapsible" href="#ex1-tab1">Rabbit hole</a>
+			<li class="tabcordion-tab js-collapsible-tab is-active">
+				<a class="js-collapsible" href="#ex1-tab1{{ version[0] | handleize }}">Rabbit hole</a>
 			</li>
-			<li class="tabcordion-tab">
-				<a class="js-collapsible" href="#ex1-tab2">Flamingo</a>
+			<li class="tabcordion-tab js-collapsible-tab">
+				<a class="js-collapsible" href="#ex1-tab2{{ version[0] | handleize }}">Flamingo</a>
 			</li>
-			<li class="tabcordion-tab">
-				<a class="js-collapsible" href="#ex1-tab3">Caterpillar</a>
+			<li class="tabcordion-tab js-collapsible-tab">
+				<a class="js-collapsible" href="#ex1-tab3{{ version[0] | handleize }}">Caterpillar</a>
 			</li>
 		</ul>
 
-		<div id="ex1-tab1" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
+		<div id="ex1-tab1{{ version[0] | handleize }}" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
 			<div class="tabcordion-body">
 				&lsquo;It was much pleasanter at home,&rsquo; thought poor Alice, &lsquo;when one wasn&rsquo;t always growing larger and smaller, and being ordered
 				about by mice and rabbits. I almost wish I hadn&rsquo;t gone down that rabbit-hole — and yet — and yet — it&rsquo;s rather curious, you know, this
@@ -161,7 +161,7 @@
 				I am in the middle of one! There ought to be a book written about me, that there ought! And when I grow up, I&rsquo;ll write one.
 			</div>
 		</div>
-		<div id="ex1-tab2" class="collapsible-body" aria-hidden="true" tabindex="-1">
+		<div id="ex1-tab2{{ version[0] | handleize }}" class="collapsible-body" aria-hidden="true" tabindex="-1">
 			<div class="tabcordion-body">
 				The chief difficulty Alice found at first was in managing her flamingo: she succeeded in getting its body tucked away, comfortably enough, under her
 				arm, with its legs hanging down, but generally, just as she had got its neck nicely straightened out, and was going to give the hedgehog a blow with
@@ -172,7 +172,7 @@
 				difficult game indeed.
 			</div>
 		</div>
-		<div id="ex1-tab3" class="collapsible-body" aria-hidden="true" tabindex="-1">
+		<div id="ex1-tab3{{ version[0] | handleize }}" class="collapsible-body" aria-hidden="true" tabindex="-1">
 			<div class="tabcordion-body">
 				The Caterpillar and Alice looked at each other for some time in silence: at last the Caterpillar took the hookah out of its mouth, and addressed
 				her in a languid, sleepy voice.<br>
@@ -194,28 +194,28 @@
 {% capture HTML %}
 	<div class="tabcordion tabcordion-tabs">
 		<ul class="tabcordion-tabs">
-			<li class="tabcordion-tab is-active">
-				<a class="js-collapsible" href="#ex11-tab1">YOUR TAB</a>
+			<li class="tabcordion-tab js-collapsible-tab is-active">
+				<a class="js-collapsible" href="#ex11-tab1{{ version[0] | handleize }}">YOUR TAB</a>
 			</li>
-			<li class="tabcordion-tab">
-				<a class="js-collapsible" href="#ex11-tab2">YOUR TAB</a>
+			<li class="tabcordion-tab js-collapsible-tab">
+				<a class="js-collapsible" href="#ex11-tab2{{ version[0] | handleize }}">YOUR TAB</a>
 			</li>
-			<li class="tabcordion-tab">
-				<a class="js-collapsible" href="#ex11-tab3">YOUR TAB</a>
+			<li class="tabcordion-tab js-collapsible-tab">
+				<a class="js-collapsible" href="#ex11-tab3{{ version[0] | handleize }}">YOUR TAB</a>
 			</li>
 		</ul>
 
-		<div id="ex11-tab1" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
+		<div id="ex11-tab1{{ version[0] | handleize }}" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
 			<div class="tabcordion-body">
 				YOUR TEXT
 			</div>
 		</div>
-		<div id="ex11-tab2" class="collapsible-body" aria-hidden="true" tabindex="-1">
+		<div id="ex11-tab2{{ version[0] | handleize }}" class="collapsible-body" aria-hidden="true" tabindex="-1">
 			<div class="tabcordion-body">
 				YOUR TEXT
 			</div>
 		</div>
-		<div id="ex11-tab3" class="collapsible-body" aria-hidden="true" tabindex="-1">
+		<div id="ex11-tab3{{ version[0] | handleize }}" class="collapsible-body" aria-hidden="true" tabindex="-1">
 			<div class="tabcordion-body">
 				YOUR TEXT
 			</div>
@@ -278,18 +278,18 @@
 {% capture example %}
 	<div class="tabcordion tabcordion-tabs">
 		<ul class="tabcordion-tabs tabcordion-tabs-justified">
-			<li class="tabcordion-tab is-active">
-				<a class="js-collapsible" href="#ex2-tab1">Rabbit hole</a>
+			<li class="tabcordion-tab js-collapsible-tab is-active">
+				<a class="js-collapsible" href="#ex2-tab1{{ version[0] | handleize }}">Rabbit hole</a>
 			</li>
-			<li class="tabcordion-tab">
-				<a class="js-collapsible" href="#ex2-tab2">Flamingo</a>
+			<li class="tabcordion-tab js-collapsible-tab">
+				<a class="js-collapsible" href="#ex2-tab2{{ version[0] | handleize }}">Flamingo</a>
 			</li>
-			<li class="tabcordion-tab">
-				<a class="js-collapsible" href="#ex2-tab3">Caterpillar</a>
+			<li class="tabcordion-tab js-collapsible-tab">
+				<a class="js-collapsible" href="#ex2-tab3{{ version[0] | handleize }}">Caterpillar</a>
 			</li>
 		</ul>
 
-		<div id="ex2-tab1" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
+		<div id="ex2-tab1{{ version[0] | handleize }}" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
 			<div class="tabcordion-body">
 				&lsquo;It was much pleasanter at home,&rsquo; thought poor Alice, &lsquo;when one wasn&rsquo;t always growing larger and smaller, and being ordered
 				about by mice and rabbits. I almost wish I hadn&rsquo;t gone down that rabbit-hole — and yet — and yet — it&rsquo;s rather curious, you know, this
@@ -297,7 +297,7 @@
 				I am in the middle of one! There ought to be a book written about me, that there ought! And when I grow up, I&rsquo;ll write one.
 			</div>
 		</div>
-		<div id="ex2-tab2" class="collapsible-body" aria-hidden="true" tabindex="-1">
+		<div id="ex2-tab2{{ version[0] | handleize }}" class="collapsible-body" aria-hidden="true" tabindex="-1">
 			<div class="tabcordion-body">
 				The chief difficulty Alice found at first was in managing her flamingo: she succeeded in getting its body tucked away, comfortably enough, under her
 				arm, with its legs hanging down, but generally, just as she had got its neck nicely straightened out, and was going to give the hedgehog a blow with
@@ -308,7 +308,7 @@
 				difficult game indeed.
 			</div>
 		</div>
-		<div id="ex2-tab3" class="collapsible-body" aria-hidden="true" tabindex="-1">
+		<div id="ex2-tab3{{ version[0] | handleize }}" class="collapsible-body" aria-hidden="true" tabindex="-1">
 			<div class="tabcordion-body">
 				The Caterpillar and Alice looked at each other for some time in silence: at last the Caterpillar took the hookah out of its mouth, and addressed
 				her in a languid, sleepy voice.<br>
@@ -331,28 +331,28 @@
 {% capture HTML %}
 	<div class="tabcordion tabcordion-tabs">
 		<ul class="tabcordion-tabs tabcordion-tabs-justified">
-			<li class="tabcordion-tab is-active">
-				<a class="js-collapsible" href="#ex22-tab1">YOUR TAB</a>
+			<li class="tabcordion-tab js-collapsible-tab is-active">
+				<a class="js-collapsible" href="#ex22-tab1{{ version[0] | handleize }}">YOUR TAB</a>
 			</li>
-			<li class="tabcordion-tab">
-				<a class="js-collapsible" href="#ex22-tab2">YOUR TAB</a>
+			<li class="tabcordion-tab js-collapsible-tab">
+				<a class="js-collapsible" href="#ex22-tab2{{ version[0] | handleize }}">YOUR TAB</a>
 			</li>
-			<li class="tabcordion-tab">
-				<a class="js-collapsible" href="#ex22-tab3">YOUR TAB</a>
+			<li class="tabcordion-tab js-collapsible-tab">
+				<a class="js-collapsible" href="#ex22-tab3{{ version[0] | handleize }}">YOUR TAB</a>
 			</li>
 		</ul>
 
-		<div id="ex22-tab1" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
+		<div id="ex22-tab1{{ version[0] | handleize }}" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
 			<div class="tabcordion-body">
 				YOUR TEXT
 			</div>
 		</div>
-		<div id="ex22-tab2" class="collapsible-body" aria-hidden="true" tabindex="-1">
+		<div id="ex22-tab2{{ version[0] | handleize }}" class="collapsible-body" aria-hidden="true" tabindex="-1">
 			<div class="tabcordion-body">
 				YOUR TEXT
 			</div>
 		</div>
-		<div id="ex22-tab3" class="collapsible-body" aria-hidden="true" tabindex="-1">
+		<div id="ex22-tab3{{ version[0] | handleize }}" class="collapsible-body" aria-hidden="true" tabindex="-1">
 			<div class="tabcordion-body">
 				YOUR TEXT
 			</div>
@@ -420,18 +420,18 @@
 {% capture example %}
 	<div class="tabcordion tabcordion-lego tabcordion-tabs">
 		<ul class="tabcordion-tabs">
-			<li class="tabcordion-tab is-active">
-				<a class="js-collapsible" href="#ex3-tab1">Rabbit hole</a>
+			<li class="tabcordion-tab js-collapsible-tab is-active">
+				<a class="js-collapsible" href="#ex3-tab1{{ version[0] | handleize }}">Rabbit hole</a>
 			</li>
-			<li class="tabcordion-tab">
-				<a class="js-collapsible" href="#ex3-tab2">Flamingo</a>
+			<li class="tabcordion-tab js-collapsible-tab">
+				<a class="js-collapsible" href="#ex3-tab2{{ version[0] | handleize }}">Flamingo</a>
 			</li>
-			<li class="tabcordion-tab">
-				<a class="js-collapsible" href="#ex3-tab3">Caterpillar</a>
+			<li class="tabcordion-tab js-collapsible-tab">
+				<a class="js-collapsible" href="#ex3-tab3{{ version[0] | handleize }}">Caterpillar</a>
 			</li>
 		</ul>
 
-		<div id="ex3-tab1" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
+		<div id="ex3-tab1{{ version[0] | handleize }}" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
 			<div class="tabcordion-body">
 				&lsquo;It was much pleasanter at home,&rsquo; thought poor Alice, &lsquo;when one wasn&rsquo;t always growing larger and smaller, and being ordered
 				about by mice and rabbits. I almost wish I hadn&rsquo;t gone down that rabbit-hole — and yet — and yet — it&rsquo;s rather curious, you know, this
@@ -439,7 +439,7 @@
 				I am in the middle of one! There ought to be a book written about me, that there ought! And when I grow up, I&rsquo;ll write one.
 			</div>
 		</div>
-		<div id="ex3-tab2" class="collapsible-body" aria-hidden="true" tabindex="-1">
+		<div id="ex3-tab2{{ version[0] | handleize }}" class="collapsible-body" aria-hidden="true" tabindex="-1">
 			<div class="tabcordion-body">
 				The chief difficulty Alice found at first was in managing her flamingo: she succeeded in getting its body tucked away, comfortably enough, under her
 				arm, with its legs hanging down, but generally, just as she had got its neck nicely straightened out, and was going to give the hedgehog a blow with
@@ -450,7 +450,7 @@
 				difficult game indeed.
 			</div>
 		</div>
-		<div id="ex3-tab3" class="collapsible-body" aria-hidden="true" tabindex="-1">
+		<div id="ex3-tab3{{ version[0] | handleize }}" class="collapsible-body" aria-hidden="true" tabindex="-1">
 			<div class="tabcordion-body">
 				The Caterpillar and Alice looked at each other for some time in silence: at last the Caterpillar took the hookah out of its mouth, and addressed
 				her in a languid, sleepy voice.<br>
@@ -473,28 +473,28 @@
 {% capture HTML %}
 	<div class="tabcordion tabcordion-lego tabcordion-tabs">
 		<ul class="tabcordion-tabs">
-			<li class="tabcordion-tab is-active">
-				<a class="js-collapsible" href="#ex33-tab1">YOUR TAB</a>
+			<li class="tabcordion-tab js-collapsible-tab is-active">
+				<a class="js-collapsible" href="#ex33-tab1{{ version[0] | handleize }}">YOUR TAB</a>
 			</li>
-			<li class="tabcordion-tab">
-				<a class="js-collapsible" href="#ex33-tab2">YOUR TAB</a>
+			<li class="tabcordion-tab js-collapsible-tab">
+				<a class="js-collapsible" href="#ex33-tab2{{ version[0] | handleize }}">YOUR TAB</a>
 			</li>
-			<li class="tabcordion-tab">
-				<a class="js-collapsible" href="#ex33-tab3">YOUR TAB</a>
+			<li class="tabcordion-tab js-collapsible-tab">
+				<a class="js-collapsible" href="#ex33-tab3{{ version[0] | handleize }}">YOUR TAB</a>
 			</li>
 		</ul>
 
-		<div id="ex33-tab1" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
+		<div id="ex33-tab1{{ version[0] | handleize }}" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
 			<div class="tabcordion-body">
 				YOUR TEXT
 			</div>
 		</div>
-		<div id="ex33-tab2" class="collapsible-body" aria-hidden="true" tabindex="-1">
+		<div id="ex33-tab2{{ version[0] | handleize }}" class="collapsible-body" aria-hidden="true" tabindex="-1">
 			<div class="tabcordion-body">
 				YOUR TEXT
 			</div>
 		</div>
-		<div id="ex33-tab3" class="collapsible-body" aria-hidden="true" tabindex="-1">
+		<div id="ex33-tab3{{ version[0] | handleize }}" class="collapsible-body" aria-hidden="true" tabindex="-1">
 			<div class="tabcordion-body">
 				YOUR TEXT
 			</div>
@@ -562,18 +562,18 @@
 {% capture example %}
 	<div class="tabcordion tabcordion-lego tabcordion-tabs">
 		<ul class="tabcordion-tabs tabcordion-tabs-justified">
-			<li class="tabcordion-tab is-active">
-				<a class="js-collapsible" href="#ex4-tab1">Rabbit hole</a>
+			<li class="tabcordion-tab js-collapsible-tab is-active">
+				<a class="js-collapsible" href="#ex4-tab1{{ version[0] | handleize }}">Rabbit hole</a>
 			</li>
-			<li class="tabcordion-tab">
-				<a class="js-collapsible" href="#ex4-tab2">Flamingo</a>
+			<li class="tabcordion-tab js-collapsible-tab">
+				<a class="js-collapsible" href="#ex4-tab2{{ version[0] | handleize }}">Flamingo</a>
 			</li>
-			<li class="tabcordion-tab">
-				<a class="js-collapsible" href="#ex4-tab3">Caterpillar</a>
+			<li class="tabcordion-tab js-collapsible-tab">
+				<a class="js-collapsible" href="#ex4-tab3{{ version[0] | handleize }}">Caterpillar</a>
 			</li>
 		</ul>
 
-		<div id="ex4-tab1" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
+		<div id="ex4-tab1{{ version[0] | handleize }}" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
 			<div class="tabcordion-body">
 				&lsquo;It was much pleasanter at home,&rsquo; thought poor Alice, &lsquo;when one wasn&rsquo;t always growing larger and smaller, and being ordered
 				about by mice and rabbits. I almost wish I hadn&rsquo;t gone down that rabbit-hole — and yet — and yet — it&rsquo;s rather curious, you know, this
@@ -581,7 +581,7 @@
 				I am in the middle of one! There ought to be a book written about me, that there ought! And when I grow up, I&rsquo;ll write one.
 			</div>
 		</div>
-		<div id="ex4-tab2" class="collapsible-body" aria-hidden="true" tabindex="-1">
+		<div id="ex4-tab2{{ version[0] | handleize }}" class="collapsible-body" aria-hidden="true" tabindex="-1">
 			<div class="tabcordion-body">
 				The chief difficulty Alice found at first was in managing her flamingo: she succeeded in getting its body tucked away, comfortably enough, under her
 				arm, with its legs hanging down, but generally, just as she had got its neck nicely straightened out, and was going to give the hedgehog a blow with
@@ -592,7 +592,7 @@
 				difficult game indeed.
 			</div>
 		</div>
-		<div id="ex4-tab3" class="collapsible-body" aria-hidden="true" tabindex="-1">
+		<div id="ex4-tab3{{ version[0] | handleize }}" class="collapsible-body" aria-hidden="true" tabindex="-1">
 			<div class="tabcordion-body">
 				The Caterpillar and Alice looked at each other for some time in silence: at last the Caterpillar took the hookah out of its mouth, and addressed
 				her in a languid, sleepy voice.<br>
@@ -615,28 +615,28 @@
 {% capture HTML %}
 	<div class="tabcordion tabcordion-lego tabcordion-tabs">
 		<ul class="tabcordion-tabs tabcordion-tabs-justified">
-			<li class="tabcordion-tab is-active">
-				<a class="js-collapsible" href="#ex5-tab1">YOUR TAB</a>
+			<li class="tabcordion-tab js-collapsible-tab is-active">
+				<a class="js-collapsible" href="#ex44-tab1{{ version[0] | handleize }}">YOUR TAB</a>
 			</li>
-			<li class="tabcordion-tab">
-				<a class="js-collapsible" href="#ex44-tab2">YOUR TAB</a>
+			<li class="tabcordion-tab js-collapsible-tab">
+				<a class="js-collapsible" href="#ex44-tab2{{ version[0] | handleize }}">YOUR TAB</a>
 			</li>
-			<li class="tabcordion-tab">
-				<a class="js-collapsible" href="#ex44-tab3">YOUR TAB</a>
+			<li class="tabcordion-tab js-collapsible-tab">
+				<a class="js-collapsible" href="#ex44-tab3{{ version[0] | handleize }}">YOUR TAB</a>
 			</li>
 		</ul>
 
-		<div id="ex44-tab1" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
+		<div id="ex44-tab1{{ version[0] | handleize }}" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
 			<div class="tabcordion-body">
 				YOUR TEXT
 			</div>
 		</div>
-		<div id="ex44-tab2" class="collapsible-body" aria-hidden="true" tabindex="-1">
+		<div id="ex44-tab2{{ version[0] | handleize }}" class="collapsible-body" aria-hidden="true" tabindex="-1">
 			<div class="tabcordion-body">
 				YOUR TEXT
 			</div>
 		</div>
-		<div id="ex44-tab3" class="collapsible-body" aria-hidden="true" tabindex="-1">
+		<div id="ex44-tab3{{ version[0] | handleize }}" class="collapsible-body" aria-hidden="true" tabindex="-1">
 			<div class="tabcordion-body">
 				YOUR TEXT
 			</div>
@@ -707,10 +707,10 @@
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
 	<div class="tabcordion tabcordion-accordion">
-		<div class="tabcordion-body-header is-active">
-			<a href="#ex5-tab1" class="tabcordion-body-headline js-collapsible">Down that rabbit hole</a>
+		<div class="tabcordion-body-header js-collapsible-tab is-active">
+			<a href="#ex5-tab1{{ version[0] | handleize }}" class="tabcordion-body-headline js-collapsible">Down that rabbit hole</a>
 		</div>
-		<div id="ex5-tab1" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
+		<div id="ex5-tab1{{ version[0] | handleize }}" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
 			<div class="tabcordion-body">
 				&lsquo;It was much pleasanter at home,&rsquo; thought poor Alice, &lsquo;when one wasn&rsquo;t always growing larger and smaller, and being ordered
 				about by mice and rabbits. I almost wish I hadn&rsquo;t gone down that rabbit-hole — and yet — and yet — it&rsquo;s rather curious, you know, this
@@ -719,10 +719,10 @@
 			</div>
 		</div>
 
-		<div class="tabcordion-body-header">
-			<a href="#ex5-tab2" class="tabcordion-body-headline js-collapsible">Managing a flamingo</a>
+		<div class="tabcordion-body-header js-collapsible-tab">
+			<a href="#ex5-tab2{{ version[0] | handleize }}" class="tabcordion-body-headline js-collapsible">Managing a flamingo</a>
 		</div>
-		<div id="ex5-tab2" class="collapsible-body" aria-hidden="true" tabindex="-1">
+		<div id="ex5-tab2{{ version[0] | handleize }}" class="collapsible-body" aria-hidden="true" tabindex="-1">
 			<div class="tabcordion-body">
 				The chief difficulty Alice found at first was in managing her flamingo: she succeeded in getting its body tucked away, comfortably enough, under her
 				arm, with its legs hanging down, but generally, just as she had got its neck nicely straightened out, and was going to give the hedgehog a blow with
@@ -734,10 +734,10 @@
 			</div>
 		</div>
 
-		<div class="tabcordion-body-header">
-			<a href="#ex5-tab3" class="tabcordion-body-headline js-collapsible">The languid, sleepy Caterpillar</a>
+		<div class="tabcordion-body-header js-collapsible-tab">
+			<a href="#ex5-tab3{{ version[0] | handleize }}" class="tabcordion-body-headline js-collapsible">The languid, sleepy Caterpillar</a>
 		</div>
-		<div id="ex5-tab3" class="collapsible-body" aria-hidden="true" tabindex="-1">
+		<div id="ex5-tab3{{ version[0] | handleize }}" class="collapsible-body" aria-hidden="true" tabindex="-1">
 			<div class="tabcordion-body">
 				The Caterpillar and Alice looked at each other for some time in silence: at last the Caterpillar took the hookah out of its mouth, and addressed
 				her in a languid, sleepy voice.<br>
@@ -758,28 +758,28 @@
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
 	<div class="tabcordion tabcordion-accordion">
-		<div class="tabcordion-body-header is-active">
-			<a href="#ex55-tab1" class="tabcordion-body-headline js-collapsible">YOUR TAB</a>
+		<div class="tabcordion-body-header js-collapsible-tab is-active">
+			<a href="#ex55-tab1{{ version[0] | handleize }}" class="tabcordion-body-headline js-collapsible">YOUR TAB</a>
 		</div>
-		<div id="ex55-tab1" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
+		<div id="ex55-tab1{{ version[0] | handleize }}" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
 			<div class="tabcordion-body">
 				YOUR TEXT
 			</div>
 		</div>
 
-		<div class="tabcordion-body-header">
-			<a href="#ex55-tab2" class="tabcordion-body-headline js-collapsible">YOUR TAB</a>
+		<div class="tabcordion-body-header js-collapsible-tab">
+			<a href="#ex55-tab2{{ version[0] | handleize }}" class="tabcordion-body-headline js-collapsible">YOUR TAB</a>
 		</div>
-		<div id="ex55-tab2" class="collapsible-body" aria-hidden="true" tabindex="-1">
+		<div id="ex55-tab2{{ version[0] | handleize }}" class="collapsible-body" aria-hidden="true" tabindex="-1">
 			<div class="tabcordion-body">
 				YOUR TEXT
 			</div>
 		</div>
 
-		<div class="tabcordion-body-header">
-			<a href="#ex55-tab3" class="tabcordion-body-headline js-collapsible">YOUR TAB</a>
+		<div class="tabcordion-body-header js-collapsible-tab">
+			<a href="#ex55-tab3{{ version[0] | handleize }}" class="tabcordion-body-headline js-collapsible">YOUR TAB</a>
 		</div>
-		<div id="ex55-tab3" class="collapsible-body" aria-hidden="true" tabindex="-1">
+		<div id="ex55-tab3{{ version[0] | handleize }}" class="collapsible-body" aria-hidden="true" tabindex="-1">
 			<div class="tabcordion-body">
 				YOUR TEXT
 			</div>
@@ -848,10 +848,10 @@
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
 	<div class="tabcordion tabcordion-lego tabcordion-accordion">
-		<div class="tabcordion-body-header is-active">
-			<a href="#ex6-tab1" class="tabcordion-body-headline js-collapsible">Down that rabbit hole</a>
+		<div class="tabcordion-body-header js-collapsible-tab is-active">
+			<a href="#ex6-tab1{{ version[0] | handleize }}" class="tabcordion-body-headline js-collapsible">Down that rabbit hole</a>
 		</div>
-		<div id="ex6-tab1" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
+		<div id="ex6-tab1{{ version[0] | handleize }}" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
 			<div class="tabcordion-body">
 				&lsquo;It was much pleasanter at home,&rsquo; thought poor Alice, &lsquo;when one wasn&rsquo;t always growing larger and smaller, and being ordered
 				about by mice and rabbits. I almost wish I hadn&rsquo;t gone down that rabbit-hole — and yet — and yet — it&rsquo;s rather curious, you know, this
@@ -860,10 +860,10 @@
 			</div>
 		</div>
 
-		<div class="tabcordion-body-header">
-			<a href="#ex6-tab2" class="tabcordion-body-headline js-collapsible">Managing a flamingo</a>
+		<div class="tabcordion-body-header js-collapsible-tab">
+			<a href="#ex6-tab2{{ version[0] | handleize }}" class="tabcordion-body-headline js-collapsible">Managing a flamingo</a>
 		</div>
-		<div id="ex6-tab2" class="collapsible-body" aria-hidden="true" tabindex="-1">
+		<div id="ex6-tab2{{ version[0] | handleize }}" class="collapsible-body" aria-hidden="true" tabindex="-1">
 			<div class="tabcordion-body">
 				The chief difficulty Alice found at first was in managing her flamingo: she succeeded in getting its body tucked away, comfortably enough, under her
 				arm, with its legs hanging down, but generally, just as she had got its neck nicely straightened out, and was going to give the hedgehog a blow with
@@ -875,10 +875,10 @@
 			</div>
 		</div>
 
-		<div class="tabcordion-body-header">
-			<a href="#ex6-tab3" class="tabcordion-body-headline js-collapsible">The languid, sleepy Caterpillar</a>
+		<div class="tabcordion-body-header js-collapsible-tab">
+			<a href="#ex6-tab3{{ version[0] | handleize }}" class="tabcordion-body-headline js-collapsible">The languid, sleepy Caterpillar</a>
 		</div>
-		<div id="ex6-tab3" class="collapsible-body" aria-hidden="true" tabindex="-1">
+		<div id="ex6-tab3{{ version[0] | handleize }}" class="collapsible-body" aria-hidden="true" tabindex="-1">
 			<div class="tabcordion-body">
 				The Caterpillar and Alice looked at each other for some time in silence: at last the Caterpillar took the hookah out of its mouth, and addressed
 				her in a languid, sleepy voice.<br>
@@ -899,28 +899,28 @@
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
 	<div class="tabcordion tabcordion-lego tabcordion-accordion">
-		<div class="tabcordion-body-header is-active">
-			<a href="#ex66-tab1" class="tabcordion-body-headline js-collapsible">YOUR TAB</a>
+		<div class="tabcordion-body-header js-collapsible-tab is-active">
+			<a href="#ex66-tab1{{ version[0] | handleize }}" class="tabcordion-body-headline js-collapsible">YOUR TAB</a>
 		</div>
-		<div id="ex66-tab1" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
+		<div id="ex66-tab1{{ version[0] | handleize }}" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
 			<div class="tabcordion-body">
 				YOUR TEXT
 			</div>
 		</div>
 
-		<div class="tabcordion-body-header">
-			<a href="#ex66-tab2" class="tabcordion-body-headline js-collapsible">YOUR TAB</a>
+		<div class="tabcordion-body-header js-collapsible-tab">
+			<a href="#ex66-tab2{{ version[0] | handleize }}" class="tabcordion-body-headline js-collapsible">YOUR TAB</a>
 		</div>
-		<div id="ex66-tab2" class="collapsible-body" aria-hidden="true" tabindex="-1">
+		<div id="ex66-tab2{{ version[0] | handleize }}" class="collapsible-body" aria-hidden="true" tabindex="-1">
 			<div class="tabcordion-body">
 				YOUR TEXT
 			</div>
 		</div>
 
-		<div class="tabcordion-body-header">
-			<a href="#ex66-tab3" class="tabcordion-body-headline js-collapsible">YOUR TAB</a>
+		<div class="tabcordion-body-header js-collapsible-tab">
+			<a href="#ex66-tab3{{ version[0] | handleize }}" class="tabcordion-body-headline js-collapsible">YOUR TAB</a>
 		</div>
-		<div id="ex66-tab3" class="collapsible-body" aria-hidden="true" tabindex="-1">
+		<div id="ex66-tab3{{ version[0] | handleize }}" class="collapsible-body" aria-hidden="true" tabindex="-1">
 			<div class="tabcordion-body">
 				YOUR TEXT
 			</div>
@@ -990,21 +990,21 @@
 {% capture example %}
 	<div class="tabcordion">
 		<ul class="tabcordion-tabs">
-			<li class="tabcordion-tab is-active">
-				<a class="js-collapsible" href="#ex7-tab1">Rabbit hole</a>
+			<li class="tabcordion-tab js-collapsible-tab is-active">
+				<a class="js-collapsible" href="#ex7-tab1{{ version[0] | handleize }}">Rabbit hole</a>
 			</li>
-			<li class="tabcordion-tab">
-				<a class="js-collapsible" href="#ex7-tab2">Flamingo</a>
+			<li class="tabcordion-tab js-collapsible-tab">
+				<a class="js-collapsible" href="#ex7-tab2{{ version[0] | handleize }}">Flamingo</a>
 			</li>
-			<li class="tabcordion-tab">
-				<a class="js-collapsible" href="#ex7-tab3">Caterpillar</a>
+			<li class="tabcordion-tab js-collapsible-tab">
+				<a class="js-collapsible" href="#ex7-tab3{{ version[0] | handleize }}">Caterpillar</a>
 			</li>
 		</ul>
 
-		<div class="tabcordion-body-header is-active">
-			<a href="#ex7-tab1" class="tabcordion-body-headline js-collapsible">Down that rabbit hole</a>
+		<div class="tabcordion-body-header js-collapsible-tab is-active">
+			<a href="#ex7-tab1{{ version[0] | handleize }}" class="tabcordion-body-headline js-collapsible">Down that rabbit hole</a>
 		</div>
-		<div id="ex7-tab1" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
+		<div id="ex7-tab1{{ version[0] | handleize }}" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
 			<div class="tabcordion-body">
 				&lsquo;It was much pleasanter at home,&rsquo; thought poor Alice, &lsquo;when one wasn&rsquo;t always growing larger and smaller, and being ordered
 				about by mice and rabbits. I almost wish I hadn&rsquo;t gone down that rabbit-hole — and yet — and yet — it&rsquo;s rather curious, you know, this
@@ -1013,10 +1013,10 @@
 			</div>
 		</div>
 
-		<div class="tabcordion-body-header">
-			<a href="#ex7-tab2" class="tabcordion-body-headline js-collapsible">Managing a flamingo</a>
+		<div class="tabcordion-body-header js-collapsible-tab">
+			<a href="#ex7-tab2{{ version[0] | handleize }}" class="tabcordion-body-headline js-collapsible">Managing a flamingo</a>
 		</div>
-		<div id="ex7-tab2" class="collapsible-body" aria-hidden="true" tabindex="-1">
+		<div id="ex7-tab2{{ version[0] | handleize }}" class="collapsible-body" aria-hidden="true" tabindex="-1">
 			<div class="tabcordion-body">
 				The chief difficulty Alice found at first was in managing her flamingo: she succeeded in getting its body tucked away, comfortably enough, under her
 				arm, with its legs hanging down, but generally, just as she had got its neck nicely straightened out, and was going to give the hedgehog a blow with
@@ -1028,10 +1028,10 @@
 			</div>
 		</div>
 
-		<div class="tabcordion-body-header">
-			<a href="#ex7-tab3" class="tabcordion-body-headline js-collapsible">The languid, sleepy Caterpillar</a>
+		<div class="tabcordion-body-header js-collapsible-tab">
+			<a href="#ex7-tab3{{ version[0] | handleize }}" class="tabcordion-body-headline js-collapsible">The languid, sleepy Caterpillar</a>
 		</div>
-		<div id="ex7-tab3" class="collapsible-body" aria-hidden="true" tabindex="-1">
+		<div id="ex7-tab3{{ version[0] | handleize }}" class="collapsible-body" aria-hidden="true" tabindex="-1">
 			<div class="tabcordion-body">
 				The Caterpillar and Alice looked at each other for some time in silence: at last the Caterpillar took the hookah out of its mouth, and addressed
 				her in a languid, sleepy voice.<br>
@@ -1053,39 +1053,39 @@
 {% capture HTML %}
 	<div class="tabcordion">
 		<ul class="tabcordion-tabs">
-			<li class="tabcordion-tab is-active">
-				<a class="js-collapsible" href="#ex77-tab1">YOUR TAB</a>
+			<li class="tabcordion-tab js-collapsible-tab is-active">
+				<a class="js-collapsible" href="#ex77-tab1{{ version[0] | handleize }}">YOUR TAB</a>
 			</li>
-			<li class="tabcordion-tab">
-				<a class="js-collapsible" href="#ex77-tab2">YOUR TAB</a>
+			<li class="tabcordion-tab js-collapsible-tab">
+				<a class="js-collapsible" href="#ex77-tab2{{ version[0] | handleize }}">YOUR TAB</a>
 			</li>
-			<li class="tabcordion-tab">
-				<a class="js-collapsible" href="#ex77-tab3">YOUR TAB</a>
+			<li class="tabcordion-tab js-collapsible-tab">
+				<a class="js-collapsible" href="#ex77-tab3{{ version[0] | handleize }}">YOUR TAB</a>
 			</li>
 		</ul>
 
-		<div class="tabcordion-body-header is-active">
-			<a href="#ex77-tab1" class="tabcordion-body-headline js-collapsible">YOUR TAB</a>
+		<div class="tabcordion-body-header js-collapsible-tab is-active">
+			<a href="#ex77-tab1{{ version[0] | handleize }}" class="tabcordion-body-headline js-collapsible">YOUR TAB</a>
 		</div>
-		<div id="ex77-tab1" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
+		<div id="ex77-tab1{{ version[0] | handleize }}" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
 			<div class="tabcordion-body">
 				YOUR TEXT
 			</div>
 		</div>
 
-		<div class="tabcordion-body-header">
-			<a href="#ex77-tab2" class="tabcordion-body-headline js-collapsible">YOUR TAB</a>
+		<div class="tabcordion-body-header js-collapsible-tab">
+			<a href="#ex77-tab2{{ version[0] | handleize }}" class="tabcordion-body-headline js-collapsible">YOUR TAB</a>
 		</div>
-		<div id="ex77-tab2" class="collapsible-body" aria-hidden="true" tabindex="-1">
+		<div id="ex77-tab2{{ version[0] | handleize }}" class="collapsible-body" aria-hidden="true" tabindex="-1">
 			<div class="tabcordion-body">
 				YOUR TEXT
 			</div>
 		</div>
 
-		<div class="tabcordion-body-header">
-			<a href="#ex77-tab3" class="tabcordion-body-headline js-collapsible">YOUR TAB</a>
+		<div class="tabcordion-body-header js-collapsible-tab">
+			<a href="#ex77-tab3{{ version[0] | handleize }}" class="tabcordion-body-headline js-collapsible">YOUR TAB</a>
 		</div>
-		<div id="ex77-tab3" class="collapsible-body" aria-hidden="true" tabindex="-1">
+		<div id="ex77-tab3{{ version[0] | handleize }}" class="collapsible-body" aria-hidden="true" tabindex="-1">
 			<div class="tabcordion-body">
 				YOUR TEXT
 			</div>
@@ -1148,21 +1148,21 @@
 {% capture example %}
 	<div class="tabcordion tabcordion-lego">
 		<ul class="tabcordion-tabs">
-			<li class="tabcordion-tab is-active">
-				<a class="js-collapsible" href="#ex8-tab1">Rabbit hole</a>
+			<li class="tabcordion-tab js-collapsible-tab is-active">
+				<a class="js-collapsible" href="#ex8-tab1{{ version[0] | handleize }}">Rabbit hole</a>
 			</li>
-			<li class="tabcordion-tab">
-				<a class="js-collapsible" href="#ex8-tab2">Flamingo</a>
+			<li class="tabcordion-tab js-collapsible-tab">
+				<a class="js-collapsible" href="#ex8-tab2{{ version[0] | handleize }}">Flamingo</a>
 			</li>
-			<li class="tabcordion-tab">
-				<a class="js-collapsible" href="#ex8-tab3">Caterpillar</a>
+			<li class="tabcordion-tab js-collapsible-tab">
+				<a class="js-collapsible" href="#ex8-tab3{{ version[0] | handleize }}">Caterpillar</a>
 			</li>
 		</ul>
 
-		<div class="tabcordion-body-header is-active">
-			<a href="#ex8-tab1" class="tabcordion-body-headline js-collapsible">Down that rabbit hole</a>
+		<div class="tabcordion-body-header js-collapsible-tab is-active">
+			<a href="#ex8-tab1{{ version[0] | handleize }}" class="tabcordion-body-headline js-collapsible">Down that rabbit hole</a>
 		</div>
-		<div id="ex8-tab1" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
+		<div id="ex8-tab1{{ version[0] | handleize }}" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
 			<div class="tabcordion-body">
 				&lsquo;It was much pleasanter at home,&rsquo; thought poor Alice, &lsquo;when one wasn&rsquo;t always growing larger and smaller, and being ordered
 				about by mice and rabbits. I almost wish I hadn&rsquo;t gone down that rabbit-hole — and yet — and yet — it&rsquo;s rather curious, you know, this
@@ -1171,10 +1171,10 @@
 			</div>
 		</div>
 
-		<div class="tabcordion-body-header">
-			<a href="#ex8-tab2" class="tabcordion-body-headline js-collapsible">Managing a flamingo</a>
+		<div class="tabcordion-body-header js-collapsible-tab">
+			<a href="#ex8-tab2{{ version[0] | handleize }}" class="tabcordion-body-headline js-collapsible">Managing a flamingo</a>
 		</div>
-		<div id="ex8-tab2" class="collapsible-body" aria-hidden="true" tabindex="-1">
+		<div id="ex8-tab2{{ version[0] | handleize }}" class="collapsible-body" aria-hidden="true" tabindex="-1">
 			<div class="tabcordion-body">
 				The chief difficulty Alice found at first was in managing her flamingo: she succeeded in getting its body tucked away, comfortably enough, under her
 				arm, with its legs hanging down, but generally, just as she had got its neck nicely straightened out, and was going to give the hedgehog a blow with
@@ -1186,10 +1186,10 @@
 			</div>
 		</div>
 
-		<div class="tabcordion-body-header">
-			<a href="#ex8-tab3" class="tabcordion-body-headline js-collapsible">The languid, sleepy Caterpillar</a>
+		<div class="tabcordion-body-header js-collapsible-tab">
+			<a href="#ex8-tab3{{ version[0] | handleize }}" class="tabcordion-body-headline js-collapsible">The languid, sleepy Caterpillar</a>
 		</div>
-		<div id="ex8-tab3" class="collapsible-body" aria-hidden="true" tabindex="-1">
+		<div id="ex8-tab3{{ version[0] | handleize }}" class="collapsible-body" aria-hidden="true" tabindex="-1">
 			<div class="tabcordion-body">
 				The Caterpillar and Alice looked at each other for some time in silence: at last the Caterpillar took the hookah out of its mouth, and addressed
 				her in a languid, sleepy voice.<br>
@@ -1212,39 +1212,39 @@
 {% capture HTML %}
 	<div class="tabcordion tabcordion-lego">
 		<ul class="tabcordion-tabs">
-			<li class="tabcordion-tab is-active">
-				<a class="js-collapsible" href="#ex88-tab1">YOUR TAB</a>
+			<li class="tabcordion-tab js-collapsible-tab is-active">
+				<a class="js-collapsible" href="#ex88-tab1{{ version[0] | handleize }}">YOUR TAB</a>
 			</li>
-			<li class="tabcordion-tab">
-				<a class="js-collapsible" href="#ex88-tab2">YOUR TAB</a>
+			<li class="tabcordion-tab js-collapsible-tab">
+				<a class="js-collapsible" href="#ex88-tab2{{ version[0] | handleize }}">YOUR TAB</a>
 			</li>
-			<li class="tabcordion-tab">
-				<a class="js-collapsible" href="#ex88-tab3">YOUR TAB</a>
+			<li class="tabcordion-tab js-collapsible-tab">
+				<a class="js-collapsible" href="#ex88-tab3{{ version[0] | handleize }}">YOUR TAB</a>
 			</li>
 		</ul>
 
-		<div class="tabcordion-body-header is-active">
-			<a href="#ex88-tab1" class="tabcordion-body-headline js-collapsible">YOUR TAB</a>
+		<div class="tabcordion-body-header js-collapsible-tab is-active">
+			<a href="#ex88-tab1{{ version[0] | handleize }}" class="tabcordion-body-headline js-collapsible">YOUR TAB</a>
 		</div>
-		<div id="ex88-tab1" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
+		<div id="ex88-tab1{{ version[0] | handleize }}" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
 			<div class="tabcordion-body">
 				YOUR TEXT
 			</div>
 		</div>
 
-		<div class="tabcordion-body-header">
-			<a href="#ex88-tab2" class="tabcordion-body-headline js-collapsible">YOUR TAB</a>
+		<div class="tabcordion-body-header js-collapsible-tab">
+			<a href="#ex88-tab2{{ version[0] | handleize }}" class="tabcordion-body-headline js-collapsible">YOUR TAB</a>
 		</div>
-		<div id="ex88-tab2" class="collapsible-body" aria-hidden="true" tabindex="-1">
+		<div id="ex88-tab2{{ version[0] | handleize }}" class="collapsible-body" aria-hidden="true" tabindex="-1">
 			<div class="tabcordion-body">
 				YOUR TEXT
 			</div>
 		</div>
 
-		<div class="tabcordion-body-header">
-			<a href="#ex4-tab3" class="tabcordion-body-headline js-collapsible">YOUR TAB</a>
+		<div class="tabcordion-body-header js-collapsible-tab">
+			<a href="#ex88-tab3{{ version[0] | handleize }}" class="tabcordion-body-headline js-collapsible">YOUR TAB</a>
 		</div>
-		<div id="ex4-tab3" class="collapsible-body" aria-hidden="true" tabindex="-1">
+		<div id="ex88-tab3{{ version[0] | handleize }}" class="collapsible-body" aria-hidden="true" tabindex="-1">
 			<div class="tabcordion-body">
 				YOUR TEXT
 			</div>
