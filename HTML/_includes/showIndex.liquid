@@ -382,6 +382,50 @@
 					</div>
 				</div>
 			</li>
+
+			<li class="index-faq-item">
+				<a href="#FAQ-q14" class="js-collapsible js-faq index-faq-link">How can you center the logos in a multi-brand environment?</a>
+				<div id="FAQ-q14" class="collapsible-body index-faq-content" aria-hidden="true" tabindex="-1">
+					<div class="index-faq-content-wrapper">
+						The logos are all on the same size canvas to enable us to quickly switch the brand and not having to worry about the size of the different logos
+						in each brand. This of course only works when you have your logo left aligned.
+						In case your design requires you to center your logo you will have to account for the different sizes and that could be a bit frustrating to get
+						your head around. That's why we made a test page that helps you getting started:
+
+						<p><a href="http://codepen.io/dominikwilkowski/pen/rOKXrN" target="_blank">Check out this CodePen</a></p>
+
+						This is why LESS and any preprocessor is great. You can add some smarts to your CSS.
+						Here we have a env-var on the top of our LESS to represent the brand. We then check on that variable and adjust the size of the logo in the
+						centered div.
+
+						If you have any questions or additions to this issue, come over and talk to us here on
+						<a href="https://github.com/WestpacCXTeam/GUI-source/issues/147" target="_blank">GitHub</a>.
+					</div>
+				</div>
+			</li>
+
+			<li class="index-faq-item">
+				<a href="#FAQ-q15" class="js-collapsible js-faq index-faq-link">How do I change the colour of my icon?</a>
+				<div id="FAQ-q15" class="collapsible-body index-faq-content" aria-hidden="true" tabindex="-1">
+					<div class="index-faq-content-wrapper">
+						You will have to embedd the icons to change the colour. Once embedded you can use the <code class="classes">icons-background</code> class to
+						change the fill eg: <code class="classes">.icons-background { fill: rebeccapurple; }</code>.
+						Read more <a href="https://github.com/WestpacCXTeam/GUI-source/issues/135" target="_blank">here</a>.
+					</div>
+				</div>
+			</li>
+
+			<li class="index-faq-item">
+				<a href="#FAQ-q16" class="js-collapsible js-faq index-faq-link">What if I have a document in a non-latin language?</a>
+				<div id="FAQ-q16" class="collapsible-body index-faq-content" aria-hidden="true" tabindex="-1">
+					<div class="index-faq-content-wrapper">
+						Some characters may not display correctly when using non-latin languages like Vietnamese or Hebrew. In those cases you should overwrite the
+						font-family and edit out the roboto webfont we are still shipping. Just have a look at
+						<a href="https://github.com/WestpacCXTeam/GUI-source/tree/master/_fonts" target="_blank">_fonts</a> code-module and see what the current brand-font
+						and body-font is. Read more <a href="https://github.com/WestpacCXTeam/GUI-source/issues/146" target="_blank">here</a>.
+					</div>
+				</div>
+			</li>
 		</ul>
 	</div>
 </article>
