@@ -36,6 +36,8 @@ var Less = require('less');
 		}
 		App.zip.queuing('assets', true);
 
+		App.zip.queuing('funky', true);
+
 
 		//////////////////////////////////////////////////| GENERATING FILES
 		App.css.get();
@@ -46,6 +48,7 @@ var Less = require('less');
 
 		App.html.get();
 		App.assets.get();
+		App.funky.get();
 	};
 
 
