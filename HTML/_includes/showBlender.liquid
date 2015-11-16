@@ -153,6 +153,26 @@
 								</div>
 							</div>
 						</li>
+
+						<li class="blender-module row">
+							<div class="col-sm-5 blender-module-text">
+								<label class="blender-module-label" for="includeBond">
+									Shaken not stirred?
+								</label>
+							</div>
+							<div class="col-sm-7 text-right">
+								<div class="btn-group">
+									<label class="btn-group-item">
+										<input class="btn-group-input js-blender-option" type="radio" name="includeBond" value="yes" id="includeBond">
+										<span class="btn-group-text btn btn-hero">Yes</span>
+									</label>
+									<label class="btn-group-item">
+										<input class="btn-group-input js-blender-option" type="radio" name="includeBond" value="no" checked="checked">
+										<span class="btn-group-text btn btn-hero">No</span>
+									</label>
+								</div>
+							</div>
+						</li>
 					</ul>
 				</div>
 			</div>
@@ -162,7 +182,7 @@
 			<div class="col-sm-12 blender-action text-right">
 				<input type="hidden" name="brand" value="{{ page.brand }}">
 
-				<button type="submit" class="btn btn-primary blender-submit js-blender-submit">
+				<button type="submit" class="btn btn-primary btn-xl blender-submit js-blender-submit">
 					<span class="btn-text">Blend</span>
 					<span class="btn-icon icon icon-size-md icon-download" data-grunticon-embed></span>
 					<span class="btn-icon icon icon-size-md icon-refresh" data-grunticon-embed style="display:none;"></span>

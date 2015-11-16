@@ -18,31 +18,27 @@
 
 {% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
 {% capture whatsnew %}
-	<h4 class="body-font whatsnew-headline">What&rsquo;s new since v1.0.0</h4>
+	<h4 class="body-font whatsnew-headline">What&rsquo;s new since v1.0.1</h4>
 
 	This version changed:
-		<code class="classes">CSS/LESS</code>
-	but not:
-		<code class="classes">HTML</code>,
+		<code class="classes">CSS/LESS</code>,
+		<code class="classes">HTML</code>
+	and
 		<code class="classes">JS</code>
 
 	<ul class="lists">
 		<li>
-			All our buttons have a specific height to abide to. When you added an icon in a button however, the buttons seized the opportunity to go rouge and added
-			two pixels. We sat down with them and had a heart-to-heart. Now they know better.
-			(<a href="https://github.com/WestpacCXTeam/GUI-source/issues/131" target="_blank">#131</a>)
+			We got word that using our JavaScript in dynamic DOM application was a bit... clunky. Clunky wasn't good enough for us so we refactored all Javascript
+			modules to unclunk all the things. Beware though, some JavaScript classes had to be injected to keep the modules clunk-free.
+			(<a href="https://github.com/WestpacCXTeam/GUI-source/issues/140" target="_blank">#140</a>)
 		</li>
 		<li>
-			The icons, set inside a soft button (also being naughty) didn't display in the font color which made it hard for us humans to see them. That too,
-			was fixed.
-			(<a href="https://github.com/WestpacCXTeam/GUI-source/issues/127" target="_blank">#127</a>)
-			(<a href="https://github.com/WestpacCXTeam/GUI-source/issues/126" target="_blank">#126</a>)
+			Differently sized buttons couldn't handle differently sized icons. We thought differently and made it work.
+			(<a href="https://github.com/WestpacCXTeam/GUI-source/issues/141" target="_blank">#141</a>)
 		</li>
 		<li>
-			On some handheld devices when taping and holding the button group, the active state looked cut-off and weird. Admittedly when you hold your finger on
-			the screen you kind of hid the problem with your finger and it was hard for us to even find this bug but this is just another example of the extent
-			of detailed work we put into this baby.
-			(<a href="https://github.com/WestpacCXTeam/GUI-source/issues/129" target="_blank">#129</a>)
+			We are proud to introduce a very handy(we hope) new feature for buttons. Responsive sizes. You can now resize your buttons according to a breakpoint. Now
+			go off and resize those buttons.
 		</li>
 	</ul>
 {{ whatsnew }}{% endcapture %}
@@ -118,7 +114,10 @@
 
 	<ul>
 		<li>
-			<code class="classes">GUI.buttons.init();</code>
+			<code class="classes">GUI.buttons.init();</code> after the page has been loaded.
+		</li>
+		<li>
+			<code class="classes">GUI.buttons.render();</code> for dynamically added elements after page load.
 		</li>
 	</ul>
 {% endcapture %}
@@ -533,6 +532,127 @@
 
 {% comment %} TITLE {% endcomment %}
 {% capture title %}
+	Buttons responsive sizes
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	You can resize the buttons on our breakpoints. All you have to do is add the breakpoint to your size class. E.g. <code class="classes">btn-sm</code>
+	becomes <code class="classes">btn-sm-lg</code> for a button that will change to a small button on the large breakpoint. Breakpoints are the same as we use in
+	<a href="layout/#_grid">the grid</a>.
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% capture example %}
+	<button type="button" class="btn btn-primary btn-xl-xs btn-sm-lg">Large button on small only</button>
+	<hr>
+	<button type="button" class="btn btn-primary btn-sm-xs btn-xl-lg">Extra large on lage only</button>
+{% endcapture %}
+
+
+{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% capture HTML %}
+	<button type="button" class="btn btn-primary btn-xl-sm">YOUR TITLE</button>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+	Modifier classes:
+
+	<ul>
+		<li>
+			<code class="classes">btn-sm-xs</code>
+		</li>
+		<li>
+			<code class="classes">btn-md-xs</code>
+		</li>
+		<li>
+			<code class="classes">btn-lg-xs</code>
+		</li>
+		<li>
+			<code class="classes">btn-xl-xs</code>
+		</li>
+
+		<li>
+			<code class="classes">btn-sm-sm</code>
+		</li>
+		<li>
+			<code class="classes">btn-md-sm</code>
+		</li>
+		<li>
+			<code class="classes">btn-lg-sm</code>
+		</li>
+		<li>
+			<code class="classes">btn-xl-sm</code>
+		</li>
+
+		<li>
+			<code class="classes">btn-sm-md</code>
+		</li>
+		<li>
+			<code class="classes">btn-md-md</code>
+		</li>
+		<li>
+			<code class="classes">btn-lg-md</code>
+		</li>
+		<li>
+			<code class="classes">btn-xl-md</code>
+		</li>
+
+		<li>
+			<code class="classes">btn-sm-lg</code>
+		</li>
+		<li>
+			<code class="classes">btn-md-lg</code>
+		</li>
+		<li>
+			<code class="classes">btn-lg-lg</code>
+		</li>
+		<li>
+			<code class="classes">btn-xl-lg</code>
+		</li>
+	</ul>
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	{{ LESS }}
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+	{{ JS }}
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+
+
+
+
+
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
 	Button groups toggle
 {% endcapture %}
 
@@ -865,11 +985,11 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-	<div class="btn-dropdown" aria-haspopup="true">
+	<div class="btn-dropdown js-dropdown" aria-haspopup="true">
 		<button type="button" class="btn btn-primary js-button-dropdown" aria-label="Primary with buttons. Hit enter to open dropdown">
 			<span class="btn-dropdown-caret">Primary with buttons</span>
 		</button>
-		<ul class="dropdown-menu" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
+		<ul class="dropdown-menu js-button-dropdownbody" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
 			<li class="dropdown-menu-headline">Headline</li>
 			<li><button class="btn btn-link">Action 1</button></li>
 			<li><button class="btn btn-link">Another action</button></li>
@@ -881,11 +1001,11 @@
 
 	<hr>
 
-	<div class="btn-dropdown" aria-haspopup="true">
+	<div class="btn-dropdown js-dropdown" aria-haspopup="true">
 		<button type="button" class="btn btn-hero js-button-dropdown" aria-label="Hero with buttons. Hit enter to open dropdown">
 			<span class="btn-dropdown-caret">Hero with buttons</span>
 		</button>
-		<ul class="dropdown-menu" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
+		<ul class="dropdown-menu js-button-dropdownbody" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
 			<li class="dropdown-menu-headline">Headline</li>
 			<li><button class="btn btn-link">Action 1</button></li>
 			<li><button class="btn btn-link">Another action</button></li>
@@ -897,11 +1017,11 @@
 
 	<hr>
 
-	<div class="btn-dropdown" aria-haspopup="true">
+	<div class="btn-dropdown js-dropdown" aria-haspopup="true">
 		<button type="button" class="btn btn-neutral js-button-dropdown" aria-label="Neutral with links. Hit enter to open dropdown">
 			<span class="btn-dropdown-caret">Neutral with links</span>
 		</button>
-		<ul class="dropdown-menu" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
+		<ul class="dropdown-menu js-button-dropdownbody" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
 			<li class="dropdown-menu-headline">Headline</li>
 			<li><a href="{{ page.title | handleize }}/#url">Action 1</a></li>
 			<li><a href="{{ page.title | handleize }}/#url">Another action</a></li>
@@ -913,11 +1033,11 @@
 
 	<hr>
 
-	<div class="btn-dropdown" aria-haspopup="true">
+	<div class="btn-dropdown js-dropdown" aria-haspopup="true">
 		<button type="button" class="btn btn-faint js-button-dropdown" aria-label="Faint with links. Hit enter to open dropdown">
 			<span class="btn-dropdown-caret">Faint with links</span>
 		</button>
-		<ul class="dropdown-menu" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
+		<ul class="dropdown-menu js-button-dropdownbody" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
 			<li class="dropdown-menu-headline">Headline</li>
 			<li><a href="{{ page.title | handleize }}/#url">Action 1</a></li>
 			<li><a href="{{ page.title | handleize }}/#url">Another action</a></li>
@@ -931,11 +1051,11 @@
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-	<div class="btn-dropdown" aria-haspopup="true">
+	<div class="btn-dropdown js-dropdown" aria-haspopup="true">
 	<button type="button" class="btn btn-hero js-button-dropdown" aria-label="YOUR TITLE. Hit enter to open dropdown">
 		<span class="btn-dropdown-caret">YOUR TITLE</span>
 	</button>
-	<ul class="dropdown-menu" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
+	<ul class="dropdown-menu js-button-dropdownbody" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
 		<li class="dropdown-menu-headline">YOUR HEADLINE</li>
 		<li><button class="btn btn-link">YOUR BUTTON TITLE</button></li>
 		<li><button class="btn btn-link">YOUR BUTTON TITLE</button></li>
@@ -999,11 +1119,11 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-	<div class="btn-dropdown" aria-haspopup="true">
+	<div class="btn-dropdown js-dropdown" aria-haspopup="true">
 		<button type="button" class="btn btn-hero js-button-dropdown" aria-label="Small dropdown. Hit enter to open dropdown">
 			<span class="btn-dropdown-caret">Small dropdown</span>
 		</button>
-		<ul class="dropdown-menu dropdown-menu-sm" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
+		<ul class="dropdown-menu js-button-dropdownbody dropdown-menu-sm" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
 			<li><button class="btn btn-link">Action 1</button></li>
 			<li><button class="btn btn-link">Another action</button></li>
 			<li><button class="btn btn-link">Action 3</button></li>
@@ -1013,11 +1133,11 @@
 
 	<hr>
 
-	<div class="btn-dropdown" aria-haspopup="true">
+	<div class="btn-dropdown js-dropdown" aria-haspopup="true">
 		<button type="button" class="btn btn-hero js-button-dropdown" aria-label="Default dropdown. Hit enter to open dropdown">
 			<span class="btn-dropdown-caret">Default dropdown</span>
 		</button>
-		<ul class="dropdown-menu" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
+		<ul class="dropdown-menu js-button-dropdownbody" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
 			<li><button class="btn btn-link">Action 1</button></li>
 			<li><button class="btn btn-link">Another action</button></li>
 			<li><button class="btn btn-link">Action 3</button></li>
@@ -1027,11 +1147,11 @@
 
 	<hr>
 
-	<div class="btn-dropdown" aria-haspopup="true">
+	<div class="btn-dropdown js-dropdown" aria-haspopup="true">
 		<button type="button" class="btn btn-hero js-button-dropdown" aria-label="Large dropdown. Hit enter to open dropdown">
 			<span class="btn-dropdown-caret">Large dropdown</span>
 		</button>
-		<ul class="dropdown-menu dropdown-menu-lg" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
+		<ul class="dropdown-menu js-button-dropdownbody dropdown-menu-lg" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
 			<li><button class="btn btn-link">Action 1</button></li>
 			<li><button class="btn btn-link">Another action</button></li>
 			<li><button class="btn btn-link">Action 3</button></li>
@@ -1043,11 +1163,11 @@
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-	<div class="btn-dropdown" aria-haspopup="true">
+	<div class="btn-dropdown js-dropdown" aria-haspopup="true">
 	<button type="button" class="btn btn-hero js-button-dropdown" aria-label="YOUR TITLE. Hit enter to open dropdown">
 		<span class="btn-dropdown-caret">YOUR TITLE</span>
 	</button>
-	<ul class="dropdown-menu dropdown-menu-sm" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
+	<ul class="dropdown-menu js-button-dropdownbody dropdown-menu-sm" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
 		<li><button class="btn btn-link">YOUR BUTTON TITLE</button></li>
 		<li><button class="btn btn-link">YOUR BUTTON TITLE</button></li>
 		<li><button class="btn btn-link">YOUR BUTTON TITLE</button></li>
@@ -1122,11 +1242,11 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-	<div class="btn-dropdown" aria-haspopup="true">
+	<div class="btn-dropdown js-dropdown" aria-haspopup="true">
 		<button type="button" class="btn btn-hero js-button-dropdown" aria-label="Settings. Hit enter to open dropdown">
 			<span class="btn-dropdown-caret">Settings</span>
 		</button>
-		<ul class="dropdown-menu dropdown-menu-lg" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
+		<ul class="dropdown-menu js-button-dropdownbody dropdown-menu-lg" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
 			<li>
 				<div class="btn-dropdown-setting">
 					<span class="btn-dropdown-text" id="label1{{ version[0] | handleize }}">Setting 1</span>
@@ -1214,23 +1334,23 @@
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-	<div class="btn-dropdown" aria-haspopup="true">
+	<div class="btn-dropdown js-dropdown" aria-haspopup="true">
 	<button type="button" class="btn btn-hero js-button-dropdown" aria-label="YOUR TITLE. Hit enter to open dropdown">
 		<span class="btn-dropdown-caret">YOUR TITLE</span>
 	</button>
-	<ul class="dropdown-menu dropdown-menu-lg" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
+	<ul class="dropdown-menu js-button-dropdownbody dropdown-menu-lg" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
 		<li>
 			<div class="btn-dropdown-setting">
-				<span class="btn-dropdown-text" id="label11{{ version[0] | handleize }}">YOUR RADIO BUTTON TITLE</span>
+				<span class="btn-dropdown-text" id="label5{{ version[0] | handleize }}">YOUR RADIO BUTTON TITLE</span>
 
 				<div class="btn-group">
 
-					<label class="btn-group-item" aria-describedby="label11{{ version[0] | handleize }}">
+					<label class="btn-group-item" aria-describedby="label5{{ version[0] | handleize }}">
 						<input class="btn-group-input" type="radio" name="options1">
 						<span class="btn-group-text btn btn-hero btn-sm">Yes</span>
 					</label>
 
-					<label class="btn-group-item" aria-describedby="label11{{ version[0] | handleize }}">
+					<label class="btn-group-item" aria-describedby="label5{{ version[0] | handleize }}">
 						<input class="btn-group-input" type="radio" name="options1">
 						<span class="btn-group-text btn btn-hero btn-sm">No</span>
 					</label>
@@ -1241,16 +1361,16 @@
 		</li>
 		<li>
 			<div class="btn-dropdown-setting">
-				<span class="btn-dropdown-text" id="label33{{ version[0] | handleize }}">YOUR RADIO BUTTON TITLE</span>
+				<span class="btn-dropdown-text" id="label6{{ version[0] | handleize }}">YOUR RADIO BUTTON TITLE</span>
 
 				<div class="btn-group">
 
-					<label class="btn-group-item" aria-describedby="label33{{ version[0] | handleize }}">
+					<label class="btn-group-item" aria-describedby="label6{{ version[0] | handleize }}">
 						<input class="btn-group-input" type="radio" name="options2">
 						<span class="btn-group-text btn btn-hero btn-sm">Yes</span>
 					</label>
 
-					<label class="btn-group-item" aria-describedby="label33{{ version[0] | handleize }}">
+					<label class="btn-group-item" aria-describedby="label6{{ version[0] | handleize }}">
 						<input class="btn-group-input" type="radio" name="options2">
 						<span class="btn-group-text btn btn-hero btn-sm">No</span>
 					</label>
@@ -1261,16 +1381,16 @@
 		</li>
 		<li>
 			<div class="btn-dropdown-setting">
-				<span class="btn-dropdown-text" id="label44{{ version[0] | handleize }}">YOUR RADIO BUTTON TITLE</span>
+				<span class="btn-dropdown-text" id="label4">YOUR RADIO BUTTON TITLE</span>
 
 				<div class="btn-group">
 
-					<label class="btn-group-item" aria-describedby="label44{{ version[0] | handleize }}">
+					<label class="btn-group-item" aria-describedby="label4">
 						<input class="btn-group-input" type="radio" name="options3">
 						<span class="btn-group-text btn btn-hero btn-sm">Yes</span>
 					</label>
 
-					<label class="btn-group-item" aria-describedby="label44{{ version[0] | handleize }}">
+					<label class="btn-group-item" aria-describedby="label4">
 						<input class="btn-group-input" type="radio" name="options3">
 						<span class="btn-group-text btn btn-hero btn-sm">No</span>
 					</label>
@@ -1339,11 +1459,11 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-	<div class="btn-dropdown" aria-haspopup="true">
+	<div class="btn-dropdown js-dropdown" aria-haspopup="true">
 		<button type="button" class="btn btn-faint js-button-dropdown" aria-label="Settings. Hit enter to open dropdown">
 			<span class="btn-dropdown-caret">Settings</span>
 		</button>
-		<ul class="dropdown-menu" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
+		<ul class="dropdown-menu js-button-dropdownbody" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
 			<li>
 				<label class="checkbox checkbox-flip">
 					<input class="checkbox-input" type="checkbox" name="option2">
@@ -1375,11 +1495,11 @@
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-	<div class="btn-dropdown" aria-haspopup="true">
+	<div class="btn-dropdown js-dropdown" aria-haspopup="true">
 	<button type="button" class="btn btn-faint js-button-dropdown" aria-label="YOUR TITLE. Hit enter to open dropdown">
 		<span class="btn-dropdown-caret">YOUR TITLE</span>
 	</button>
-	<ul class="dropdown-menu" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
+	<ul class="dropdown-menu js-button-dropdownbody" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
 		<li>
 			<label class="checkbox checkbox-flip">
 				<input class="checkbox-input" type="checkbox" name="option">
@@ -1489,11 +1609,11 @@
 
 	<hr>
 
-	<div class="btn-dropdown btn-block" aria-haspopup="true">
+	<div class="btn-dropdown js-dropdown btn-block" aria-haspopup="true">
 		<button type="button" class="btn btn-hero btn-soft js-button-dropdown" aria-label="YOUR TITLE. Hit enter to open dropdown">
 			<span class="btn-dropdown-caret">Show me all the actions</span>
 		</button>
-		<ul class="dropdown-menu dropdown-menu-sm" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
+		<ul class="dropdown-menu js-button-dropdownbody dropdown-menu-sm" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
 			<li><button class="btn btn-link">Action 1</button></li>
 			<li><button class="btn btn-link">Another action</button></li>
 			<li><button class="btn btn-link">Action 3</button></li>

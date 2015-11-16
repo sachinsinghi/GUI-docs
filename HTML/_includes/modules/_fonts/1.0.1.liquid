@@ -1,0 +1,246 @@
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Brand font
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	Each brand has a display font typically used for headlines and marketing messages etc. These may come in several weights. If the brand font is a web font
+	(not a system font) then it should be self-hosted and implemented using the @fontface declaration. Suitable fallbacks should also be declared in the font
+	stack.<br>
+	<strong>Never use a web font without prior confirmation that you have the correct licence agreement in place.</strong>
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+	<h4 class="body-font whatsnew-headline">What&rsquo;s new since v1.0.0</h4>
+
+	This version changed:
+		<code class="classes">CSS/LESS</code>,
+	but not:
+		<code class="classes">HTML</code>
+		<code class="classes">JS</code>
+
+	<ul class="lists">
+		<li>
+			We removed the Roboto webfont as more recent versions of windows Segoe UI now support numerical values in the font weight property.
+			(<a href="https://github.com/WestpacCXTeam/GUI-source/issues/146" target="_blank">#146</a>)
+		</li>
+	</ul>
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% if page.brand == 'BOM' %}
+{% capture example %}
+	<h1 class="text-primary" style="font-weight:500;">I&rsquo;m Stag medium</h1>
+
+	<h1 class="text-primary" style="font-weight:300;">I&rsquo;m Stag light</h1>
+{% endcapture %}
+{% endif %}
+{% if page.brand == 'BSA' %}
+{% capture example %}
+	<h1 class="text-primary" style="font-weight:700;">I&rsquo;m Helvetica Neue bold</h1>
+
+	<h1 class="text-primary" style="font-weight:400;">I&rsquo;m Helvetica Neue regular</h1>
+
+	<h1 class="text-primary" style="font-weight:300;">I&rsquo;m Helvetica Neue light</h1>
+{% endcapture %}
+{% endif %}
+{% if page.brand == 'STG' %}
+{% capture example %}
+	<h1 class="text-primary" style="font-weight:400;">I&rsquo;m Dragon bold</h1>
+{% endcapture %}
+{% endif %}
+{% if page.brand == 'WBC' %}
+{% capture example %}
+	<h1 class="text-primary" style="font-weight:700;">I&rsquo;m Times New Roman bold</h1>
+
+	<h1 class="text-primary" style="font-weight:400;">I&rsquo;m Times New Roman regular</h1>
+{% endcapture %}
+{% endif %}
+
+
+{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% capture HTML %}
+	{{ example }}
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	The main mixin is called: <code class="classes">_fonts({{ page.brand }})</code>
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+
+
+
+
+
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Body font
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	Each brand has a body font typically used for editorial and user interface elements. The body font comes in several weights. If the body font is a web font
+	(not a system font) then it should be self hosted and implemented using the @fontface declaration. Suitable fallbacks should also be declared in the font
+	stack.<br>
+	<strong>Never use a web font without prior confirmation that you have the correct licence agreement in place.</strong>
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% capture example %}
+	<h1 class="body-font text-primary" style="font-weight:700;">I’m Helvetica Neue bold</h1>
+
+	<h1 class="body-font text-primary" style="font-weight:400;">I’m Helvetica Neue regular</h1>
+
+	<h1 class="body-font text-primary" style="font-weight:300;">I’m Helvetica Neue light</h1>
+{% endcapture %}
+
+
+{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% capture HTML %}
+	{{ example }}
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+	Modifier class:
+
+	<ul>
+		<li>
+			<code class="classes">body-font</code>
+		</li>
+	</ul>
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	{{ LESS }}
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+
+
+
+
+
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Font usage
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	The brand or body font can be applied to any text using a simple class declaration. Refer to the digital brand guidelines regarding the use of typography.<br>
+	<strong>Never use a web font without prior confirmation that you have the correct licence agreement in place.</strong>
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% capture example %}
+	<h1 class="brand-font">I’m a Heading using the brand font</h1>
+
+	<h1 class="body-font">I’m a Heading using the body font</h1>
+{% endcapture %}
+
+
+{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% capture HTML %}
+	{{ example }}
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+	Modifier classes:
+
+	<ul>
+		<li>
+			<code class="classes">brand-font</code>
+		</li>
+		<li>
+			<code class="classes">body-font</code>
+		</li>
+	</ul>
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	{{ LESS }}
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}

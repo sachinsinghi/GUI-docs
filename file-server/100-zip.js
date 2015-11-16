@@ -102,6 +102,33 @@ var Archiver = require('archiver');
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	// Add a file to the zip archive
 	//
+	// @param   path         [string]  The path to the file to be added
+	// @param   archivePath  [string]  The path this file will have inside the archive
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	module.addPath = function ZipAddPath( path, archivePath ) {
+		App.debugging( 'Zip: Adding file path: ' + path, 'report' );
+
+		if(typeof path !== 'string') {
+			App.debugging( 'Zip: Adding file path: Path can only be string, is ' + (typeof path), 'error' );
+		}
+		else {
+			if( path.length > 0 ) { //don't need no empty files ;)
+				App.zip.archive.file(
+					path,
+					{
+						name: '/GUI-blend' + archivePath,
+					}
+				);
+			}
+		}
+
+		App.zip.readyZip();
+	};
+
+
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	// Add a file to the zip archive
+	//
 	// @param  cwd          [string]  The current working directory to flatten the paths in the archive
 	// @param  files        [array]   The file extensions of the files
 	// @param  archivePath  [string]  The path these files will have inside the archive

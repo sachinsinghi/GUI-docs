@@ -34,6 +34,7 @@ var App = (function Application() {
 		GUIRURL: 'http://gel.westpacgroup.com.au/' + 'GUI/',
 		GUIPATH: Path.normalize(__dirname + '/../GUI-source-master/'),
 		TEMPPATH: Path.normalize(__dirname + '/._template/'),
+		GELPATH: Path.normalize(__dirname + '/../../'),
 		SLACKURL: 'https://hooks.slack.com/services/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',
 		SLACKICON: 'http://gel.westpacgroup.com.au/GUI/WBC/assets/img/blender-icon.png',
 
