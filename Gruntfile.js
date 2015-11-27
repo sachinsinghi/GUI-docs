@@ -1415,7 +1415,7 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('build', [ //run everything with debug on
 		'font:title',
-		'_checkGUI',
+		// '_checkGUI',
 		'_buildDocs',
 		'_buildNode',
 		'replace:debugDev',
