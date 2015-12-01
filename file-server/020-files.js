@@ -63,9 +63,10 @@ var Less = require('less');
 		fromPOST.modules = [];
 		var _hasJS = false;
 		var _hasSVG = false;
-		var _includeJquery = POST.includeJquery === 'yes';
-		var _includeUnminifiedJS = POST.includeUnminifiedJS === 'yes';
-		var _includeLess = POST.includeLess === 'yes';
+
+		var _includeJquery = POST.includeJquery === 'on';
+		var _includeUnminifiedJS = POST.includeUnminifiedJS === 'on';
+		var _includeLess = POST.includeLess === 'on';
 		var log = '';
 
 

@@ -21,7 +21,7 @@
 		App.debugging( 'funky: Getting funky stuff', 'report' );
 
 		var POST = App.POST;
-		var _includeBond = POST.includeBond === 'yes';
+		var _includeBond = POST.includeBond === 'on';
 
 		if( _includeBond ) {
 			App.debugging( 'funky: Getting James Bond reference', 'report' );

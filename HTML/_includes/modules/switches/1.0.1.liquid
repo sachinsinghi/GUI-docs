@@ -1,0 +1,320 @@
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Switches
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	These are very simple toggle switches ideal for use in settings or preference screens. The switch can be blank or contain a simple string for example;
+	yes/no, on/off etc. Please note: These switches are a fixed width. They are not for use with longs text strings.
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+	<h4 class="body-font whatsnew-headline">What&rsquo;s new since v1.0.0</h4>
+
+	This version changed:
+		<code class="classes">CSS/LESS</code>
+	but not:
+		<code class="classes">HTML</code>,
+		<code class="classes">JS</code>
+
+	<ul class="lists">
+		<li>
+			Being the new kid on the block, the switches needed a good talking to about the rules of the GUI street. All GUI kids need to be printable, have disabled
+			states and behave while playing with the others. The switches promised to better and from now on hang
+			around in the forms category where other like-minded GUI modules hang around. Proud parents here.
+			<a href="https://github.com/WestpacCXTeam/GUI-source/issues/155" target="_blank">#155</a>,
+			<a href="https://github.com/WestpacCXTeam/GUI-source/issues/156" target="_blank">#156</a>,
+			<a href="https://github.com/WestpacCXTeam/GUI-source/issues/153" target="_blank">#153</a>
+		</li>
+		<li>
+			We removed the buff flavour of the switches. The class sounded cool but making it look different caused more confusion than coolness.
+		</li>
+	</ul>
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% capture example %}
+	<label class="switch">
+		<input type="checkbox" class="switch-input">
+
+		<span class="switch-text">
+			Turn this setting:
+			<span class="switch-text-off">Off</span>
+			<span class="switch-text-on">On</span>
+		</span>
+	</label>
+
+	<hr>
+
+	<label class="switch switch-buff">
+		<input type="checkbox" class="switch-input">
+		<span class="switch-text">Enable some setting?</span>
+	</label>
+{% endcapture %}
+
+
+{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% capture HTML %}
+<label class="switch">
+	<input type="checkbox" class="switch-input">
+
+	<span class="switch-text">
+		Turn this setting:
+		<span class="switch-text-off">Off</span>
+		<span class="switch-text-on">On</span>
+	</span>
+</label>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+	Modifier classes:
+
+	<ul>
+		<li>
+			<code class="classes">switch-buff</code>
+		</li>
+	</ul>
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	The main mixin is called: <code class="classes">_switches({{ page.brand }})</code>
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+
+
+
+
+
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Switch sizes
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	Please do not use any other swtich heights than those shown here.
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% capture example %}
+	<label class="switch switch-sm">
+		<input type="checkbox" class="switch-input" checked>
+
+		<span class="switch-text">
+			Turn this setting:
+			<span class="switch-text-off">Off</span>
+			<span class="switch-text-on">On</span>
+		</span>
+	</label>
+
+	<label class="switch">
+		<input type="checkbox" class="switch-input">
+
+		<span class="switch-text">
+			Turn this setting:
+			<span class="switch-text-off">Off</span>
+			<span class="switch-text-on">On</span>
+		</span>
+	</label>
+
+	<label class="switch switch-lg">
+		<input type="checkbox" class="switch-input" checked>
+
+		<span class="switch-text">
+			Turn this setting:
+			<span class="switch-text-off">Off</span>
+			<span class="switch-text-on">On</span>
+		</span>
+	</label>
+
+	<label class="switch switch-xl">
+		<input type="checkbox" class="switch-input">
+
+		<span class="switch-text">
+			Turn this setting:
+			<span class="switch-text-off">Off</span>
+			<span class="switch-text-on">On</span>
+		</span>
+	</label>
+
+	<hr>
+
+	<label class="switch switch-buff switch-sm">
+		<input type="checkbox" class="switch-input" checked>
+		<span class="switch-text">Enable some setting?</span>
+	</label>
+
+	<label class="switch switch-buff">
+		<input type="checkbox" class="switch-input">
+		<span class="switch-text">Enable some setting?</span>
+	</label>
+
+	<label class="switch switch-buff switch-lg">
+		<input type="checkbox" class="switch-input" checked>
+		<span class="switch-text">Enable some setting?</span>
+	</label>
+
+	<label class="switch switch-buff switch-xl">
+		<input type="checkbox" class="switch-input">
+		<span class="switch-text">Enable some setting?</span>
+	</label>
+{% endcapture %}
+
+
+{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% capture HTML %}
+<label class="switch switch-buff switch-sm">
+	<input type="checkbox" class="switch-input">
+	<span class="switch-text">Enable some setting?</span>
+</label>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+	Modifier classes:
+
+	<ul>
+		<li>
+			<code class="classes">switch-sm</code>
+		</li>
+		<li>
+			<code class="classes">switch-lg</code>
+		</li>
+		<li>
+			<code class="classes">switch-xl</code>
+		</li>
+	</ul>
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	{{ LESS }}
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+
+
+
+
+
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Switch responsive sizes
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	You can resize the switches on our breakpoints. All you have to do is add the breakpoint to your size class. E.g. <code class="classes">switch-sm</code>
+	becomes <code class="classes">switch-sm-lg</code> for a switch that will change to a small switch on the large breakpoint. Breakpoints are the same as we
+	use in <a href="layout/#_grid">the grid</a>.
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% capture example %}
+	<label class="switch switch-buff switch-sm switch-xl-md">
+		<input type="checkbox" class="switch-input">
+		<span class="switch-text">Enable some setting?</span>
+	</label>
+{% endcapture %}
+
+
+{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% capture HTML %}
+<label class="switch switch-buff switch-sm switch-xl-md">
+	<input type="checkbox" class="switch-input">
+	<span class="switch-text">Enable some setting?</span>
+</label>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+	Modifier classes:
+
+	<ul>
+		<li>
+			<code class="classes">lists-tick</code>
+		</li>
+	</ul>
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	{{ LESS }}
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}

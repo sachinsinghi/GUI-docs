@@ -69,7 +69,7 @@
 			lessContents += lessContent;
 		});
 
-		if(lessIndex) {
+		if( lessIndex && _includeOriginal ) {
 			App.zip.addFile( App.banner.attach( lessIndex ), '/source/less/gui.less' );
 		}
 

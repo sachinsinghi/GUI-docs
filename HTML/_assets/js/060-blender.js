@@ -166,9 +166,14 @@
 
 				var $this = $(this);
 				var name = 'option-' + App.PREFIX + $this.attr('name');
-				var value = $this.val();
+				var _isChecked = $this.prop( 'checked' );
 
-				App.blender.store.save( name, value );
+				if( _isChecked ) {
+					App.blender.store.save( name, _isChecked );
+				}
+				else {
+					App.blender.store.remove( name );
+				}
 			});
 
 
@@ -298,7 +303,7 @@
 		save: function( key, value ) {
 			if( App.blender.hasLocalStorage ) {
 				if( key && value ) {
-					App.debugging( 'Blender: Storing key: ' + key + ' to LocalStorage', 'report' );
+					App.debugging( 'Blender: Storing key: ' + key + ' to '+value+' LocalStorage', 'report' );
 
 					store.set( key, value );
 				}
@@ -408,7 +413,7 @@
 
 				moduleName = moduleName.substring( (App.PREFIX.length + 7) );
 
-				$('.js-blender-option[name="' + moduleName + '"][value="' + options + '"]').prop( 'checked', true );
+				$('.js-blender-option[name="' + moduleName + '"]').prop( 'checked', true );
 			}
 		});
 

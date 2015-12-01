@@ -6,8 +6,10 @@
 {% for module in site.data.GUI.modules._core %}
 
 	{% for version in module[1].versions %}
-		{% capture coreModules %}{{ coreModules }},{{ module[0] }}:{{ version[0] }}{% endcapture %}
-		{% assign coreSize = version[1].size %}
+		{% if forloop.last %}
+			{% capture coreModules %}{{ coreModules }},{{ module[0] }}:{{ version[0] }}{% endcapture %}
+			{% assign coreSize = version[1].size %}
+		{% endif %}
 	{% endfor %}
 
 {% endfor %}
