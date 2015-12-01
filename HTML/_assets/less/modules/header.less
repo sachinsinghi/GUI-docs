@@ -6,9 +6,23 @@
  */
 .getBrand() when (@brand = BOM) {
 	@header-color: #fff;
-	@header-bgcolor: @color-D;
+	@header-bgcolor: @color-B;
 	.head-pos() {
-		background-attachment: scroll;
+		background: @color-B no-repeat center;
+		background-size: 3196px auto;
+		background-attachment: fixed;
+		background-position: -450px 0;
+		transition: background 0.4s ease;
+
+		@media (min-width: @screen-sm) {
+			background: @color-B url(../img/header-bg.jpg) no-repeat center;
+			background-size: 3196px auto;
+			background-position: -450px 0;
+		}
+
+		@media (min-width: @screen-lg) {
+			background-position: 0 0;
+		}
 	}
 }
 .getBrand() when (@brand = BSA) {
