@@ -19,6 +19,27 @@
 
 {% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
 {% capture whatsnew %}
+	<h4 class="body-font whatsnew-headline">What&rsquo;s new since v1.0.0</h4>
+
+	This version changed:
+		<code class="classes">CSS/LESS</code>
+	but not:
+		<code class="classes">HTML</code>,
+		<code class="classes">JS</code>
+
+	<ul class="lists">
+		<li>
+			Being the new kid on the block, the switches needed a good talking to about the rules of the GUI street. All GUI kids need to be printable, have disabled
+			states and behave while playing with the others. The switches promised to better and from now on hang
+			around in the forms category where other like-minded GUI modules hang around. Proud parents here.
+			<a href="https://github.com/WestpacCXTeam/GUI-source/issues/155" target="_blank">#155</a>,
+			<a href="https://github.com/WestpacCXTeam/GUI-source/issues/156" target="_blank">#156</a>,
+			<a href="https://github.com/WestpacCXTeam/GUI-source/issues/153" target="_blank">#153</a>
+		</li>
+		<li>
+			We removed the buff flavour of the switches. The class sounded cool but making it look different caused more confusion than coolness.
+		</li>
+	</ul>
 {{ whatsnew }}{% endcapture %}
 
 
@@ -116,7 +137,7 @@
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
 	<label class="switch switch-sm">
-		<input type="checkbox" class="switch-input">
+		<input type="checkbox" class="switch-input" checked>
 
 		<span class="switch-text">
 			Turn this setting:
@@ -136,7 +157,7 @@
 	</label>
 
 	<label class="switch switch-lg">
-		<input type="checkbox" class="switch-input">
+		<input type="checkbox" class="switch-input" checked>
 
 		<span class="switch-text">
 			Turn this setting:
@@ -158,7 +179,7 @@
 	<hr>
 
 	<label class="switch switch-buff switch-sm">
-		<input type="checkbox" class="switch-input">
+		<input type="checkbox" class="switch-input" checked>
 		<span class="switch-text">Enable some setting?</span>
 	</label>
 
@@ -168,7 +189,7 @@
 	</label>
 
 	<label class="switch switch-buff switch-lg">
-		<input type="checkbox" class="switch-input">
+		<input type="checkbox" class="switch-input" checked>
 		<span class="switch-text">Enable some setting?</span>
 	</label>
 
