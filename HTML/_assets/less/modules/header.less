@@ -13,18 +13,26 @@
 		background-attachment: fixed;
 		background-position: -450px 0;
 
+		.has-scrolledContent & {
+			background-position: -450px -162px;
+		}
+
 		@media (min-width: @screen-sm) {
 			background: @color-B url(../img/header-bg.jpg) no-repeat center;
 			background-size: 3196px auto;
 			background-position: -450px 0;
+
+			.has-scrolledContent & {
+				background-position: -450px -162px;
+			}
 		}
 
 		@media (min-width: @screen-lg) {
 			background-position: 0 0;
-		}
 
-		.has-scrolledContent & {
-			background-position: 0 -162px;
+			.has-scrolledContent & {
+				background-position: 0 -162px;
+			}
 		}
 	}
 
