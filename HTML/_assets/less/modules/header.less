@@ -12,7 +12,6 @@
 		background-size: 3196px auto;
 		background-attachment: fixed;
 		background-position: -450px 0;
-		transition: background 0.4s ease;
 
 		@media (min-width: @screen-sm) {
 			background: @color-B url(../img/header-bg.jpg) no-repeat center;
@@ -23,6 +22,15 @@
 		@media (min-width: @screen-lg) {
 			background-position: 0 0;
 		}
+
+		.has-scrolledContent & {
+			background-position: 0 -162px;
+		}
+	}
+
+	.gridly-tweak() {
+		background-color: #fff;
+		opacity: 0.3;
 	}
 }
 .getBrand() when (@brand = BSA) {
@@ -31,6 +39,7 @@
 	.head-pos() {
 		background-attachment: scroll;
 	}
+	.gridly-tweak() {}
 }
 .getBrand() when (@brand = STG) {
 	@header-color: @color-F;
@@ -40,6 +49,7 @@
 		background-size: 2749px 1123px;
 		background-position: top -430px left -600px;
 	}
+	.gridly-tweak() {}
 }
 .getBrand() when (@brand = WBC) {
 	@header-color: #fff;
@@ -47,6 +57,7 @@
 	.head-pos() {
 		background-attachment: scroll;
 	}
+	.gridly-tweak() {}
 }
 .getBrand();
 
@@ -371,6 +382,7 @@
 			height: 24px;
 			margin-right: 2px;
 			overflow: hidden;
+			.gridly-tweak();
 		}
 	}
 }
