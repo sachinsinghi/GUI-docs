@@ -1390,8 +1390,6 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('node', [ //run only node build and watch
 		'font:title',
-		'_checkGUI',
-		'_buildDocs',
 		'_buildNode',
 		'wakeup',
 		'watch',
@@ -1424,9 +1422,30 @@ module.exports = function(grunt) {
 		'wakeup',
 	]);
 
+	grunt.registerTask('building', [ //run everything with debug on without gui check
+		'font:title',
+		'_buildDocs',
+		'_buildNode',
+		'replace:debugDev',
+		'checkIncludes:dev',
+		'jekyll:dev',
+		'wakeup',
+	]);
+
 	grunt.registerTask('prod', [ //run everything with debug off
 		'font:title',
 		'_checkGUI',
+		'_buildDocs',
+		'_buildNode',
+		'replace:debugProd',
+		'checkIncludes:prod',
+		'clean:testing',
+		'jekyll:prod',
+		'wakeup',
+	]);
+
+	grunt.registerTask('proding', [ //run everything with debug off without gui check
+		'font:title',
 		'_buildDocs',
 		'_buildNode',
 		'replace:debugProd',
