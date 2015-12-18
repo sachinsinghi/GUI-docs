@@ -101,9 +101,33 @@
 	<div class="example-box"{% unless exampleHandle.size > 2 %} style="overflow: auto;"{% endunless %}>{{ BoxContent }}</div>
 
 {% comment %}
+	IF THERE IS ONLY ONE PLUS WHATSNEW
+{% endcomment %}
+{% endif %}
+{% if allTabs >= 1 and WHATSNEWHandle.size > 2 %}
+	{% if exampleHandle.size > 2 %}
+		<div class="example-box">{{ example }}</div>
+	{% endif %}
+
+	<div class="example-tabs-wrapper js-exampletabs">
+		<ul class="example-tabs">
+			<li class="example-tab example-tab-link-new">
+				<a class="example-tab-link js-exampletab" href="{{ category }}/#{{ IDwhatsnew }}{{ count }}">What&rsquo;s New</a>
+			</li>
+		</ul>
+
+		<div class="example-tabcontent js-examplecontent" id="{{ IDwhatsnew }}{{ count }}">
+			<div class="example-tabcontent-wrapper">
+				{{ WHATSNEWtab }}
+			</div>
+		</div>
+	</div>
+{% endif %}
+
+{% comment %}
 	OTHERWISE JUST DO THE USUAL BOX ON TOP AND TABS BELOW
 {% endcomment %}
-{% else %}
+{% if allTabs >= 1 and WHATSNEWHandle.size < 2  %}
 
 	{% if exampleHandle.size > 2 %}
 		<div class="example-box">{{ example }}</div>
