@@ -39,7 +39,7 @@
 
 		//////////////////////////////////////////////////| JQUERY
 		if( _includeJquery ) { //optional include jquery
-			jquery = Fs.readFileSync( App.GUIPATH + '_javascript-helpers/' + POST['module-_javascript-helpers'] + '/js/010-jquery.js', 'utf8');
+			jquery = Fs.readFileSync( App.GUIPATH + App.JQUERYPATH, 'utf8');
 
 			if( _includeOriginal ) {
 				App.zip.addFile( jquery, '/source/js/010-jquery.js' );

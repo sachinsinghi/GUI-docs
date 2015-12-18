@@ -1,0 +1,85 @@
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	Smarts in the JavaScript framework to optimise page performance. For example de-bugging, throttling and debouncing.
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+	<h4 class="body-font whatsnew-headline">What&rsquo;s new since v1.0.0</h4>
+
+	This version changed:
+		<code class="classes">JS</code>,
+	but not:
+		<code class="classes">HTML</code>
+		<code class="classes">CSS/LESS</code>
+
+	<ul class="lists">
+		<li>
+			Sometimes we need to find out if a CSS property is supported by the current browser. Nosy as we are, like checking the Facebook profile of an
+			ex-boyfriend... We now have a feature detection method that handles very simple CSS properties. Go and detect, I'm sure CSS won't mind.
+			<a href="https://github.com/WestpacCXTeam/GUI-source/issues/162" target="_blank">#162</a>
+		</li>
+	</ul>
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% capture example %}
+{% endcapture %}
+
+
+{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% capture HTML %}
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+	The JavaScript framework comes with three public methods:
+
+	<ul>
+		<li>
+			<code class="classes">GUI.DEBUG</code> To toggle debugging information simply run <code class="classes">GUI.DEBUG = true || false</code>
+		</li>
+		<li>
+			<code class="classes">GUI.detectCSS()</code>
+			A simple feature detection method. Run GUI.detectCSS('animation') and get a boolean value back for wether or not the feature is supported.
+		</li>
+		<li>
+			<code class="classes">GUI.debounce()</code>
+			A common debounce method. Read <a href="https://css-tricks.com/the-difference-between-throttling-and-debouncing/" target="_blank">more here</a>
+		</li>
+		<li>
+			<code class="classes">GUI.throttle()</code>
+			A common throttle method. Read <a href="https://css-tricks.com/the-difference-between-throttling-and-debouncing/" target="_blank">more here</a>
+		</li>
+	</ul>
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
