@@ -8,6 +8,7 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Dependencies
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
+var Slack = require('node-slack');
 
 
 (function SlackApp(App) {
@@ -18,65 +19,79 @@
 	// Module init method
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	module.post = function SlackPost() {
+		App.debugging( 'Slack: Posting', 'report' );
 
+		var slack = new Slack( App.SLACKURL );
+		var funky = '`none`';
+		var core = '';
+		var modules = '';
+		var POST = App.POST;
+		var jquery = App.selectedModules.includeJquery ? '`Yes`' : '`No`';
+		var unminJS  = App.selectedModules.includeUnminifiedJS ? '`Yes`' : '`No`';
+		var less  = App.selectedModules.includeLess ? '`Yes`' : '`No`';
+
+		var channel = '#testing';
 		if( !App.DEBUG ) {
-			App.debugging( 'Slack: Posting', 'report' );
-
-			var slack = new Slack( App.SLACKURL );
-			var funky = 'none';
-			var core = '';
-			var modules = '';
-			var POST = App.POST;
-			var jquery = App.selectedModules.includeJquery ? 'Yes' : 'No';
-			var unminJS  = App.selectedModules.includeUnminifiedJS ? 'Yes' : 'No';
-			var less  = App.selectedModules.includeLess ? 'Yes' : 'No';
-
-			if( POST.includeBond === 'on' ) {
-				funky = 'Bond';
-			}
-			if( POST.includeStarWars === 'on' ) {
-				funky = 'Star Wars';
-			}
-
-			App.selectedModules.core.forEach(function CssIterateCore( module ) {
-				core += ', ' + module.ID+ ':' + module.version;
-			});
-
-			App.selectedModules.modules.forEach(function SlackIterateModules( module ) {
-				modules += ', ' + module.ID+ ':' + module.version;
-			});
-
-			slack.send({
-				text: 'BOOM! ... another blend!',
-				attachments: [{
-					'fallback': 'Details',
-					'pretext': 'Details',
-					'color': '#0074C4',
-					'fields': [
-						{
-							'title': 'Modules',
-							'value': 'Count: ' + App.selectedModules.modules.length + '\n' +
-								'Brand: ' + App.selectedModules.brand + '\n' +
-								'Core: ' + core.substr(2) + '\n' +
-								'Modules: ' + modules.substr(2) + '\n' +
-								'jQuery: ' + jquery + '\n' +
-								'unmin JS: ' + unminJS + '\n' +
-								'Less: ' + less + '\n' +
-								'Funky: ' + funky,
-							'short': false
-						},
-						{
-							'title': 'Client',
-							'value': 'IP: ' + App.IP,
-							'short': false
-						}
-					],
-				}],
-				channel: '#blender',
-				username: 'The Blender',
-				icon_url: App.SLACKICON,
-			});
+			var channel = '#blender';
 		}
+
+		if( POST.includeBond === 'on' ) {
+			funky = '`Bond`';
+		}
+		if( POST.includeStarWars === 'on' ) {
+			funky = '`Star Wars`';
+		}
+
+		App.selectedModules.core.forEach(function CssIterateCore( module ) {
+			core += ', `' + module.ID+ ':' + module.version + '`';
+		});
+
+		App.selectedModules.modules.forEach(function SlackIterateModules( module ) {
+			modules += ', `' + module.ID+ ':' + module.version + '`';
+		});
+
+		slack.send({
+			'text': 'BOOM! ... another blend!',
+			'attachments': [{
+				'fallback': '_What\'s in it?_',
+				'pretext': '_What\'s in it?_',
+				'color': '#ffcdd2',
+				'mrkdwn_in': [
+					'text',
+					'pretext',
+					'fields',
+				],
+				'fields': [
+					{
+						'title': 'Modules',
+						'value': '' +
+							'_Selected_: `' + App.selectedModules.modules.length + '`\n' +
+							'_Core_:\n' + core.substr(2) + '\n' +
+							'_Modules_:\n' + modules.substr(2) + '\n\n\n',
+						'short': false,
+					},
+					{
+						'title': 'Options',
+						'value': '' +
+							'_Brand_: `' + App.selectedModules.brand + '`\n' +
+							'_jQuery_: ' + jquery + '\n' +
+							'_unmin JS_: ' + unminJS + '\n' +
+							'_Less_: ' + less + '\n' +
+							'_Funky_: ' + funky + '\n\n\n',
+						'short': false,
+					},
+					{
+						'title': 'Client',
+						'value': '' +
+							'_IP_: `' + App.IP + '`',
+						'short': false,
+					}
+				],
+			}],
+			'channel': channel,
+			'username': 'The Blender',
+			'icon_url': App.SLACKICON,
+		});
 	};
 
 
