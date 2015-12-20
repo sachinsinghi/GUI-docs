@@ -19,7 +19,6 @@ var Chalk = require('chalk');
 var _ = require("underscore");
 var CFonts = require('cfonts');
 var Express = require('express');
-var Slack = require('node-slack');
 var BodyParser = require('body-parser');
 
 

@@ -1391,6 +1391,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('node', [ //run only node build and watch
 		'font:title',
 		'_buildNode',
+		'replace:debugDev',
 		'wakeup',
 		'watch',
 	]);
