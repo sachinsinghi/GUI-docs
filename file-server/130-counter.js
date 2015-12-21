@@ -1,6 +1,6 @@
 /***************************************************************************************************************************************************************
  *
- * Funky stuff
+ * Counter
  *
  **************************************************************************************************************************************************************/
 
@@ -10,40 +10,37 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-(function FunkyApp(App) {
+(function CounterApp(App) {
 
 	var module = {};
 
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	// Module get method
+	// Module add method
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	module.get = function funkyPost() {
-		App.debugging( 'funky: Getting funky stuff', 'report' );
+	module.add = function counterPost() {
+		App.debugging( 'counter: adding new instance', 'report' );
 
-		var POST = App.POST;
-		var _includeBond = POST.includeBond === 'on';
-		var _includeStarWars = POST.includeStarWars === 'on';
+		var counter = 0;
 
-		if( _includeBond ) { //BOND
-			App.debugging( 'funky: Getting James Bond reference', 'report' );
+		Fs.readFile( App.LOG , function(err, data) {
+			if( err ) {
+				throw err;
+			}
 
-			App.zip.queuing('funky', false);
-			App.zip.addPath( App.GELPATH + 'assets/img/bond.png', '/bond.png' );
-		}
-		else if( _includeStarWars ) { //STAR WARS
-			App.debugging( 'funky: Getting Star Wars reference', 'report' );
+			counter = parseInt( data ) + 1;
 
-			App.zip.queuing('funky', false);
-			App.zip.addPath( App.GELPATH + '/GUI/' + POST['brand'] + '/assets/img/starwars' + POST['brand'] + '.jpg', '/starwars.png' );
-		}
-		else {
-			App.zip.queuing('funky', false);
-			App.zip.readyZip();
-		}
+			Fs.writeFile( App.LOG, counter, function(err) {
+				if( err ) {
+					throw err;
+				}
+
+				App.debugging( 'counter: added', 'report' );
+			});
+		});
 	};
 
 
-	App.funky = module;
+	App.counter = module;
 
 
 }(App));

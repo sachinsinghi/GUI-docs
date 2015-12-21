@@ -1,6 +1,6 @@
 /***************************************************************************************************************************************************************
  *
- * Funky stuff
+ * counter additions
  *
  **************************************************************************************************************************************************************/
 
@@ -10,40 +10,52 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-(function FunkyApp(App) {
+(function(App) {
 
 	var module = {};
 
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	// Module get method
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	module.get = function funkyPost() {
-		App.debugging( 'funky: Getting funky stuff', 'report' );
+	module.get = function() {
+		App.debugging( 'counter: Getting counter value', 'report' );
 
-		var POST = App.POST;
-		var _includeBond = POST.includeBond === 'on';
-		var _includeStarWars = POST.includeStarWars === 'on';
+		$.ajax({
+			url: App.LOG,
+			cache: false
+		}).done(function( html ) {
 
-		if( _includeBond ) { //BOND
-			App.debugging( 'funky: Getting James Bond reference', 'report' );
+			$('.js-counter').parent().removeClass('is-hidden');
+			$('.js-counter').text( html );
 
-			App.zip.queuing('funky', false);
-			App.zip.addPath( App.GELPATH + 'assets/img/bond.png', '/bond.png' );
-		}
-		else if( _includeStarWars ) { //STAR WARS
-			App.debugging( 'funky: Getting Star Wars reference', 'report' );
+			setTimeout(function() {
+					App.counter.get();
+				}, 4000
+			);
 
-			App.zip.queuing('funky', false);
-			App.zip.addPath( App.GELPATH + '/GUI/' + POST['brand'] + '/assets/img/starwars' + POST['brand'] + '.jpg', '/starwars.png' );
-		}
-		else {
-			App.zip.queuing('funky', false);
-			App.zip.readyZip();
+		});
+	};
+
+
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	// Module init method
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	module.init = function() {
+		App.debugging( 'counter: Initiating', 'report' );
+
+		if( $('.js-counter').length ) {
+			GUI.debugging( 'counter: Found instance', 'report' );
+
+			App.counter.get();
 		}
 	};
 
 
-	App.funky = module;
+	App.counter = module;
 
 
 }(App));
+
+
+// start the module
+App.counter.init();

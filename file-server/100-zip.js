@@ -49,6 +49,9 @@ var Archiver = require('archiver');
 			App.log.error( error );
 		}
 
+		//add new blend to log
+		App.counter.add();
+
 		//clearning up
 		App.zip.archive = Archiver('zip'); //new archive
 		App.zip.files = []; //empty files
