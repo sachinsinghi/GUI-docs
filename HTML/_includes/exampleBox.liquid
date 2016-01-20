@@ -46,11 +46,7 @@
 	</div>
 {% endcapture %}
 
-{% capture HTMLtab %}
-	{% highlight html linenos=table %}
-		{{ HTML }}
-	{% endhighlight %}
-{% endcapture %}
+{% capture HTMLtab %}{% highlight html linenos=table %}{{ HTML }}{% endhighlight %}{% endcapture %}
 
 {% capture CSStab %}
 	<div class="example-tabcontent-content">
@@ -86,10 +82,19 @@
 {% comment %}{% if LESSHandle.size > 2 %}{% assign allTabs = allTabs | plus: 1 %}{% endif %}{% endcomment %}
 {% if JSHandle.size > 2 %}{% assign allTabs = allTabs | plus: 1 %}{% endif %}
 
+
+{% comment %}exampleHandle.size: {{ exampleHandle.size }}<br>
+WHATSNEWHandle.size: {{ WHATSNEWHandle.size }}<br>
+HTMLHandle.size: {{ HTMLHandle.size }}<br>
+CSSHandle.size: {{ CSSHandle.size }}<br>
+JSHandle.size: {{ JSHandle.size }}<br>
+allTabs: {{ allTabs }}<hr>{% endcomment %}
+
+
 {% comment %}
 	IF THERE IS ONLY ONE TAB AND NO EXAMPLE SHOW THE TAB INSIDE THE BOX ALWAYS OPEN
 {% endcomment %}
-{% if allTabs == 1 %}
+{% if allTabs == 1 or allTabs <= 1 and WHATSNEWHandle.size > 2 %}
 
 	{% if exampleHandle.size > 2 %}{% assign BoxContent = example %}{% endif %}
 	{% comment %}{% if WHATSNEWHandle.size > 2 %}{% assign BoxContent = WHATSNEWtab %}{% endif %}{% endcomment %}
@@ -98,36 +103,33 @@
 	{% comment %}{% if LESSHandle.size > 2 %}{% assign BoxContent = LESStab %}{% endif %}{% endcomment %}
 	{% if JSHandle.size > 2 %}{% assign BoxContent = JStab %}{% endif %}
 
-	<div class="example-box"{% unless exampleHandle.size > 2 %} style="overflow: auto;"{% endunless %}>{{ BoxContent }}</div>
-
-{% comment %}
-	IF THERE IS ONLY ONE PLUS WHATSNEW
-{% endcomment %}
-{% endif %}
-{% if allTabs >= 1 and WHATSNEWHandle.size > 2 %}
-	{% if exampleHandle.size > 2 %}
-		<div class="example-box">{{ example }}</div>
+	{% if allTabs == 1 %}
+		<div class="example-box"{% unless exampleHandle.size > 2 %} style="overflow: auto;"{% endunless %}>{{ BoxContent }}</div>
 	{% endif %}
 
-	<div class="example-tabs-wrapper js-exampletabs">
-		<ul class="example-tabs">
-			<li class="example-tab example-tab-link-new">
-				<a class="example-tab-link js-exampletab" href="{{ category }}/#{{ IDwhatsnew }}{{ count }}">What&rsquo;s New</a>
-			</li>
-		</ul>
+	{% if WHATSNEWHandle.size > 2 %}
+		<div class="example-tabs-wrapper js-exampletabs">
+			<ul class="example-tabs">
+				<li class="example-tab example-tab-link-new">
+					<a class="example-tab-link js-exampletab" href="{{ category }}/#{{ IDwhatsnew }}{{ count }}">What&rsquo;s New</a>
+				</li>
+			</ul>
 
-		<div class="example-tabcontent js-examplecontent" id="{{ IDwhatsnew }}{{ count }}">
-			<div class="example-tabcontent-wrapper">
-				{{ WHATSNEWtab }}
+			<div class="example-tabcontent js-examplecontent" id="{{ IDwhatsnew }}{{ count }}">
+				<div class="example-tabcontent-wrapper">
+					{{ WHATSNEWtab }}
+				</div>
 			</div>
 		</div>
-	</div>
+	{% endif %}
+
 {% endif %}
+
 
 {% comment %}
 	OTHERWISE JUST DO THE USUAL BOX ON TOP AND TABS BELOW
 {% endcomment %}
-{% if allTabs >= 1 and WHATSNEWHandle.size < 2  %}
+{% if allTabs > 1 %}
 
 	{% if exampleHandle.size > 2 %}
 		<div class="example-box">{{ example }}</div>
@@ -145,7 +147,7 @@
 					<a class="example-tab-link js-exampletab" href="{{ category }}/#{{ IDhtml }}{{ count }}">HTML</a>
 				</li>
 			{% endif %}
-			{% if CSSHandle.size > 2 or LESSHandle.size > 2 %}
+			{% if CSStab.size > 2 %}
 				<li class="example-tab example-tab-css">
 					<a class="example-tab-link js-exampletab" href="{{ category }}/#{{ IDcss }}{{ count }}">CSS/LESS</a>
 				</li>
@@ -172,13 +174,11 @@
 		{% if HTMLHandle.size > 2 %}
 			<div class="example-tabcontent js-examplecontent" id="{{ IDhtml }}{{ count }}">
 				<div class="example-tabcontent-wrapper">
-					{% highlight html linenos=table %}
-						{{ HTML }}
-					{% endhighlight %}
+					{% highlight html linenos=table %}{{ HTML }}{% endhighlight %}
 				</div>
 			</div>
 		{% endif %}
-		{% if CSSHandle.size > 2 or LESSHandle.size > 2 %}
+		{% if CSStab.size > 2 %}
 			<div class="example-tabcontent js-examplecontent" id="{{ IDcss }}{{ count }}">
 				<div class="example-tabcontent-wrapper">
 					{{ CSStab }}
