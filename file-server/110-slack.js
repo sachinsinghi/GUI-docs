@@ -22,7 +22,7 @@ var Slack = require('node-slack');
 		App.debugging( 'Slack: Posting', 'report' );
 
 		var slack = new Slack( App.SLACKURL );
-		var funky = '`none`';
+		var funky = '';
 		var core = '';
 		var modules = '';
 		var POST = App.POST;
@@ -35,11 +35,14 @@ var Slack = require('node-slack');
 			var channel = '#blender';
 		}
 
-		if( POST.includeBond === 'on' ) {
-			funky = '`Bond`';
+		for(var i = App.FUNKY.length - 1; i >= 0; i--) {
+			if( POST[ App.FUNKY[i].var ] === 'on' ) {
+				funky += '`' + App.FUNKY[i].name + '` ';
+			}
 		}
-		if( POST.includeStarWars === 'on' ) {
-			funky = '`Star Wars`';
+
+		if( funky === '' ) {
+			funky = '`none`';
 		}
 
 		App.selectedModules.core.forEach(function CssIterateCore( module ) {

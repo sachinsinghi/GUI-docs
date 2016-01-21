@@ -153,13 +153,13 @@
 
 						<li class="blender-module row">
 							<div class="col-sm-5 blender-module-text">
-								<label class="blender-module-label" for="includeStarWars">
-									Use the force?
+								<label class="blender-module-label" for="includeBowie">
+									Call ground control for Major Tom?
 								</label>
 							</div>
 							<div class="col-sm-7 text-right">
 								<label class="switch">
-									<input type="checkbox" class="switch-input js-blender-option" name="includeStarWars" id="includeStarWars">
+									<input type="checkbox" class="switch-input js-blender-option" name="includeBowie" id="includeBowie">
 
 									<span class="switch-text">
 										Turn this setting:
@@ -169,6 +169,11 @@
 								</label>
 							</div>
 						</li>
+
+						{% if "[Debug]" == "true" %}
+							includeBond: <input type="checkbox" name="includeBond"><br>
+							includeStarWars: <input type="checkbox" name="includeStarWars">
+						{% endif %}
 					</ul>
 				</div>
 			</div>

@@ -38,6 +38,26 @@ var App = (function Application() {
 		SLACKURL: 'https://hooks.slack.com/services/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',
 		SLACKICON: 'http://gel.westpacgroup.com.au/GUI/WBC/assets/img/blender-icon.png',
 		LOG: Path.normalize(__dirname + '/blender.log'),
+		FUNKY: [
+			{
+				name: 'James Bond',
+				var: 'includeBond',
+				file: Path.normalize(__dirname + '/assets/img/bond.png'),
+				zip: '/bond.png'
+			},
+			{
+				name: 'Star Wars',
+				var: 'includeStarWars',
+				file: Path.normalize(__dirname + '/assets/img/starwars[Brand].jpg'),
+				zip: '/starwars.png'
+			},
+			{
+				name: 'David Bowie',
+				var: 'includeBowie',
+				file: Path.normalize(__dirname + '/assets/img/bowie.png'),
+				zip: '/bowie.png'
+			}
+		],
 
 
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
