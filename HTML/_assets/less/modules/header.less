@@ -211,7 +211,7 @@
 		height: 66px;
 
 		@media (min-width: @screen-sm) {
-			height: 132px;
+			// height: 132px;
 			box-shadow: 0 2px 5px rgba(0, 0, 0, .4);
 		}
 
@@ -223,27 +223,43 @@
 
 
 .header-headline {
-	margin: 24px 0 0 48px;
-	font-family: "Helvetica Neue", "Roboto", Arial, sans-serif;
+	position: absolute;
+	bottom: 23px;
+	margin: 0 0 0 48px;
 	font-weight: 400;
+	font-family: "Helvetica Neue", "Roboto", Arial, sans-serif;
 	font-size: 18px;
 	white-space: nowrap;
 	color: @header-color;
+	transition: margin 0.2s ease, font-size 0.2s ease;
+
+	// margin: 24px 0 0 48px;
+	// font-family: "Helvetica Neue", "Roboto", Arial, sans-serif;
+	// font-weight: 400;
+	// font-size: 18px;
+	// white-space: nowrap;
+	// color: @header-color;
+	@media (min-width: @screen-sm) {
+		bottom: 118px;
+	}
 
 	.has-halfScrolledContent & {
 		@media (min-width: @screen-sm) {
-			margin: 187px 0 0 60px;
+			bottom: 118px;
+			margin: 0 0 0 60px;
 			font-size: 18px;
 			font-weight: 400;
 		}
 
 		@media (min-width: @screen-md-lg) {
-			margin: 182px 0 0 36px;
+			bottom: 89px;
+			margin: 0 0 0 36px;
 		}
 	}
 
 	.is-subpage &,
 	.has-scrolledContent & {
+		bottom: 23px;
 		margin: 24px 0 0 48px;
 
 		@media (min-width: @screen-sm) {
@@ -251,12 +267,12 @@
 		}
 
 		@media (min-width: @screen-md-lg) {
-			margin: 24px 0 0 36px;
+			margin: 0 0 0 36px;
 		}
 	}
 
 	@media (min-width: @screen-sm) {
-		margin: 118px 0 0px 36px;
+		margin: 0 0 0px 36px;
 		font-size: 54px;
 		font-weight: 300;
 	}
