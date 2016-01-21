@@ -22,22 +22,22 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-	<span class="label label-primary">Primary</span>
-	<span class="label label-hero">Hero</span>
+<span class="label label-primary">Primary</span>
+<span class="label label-hero">Hero</span>
 
-	<hr>
-	<p>As a link</p>
+<hr>
+<p>As a link</p>
 
-	<a href="{{ page.title | handleize }}/#url" class="label label-primary">Primary</a>
-	<a href="{{ page.title | handleize }}/#url" class="label label-hero">Hero</a>
+<a href="{{ page.title | handleize }}/#url" class="label label-primary">Primary</a>
+<a href="{{ page.title | handleize }}/#url" class="label label-hero">Hero</a>
 {% endcapture %}
 
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-	<span class="label">LABEL TEXT</span>
+<span class="label">LABEL TEXT</span>
 
-	<a href="http://YOUR-URL.com.au" class="label">Default</a>
+<a href="http://YOUR-URL.com.au" class="label">Default</a>
 {% endcapture %}
 
 
