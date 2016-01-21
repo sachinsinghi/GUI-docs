@@ -1,0 +1,285 @@
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Input elements
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	Inputs are the most common form controls. Text-based input fields include support for all HTML5 types: text, password, datetime, datetime-local, date, month,
+	time, week, number, email, url, search, tel, and colour. The date element triggers the date selector in compliant browsers. Find out more about
+	<a href="alerts">alert and error styling in forms</a>.
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+	<h4 class="body-font whatsnew-headline">What&rsquo;s new since v1.0.1</h4>
+
+	This version changed:
+		<code class="classes">CSS/LESS</code>,
+	but not:
+		<code class="classes">HTML</code>
+		<code class="classes">JS</code>
+
+	<ul class="lists">
+		<li>
+			Our recent move to system fonts means we trust the system to take care of something as basic as the display of a font. Turns out you can't trust
+			Microsoft with such a task as they increase the size of the font rather than just the face. We fixed that and wrote an angry constructive letter to
+			Redmond. It's always important to vent your frustrations in a productive manner.
+			(<a href="https://github.com/WestpacCXTeam/GUI-source/issues/174" target="_blank">#174</a>)
+		</li>
+	</ul>
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% capture example %}
+<input type="text" class="input-field" placeholder="I'm a default text input">
+
+<hr>
+
+<input type="password" class="input-field" placeholder="I'm a default password input">
+
+<hr>
+
+<textarea class="input-field" placeholder="I'm a default textarea"></textarea>
+
+<hr>
+
+<div class="input-field-select-wrapper">
+	<select class="input-field-select">
+		<option>Please select</option>
+		<option>Option A</option>
+		<option>Option B</option>
+		<option>Option C</option>
+		<option>Option D</option>
+		<option>Option E</option>
+		<option>Option F</option>
+		<option>Option G</option>
+	</select>
+</div>
+{% endcapture %}
+
+
+{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% capture HTML %}
+<input type="text" class="input-field" placeholder="YOUR PLACEHOLDER">
+
+<div class="input-field-select-wrapper">
+	<select class="input-field-select">
+		<option>Please select</option>
+		<option>YOUR Option</option>
+		<option>YOUR Option</option>
+		<option>YOUR Option</option>
+	</select>
+</div>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	The main mixin is called: <code class="classes">_input-fields({{ page.brand }})</code>
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+
+
+
+
+
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Input size
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	Set size using these classes to create larger or smaller form controls that match button sizes. There are only 2 sizes default and large. Use large for
+	mobile apps.
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% capture example %}
+<input type="text" class="input-field input-field-lg" placeholder="I'm a LG text input">
+
+<hr>
+
+<div class="input-field-select-wrapper input-field-select-lg">
+	<select class="input-field-select">
+		<option>Select LG</option>
+		<option>Option A</option>
+		<option>Option B</option>
+		<option>Option C</option>
+		<option>Option D</option>
+		<option>Option E</option>
+		<option>Option F</option>
+		<option>Option G</option>
+	</select>
+</div>
+{% endcapture %}
+
+
+{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% capture HTML %}
+<input type="text" class="input-field input-field-lg" placeholder="YOUR PLACEHOLDER">
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+	Modifier classes:
+
+	<ul>
+		{% comment %}<li>
+			<code class="classes">input-field-sm</code>
+		</li>{% endcomment %}
+		<li>
+			<code class="classes">input-field-lg</code>
+		</li>
+		{% comment %}<li>
+			<code class="classes">input-field-xl</code>
+		</li>{% endcomment %}
+	</ul>
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	{{ LESS }}
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+
+
+
+
+
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Disabled states
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	Add the disabled attribute on an input to prevent user input and trigger a slightly different look.
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% capture example %}
+<p>Individual fields</p>
+
+<input type="text" class="input-field" placeholder="I'm a default text input" disabled>
+
+<div class="input-field-select-wrapper">
+	<select class="input-field-select" disabled>
+		<option>Please select</option>
+		<option>Option A</option>
+		<option>Option B</option>
+		<option>Option C</option>
+		<option>Option D</option>
+		<option>Option E</option>
+		<option>Option F</option>
+		<option>Option G</option>
+	</select>
+</div>
+
+<hr>
+<p>Field set</p>
+
+<form>
+	<fieldset disabled>
+		<input type="text" class="input-field" placeholder="I'm a default text input">
+		<input type="text" class="input-field" placeholder="I'm a default text input">
+	</fieldset>
+</form>
+{% endcapture %}
+
+
+{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% capture HTML %}
+<input type="text" class="input-field" placeholder="I'm a default text input" disabled>
+
+<fieldset disabled>
+	<input type="text" class="input-field" placeholder="I'm a default text input">
+</fieldset>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	{{ LESS }}
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}

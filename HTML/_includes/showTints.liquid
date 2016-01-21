@@ -1,0 +1,23 @@
+{% comment %}
+	This snippet prints a tints
+
+	Usage:
+		{% include showTints.liquid  colors = '#d5002b,#d5002b,#d5002b,#d5002b,#d5002b,#d5002b,#d5002b' %}
+
+	Return:
+		HTML direct output
+
+	Required:
+		- none -
+{% endcomment %}
+
+
+{% assign colors = include.colors | split: ',' %}
+
+<div class="tints">
+	{% for color in colors %}
+		<div class="tint" style="background-color:{{ color }}">
+			<span class="tint-hex">{{ color }}</span>
+		</div>
+	{% endfor %}
+</div>

@@ -67,9 +67,9 @@
 		<div class="col-sm-4">
 			<div class="row">
 				<div class="col-sm-10">
-					<h3 class="content-h">Additional Colours</h3>
+					<h3 class="content-h">Secondray Tints</h3>
 					<p class="example-description">
-						These colours add variation to the palette.
+						These colours are tints of the primary palette.
 					</p>
 				</div>
 			</div>
@@ -77,11 +77,19 @@
 
 		<div class="col-sm-8">
 			<div class="row">
-				<div class="col-sm-6 col-lg-4">
-					{% include showSwatch.liquid  title = 'Deep Purple'  color = ''  hex = '#20024E'  rgb = 'R=32 G=2 B=78' %}
-				</div>
-				<div class="col-sm-6 col-lg-4">
-					{% include showSwatch.liquid  title = 'Violet'  color = ''  hex = '#A094FC'  rgb = 'R=160 G=148 B=252' %}
+				<div class="col-sm-12">
+					<div class="col-sm-6 col-lg-3">
+						{% include showTints.liquid  colors = '#b45c38,#bb6c4c,#c37d60,#ca8d74,#d29d88,#d9ad9b,#e1beaf,#e8cec3,#f0ded7,#f7efeb,#fbf7f5' %}
+					</div>
+					<div class="col-sm-6 col-lg-3">
+						{% include showTints.liquid  colors = '#444f5e,#57616e,#69727e,#7c848e,#8f959e,#a1a7ae,#b4b9bf,#c7cacf,#dadcdf,#ecedef,#f6f6f7' %}
+					</div>
+					<div class="col-sm-6 col-lg-3">
+						{% include showTints.liquid  colors = '#446e61,#577d71,#698b81,#7c9990,#8fa8a0,#a1b6b0,#b4c5c0,#c7d3d0,#dae2df,#ecf0ef,#f6f8f7' %}
+					</div>
+					<div class="col-sm-6 col-lg-3">
+						{% include showTints.liquid  colors = '#7e7357,#8b8168,#988f79,#a59d89,#b2ab9a,#beb9ab,#cbc7bc,#d8d5cd,#e5e3dd,#f2f1ee,#f9f8f7' %}
+					</div>
 				</div>
 			</div>
 		</div>

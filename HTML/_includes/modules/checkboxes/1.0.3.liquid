@@ -1,0 +1,109 @@
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	Checkboxes can sit either to the left or the right of the label.
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+	<h4 class="body-font whatsnew-headline">What&rsquo;s new since v1.0.2</h4>
+
+	This version changed:
+		<code class="classes">CSS/LESS</code>,
+	but not:
+		<code class="classes">HTML</code>
+		<code class="classes">JS</code>
+
+	<ul class="lists">
+		<li>
+			Check out our checkboxes. We've added a no-image fallback to the them so when you're tired of seeing our beautiful designed artwork, you now have a
+			fallback to the old boring native checkboxes, boooooo.
+			<a href="https://github.com/WestpacCXTeam/GUI-source/issues/173" target="_blank">#173</a>
+		</li>
+	</ul>
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% capture example %}
+<label class="checkbox">
+	<input class="checkbox-input" type="checkbox" name="option1a">
+	<span class="checkbox-text">Setting 1</span>
+</label>
+
+<label class="checkbox">
+	<input class="checkbox-input" type="checkbox" name="option1b">
+	<span class="checkbox-text">Setting 1</span>
+</label>
+
+<label class="checkbox">
+	<input class="checkbox-input" type="checkbox" name="option1c">
+	<span class="checkbox-text">Setting 1</span>
+</label>
+
+<hr>
+
+<label class="checkbox checkbox-flip">
+	<input class="checkbox-input" type="checkbox" name="option2a">
+	<span class="checkbox-text">Setting 2</span>
+</label>
+
+<label class="checkbox checkbox-flip">
+	<input class="checkbox-input" type="checkbox" name="option2b">
+	<span class="checkbox-text">Setting 2</span>
+</label>
+
+<label class="checkbox checkbox-flip">
+	<input class="checkbox-input" type="checkbox" name="option2c">
+	<span class="checkbox-text">Setting 2</span>
+</label>
+{% endcapture %}
+
+
+{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% capture HTML %}
+<label class="checkbox">
+	<input class="checkbox-input" type="checkbox" name="checkboxName">
+	<span class="checkbox-text">YOUR TITLE</span>
+</label>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+	Modifier class:
+
+	<ul>
+		<li>
+			<code class="classes">checkbox-flip</code>
+		</li>
+	</ul>
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	The main mixin is called: <code class="classes">_checkboxes({{ page.brand }})</code>
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}

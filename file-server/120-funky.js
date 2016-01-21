@@ -21,20 +21,31 @@
 		App.debugging( 'funky: Getting funky stuff', 'report' );
 
 		var POST = App.POST;
-		var _includeBond = POST.includeBond === 'on';
-		var _includeStarWars = POST.includeStarWars === 'on';
+		var funkies = 0;
 
-		if( _includeBond ) { //BOND
-			App.debugging( 'funky: Getting James Bond reference', 'report' );
-
-			App.zip.queuing('funky', false);
-			App.zip.addPath( App.GELPATH + 'assets/img/bond.png', '/bond.png' );
+		for(var i = App.FUNKY.length - 1; i >= 0; i--) {
+			if( POST[ App.FUNKY[i].var ] === 'on' ) {
+				funkies++; //how many funky bits have been requested?
+			}
 		}
-		else if( _includeStarWars ) { //STAR WARS
-			App.debugging( 'funky: Getting Star Wars reference', 'report' );
 
-			App.zip.queuing('funky', false);
-			App.zip.addPath( App.GELPATH + '/GUI/' + POST['brand'] + '/assets/img/starwars' + POST['brand'] + '.jpg', '/starwars.png' );
+		if( funkies > 0 ) {
+			for(var i = App.FUNKY.length - 1; i >= 0; i--) {
+
+				if( POST[ App.FUNKY[i].var ] === 'on' ) {
+					App.debugging( 'funky: Getting ' + App.FUNKY[i].name + ' reference', 'report' );
+
+					funkies--; //counting down
+
+					if( funkies === 0 ) { //if this is the last one
+						App.zip.queuing('funky', false);
+					}
+
+					var file = App.FUNKY[i].file.replace( '[Brand]', POST['brand'] ); //brand path
+
+					App.zip.addPath( file, App.FUNKY[i].zip ); //add file to zip
+				}
+			}
 		}
 		else {
 			App.zip.queuing('funky', false);
