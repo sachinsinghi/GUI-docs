@@ -6,20 +6,22 @@
 
 {% comment %} TITLE {% endcomment %}
 {% capture title %}
-	Bullet list
+	Brand font
 {% endcapture %}
 
 
 {% comment %} DESCRIPTION {% endcomment %}
 {% capture description %}
-	Add these custom symbols to style basic lists. Adding the required modifier classes to each list item allows more flexibility without the need to create
-	specific classes for every scenario.
+	Each brand has a display font typically used for headlines and marketing messages etc. These may come in several weights. If the brand font is a web font
+	(not a system font) then it should be self-hosted and implemented using the @fontface declaration. Suitable fallbacks should also be declared in the font
+	stack.<br>
+	<strong>Never use a web font without prior confirmation that you have the correct licence agreement in place.</strong>
 {% endcapture %}
 
 
 {% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
 {% capture whatsnew %}
-	<h4 class="body-font whatsnew-headline">What&rsquo;s new since v1.0.0</h4>
+	<h4 class="body-font whatsnew-headline">What&rsquo;s new since v1.0.1</h4>
 
 	This version changed:
 		<code class="classes">CSS/LESS</code>,
@@ -29,102 +31,58 @@
 
 	<ul class="lists">
 		<li>
-			BIG BOM brand change. All new colours, all new look, all new GUI. Brace yourselfs.
-			<a href="https://github.com/WestpacCXTeam/GUI-source/issues/157" target="_blank">#157</a>
+			Chrome had a bug where the font weights weren't displaying correctly. No more.
+			(<a href="https://github.com/WestpacCXTeam/GUI-source/issues/187" target="_blank">#187</a>)
 		</li>
 	</ul>
 {{ whatsnew }}{% endcapture %}
 
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% if page.brand == 'BOM' %}
 {% capture example %}
-<ul class="lists">
-	<li>Styled bullet list - primary</li>
-	<li>Styled bullet list - primary</li>
-	<li>
-		Styled bullet list - primary
+<h1 class="text-primary" style="font-weight:500;">I&rsquo;m Stag medium</h1>
 
-		<ul class="lists">
-			<li>Styled bullet list - primary</li>
-			<li>Styled bullet list - primary</li>
-			<li>
-				Styled bullet list - primary
-
-				<ul class="lists">
-					<li>Styled bullet list - primary</li>
-					<li>Styled bullet list - primary</li>
-				</ul>
-			</li>
-			<li>Styled bullet list - primary</li>
-		</ul>
-	</li>
-	<li>Styled bullet list - primary</li>
-</ul>
-
-<hr>
-
-<ul class="lists lists-hero">
-	<li>Styled bullet list - hero</li>
-	<li>Styled bullet list - hero</li>
-	<li>
-		Styled bullet list - hero
-
-		<ul class="lists lists-hero">
-			<li>Styled bullet list - primary</li>
-			<li>Styled bullet list - primary</li>
-			<li>Styled bullet list - primary</li>
-		</ul>
-	</li>
-	<li>Styled bullet list - hero</li>
-</ul>
-
-<hr>
-
-<ul class="lists lists-neutral">
-	<li>Styled bullet list - neutral</li>
-	<li>Styled bullet list - neutral</li>
-	<li>
-		Styled bullet list - neutral
-
-		<ul class="lists lists-neutral">
-			<li>Styled bullet list - neutral</li>
-			<li>Styled bullet list - neutral</li>
-			<li>Styled bullet list - neutral</li>
-		</ul>
-	</li>
-	<li>Styled bullet list - neutral</li>
-</ul>
+<h1 class="text-primary" style="font-weight:300;">I&rsquo;m Stag light</h1>
 {% endcapture %}
+{% endif %}
+{% if page.brand == 'BSA' %}
+{% capture example %}
+<h1 class="text-primary" style="font-weight:700;">I&rsquo;m your system font bold</h1>
+
+<h1 class="text-primary" style="font-weight:400;">I&rsquo;m your system font regular</h1>
+
+<h1 class="text-primary" style="font-weight:300;">I&rsquo;m your system font light</h1>
+{% endcapture %}
+{% endif %}
+{% if page.brand == 'STG' %}
+{% capture example %}
+<h1 class="text-primary" style="font-weight:400;">I&rsquo;m Dragon bold</h1>
+{% endcapture %}
+{% endif %}
+{% if page.brand == 'WBC' %}
+{% capture example %}
+<h1 class="text-primary" style="font-weight:700;">I&rsquo;m Times New Roman bold</h1>
+
+<h1 class="text-primary" style="font-weight:400;">I&rsquo;m Times New Roman regular</h1>
+{% endcapture %}
+{% endif %}
 
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-<ul class="lists">
-	<li>Styled bullet list - primary</li>
-	<li>Styled bullet list - primary</li>
-	<li>Styled bullet list - primary</li>
-</ul>
+{{ example }}
 {% endcapture %}
 
 
 {% comment %} CSS TAB {% endcomment %}
 {% capture CSS %}
-	Modifier classes:
-
-	<ul>
-		<li>
-			<code class="classes">lists-hero</code>
-		</li>
-		<li>
-			<code class="classes">lists-neutral</code>
-		</li>
-	</ul>
 {% endcapture %}
 
 
 {% comment %} LESS TAB {% endcomment %}
 {% capture LESS %}
-	The main mixin is called: <code class="classes">_lists({{ page.brand }})</code>
+	The main mixin is called: <code class="classes">_fonts({{ page.brand }})</code>
 {% endcapture %}
 
 
@@ -151,13 +109,16 @@
 
 {% comment %} TITLE {% endcomment %}
 {% capture title %}
-	Link list
+	Body font
 {% endcapture %}
 
 
 {% comment %} DESCRIPTION {% endcomment %}
 {% capture description %}
-	Use this style when the list items are clickable.
+	Each brand has a body font typically used for editorial and user interface elements. The body font comes in several weights. If the body font is a web font
+	(not a system font) then it should be self hosted and implemented using the @fontface declaration. Suitable fallbacks should also be declared in the font
+	stack.<br>
+	<strong>Never use a web font without prior confirmation that you have the correct licence agreement in place.</strong>
 {% endcapture %}
 
 
@@ -168,40 +129,27 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-<ul class="lists lists-linklist">
-	<li><a href="{{ page.title | handleize }}/#url">Styled link list</a></li>
-	<li><a href="{{ page.title | handleize }}/#url">Styled link list</a></li>
-	<li>
-		<a href="{{ page.title | handleize }}/#url">Styled link list</a>
+<h1 class="body-font text-primary" style="font-weight:700;">I’m your system font bold</h1>
 
-		<ul class="lists lists-linklist">
-			<li><a href="{{ page.title | handleize }}/#url">Styled link list</a></li>
-			<li><a href="{{ page.title | handleize }}/#url">Styled link list</a></li>
-			<li><a href="{{ page.title | handleize }}/#url">Styled link list</a></li>
-		</ul>
-	</li>
-	<li><a href="{{ page.title | handleize }}/#url">Styled link list</a></li>
-</ul>
+<h1 class="body-font text-primary" style="font-weight:400;">I’m your system font regular</h1>
+
+<h1 class="body-font text-primary" style="font-weight:300;">I’m your system font light</h1>
 {% endcapture %}
 
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-<ul class="lists lists-linklist">
-	<li><a href="http://YOUR-URL.com.au">Styled link list</a></li>
-	<li><a href="http://YOUR-URL.com.au">Styled link list</a></li>
-	<li><a href="http://YOUR-URL.com.au">Styled link list</a></li>
-</ul>
+{{ example }}
 {% endcapture %}
 
 
 {% comment %} CSS TAB {% endcomment %}
 {% capture CSS %}
-	Modifier classes:
+	Modifier class:
 
 	<ul>
 		<li>
-			<code class="classes">lists-linklist</code>
+			<code class="classes">body-font</code>
 		</li>
 	</ul>
 {% endcapture %}
@@ -236,12 +184,14 @@
 
 {% comment %} TITLE {% endcomment %}
 {% capture title %}
-	Tick list
+	Font usage
 {% endcapture %}
 
 
 {% comment %} DESCRIPTION {% endcomment %}
 {% capture description %}
+	The brand or body font can be applied to any text using a simple class declaration. Refer to the digital brand guidelines regarding the use of typography.<br>
+	<strong>Never use a web font without prior confirmation that you have the correct licence agreement in place.</strong>
 {% endcapture %}
 
 
@@ -252,30 +202,15 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-<ul class="lists lists-tick">
-	<li>Styled tick list</li>
-	<li>Styled tick list</li>
-	<li>
-		Styled tick list
+<h1 class="brand-font">I’m a Heading using the brand font</h1>
 
-		<ul class="lists lists-tick">
-			<li>Styled tick list</li>
-			<li>Styled tick list</li>
-			<li>Styled tick list</li>
-		</ul>
-	</li>
-	<li>Styled tick list</li>
-</ul>
+<h1 class="body-font">I’m a Heading using the body font</h1>
 {% endcapture %}
 
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-<ul class="lists lists-tick">
-	<li>Styled tick list</li>
-	<li>Styled tick list</li>
-	<li>Styled tick list</li>
-</ul>
+{{ example }}
 {% endcapture %}
 
 
@@ -285,7 +220,10 @@
 
 	<ul>
 		<li>
-			<code class="classes">lists-tick</code>
+			<code class="classes">brand-font</code>
+		</li>
+		<li>
+			<code class="classes">body-font</code>
 		</li>
 	</ul>
 {% endcapture %}
