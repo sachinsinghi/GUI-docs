@@ -6,20 +6,21 @@
 
 {% comment %} TITLE {% endcomment %}
 {% capture title %}
-	Bullet list
+	Input elements
 {% endcapture %}
 
 
 {% comment %} DESCRIPTION {% endcomment %}
 {% capture description %}
-	Add these custom symbols to style basic lists. Adding the required modifier classes to each list item allows more flexibility without the need to create
-	specific classes for every scenario.
+	Inputs are the most common form controls. Text-based input fields include support for all HTML5 types: text, password, datetime, datetime-local, date, month,
+	time, week, number, email, url, search, tel, and colour. The date element triggers the date selector in compliant browsers. Find out more about
+	<a href="alerts">alert and error styling in forms</a>.
 {% endcapture %}
 
 
 {% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
 {% capture whatsnew %}
-	<h4 class="body-font whatsnew-headline">What&rsquo;s new since v1.0.0</h4>
+	<h4 class="body-font whatsnew-headline">What&rsquo;s new since v1.0.2</h4>
 
 	This version changed:
 		<code class="classes">CSS/LESS</code>,
@@ -29,8 +30,12 @@
 
 	<ul class="lists">
 		<li>
-			BIG BOM brand change. All new colours, all new look, all new GUI. Brace yourselfs.
-			<a href="https://github.com/WestpacCXTeam/GUI-source/issues/157" target="_blank">#157</a>
+			We added a "block" class to the selects so they can stretch as wide as the input fields stretch. No stretch marks though.
+			(<a href="https://github.com/WestpacCXTeam/GUI-source/issues/186" target="_blank">#186</a>)
+		</li>
+		<li>
+			IE8 and IE9 got some visual love because we care, not because they deserved it.
+			(<a href="https://github.com/WestpacCXTeam/GUI-source/issues/193" target="_blank">#193</a>)
 		</li>
 	</ul>
 {{ whatsnew }}{% endcapture %}
@@ -38,72 +43,60 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-<ul class="lists">
-	<li>Styled bullet list - primary</li>
-	<li>Styled bullet list - primary</li>
-	<li>
-		Styled bullet list - primary
-
-		<ul class="lists">
-			<li>Styled bullet list - primary</li>
-			<li>Styled bullet list - primary</li>
-			<li>
-				Styled bullet list - primary
-
-				<ul class="lists">
-					<li>Styled bullet list - primary</li>
-					<li>Styled bullet list - primary</li>
-				</ul>
-			</li>
-			<li>Styled bullet list - primary</li>
-		</ul>
-	</li>
-	<li>Styled bullet list - primary</li>
-</ul>
+<input type="text" class="input-field" placeholder="I'm a default text input">
 
 <hr>
 
-<ul class="lists lists-hero">
-	<li>Styled bullet list - hero</li>
-	<li>Styled bullet list - hero</li>
-	<li>
-		Styled bullet list - hero
-
-		<ul class="lists lists-hero">
-			<li>Styled bullet list - primary</li>
-			<li>Styled bullet list - primary</li>
-			<li>Styled bullet list - primary</li>
-		</ul>
-	</li>
-	<li>Styled bullet list - hero</li>
-</ul>
+<input type="password" class="input-field" placeholder="I'm a default password input">
 
 <hr>
 
-<ul class="lists lists-neutral">
-	<li>Styled bullet list - neutral</li>
-	<li>Styled bullet list - neutral</li>
-	<li>
-		Styled bullet list - neutral
+<textarea class="input-field" placeholder="I'm a default textarea"></textarea>
 
-		<ul class="lists lists-neutral">
-			<li>Styled bullet list - neutral</li>
-			<li>Styled bullet list - neutral</li>
-			<li>Styled bullet list - neutral</li>
-		</ul>
-	</li>
-	<li>Styled bullet list - neutral</li>
-</ul>
+<hr>
+
+<div class="input-field-select-wrapper input-field-block">
+	<select class="input-field-select">
+		<option>Please select block</option>
+		<option>Option A</option>
+		<option>Option B</option>
+		<option>Option C</option>
+		<option>Option D</option>
+		<option>Option E</option>
+		<option>Option F</option>
+		<option>Option G</option>
+	</select>
+</div>
+
+<hr>
+
+<div class="input-field-select-wrapper">
+	<select class="input-field-select">
+		<option>Please select</option>
+		<option>Option A</option>
+		<option>Option B</option>
+		<option>Option C</option>
+		<option>Option D</option>
+		<option>Option E</option>
+		<option>Option F</option>
+		<option>Option G</option>
+	</select>
+</div>
 {% endcapture %}
 
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-<ul class="lists">
-	<li>Styled bullet list - primary</li>
-	<li>Styled bullet list - primary</li>
-	<li>Styled bullet list - primary</li>
-</ul>
+<input type="text" class="input-field" placeholder="YOUR PLACEHOLDER">
+
+<div class="input-field-select-wrapper">
+	<select class="input-field-select">
+		<option>Please select</option>
+		<option>YOUR Option</option>
+		<option>YOUR Option</option>
+		<option>YOUR Option</option>
+	</select>
+</div>
 {% endcapture %}
 
 
@@ -113,10 +106,7 @@
 
 	<ul>
 		<li>
-			<code class="classes">lists-hero</code>
-		</li>
-		<li>
-			<code class="classes">lists-neutral</code>
+			<code class="classes">input-field-block</code>
 		</li>
 	</ul>
 {% endcapture %}
@@ -124,7 +114,7 @@
 
 {% comment %} LESS TAB {% endcomment %}
 {% capture LESS %}
-	The main mixin is called: <code class="classes">_lists({{ page.brand }})</code>
+	The main mixin is called: <code class="classes">_input-fields({{ page.brand }})</code>
 {% endcapture %}
 
 
@@ -151,13 +141,14 @@
 
 {% comment %} TITLE {% endcomment %}
 {% capture title %}
-	Link list
+	Input size
 {% endcapture %}
 
 
 {% comment %} DESCRIPTION {% endcomment %}
 {% capture description %}
-	Use this style when the list items are clickable.
+	Set size using these classes to create larger or smaller form controls that match button sizes. There are only 2 sizes default and large. Use large for
+	mobile apps.
 {% endcapture %}
 
 
@@ -168,30 +159,28 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-<ul class="lists lists-linklist">
-	<li><a href="{{ page.title | handleize }}/#url">Styled link list</a></li>
-	<li><a href="{{ page.title | handleize }}/#url">Styled link list</a></li>
-	<li>
-		<a href="{{ page.title | handleize }}/#url">Styled link list</a>
+<input type="text" class="input-field input-field-lg" placeholder="I'm a LG text input">
 
-		<ul class="lists lists-linklist">
-			<li><a href="{{ page.title | handleize }}/#url">Styled link list</a></li>
-			<li><a href="{{ page.title | handleize }}/#url">Styled link list</a></li>
-			<li><a href="{{ page.title | handleize }}/#url">Styled link list</a></li>
-		</ul>
-	</li>
-	<li><a href="{{ page.title | handleize }}/#url">Styled link list</a></li>
-</ul>
+<hr>
+
+<div class="input-field-select-wrapper input-field-select-lg">
+	<select class="input-field-select">
+		<option>Select LG</option>
+		<option>Option A</option>
+		<option>Option B</option>
+		<option>Option C</option>
+		<option>Option D</option>
+		<option>Option E</option>
+		<option>Option F</option>
+		<option>Option G</option>
+	</select>
+</div>
 {% endcapture %}
 
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-<ul class="lists lists-linklist">
-	<li><a href="http://YOUR-URL.com.au">Styled link list</a></li>
-	<li><a href="http://YOUR-URL.com.au">Styled link list</a></li>
-	<li><a href="http://YOUR-URL.com.au">Styled link list</a></li>
-</ul>
+<input type="text" class="input-field input-field-lg" placeholder="YOUR PLACEHOLDER">
 {% endcapture %}
 
 
@@ -200,9 +189,15 @@
 	Modifier classes:
 
 	<ul>
+		{% comment %}<li>
+			<code class="classes">input-field-sm</code>
+		</li>{% endcomment %}
 		<li>
-			<code class="classes">lists-linklist</code>
+			<code class="classes">input-field-lg</code>
 		</li>
+		{% comment %}<li>
+			<code class="classes">input-field-xl</code>
+		</li>{% endcomment %}
 	</ul>
 {% endcapture %}
 
@@ -236,12 +231,13 @@
 
 {% comment %} TITLE {% endcomment %}
 {% capture title %}
-	Tick list
+	Disabled states
 {% endcapture %}
 
 
 {% comment %} DESCRIPTION {% endcomment %}
 {% capture description %}
+	Add the disabled attribute on an input to prevent user input and trigger a slightly different look.
 {% endcapture %}
 
 
@@ -252,42 +248,47 @@
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
 {% capture example %}
-<ul class="lists lists-tick">
-	<li>Styled tick list</li>
-	<li>Styled tick list</li>
-	<li>
-		Styled tick list
+<p>Individual fields</p>
 
-		<ul class="lists lists-tick">
-			<li>Styled tick list</li>
-			<li>Styled tick list</li>
-			<li>Styled tick list</li>
-		</ul>
-	</li>
-	<li>Styled tick list</li>
-</ul>
+<input type="text" class="input-field" placeholder="I'm a default text input" disabled>
+
+<div class="input-field-select-wrapper">
+	<select class="input-field-select" disabled>
+		<option>Please select</option>
+		<option>Option A</option>
+		<option>Option B</option>
+		<option>Option C</option>
+		<option>Option D</option>
+		<option>Option E</option>
+		<option>Option F</option>
+		<option>Option G</option>
+	</select>
+</div>
+
+<hr>
+<p>Field set</p>
+
+<form>
+	<fieldset disabled>
+		<input type="text" class="input-field" placeholder="I'm a default text input">
+		<input type="text" class="input-field" placeholder="I'm a default text input">
+	</fieldset>
+</form>
 {% endcapture %}
 
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-<ul class="lists lists-tick">
-	<li>Styled tick list</li>
-	<li>Styled tick list</li>
-	<li>Styled tick list</li>
-</ul>
+<input type="text" class="input-field" placeholder="I'm a default text input" disabled>
+
+<fieldset disabled>
+	<input type="text" class="input-field" placeholder="I'm a default text input">
+</fieldset>
 {% endcapture %}
 
 
 {% comment %} CSS TAB {% endcomment %}
 {% capture CSS %}
-	Modifier classes:
-
-	<ul>
-		<li>
-			<code class="classes">lists-tick</code>
-		</li>
-	</ul>
 {% endcapture %}
 
 

@@ -1,0 +1,173 @@
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Sizing
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	These icons are designed on a 16px grid. They must only be used at the following sizes: 16px, 32px and 64px. If the icons are not used at these sizes they
+	will appear blurred. Some of the icons should only be used at the small size. These are indicated below.
+</p>
+<p class="example-description text-info">
+	The smiley icon in this example is not included in the icon-base and will have to be added to the blend separately.
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+	<h4 class="body-font whatsnew-headline">What&rsquo;s new since v1.0.0</h4>
+
+	This version changed:
+		<code class="classes">CSS/LESS</code>,
+	but not:
+		<code class="classes">HTML</code>
+		<code class="classes">JS</code>
+
+	<ul class="lists">
+		<li>
+			Icons in different sizes were looking fuzzy and didn't scale correctly in IE8. Now they just look fuzzy but that's a story for another time.
+			(<a href="https://github.com/WestpacCXTeam/GUI-source/issues/192" target="_blank">#192</a>)
+		</li>
+	</ul>
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% capture example %}
+<span class="icon icon-size-sm icon-face-happy"></span>
+
+<hr>
+
+<span class="icon icon-size-md icon-face-happy"></span>
+
+<hr>
+
+<span class="icon icon-size-lg icon-face-happy"></span>
+{% endcapture %}
+
+
+{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% capture HTML %}
+<span class="icon icon-size-sm icon-face-happy"></span>
+<span class="icon icon-size-md icon-face-happy"></span>
+<span class="icon icon-size-lg icon-face-happy"></span>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+	Modifier classes:
+
+	<ul>
+		<li>
+			<code class="classes">icon-size-sm</code>
+		</li>
+		<li>
+			<code class="classes">icon-size-md</code>
+		</li>
+		<li>
+			<code class="classes">icon-size-lg</code>
+		</li>
+	</ul>
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	The main mixin is called: <code class="classes">_icons-base({{ page.brand }})</code>
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+
+
+
+
+
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Embedding
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	There are two ways to embed svg&rsquo;s; As a background image or via direct embedding. Both methods are valid however it&rsquo;s important to understand the
+	implications. For example, using the background method is not semantic or accessible whereas direct embedding is accessible as every SVG comes with a title
+	attribute that reflects its name.
+</p>
+<p class="example-description text-info">
+	The smiley icon in this example is not included in the icon-base and will have to be added to the blend separately.
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% capture example %}
+<span class="icon icon-size-sm icon-face-happy" data-grunticon-embed></span>
+
+<hr>
+
+<span class="icon icon-size-md icon-face-happy" data-grunticon-embed></span>
+
+<hr>
+
+<span class="icon icon-size-lg icon-face-happy" data-grunticon-embed></span>
+{% endcapture %}
+
+
+{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% capture HTML %}
+<span class="icon icon-size-sm icon-face-happy" data-grunticon-embed></span>
+<span class="icon icon-size-md icon-face-happy" data-grunticon-embed></span>
+<span class="icon icon-size-lg icon-face-happy" data-grunticon-embed></span>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+	{{ CSS }}
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	{{ LESS }}
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}

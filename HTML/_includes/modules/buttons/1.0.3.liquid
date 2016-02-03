@@ -1,0 +1,1664 @@
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Basic buttons
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	These are the available button styles you can use in your interface. These basic button styles form the base classes for all other button variations.
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+	<h4 class="body-font whatsnew-headline">What&rsquo;s new since v1.0.2</h4>
+
+	This version changed:
+		<code class="classes">CSS/LESS</code>,
+	but not:
+		<code class="classes">HTML</code>
+		<code class="classes">JS</code>
+
+	<ul class="lists">
+		<li>
+			The button-groups got disjointed when faced with the new system font for El Capitan. We loosened them up and stretched those tired legs and arms and now
+			all joints join where they should join.
+			(<a href="https://github.com/WestpacCXTeam/GUI-source/issues/191" target="_blank">#191</a>)
+		</li>
+		<li>
+			We integrated the new versions of checkboxes and radios into the dropdowns.
+		</li>
+		<li>
+			We noticed that icons in button groups were not tinting the way they should. This, too, has been laid to rest in bug-heaven.
+			(<a href="https://github.com/WestpacCXTeam/GUI-source/issues/185" target="_blank">#185</a>)
+		</li>
+	</ul>
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% capture example %}
+<button type="button" class="btn btn-primary">Primary button</button>
+<a href="{{ page.title | handleize }}/#url" class="btn btn-primary">Link button primary</a>
+
+<hr>
+
+<button type="button" class="btn btn-hero">Hero button</button>
+<a href="{{ page.title | handleize }}/#url" class="btn btn-hero">Link button hero</a>
+
+<hr>
+
+<button type="button" class="btn btn-neutral">Neutral button</button>
+<a href="{{ page.title | handleize }}/#url" class="btn btn-neutral">Link button neutral</a>
+
+<hr>
+
+<button type="button" class="btn btn-faint">Faint button</button>
+<a href="{{ page.title | handleize }}/#url" class="btn btn-faint">Link button faint</a>
+
+<hr>
+
+<button type="button" class="btn btn-link">Make a button look like a link</button>
+{% endcapture %}
+
+
+{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% capture HTML %}
+<button type="button" class="btn btn-primary">YOUR TITLE</button>
+
+<a href="http://YOUR-URL.com.au" class="btn btn-primary">YOUR TITLE</a>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+	Modifier classes:
+
+	<ul>
+		<li>
+			<code class="classes">btn-primary</code>
+		</li>
+		<li>
+			<code class="classes">btn-hero</code>
+		</li>
+		<li>
+			<code class="classes">btn-neutral</code>
+		</li>
+		<li>
+			<code class="classes">btn-faint</code>
+		</li>
+		<li>
+			<code class="classes">btn-link</code>
+		</li>
+	</ul>
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	The main mixin is called: <code class="classes">_buttons({{ page.brand }})</code>
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+	This module comes with the usual init method:
+
+	<ul>
+		<li>
+			<code class="classes">GUI.buttons.init();</code> after the page has been loaded.
+		</li>
+		<li>
+			<code class="classes">GUI.buttons.render();</code> for dynamically added elements after page load.
+		</li>
+	</ul>
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+
+
+
+
+
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Soft buttons
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	Soft buttons place less visual emphasis on the button. Soft buttons are useful when grouping buttons with differing importance.
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% capture example %}
+<button type="button" class="btn btn-primary btn-soft">Primary button</button>
+
+<hr>
+
+<button type="button" class="btn btn-hero btn-soft">Hero button</button>
+
+<hr>
+
+<button type="button" class="btn btn-neutral btn-soft">Neutral button</button>
+
+<hr>
+
+<button type="button" class="btn btn-faint btn-soft">Faint button</button>
+{% endcapture %}
+
+
+{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% capture HTML %}
+<button type="button" class="btn btn-primary btn-soft">Primary button</button>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+	Modifier class:
+
+	<ul>
+		<li>
+			<code class="classes">btn-soft</code>
+		</li>
+	</ul>
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	{{ LESS }}
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+	{{ JS }}
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+
+
+
+
+
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Disabled buttons
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	Make buttons look unclickable by fading them back 50%.
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% capture example %}
+<button type="button" class="btn btn-primary" disabled>Primary button</button>
+
+<hr>
+
+<button type="button" class="btn btn-hero" disabled>Hero button</button>
+
+<hr>
+
+<button type="button" class="btn btn-neutral" disabled>Neutral button</button>
+
+<hr>
+
+<button type="button" class="btn btn-faint" disabled>Faint button</button>
+
+<hr>
+
+<button type="button" class="btn btn-primary btn-soft" disabled>Primary button</button>
+
+<hr>
+
+<button type="button" class="btn btn-hero btn-soft" disabled>Hero button</button>
+
+<hr>
+
+<button type="button" class="btn btn-neutral btn-soft" disabled>Neutral button</button>
+
+<hr>
+
+<button type="button" class="btn btn-faint btn-soft" disabled>Faint button</button>
+{% endcapture %}
+
+
+{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% capture HTML %}
+<button type="button" class="btn btn-primary" disabled>Primary button</button>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	{{ LESS }}
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+	{{ JS }}
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+
+
+
+
+
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Buttons with icons
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	Icons in buttons add clarity to the intention of the button action. The icon should inherit the button text colour. Read more about
+	<a href="icons">embedding icons</a>.
+</p>
+<p class="example-description text-info">
+	The icons in this example are not included and will have to be added to the Blend separately.
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% capture example %}
+<button type="button" class="btn btn-primary">
+	<span class="btn-text">Icon right</span>
+	<span class="btn-icon icon icon-size-sm icon-print" data-grunticon-embed></span>
+</button>
+
+<hr>
+
+<button type="button" class="btn btn-primary btn-soft">
+	<span class="btn-text">Icon right</span>
+	<span class="btn-icon icon icon-size-sm icon-print" data-grunticon-embed></span>
+</button>
+
+<hr>
+
+<button type="button" class="btn btn-hero">
+	<span class="btn-icon btn-icon-left icon icon-size-sm icon-print" data-grunticon-embed></span>
+	<span class="btn-text">Icon left</span>
+</button>
+
+<hr>
+
+<button type="button" class="btn btn-hero btn-soft">
+	<span class="btn-icon btn-icon-left icon icon-size-sm icon-print" data-grunticon-embed></span>
+	<span class="btn-text">Icon left</span>
+</button>
+
+<hr>
+
+<button type="button" class="btn btn-neutral">
+	<span class="btn-text">Icon right</span>
+	<span class="btn-icon icon icon-size-sm icon-print" data-grunticon-embed></span>
+</button>
+
+<hr>
+
+<button type="button" class="btn btn-neutral btn-soft">
+	<span class="btn-text">Icon right</span>
+	<span class="btn-icon icon icon-size-sm icon-print" data-grunticon-embed></span>
+</button>
+
+<hr>
+
+<button type="button" class="btn btn-faint">
+	<span class="btn-icon btn-icon-left icon icon-size-sm icon-print" data-grunticon-embed></span>
+	<span class="btn-text">Icon left</span>
+</button>
+
+<hr>
+
+<button type="button" class="btn btn-faint btn-soft">
+	<span class="btn-icon btn-icon-left icon icon-size-sm icon-print" data-grunticon-embed></span>
+	<span class="btn-text">Icon left</span>
+</button>
+{% endcapture %}
+
+
+{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% capture HTML %}
+<button type="button" class="btn btn-primary">
+	<span class="btn-text">YOUR TITLE</span>
+	<span class="btn-icon icon icon-size-sm icon-YOUR-ICON-CLASS" data-grunticon-embed></span>
+</button>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	{{ LESS }}
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+	{{ JS }}
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+
+
+
+
+
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Buttons sizes
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	Please do not use any other button heights than those shown here. Button widths can be fixed or span columns.
+	<ul class="lists">
+		<li>XL = 48px</li>
+		<li>LG = 42px</li>
+		<li>MD = 36px</li>
+		<li>SM = 30px</li>
+	</ul>
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% capture example %}
+<button type="button" class="btn btn-primary btn-xl">Primary XL</button>
+<button type="button" class="btn btn-primary btn-lg">Primary LG</button>
+<button type="button" class="btn btn-primary">Primary default</button>
+<button type="button" class="btn btn-primary btn-sm">Primary SM</button>
+
+<hr>
+
+<button type="button" class="btn btn-hero btn-xl">Hero XL</button>
+<button type="button" class="btn btn-hero btn-lg">Hero LG</button>
+<button type="button" class="btn btn-hero">Hero default</button>
+<button type="button" class="btn btn-hero btn-sm">Hero SM</button>
+
+<hr>
+
+<button type="button" class="btn btn-neutral btn-xl">Neutral XL</button>
+<button type="button" class="btn btn-neutral btn-lg">Neutral LG</button>
+<button type="button" class="btn btn-neutral">Neutral default</button>
+<button type="button" class="btn btn-neutral btn-sm">Neutral SM</button>
+
+<hr>
+
+<button type="button" class="btn btn-faint btn-xl">Faint XL</button>
+<button type="button" class="btn btn-faint btn-lg">Faint LG</button>
+<button type="button" class="btn btn-faint">Faint default</button>
+<button type="button" class="btn btn-faint btn-sm">Faint SM</button>
+{% endcapture %}
+
+
+{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% capture HTML %}
+<button type="button" class="btn btn-primary btn-lg">YOUR TITLE</button>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+	Modifier classes:
+
+	<ul>
+		<li>
+			<code class="classes">btn-sm</code>
+		</li>
+		<li>
+			<code class="classes">btn-lg</code>
+		</li>
+		<li>
+			<code class="classes">btn-xl</code>
+		</li>
+	</ul>
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	{{ LESS }}
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+	{{ JS }}
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+
+
+
+
+
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Buttons responsive sizes
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	You can resize the buttons on our breakpoints. All you have to do is add the breakpoint to your size class. E.g. <code class="classes">btn-sm</code>
+	becomes <code class="classes">btn-sm-lg</code> for a button that will change to a small button on the large breakpoint. Breakpoints are the same as we use in
+	<a href="layout/#_grid">the grid</a>.
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% capture example %}
+<button type="button" class="btn btn-primary btn-xl-xs btn-sm-lg">Large button on small only</button>
+<hr>
+<button type="button" class="btn btn-primary btn-sm-xs btn-xl-lg">Extra large on lage only</button>
+{% endcapture %}
+
+
+{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% capture HTML %}
+<button type="button" class="btn btn-primary btn-xl-sm">YOUR TITLE</button>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+	Modifier classes:
+
+	<ul>
+		<li>
+			<code class="classes">btn-sm-xs</code>
+		</li>
+		<li>
+			<code class="classes">btn-md-xs</code>
+		</li>
+		<li>
+			<code class="classes">btn-lg-xs</code>
+		</li>
+		<li>
+			<code class="classes">btn-xl-xs</code>
+		</li>
+
+		<li>
+			<code class="classes">btn-sm-sm</code>
+		</li>
+		<li>
+			<code class="classes">btn-md-sm</code>
+		</li>
+		<li>
+			<code class="classes">btn-lg-sm</code>
+		</li>
+		<li>
+			<code class="classes">btn-xl-sm</code>
+		</li>
+
+		<li>
+			<code class="classes">btn-sm-md</code>
+		</li>
+		<li>
+			<code class="classes">btn-md-md</code>
+		</li>
+		<li>
+			<code class="classes">btn-lg-md</code>
+		</li>
+		<li>
+			<code class="classes">btn-xl-md</code>
+		</li>
+
+		<li>
+			<code class="classes">btn-sm-lg</code>
+		</li>
+		<li>
+			<code class="classes">btn-md-lg</code>
+		</li>
+		<li>
+			<code class="classes">btn-lg-lg</code>
+		</li>
+		<li>
+			<code class="classes">btn-xl-lg</code>
+		</li>
+	</ul>
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	{{ LESS }}
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+	{{ JS }}
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+
+
+
+
+
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Button groups toggle
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	Group a series of buttons together on a single line to form button group. Button groups inherit Primary, Hero and Neutral button styles.
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% capture example %}
+<p>Primary button group</p>
+
+<div class="btn-group">
+
+	<label class="btn-group-item">
+		<input class="btn-group-input" type="radio" name="options">
+		<span class="btn-group-text btn btn-primary">Left</span>
+	</label>
+
+	<label class="btn-group-item">
+		<input class="btn-group-input" type="radio" name="options">
+		<span class="btn-group-text btn btn-primary">Middle</span>
+	</label>
+
+	<label class="btn-group-item">
+		<input class="btn-group-input" type="radio" name="options">
+		<span class="btn-group-text btn btn-primary">Right</span>
+	</label>
+
+</div>
+
+
+<hr>
+<p>Hero button group</p>
+
+<div class="btn-group">
+
+	<label class="btn-group-item">
+		<input class="btn-group-input" type="radio" name="options2">
+		<span class="btn-group-text btn btn-hero">Left</span>
+	</label>
+
+	<label class="btn-group-item">
+		<input class="btn-group-input" type="radio" name="options2">
+		<span class="btn-group-text btn btn-hero">Middle</span>
+	</label>
+
+	<label class="btn-group-item">
+		<input class="btn-group-input" type="radio" name="options2">
+		<span class="btn-group-text btn btn-hero">Right</span>
+	</label>
+
+</div>
+
+
+<hr>
+<p>Neutral button group</p>
+
+<div class="btn-group">
+
+	<label class="btn-group-item">
+		<input class="btn-group-input" type="radio" name="options3">
+		<span class="btn-group-text btn btn-neutral">Left</span>
+	</label>
+
+	<label class="btn-group-item">
+		<input class="btn-group-input" type="radio" name="options3">
+		<span class="btn-group-text btn btn-neutral">Middle</span>
+	</label>
+
+	<label class="btn-group-item">
+		<input class="btn-group-input" type="radio" name="options3">
+		<span class="btn-group-text btn btn-neutral">Right</span>
+	</label>
+
+</div>
+
+
+<hr>
+<p>Faint button group</p>
+
+<div class="btn-group">
+
+	<label class="btn-group-item">
+		<input class="btn-group-input" type="radio" name="options4">
+		<span class="btn-group-text btn btn-faint">Left</span>
+	</label>
+
+	<label class="btn-group-item">
+		<input class="btn-group-input" type="radio" name="options4">
+		<span class="btn-group-text btn btn-faint">Middle</span>
+	</label>
+
+	<label class="btn-group-item">
+		<input class="btn-group-input" type="radio" name="options4">
+		<span class="btn-group-text btn btn-faint">Right</span>
+	</label>
+
+</div>
+{% endcapture %}
+
+
+{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% capture HTML %}
+<div class="btn-group">
+
+	<label class="btn-group-item">
+		<input class="btn-group-input" type="radio" name="options">
+		<span class="btn-group-text btn btn-primary">YOU OPTION</span>
+	</label>
+
+	<label class="btn-group-item">
+		<input class="btn-group-input" type="radio" name="options">
+		<span class="btn-group-text btn btn-primary">YOU OPTION</span>
+	</label>
+
+</div>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	{{ LESS }}
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+	{{ JS }}
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+
+
+
+
+
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Button groups sizing
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	Please do not use any other button heights than those shown here. Button group widths can be fixed or span columns.
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% capture example %}
+<p>Button group XL</p>
+<div class="btn-group">
+
+	<label class="btn-group-item">
+		<input class="btn-group-input" type="radio" name="options1">
+		<span class="btn-group-text btn btn-hero btn-xl">Left</span>
+	</label>
+
+	<label class="btn-group-item">
+		<input class="btn-group-input" type="radio" name="options1">
+		<span class="btn-group-text btn btn-hero btn-xl">Right</span>
+	</label>
+
+</div>
+
+<hr>
+<p>Button group LG</p>
+
+<div class="btn-group">
+
+	<label class="btn-group-item">
+		<input class="btn-group-input" type="radio" name="options2">
+		<span class="btn-group-text btn btn-hero btn-lg">Left</span>
+	</label>
+
+	<label class="btn-group-item">
+		<input class="btn-group-input" type="radio" name="options2">
+		<span class="btn-group-text btn btn-hero btn-lg">Right</span>
+	</label>
+
+</div>
+
+<hr>
+<p>Button group default</p>
+
+<div class="btn-group">
+
+	<label class="btn-group-item">
+		<input class="btn-group-input" type="radio" name="options3">
+		<span class="btn-group-text btn btn-hero">Left</span>
+	</label>
+
+	<label class="btn-group-item">
+		<input class="btn-group-input" type="radio" name="options3">
+		<span class="btn-group-text btn btn-hero">Right</span>
+	</label>
+
+</div>
+
+<hr>
+<p>Button group SM</p>
+
+<div class="btn-group">
+
+	<label class="btn-group-item">
+		<input class="btn-group-input" type="radio" name="options4">
+		<span class="btn-group-text btn btn-hero btn-sm">Left</span>
+	</label>
+
+	<label class="btn-group-item">
+		<input class="btn-group-input" type="radio" name="options4">
+		<span class="btn-group-text btn btn-hero btn-sm">Right</span>
+	</label>
+
+</div>
+{% endcapture %}
+
+
+{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% capture HTML %}
+<div class="btn-group">
+
+	<label class="btn-group-item">
+		<input class="btn-group-input" type="radio" name="options1">
+		<span class="btn-group-text btn btn-hero btn-lg">YOUR OPTION</span>
+	</label>
+
+	<label class="btn-group-item">
+		<input class="btn-group-input" type="radio" name="options1">
+		<span class="btn-group-text btn btn-hero btn-lg">YOUR OPTION</span>
+	</label>
+
+</div>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+	Modifier classes:
+
+	<ul>
+		<li>
+			<code class="classes">btn-sm</code>
+		</li>
+		<li>
+			<code class="classes">btn-lg</code>
+		</li>
+		<li>
+			<code class="classes">btn-xl</code>
+		</li>
+	</ul>
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	{{ LESS }}
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+	{{ JS }}
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+
+
+
+
+
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Dropdown buttons
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	Any button can trigger a dropdown menu.
+	Dropdown buttons inherit Primary, Hero Neutral and Faint button styles including button sizes. Inside the dropdown menu you can use either links or buttons
+	depending on what you want to do.
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% capture example %}
+<div class="btn-dropdown js-dropdown" aria-haspopup="true">
+	<button type="button" class="btn btn-primary js-button-dropdown" aria-label="Primary with buttons. Hit enter to open dropdown">
+		<span class="btn-dropdown-caret">Primary with buttons</span>
+	</button>
+	<ul class="dropdown-menu js-button-dropdownbody" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
+		<li class="dropdown-menu-headline">Headline</li>
+		<li><button class="btn btn-link">Action 1</button></li>
+		<li><button class="btn btn-link">Another action</button></li>
+		<li class="dropdown-menu-headline dropdown-menu-divider">Headline 2</li>
+		<li><button class="btn btn-link">Action 3</button></li>
+		<li><button class="btn btn-link">Last action</button></li>
+	</ul>
+</div>
+
+<hr>
+
+<div class="btn-dropdown js-dropdown" aria-haspopup="true">
+	<button type="button" class="btn btn-hero js-button-dropdown" aria-label="Hero with buttons. Hit enter to open dropdown">
+		<span class="btn-dropdown-caret">Hero with buttons</span>
+	</button>
+	<ul class="dropdown-menu js-button-dropdownbody" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
+		<li class="dropdown-menu-headline">Headline</li>
+		<li><button class="btn btn-link">Action 1</button></li>
+		<li><button class="btn btn-link">Another action</button></li>
+		<li class="dropdown-menu-headline dropdown-menu-divider">Headline 2</li>
+		<li><button class="btn btn-link">Action 3</button></li>
+		<li><button class="btn btn-link">Last action</button></li>
+	</ul>
+</div>
+
+<hr>
+
+<div class="btn-dropdown js-dropdown" aria-haspopup="true">
+	<button type="button" class="btn btn-neutral js-button-dropdown" aria-label="Neutral with links. Hit enter to open dropdown">
+		<span class="btn-dropdown-caret">Neutral with links</span>
+	</button>
+	<ul class="dropdown-menu js-button-dropdownbody" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
+		<li class="dropdown-menu-headline">Headline</li>
+		<li><a href="{{ page.title | handleize }}/#url">Action 1</a></li>
+		<li><a href="{{ page.title | handleize }}/#url">Another action</a></li>
+		<li class="dropdown-menu-headline dropdown-menu-divider">Headline 2</li>
+		<li><a href="{{ page.title | handleize }}/#url">Action 3</a></li>
+		<li><a href="{{ page.title | handleize }}/#url">Last action</a></li>
+	</ul>
+</div>
+
+<hr>
+
+<div class="btn-dropdown js-dropdown" aria-haspopup="true">
+	<button type="button" class="btn btn-faint js-button-dropdown" aria-label="Faint with links. Hit enter to open dropdown">
+		<span class="btn-dropdown-caret">Faint with links</span>
+	</button>
+	<ul class="dropdown-menu js-button-dropdownbody" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
+		<li class="dropdown-menu-headline">Headline</li>
+		<li><a href="{{ page.title | handleize }}/#url">Action 1</a></li>
+		<li><a href="{{ page.title | handleize }}/#url">Another action</a></li>
+		<li class="dropdown-menu-headline dropdown-menu-divider">Headline 2</li>
+		<li><a href="{{ page.title | handleize }}/#url">Action 3</a></li>
+		<li><a href="{{ page.title | handleize }}/#url">Last action</a></li>
+	</ul>
+</div>
+{% endcapture %}
+
+
+{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% capture HTML %}
+<div class="btn-dropdown js-dropdown" aria-haspopup="true">
+	<button type="button" class="btn btn-hero js-button-dropdown" aria-label="YOUR TITLE. Hit enter to open dropdown">
+		<span class="btn-dropdown-caret">YOUR TITLE</span>
+	</button>
+	<ul class="dropdown-menu js-button-dropdownbody" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
+		<li class="dropdown-menu-headline">YOUR HEADLINE</li>
+		<li><button class="btn btn-link">YOUR BUTTON TITLE</button></li>
+		<li><button class="btn btn-link">YOUR BUTTON TITLE</button></li>
+		<li class="dropdown-menu-headline">YOUR dropdown-menu-divider HEADLINE 2</li>
+		<li><button class="btn btn-link">YOUR BUTTON TITLE</button></li>
+		<li><button class="btn btn-link">YOUR BUTTON TITLE</button></li>
+	</ul>
+</div>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	{{ LESS }}
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+	{{ JS }}
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+
+
+
+
+
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Dropdown sizing
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	The dropdown menu can be sized to account for its content.
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% capture example %}
+<div class="btn-dropdown js-dropdown" aria-haspopup="true">
+	<button type="button" class="btn btn-hero js-button-dropdown" aria-label="Small dropdown. Hit enter to open dropdown">
+		<span class="btn-dropdown-caret">Small dropdown</span>
+	</button>
+	<ul class="dropdown-menu js-button-dropdownbody dropdown-menu-sm" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
+		<li><button class="btn btn-link">Action 1</button></li>
+		<li><button class="btn btn-link">Another action</button></li>
+		<li><button class="btn btn-link">Action 3</button></li>
+		<li><button class="btn btn-link">Last action</button></li>
+	</ul>
+</div>
+
+<hr>
+
+<div class="btn-dropdown js-dropdown" aria-haspopup="true">
+	<button type="button" class="btn btn-hero js-button-dropdown" aria-label="Default dropdown. Hit enter to open dropdown">
+		<span class="btn-dropdown-caret">Default dropdown</span>
+	</button>
+	<ul class="dropdown-menu js-button-dropdownbody" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
+		<li><button class="btn btn-link">Action 1</button></li>
+		<li><button class="btn btn-link">Another action</button></li>
+		<li><button class="btn btn-link">Action 3</button></li>
+		<li><button class="btn btn-link">Last action</button></li>
+	</ul>
+</div>
+
+<hr>
+
+<div class="btn-dropdown js-dropdown" aria-haspopup="true">
+	<button type="button" class="btn btn-hero js-button-dropdown" aria-label="Large dropdown. Hit enter to open dropdown">
+		<span class="btn-dropdown-caret">Large dropdown</span>
+	</button>
+	<ul class="dropdown-menu js-button-dropdownbody dropdown-menu-lg" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
+		<li><button class="btn btn-link">Action 1</button></li>
+		<li><button class="btn btn-link">Another action</button></li>
+		<li><button class="btn btn-link">Action 3</button></li>
+		<li><button class="btn btn-link">Last action</button></li>
+	</ul>
+</div>
+{% endcapture %}
+
+
+{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% capture HTML %}
+<div class="btn-dropdown js-dropdown" aria-haspopup="true">
+	<button type="button" class="btn btn-hero js-button-dropdown" aria-label="YOUR TITLE. Hit enter to open dropdown">
+		<span class="btn-dropdown-caret">YOUR TITLE</span>
+	</button>
+	<ul class="dropdown-menu js-button-dropdownbody dropdown-menu-sm" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
+		<li><button class="btn btn-link">YOUR BUTTON TITLE</button></li>
+		<li><button class="btn btn-link">YOUR BUTTON TITLE</button></li>
+		<li><button class="btn btn-link">YOUR BUTTON TITLE</button></li>
+		<li><button class="btn btn-link">YOUR BUTTON TITLE</button></li>
+	</ul>
+</div>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+	Modifier class:
+
+	<ul>
+		<li>
+			<code class="classes">dropdown-menu-sm</code>
+		</li>
+		<li>
+			<code class="classes">dropdown-menu-lg</code>
+		</li>
+	</ul>
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	{{ LESS }}
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+	{{ JS }}
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+
+
+
+
+
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Dropdown buttons with radio buttons
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	In more complex cases you may require to use radio buttons inside your dropdown menu for e.g. for settings or filter options.
+</p>
+<p class="example-description text-info">
+	The radio buttons in this example are not included and will have to be added to the Blend separately.
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% capture example %}
+<div class="btn-dropdown js-dropdown" aria-haspopup="true">
+	<button type="button" class="btn btn-hero js-button-dropdown" aria-label="Settings. Hit enter to open dropdown">
+		<span class="btn-dropdown-caret">Settings</span>
+	</button>
+	<ul class="dropdown-menu js-button-dropdownbody dropdown-menu-lg" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
+		<li>
+			<div class="btn-dropdown-setting">
+				<span class="btn-dropdown-text" id="label1{{ version[0] | handleize }}">Setting 1</span>
+
+				<div class="btn-group">
+
+					<label class="btn-group-item" aria-describedby="label1{{ version[0] | handleize }}">
+						<input class="btn-group-input" type="radio" name="options5">
+						<span class="btn-group-text btn btn-hero btn-sm">Yes</span>
+					</label>
+
+					<label class="btn-group-item" aria-describedby="label1{{ version[0] | handleize }}">
+						<input class="btn-group-input" type="radio" name="options5">
+						<span class="btn-group-text btn btn-hero btn-sm">No</span>
+					</label>
+
+				</div>
+			</div>
+
+		</li>
+		<li>
+			<div class="btn-dropdown-setting">
+				<span class="btn-dropdown-text" id="label2{{ version[0] | handleize }}">Setting 2</span>
+
+				<div class="btn-group">
+
+					<label class="btn-group-item" aria-describedby="label2{{ version[0] | handleize }}">
+						<input class="btn-group-input" type="radio" name="options6">
+						<span class="btn-group-text btn btn-hero btn-sm">Yes</span>
+					</label>
+
+					<label class="btn-group-item" aria-describedby="label2{{ version[0] | handleize }}">
+						<input class="btn-group-input" type="radio" name="options6">
+						<span class="btn-group-text btn btn-hero btn-sm">No</span>
+					</label>
+
+				</div>
+			</div>
+
+		</li>
+		<li>
+			<div class="btn-dropdown-setting">
+				<span class="btn-dropdown-text" id="label3{{ version[0] | handleize }}">Setting 3</span>
+
+				<div class="btn-group">
+
+					<label class="btn-group-item" aria-describedby="label3{{ version[0] | handleize }}">
+						<input class="btn-group-input" type="radio" name="options7">
+						<span class="btn-group-text btn btn-hero btn-sm">Yes</span>
+					</label>
+
+					<label class="btn-group-item" aria-describedby="label3{{ version[0] | handleize }}">
+						<input class="btn-group-input" type="radio" name="options7">
+						<span class="btn-group-text btn btn-hero btn-sm">No</span>
+					</label>
+
+				</div>
+			</div>
+
+		</li>
+		<li>
+			<div class="btn-dropdown-setting">
+				<span class="btn-dropdown-text" id="label4{{ version[0] | handleize }}">Setting 4</span>
+
+				<div class="btn-group">
+
+					<label class="btn-group-item" aria-describedby="label4{{ version[0] | handleize }}">
+						<input class="btn-group-input" type="radio" name="options8">
+						<span class="btn-group-text btn btn-hero btn-sm">Yes</span>
+					</label>
+
+					<label class="btn-group-item" aria-describedby="label4{{ version[0] | handleize }}">
+						<input class="btn-group-input" type="radio" name="options8">
+						<span class="btn-group-text btn btn-hero btn-sm">No</span>
+					</label>
+
+				</div>
+			</div>
+
+		</li>
+	</ul>
+</div>
+{% endcapture %}
+
+
+{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% capture HTML %}
+<div class="btn-dropdown js-dropdown" aria-haspopup="true">
+	<button type="button" class="btn btn-hero js-button-dropdown" aria-label="YOUR TITLE. Hit enter to open dropdown">
+		<span class="btn-dropdown-caret">YOUR TITLE</span>
+	</button>
+	<ul class="dropdown-menu js-button-dropdownbody dropdown-menu-lg" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
+		<li>
+			<div class="btn-dropdown-setting">
+				<span class="btn-dropdown-text" id="label5{{ version[0] | handleize }}">YOUR RADIO BUTTON TITLE</span>
+
+				<div class="btn-group">
+
+					<label class="btn-group-item" aria-describedby="label5{{ version[0] | handleize }}">
+						<input class="btn-group-input" type="radio" name="options1">
+						<span class="btn-group-text btn btn-hero btn-sm">Yes</span>
+					</label>
+
+					<label class="btn-group-item" aria-describedby="label5{{ version[0] | handleize }}">
+						<input class="btn-group-input" type="radio" name="options1">
+						<span class="btn-group-text btn btn-hero btn-sm">No</span>
+					</label>
+
+				</div>
+			</div>
+
+		</li>
+		<li>
+			<div class="btn-dropdown-setting">
+				<span class="btn-dropdown-text" id="label6{{ version[0] | handleize }}">YOUR RADIO BUTTON TITLE</span>
+
+				<div class="btn-group">
+
+					<label class="btn-group-item" aria-describedby="label6{{ version[0] | handleize }}">
+						<input class="btn-group-input" type="radio" name="options2">
+						<span class="btn-group-text btn btn-hero btn-sm">Yes</span>
+					</label>
+
+					<label class="btn-group-item" aria-describedby="label6{{ version[0] | handleize }}">
+						<input class="btn-group-input" type="radio" name="options2">
+						<span class="btn-group-text btn btn-hero btn-sm">No</span>
+					</label>
+
+				</div>
+			</div>
+
+		</li>
+		<li>
+			<div class="btn-dropdown-setting">
+				<span class="btn-dropdown-text" id="label4">YOUR RADIO BUTTON TITLE</span>
+
+				<div class="btn-group">
+
+					<label class="btn-group-item" aria-describedby="label4">
+						<input class="btn-group-input" type="radio" name="options3">
+						<span class="btn-group-text btn btn-hero btn-sm">Yes</span>
+					</label>
+
+					<label class="btn-group-item" aria-describedby="label4">
+						<input class="btn-group-input" type="radio" name="options3">
+						<span class="btn-group-text btn btn-hero btn-sm">No</span>
+					</label>
+
+				</div>
+			</div>
+
+		</li>
+	</ul>
+</div>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	{{ LESS }}
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+	{{ JS }}
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+
+
+
+
+
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Dropdown buttons with checkboxes
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	Another example for complex dropdowns could be checkboxes.
+</p>
+<p class="example-description text-info">
+	The checkboxes in this example are not included and will have to be added to the Blend separately.
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% capture example %}
+<div class="btn-dropdown js-dropdown" aria-haspopup="true">
+	<button type="button" class="btn btn-faint js-button-dropdown" aria-label="Settings. Hit enter to open dropdown">
+		<span class="btn-dropdown-caret">Settings</span>
+	</button>
+	<ul class="dropdown-menu js-button-dropdownbody" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
+		<li>
+			<label class="checkbox checkbox-flip">
+				<input class="checkbox-input" type="checkbox" name="option2">
+				<span class="checkbox-text">Setting 1</span>
+			</label>
+		</li>
+		<li>
+			<label class="checkbox checkbox-flip">
+				<input class="checkbox-input" type="checkbox" name="option2">
+				<span class="checkbox-text">Setting 2</span>
+			</label>
+		</li>
+		<li>
+			<label class="checkbox checkbox-flip">
+				<input class="checkbox-input" type="checkbox" name="option2">
+				<span class="checkbox-text">Setting 3</span>
+			</label>
+		</li>
+		<li>
+			<label class="checkbox checkbox-flip">
+				<input class="checkbox-input" type="checkbox" name="option2">
+				<span class="checkbox-text">Setting 4</span>
+			</label>
+		</li>
+	</ul>
+</div>
+{% endcapture %}
+
+
+{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% capture HTML %}
+<div class="btn-dropdown js-dropdown" aria-haspopup="true">
+	<button type="button" class="btn btn-faint js-button-dropdown" aria-label="YOUR TITLE. Hit enter to open dropdown">
+		<span class="btn-dropdown-caret">YOUR TITLE</span>
+	</button>
+	<ul class="dropdown-menu js-button-dropdownbody" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
+		<li>
+			<label class="checkbox checkbox-flip">
+				<input class="checkbox-input" type="checkbox" name="option">
+				<span class="checkbox-text">YOUR CHECKBOX TITLE</span>
+			</label>
+		</li>
+		<li>
+			<label class="checkbox checkbox-flip">
+				<input class="checkbox-input" type="checkbox" name="option">
+				<span class="checkbox-text">YOUR CHECKBOX TITLE</span>
+			</label>
+		</li>
+		<li>
+			<label class="checkbox checkbox-flip">
+				<input class="checkbox-input" type="checkbox" name="option">
+				<span class="checkbox-text">YOUR CHECKBOX TITLE</span>
+			</label>
+		</li>
+		<li>
+			<label class="checkbox checkbox-flip">
+				<input class="checkbox-input" type="checkbox" name="option">
+				<span class="checkbox-text">YOUR CHECKBOX TITLE</span>
+			</label>
+		</li>
+	</ul>
+</div>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	{{ LESS }}
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+	{{ JS }}
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+
+
+
+
+
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Block buttons
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	To span the full width of the parent. Primarily used in XS view.
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% capture example %}
+<button type="button" class="btn btn-hero btn-lg btn-block">Block level button</button>
+
+<hr>
+
+<div class="btn-group btn-block">
+	<label class="btn-group-item">
+		<input class="btn-group-input" type="radio" name="options">
+		<span class="btn-group-text btn btn-hero">Option 1</span>
+	</label>
+
+	<label class="btn-group-item">
+		<input class="btn-group-input" type="radio" name="options">
+		<span class="btn-group-text btn btn-hero">Option 2</span>
+	</label>
+
+	<label class="btn-group-item">
+		<input class="btn-group-input" type="radio" name="options">
+		<span class="btn-group-text btn btn-hero">Option 3</span>
+	</label>
+
+	<label class="btn-group-item">
+		<input class="btn-group-input" type="radio" name="options">
+		<span class="btn-group-text btn btn-hero">Option 4</span>
+	</label>
+</div>
+
+<hr>
+
+<div class="btn-dropdown js-dropdown btn-block" aria-haspopup="true">
+	<button type="button" class="btn btn-hero btn-soft js-button-dropdown" aria-label="YOUR TITLE. Hit enter to open dropdown">
+		<span class="btn-dropdown-caret">Show me all the actions</span>
+	</button>
+	<ul class="dropdown-menu js-button-dropdownbody dropdown-menu-sm" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
+		<li><button class="btn btn-link">Action 1</button></li>
+		<li><button class="btn btn-link">Another action</button></li>
+		<li><button class="btn btn-link">Action 3</button></li>
+		<li><button class="btn btn-link">Last action</button></li>
+	</ul>
+</div>
+{% endcapture %}
+
+
+{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% capture HTML %}
+<button type="button" class="btn btn-hero btn-lg btn-block">YOUR TITLE</button>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+	Modifier class:
+
+	<ul>
+		<li>
+			<code class="classes">btn-block</code>
+		</li>
+	</ul>
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	{{ LESS }}
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+	{{ JS }}
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
