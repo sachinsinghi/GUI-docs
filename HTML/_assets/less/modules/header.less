@@ -89,8 +89,9 @@
 	left: 0;
 	right: 0;
 	z-index: 80;
-	transition: height 0s, padding 0.4s, box-shadow 0.2s;
+	transition: height 0s, padding 0.4s;
 
+	//positioning inside
 	@media (min-width: @screen-sm) {
 		height: 294px;
 		position: absolute;
@@ -100,11 +101,44 @@
 		padding-left: 240px;
 	}
 
+	//shadow on scroll
+	.has-scroll & {
+		box-shadow: 0 2px 5px rgba(0, 0, 0, .4);
+
+		@media (min-width: @screen-sm) {
+			box-shadow: none;
+
+			.is-subpage& {
+				box-shadow: 0 2px 5px rgba(0, 0, 0, .4);
+			}
+		}
+	}
+
+	.has-halfScrolledContent & {
+		box-shadow: 0 2px 5px rgba(0, 0, 0, .25);
+
+		@media (min-width: @screen-sm) {
+			box-shadow: none;
+		}
+	}
+
+	.has-scrolledContent & {
+		@media (min-width: @screen-sm) {
+			box-shadow: 0 2px 5px rgba(0, 0, 0, .4);
+		}
+	}
+
+	//height
 	.is-subpage & {
 		position: fixed;
 		height: 66px;
+
+		@media (min-width: @screen-sm) {
+			height: 132px;
+		}
 	}
 
+	//insides
 	.headerline {
 		height: 66px;
 		overflow: hidden;
@@ -129,7 +163,7 @@
 		padding: 24px;
 		overflow: hidden;
 		display: none;
-		transition: margin 0.2s;
+		transition: margin 0.2s ease, box-shadow 0.2s ease;
 
 		@media (min-width: @screen-sm) {
 			display: block;
@@ -190,20 +224,6 @@
 				display: none;
 			}
 		}
-
-		// .blenderline-item-size {
-		// 	animation-delay: 0.4s;
-		// }
-
-
-	}
-
-	.has-halfScrolledContent & {
-		box-shadow: 0 2px 5px rgba(0, 0, 0, .25);
-
-		@media (min-width: @screen-sm) {
-			box-shadow: none;
-		}
 	}
 
 	.has-scrolledContent & {
@@ -211,8 +231,7 @@
 		height: 66px;
 
 		@media (min-width: @screen-sm) {
-			// height: 132px;
-			box-shadow: 0 2px 5px rgba(0, 0, 0, .4);
+			height: 132px;
 		}
 
 		.headerline {
@@ -233,12 +252,6 @@
 	color: @header-color;
 	transition: margin 0.2s ease, font-size 0.2s ease;
 
-	// margin: 24px 0 0 48px;
-	// font-family: "Helvetica Neue", "Roboto", Arial, sans-serif;
-	// font-weight: 400;
-	// font-size: 18px;
-	// white-space: nowrap;
-	// color: @header-color;
 	@media (min-width: @screen-sm) {
 		bottom: 118px;
 	}
@@ -263,6 +276,7 @@
 		margin: 24px 0 0 48px;
 
 		@media (min-width: @screen-sm) {
+			bottom: 89px;
 			margin-left: 60px;
 		}
 

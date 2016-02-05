@@ -22,6 +22,17 @@
 
 		var scroll = $(window).scrollTop();
 
+		if(scroll > 5) { //header headline
+			// App.debugging( 'Scroll: checkPos: Passed 89px', 'report' );
+
+			$('.js-body').addClass('has-scroll');
+		}
+		else {
+			// App.debugging( 'Scroll: checkPos: Below 89px', 'report' );
+
+			$('.js-body').removeClass('has-scroll');
+		}
+
 		if(scroll > 66) { //header headline
 			// App.debugging( 'Scroll: checkPos: Passed 89px', 'report' );
 
