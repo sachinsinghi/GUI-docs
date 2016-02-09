@@ -162,7 +162,6 @@ var SETTINGS = function() {
 			'font': 'HTML/_assets/font',
 			'img': 'HTML/_assets/img',
 			'htaccess': 'HTML/_assets/htaccess',
-			'fileserver': 'file-server',
 			'temp': '.temp',
 			'root': '',
 
@@ -376,7 +375,6 @@ module.exports = function(grunt) {
 					'<%= SETTINGS.folder.prod %>/**/*.js',
 					'<%= SETTINGS.folder.prod %>/**/*.css',
 					'<%= SETTINGS.folder.prod %>/**/*.liquid',
-					'<%= SETTINGS.folder.fileserver %>/server.js',
 					'!<%= SETTINGS.folder.prod %>/_site/**/*',
 				],
 				overwrite: true,
@@ -399,7 +397,6 @@ module.exports = function(grunt) {
 					'<%= SETTINGS.folder.prod %>/**/*.js',
 					'<%= SETTINGS.folder.prod %>/**/*.css',
 					'<%= SETTINGS.folder.prod %>/**/*.liquid',
-					'<%= SETTINGS.folder.fileserver %>/server.js',
 					'!<%= SETTINGS.folder.prod %>/_site/**/*',
 				],
 				overwrite: true,
@@ -411,23 +408,6 @@ module.exports = function(grunt) {
 					{
 						from: '[-Debug-]',
 						to: '[Debug]',
-					},
-				],
-			},
-
-			node: {
-				src: [
-					'<%= SETTINGS.folder.fileserver %>/server.js',
-				],
-				overwrite: true,
-				replacements: [
-					{
-						from: '[Name-Version]',
-						to: '<%= pkg.name %> - v<%= pkg.version %>',
-					},
-					{
-						from: '[Version]',
-						to: 'v<%= pkg.version %>',
 					},
 				],
 			},
@@ -600,15 +580,6 @@ module.exports = function(grunt) {
 		// Concat files
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
 		concat: {
-			node: {
-				src: [
-					'<%= SETTINGS.folder.fileserver %>/*.js',
-					'!<%= SETTINGS.folder.fileserver %>/server.js',
-					'!<%= SETTINGS.folder.fileserver %>/-*.js',
-				],
-				dest: '<%= SETTINGS.folder.fileserver %>/server.js',
-			},
-
 			grunticonBOM: {
 				files: {
 					'<%= SETTINGS.folder.prod %>/BOM/assets/css/symbols-<%= pkg.version %>.data.svg.css': [
@@ -1159,8 +1130,7 @@ module.exports = function(grunt) {
 					'!jekyll/**/*',
 					'!HTML/_assets/js/**/*jquery*.js',
 					'!GUI-source-master/**/*',
-					'!file-server/server.js',
-					'!file-server/node_modules/**/*',
+					'!blender/**/*',
 					'!node_modules/**/*',
 					'!Gruntfile.js',
 				],
@@ -1211,20 +1181,6 @@ module.exports = function(grunt) {
 		// Watch
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
 		watch: {
-			node: {
-				files: [
-					'<%= SETTINGS.folder.fileserver %>/*.js',
-					'!<%= SETTINGS.folder.fileserver %>/server.js',
-				],
-				tasks: [
-					// 'lintspaces',
-					'_buildNode',
-					'replace:node',
-					'replace:debugDev',
-					'wakeup',
-				],
-			},
-
 			js: {
 				files: [
 					'<%= SETTINGS.folder.js %>/**/*.js',
@@ -1373,11 +1329,6 @@ module.exports = function(grunt) {
 		'clean:grunticon',
 	]);
 
-	grunt.registerTask('_buildNode', [
-		'concat:node',
-		'replace:node',
-	]);
-
 
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	// Build tasks
@@ -1385,14 +1336,6 @@ module.exports = function(grunt) {
 	grunt.registerTask('default', [ //run build with watch
 		'build',
 		'connect',
-		'watch',
-	]);
-
-	grunt.registerTask('node', [ //run only node build and watch
-		'font:title',
-		'_buildNode',
-		'replace:debugDev',
-		'wakeup',
 		'watch',
 	]);
 
@@ -1416,7 +1359,6 @@ module.exports = function(grunt) {
 		'font:title',
 		'_checkGUI',
 		'_buildDocs',
-		'_buildNode',
 		'replace:debugDev',
 		'checkIncludes:dev',
 		'jekyll:dev',
@@ -1426,7 +1368,6 @@ module.exports = function(grunt) {
 	grunt.registerTask('building', [ //run everything with debug on without gui check
 		'font:title',
 		'_buildDocs',
-		'_buildNode',
 		'replace:debugDev',
 		'checkIncludes:dev',
 		'jekyll:dev',
@@ -1437,7 +1378,6 @@ module.exports = function(grunt) {
 		'font:title',
 		'_checkGUI',
 		'_buildDocs',
-		'_buildNode',
 		'replace:debugProd',
 		'checkIncludes:prod',
 		'clean:testing',
@@ -1448,7 +1388,6 @@ module.exports = function(grunt) {
 	grunt.registerTask('proding', [ //run everything with debug off without gui check
 		'font:title',
 		'_buildDocs',
-		'_buildNode',
 		'replace:debugProd',
 		'checkIncludes:prod',
 		'clean:testing',
