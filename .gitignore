@@ -7,4 +7,3 @@ npm-debug.log
 *.sublime-workspace
 .idea
 jekyll/
-server.js
