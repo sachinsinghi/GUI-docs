@@ -18,7 +18,7 @@ var App = (function Init() {
 	return {
 		DEBUG: [Debug], //debugging infos
 		PREFIX: 'BLEND',
-		LOG: '//gel.westpacgroup.com.au/GUI/file-server/blender.log',
+		LOG: 'https://gel.westpacgroup.com.au/GUI/blender/remote/blender.log',
 
 
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
