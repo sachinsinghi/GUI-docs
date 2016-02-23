@@ -1,6 +1,6 @@
 /***************************************************************************************************************************************************************
  *
- * counter additions
+ * iframe sizing
  *
  **************************************************************************************************************************************************************/
 
@@ -15,25 +15,30 @@
 	var module = {};
 
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	// Module get method
+	// Iframe render
+	//
+	// @param  $section  {jQuery object}  jQuery object of DOM element with possible iframes
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	module.get = function() {
-		App.debugging( 'counter: Getting counter value', 'report' );
+	module.render = function( $section ) {
+		App.debugging( 'iFrame: render running', 'report' );
 
-		$.ajax({
-			url: App.LOG,
-			cache: false
-		}).done(function( html ) {
+		var $iframes = $section.find('a.js-iframelink');
 
-			$('.js-counter').parent().removeClass('is-hidden');
-			$('.js-counter').text( html );
+		$iframes.each(function() {
+			var $a = $(this);
+			var src = $a.attr('href');
+			var $iframe = $('<iframe/>')
+				.addClass('example-box-iframe js-iframe')
+				.attr('src', src);
 
-			setTimeout(function() {
-					App.counter.get();
-				}, 4000
-			);
-
+			$a.replaceWith( $iframe );
 		});
+
+		if( $iframes.length ) {
+			App.debugging( 'iFrame: render: Found ' + $iframes.length + ' instances', 'report' );
+
+			App.iframe.init();
+		}
 	};
 
 
@@ -41,21 +46,30 @@
 	// Module init method
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	module.init = function() {
-		App.debugging( 'counter: Initiating', 'report' );
+		App.debugging( 'iFrame: Initiating', 'report' );
 
-		if( $('.js-counter').length ) {
-			App.debugging( 'counter: Found instance', 'report' );
+		if( $('.js-iframe').length ) {
+			App.debugging( 'iFrame: Found instance', 'report' );
 
-			App.counter.get();
+			var isOldIE = (navigator.userAgent.indexOf("MSIE") !== -1); // Detect IE10 and below
+
+			$('.js-iframe')
+				.attr('scrolling', 'no')
+				.iFrameResize({
+					minHeight: 190,
+					bodyMargin: 0,
+					heightCalculationMethod: isOldIE ? 'max' : 'lowestElement',
+				}
+			);
 		}
 	};
 
 
-	App.counter = module;
+	App.iframe = module;
 
 
 }(App));
 
 
 // start the module
-App.counter.init();
+App.iframe.init();

@@ -21,7 +21,7 @@
 		App.debugging( 'FAQ: Initiating', 'report' );
 
 		if( $('.js-faq').length ) {
-			GUI.debugging( 'FAQ: Found instance', 'report' );
+			App.debugging( 'FAQ: Found instance', 'report' );
 
 			//////////////////////////////////////////////////| BUTTON LISTENER
 			$('.js-faq').on('click', function() {

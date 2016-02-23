@@ -15,11 +15,32 @@
 		min-height: 250px;
 		padding: 24px;
 		overflow: visible;
+		position: relative;
 
-		hr {
+		.example-box-iframe {
+			width: 100%;
+			height: 100%;
 			border: 0 none;
-			border-top: 1px solid @color-Border;
-			margin: 24px 0;
+			padding: 0;
+			margin: 0;
+			position: relative;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+		}
+
+		.example-box-iframelink {
+			position: absolute;
+			top: 75px;
+			left: 0;
+			right: 0;
+			text-align: center;
+
+			.icon {
+				display: block;
+				margin: 0 auto 12px auto;
+			}
 		}
 
 		//grid examples

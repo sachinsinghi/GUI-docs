@@ -42,50 +42,10 @@
 
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
-{% capture example %}
-<input type="text" class="input-field" placeholder="I'm a default text input">
-
-<hr>
-
-<input type="password" class="input-field" placeholder="I'm a default password input">
-
-<hr>
-
-<textarea class="input-field" placeholder="I'm a default textarea"></textarea>
-
-<hr>
-
-<div class="input-field-select-wrapper input-field-block">
-	<select class="input-field-select">
-		<option>Please select block</option>
-		<option>Option A</option>
-		<option>Option B</option>
-		<option>Option C</option>
-		<option>Option D</option>
-		<option>Option E</option>
-		<option>Option F</option>
-		<option>Option G</option>
-	</select>
-</div>
-
-<hr>
-
-<div class="input-field-select-wrapper">
-	<select class="input-field-select">
-		<option>Please select</option>
-		<option>Option A</option>
-		<option>Option B</option>
-		<option>Option C</option>
-		<option>Option D</option>
-		<option>Option E</option>
-		<option>Option F</option>
-		<option>Option G</option>
-	</select>
-</div>
-{% endcapture %}
+{% assign example = "ex1" %}
 
 
-{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% comment %} HTML TAB {% endcomment %}
 {% capture HTML %}
 <input type="text" class="input-field" placeholder="YOUR PLACEHOLDER">
 
@@ -158,27 +118,10 @@
 
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
-{% capture example %}
-<input type="text" class="input-field input-field-lg" placeholder="I'm a LG text input">
-
-<hr>
-
-<div class="input-field-select-wrapper input-field-select-lg">
-	<select class="input-field-select">
-		<option>Select LG</option>
-		<option>Option A</option>
-		<option>Option B</option>
-		<option>Option C</option>
-		<option>Option D</option>
-		<option>Option E</option>
-		<option>Option F</option>
-		<option>Option G</option>
-	</select>
-</div>
-{% endcapture %}
+{% assign example = "ex2" %}
 
 
-{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% comment %} HTML TAB {% endcomment %}
 {% capture HTML %}
 <input type="text" class="input-field input-field-lg" placeholder="YOUR PLACEHOLDER">
 {% endcapture %}
@@ -247,37 +190,10 @@
 
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
-{% capture example %}
-<p>Individual fields</p>
-
-<input type="text" class="input-field" placeholder="I'm a default text input" disabled>
-
-<div class="input-field-select-wrapper">
-	<select class="input-field-select" disabled>
-		<option>Please select</option>
-		<option>Option A</option>
-		<option>Option B</option>
-		<option>Option C</option>
-		<option>Option D</option>
-		<option>Option E</option>
-		<option>Option F</option>
-		<option>Option G</option>
-	</select>
-</div>
-
-<hr>
-<p>Field set</p>
-
-<form>
-	<fieldset disabled>
-		<input type="text" class="input-field" placeholder="I'm a default text input">
-		<input type="text" class="input-field" placeholder="I'm a default text input">
-	</fieldset>
-</form>
-{% endcapture %}
+{% assign example = "ex3" %}
 
 
-{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% comment %} HTML TAB {% endcomment %}
 {% capture HTML %}
 <input type="text" class="input-field" placeholder="I'm a default text input" disabled>
 
