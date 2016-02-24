@@ -1,0 +1,53 @@
+{% comment %}
+	This snippet prints an iframe if the param is meant to be one… hopefully
+
+	Usage:
+		{% include makeiFrame.liquid  ex = example %}
+
+	Return:
+		{{ iFrame }}  [string]  Content in either an iframe or direct
+
+	Required:
+		{{ ex }}           [string]  The content to be either iframe or not. If it starts with "ex" it is an iframe…
+		{{ ID }}           [string]  ID of module
+		{{ thisVersion }}  [string]  Version string
+		{{ thisModule }}   [array]   This modules GUI.json object
+		{{ category }}     [string]  The name of the category in the GUI.json
+{% endcomment %}
+
+
+{% assign example = include.ex %}
+{% assign iFrame = '' %}
+{% assign Brand = page.brand %}
+{% assign _isiFrame = example | startwith: 'ex' %}
+{% assign lastVersion = '1.0.0' %}
+
+{% for version in thisModule.versions %}
+	{% assign lastVersion = version[0] %}
+{% endfor %}
+
+{% if "[Debug]" == "true" %}
+	{% assign prefix = '' %}
+{% else %}
+	{% assign prefix = 'GUI/' %}
+{% endif %}
+
+{% capture url %}/{{ prefix }}{{ Brand }}/examples/{{ ID }}/{{ thisVersion }}/{{ example }}/?v=[Version]{% endcapture %}
+
+
+{% if _isiFrame %}
+	{% if thisVersion == lastVersion %}
+		{% capture iFrame %}
+			<iframe class="example-box-iframe js-iframe" src="{{ url }}"></iframe>
+		{% endcapture %}
+	{% else %}
+		{% capture iFrame %}
+			<a class="example-box-iframelink js-iframelink" href="{{ url }}" target="_blank">
+				<span class="icon icon-size-lg icon-loading"></span>
+				loading example&hellip;
+			</a>
+		{% endcapture %}
+	{% endif %}
+{% else %}
+	{% assign iFrame = example %}
+{% endif %}

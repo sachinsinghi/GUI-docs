@@ -14,6 +14,7 @@
 
 	var module = {};
 
+
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	// Module init method
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -23,7 +24,7 @@
 		if( $('.js-modules').length ) {
 			App.debugging( 'Modules: Found version instance', 'report' );
 
-			//////////////////////////////////////////////////| CHECKING DEPENDENCIES
+			//////////////////////////////////////////////////| CHANGING VERSION
 			$('.js-blender-version').on('change', function() {
 				App.debugging( 'Modules: Version selected', 'interaction' );
 
@@ -37,6 +38,8 @@
 				if( $this.val() !== 'nil' ) {
 					$modules.removeClass('is-visible');
 					$version.addClass('is-visible');
+
+					App.iframe.render( $version ); //render iframes in that version
 				}
 			});
 		}
@@ -44,7 +47,7 @@
 		if( $('.js-exampletab').length ) {
 			App.debugging( 'Modules: Found examplebox instance', 'report' );
 
-			//////////////////////////////////////////////////| CHECKING DEPENDENCIES
+			//////////////////////////////////////////////////| EXAMPLE TABS
 			$('.js-exampletab').on('click', function(e) {
 				App.debugging( 'Modules: Tab clicked', 'interaction' );
 

@@ -112,11 +112,11 @@
 
 				$wrapper.find('.js-blender-newer').remove(); //remove warnings
 
-				var warning = '<div class="popover-wrapper blender-newer js-blender-newer">' +
+				var warning = '<div class="popover-wrapper blender-newer js-popover-wrapper js-blender-newer">' +
 					'	<button type="button" class="btn btn-link popover popover-dismissible js-popover">' +
 					'		<span class="icon icon-size-sm icon-alert">Out of date</span>' +
 					'	</button>' +
-					'	<div class="popover-popup" aria-hidden="true" tabindex="-1">' +
+					'	<div class="popover-popup js-popoverbody" aria-hidden="true" tabindex="-1" aria-label="Use the ESC key to close">' +
 					'		<p class="popover-popup-body">' +
 					'			A newer version of this module exists.' +
 					'			<button type="button" class="btn btn-link js-selectLatest" data-id="' + ID + '">Select latest</button>' +

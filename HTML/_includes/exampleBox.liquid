@@ -96,7 +96,10 @@ allTabs: {{ allTabs }}<hr>{% endcomment %}
 {% endcomment %}
 {% if allTabs == 1 or allTabs <= 1 and WHATSNEWHandle.size > 2 %}
 
-	{% if exampleHandle.size > 2 %}{% assign BoxContent = example %}{% endif %}
+	{% if exampleHandle.size > 2 %}
+		{% include makeiFrame.liquid  ex = example %}
+		{% assign BoxContent = iFrame %}
+	{% endif %}
 	{% comment %}{% if WHATSNEWHandle.size > 2 %}{% assign BoxContent = WHATSNEWtab %}{% endif %}{% endcomment %}
 	{% if HTMLHandle.size > 2 %}{% assign BoxContent = HTMLtab %}{% endif %}
 	{% if CSSHandle.size > 2 or LESSHandle.size > 2 %}{% assign BoxContent = CSStab %}{% endif %}
@@ -132,7 +135,8 @@ allTabs: {{ allTabs }}<hr>{% endcomment %}
 {% if allTabs > 1 %}
 
 	{% if exampleHandle.size > 2 %}
-		<div class="example-box">{{ example }}</div>
+		{% include makeiFrame.liquid  ex = example %}
+		<div class="example-box">{{ iFrame }}</div>
 	{% endif %}
 
 	<div class="example-tabs-wrapper js-exampletabs">

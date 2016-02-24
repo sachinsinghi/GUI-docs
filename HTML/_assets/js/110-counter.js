@@ -44,7 +44,7 @@
 		App.debugging( 'counter: Initiating', 'report' );
 
 		if( $('.js-counter').length ) {
-			GUI.debugging( 'counter: Found instance', 'report' );
+			App.debugging( 'counter: Found instance', 'report' );
 
 			App.counter.get();
 		}
