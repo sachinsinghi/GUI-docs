@@ -21,11 +21,18 @@
 {% assign Brand = page.brand %}
 {% assign _isiFrame = example | startwith: 'ex' %}
 {% assign lastVersion = '1.0.0' %}
-{% capture url %}/{{ Brand }}/examples/{{ ID }}/{{ thisVersion }}/{{ example }}/?v=[Version]{% endcapture %}
 
 {% for version in thisModule.versions %}
 	{% assign lastVersion = version[0] %}
 {% endfor %}
+
+{% if "[Debug]" == "true" %}
+	{% assign prefix = '' %}
+{% else %}
+	{% assign prefix = 'GUI/' %}
+{% endif %}
+
+{% capture url %}/{{ prefix }}{{ Brand }}/examples/{{ ID }}/{{ thisVersion }}/{{ example }}/?v=[Version]{% endcapture %}
 
 
 {% if _isiFrame %}

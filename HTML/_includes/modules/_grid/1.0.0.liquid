@@ -22,30 +22,10 @@
 
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
-{% capture example %}
-<div class="row grid-example">
-	<div class="col-sm-4 col-md-2 col-lg-8">
-		<p>
-			Column A
-		</p>
-	</div>
-
-	<div class="col-sm-4 col-md-8 col-lg-2">
-		<p>
-			Column B
-		</p>
-	</div>
-
-	<div class="col-sm-4 col-md-2 col-lg-2">
-		<p>
-			Column C
-		</p>
-	</div>
-</div>
-{% endcapture %}
+{% assign example = "ex1" %}
 
 
-{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% comment %} HTML TAB {% endcomment %}
 {% capture HTML %}
 <div class="row">
 	<div class="col-sm-4 col-md-2 col-lg-8">
@@ -142,26 +122,10 @@
 
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
-{% capture example %}
-<div class="row grid-example">
-	<div class="col-md-4">
-		<p>
-			Column with col-md-4
-		</p>
-	</div>
-</div>
-
-<div class="row grid-example">
-	<div class="col-xs-4">
-		<p>
-			Column with col-xs-4
-		</p>
-	</div>
-</div>
-{% endcapture %}
+{% assign example = "ex2" %}
 
 
-{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% comment %} HTML TAB {% endcomment %}
 {% capture HTML %}
 <div class="row">
 	<div class="col-md-4">
@@ -231,42 +195,10 @@
 
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
-{% capture example %}
-<div class="row grid-example">
-	<div class="col-md-3">
-		<p>
-			Column A
-		</p>
-	</div>
-
-	<div class="col-md-9">
-
-		<div class="row grid-example">
-			<div class="col-xs-4">
-				<p>
-					Nested column A
-				</p>
-			</div>
-
-			<div class="col-xs-4">
-				<p>
-					Nested column B
-				</p>
-			</div>
-
-			<div class="col-xs-4">
-				<p>
-					Nested column C
-				</p>
-			</div>
-		</div>
-
-	</div>
-</div>
-{% endcapture %}
+{% assign example = "ex3" %}
 
 
-{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% comment %} HTML TAB {% endcomment %}
 {% capture HTML %}
 <div class="row">
 	<div class="col-md-3">
@@ -353,30 +285,10 @@
 
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
-{% capture example %}
-<div class="row grid-example">
-	<div class="col-xs-12 col-sm-4 pull-right">
-		<p>
-			Column A
-		</p>
-	</div>
-
-	<div class="col-xs-12 col-sm-4">
-		<p>
-			Column B
-		</p>
-	</div>
-
-	<div class="col-xs-12 col-sm-4">
-		<p>
-			Column C
-		</p>
-	</div>
-</div>
-{% endcapture %}
+{% assign example = "ex4" %}
 
 
-{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% comment %} HTML TAB {% endcomment %}
 {% capture HTML %}
 <div class="row">
 	<div class="col-xs-12 col-sm-4 pull-right">
@@ -449,18 +361,10 @@
 
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
-{% capture example %}
-<div class="row grid-example">
-	<div class="col-xs-12 col-sm-11 col-sm-offset-1">
-		<p>
-			Offset Column
-		</p>
-	</div>
-</div>
-{% endcapture %}
+{% assign example = "ex5" %}
 
 
-{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% comment %} HTML TAB {% endcomment %}
 {% capture HTML %}
 <div class="row">
 	<div class="col-xs-12 col-sm-11 col-sm-offset-1">
@@ -520,30 +424,10 @@
 
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
-{% capture example %}
-<div class="row grid-example">
-	<div class="col-sm-4 hidden-xs">
-		<p>
-			Column A
-		</p>
-	</div>
-
-	<div class="col-sm-4">
-		<p>
-			Column B
-		</p>
-	</div>
-
-	<div class="col-sm-4">
-		<p>
-			Column C
-		</p>
-	</div>
-</div>
-{% endcapture %}
+{% assign example = "ex6" %}
 
 
-{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% comment %} HTML TAB {% endcomment %}
 {% capture HTML %}
 <div class="row">
 	<div class="col-sm-4 hidden-xs">
