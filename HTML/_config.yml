@@ -2,3 +2,4 @@ name: "GUI"
 
 permalink: pretty
 exclude: ["node_modules/"]
+include: ['_colors', '_fonts', '_grid', '_javascript-helpers', '_text-styling']

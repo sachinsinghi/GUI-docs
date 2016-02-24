@@ -321,89 +321,86 @@ module.exports = function(grunt) {
 			cwd: SETTINGS().folder.examples,
 		}, ['*']).forEach(function( module ) {
 
-			if( !module.startsWith('_') ) {
+			grunt.file.expand({
+				filter: 'isDirectory',
+				cwd: SETTINGS().folder.examples + '/' + module,
+			}, ['*']).forEach(function( version ) {
 
-				grunt.file.expand({
-					filter: 'isDirectory',
-					cwd: SETTINGS().folder.examples + '/' + module,
-				}, ['*']).forEach(function( version ) {
+				//create tasks for each brand
+				brands.forEach(function( brand ) {
 
-					//create tasks for each brand
-					brands.forEach(function( brand ) {
+					//////////////////////////////////////| COPY HTML
+					copy[ 'Example' + module + version + 'HTML' + brand ] = {
+						files: [{
+							cwd: '<%= SETTINGS.folder.examples %>/' + module + '/',
+							src: [
+								'**/*.html',
+								'**/*.md',
+								'**/*.liquid',
+								'!_assets/**/*',
+								'!_*/**/*',
+							],
+							dest: '<%= SETTINGS.folder.prod %>/' + brand + '/examples/' + module + '/',
+							filter: 'isFile',
+							expand: true,
+						}],
+					};
 
-						//////////////////////////////////////| COPY HTML
-						copy[ 'Example' + module + version + 'HTML' + brand ] = {
-							files: [{
-								cwd: '<%= SETTINGS.folder.examples %>/' + module + '/',
-								src: [
-									'**/*.html',
-									'**/*.md',
-									'**/*.liquid',
-									'!_assets/**/*',
-									'!_*/**/*',
-								],
-								dest: '<%= SETTINGS.folder.prod %>/' + brand + '/examples/' + module + '/',
-								filter: 'isFile',
-								expand: true,
-							}],
-						};
+					//////////////////////////////////////| COPY CSS
+					copy[ 'Example' + module + version + 'CSS' + brand ] = {
+						files: [{
+							cwd: '<%= SETTINGS.folder.examples %>/' + module + '/' + version + '/_assets/css/' + brand + '/',
+							src: [
+								'**/*.css',
+							],
+							dest: '<%= SETTINGS.folder.prod %>/' + brand + '/examples/' + module + '/' + version + '/assets/css/',
+							filter: 'isFile',
+							expand: true,
+						}],
+					};
 
-						//////////////////////////////////////| COPY CSS
-						copy[ 'Example' + module + version + 'CSS' + brand ] = {
-							files: [{
-								cwd: '<%= SETTINGS.folder.examples %>/' + module + '/' + version + '/_assets/css/' + brand + '/',
-								src: [
-									'**/*.css',
-								],
-								dest: '<%= SETTINGS.folder.prod %>/' + brand + '/examples/' + module + '/' + version + '/assets/css/',
-								filter: 'isFile',
-								expand: true,
-							}],
-						};
+					//////////////////////////////////////| COPY FONT
+					copy[ 'Example' + module + version + 'Font' + brand ] = {
+						files: [{
+							cwd: '<%= SETTINGS.folder.examples %>/' + module + '/' + version + '/_assets/font/' + brand + '/',
+							src: [
+								'**/*',
+							],
+							dest: '<%= SETTINGS.folder.prod %>/' + brand + '/examples/' + module + '/' + version + '/assets/font/',
+							filter: 'isFile',
+							expand: true,
+						}],
+					};
 
-						//////////////////////////////////////| COPY FONT
-						copy[ 'Example' + module + version + 'Font' + brand ] = {
-							files: [{
-								cwd: '<%= SETTINGS.folder.examples %>/' + module + '/' + version + '/_assets/font/' + brand + '/',
-								src: [
-									'**/*',
-								],
-								dest: '<%= SETTINGS.folder.prod %>/' + brand + '/examples/' + module + '/' + version + '/assets/font/',
-								filter: 'isFile',
-								expand: true,
-							}],
-						};
+					//////////////////////////////////////| COPY IMAGE
+					copy[ 'Example' + module + version + 'Img' + brand ] = {
+						files: [{
+							cwd: '<%= SETTINGS.folder.examples %>/' + module + '/' + version + '/_assets/img/' + brand + '/',
+							src: [
+								'**/*.png',
+								'**/*.jpg',
+							],
+							dest: '<%= SETTINGS.folder.prod %>/' + brand + '/examples/' + module + '/' + version + '/assets/img/',
+							filter: 'isFile',
+							expand: true,
+						}],
+					};
 
-						//////////////////////////////////////| COPY IMAGE
-						copy[ 'Example' + module + version + 'Img' + brand ] = {
-							files: [{
-								cwd: '<%= SETTINGS.folder.examples %>/' + module + '/' + version + '/_assets/img/' + brand + '/',
-								src: [
-									'**/*.png',
-									'**/*.jpg',
-								],
-								dest: '<%= SETTINGS.folder.prod %>/' + brand + '/examples/' + module + '/' + version + '/assets/img/',
-								filter: 'isFile',
-								expand: true,
-							}],
-						};
+					//////////////////////////////////////| COPY JS
+					copy[ 'Example' + module + version + 'JS' + brand ] = {
+						files: [{
+							cwd: '<%= SETTINGS.folder.examples %>/' + module + '/' + version + '/_assets/js/',
+							src: [
+								'**/*.js',
+							],
+							dest: '<%= SETTINGS.folder.prod %>/' + brand + '/examples/' + module + '/' + version + '/assets/js/',
+							filter: 'isFile',
+							expand: true,
+						}],
+					};
 
-						//////////////////////////////////////| COPY JS
-						copy[ 'Example' + module + version + 'JS' + brand ] = {
-							files: [{
-								cwd: '<%= SETTINGS.folder.examples %>/' + module + '/' + version + '/_assets/js/',
-								src: [
-									'**/*.js',
-								],
-								dest: '<%= SETTINGS.folder.prod %>/' + brand + '/examples/' + module + '/' + version + '/assets/js/',
-								filter: 'isFile',
-								expand: true,
-							}],
-						};
-
-					});
 				});
-			}
+			});
 		});
 
 		//assigning tasks
@@ -424,31 +421,28 @@ module.exports = function(grunt) {
 			cwd: SETTINGS().folder.examples,
 		}, ['*']).forEach(function( module ) {
 
-			if( !module.startsWith('_') ) {
+			grunt.file.expand({
+				filter: 'isDirectory',
+				cwd: SETTINGS().folder.examples + '/' + module,
+			}, ['*']).forEach(function( version ) {
 
-				grunt.file.expand({
-					filter: 'isDirectory',
-					cwd: SETTINGS().folder.examples + '/' + module,
-				}, ['*']).forEach(function( version ) {
-
-					//create tasks for each brand
-					brands.forEach(function( brand ) {
-						less[ 'Example' + module + version + 'Less' + brand ] = {
-							options: {
-								cleancss: true,
-								compress: true,
-								ieCompat: true,
-								report: 'min',
-								plugins : [ new (require('less-plugin-autoprefix'))({ browsers: [ 'last 2 versions', 'ie 8', 'ie 9', 'ie 10' ] }) ],
-							},
-							src: [
-								'<%= SETTINGS.folder.examples %>/' + module + '/' + version + '/_assets/less/' + brand + '/example.less',
-							],
-							dest: '<%= SETTINGS.folder.prod %>/' + brand + '/examples/' + module + '/' + version + '/assets/css/example.min.css',
-						};
-					});
+				//create tasks for each brand
+				brands.forEach(function( brand ) {
+					less[ 'Example' + module + version + 'Less' + brand ] = {
+						options: {
+							cleancss: true,
+							compress: true,
+							ieCompat: true,
+							report: 'min',
+							plugins : [ new (require('less-plugin-autoprefix'))({ browsers: [ 'last 2 versions', 'ie 8', 'ie 9', 'ie 10' ] }) ],
+						},
+						src: [
+							'<%= SETTINGS.folder.examples %>/' + module + '/' + version + '/_assets/less/' + brand + '/example.less',
+						],
+						dest: '<%= SETTINGS.folder.prod %>/' + brand + '/examples/' + module + '/' + version + '/assets/css/example.min.css',
+					};
 				});
-			}
+			});
 		});
 
 		//assigning tasks
@@ -1545,6 +1539,13 @@ module.exports = function(grunt) {
 		'checkIncludes:prod',
 		'clean:testing',
 		'jekyll:prod',
+		'wakeup',
+	]);
+
+	grunt.registerTask('server', [ //run everything with debug off without gui check
+		'font:title',
+		'connect',
+		'watch',
 		'wakeup',
 	]);
 
