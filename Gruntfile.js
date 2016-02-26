@@ -314,6 +314,8 @@ module.exports = function(grunt) {
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	grunt.registerTask('copyExamples', 'Copy the examples into the prod folder for each brand', function() {
 		var copy = {};
+		var concat = {};
+		var concatFiles = {};
 		var brands = ['BOM', 'BSA', 'STG', 'WBC'];
 
 		grunt.file.expand({
@@ -386,26 +388,29 @@ module.exports = function(grunt) {
 						}],
 					};
 
-					//////////////////////////////////////| COPY JS
-					copy[ 'Example' + module + version + 'JS' + brand ] = {
-						files: [{
-							cwd: '<%= SETTINGS.folder.examples %>/' + module + '/' + version + '/_assets/js/',
-							src: [
-								'**/*.js',
-							],
-							dest: '<%= SETTINGS.folder.prod %>/' + brand + '/examples/' + module + '/' + version + '/assets/js/',
-							filter: 'isFile',
-							expand: true,
-						}],
-					};
+
+					//////////////////////////////////////| CONCAT JS
+					concatFiles['<%= SETTINGS.folder.prod %>/' + brand + '/examples/' + module + '/' + version + '/assets/js/example.min.js'] =
+						['<%= SETTINGS.folder.examples %>/' + module + '/' + version + '/_assets/js/*.js'];
 
 				});
 			});
 		});
 
+		//create tasks
+		concat[ 'ExampleJS' ] = {
+			options: {
+				nonull: true,
+			},
+			files: concatFiles,
+		};
+
 		//assigning tasks
 		grunt.config.set('copy', copy);
 		grunt.task.run('copy');
+
+		grunt.config.set('concat', concat);
+		grunt.task.run('concat');
 	});
 
 
@@ -971,6 +976,7 @@ module.exports = function(grunt) {
 						'**/*.md',
 						'**/*.liquid',
 						'!_assets/**/*',
+						'!_examples/**/*',
 						'!_*/**/*',
 					],
 					dest: '<%= SETTINGS.folder.prod %>/BOM/',
@@ -986,6 +992,7 @@ module.exports = function(grunt) {
 						'**/*.md',
 						'**/*.liquid',
 						'!_assets/**/*',
+						'!_examples/**/*',
 						'!_*/**/*',
 					],
 					dest: '<%= SETTINGS.folder.prod %>/BSA/',
@@ -1001,6 +1008,7 @@ module.exports = function(grunt) {
 						'**/*.md',
 						'**/*.liquid',
 						'!_assets/**/*',
+						'!_examples/**/*',
 						'!_*/**/*',
 					],
 					dest: '<%= SETTINGS.folder.prod %>/STG/',
@@ -1016,6 +1024,7 @@ module.exports = function(grunt) {
 						'**/*.md',
 						'**/*.liquid',
 						'!_assets/**/*',
+						'!_examples/**/*',
 						'!_*/**/*',
 					],
 					dest: '<%= SETTINGS.folder.prod %>/WBC/',
@@ -1200,6 +1209,7 @@ module.exports = function(grunt) {
 						'*.json',
 						'_plugins/**/*',
 						'!_assets/**/*',
+						'!_examples/**/*',
 					],
 					dest: '<%= SETTINGS.folder.prod %>/',
 					filter: 'isFile',
