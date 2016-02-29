@@ -20,25 +20,12 @@
 
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
-{% capture example %}
-<p>Responsive image</p>
-<img class="img-responsive" src="assets/img/testimage1.jpg" alt="Placeholder images">
-
-<hr>
-<p>Rounded corner</p>
-
-<img class="img-rounded" src="assets/img/testimage2.jpg" alt="Placeholder images">
-
-<hr>
-<p>Round image</p>
-
-<img class="img-circle" src="assets/img/testimage3.jpg" alt="Placeholder images">
-{% endcapture %}
+{% assign example = "ex1" %}
 
 
-{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% comment %} HTML TAB {% endcomment %}
 {% capture HTML %}
-<img class="img-rounded" src="http://YOUR-IMG-URL.com.au" alt="YOUR PLACEHOLDER TEXT">
+	<img class="img-rounded" src="http://YOUR-IMG-URL.com.au" alt="YOUR PLACEHOLDER TEXT">
 {% endcapture %}
 
 
