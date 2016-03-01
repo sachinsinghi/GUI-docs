@@ -44,67 +44,10 @@
 
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
-{% capture example %}
-<ul class="lists">
-	<li>Styled bullet list - primary</li>
-	<li>Styled bullet list - primary</li>
-	<li>
-		Styled bullet list - primary
-
-		<ul class="lists">
-			<li>Styled bullet list - primary</li>
-			<li>Styled bullet list - primary</li>
-			<li>
-				Styled bullet list - primary
-
-				<ul class="lists">
-					<li>Styled bullet list - primary</li>
-					<li>Styled bullet list - primary</li>
-				</ul>
-			</li>
-			<li>Styled bullet list - primary</li>
-		</ul>
-	</li>
-	<li>Styled bullet list - primary</li>
-</ul>
-
-<hr>
-
-<ul class="lists lists-hero">
-	<li>Styled bullet list - hero</li>
-	<li>Styled bullet list - hero</li>
-	<li>
-		Styled bullet list - hero
-
-		<ul class="lists lists-hero">
-			<li>Styled bullet list - primary</li>
-			<li>Styled bullet list - primary</li>
-			<li>Styled bullet list - primary</li>
-		</ul>
-	</li>
-	<li>Styled bullet list - hero</li>
-</ul>
-
-<hr>
-
-<ul class="lists lists-neutral">
-	<li>Styled bullet list - neutral</li>
-	<li>Styled bullet list - neutral</li>
-	<li>
-		Styled bullet list - neutral
-
-		<ul class="lists lists-neutral">
-			<li>Styled bullet list - neutral</li>
-			<li>Styled bullet list - neutral</li>
-			<li>Styled bullet list - neutral</li>
-		</ul>
-	</li>
-	<li>Styled bullet list - neutral</li>
-</ul>
-{% endcapture %}
+{% assign example = "ex1" %}
 
 
-{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% comment %} HTML TAB {% endcomment %}
 {% capture HTML %}
 <ul class="lists">
 	<li>Styled bullet list - primary</li>
@@ -174,17 +117,17 @@
 
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
-{% capture example %}
-<ul class="lists lists-lg">
-	<li>Large list</li>
-	<li>Large list</li>
-	<li>Large list</li>
-</ul>
+{% assign example = "ex2" %}
+
+
+{% comment %} HTML TAB {% endcomment %}
+{% capture HTML %}
+	<ul class="lists lists-lg">
+		<li>Large list</li>
+		<li>Large list</li>
+		<li>Large list</li>
+	</ul>
 {% endcapture %}
-
-
-{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
-{% capture HTML %}{{ example }}{% endcapture %}
 
 
 {% comment %} CSS TAB {% endcomment %}
@@ -244,25 +187,10 @@
 
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
-{% capture example %}
-<ul class="lists lists-linklist">
-	<li><a href="{{ page.title | handleize }}/#url">Styled link list</a></li>
-	<li><a href="{{ page.title | handleize }}/#url">Styled link list</a></li>
-	<li>
-		<a href="{{ page.title | handleize }}/#url">Styled link list</a>
-
-		<ul class="lists lists-linklist">
-			<li><a href="{{ page.title | handleize }}/#url">Styled link list</a></li>
-			<li><a href="{{ page.title | handleize }}/#url">Styled link list</a></li>
-			<li><a href="{{ page.title | handleize }}/#url">Styled link list</a></li>
-		</ul>
-	</li>
-	<li><a href="{{ page.title | handleize }}/#url">Styled link list</a></li>
-</ul>
-{% endcapture %}
+{% assign example = "ex3" %}
 
 
-{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% comment %} HTML TAB {% endcomment %}
 {% capture HTML %}
 <ul class="lists lists-linklist">
 	<li><a href="http://YOUR-URL.com.au">Styled link list</a></li>
@@ -342,25 +270,10 @@
 
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
-{% capture example %}
-<ul class="lists lists-tick">
-	<li>Styled tick list</li>
-	<li>Styled tick list</li>
-	<li>
-		Styled tick list
-
-		<ul class="lists lists-tick">
-			<li>Styled tick list</li>
-			<li>Styled tick list</li>
-			<li>Styled tick list</li>
-		</ul>
-	</li>
-	<li>Styled tick list</li>
-</ul>
-{% endcapture %}
+{% assign example = "ex4" %}
 
 
-{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% comment %} HTML TAB {% endcomment %}
 {% capture HTML %}
 <ul class="lists lists-tick">
 	<li>Styled tick list</li>

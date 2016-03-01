@@ -45,32 +45,10 @@
 
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
-{% capture example %}
-<button type="button" class="btn btn-primary">Primary button</button>
-<a href="{{ page.title | handleize }}/#url" class="btn btn-primary">Link button primary</a>
-
-<hr>
-
-<button type="button" class="btn btn-hero">Hero button</button>
-<a href="{{ page.title | handleize }}/#url" class="btn btn-hero">Link button hero</a>
-
-<hr>
-
-<button type="button" class="btn btn-neutral">Neutral button</button>
-<a href="{{ page.title | handleize }}/#url" class="btn btn-neutral">Link button neutral</a>
-
-<hr>
-
-<button type="button" class="btn btn-faint">Faint button</button>
-<a href="{{ page.title | handleize }}/#url" class="btn btn-faint">Link button faint</a>
-
-<hr>
-
-<button type="button" class="btn btn-link">Make a button look like a link</button>
-{% endcapture %}
+{% assign example = "ex1" %}
 
 
-{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% comment %} HTML TAB {% endcomment %}
 {% capture HTML %}
 <button type="button" class="btn btn-primary">YOUR TITLE</button>
 
@@ -157,24 +135,10 @@
 
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
-{% capture example %}
-<button type="button" class="btn btn-primary btn-soft">Primary button</button>
-
-<hr>
-
-<button type="button" class="btn btn-hero btn-soft">Hero button</button>
-
-<hr>
-
-<button type="button" class="btn btn-neutral btn-soft">Neutral button</button>
-
-<hr>
-
-<button type="button" class="btn btn-faint btn-soft">Faint button</button>
-{% endcapture %}
+{% assign example = "ex2" %}
 
 
-{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% comment %} HTML TAB {% endcomment %}
 {% capture HTML %}
 <button type="button" class="btn btn-primary btn-soft">Primary button</button>
 {% endcapture %}
@@ -238,40 +202,10 @@
 
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
-{% capture example %}
-<button type="button" class="btn btn-primary" disabled>Primary button</button>
-
-<hr>
-
-<button type="button" class="btn btn-hero" disabled>Hero button</button>
-
-<hr>
-
-<button type="button" class="btn btn-neutral" disabled>Neutral button</button>
-
-<hr>
-
-<button type="button" class="btn btn-faint" disabled>Faint button</button>
-
-<hr>
-
-<button type="button" class="btn btn-primary btn-soft" disabled>Primary button</button>
-
-<hr>
-
-<button type="button" class="btn btn-hero btn-soft" disabled>Hero button</button>
-
-<hr>
-
-<button type="button" class="btn btn-neutral btn-soft" disabled>Neutral button</button>
-
-<hr>
-
-<button type="button" class="btn btn-faint btn-soft" disabled>Faint button</button>
-{% endcapture %}
+{% assign example = "ex3" %}
 
 
-{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% comment %} HTML TAB {% endcomment %}
 {% capture HTML %}
 <button type="button" class="btn btn-primary" disabled>Primary button</button>
 {% endcapture %}
@@ -332,64 +266,10 @@
 
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
-{% capture example %}
-<button type="button" class="btn btn-primary">
-	<span class="btn-text">Icon right</span>
-	<span class="btn-icon icon icon-size-sm icon-print" data-grunticon-embed></span>
-</button>
-
-<hr>
-
-<button type="button" class="btn btn-primary btn-soft">
-	<span class="btn-text">Icon right</span>
-	<span class="btn-icon icon icon-size-sm icon-print"></span>
-</button>
-
-<hr>
-
-<button type="button" class="btn btn-hero">
-	<span class="btn-icon btn-icon-left icon icon-size-sm icon-print" data-grunticon-embed></span>
-	<span class="btn-text">Icon left</span>
-</button>
-
-<hr>
-
-<button type="button" class="btn btn-hero btn-soft">
-	<span class="btn-icon btn-icon-left icon icon-size-sm icon-print"></span>
-	<span class="btn-text">Icon left</span>
-</button>
-
-<hr>
-
-<button type="button" class="btn btn-neutral">
-	<span class="btn-text">Icon right</span>
-	<span class="btn-icon icon icon-size-sm icon-print" data-grunticon-embed></span>
-</button>
-
-<hr>
-
-<button type="button" class="btn btn-neutral btn-soft">
-	<span class="btn-text">Icon right</span>
-	<span class="btn-icon icon icon-size-sm icon-print"></span>
-</button>
-
-<hr>
-
-<button type="button" class="btn btn-faint">
-	<span class="btn-icon btn-icon-left icon icon-size-sm icon-print" data-grunticon-embed></span>
-	<span class="btn-text">Icon left</span>
-</button>
-
-<hr>
-
-<button type="button" class="btn btn-faint btn-soft">
-	<span class="btn-icon btn-icon-left icon icon-size-sm icon-print" data-grunticon-embed></span>
-	<span class="btn-text">Icon left</span>
-</button>
-{% endcapture %}
+{% assign example = "ex4" %}
 
 
-{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% comment %} HTML TAB {% endcomment %}
 {% capture HTML %}
 <button type="button" class="btn btn-primary">
 	<span class="btn-text">YOUR TITLE</span>
@@ -455,36 +335,10 @@
 
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
-{% capture example %}
-<button type="button" class="btn btn-primary btn-xl">Primary XL</button>
-<button type="button" class="btn btn-primary btn-lg">Primary LG</button>
-<button type="button" class="btn btn-primary">Primary default</button>
-<button type="button" class="btn btn-primary btn-sm">Primary SM</button>
-
-<hr>
-
-<button type="button" class="btn btn-hero btn-xl">Hero XL</button>
-<button type="button" class="btn btn-hero btn-lg">Hero LG</button>
-<button type="button" class="btn btn-hero">Hero default</button>
-<button type="button" class="btn btn-hero btn-sm">Hero SM</button>
-
-<hr>
-
-<button type="button" class="btn btn-neutral btn-xl">Neutral XL</button>
-<button type="button" class="btn btn-neutral btn-lg">Neutral LG</button>
-<button type="button" class="btn btn-neutral">Neutral default</button>
-<button type="button" class="btn btn-neutral btn-sm">Neutral SM</button>
-
-<hr>
-
-<button type="button" class="btn btn-faint btn-xl">Faint XL</button>
-<button type="button" class="btn btn-faint btn-lg">Faint LG</button>
-<button type="button" class="btn btn-faint">Faint default</button>
-<button type="button" class="btn btn-faint btn-sm">Faint SM</button>
-{% endcapture %}
+{% assign example = "ex5" %}
 
 
-{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% comment %} HTML TAB {% endcomment %}
 {% capture HTML %}
 <button type="button" class="btn btn-primary btn-lg">YOUR TITLE</button>
 {% endcapture %}
@@ -556,14 +410,10 @@
 
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
-{% capture example %}
-<button type="button" class="btn btn-primary btn-xl-xs btn-sm-lg">Large button on small only</button>
-<hr>
-<button type="button" class="btn btn-primary btn-sm-xs btn-xl-lg">Extra large on lage only</button>
-{% endcapture %}
+{% assign example = "ex6" %}
 
 
-{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% comment %} HTML TAB {% endcomment %}
 {% capture HTML %}
 <button type="button" class="btn btn-primary btn-xl-sm">YOUR TITLE</button>
 {% endcapture %}
@@ -675,100 +525,10 @@
 
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
-{% capture example %}
-<p>Primary button group</p>
-
-<div class="btn-group">
-
-	<label class="btn-group-item">
-		<input class="btn-group-input" type="radio" name="options">
-		<span class="btn-group-text btn btn-primary">Left</span>
-	</label>
-
-	<label class="btn-group-item">
-		<input class="btn-group-input" type="radio" name="options">
-		<span class="btn-group-text btn btn-primary">Middle</span>
-	</label>
-
-	<label class="btn-group-item">
-		<input class="btn-group-input" type="radio" name="options">
-		<span class="btn-group-text btn btn-primary">Right</span>
-	</label>
-
-</div>
+{% assign example = "ex7" %}
 
 
-<hr>
-<p>Hero button group</p>
-
-<div class="btn-group">
-
-	<label class="btn-group-item">
-		<input class="btn-group-input" type="radio" name="options2">
-		<span class="btn-group-text btn btn-hero">Left</span>
-	</label>
-
-	<label class="btn-group-item">
-		<input class="btn-group-input" type="radio" name="options2">
-		<span class="btn-group-text btn btn-hero">Middle</span>
-	</label>
-
-	<label class="btn-group-item">
-		<input class="btn-group-input" type="radio" name="options2">
-		<span class="btn-group-text btn btn-hero">Right</span>
-	</label>
-
-</div>
-
-
-<hr>
-<p>Neutral button group</p>
-
-<div class="btn-group">
-
-	<label class="btn-group-item">
-		<input class="btn-group-input" type="radio" name="options3">
-		<span class="btn-group-text btn btn-neutral">Left</span>
-	</label>
-
-	<label class="btn-group-item">
-		<input class="btn-group-input" type="radio" name="options3">
-		<span class="btn-group-text btn btn-neutral">Middle</span>
-	</label>
-
-	<label class="btn-group-item">
-		<input class="btn-group-input" type="radio" name="options3">
-		<span class="btn-group-text btn btn-neutral">Right</span>
-	</label>
-
-</div>
-
-
-<hr>
-<p>Faint button group</p>
-
-<div class="btn-group">
-
-	<label class="btn-group-item">
-		<input class="btn-group-input" type="radio" name="options4">
-		<span class="btn-group-text btn btn-faint">Left</span>
-	</label>
-
-	<label class="btn-group-item">
-		<input class="btn-group-input" type="radio" name="options4">
-		<span class="btn-group-text btn btn-faint">Middle</span>
-	</label>
-
-	<label class="btn-group-item">
-		<input class="btn-group-input" type="radio" name="options4">
-		<span class="btn-group-text btn btn-faint">Right</span>
-	</label>
-
-</div>
-{% endcapture %}
-
-
-{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% comment %} HTML TAB {% endcomment %}
 {% capture HTML %}
 <div class="btn-group">
 
@@ -837,76 +597,10 @@
 
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
-{% capture example %}
-<p>Button group XL</p>
-<div class="btn-group">
-
-	<label class="btn-group-item">
-		<input class="btn-group-input" type="radio" name="options1">
-		<span class="btn-group-text btn btn-hero btn-xl">Left</span>
-	</label>
-
-	<label class="btn-group-item">
-		<input class="btn-group-input" type="radio" name="options1">
-		<span class="btn-group-text btn btn-hero btn-xl">Right</span>
-	</label>
-
-</div>
-
-<hr>
-<p>Button group LG</p>
-
-<div class="btn-group">
-
-	<label class="btn-group-item">
-		<input class="btn-group-input" type="radio" name="options2">
-		<span class="btn-group-text btn btn-hero btn-lg">Left</span>
-	</label>
-
-	<label class="btn-group-item">
-		<input class="btn-group-input" type="radio" name="options2">
-		<span class="btn-group-text btn btn-hero btn-lg">Right</span>
-	</label>
-
-</div>
-
-<hr>
-<p>Button group default</p>
-
-<div class="btn-group">
-
-	<label class="btn-group-item">
-		<input class="btn-group-input" type="radio" name="options3">
-		<span class="btn-group-text btn btn-hero">Left</span>
-	</label>
-
-	<label class="btn-group-item">
-		<input class="btn-group-input" type="radio" name="options3">
-		<span class="btn-group-text btn btn-hero">Right</span>
-	</label>
-
-</div>
-
-<hr>
-<p>Button group SM</p>
-
-<div class="btn-group">
-
-	<label class="btn-group-item">
-		<input class="btn-group-input" type="radio" name="options4">
-		<span class="btn-group-text btn btn-hero btn-sm">Left</span>
-	</label>
-
-	<label class="btn-group-item">
-		<input class="btn-group-input" type="radio" name="options4">
-		<span class="btn-group-text btn btn-hero btn-sm">Right</span>
-	</label>
-
-</div>
-{% endcapture %}
+{% assign example = "ex8" %}
 
 
-{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% comment %} HTML TAB {% endcomment %}
 {% capture HTML %}
 <div class="btn-group">
 
@@ -990,72 +684,10 @@
 
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
-{% capture example %}
-<div class="btn-dropdown js-dropdown" aria-haspopup="true">
-	<button type="button" class="btn btn-primary js-button-dropdown" aria-label="Primary with buttons. Hit enter to open dropdown">
-		<span class="btn-dropdown-caret">Primary with buttons</span>
-	</button>
-	<ul class="dropdown-menu js-button-dropdownbody" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
-		<li class="dropdown-menu-headline">Headline</li>
-		<li><button class="btn btn-link">Action 1</button></li>
-		<li><button class="btn btn-link">Another action</button></li>
-		<li class="dropdown-menu-headline dropdown-menu-divider">Headline 2</li>
-		<li><button class="btn btn-link">Action 3</button></li>
-		<li><button class="btn btn-link">Last action</button></li>
-	</ul>
-</div>
-
-<hr>
-
-<div class="btn-dropdown js-dropdown" aria-haspopup="true">
-	<button type="button" class="btn btn-hero js-button-dropdown" aria-label="Hero with buttons. Hit enter to open dropdown">
-		<span class="btn-dropdown-caret">Hero with buttons</span>
-	</button>
-	<ul class="dropdown-menu js-button-dropdownbody" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
-		<li class="dropdown-menu-headline">Headline</li>
-		<li><button class="btn btn-link">Action 1</button></li>
-		<li><button class="btn btn-link">Another action</button></li>
-		<li class="dropdown-menu-headline dropdown-menu-divider">Headline 2</li>
-		<li><button class="btn btn-link">Action 3</button></li>
-		<li><button class="btn btn-link">Last action</button></li>
-	</ul>
-</div>
-
-<hr>
-
-<div class="btn-dropdown js-dropdown" aria-haspopup="true">
-	<button type="button" class="btn btn-neutral js-button-dropdown" aria-label="Neutral with links. Hit enter to open dropdown">
-		<span class="btn-dropdown-caret">Neutral with links</span>
-	</button>
-	<ul class="dropdown-menu js-button-dropdownbody" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
-		<li class="dropdown-menu-headline">Headline</li>
-		<li><a href="{{ page.title | handleize }}/#url">Action 1</a></li>
-		<li><a href="{{ page.title | handleize }}/#url">Another action</a></li>
-		<li class="dropdown-menu-headline dropdown-menu-divider">Headline 2</li>
-		<li><a href="{{ page.title | handleize }}/#url">Action 3</a></li>
-		<li><a href="{{ page.title | handleize }}/#url">Last action</a></li>
-	</ul>
-</div>
-
-<hr>
-
-<div class="btn-dropdown js-dropdown" aria-haspopup="true">
-	<button type="button" class="btn btn-faint js-button-dropdown" aria-label="Faint with links. Hit enter to open dropdown">
-		<span class="btn-dropdown-caret">Faint with links</span>
-	</button>
-	<ul class="dropdown-menu js-button-dropdownbody" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
-		<li class="dropdown-menu-headline">Headline</li>
-		<li><a href="{{ page.title | handleize }}/#url">Action 1</a></li>
-		<li><a href="{{ page.title | handleize }}/#url">Another action</a></li>
-		<li class="dropdown-menu-headline dropdown-menu-divider">Headline 2</li>
-		<li><a href="{{ page.title | handleize }}/#url">Action 3</a></li>
-		<li><a href="{{ page.title | handleize }}/#url">Last action</a></li>
-	</ul>
-</div>
-{% endcapture %}
+{% assign example = "ex9" %}
 
 
-{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% comment %} HTML TAB {% endcomment %}
 {% capture HTML %}
 <div class="btn-dropdown js-dropdown" aria-haspopup="true">
 	<button type="button" class="btn btn-hero js-button-dropdown" aria-label="YOUR TITLE. Hit enter to open dropdown">
@@ -1124,50 +756,10 @@
 
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
-{% capture example %}
-<div class="btn-dropdown js-dropdown" aria-haspopup="true">
-	<button type="button" class="btn btn-hero js-button-dropdown" aria-label="Small dropdown. Hit enter to open dropdown">
-		<span class="btn-dropdown-caret">Small dropdown</span>
-	</button>
-	<ul class="dropdown-menu js-button-dropdownbody dropdown-menu-sm" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
-		<li><button class="btn btn-link">Action 1</button></li>
-		<li><button class="btn btn-link">Another action</button></li>
-		<li><button class="btn btn-link">Action 3</button></li>
-		<li><button class="btn btn-link">Last action</button></li>
-	</ul>
-</div>
-
-<hr>
-
-<div class="btn-dropdown js-dropdown" aria-haspopup="true">
-	<button type="button" class="btn btn-hero js-button-dropdown" aria-label="Default dropdown. Hit enter to open dropdown">
-		<span class="btn-dropdown-caret">Default dropdown</span>
-	</button>
-	<ul class="dropdown-menu js-button-dropdownbody" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
-		<li><button class="btn btn-link">Action 1</button></li>
-		<li><button class="btn btn-link">Another action</button></li>
-		<li><button class="btn btn-link">Action 3</button></li>
-		<li><button class="btn btn-link">Last action</button></li>
-	</ul>
-</div>
-
-<hr>
-
-<div class="btn-dropdown js-dropdown" aria-haspopup="true">
-	<button type="button" class="btn btn-hero js-button-dropdown" aria-label="Large dropdown. Hit enter to open dropdown">
-		<span class="btn-dropdown-caret">Large dropdown</span>
-	</button>
-	<ul class="dropdown-menu js-button-dropdownbody dropdown-menu-lg" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
-		<li><button class="btn btn-link">Action 1</button></li>
-		<li><button class="btn btn-link">Another action</button></li>
-		<li><button class="btn btn-link">Action 3</button></li>
-		<li><button class="btn btn-link">Last action</button></li>
-	</ul>
-</div>
-{% endcapture %}
+{% assign example = "ex10" %}
 
 
-{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% comment %} HTML TAB {% endcomment %}
 {% capture HTML %}
 <div class="btn-dropdown js-dropdown" aria-haspopup="true">
 	<button type="button" class="btn btn-hero js-button-dropdown" aria-label="YOUR TITLE. Hit enter to open dropdown">
@@ -1247,98 +839,10 @@
 
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
-{% capture example %}
-<div class="btn-dropdown js-dropdown" aria-haspopup="true">
-	<button type="button" class="btn btn-hero js-button-dropdown" aria-label="Settings. Hit enter to open dropdown">
-		<span class="btn-dropdown-caret">Settings</span>
-	</button>
-	<ul class="dropdown-menu js-button-dropdownbody dropdown-menu-lg" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
-		<li>
-			<div class="btn-dropdown-setting">
-				<span class="btn-dropdown-text" id="label1{{ version[0] | handleize }}">Setting 1</span>
-
-				<div class="btn-group">
-
-					<label class="btn-group-item" aria-describedby="label1{{ version[0] | handleize }}">
-						<input class="btn-group-input" type="radio" name="options5">
-						<span class="btn-group-text btn btn-hero btn-sm">Yes</span>
-					</label>
-
-					<label class="btn-group-item" aria-describedby="label1{{ version[0] | handleize }}">
-						<input class="btn-group-input" type="radio" name="options5">
-						<span class="btn-group-text btn btn-hero btn-sm">No</span>
-					</label>
-
-				</div>
-			</div>
-
-		</li>
-		<li>
-			<div class="btn-dropdown-setting">
-				<span class="btn-dropdown-text" id="label2{{ version[0] | handleize }}">Setting 2</span>
-
-				<div class="btn-group">
-
-					<label class="btn-group-item" aria-describedby="label2{{ version[0] | handleize }}">
-						<input class="btn-group-input" type="radio" name="options6">
-						<span class="btn-group-text btn btn-hero btn-sm">Yes</span>
-					</label>
-
-					<label class="btn-group-item" aria-describedby="label2{{ version[0] | handleize }}">
-						<input class="btn-group-input" type="radio" name="options6">
-						<span class="btn-group-text btn btn-hero btn-sm">No</span>
-					</label>
-
-				</div>
-			</div>
-
-		</li>
-		<li>
-			<div class="btn-dropdown-setting">
-				<span class="btn-dropdown-text" id="label3{{ version[0] | handleize }}">Setting 3</span>
-
-				<div class="btn-group">
-
-					<label class="btn-group-item" aria-describedby="label3{{ version[0] | handleize }}">
-						<input class="btn-group-input" type="radio" name="options7">
-						<span class="btn-group-text btn btn-hero btn-sm">Yes</span>
-					</label>
-
-					<label class="btn-group-item" aria-describedby="label3{{ version[0] | handleize }}">
-						<input class="btn-group-input" type="radio" name="options7">
-						<span class="btn-group-text btn btn-hero btn-sm">No</span>
-					</label>
-
-				</div>
-			</div>
-
-		</li>
-		<li>
-			<div class="btn-dropdown-setting">
-				<span class="btn-dropdown-text" id="label4{{ version[0] | handleize }}">Setting 4</span>
-
-				<div class="btn-group">
-
-					<label class="btn-group-item" aria-describedby="label4{{ version[0] | handleize }}">
-						<input class="btn-group-input" type="radio" name="options8">
-						<span class="btn-group-text btn btn-hero btn-sm">Yes</span>
-					</label>
-
-					<label class="btn-group-item" aria-describedby="label4{{ version[0] | handleize }}">
-						<input class="btn-group-input" type="radio" name="options8">
-						<span class="btn-group-text btn btn-hero btn-sm">No</span>
-					</label>
-
-				</div>
-			</div>
-
-		</li>
-	</ul>
-</div>
-{% endcapture %}
+{% assign example = "ex11" %}
 
 
-{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% comment %} HTML TAB {% endcomment %}
 {% capture HTML %}
 <div class="btn-dropdown js-dropdown" aria-haspopup="true">
 	<button type="button" class="btn btn-hero js-button-dropdown" aria-label="YOUR TITLE. Hit enter to open dropdown">
@@ -1464,42 +968,10 @@
 
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
-{% capture example %}
-<div class="btn-dropdown js-dropdown" aria-haspopup="true">
-	<button type="button" class="btn btn-faint js-button-dropdown" aria-label="Settings. Hit enter to open dropdown">
-		<span class="btn-dropdown-caret">Settings</span>
-	</button>
-	<ul class="dropdown-menu js-button-dropdownbody" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
-		<li>
-			<label class="checkbox checkbox-flip">
-				<input class="checkbox-input" type="checkbox" name="option2">
-				<span class="checkbox-text">Setting 1</span>
-			</label>
-		</li>
-		<li>
-			<label class="checkbox checkbox-flip">
-				<input class="checkbox-input" type="checkbox" name="option2">
-				<span class="checkbox-text">Setting 2</span>
-			</label>
-		</li>
-		<li>
-			<label class="checkbox checkbox-flip">
-				<input class="checkbox-input" type="checkbox" name="option2">
-				<span class="checkbox-text">Setting 3</span>
-			</label>
-		</li>
-		<li>
-			<label class="checkbox checkbox-flip">
-				<input class="checkbox-input" type="checkbox" name="option2">
-				<span class="checkbox-text">Setting 4</span>
-			</label>
-		</li>
-	</ul>
-</div>
-{% endcapture %}
+{% assign example = "ex12" %}
 
 
-{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% comment %} HTML TAB {% endcomment %}
 {% capture HTML %}
 <div class="btn-dropdown js-dropdown" aria-haspopup="true">
 	<button type="button" class="btn btn-faint js-button-dropdown" aria-label="YOUR TITLE. Hit enter to open dropdown">
@@ -1586,50 +1058,10 @@
 
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
-{% capture example %}
-<button type="button" class="btn btn-hero btn-lg btn-block">Block level button</button>
-
-<hr>
-
-<div class="btn-group btn-block">
-	<label class="btn-group-item">
-		<input class="btn-group-input" type="radio" name="options">
-		<span class="btn-group-text btn btn-hero">Option 1</span>
-	</label>
-
-	<label class="btn-group-item">
-		<input class="btn-group-input" type="radio" name="options">
-		<span class="btn-group-text btn btn-hero">Option 2</span>
-	</label>
-
-	<label class="btn-group-item">
-		<input class="btn-group-input" type="radio" name="options">
-		<span class="btn-group-text btn btn-hero">Option 3</span>
-	</label>
-
-	<label class="btn-group-item">
-		<input class="btn-group-input" type="radio" name="options">
-		<span class="btn-group-text btn btn-hero">Option 4</span>
-	</label>
-</div>
-
-<hr>
-
-<div class="btn-dropdown js-dropdown btn-block" aria-haspopup="true">
-	<button type="button" class="btn btn-hero btn-soft js-button-dropdown" aria-label="YOUR TITLE. Hit enter to open dropdown">
-		<span class="btn-dropdown-caret">Show me all the actions</span>
-	</button>
-	<ul class="dropdown-menu js-button-dropdownbody dropdown-menu-sm" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
-		<li><button class="btn btn-link">Action 1</button></li>
-		<li><button class="btn btn-link">Another action</button></li>
-		<li><button class="btn btn-link">Action 3</button></li>
-		<li><button class="btn btn-link">Last action</button></li>
-	</ul>
-</div>
-{% endcapture %}
+{% assign example = "ex13" %}
 
 
-{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% comment %} HTML TAB {% endcomment %}
 {% capture HTML %}
 <button type="button" class="btn btn-hero btn-lg btn-block">YOUR TITLE</button>
 {% endcapture %}

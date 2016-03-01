@@ -24,35 +24,10 @@
 
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
-{% capture example %}
-<span class="badge">
-	<span class="badge-text">95</span>
-	<span class="badge-sronly">Notifications</span>
-</span>
-
-<hr>
-
-<a href="{{ page.title | handleize }}/#url">
-	Inbox
-	<span class="badge">
-		<span class="badge-text">42</span>
-		<span class="badge-sronly">Messages</span>
-	</span>
-</a>
-
-<hr>
-
-<button type="button" class="btn btn-primary">
-	Primary
-	<span class="badge">
-		<span class="badge-text">13</span>
-		<span class="badge-sronly">Screen-reader text</span>
-	</span>
-</button>
-{% endcapture %}
+{% assign example = "ex1" %}
 
 
-{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% comment %} HTML TAB {% endcomment %}
 {% capture HTML %}
 <span class="badge">
 	<span class="badge-text">YOUR TEXT</span>
