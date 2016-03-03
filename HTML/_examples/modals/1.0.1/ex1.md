@@ -4,7 +4,7 @@ weight: "-0"
 brand: [Brand]
 js: true
 svg: true
-bottom: "140px"
+padding: "0 0 140px 0"
 ---
 
 <button class="btn btn-primary js-modal" data-modal="#myModal{{ version[0] | handleize }}" aria-label="Open sesame! Hit enter to open modal">Open sesame!</button>
