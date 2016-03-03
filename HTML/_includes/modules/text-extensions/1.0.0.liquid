@@ -22,12 +22,7 @@
 
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
-{% capture example %}
-<p class="lead">
-	I&rsquo;m lead text. Read me and you&rsquo;ll get an idea of what&rsquo;s below. Don&rsquo;t over do it though keep me short and sweet or things might
-	get a little loud. I&rsquo;m not intended to be used in big paragraphs as this defeats the objective for the skim reader.
-</p>
-{% endcapture %}
+{% assign example = "ex1" %}
 
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
@@ -88,34 +83,22 @@
 
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
-{% capture example %}
-<p class="text-left">
-	<strong>Left aligned text.</strong><br>
-	Aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem
-	ipsum quia dolor sialiquam qualaboriosam, nisi olu voluptas nulla pariatur? Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-	Tempore autem modi voluptatum quia iusto pariatur hic, excepturi explicabo dignissimos, vitae nulla, cumque possimus reiciendis natus officiis delectus,
-	accusantium voluptate fugiat.
-</p>
-
-<p class="text-center">
-	<strong>Center aligned text.</strong><br>
-	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed magnam cupiditate dolorum eius nulla. Voluptatum est eos qui?
-	Consequatur ipsa ea asperiores explicabo quae fuga minima est eaque ut nobis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero nobis iure,
-	minima laudantium aperiam? Quos rem, nesciunt facilis, necessitatibus impedit nostrum cum inventore, pariatur voluptatibus quibusdam totam omnis nulla quae.
-</p>
-
-<p class="text-right">
-	<strong>Right aligned text.</strong><br>
-	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis esse enim quia tenetur eius facere magnam repudiandae nulla quaerat laudantium expedita,
-	tempore velit, earum molestias libero quibusdam quo saepe cupiditate. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum itaque suscipit
-	rem hic possimus quos, officia alias! Reprehenderit nemo odio quos, impedit, perferendis nam. Possimus, repellat? Repellendus earum magnam eius!
-</p>
-{% endcapture %}
+{% assign example = "ex2" %}
 
 
 {% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
 {% capture HTML %}
-{{ example }}
+<p class="text-left">
+	LEFT ALIGNED TEXT
+</p>
+
+<p class="text-center">
+	CENTER ALIGNED TEXT
+</p>
+
+<p class="text-right">
+	RIGHT ALIGNED TEXT
+</p>
 {% endcapture %}
 
 
@@ -170,7 +153,11 @@
 
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
-{% capture example %}
+{% assign example = "ex3" %}
+
+
+{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% capture HTML %}
 <p class="text-muted">
 	I&rsquo;m text-muted. I&rsquo;m accessible on white, but always check.
 </p>
@@ -178,12 +165,6 @@
 <p class="text-primary">
 	I&rsquo;m text-primary. I&rsquo;m super accessible. I&rsquo;m all about being seen.
 </p>
-{% endcapture %}
-
-
-{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
-{% capture HTML %}
-{{ example }}
 {% endcapture %}
 
 

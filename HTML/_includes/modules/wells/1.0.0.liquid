@@ -21,7 +21,11 @@
 
 
 {% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
-{% capture example %}
+{% assign example = "ex1" %}
+
+
+{% comment %} HTML TAB {% endcomment %}
+{% capture HTML %}
 <div class="well">
 	Look, I&rsquo;m a basic well - you can use me to group content.
 </div>
@@ -29,12 +33,6 @@
 <div class="well well-responsive">
 	Look, I&rsquo;m in a well and my paddings are responsive!
 </div>
-{% endcapture %}
-
-
-{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
-{% capture HTML %}
-{{ example }}
 {% endcapture %}
 
 

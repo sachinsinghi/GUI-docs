@@ -4,7 +4,7 @@ weight: "-0"
 brand: [Brand]
 js: true
 svg: true
-bottom: "250px"
+padding: "0 0 250px 0"
 ---
 
 <div class="btn-dropdown js-dropdown" aria-haspopup="true">
