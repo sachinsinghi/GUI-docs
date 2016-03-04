@@ -107,7 +107,7 @@ allTabs: {{ allTabs }}<hr>{% endcomment %}
 	{% if JSHandle.size > 2 %}{% assign BoxContent = JStab %}{% endif %}
 
 	{% if allTabs == 1 %}
-		<div class="example-box"{% unless exampleHandle.size > 2 %} style="overflow: auto;"{% endunless %}>{{ BoxContent }}</div>
+		<div class="example-box">{{ BoxContent }}</div>
 	{% endif %}
 
 	{% if WHATSNEWHandle.size > 2 %}

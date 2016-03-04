@@ -1,0 +1,38 @@
+/* iframe */
+
+.iframebtn-wrapper {
+	position: absolute;
+	top: 12px;
+	right: 35px;
+	z-index: 2;
+
+	.iframebtn {
+		text-transform: uppercase;
+	}
+}
+
+.example .example-box {
+	&.has-buttons {
+		padding-top: 52px;
+	}
+
+	.example-box-iframe {
+		transition: width 0.5s ease;
+
+		&.iframe-xs {
+			width: 320px;
+		}
+
+		&.iframe-sm {
+			width: @screen-sm;
+		}
+
+		&.iframe-md {
+			width: @screen-md;
+		}
+
+		&.iframe-lg {
+			width: @screen-lg;
+		}
+	}
+}

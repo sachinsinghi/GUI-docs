@@ -51,6 +51,51 @@
 		if( $('.js-iframe').length ) {
 			App.debugging( 'iFrame: Found instance', 'report' );
 
+			//iframe buttons
+			var $buttons = $('<div/>')
+				.addClass('iframebtn-wrapper')
+				.append(
+					'<button type="button" class="btn btn-sm btn-soft iframebtn js-iframebtn">xs</button> ' +
+					'<button type="button" class="btn btn-sm btn-soft iframebtn js-iframebtn">sm</button> ' +
+					'<button type="button" class="btn btn-sm btn-soft iframebtn js-iframebtn">md</button> ' +
+					'<button type="button" class="btn btn-sm btn-soft iframebtn js-iframebtn">lg</button>'
+				)
+				.on('click', '.js-iframebtn', function() {
+					App.debugging( 'iFrame: buttons clicked', 'interaction' );
+
+					var $this = $(this);
+					var _hasAlready = $this.hasClass('btn-hero');
+					var $iframe = $this
+						.parent('.iframebtn-wrapper')
+						.next('.example-box')
+						.find('.js-iframe');
+
+					$this
+						.parent('.iframebtn-wrapper')
+						.find('.js-iframebtn')
+						.removeClass('btn-hero');
+
+					$iframe
+						.removeClass('iframe-xs iframe-sm iframe-md iframe-lg');
+
+					if( !_hasAlready ) {
+						$this
+							.addClass('btn-hero');
+
+						$iframe
+							.addClass( 'iframe-' + $this.text() );
+					}
+				}
+			);
+
+			$('.js-iframe')
+				.parent('.example-box')
+				.addClass('has-buttons')
+				.before( $buttons );
+
+			$('.js-iframebtn')
+
+			//init iframe resizer
 			var isOldIE = (navigator.userAgent.indexOf("MSIE") !== -1); // Detect IE10 and below
 
 			$('.js-iframe')
