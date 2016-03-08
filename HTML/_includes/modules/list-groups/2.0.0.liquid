@@ -1,0 +1,195 @@
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	List group
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	List groups are a flexible and powerful component for displaying not only simple lists of elements, but complex ones with custom content. This can also be a
+	list of links if required.
+</p>
+<p class="example-description text-info">
+	The badges in this example are not included and will have to be added to the blend separately.
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+	<h4 class="body-font whatsnew-headline">What&rsquo;s new since v1.0.0</h4>
+
+	This version changed:
+		<code class="classes">CSS/LESS</code>
+	but not:
+		<code class="classes">HTML</code>,
+		<code class="classes">JS</code>
+
+	<ul class="lists">
+		<li>
+			To make it easier to switch brands with Less we’ve added a brand variable. Building multibrand sites has never been this easy!
+			(<a href="https://github.com/WestpacCXTeam/GUI-source/issues/203" target="_blank">#203</a>)
+		</li>
+	</ul>
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% assign example = "ex1" %}
+
+
+{% comment %} HTML TAB {% endcomment %}
+{% capture HTML %}
+<ul class="list-group">
+	<li>
+		<a class="list-group-item" href="http://YOUR-URL.com.au">
+			<span class="list-group-text">YOUR ITEM TEXT</span>
+
+			<span class="list-group-element">
+				YOUR ITEM ADDON
+			</span>
+		</a>
+	</li>
+	<li>
+		<a class="list-group-item" href="http://YOUR-URL.com.au">
+			<span class="list-group-text">YOUR ITEM TEXT</span>
+
+			<span class="list-group-element">
+				YOUR ITEM ADDON
+			</span>
+		</a>
+	</li>
+</ul>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	The main mixin is called: <code class="classes">_list-groups({{ page.brand }})</code>
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+
+
+
+
+
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	List group with toggle buttons
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	Other UI elements can be added. Ideal for settings pages or preferences.
+</p>
+<p class="example-description text-info">
+	The toggle buttons in this example are not included and will have to be added to the blend separately.
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% assign example = "ex2" %}
+
+
+{% comment %} HTML TAB {% endcomment %}
+{% capture HTML %}
+<ul class="list-group">
+	<li>
+		<span class="list-group-item">
+			<span class="list-group-text">Send me sms reminders</span>
+
+			<span class="list-group-element">
+				<span class="btn-group">
+
+					<label class="btn-group-item">
+						<input class="btn-group-input" type="radio" name="options1">
+						<span class="btn-group-text btn btn-hero btn-sm">Yes</span>
+					</label>
+
+					<label class="btn-group-item">
+						<input class="btn-group-input" type="radio" name="options1">
+						<span class="btn-group-text btn btn-hero btn-sm">No</span>
+					</label>
+
+				</span>
+			</span>
+		</span>
+	</li>
+	<li>
+		<span class="list-group-item">
+			<span class="list-group-text">Give me free money</span>
+
+			<span class="list-group-element">
+				<span class="btn-group">
+
+					<label class="btn-group-item">
+						<input class="btn-group-input" type="radio" name="options2">
+						<span class="btn-group-text btn btn-hero btn-sm">Yes</span>
+					</label>
+
+					<label class="btn-group-item">
+						<input class="btn-group-input" type="radio" name="options2">
+						<span class="btn-group-text btn btn-hero btn-sm">No</span>
+					</label>
+
+				</span>
+			</span>
+		</span>
+	</li>
+</ul>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	{{ LESS }}
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}

@@ -1,0 +1,870 @@
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Collapsible elements
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	Collapse and expand content elements.
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+	<h4 class="body-font whatsnew-headline">What&rsquo;s new since v1.0.1</h4>
+
+	This version changed:
+		<code class="classes">CSS/LESS</code>
+	but not:
+		<code class="classes">HTML</code>,
+		<code class="classes">JS</code>
+
+	<ul class="lists">
+		<li>
+			To make it easier to switch brands with Less we’ve added a brand variable. Building multibrand sites has never been this easy!
+			(<a href="https://github.com/WestpacCXTeam/GUI-source/issues/203" target="_blank">#203</a>)
+		</li>
+	</ul>
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% assign example = "ex1" %}
+
+
+{% comment %} HTML TAB {% endcomment %}
+{% capture HTML %}
+<button class="btn btn-link js-collapsible" data-collapsible="#UNIQUE-ID">YOUR BUTTON</button>
+
+<div id="UNIQUE-ID" class="collapsible-body" aria-hidden="true" tabindex="-1">
+	YOUR CONTENT
+</div>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	The main mixin is called: <code class="classes">_tabcordions({{ page.brand }})</code>
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+	This module comes with the usual init method and three public methods:
+
+	<ul>
+		<li>
+			<code class="classes">GUI.tabcordions.init();</code> after the page has been loaded.
+		</li>
+		<li>
+			<code class="classes">GUI.tabcordions.render();</code> for dynamically added elements after page load.
+		</li>
+		<li>
+			<code class="classes">GUI.collapsible.toggle( target, _isAnimated, Callback )</code>
+			<ul>
+				<li>@param   <code class="classes">target</code>       [string]    Selector for target element to toggle is-open class</li>
+				<li>@param   <code class="classes">_isAnimated</code>  [boolean]   Wether or not to animate the height</li>
+				<li>@param   <code class="classes">Callback</code>     [function]  Callback function executed after completion</li>
+			</ul>
+		</li>
+		<li>
+			<code class="classes">GUI.collapsible.close( target, _isAnimated, Callback )</code>
+			<ul>
+				<li>@param   <code class="classes">target</code>       [string]    Selector for target element to toggle is-open class</li>
+				<li>@param   <code class="classes">_isAnimated</code>  [boolean]   Wether or not to animate the height</li>
+				<li>@param   <code class="classes">Callback</code>     [function]  Callback function executed after completion</li>
+			</ul>
+		</li>
+		<li>
+			<code class="classes">GUI.collapsible.open( target, _isAnimated, Callback, withFocus )</code>
+			<ul>
+				<li>@param   <code class="classes">target</code>       [string]    Selector for target element to toggle is-open class</li>
+				<li>@param   <code class="classes">_isAnimated</code>  [boolean]   Whether or not to animate the height</li>
+				<li>@param   <code class="classes">Callback</code>     [function]  Callback function executed after completion</li>
+				<li>@param   <code class="classes">withFocus</code>    [boolean]   Should the focus move to the opened element? Default true</li>
+			</ul>
+		</li>
+	</ul>
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+
+
+
+
+
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Soft tabs
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	Use tab elements to switch between different views or content, soft styling reduces emphasis. Avoid wrapping labels in tabs.
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% assign example = "ex2" %}
+
+
+{% comment %} HTML TAB {% endcomment %}
+{% capture HTML %}
+<div class="tabcordion tabcordion-tabs">
+	<ul class="tabcordion-tabs">
+		<li class="tabcordion-tab js-collapsible-tab is-active">
+			<a class="js-collapsible" href="#ex11-tab1{{ version[0] | handleize }}">YOUR TAB</a>
+		</li>
+		<li class="tabcordion-tab js-collapsible-tab">
+			<a class="js-collapsible" href="#ex11-tab2{{ version[0] | handleize }}">YOUR TAB</a>
+		</li>
+		<li class="tabcordion-tab js-collapsible-tab">
+			<a class="js-collapsible" href="#ex11-tab3{{ version[0] | handleize }}">YOUR TAB</a>
+		</li>
+	</ul>
+
+	<div id="ex11-tab1{{ version[0] | handleize }}" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
+		<div class="tabcordion-body">
+			YOUR TEXT
+		</div>
+	</div>
+	<div id="ex11-tab2{{ version[0] | handleize }}" class="collapsible-body" aria-hidden="true" tabindex="-1">
+		<div class="tabcordion-body">
+			YOUR TEXT
+		</div>
+	</div>
+	<div id="ex11-tab3{{ version[0] | handleize }}" class="collapsible-body" aria-hidden="true" tabindex="-1">
+		<div class="tabcordion-body">
+			YOUR TEXT
+		</div>
+	</div>
+</div>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	{{ LESS }}
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+	{{ JS }}
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+
+
+
+
+
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Soft tabs - justified
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	As above, allowing tabs to span the full width of the container.
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% assign example = "ex3" %}
+
+
+{% comment %} HTML TAB {% endcomment %}
+{% capture HTML %}
+<div class="tabcordion tabcordion-tabs">
+	<ul class="tabcordion-tabs tabcordion-tabs-justified">
+		<li class="tabcordion-tab js-collapsible-tab is-active">
+			<a class="js-collapsible" href="#ex22-tab1{{ version[0] | handleize }}">YOUR TAB</a>
+		</li>
+		<li class="tabcordion-tab js-collapsible-tab">
+			<a class="js-collapsible" href="#ex22-tab2{{ version[0] | handleize }}">YOUR TAB</a>
+		</li>
+		<li class="tabcordion-tab js-collapsible-tab">
+			<a class="js-collapsible" href="#ex22-tab3{{ version[0] | handleize }}">YOUR TAB</a>
+		</li>
+	</ul>
+
+	<div id="ex22-tab1{{ version[0] | handleize }}" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
+		<div class="tabcordion-body">
+			YOUR TEXT
+		</div>
+	</div>
+	<div id="ex22-tab2{{ version[0] | handleize }}" class="collapsible-body" aria-hidden="true" tabindex="-1">
+		<div class="tabcordion-body">
+			YOUR TEXT
+		</div>
+	</div>
+	<div id="ex22-tab3{{ version[0] | handleize }}" class="collapsible-body" aria-hidden="true" tabindex="-1">
+		<div class="tabcordion-body">
+			YOUR TEXT
+		</div>
+	</div>
+</div>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+	Modifier class:
+
+	<ul>
+		<li>
+			<code class="classes">tabcordion-tabs-justified</code>
+		</li>
+	</ul>
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	{{ LESS }}
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+	{{ JS }}
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+
+
+
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Lego tabs
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	A stronger styling option for tabs.
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% assign example = "ex4" %}
+
+
+{% comment %} HTML TAB {% endcomment %}
+{% capture HTML %}
+<div class="tabcordion tabcordion-lego tabcordion-tabs">
+	<ul class="tabcordion-tabs">
+		<li class="tabcordion-tab js-collapsible-tab is-active">
+			<a class="js-collapsible" href="#ex33-tab1{{ version[0] | handleize }}">YOUR TAB</a>
+		</li>
+		<li class="tabcordion-tab js-collapsible-tab">
+			<a class="js-collapsible" href="#ex33-tab2{{ version[0] | handleize }}">YOUR TAB</a>
+		</li>
+		<li class="tabcordion-tab js-collapsible-tab">
+			<a class="js-collapsible" href="#ex33-tab3{{ version[0] | handleize }}">YOUR TAB</a>
+		</li>
+	</ul>
+
+	<div id="ex33-tab1{{ version[0] | handleize }}" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
+		<div class="tabcordion-body">
+			YOUR TEXT
+		</div>
+	</div>
+	<div id="ex33-tab2{{ version[0] | handleize }}" class="collapsible-body" aria-hidden="true" tabindex="-1">
+		<div class="tabcordion-body">
+			YOUR TEXT
+		</div>
+	</div>
+	<div id="ex33-tab3{{ version[0] | handleize }}" class="collapsible-body" aria-hidden="true" tabindex="-1">
+		<div class="tabcordion-body">
+			YOUR TEXT
+		</div>
+	</div>
+</div>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+	Modifier class:
+
+	<ul>
+		<li>
+			<code class="classes">tabcordion-lego</code>
+		</li>
+	</ul>
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	{{ LESS }}
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+	{{ JS }}
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+
+
+
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Lego tabs - justified
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	As above, allowing tabs to span the full width of the container.
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% assign example = "ex5" %}
+
+
+{% comment %} HTML TAB {% endcomment %}
+{% capture HTML %}
+<div class="tabcordion tabcordion-lego tabcordion-tabs">
+	<ul class="tabcordion-tabs tabcordion-tabs-justified">
+		<li class="tabcordion-tab js-collapsible-tab is-active">
+			<a class="js-collapsible" href="#ex44-tab1{{ version[0] | handleize }}">YOUR TAB</a>
+		</li>
+		<li class="tabcordion-tab js-collapsible-tab">
+			<a class="js-collapsible" href="#ex44-tab2{{ version[0] | handleize }}">YOUR TAB</a>
+		</li>
+		<li class="tabcordion-tab js-collapsible-tab">
+			<a class="js-collapsible" href="#ex44-tab3{{ version[0] | handleize }}">YOUR TAB</a>
+		</li>
+	</ul>
+
+	<div id="ex44-tab1{{ version[0] | handleize }}" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
+		<div class="tabcordion-body">
+			YOUR TEXT
+		</div>
+	</div>
+	<div id="ex44-tab2{{ version[0] | handleize }}" class="collapsible-body" aria-hidden="true" tabindex="-1">
+		<div class="tabcordion-body">
+			YOUR TEXT
+		</div>
+	</div>
+	<div id="ex44-tab3{{ version[0] | handleize }}" class="collapsible-body" aria-hidden="true" tabindex="-1">
+		<div class="tabcordion-body">
+			YOUR TEXT
+		</div>
+	</div>
+</div>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+	Modifier class:
+
+	<ul>
+		<li>
+			<code class="classes">tabcordion-tabs-justified</code>
+		</li>
+	</ul>
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	{{ LESS }}
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+	{{ JS }}
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+
+
+
+
+
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Soft accordion
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	Use accordion elements to vertically stack related content. Each item can be expanded to reveal the content associated with that item. There can be zero
+	expanded items, exactly one, or more than one items expanded at a time, depending on the configuration.
+	Soft styling reduces emphasis.
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% assign example = "ex6" %}
+
+
+{% comment %} HTML TAB {% endcomment %}
+{% capture HTML %}
+<div class="tabcordion tabcordion-accordion">
+	<div class="tabcordion-body-header js-collapsible-tab is-active">
+		<a href="#ex55-tab1{{ version[0] | handleize }}" class="tabcordion-body-headline js-collapsible">YOUR TAB</a>
+	</div>
+	<div id="ex55-tab1{{ version[0] | handleize }}" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
+		<div class="tabcordion-body">
+			YOUR TEXT
+		</div>
+	</div>
+
+	<div class="tabcordion-body-header js-collapsible-tab">
+		<a href="#ex55-tab2{{ version[0] | handleize }}" class="tabcordion-body-headline js-collapsible">YOUR TAB</a>
+	</div>
+	<div id="ex55-tab2{{ version[0] | handleize }}" class="collapsible-body" aria-hidden="true" tabindex="-1">
+		<div class="tabcordion-body">
+			YOUR TEXT
+		</div>
+	</div>
+
+	<div class="tabcordion-body-header js-collapsible-tab">
+		<a href="#ex55-tab3{{ version[0] | handleize }}" class="tabcordion-body-headline js-collapsible">YOUR TAB</a>
+	</div>
+	<div id="ex55-tab3{{ version[0] | handleize }}" class="collapsible-body" aria-hidden="true" tabindex="-1">
+		<div class="tabcordion-body">
+			YOUR TEXT
+		</div>
+	</div>
+</div>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+	Modifier class:
+
+	<ul>
+		<li>
+			<code class="classes">tabcordion-accordion</code>
+		</li>
+	</ul>
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	{{ LESS }}
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+	{{ JS }}
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+
+
+
+
+
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Lego accordion
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	A stronger styling option for accordions.
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% assign example = "ex7" %}
+
+
+{% comment %} HTML TAB {% endcomment %}
+{% capture HTML %}
+<div class="tabcordion tabcordion-lego tabcordion-accordion">
+	<div class="tabcordion-body-header js-collapsible-tab is-active">
+		<a href="#ex66-tab1{{ version[0] | handleize }}" class="tabcordion-body-headline js-collapsible">YOUR TAB</a>
+	</div>
+	<div id="ex66-tab1{{ version[0] | handleize }}" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
+		<div class="tabcordion-body">
+			YOUR TEXT
+		</div>
+	</div>
+
+	<div class="tabcordion-body-header js-collapsible-tab">
+		<a href="#ex66-tab2{{ version[0] | handleize }}" class="tabcordion-body-headline js-collapsible">YOUR TAB</a>
+	</div>
+	<div id="ex66-tab2{{ version[0] | handleize }}" class="collapsible-body" aria-hidden="true" tabindex="-1">
+		<div class="tabcordion-body">
+			YOUR TEXT
+		</div>
+	</div>
+
+	<div class="tabcordion-body-header js-collapsible-tab">
+		<a href="#ex66-tab3{{ version[0] | handleize }}" class="tabcordion-body-headline js-collapsible">YOUR TAB</a>
+	</div>
+	<div id="ex66-tab3{{ version[0] | handleize }}" class="collapsible-body" aria-hidden="true" tabindex="-1">
+		<div class="tabcordion-body">
+			YOUR TEXT
+		</div>
+	</div>
+</div>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+	Modifier class:
+
+	<ul>
+		<li>
+			<code class="classes">tabcordion-lego</code>
+		</li>
+	</ul>
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	{{ LESS }}
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+	{{ JS }}
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+
+
+
+
+
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Soft tabcordion
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	A tab set that changes to an accordion based on break point, soft styling reduces emphasis.
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% assign example = "ex8" %}
+
+
+{% comment %} HTML TAB {% endcomment %}
+{% capture HTML %}
+<div class="tabcordion">
+	<ul class="tabcordion-tabs">
+		<li class="tabcordion-tab js-collapsible-tab is-active">
+			<a class="js-collapsible" href="#ex77-tab1{{ version[0] | handleize }}">YOUR TAB</a>
+		</li>
+		<li class="tabcordion-tab js-collapsible-tab">
+			<a class="js-collapsible" href="#ex77-tab2{{ version[0] | handleize }}">YOUR TAB</a>
+		</li>
+		<li class="tabcordion-tab js-collapsible-tab">
+			<a class="js-collapsible" href="#ex77-tab3{{ version[0] | handleize }}">YOUR TAB</a>
+		</li>
+	</ul>
+
+	<div class="tabcordion-body-header js-collapsible-tab is-active">
+		<a href="#ex77-tab1{{ version[0] | handleize }}" class="tabcordion-body-headline js-collapsible">YOUR TAB</a>
+	</div>
+	<div id="ex77-tab1{{ version[0] | handleize }}" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
+		<div class="tabcordion-body">
+			YOUR TEXT
+		</div>
+	</div>
+
+	<div class="tabcordion-body-header js-collapsible-tab">
+		<a href="#ex77-tab2{{ version[0] | handleize }}" class="tabcordion-body-headline js-collapsible">YOUR TAB</a>
+	</div>
+	<div id="ex77-tab2{{ version[0] | handleize }}" class="collapsible-body" aria-hidden="true" tabindex="-1">
+		<div class="tabcordion-body">
+			YOUR TEXT
+		</div>
+	</div>
+
+	<div class="tabcordion-body-header js-collapsible-tab">
+		<a href="#ex77-tab3{{ version[0] | handleize }}" class="tabcordion-body-headline js-collapsible">YOUR TAB</a>
+	</div>
+	<div id="ex77-tab3{{ version[0] | handleize }}" class="collapsible-body" aria-hidden="true" tabindex="-1">
+		<div class="tabcordion-body">
+			YOUR TEXT
+		</div>
+	</div>
+</div>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	{{ LESS }}
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+	{{ JS }}
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+
+
+
+
+
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Lego tabcordion
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	A tab set that changes to an accordion based on break point, prominent &quot;Lego&quot; styling highlights your content.
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% assign example = "ex9" %}
+
+
+{% comment %} HTML TAB {% endcomment %}
+{% capture HTML %}
+<div class="tabcordion tabcordion-lego">
+	<ul class="tabcordion-tabs">
+		<li class="tabcordion-tab js-collapsible-tab is-active">
+			<a class="js-collapsible" href="#ex88-tab1{{ version[0] | handleize }}">YOUR TAB</a>
+		</li>
+		<li class="tabcordion-tab js-collapsible-tab">
+			<a class="js-collapsible" href="#ex88-tab2{{ version[0] | handleize }}">YOUR TAB</a>
+		</li>
+		<li class="tabcordion-tab js-collapsible-tab">
+			<a class="js-collapsible" href="#ex88-tab3{{ version[0] | handleize }}">YOUR TAB</a>
+		</li>
+	</ul>
+
+	<div class="tabcordion-body-header js-collapsible-tab is-active">
+		<a href="#ex88-tab1{{ version[0] | handleize }}" class="tabcordion-body-headline js-collapsible">YOUR TAB</a>
+	</div>
+	<div id="ex88-tab1{{ version[0] | handleize }}" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
+		<div class="tabcordion-body">
+			YOUR TEXT
+		</div>
+	</div>
+
+	<div class="tabcordion-body-header js-collapsible-tab">
+		<a href="#ex88-tab2{{ version[0] | handleize }}" class="tabcordion-body-headline js-collapsible">YOUR TAB</a>
+	</div>
+	<div id="ex88-tab2{{ version[0] | handleize }}" class="collapsible-body" aria-hidden="true" tabindex="-1">
+		<div class="tabcordion-body">
+			YOUR TEXT
+		</div>
+	</div>
+
+	<div class="tabcordion-body-header js-collapsible-tab">
+		<a href="#ex88-tab3{{ version[0] | handleize }}" class="tabcordion-body-headline js-collapsible">YOUR TAB</a>
+	</div>
+	<div id="ex88-tab3{{ version[0] | handleize }}" class="collapsible-body" aria-hidden="true" tabindex="-1">
+		<div class="tabcordion-body">
+			YOUR TEXT
+		</div>
+	</div>
+</div>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+	Modifier class:
+
+	<ul>
+		<li>
+			<code class="classes">tabcordion-lego</code>
+		</li>
+	</ul>
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	{{ LESS }}
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+	{{ JS }}
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}

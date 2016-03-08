@@ -181,7 +181,16 @@
 
 		<div class="row">
 			<div class="col-sm-12 blender-action text-right">
-				<input type="hidden" name="brand" value="{{ page.brand }}">
+				{% if "[Debug]" == "true" %}
+					<select name="brand">
+						<option vlaue="BOM">BOM</option>
+						<option vlaue="BSA">BSA</option>
+						<option vlaue="STG">STG</option>
+						<option vlaue="WBC">WBC</option>
+					</select>
+				{% else %}
+					<input type="hidden" name="brand" value="{{ page.brand }}">
+				{% endif %}
 
 				<button type="submit" class="btn btn-primary btn-xl blender-submit js-blender-submit">
 					<span class="btn-text">Blend</span>

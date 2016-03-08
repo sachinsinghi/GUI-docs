@@ -1,0 +1,86 @@
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	Radio buttons can sit either to the left or the right of the label.
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+	<h4 class="body-font whatsnew-headline">What&rsquo;s new since v1.0.4</h4>
+
+	This version changed:
+		<code class="classes">CSS/LESS</code>,
+		<code class="classes">SVG</code>
+	but not:
+		<code class="classes">HTML</code>,
+		<code class="classes">JS</code>
+
+	<ul class="lists">
+		<li>
+			To make it easier to switch brands with Less we’ve added a brand variable. Building multibrand sites has never been this easy!
+			(<a href="https://github.com/WestpacCXTeam/GUI-source/issues/203" target="_blank">#203</a>)
+		</li>
+		<li>
+			All SVGs now come with a unique title ID. That may not sound like much but SVGs are very particular about their individualism.
+			(<a href="https://github.com/WestpacCXTeam/GUI-source/issues/204" target="_blank">#204</a>)
+		</li>
+	</ul>
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% assign example = "ex1" %}
+
+
+{% comment %} HTML TAB {% endcomment %}
+{% capture HTML %}
+<label class="radio">
+	<input class="radio-input" type="radio" name="options" value="option1">
+	<span class="radio-text">YOUR TITLE</span>
+</label>
+
+<label class="radio">
+	<input class="radio-input" type="radio" name="options" value="option2">
+	<span class="radio-text">YOUR TITLE</span>
+</label>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+	Modifier class:
+
+	<ul>
+		<li>
+			<code class="classes">radio-flip</code>
+		</li>
+	</ul>
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	The main mixin is called: <code class="classes">_radios({{ page.brand }})</code>
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}

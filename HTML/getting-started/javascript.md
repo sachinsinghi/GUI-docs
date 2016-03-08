@@ -54,6 +54,43 @@ parent: Getting Started
 
 <div class="row">
 
+	<div id="debugflag" class="col-sm-10 col-md-8 col-md-offset-2 col-sm-offset-1 content-textblock has-id">
+		<h3 class="body-font">The DEBUGfilter array</h3>
+		<p class="content-text">
+			The DEBUGfilter array can help you make sense of the shatter in DEBUG central. Each module that is using the Debugger is prefixed with it's name e.g.
+			<code class="classes">popovers: Popover button clicked</code>. You can add this prefix to the <code class="classes">GUI.DEBUGfilter</code> array to
+			only show debug messages from that very module.
+		</p>
+	</div>
+
+</div>
+
+
+<div class="row">
+
+	<div class="col-md-10 col-md-offset-1 example">
+		{% capture ID %}javascript1{% endcapture %}
+		{% capture category %}getting-started/javascript{% endcapture %}
+		{% capture thisVersion %}1{% endcapture %}
+		{% assign count = 1 %}
+		{% capture example %}{% endcapture %}
+		{% capture HTML %}{% endcapture %}
+		{% capture CSS %}{% endcapture %}
+		{% capture LESS %}{% endcapture %}
+		{% capture JS %}
+			Only show debug messages from collapsible: <code class="classes">GUI.DEBUGfilter = ['collapsible'];</code><br>
+			Only show debug messages from collapsible and alerts: <code class="classes">GUI.DEBUGfilter = ['collapsible', 'alerts'];</code><br>
+			Switch filtering off again: <code class="classes">GUI.DEBUGfilter = [];</code>
+		{% endcapture %}
+
+		{% include exampleBox.liquid %}
+	</div>
+
+</div>
+
+
+<div class="row">
+
 	<div id="debounce" class="col-sm-10 col-md-8 col-md-offset-2 col-sm-offset-1 content-textblock has-id">
 		<h3 class="body-font">The Debounce method</h3>
 		<p class="content-text">
@@ -253,7 +290,7 @@ parent: Getting Started
 		{% capture CSS %}{% endcapture %}
 		{% capture LESS %}{% endcapture %}
 		{% capture JS %}
-{% highlight javascript linenos=table %}
+{% highlight javascript %}
 (function(GUI) {
 
 	var module = {};
