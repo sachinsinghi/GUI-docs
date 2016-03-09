@@ -241,205 +241,163 @@
 	</div>
 
 	<div class="col-sm-8 index-section">
-		<ul class="lists lists-linklist index-faq">
-			<li class="index-faq-item">
-				<a href="#FAQ-q1" class="js-collapsible js-faq index-faq-link">Do we have to use the GUI source code?</a>
-				<div id="FAQ-q1" class="collapsible-body index-faq-content" aria-hidden="true" tabindex="-1">
-					<div class="index-faq-content-wrapper">
-						No, you do not have to use the GUI source code. You can build from scratch using wireframes and visual designs if you prefer, but your
-						final output must match the look and functionality of the GUI from a front-end perspective.
-					</div>
-				</div>
-			</li>
-			<li class="index-faq-item">
-				<a href="#FAQ-q2" class="js-collapsible js-faq index-faq-link">Which browsers does the GUI support?</a>
-				<div id="FAQ-q2" class="collapsible-body index-faq-content" aria-hidden="true" tabindex="-1">
-					<div class="index-faq-content-wrapper">
-						<p>
-							Our current browser support philosophy recommends one version forward and two versions back with the exception of IE8 and up.
-						</p>
-						<p>
-							The GUI uses progressive enhancement, therefore older browsers may not optimally render the interface elements. If using an older browser,
-							you must ensure that your interface elements meet the following requirements:
-						</p>
-						<ul class="lists">
-							<li>Enable the user to complete a task</li>
-							<li>Meet standard usability guidelines</li>
-							<li>
-								Comply to WCAG2 AA accessibility guidelines
-								<p>This philosophy is based on the following factors:</p>
-								<ul class="lists">
-									<li>
-										The ROI of tweaking elements for older browsers (with declining usage rates) for small enhancements which do not directly enhance
-										the customer experience or task completion rate e.g. rounded corners.
-									</li>
-									<li>Simplifying code by minimising styling with anything other than CSS</li>
-									<li>Less dependency on visual designers to provide graphic assets and support</li>
-									<li>More efficient workflow when building interfaces intended for multi-brand</li>
-									<li>Future proofing graphic quality for high definition screens</li>
-								</ul>
-							</li>
-						</ul>
-						<p>
-							Interface rendering concerns in older browsers can be raised with CX but ultimately the AFS Digital Brand Director will decide whether the brand
-							presentation is acceptable or if an alternative needs to be explored.
-						</p>
-					</div>
-				</div>
-			</li>
-			<li class="index-faq-item">
-				<a href="#FAQ-q3" class="js-collapsible js-faq index-faq-link">Who is responsible for bug fixing and testing?</a>
-				<div id="FAQ-q3" class="collapsible-body index-faq-content" aria-hidden="true" tabindex="-1">
-					<div class="index-faq-content-wrapper">
-						You are responsible for testing and bug fixes when you download an instance of the GUI and use it in your project. Please
-						<a href="https://github.com/WestpacCXTeam/GUI-source/issues/" target="_blank">let us know</a> if you notice any bugs in the
-						GUI and we&rsquo;ll fix it up.
-						Even better... send in a <a href="https://github.com/WestpacCXTeam/GUI-source/" target="_blank">pull request</a>. We&rsquo;d be very grateful.
-					</div>
-				</div>
-			</li>
-			<li class="index-faq-item">
-				<a href="#FAQ-q4" class="js-collapsible js-faq index-faq-link">If we use the GUI do we still need UX and UI designers?</a>
-				<div id="FAQ-q4" class="collapsible-body index-faq-content" aria-hidden="true" tabindex="-1">
-					<div class="index-faq-content-wrapper">
-						Yes. Every project should have a UX designer and a UI designer, no matter how small. This practice will ensure that the interaction design and
-						interface designs are consistent.
-					</div>
-				</div>
-			</li>
-			<li class="index-faq-item">
-				<a href="#FAQ-q5" class="js-collapsible js-faq index-faq-link">Can I change LESS files, css or JavaScript?</a>
-				<div id="FAQ-q5" class="collapsible-body index-faq-content" aria-hidden="true" tabindex="-1">
-					<div class="index-faq-content-wrapper">
-						We do not recommend changing the files. To alter or add styles in your project please use an override css file and concatenate it at the bottom.
-						This will ensure that you stay upgradeable in case we fix things and create a new version of a module.
-					</div>
-				</div>
-			</li>
-			<li class="index-faq-item">
-				<a href="#FAQ-q6" class="js-collapsible js-faq index-faq-link">Can we use our own JavaScript library?</a>
-				<div id="FAQ-q6" class="collapsible-body index-faq-content" aria-hidden="true" tabindex="-1">
-					<div class="index-faq-content-wrapper">
-						Yes you can use your own JavaScript library, however you are responsible for the implementation. The GUI currently comes with jQuery but we will
-						try to move to vanilla JS in future to provide even more flexibility.
-					</div>
-				</div>
-			</li>
-			<li class="index-faq-item">
-				<a href="#FAQ-q7" class="js-collapsible js-faq index-faq-link">Is the GUI accessible?</a>
-				<div id="FAQ-q7" class="collapsible-body index-faq-content" aria-hidden="true" tabindex="-1">
-					<div class="index-faq-content-wrapper">
-						Yes as of version 1.0.0. the GUI complies to AA accessibility standards. We have been through a formal accessibility review to meet this
-						requirement.
-					</div>
-				</div>
-			</li>
-			<li class="index-faq-item">
-				<a href="#FAQ-q8" class="js-collapsible js-faq index-faq-link">How are modules affected by new releases?</a>
-				<div id="FAQ-q8" class="collapsible-body index-faq-content" aria-hidden="true" tabindex="-1">
-					<div class="index-faq-content-wrapper">
-						Each module is affected differently by each release. But don't worry if you don't have the resources to upgrade, as we'll always keep the
-						past versions online. This ensures that when a fix is issued or an improvement is made to a module, only teams that are using that particular
-						module are affected.
-					</div>
-				</div>
-			</li>
-			<li class="index-faq-item">
-				<a href="#FAQ-q9" class="js-collapsible js-faq index-faq-link">Do we have to use the updated release?</a>
-				<div id="FAQ-q9" class="collapsible-body index-faq-content" aria-hidden="true" tabindex="-1">
-					<div class="index-faq-content-wrapper">
-						No, you do not have to use the updated release. The Blender is specifically built to cater for every version, meaning that you can continue to
-						use your preferred version. However, we encourage you to assess the effort required to upgrade, as it may only be minimal but could enable you
-						to leverage the community fixes and testing.
-					</div>
-				</div>
-			</li>
-			<li class="index-faq-item">
-				<a href="#FAQ-q10" class="js-collapsible js-faq index-faq-link">Which frameworks are used to create the GUI?</a>
-				<div id="FAQ-q10" class="collapsible-body index-faq-content" aria-hidden="true" tabindex="-1">
-					<div class="index-faq-content-wrapper">
-						As of version 2.0.0 we have rebuilt the GUI from scratch. It is a complete custom build for your environment and enables us to be more flexible in
-						its development. We tried to keep the classes and naming convention as close to Bootstrap 3.x as possible.
-					</div>
-				</div>
-			</li>
-			<li class="index-faq-item">
-				<a href="#FAQ-q12" class="js-collapsible js-faq index-faq-link">Do I have to use version 2.0.0?</a>
-				<div id="FAQ-q12" class="collapsible-body index-faq-content" aria-hidden="true" tabindex="-1">
-					<div class="index-faq-content-wrapper">
-						With improved versioning in the release, projects who are using a version of the GUI 1.x will continue to be able to use and implement their
-						corresponding version. Each project should review the GUI 2.0.0 and assess the value, effort and impact of updating their projects before
-						proceeding with the upgrade.
-					</div>
-				</div>
-			</li>
+		<strong>Do we have to use the GUI source code?</strong>
+		<p>
+			No, you do not have to use the GUI source code. You can build from scratch using wireframes and visual designs if you prefer, but your
+			final output must match the look and functionality of the GUI from a front-end perspective.
+		</p>
 
-			<li class="index-faq-item">
-				<a href="#FAQ-q13" class="js-collapsible js-faq index-faq-link">How do I use the GUI in my SPA project?</a>
-				<div id="FAQ-q13" class="collapsible-body index-faq-content" aria-hidden="true" tabindex="-1">
-					<div class="index-faq-content-wrapper">
-						There are some additional considerations you have to do before jumping in with your project depending on the framework you use. We got some great
-						resources <a href="https://github.com/WestpacCXTeam/GUI-source/issues/137" target="_blank">about Angular</a> and
-						<a href="https://github.com/WestpacCXTeam/GUI-source/issues/144" target="_blank">icons in dynamic DOM</a>. If you have something you want to share
-						let us know on <a href="https://github.com/WestpacCXTeam/GUI-source/issues" target="_blank">GitHub</a>.
-					</div>
-				</div>
-			</li>
 
-			<li class="index-faq-item">
-				<a href="#FAQ-q14" class="js-collapsible js-faq index-faq-link">How can you center the logos in a multi-brand environment?</a>
-				<div id="FAQ-q14" class="collapsible-body index-faq-content" aria-hidden="true" tabindex="-1">
-					<div class="index-faq-content-wrapper">
-						The logos are all on the same size canvas to enable us to quickly switch the brand and not having to worry about the size of the different logos
-						in each brand. This of course only works when you have your logo left aligned.
-						In case your design requires you to center your logo you will have to account for the different sizes and that could be a bit frustrating to get
-						your head around. That's why we made a test page that helps you getting started:
-
-						<p><a href="http://codepen.io/dominikwilkowski/pen/rOKXrN" target="_blank">Check out this CodePen</a></p>
-
-						This is why LESS and any preprocessor is great. You can add some smarts to your CSS.
-						Here we have a env-var on the top of our LESS to represent the brand. We then check on that variable and adjust the size of the logo in the
-						centered div.
-
-						If you have any questions or additions to this issue, come over and talk to us here on
-						<a href="https://github.com/WestpacCXTeam/GUI-source/issues/147" target="_blank">GitHub</a>.
-					</div>
-				</div>
-			</li>
-
-			<li class="index-faq-item">
-				<a href="#FAQ-q15" class="js-collapsible js-faq index-faq-link">How do I change the colour of my icon?</a>
-				<div id="FAQ-q15" class="collapsible-body index-faq-content" aria-hidden="true" tabindex="-1">
-					<div class="index-faq-content-wrapper">
-						You will have to embedd the icons to change the colour. Once embedded you can use the <code class="classes">icons-background</code> class to
-						change the fill eg: <code class="classes">.icons-background { fill: rebeccapurple; }</code>.
-						Read more <a href="https://github.com/WestpacCXTeam/GUI-source/issues/135" target="_blank">about icon colours</a>.
-					</div>
-				</div>
-			</li>
-
-			<li class="index-faq-item">
-				<a href="#FAQ-q16" class="js-collapsible js-faq index-faq-link">What if I have a document in a non-latin language?</a>
-				<div id="FAQ-q16" class="collapsible-body index-faq-content" aria-hidden="true" tabindex="-1">
-					<div class="index-faq-content-wrapper">
-						Some characters may not display correctly when using non-latin languages like Vietnamese or Hebrew. In those cases you should overwrite the
-						font-family and edit out the roboto webfont we are still shipping. Just have a look at
-						<a href="https://github.com/WestpacCXTeam/GUI-source/tree/master/_fonts" target="_blank">_fonts code-module</a> and see what the current brand-font
-						and body-font is. Read more <a href="https://github.com/WestpacCXTeam/GUI-source/issues/146" target="_blank">about non-latin languages</a>.
-					</div>
-				</div>
-			</li>
-
-			<li class="index-faq-item">
-				<a href="#FAQ-q17" class="js-collapsible js-faq index-faq-link">How can I get the unminified version of Javascript?</a>
-				<div id="FAQ-q17" class="collapsible-body index-faq-content" aria-hidden="true" tabindex="-1">
-					<div class="index-faq-content-wrapper">
-						Although the blender is built to be easy to use, some features can drown in the noise. We got asked a couple times how one might get the unminified
-						version of a modules JavaScript. You can read
-						<a href="https://github.com/WestpacCXTeam/GUI-source/issues/161" target="_blank">our answer on GitHub</a>.
-					</div>
-				</div>
+		<strong class="top-margin5-xs">Which browsers does the GUI support?</strong>
+		<p>
+			Our current browser support philosophy recommends one version forward and two versions back with the exception of IE8 and up.
+		</p>
+		<p>
+			The GUI uses progressive enhancement, therefore older browsers may not optimally render the interface elements. If using an older browser,
+			you must ensure that your interface elements meet the following requirements:
+		</p>
+		<ul class="lists">
+			<li>Enable the user to complete a task</li>
+			<li>Meet standard usability guidelines</li>
+			<li>
+				Comply to WCAG2 AA accessibility guidelines
+				<p>This philosophy is based on the following factors:</p>
+				<ul class="lists">
+					<li>
+						The ROI of tweaking elements for older browsers (with declining usage rates) for small enhancements which do not directly enhance
+						the customer experience or task completion rate e.g. rounded corners.
+					</li>
+					<li>Simplifying code by minimising styling with anything other than CSS</li>
+					<li>Less dependency on visual designers to provide graphic assets and support</li>
+					<li>More efficient workflow when building interfaces intended for multi-brand</li>
+					<li>Future proofing graphic quality for high definition screens</li>
+				</ul>
 			</li>
 		</ul>
+		<p>
+			Interface rendering concerns in older browsers can be raised with CX but ultimately the AFS Digital Brand Director will decide whether the brand
+			presentation is acceptable or if an alternative needs to be explored.
+		</p>
+
+
+		<strong class="top-margin5-xs">Who is responsible for bug fixing and testing?</strong>
+		<p>
+			You are responsible for testing and bug fixes when you download an instance of the GUI and use it in your project. Please
+			<a href="https://github.com/WestpacCXTeam/GUI-source/issues/" target="_blank">let us know</a> if you notice any bugs in the
+			GUI and we&rsquo;ll fix it up.
+			Even better... send in a <a href="https://github.com/WestpacCXTeam/GUI-source/" target="_blank">pull request</a>. We&rsquo;d be very grateful.
+		</p>
+
+
+		<strong class="top-margin5-xs">If we use the GUI do we still need UX and UI designers?</strong>
+		<p>
+			Yes. Every project should have a UX designer and a UI designer, no matter how small. This practice will ensure that the interaction design and
+			interface designs are consistent.
+		</p>
+
+
+		<strong class="top-margin5-xs">Can I change LESS files, css or JavaScript?</strong>
+		<p>
+			We do not recommend changing the files. To alter or add styles in your project please use an override css file and concatenate it at the bottom.
+			This will ensure that you stay upgradeable in case we fix things and create a new version of a module.
+		</p>
+
+
+		<strong class="top-margin5-xs">Can we use our own JavaScript library?</strong>
+		<p>
+			Yes you can use your own JavaScript library, however you are responsible for the implementation. The GUI currently comes with jQuery but we will
+			try to move to vanilla JS in future to provide even more flexibility.
+		</p>
+
+
+		<strong class="top-margin5-xs">Is the GUI accessible?</strong>
+		<p>
+			Yes as of version 1.0.0. the GUI complies to AA accessibility standards. We have been through a formal accessibility review to meet this
+			requirement.
+		</p>
+
+
+		<strong class="top-margin5-xs">How are modules affected by new releases?</strong>
+		<p>
+			Each module is affected differently by each release. But don't worry if you don't have the resources to upgrade, as we'll always keep the
+			past versions online. This ensures that when a fix is issued or an improvement is made to a module, only teams that are using that particular
+			module are affected.
+		</p>
+
+
+		<strong class="top-margin5-xs">Do we have to use the updated release?</strong>
+		<p>
+			No, you do not have to use the updated release. The Blender is specifically built to cater for every version, meaning that you can continue to
+			use your preferred version. However, we encourage you to assess the effort required to upgrade, as it may only be minimal but could enable you
+			to leverage the community fixes and testing.
+		</p>
+
+
+		<strong class="top-margin5-xs">Which frameworks are used to create the GUI?</strong>
+		<p>
+			As of version 2.0.0 we have rebuilt the GUI from scratch. It is a complete custom build for your environment and enables us to be more flexible in
+			its development. We tried to keep the classes and naming convention as close to Bootstrap 3.x as possible.
+		</p>
+
+
+		<strong class="top-margin5-xs">Do I have to use version 2.0.0?</strong>
+		<p>
+			With improved versioning in the release, projects who are using a version of the GUI 1.x will continue to be able to use and implement their
+			corresponding version. Each project should review the GUI 2.0.0 and assess the value, effort and impact of updating their projects before
+			proceeding with the upgrade.
+		</p>
+
+
+		<strong class="top-margin5-xs">How do I use the GUI in my SPA project?</strong>
+		<p>
+			There are some additional considerations you have to do before jumping in with your project depending on the framework you use. We got some great
+			resources <a href="https://github.com/WestpacCXTeam/GUI-source/issues/137" target="_blank">about Angular</a> and
+			<a href="https://github.com/WestpacCXTeam/GUI-source/issues/144" target="_blank">icons in dynamic DOM</a>. If you have something you want to share
+			let us know on <a href="https://github.com/WestpacCXTeam/GUI-source/issues" target="_blank">GitHub</a>.
+		</p>
+
+
+		<strong class="top-margin5-xs">How can you center the logos in a multi-brand environment?</strong>
+		<p>
+			The logos are all on the same size canvas to enable us to quickly switch the brand and not having to worry about the size of the different logos
+			in each brand. This of course only works when you have your logo left aligned.
+			In case your design requires you to center your logo you will have to account for the different sizes and that could be a bit frustrating to get
+			your head around. That's why we made a test page that helps you getting started:
+
+			<p><a href="http://codepen.io/dominikwilkowski/pen/rOKXrN" target="_blank">Check out this CodePen</a></p>
+
+			This is why LESS and any preprocessor is great. You can add some smarts to your CSS.
+			Here we have a env-var on the top of our LESS to represent the brand. We then check on that variable and adjust the size of the logo in the
+			centered div.
+
+			If you have any questions or additions to this issue, come over and talk to us here on
+			<a href="https://github.com/WestpacCXTeam/GUI-source/issues/147" target="_blank">GitHub</a>.
+		</p>
+
+
+		<strong class="top-margin5-xs">How do I change the colour of my icon?</strong>
+		<p>
+			You will have to embedd the icons to change the colour. Once embedded you can use the <code class="classes">icons-background</code> class to
+			change the fill eg: <code class="classes">.icons-background { fill: rebeccapurple; }</code>.
+			Read more <a href="https://github.com/WestpacCXTeam/GUI-source/issues/135" target="_blank">about icon colours</a>.
+		</p>
+
+
+		<strong class="top-margin5-xs">What if I have a document in a non-latin language?</strong>
+		<p>
+			Some characters may not display correctly when using non-latin languages like Vietnamese or Hebrew. In those cases you should overwrite the
+			font-family and edit out the roboto webfont we are still shipping. Just have a look at
+			<a href="https://github.com/WestpacCXTeam/GUI-source/tree/master/_fonts" target="_blank">_fonts code-module</a> and see what the current brand-font
+			and body-font is. Read more <a href="https://github.com/WestpacCXTeam/GUI-source/issues/146" target="_blank">about non-latin languages</a>.
+		</p>
+
+
+		<strong class="top-margin5-xs">How can I get the unminified version of Javascript?</strong>
+		<p>
+			Although the blender is built to be easy to use, some features can drown in the noise. We got asked a couple times how one might get the unminified
+			version of a modules JavaScript. You can read
+			<a href="https://github.com/WestpacCXTeam/GUI-source/issues/161" target="_blank">our answer on GitHub</a>.
+		</p>
+
 	</div>
 </article>

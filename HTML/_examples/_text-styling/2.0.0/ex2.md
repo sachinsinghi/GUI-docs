@@ -38,3 +38,17 @@ svg: false
 <p>
 	I&rsquo;m used for emphasising a snippet of text with italics like this <em>Look at me I&rsquo;ve been emphasised</em> and I haven&rsquo;t even used i tag.
 </p>
+
+<hr>
+<p>Mark</p>
+
+<p>
+	In this text we have a <mark>section we would like to highlight</mark> from the rest of the text.
+</p>
+
+<hr>
+<p>Del/Ins</p>
+
+<p>
+	Sometimes we make changes to <del>someone</del> <ins>something</ins> and this is how you mark that up in HTML.
+</p>
