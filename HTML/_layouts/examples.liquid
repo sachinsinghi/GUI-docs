@@ -29,6 +29,11 @@
 	{% endunless %}
 {% endfor %}
 
+{% if "[Debug]" == "true" %}
+{% else %}
+	{% capture URL %}/GUI{{ URL }}{% endcapture %}
+{% endif %}
+
 
 {% comment %}
 	GET PADDING
