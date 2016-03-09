@@ -1,11 +1,13 @@
-/*! Text Styling v1.0.0 WBC*/
+/*! Text Styling v2.0.0 BOM */
+
+@brand: BOM;
 
 
 //////////////////////////////////////| TEXT STYLING MIXIN
 ._text-styling( @brand ) {
 
 	._text-styling-normalizer();
-	._text-styling-headings( WBC );
+	._text-styling-headings( @brand );
 
 
 	//////////////////////////////////////| HTML STYLES
@@ -35,6 +37,20 @@
 		font-weight: 300;
 	}
 
+	mark {
+		background-color: @color-A-20;
+	}
+
+	dl {
+		dt {
+			font-weight: 700;
+		}
+
+		dd {
+			margin: 0;
+		}
+	}
+
 	::selection {
 		background-color: @color-A-20;
 	}
@@ -50,15 +66,6 @@
 	::-moz-selection {
 		background-color: @color-A-20;
 	}
-
-	// dl {
-	// 	dt {
-	// 		font-weight: 700;
-	// 	}
-	// 	dd {
-	// 		margin: 0;
-	// 	}
-	// }
 
 
 	//////////////////////////////////////| LINKS
@@ -1028,4 +1035,4 @@
 
 
 //////////////////////////////////////| TEXT STYLING
-// ._text-styling(WBC);
+._text-styling( @brand );

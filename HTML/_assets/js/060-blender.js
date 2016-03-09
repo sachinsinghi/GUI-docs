@@ -29,13 +29,16 @@
 			App.debugging( 'Blender: handleDep: selecting ' + dep, 'report' );
 
 			var $depend = $( '.js-blender-version option.js-blender-' + dep );
+			var _hasNewer = $depend.prev('option').length;
 			var $tick = $depend.parents('.js-module-version').find('.js-blender-tick');
 
 			if( $depend.length > 1 ) { //select latest if no version is given
 				$depend.first().prop('selected', true);
 			}
 			else { //otherwise select precise version
-				$depend.prop('selected', true);
+				if( !_hasNewer ) { //but only if there is no newer version
+					$depend.prop('selected', true);
+				}
 			}
 
 			$tick.prop('checked', true); //make the ticks
@@ -394,7 +397,7 @@
 
 				moduleName = moduleName.substring( App.PREFIX.length );
 				var $tick = $( '#tick-' + moduleName );
-				var $select = $( '#' + moduleName );
+				var $select = $( '#select-' + moduleName );
 
 				if( $tick.length ) {
 					$select

@@ -58,19 +58,19 @@
 
 									<li class="blender-module row">
 										<div class="col-sm-5 blender-module-text">
-											<label for="{{ module[1].ID }}">
+											<label for="tick-{{ module[1].ID }}">
 												<strong class="blender-module-name
 													{% unless _isIcons %}is-block{% endunless %}
 												">{{ module[1].name }}</strong>
 											</label>{% if _isIcons %}{{ link }}{% endif %}
-											<label for="{{ module[1].ID }}">
+											<label for="tick-{{ module[1].ID }}">
 												<span class="blender-module-description
 													{% if _isIcons %}is-block{% endif %}
 												">{{ module[1].description }}</span>
 											</label>
 											{% unless _isIcons %}{{ link }}{% endunless %}
 											{% if _isCore %}
-												<label class="blender-module-core text-info" for="{{ module[1].ID }}">
+												<label class="blender-module-core text-info" for="tick-{{ module[1].ID }}">
 													This core module is always added.
 												</label>
 											{% endif %}

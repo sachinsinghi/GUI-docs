@@ -1,4 +1,6 @@
-/*! Fonts v1.0.0 WBC*/
+/*! Fonts v2.0.0 BOM */
+
+@brand: BOM;
 
 
 //////////////////////////////////////| FONTS MIXIN
@@ -50,72 +52,6 @@
 	.getBrand() when (@brand = WBC) {}
 	.getBrand();
 
-	@font-face {
-		font-family: 'roboto';
-		src: url('../font/roboto-Thin-webfont.eot');
-		src: url('../font/roboto-Thin-webfont.eot?#iefix') format('embedded-opentype'),
-			url('../font/roboto-Thin-webfont.woff') format('woff'),
-			url('../font/roboto-Thin-webfont.ttf') format('truetype'),
-			url('../font/roboto-Thin-webfont.svg#roboto') format('svg');
-		font-weight: 100;
-		font-style: normal;
-	}
-
-	@font-face {
-		font-family: 'roboto';
-		src: url('../font/roboto-Light-webfont.eot');
-		src: url('../font/roboto-Light-webfont.eot?#iefix') format('embedded-opentype'),
-			url('../font/roboto-Light-webfont.woff') format('woff'),
-			url('../font/roboto-Light-webfont.ttf') format('truetype'),
-			url('../font/roboto-Light-webfont.svg#roboto') format('svg');
-		font-weight: 300;
-		font-style: normal;
-	}
-
-	@font-face {
-		font-family: 'roboto';
-		src: url('../font/roboto-Regular-webfont.eot');
-		src: url('../font/roboto-Regular-webfont.eot?#iefix') format('embedded-opentype'),
-			url('../font/roboto-Regular-webfont.woff') format('woff'),
-			url('../font/roboto-Regular-webfont.ttf') format('truetype'),
-			url('../font/roboto-Regular-webfont.svg#roboto') format('svg');
-		font-weight: 400;
-		font-style: normal;
-	}
-
-	@font-face {
-		font-family: 'roboto';
-		src: url('../font/roboto-Medium-webfont.eot');
-		src: url('../font/roboto-Medium-webfont.eot?#iefix') format('embedded-opentype'),
-			url('../font/roboto-Medium-webfont.woff') format('woff'),
-			url('../font/roboto-Medium-webfont.ttf') format('truetype'),
-			url('../font/roboto-Medium-webfont.svg#roboto') format('svg');
-		font-weight: 500;
-		font-style: normal;
-	}
-
-	@font-face {
-		font-family: 'roboto';
-		src: url('../font/roboto-Bold-webfont.eot');
-		src: url('../font/roboto-Bold-webfont.eot?#iefix') format('embedded-opentype'),
-			url('../font/roboto-Bold-webfont.woff') format('woff'),
-			url('../font/roboto-Bold-webfont.ttf') format('truetype'),
-			url('../font/roboto-Bold-webfont.svg#roboto') format('svg');
-		font-weight: 700;
-		font-style: normal;
-	}
-
-	@font-face {
-		font-family: 'roboto';
-		src: url('../font/roboto-Italic-webfont.eot');
-		src: url('../font/roboto-Italic-webfont.eot?#iefix') format('embedded-opentype'),
-			url('../font/roboto-Italic-webfont.woff') format('woff'),
-			url('../font/roboto-Italic-webfont.ttf') format('truetype'),
-			url('../font/roboto-Italic-webfont.svg#roboto') format('svg');
-		font-weight: 400;
-		font-style: italic;
-	}
-
 	//////////////////////////////////////| FONTS
 	.body-font {
 		font-family: @fontfamily;
@@ -127,7 +63,7 @@
 }
 
 
-//////////////////////////////////////| BREAKPOINTS
+//////////////////////////////////////| FONT FAMILY
 ._fonts-family( @brand ) {
 	.getBrand() when (@brand = BOM) {
 		@fontfamily: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
@@ -150,4 +86,4 @@
 
 
 //////////////////////////////////////| FONTS
-// ._fonts(WBC);
+._fonts( @brand );

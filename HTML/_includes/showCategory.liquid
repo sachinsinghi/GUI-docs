@@ -22,6 +22,18 @@
 {% assign LESS = '' %}
 {% assign JS = '' %}
 
+
+{% comment %}<div>
+	{% for module in site.data.GUI.modules[category] %}
+		<strong>{{ module[1].ID }}</strong><br>
+		{% for version in module[1].versions %}
+			{{ version[0] }}<br>
+		{% endfor %}
+		<hr>
+	{% endfor %}
+</div>{% endcomment %}
+
+
 <div class="row">
 	<div class="col-sm-12 category">
 		{% for module in site.data.GUI.modules[category] %}
