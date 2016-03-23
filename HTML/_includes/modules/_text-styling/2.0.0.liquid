@@ -113,13 +113,15 @@
 
 {% comment %} HTML TAB {% endcomment %}
 {% capture HTML %}
-	<p>
-		I&rsquo;m a basic paragraph.
-		<small>I&rsquo;m small.</small>
-		<strong>I&rsquo;m strong</strong>
-		<a href="{{ page.title | handleize }}/#url">I&rsquo;m a link</a>
-		<em>I&rsquo;ve been emphasised</em>
-	</p>
+<p>
+	I&rsquo;m a basic paragraph.
+	<small>I&rsquo;m small.</small>
+	<strong>I&rsquo;m strong</strong>
+	<a href="{{ page.title | handleize }}/#url">I&rsquo;m a link</a>
+	<em>I&rsquo;ve been emphasised</em>
+	<mark>highlighted text</mark>
+	<del>removed bit</del> <ins>replacement bit</ins>
+</p>
 {% endcapture %}
 
 
