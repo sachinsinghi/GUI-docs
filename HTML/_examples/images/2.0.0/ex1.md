@@ -7,14 +7,14 @@ svg: false
 ---
 
 <p>Responsive image</p>
-<img class="img-responsive" src="/[Brand]/assets/img/testimage1.jpg" alt="Placeholder images">
+<img class="img-responsive" src="/GUI/[Brand]/assets/img/testimage1.jpg" alt="Placeholder images">
 
 <hr>
 <p>Rounded corner</p>
 
-<img class="img-rounded" src="/[Brand]/assets/img/testimage2.jpg" alt="Placeholder images">
+<img class="img-rounded" src="/GUI/[Brand]/assets/img/testimage2.jpg" alt="Placeholder images">
 
 <hr>
 <p>Round image</p>
 
-<img class="img-circle" src="/[Brand]/assets/img/testimage3.jpg" alt="Placeholder images">
+<img class="img-circle" src="/GUI/[Brand]/assets/img/testimage3.jpg" alt="Placeholder images">

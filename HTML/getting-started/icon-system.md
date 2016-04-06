@@ -44,14 +44,14 @@ parent: Getting Started
 		{% capture thisVersion %}1{% endcapture %}
 		{% assign count = 0 %}
 		{% capture example %}
-			<span class="icon icon-size-lg icon-face-happy" data-grunticon-embed></span>
+			<span class="icon icon-size-lg icon-message" data-grunticon-embed></span>
 			<hr>
 			<span class="icon icon-size-lg icon-info" data-grunticon-embed></span>
 			<hr>
 			<span class="icon icon-size-lg icon-umbrella" data-grunticon-embed></span>
 		{% endcapture %}
 		{% capture HTML %}
-	<span class="icon icon-size-lg icon-face-happy" data-grunticon-embed></span>
+	<span class="icon icon-size-lg icon-message" data-grunticon-embed></span>
 		{% endcapture %}
 		{% capture CSS %}{% endcapture %}
 		{% capture LESS %}{% endcapture %}
@@ -84,14 +84,14 @@ parent: Getting Started
 		{% capture thisVersion %}1{% endcapture %}
 		{% assign count = 1 %}
 		{% capture example %}
-			<span class="icon icon-size-lg icon-face-happy"></span>
+			<span class="icon icon-size-lg icon-message"></span>
 			<hr>
 			<span class="icon icon-size-lg icon-info"></span>
 			<hr>
 			<span class="icon icon-size-lg icon-umbrella"></span>
 		{% endcapture %}
 		{% capture HTML %}
-	<span class="icon icon-size-lg icon-face-happy"></span>
+	<span class="icon icon-size-lg icon-message"></span>
 		{% endcapture %}
 		{% capture CSS %}{% endcapture %}
 		{% capture LESS %}{% endcapture %}

@@ -148,7 +148,7 @@ var progress = [
 ];
 Spinner.change_sequence( progress );
 
-/* SETTINGS */
+/* FOLDERS */
 var SETTINGS = function() {
 	return {
 		'folder': {
@@ -171,6 +171,10 @@ var SETTINGS = function() {
 
 			'GUIjson': 'GUI-source-master/GUI.json',
 			'Packagejson': 'package.json',
+			'GUIconfig': '.guiconfig',
+
+			'OnlineGUIzip': 'https://github.com/WestpacCXTeam/GUI-source/archive/master.zip',
+			'OnlineGUIjson': 'https://raw.githubusercontent.com/WestpacCXTeam/GUI-source/master/GUI.json',
 		},
 	};
 };
@@ -192,7 +196,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-less');
 	grunt.loadNpmTasks('grunt-text-replace');
 	grunt.loadNpmTasks('grunt-contrib-copy');
-	grunt.loadNpmTasks('grunt-lintspaces');
 	grunt.loadNpmTasks('grunt-grunticon');
 	grunt.loadNpmTasks('grunt-wakeup');
 	grunt.loadNpmTasks('grunt-jekyll');
@@ -282,117 +285,131 @@ module.exports = function(grunt) {
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	grunt.registerTask('checkIncludes', 'Check if includes and GUI.json are aligned.', function( target ) {
 		var GUI = grunt.file.readJSON( SETTINGS().folder.GUIjson );
-		var target = target ? target : 'dev';
+		var target = target ? target : 'dev'; //target can only be 'dev' or 'prod'
+		var missing = []; //array of all missing modules
 
 		Object.keys( GUI.modules ).forEach(function iterateCategories( category ) {
 			Object.keys( GUI.modules[category] ).forEach(function iterateModules( module ) {
 
 				if( target == 'prod' && category != '_testing' || target == 'dev' ) { //exclude the _testing category all together in prod
-					var moduleObj = GUI.modules[category][module];
 
-					Object.keys( moduleObj.versions ).forEach(function interateVersions( version ) {
-						var path = SETTINGS().folder.modules + '/' + module + '/' + version + '.liquid';
+					Object.keys( GUI.modules[category][module].versions ).forEach(function interateVersions( version ) {
+						var path = SETTINGS().folder.modules + '/' + module + '/' + version + '.liquid'; //the path the module should be in
 
-						grunt.verbose.writeln( 'Testing path: ' + path );
+						grunt.verbose.writeln( 'Testing path: ' + path ); //for verbose user
 
 						if( !grunt.file.exists(path) ) {
-							grunt.log.writeln();
-							grunt.log.error('The include for the module "' + Chalk.bgWhite.red(module) + '" in version "' + Chalk.bgWhite.red(version) + '" doesn\'t exist.');
-							grunt.log.writeln();
-							grunt.fail.warn('Create the file in "' + Chalk.bgWhite.red(path) + Chalk.styles.yellow.open + '" to proceed: ');
+							missing.push( path ); //module not found so add it to array
 						}
 
 					});
 				}
 			});
 		});
+
+		if( missing.length > 0 ) { //if there is stuff in the array spit out an error and halt grunt
+			grunt.log.writeln(); //empty line
+			grunt.log.error('There are ' + Chalk.bgWhite.red( ' ' + missing.length + ' ' ) + ' module(s) not included in this GUI build! Please see below list:');
+			grunt.fail.warn('Missing modules' + Chalk.bgWhite.red( "\n • " + missing.join("\n • ") ) + "\n\n" ); //list all missing module from array
+		}
 	});
 
 
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	// Custom grunt task to move all examples into place
+	// Custom grunt task to move all examples into place and compile less
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	grunt.registerTask('copyExamples', 'Copy the examples into the prod folder for each brand', function() {
-		var copy = {};
-		var concat = {};
+	grunt.registerTask('examples', 'Copy the examples into the prod folder for each brand and compile less', function( targetBrand ) {
+		var GUI = grunt.file.readJSON( SETTINGS().folder.GUIjson ); //the GUI.json drives what module version has what examples
 		var concatFiles = {};
-		var brands = ['BOM', 'BSA', 'STG', 'WBC'];
+		var concat = {};
+		var copy = {};
+		var less = {};
 
-		grunt.file.expand({
-			filter: 'isDirectory',
-			cwd: SETTINGS().folder.examples,
-		}, ['*']).forEach(function( module ) {
+		Object.keys( GUI.modules ).forEach(function iterateCategories( category ) { //iterate all categories
+			Object.keys( GUI.modules[category] ).forEach(function iterateModules( module ) { //iterate all modules
+				Object.keys( GUI.modules[category][module].versions ).forEach(function interateVersions( version ) { //iterate all versions
+					GUI.modules[category][module].versions[version].brands.forEach(function iterateBrands( brand ) { //iterate all brands
+						if( targetBrand === brand || !targetBrand ) { //only show selected brand or everything if targetBrand is not defined
 
-			grunt.file.expand({
-				filter: 'isDirectory',
-				cwd: SETTINGS().folder.examples + '/' + module,
-			}, ['*']).forEach(function( version ) {
+							//////////////////////////////////////| COPY HTML
+							copy[ 'Example' + module + version + 'HTML' + brand ] = {
+								files: [{
+									cwd: '<%= SETTINGS.folder.examples %>/' + module + '/',
+									src: [
+										'**/*.html',
+										'**/*.md',
+										'**/*.liquid',
+										'!_assets/**/*',
+										'!_*/**/*',
+									],
+									dest: '<%= SETTINGS.folder.prod %>/' + brand + '/examples/' + module + '/',
+									filter: 'isFile',
+									expand: true,
+								}],
+							};
 
-				//create tasks for each brand
-				brands.forEach(function( brand ) {
+							//////////////////////////////////////| COPY CSS
+							copy[ 'Example' + module + version + 'CSS' + brand ] = {
+								files: [{
+									cwd: '<%= SETTINGS.folder.examples %>/' + module + '/' + version + '/_assets/css/' + brand + '/',
+									src: [
+										'**/*.css',
+									],
+									dest: '<%= SETTINGS.folder.prod %>/' + brand + '/examples/' + module + '/' + version + '/assets/css/',
+									filter: 'isFile',
+									expand: true,
+								}],
+							};
 
-					//////////////////////////////////////| COPY HTML
-					copy[ 'Example' + module + version + 'HTML' + brand ] = {
-						files: [{
-							cwd: '<%= SETTINGS.folder.examples %>/' + module + '/',
-							src: [
-								'**/*.html',
-								'**/*.md',
-								'**/*.liquid',
-								'!_assets/**/*',
-								'!_*/**/*',
-							],
-							dest: '<%= SETTINGS.folder.prod %>/' + brand + '/examples/' + module + '/',
-							filter: 'isFile',
-							expand: true,
-						}],
-					};
+							//////////////////////////////////////| COPY FONT
+							copy[ 'Example' + module + version + 'Font' + brand ] = {
+								files: [{
+									cwd: '<%= SETTINGS.folder.examples %>/' + module + '/' + version + '/_assets/font/' + brand + '/',
+									src: [
+										'**/*',
+									],
+									dest: '<%= SETTINGS.folder.prod %>/' + brand + '/examples/' + module + '/' + version + '/assets/font/',
+									filter: 'isFile',
+									expand: true,
+								}],
+							};
 
-					//////////////////////////////////////| COPY CSS
-					copy[ 'Example' + module + version + 'CSS' + brand ] = {
-						files: [{
-							cwd: '<%= SETTINGS.folder.examples %>/' + module + '/' + version + '/_assets/css/' + brand + '/',
-							src: [
-								'**/*.css',
-							],
-							dest: '<%= SETTINGS.folder.prod %>/' + brand + '/examples/' + module + '/' + version + '/assets/css/',
-							filter: 'isFile',
-							expand: true,
-						}],
-					};
-
-					//////////////////////////////////////| COPY FONT
-					copy[ 'Example' + module + version + 'Font' + brand ] = {
-						files: [{
-							cwd: '<%= SETTINGS.folder.examples %>/' + module + '/' + version + '/_assets/font/' + brand + '/',
-							src: [
-								'**/*',
-							],
-							dest: '<%= SETTINGS.folder.prod %>/' + brand + '/examples/' + module + '/' + version + '/assets/font/',
-							filter: 'isFile',
-							expand: true,
-						}],
-					};
-
-					//////////////////////////////////////| COPY IMAGE
-					copy[ 'Example' + module + version + 'Img' + brand ] = {
-						files: [{
-							cwd: '<%= SETTINGS.folder.examples %>/' + module + '/' + version + '/_assets/img/' + brand + '/',
-							src: [
-								'**/*.png',
-								'**/*.jpg',
-							],
-							dest: '<%= SETTINGS.folder.prod %>/' + brand + '/examples/' + module + '/' + version + '/assets/img/',
-							filter: 'isFile',
-							expand: true,
-						}],
-					};
+							//////////////////////////////////////| COPY IMAGE
+							copy[ 'Example' + module + version + 'Img' + brand ] = {
+								files: [{
+									cwd: '<%= SETTINGS.folder.examples %>/' + module + '/' + version + '/_assets/img/' + brand + '/',
+									src: [
+										'**/*.png',
+										'**/*.jpg',
+									],
+									dest: '<%= SETTINGS.folder.prod %>/' + brand + '/examples/' + module + '/' + version + '/assets/img/',
+									filter: 'isFile',
+									expand: true,
+								}],
+							};
 
 
-					//////////////////////////////////////| CONCAT JS
-					concatFiles['<%= SETTINGS.folder.prod %>/' + brand + '/examples/' + module + '/' + version + '/assets/js/example.min.js'] =
-						['<%= SETTINGS.folder.examples %>/' + module + '/' + version + '/_assets/js/*.js'];
+							//////////////////////////////////////| CONCAT JS
+							concatFiles['<%= SETTINGS.folder.prod %>/' + brand + '/examples/' + module + '/' + version + '/assets/js/example.min.js'] =
+								['<%= SETTINGS.folder.examples %>/' + module + '/' + version + '/_assets/js/*.js'];
 
+
+							//////////////////////////////////////| COMPILE LESS
+							less[ 'Example' + module + version + 'Less' + brand ] = {
+								options: {
+									cleancss: true,
+									compress: true,
+									ieCompat: true,
+									report: 'min',
+									plugins : [ new (require('less-plugin-autoprefix'))({ browsers: [ 'last 2 versions', 'ie 8', 'ie 9', 'ie 10' ] }) ],
+								},
+								src: [
+									'<%= SETTINGS.folder.examples %>/' + module + '/' + version + '/_assets/less/' + brand + '/example.less',
+								],
+								dest: '<%= SETTINGS.folder.prod %>/' + brand + '/examples/' + module + '/' + version + '/assets/css/example.min.css',
+							};
+						}
+					});
 				});
 			});
 		});
@@ -411,48 +428,418 @@ module.exports = function(grunt) {
 
 		grunt.config.set('concat', concat);
 		grunt.task.run('concat');
+
+		grunt.config.set('less', less);
+		grunt.task.run('less');
 	});
 
 
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	// Custom grunt task to compile all examples less files
+	// Custom grunt task to clean folders and files from grunticon
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	grunt.registerTask('lessExamples', 'Compile the examples less into the prod folder for each brand', function() {
-		var less = {};
-		var brands = ['BOM', 'BSA', 'STG', 'WBC'];
+	grunt.registerTask('cleanGrunticon', 'Clean folders and files from grunticon', function( targetBrand ) {
+		var GUIconfig = grunt.file.readJSON( SETTINGS().folder.GUIconfig );
+		var clean = grunt.config.get('clean');
+		var grunticon = [];
 
-		grunt.file.expand({
-			filter: 'isDirectory',
-			cwd: SETTINGS().folder.examples,
-		}, ['*']).forEach(function( module ) {
-
-			grunt.file.expand({
-				filter: 'isDirectory',
-				cwd: SETTINGS().folder.examples + '/' + module,
-			}, ['*']).forEach(function( version ) {
-
-				//create tasks for each brand
-				brands.forEach(function( brand ) {
-					less[ 'Example' + module + version + 'Less' + brand ] = {
-						options: {
-							cleancss: true,
-							compress: true,
-							ieCompat: true,
-							report: 'min',
-							plugins : [ new (require('less-plugin-autoprefix'))({ browsers: [ 'last 2 versions', 'ie 8', 'ie 9', 'ie 10' ] }) ],
-						},
-						src: [
-							'<%= SETTINGS.folder.examples %>/' + module + '/' + version + '/_assets/less/' + brand + '/example.less',
-						],
-						dest: '<%= SETTINGS.folder.prod %>/' + brand + '/examples/' + module + '/' + version + '/assets/css/example.min.css',
-					};
-				});
-			});
+		GUIconfig.brands.forEach(function iterateBrands( brand ) { //iterate all brands
+			if( targetBrand === brand || !targetBrand ) { //only show selected brand or everything if targetBrand is not defined
+				grunticon.push('<%= SETTINGS.folder.prod %>/' + brand + '/assets/css/grunticon.loader.js');
+				grunticon.push('<%= SETTINGS.folder.prod %>/' + brand + '/assets/css/preview.html');
+				grunticon.push('<%= SETTINGS.folder.prod %>/' + brand + '/assets/css/png/');
+			}
 		});
+
+		clean['grunticon'] = grunticon;
+
+		//assigning tasks
+		grunt.config.set('clean', clean);
+		grunt.task.run('clean:grunticon');
+	});
+
+
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	// Custom grunt task to clean folders and files from the testing environment
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	grunt.registerTask('cleanTesting', 'Clean folders and files from the testing environment', function( targetBrand ) {
+		var GUIconfig = grunt.file.readJSON( SETTINGS().folder.GUIconfig );
+		var clean = grunt.config.get('clean');
+		var testing = [];
+
+		GUIconfig.brands.forEach(function iterateBrands( brand ) { //iterate all brands
+			if( targetBrand === brand || !targetBrand ) { //only show selected brand or everything if targetBrand is not defined
+				testing.push('<%= SETTINGS.folder.prod %>/' + brand + '/testing.md');
+			}
+		});
+
+		clean['testing'] = testing;
+
+		//assigning tasks
+		grunt.config.set('clean', clean);
+		grunt.task.run('clean:testing');
+	});
+
+
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	// Custom grunt task to replace version strings
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	grunt.registerTask('replaceBrand', 'Replace version strings', function( targetBrand ) {
+		var GUIconfig = grunt.file.readJSON( SETTINGS().folder.GUIconfig );
+		var replace = grunt.config.get('replace');
+		var tasks = [];
+
+		GUIconfig.brands.forEach(function iterateBrands( brand ) { //iterate all brands
+			if( targetBrand === brand || !targetBrand ) { //only show selected brand or everything if targetBrand is not defined
+				replace[ brand ] = {
+					src: [
+						'<%= SETTINGS.folder.prod %>/' + brand + '/**/*.js',
+						'<%= SETTINGS.folder.prod %>/' + brand + '/**/*.css',
+						'<%= SETTINGS.folder.prod %>/' + brand + '/**/*.html',
+						'<%= SETTINGS.folder.prod %>/' + brand + '/**/*.md',
+						'<%= SETTINGS.folder.prod %>/' + brand + '/**/*.liquid',
+					],
+					overwrite: true,
+					replacements: [
+						{
+							from: '[Brand]',
+							to: brand.toUpperCase(),
+						},
+						{
+							from: '[brand]',
+							to: brand.toLowerCase(),
+						},
+					],
+				};
+
+				tasks.push( brand );
+			}
+		});
+
+		//assigning tasks
+		grunt.config.set('replace', replace);
+
+		tasks.forEach(function iterateTasks( taskTarget ) {
+			grunt.task.run( 'replace:' + taskTarget );
+		});
+	});
+
+
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	// Custom grunt task to compile less for each brand
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	grunt.registerTask('compileLess', 'Compile less for each brand', function( targetBrand ) {
+		var GUIconfig = grunt.file.readJSON( SETTINGS().folder.GUIconfig );
+		var files = {};
+		var less = {};
+
+		GUIconfig.brands.forEach(function iterateBrands( brand ) { //iterate all brands
+			if( targetBrand === brand || !targetBrand ) { //only show selected brand or everything if targetBrand is not defined
+				files['<%= SETTINGS.folder.prod %>/' + brand + '/assets/css/site-<%= pkg.version %>.min.css'] = '<%= SETTINGS.folder.assets %>/less/theme-' + brand + '.less';
+			}
+		});
+
+		less['GUI'] = {
+			options: {
+				cleancss: true,
+				compress: true,
+				ieCompat: true,
+				report: 'min',
+				plugins : [ new (require('less-plugin-autoprefix'))({ browsers: [ 'last 2 versions', 'ie 8', 'ie 9', 'ie 10' ] }) ],
+			},
+			files: files,
+		};
 
 		//assigning tasks
 		grunt.config.set('less', less);
 		grunt.task.run('less');
+	});
+
+
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	// Custom grunt task to Concat all grunticon files
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	grunt.registerTask('concatGrunticon', 'Concat all grunticon files', function( targetBrand ) {
+		var GUIconfig = grunt.file.readJSON( SETTINGS().folder.GUIconfig );
+		var concat = {};
+
+		GUIconfig.brands.forEach(function iterateBrands( brand ) { //iterate all brands
+			if( targetBrand === brand || !targetBrand ) { //only show selected brand or everything if targetBrand is not defined
+				var files = {};
+
+				files['<%= SETTINGS.folder.prod %>/' + brand + '/assets/css/symbols-<%= pkg.version %>.data.svg.css'] = [
+					'<%= SETTINGS.folder.prod %>/' + brand + '/assets/css/symbols-<%= pkg.version %>.data.svg.css',
+					'<%= SETTINGS.folder.css %>/' + brand + '/symbols.data.svg.css',
+				];
+
+				files['<%= SETTINGS.folder.prod %>/' + brand + '/assets/css/symbols-<%= pkg.version %>.data.png.css'] = [
+					'<%= SETTINGS.folder.prod %>/' + brand + '/assets/css/symbols-<%= pkg.version %>.data.png.css',
+					'<%= SETTINGS.folder.css %>/' + brand + '/symbols.data.png.css',
+				];
+
+				files['<%= SETTINGS.folder.prod %>/' + brand + '/assets/css/symbols-<%= pkg.version %>.fallback.css'] = [
+					'<%= SETTINGS.folder.prod %>/' + brand + '/assets/css/symbols-<%= pkg.version %>.fallback.css',
+					'<%= SETTINGS.folder.css %>/' + brand + '/symbols.fallback.css',
+				];
+
+				concat[ 'grunticon' + brand ] = {
+					files: files,
+				};
+			}
+		});
+
+		//assigning tasks
+		grunt.config.set('concat', concat);
+		grunt.task.run('concat');
+	});
+
+
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	// Custom grunt task to concat all js files
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	grunt.registerTask('concatJS', 'Concat all js files', function( targetBrand ) {
+		var GUIconfig = grunt.file.readJSON( SETTINGS().folder.GUIconfig );
+		var concat = {};
+		var files = {};
+
+		GUIconfig.brands.forEach(function iterateBrands( brand ) { //iterate all brands
+			if( targetBrand === brand || !targetBrand ) { //only show selected brand or everything if targetBrand is not defined
+				files['<%= SETTINGS.folder.prod %>/' + brand + '/assets/js/site-<%= pkg.version %>.min.js'] = [
+					'<%= SETTINGS.folder.js %>/**/*jquery*.js',
+					'<%= SETTINGS.folder.js %>/**/*store*.js',
+					'<%= SETTINGS.folder.prod %>/' + brand + '/assets/js/site-<%= pkg.version %>.min.js',
+				];
+			}
+		});
+
+		concat[ 'JS' ] = {
+			files: files,
+		};
+
+		//assigning tasks
+		grunt.config.set('concat', concat);
+		grunt.task.run('concat');
+	});
+
+
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	// Custom grunt task to uglify all js files
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	grunt.registerTask('uglifyJS', 'Uglify all js files', function( targetBrand ) {
+		var GUIconfig = grunt.file.readJSON( SETTINGS().folder.GUIconfig );
+		var uglify = {};
+		var files = {};
+
+		GUIconfig.brands.forEach(function iterateBrands( brand ) { //iterate all brands
+			if( targetBrand === brand || !targetBrand ) { //only show selected brand or everything if targetBrand is not defined
+				files['<%= SETTINGS.folder.prod %>/' + brand + '/assets/js/site-<%= pkg.version %>.min.js'] = [
+					'<%= SETTINGS.folder.js %>/**/*.js',
+					'!<%= SETTINGS.folder.js %>/**/*jquery*.js',
+					'!<%= SETTINGS.folder.js %>/**/*store*.js',
+				];
+			}
+		});
+
+		uglify[ 'JS' ] = {
+			options: {
+				mangle: false,
+				report: 'gzip',
+			},
+			files: files,
+		};
+
+		//assigning tasks
+		grunt.config.set('uglify', uglify);
+		grunt.task.run('uglify');
+	});
+
+
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	// Custom grunt task to compile all SVGs
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	grunt.registerTask('compileGrunticon', 'Compile all SVGs', function( targetBrand ) {
+		var GUIconfig = grunt.file.readJSON( SETTINGS().folder.GUIconfig );
+		var grunticon = {
+			options: {
+				datasvgcss: 'symbols-<%= pkg.version %>.data.svg.css',
+				datapngcss: 'symbols-<%= pkg.version %>.data.png.css',
+				urlpngcss: 'symbols-<%= pkg.version %>.fallback.css',
+				cssprefix: '.sitesymbol-',
+				enhanceSVG: true,
+				customselectors: {
+					'header-bg': ['.header .headerline'],
+				},
+				pngpath: '../img',
+			},
+		};
+
+		GUIconfig.brands.forEach(function iterateBrands( brand ) { //iterate all brands
+			if( targetBrand === brand || !targetBrand ) { //only show selected brand or everything if targetBrand is not defined
+				grunticon[ brand ] = {
+					files: [{
+						expand: true,
+						cwd: '<%= SETTINGS.folder.svg %>/',
+						src: [
+							'all/*.svg',
+							brand + '/*.svg',
+						],
+						dest: '<%= SETTINGS.folder.prod %>/' + brand + '/assets/css',
+					}],
+
+				};
+			}
+		});
+
+		//assigning tasks
+		grunt.config.set('grunticon', grunticon);
+		grunt.task.run('grunticon');
+	});
+
+
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	// Custom grunt task to copy grunticon files to where they should go
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	grunt.registerTask('copyGrunticon', 'Copy grunticon files to where they should go', function( targetBrand ) {
+		var GUIconfig = grunt.file.readJSON( SETTINGS().folder.GUIconfig );
+		var copy = grunt.config.get('copy');
+		var tasks = [];
+
+		GUIconfig.brands.forEach(function iterateBrands( brand ) { //iterate all brands
+			if( targetBrand === brand || !targetBrand ) { //only show selected brand or everything if targetBrand is not defined
+				copy[ 'grunticon' + brand ] = {
+					files: [{
+						cwd: '<%= SETTINGS.folder.prod %>/' + brand + '/assets/css/png/',
+						src: ['**/*.png'],
+						dest: '<%= SETTINGS.folder.prod %>/' + brand + '/assets/img/',
+						filter: 'isFile',
+						expand: true,
+					}],
+				};
+
+				tasks.push( 'grunticon' + brand );
+			}
+		});
+
+		//assigning tasks
+		grunt.config.set('copy', copy);
+
+		tasks.forEach(function iterateTasks( taskTarget ) {
+			grunt.task.run( 'copy:' + taskTarget );
+		});
+	});
+
+
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	// Custom grunt task to copy HTML files to prod folder
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	grunt.registerTask('copyHTML', 'Copy HTML files to prod folder', function( targetBrand ) {
+		var GUIconfig = grunt.file.readJSON( SETTINGS().folder.GUIconfig );
+		var copy = grunt.config.get('copy');
+		var tasks = [];
+
+		GUIconfig.brands.forEach(function iterateBrands( brand ) { //iterate all brands
+			if( targetBrand === brand || !targetBrand ) { //only show selected brand or everything if targetBrand is not defined
+				copy[ 'HTML' + brand ] = {
+					files: [{
+						cwd: '<%= SETTINGS.folder.html %>/',
+						src: [
+							'**/*.html',
+							'**/*.md',
+							'**/*.liquid',
+							'!_assets/**/*',
+							'!_examples/**/*',
+							'!_*/**/*',
+						],
+						dest: '<%= SETTINGS.folder.prod %>/' + brand + '/',
+						filter: 'isFile',
+						expand: true,
+					}],
+				};
+
+				tasks.push( 'HTML' + brand );
+			}
+		});
+
+		//assigning tasks
+		grunt.config.set('copy', copy);
+
+		tasks.forEach(function iterateTasks( taskTarget ) {
+			grunt.task.run( 'copy:' + taskTarget );
+		});
+	});
+
+
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	// Custom grunt task to copy font files to prod folder
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	grunt.registerTask('copyFonts', 'Copy font files to prod folder', function( targetBrand ) {
+		var GUIconfig = grunt.file.readJSON( SETTINGS().folder.GUIconfig );
+		var copy = grunt.config.get('copy');
+		var tasks = [];
+
+		GUIconfig.brands.forEach(function iterateBrands( brand ) { //iterate all brands
+			if( targetBrand === brand || !targetBrand ) { //only show selected brand or everything if targetBrand is not defined
+				copy[ 'Fonts' + brand ] = {
+					files: [{
+						cwd: '<%= SETTINGS.folder.font %>/' + brand + '/',
+						src: [
+							'**/*.eot',
+							'**/*.svg',
+							'**/*.ttf',
+							'**/*.woff',
+							'**/*.woff2',
+						],
+						dest: '<%= SETTINGS.folder.prod %>/' + brand + '/assets/font/',
+						filter: 'isFile',
+						expand: true,
+					}],
+				};
+
+				tasks.push( 'Fonts' + brand );
+			}
+		});
+
+		//assigning tasks
+		grunt.config.set('copy', copy);
+
+		tasks.forEach(function iterateTasks( taskTarget ) {
+			grunt.task.run( 'copy:' + taskTarget );
+		});
+	});
+
+
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	// Custom grunt task to copy image files to prod folder
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	grunt.registerTask('copyImages', 'Copy image files to prod folder', function( targetBrand ) {
+		var GUIconfig = grunt.file.readJSON( SETTINGS().folder.GUIconfig );
+		var copy = grunt.config.get('copy');
+		var tasks = [];
+
+		GUIconfig.brands.forEach(function iterateBrands( brand ) { //iterate all brands
+			if( targetBrand === brand || !targetBrand ) { //only show selected brand or everything if targetBrand is not defined
+				copy[ 'Images' + brand ] = {
+					files: [{
+						cwd: '<%= SETTINGS.folder.img %>/' + brand + '/',
+						src: [
+							'**/*.png',
+							'**/*.jpg',
+						],
+						dest: '<%= SETTINGS.folder.prod %>/' + brand + '/assets/img/',
+						filter: 'isFile',
+						expand: true,
+					}],
+				};
+
+				tasks.push( 'Images' + brand );
+			}
+		});
+
+		//assigning tasks
+		grunt.config.set('copy', copy);
+
+		tasks.forEach(function iterateTasks( taskTarget ) {
+			grunt.task.run( 'copy:' + taskTarget );
+		});
 	});
 
 
@@ -477,37 +864,12 @@ module.exports = function(grunt) {
 				'<%= SETTINGS.folder.prod %>/',
 			],
 
-			grunticon: [
-				'<%= SETTINGS.folder.prod %>/BOM/assets/css/grunticon.loader.js',
-				'<%= SETTINGS.folder.prod %>/BOM/assets/css/preview.html',
-				'<%= SETTINGS.folder.prod %>/BOM/assets/css/png/',
-
-				'<%= SETTINGS.folder.prod %>/BSA/assets/css/grunticon.loader.js',
-				'<%= SETTINGS.folder.prod %>/BSA/assets/css/preview.html',
-				'<%= SETTINGS.folder.prod %>/BSA/assets/css/png/',
-
-				'<%= SETTINGS.folder.prod %>/STG/assets/css/grunticon.loader.js',
-				'<%= SETTINGS.folder.prod %>/STG/assets/css/preview.html',
-				'<%= SETTINGS.folder.prod %>/STG/assets/css/png/',
-
-				'<%= SETTINGS.folder.prod %>/WBC/assets/css/grunticon.loader.js',
-				'<%= SETTINGS.folder.prod %>/WBC/assets/css/preview.html',
-				'<%= SETTINGS.folder.prod %>/WBC/assets/css/png/',
-			],
-
 			GUI: [
 				'<%= SETTINGS.folder.GUImaster %>/',
 			],
 
 			temp: [
 				'<%= SETTINGS.folder.temp %>/',
-			],
-
-			testing: [
-				'<%= SETTINGS.folder.prod %>/BOM/testing.md',
-				'<%= SETTINGS.folder.prod %>/BSA/testing.md',
-				'<%= SETTINGS.folder.prod %>/STG/testing.md',
-				'<%= SETTINGS.folder.prod %>/WBC/testing.md',
 			],
 		},
 
@@ -574,103 +936,6 @@ module.exports = function(grunt) {
 					},
 				],
 			},
-
-			BOM: {
-				src: [
-					'<%= SETTINGS.folder.prod %>/BOM/**/*.js',
-					'<%= SETTINGS.folder.prod %>/BOM/**/*.css',
-					'<%= SETTINGS.folder.prod %>/BOM/**/*.html',
-					'<%= SETTINGS.folder.prod %>/BOM/**/*.md',
-					'<%= SETTINGS.folder.prod %>/BOM/**/*.liquid',
-				],
-				overwrite: true,
-				replacements: [
-					{
-						from: '[Brand]',
-						to: 'BOM',
-					},
-					{
-						from: '[brand]',
-						to: 'bom',
-					},
-					{
-						from: '[Version]',
-						to: '<%= pkg.version %>',
-					},
-				],
-			},
-			BSA: {
-				src: [
-					'<%= SETTINGS.folder.prod %>/BSA/**/*.js',
-					'<%= SETTINGS.folder.prod %>/BSA/**/*.css',
-					'<%= SETTINGS.folder.prod %>/BSA/**/*.html',
-					'<%= SETTINGS.folder.prod %>/BSA/**/*.md',
-					'<%= SETTINGS.folder.prod %>/BSA/**/*.liquid',
-				],
-				overwrite: true,
-				replacements: [
-					{
-						from: '[Brand]',
-						to: 'BSA',
-					},
-					{
-						from: '[brand]',
-						to: 'bsa',
-					},
-					{
-						from: '[Version]',
-						to: '<%= pkg.version %>',
-					},
-				],
-			},
-			STG: {
-				src: [
-					'<%= SETTINGS.folder.prod %>/STG/**/*.js',
-					'<%= SETTINGS.folder.prod %>/STG/**/*.css',
-					'<%= SETTINGS.folder.prod %>/STG/**/*.html',
-					'<%= SETTINGS.folder.prod %>/STG/**/*.md',
-					'<%= SETTINGS.folder.prod %>/STG/**/*.liquid',
-				],
-				overwrite: true,
-				replacements: [
-					{
-						from: '[Brand]',
-						to: 'STG',
-					},
-					{
-						from: '[brand]',
-						to: 'stg',
-					},
-					{
-						from: '[Version]',
-						to: '<%= pkg.version %>',
-					},
-				],
-			},
-			WBC: {
-				src: [
-					'<%= SETTINGS.folder.prod %>/WBC/**/*.js',
-					'<%= SETTINGS.folder.prod %>/WBC/**/*.css',
-					'<%= SETTINGS.folder.prod %>/WBC/**/*.html',
-					'<%= SETTINGS.folder.prod %>/WBC/**/*.md',
-					'<%= SETTINGS.folder.prod %>/WBC/**/*.liquid',
-				],
-				overwrite: true,
-				replacements: [
-					{
-						from: '[Brand]',
-						to: 'WBC',
-					},
-					{
-						from: '[brand]',
-						to: 'wbc',
-					},
-					{
-						from: '[Version]',
-						to: '<%= pkg.version %>',
-					},
-				],
-			},
 		},
 
 
@@ -703,498 +968,9 @@ module.exports = function(grunt) {
 
 
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
-		// Less task
-		//----------------------------------------------------------------------------------------------------------------------------------------------------------
-		less: {
-			GUI: {
-				options: {
-					cleancss: true,
-					compress: true,
-					ieCompat: true,
-					report: 'min',
-					plugins : [ new (require('less-plugin-autoprefix'))({ browsers: [ 'last 2 versions', 'ie 8', 'ie 9', 'ie 10' ] }) ],
-				},
-				files: {
-					'<%= SETTINGS.folder.prod %>/BOM/assets/css/site-<%= pkg.version %>.min.css': '<%= SETTINGS.folder.assets %>/less/theme-BOM.less',
-					'<%= SETTINGS.folder.prod %>/BSA/assets/css/site-<%= pkg.version %>.min.css': '<%= SETTINGS.folder.assets %>/less/theme-BSA.less',
-					'<%= SETTINGS.folder.prod %>/STG/assets/css/site-<%= pkg.version %>.min.css': '<%= SETTINGS.folder.assets %>/less/theme-STG.less',
-					'<%= SETTINGS.folder.prod %>/WBC/assets/css/site-<%= pkg.version %>.min.css': '<%= SETTINGS.folder.assets %>/less/theme-WBC.less',
-				},
-			},
-		},
-
-
-		//----------------------------------------------------------------------------------------------------------------------------------------------------------
-		// Concat files
-		//----------------------------------------------------------------------------------------------------------------------------------------------------------
-		concat: {
-			grunticonBOM: {
-				files: {
-					'<%= SETTINGS.folder.prod %>/BOM/assets/css/symbols-<%= pkg.version %>.data.svg.css': [
-						'<%= SETTINGS.folder.prod %>/BOM/assets/css/symbols-<%= pkg.version %>.data.svg.css',
-						'<%= SETTINGS.folder.css %>/BOM/symbols.data.svg.css',
-					],
-					'<%= SETTINGS.folder.prod %>/BOM/assets/css/symbols-<%= pkg.version %>.data.png.css': [
-						'<%= SETTINGS.folder.prod %>/BOM/assets/css/symbols-<%= pkg.version %>.data.png.css',
-						'<%= SETTINGS.folder.css %>/BOM/symbols.data.png.css',
-					],
-					'<%= SETTINGS.folder.prod %>/BOM/assets/css/symbols-<%= pkg.version %>.fallback.css': [
-						'<%= SETTINGS.folder.prod %>/BOM/assets/css/symbols-<%= pkg.version %>.fallback.css',
-						'<%= SETTINGS.folder.css %>/BOM/symbols.fallback.css',
-					],
-				},
-			},
-
-			grunticonBSA: {
-				files: {
-					'<%= SETTINGS.folder.prod %>/BSA/assets/css/symbols-<%= pkg.version %>.data.svg.css': [
-						'<%= SETTINGS.folder.prod %>/BSA/assets/css/symbols-<%= pkg.version %>.data.svg.css',
-						'<%= SETTINGS.folder.css %>/BSA/symbols.data.svg.css',
-					],
-					'<%= SETTINGS.folder.prod %>/BSA/assets/css/symbols-<%= pkg.version %>.data.png.css': [
-						'<%= SETTINGS.folder.prod %>/BSA/assets/css/symbols-<%= pkg.version %>.data.png.css',
-						'<%= SETTINGS.folder.css %>/BSA/symbols.data.png.css',
-					],
-					'<%= SETTINGS.folder.prod %>/BSA/assets/css/symbols-<%= pkg.version %>.fallback.css': [
-						'<%= SETTINGS.folder.prod %>/BSA/assets/css/symbols-<%= pkg.version %>.fallback.css',
-						'<%= SETTINGS.folder.css %>/BSA/symbols.fallback.css',
-					],
-				},
-			},
-
-			grunticonSTG: {
-				files: {
-					'<%= SETTINGS.folder.prod %>/STG/assets/css/symbols-<%= pkg.version %>.data.svg.css': [
-						'<%= SETTINGS.folder.prod %>/STG/assets/css/symbols-<%= pkg.version %>.data.svg.css',
-						'<%= SETTINGS.folder.css %>/STG/symbols.data.svg.css',
-					],
-					'<%= SETTINGS.folder.prod %>/STG/assets/css/symbols-<%= pkg.version %>.data.png.css': [
-						'<%= SETTINGS.folder.prod %>/STG/assets/css/symbols-<%= pkg.version %>.data.png.css',
-						'<%= SETTINGS.folder.css %>/STG/symbols.data.png.css',
-					],
-					'<%= SETTINGS.folder.prod %>/STG/assets/css/symbols-<%= pkg.version %>.fallback.css': [
-						'<%= SETTINGS.folder.prod %>/STG/assets/css/symbols-<%= pkg.version %>.fallback.css',
-						'<%= SETTINGS.folder.css %>/STG/symbols.fallback.css',
-					],
-				},
-			},
-
-			grunticonWBC: {
-				files: {
-					'<%= SETTINGS.folder.prod %>/WBC/assets/css/symbols-<%= pkg.version %>.data.svg.css': [
-						'<%= SETTINGS.folder.prod %>/WBC/assets/css/symbols-<%= pkg.version %>.data.svg.css',
-						'<%= SETTINGS.folder.css %>/WBC/symbols.data.svg.css',
-					],
-					'<%= SETTINGS.folder.prod %>/WBC/assets/css/symbols-<%= pkg.version %>.data.png.css': [
-						'<%= SETTINGS.folder.prod %>/WBC/assets/css/symbols-<%= pkg.version %>.data.png.css',
-						'<%= SETTINGS.folder.css %>/WBC/symbols.data.png.css',
-					],
-					'<%= SETTINGS.folder.prod %>/WBC/assets/css/symbols-<%= pkg.version %>.fallback.css': [
-						'<%= SETTINGS.folder.prod %>/WBC/assets/css/symbols-<%= pkg.version %>.fallback.css',
-						'<%= SETTINGS.folder.css %>/WBC/symbols.fallback.css',
-					],
-				},
-			},
-
-			js: {
-				files: {
-					'<%= SETTINGS.folder.prod %>/BOM/assets/js/site-<%= pkg.version %>.min.js': [
-						'<%= SETTINGS.folder.js %>/**/*jquery*.js',
-						'<%= SETTINGS.folder.js %>/**/*store*.js',
-						'<%= SETTINGS.folder.prod %>/BOM/assets/js/site-<%= pkg.version %>.min.js',
-					],
-					'<%= SETTINGS.folder.prod %>/BSA/assets/js/site-<%= pkg.version %>.min.js': [
-						'<%= SETTINGS.folder.js %>/**/*jquery*.js',
-						'<%= SETTINGS.folder.js %>/**/*store*.js',
-						'<%= SETTINGS.folder.prod %>/BSA/assets/js/site-<%= pkg.version %>.min.js',
-					],
-					'<%= SETTINGS.folder.prod %>/STG/assets/js/site-<%= pkg.version %>.min.js': [
-						'<%= SETTINGS.folder.js %>/**/*jquery*.js',
-						'<%= SETTINGS.folder.js %>/**/*store*.js',
-						'<%= SETTINGS.folder.prod %>/STG/assets/js/site-<%= pkg.version %>.min.js',
-					],
-					'<%= SETTINGS.folder.prod %>/WBC/assets/js/site-<%= pkg.version %>.min.js': [
-						'<%= SETTINGS.folder.js %>/**/*jquery*.js',
-						'<%= SETTINGS.folder.js %>/**/*store*.js',
-						'<%= SETTINGS.folder.prod %>/WBC/assets/js/site-<%= pkg.version %>.min.js',
-					],
-				},
-			},
-		},
-
-
-		//----------------------------------------------------------------------------------------------------------------------------------------------------------
-		// Minify js
-		//----------------------------------------------------------------------------------------------------------------------------------------------------------
-		uglify: {
-			options: {
-				mangle: false,
-				report: 'gzip',
-			},
-
-			BOM: {
-				files: {
-					'<%= SETTINGS.folder.prod %>/BOM/assets/js/site-<%= pkg.version %>.min.js': [
-						'<%= SETTINGS.folder.js %>/**/*.js',
-						'!<%= SETTINGS.folder.js %>/**/*jquery*.js',
-						'!<%= SETTINGS.folder.js %>/**/*store*.js',
-					],
-					'<%= SETTINGS.folder.prod %>/BSA/assets/js/site-<%= pkg.version %>.min.js': [
-						'<%= SETTINGS.folder.js %>/**/*.js',
-						'!<%= SETTINGS.folder.js %>/**/*jquery*.js',
-						'!<%= SETTINGS.folder.js %>/**/*store*.js',
-					],
-					'<%= SETTINGS.folder.prod %>/STG/assets/js/site-<%= pkg.version %>.min.js': [
-						'<%= SETTINGS.folder.js %>/**/*.js',
-						'!<%= SETTINGS.folder.js %>/**/*jquery*.js',
-						'!<%= SETTINGS.folder.js %>/**/*store*.js',
-					],
-					'<%= SETTINGS.folder.prod %>/WBC/assets/js/site-<%= pkg.version %>.min.js': [
-						'<%= SETTINGS.folder.js %>/**/*.js',
-						'!<%= SETTINGS.folder.js %>/**/*jquery*.js',
-						'!<%= SETTINGS.folder.js %>/**/*store*.js',
-					],
-				},
-			},
-		},
-
-
-		//----------------------------------------------------------------------------------------------------------------------------------------------------------
-		// Grunticon to convert svgs into cross browser css files with png fallbacks
-		//----------------------------------------------------------------------------------------------------------------------------------------------------------
-		grunticon: {
-			options: {
-				datasvgcss: 'symbols-<%= pkg.version %>.data.svg.css',
-				datapngcss: 'symbols-<%= pkg.version %>.data.png.css',
-				urlpngcss: 'symbols-<%= pkg.version %>.fallback.css',
-				cssprefix: '.sitesymbol-',
-				enhanceSVG: true,
-				customselectors: {
-					'header-bg': ['.header .headerline'],
-				},
-				pngpath: '../img',
-			},
-
-			BOM: {
-				files: [{
-					expand: true,
-					cwd: '<%= SETTINGS.folder.svg %>/',
-					src: [
-						'all/*.svg',
-						'BOM/*.svg',
-					],
-					dest: '<%= SETTINGS.folder.prod %>/BOM/assets/css',
-				}],
-			},
-
-			BSA: {
-				files: [{
-					expand: true,
-					cwd: '<%= SETTINGS.folder.svg %>/',
-					src: [
-						'all/*.svg',
-						'BSA/*.svg',
-					],
-					dest: '<%= SETTINGS.folder.prod %>/BSA/assets/css',
-				}],
-			},
-
-			STG: {
-				files: [{
-					expand: true,
-					cwd: '<%= SETTINGS.folder.svg %>/',
-					src: [
-						'all/*.svg',
-						'STG/*.svg',
-					],
-					dest: '<%= SETTINGS.folder.prod %>/STG/assets/css',
-				}],
-			},
-
-			WBC: {
-				files: [{
-					expand: true,
-					cwd: '<%= SETTINGS.folder.svg %>/',
-					src: [
-						'all/*.svg',
-						'WBC/*.svg',
-					],
-					dest: '<%= SETTINGS.folder.prod %>/WBC/assets/css',
-				}],
-			},
-		},
-
-
-		//----------------------------------------------------------------------------------------------------------------------------------------------------------
 		// Copy all grunticon fallback pngs to img folder
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
 		copy: {
-			//grunticon cleanup
-			BOM: {
-				files: [{
-					cwd: '<%= SETTINGS.folder.prod %>/BOM/assets/css/png/',
-					src: ['**/*.png'],
-					dest: '<%= SETTINGS.folder.prod %>/BOM/assets/img/',
-					filter: 'isFile',
-					expand: true,
-				}],
-			},
-			BSA: {
-				files: [{
-					cwd: '<%= SETTINGS.folder.prod %>/BSA/assets/css/png/',
-					src: ['**/*.png'],
-					dest: '<%= SETTINGS.folder.prod %>/BSA/assets/img/',
-					filter: 'isFile',
-					expand: true,
-				}],
-			},
-			STG: {
-				files: [{
-					cwd: '<%= SETTINGS.folder.prod %>/STG/assets/css/png/',
-					src: ['**/*.png'],
-					dest: '<%= SETTINGS.folder.prod %>/STG/assets/img/',
-					filter: 'isFile',
-					expand: true,
-				}],
-			},
-			WBC: {
-				files: [{
-					cwd: '<%= SETTINGS.folder.prod %>/WBC/assets/css/png/',
-					src: ['**/*.png'],
-					dest: '<%= SETTINGS.folder.prod %>/WBC/assets/img/',
-					filter: 'isFile',
-					expand: true,
-				}],
-			},
-
-			//HTML
-			HTMLBOM: {
-				files: [{
-					cwd: '<%= SETTINGS.folder.html %>/',
-					src: [
-						'**/*.html',
-						'**/*.md',
-						'**/*.liquid',
-						'!_assets/**/*',
-						'!_examples/**/*',
-						'!_*/**/*',
-					],
-					dest: '<%= SETTINGS.folder.prod %>/BOM/',
-					filter: 'isFile',
-					expand: true,
-				}],
-			},
-			HTMLBSA: {
-				files: [{
-					cwd: '<%= SETTINGS.folder.html %>/',
-					src: [
-						'**/*.html',
-						'**/*.md',
-						'**/*.liquid',
-						'!_assets/**/*',
-						'!_examples/**/*',
-						'!_*/**/*',
-					],
-					dest: '<%= SETTINGS.folder.prod %>/BSA/',
-					filter: 'isFile',
-					expand: true,
-				}],
-			},
-			HTMLSTG: {
-				files: [{
-					cwd: '<%= SETTINGS.folder.html %>/',
-					src: [
-						'**/*.html',
-						'**/*.md',
-						'**/*.liquid',
-						'!_assets/**/*',
-						'!_examples/**/*',
-						'!_*/**/*',
-					],
-					dest: '<%= SETTINGS.folder.prod %>/STG/',
-					filter: 'isFile',
-					expand: true,
-				}],
-			},
-			HTMLWBC: {
-				files: [{
-					cwd: '<%= SETTINGS.folder.html %>/',
-					src: [
-						'**/*.html',
-						'**/*.md',
-						'**/*.liquid',
-						'!_assets/**/*',
-						'!_examples/**/*',
-						'!_*/**/*',
-					],
-					dest: '<%= SETTINGS.folder.prod %>/WBC/',
-					filter: 'isFile',
-					expand: true,
-				}],
-			},
-
-			//fonts
-			fontsBOM: {
-				files: [{
-					cwd: '<%= SETTINGS.folder.font %>/BOM/',
-					src: [
-						'**/*.eot',
-						'**/*.svg',
-						'**/*.ttf',
-						'**/*.woff',
-						'**/*.woff2',
-					],
-					dest: '<%= SETTINGS.folder.prod %>/BOM/assets/font/',
-					filter: 'isFile',
-					expand: true,
-				}],
-			},
-			fontsBSA: {
-				files: [{
-					cwd: '<%= SETTINGS.folder.font %>/BSA/',
-					src: [
-						'**/*.eot',
-						'**/*.svg',
-						'**/*.ttf',
-						'**/*.woff',
-						'**/*.woff2',
-					],
-					dest: '<%= SETTINGS.folder.prod %>/BSA/assets/font/',
-					filter: 'isFile',
-					expand: true,
-				}],
-			},
-			fontsSTG: {
-				files: [{
-					cwd: '<%= SETTINGS.folder.font %>/STG/',
-					src: [
-						'**/*.eot',
-						'**/*.svg',
-						'**/*.ttf',
-						'**/*.woff',
-						'**/*.woff2',
-					],
-					dest: '<%= SETTINGS.folder.prod %>/STG/assets/font/',
-					filter: 'isFile',
-					expand: true,
-				}],
-			},
-			fontsWBC: {
-				files: [{
-					cwd: '<%= SETTINGS.folder.font %>/WBC/',
-					src: [
-						'**/*.eot',
-						'**/*.svg',
-						'**/*.ttf',
-						'**/*.woff',
-						'**/*.woff2',
-					],
-					dest: '<%= SETTINGS.folder.prod %>/WBC/assets/font/',
-					filter: 'isFile',
-					expand: true,
-				}],
-			},
-
-			//images
-			imgBOM: {
-				files: [{
-					cwd: '<%= SETTINGS.folder.img %>/BOM/',
-					src: [
-						'**/*.png',
-						'**/*.jpg',
-					],
-					dest: '<%= SETTINGS.folder.prod %>/BOM/assets/img/',
-					filter: 'isFile',
-					expand: true,
-				}],
-			},
-			imgBSA: {
-				files: [{
-					cwd: '<%= SETTINGS.folder.img %>/BSA/',
-					src: [
-						'**/*.png',
-						'**/*.jpg',
-					],
-					dest: '<%= SETTINGS.folder.prod %>/BSA/assets/img/',
-					filter: 'isFile',
-					expand: true,
-				}],
-			},
-			imgSTG: {
-				files: [{
-					cwd: '<%= SETTINGS.folder.img %>/STG/',
-					src: [
-						'**/*.png',
-						'**/*.jpg',
-					],
-					dest: '<%= SETTINGS.folder.prod %>/STG/assets/img/',
-					filter: 'isFile',
-					expand: true,
-				}],
-			},
-			imgWBC: {
-				files: [{
-					cwd: '<%= SETTINGS.folder.img %>/WBC/',
-					src: [
-						'**/*.png',
-						'**/*.jpg',
-					],
-					dest: '<%= SETTINGS.folder.prod %>/WBC/assets/img/',
-					filter: 'isFile',
-					expand: true,
-				}],
-			},
-
-			//htaccess files
-			htaccessBOM: {
-				files: [{
-					cwd: '<%= SETTINGS.folder.htaccess %>/BOM/',
-					src: [
-						'*.htaccess',
-						'.htaccess',
-					],
-					dest: '<%= SETTINGS.folder.prod %>/BOM/',
-					filter: 'isFile',
-					expand: true,
-				}],
-			},
-			htaccessBSA: {
-				files: [{
-					cwd: '<%= SETTINGS.folder.htaccess %>/BSA/',
-					src: [
-						'*.htaccess',
-						'.htaccess',
-					],
-					dest: '<%= SETTINGS.folder.prod %>/BSA/',
-					filter: 'isFile',
-					expand: true,
-				}],
-			},
-			htaccessSTG: {
-				files: [{
-					cwd: '<%= SETTINGS.folder.htaccess %>/STG/',
-					src: [
-						'*.htaccess',
-						'.htaccess',
-					],
-					dest: '<%= SETTINGS.folder.prod %>/STG/',
-					filter: 'isFile',
-					expand: true,
-				}],
-			},
-			htaccessWBC: {
-				files: [{
-					cwd: '<%= SETTINGS.folder.htaccess %>/WBC/',
-					src: [
-						'*.htaccess',
-						'.htaccess',
-					],
-					dest: '<%= SETTINGS.folder.prod %>/WBC/',
-					filter: 'isFile',
-					expand: true,
-				}],
-			},
-
 			//HTML underscore folders
 			HTML_: {
 				files: [{
@@ -1256,42 +1032,6 @@ module.exports = function(grunt) {
 
 
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
-		// LINT SPACES
-		//----------------------------------------------------------------------------------------------------------------------------------------------------------
-		lintspaces: {
-			all: {
-				options: {
-					editorconfig: '.editorconfig',
-					ignores: [
-						'js-comments',
-						'c-comments',
-						'java-comments',
-						'as-comments',
-						'xml-comments',
-						'html-comments',
-						'python-comments',
-						'ruby-comments',
-						'applescript-comments',
-					],
-				},
-				src: [
-					'**/*.js',
-					'**/*.less',
-					'**/*.css',
-					'**/*.html',
-
-					'!jekyll/**/*',
-					'!HTML/_assets/js/**/*jquery*.js',
-					'!GUI-source-master/**/*',
-					'!blender/**/*',
-					'!node_modules/**/*',
-					'!Gruntfile.js',
-				],
-			},
-		},
-
-
-		//----------------------------------------------------------------------------------------------------------------------------------------------------------
 		// Banners
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
 		font: {
@@ -1339,15 +1079,7 @@ module.exports = function(grunt) {
 					'<%= SETTINGS.folder.js %>/**/*.js',
 				],
 				tasks: [
-					// 'lintspaces',
-					'uglify',
-					'concat:js',
-					'replace:jekyll',
-					'replace:BOM',
-					'replace:BSA',
-					'replace:STG',
-					'replace:WBC',
-					'replace:debugDev',
+					'_js',
 					'jekyll:dev',
 					'wakeup',
 				],
@@ -1358,14 +1090,7 @@ module.exports = function(grunt) {
 					'<%= SETTINGS.folder.less %>/**/*.less',
 				],
 				tasks: [
-					// 'lintspaces',
-					'less',
-					'replace:jekyll',
-					'replace:BOM',
-					'replace:BSA',
-					'replace:STG',
-					'replace:WBC',
-					'replace:debugDev',
+					'_less',
 					'jekyll:dev',
 					'wakeup',
 				],
@@ -1376,13 +1101,7 @@ module.exports = function(grunt) {
 					'<%= SETTINGS.folder.less %>/svg/**/*.svg',
 				],
 				tasks: [
-					'grunticon',
-					'copy',
-					'concat:grunticonBOM',
-					'concat:grunticonBSA',
-					'concat:grunticonSTG',
-					'concat:grunticonWBC',
-					'clean:grunticon',
+					'_svg',
 					'jekyll:dev',
 					'wakeup',
 				],
@@ -1398,36 +1117,7 @@ module.exports = function(grunt) {
 					'<%= SETTINGS.folder.html %>/_plugins/**/*',
 				],
 				tasks: [
-					// 'lintspaces',
-					'copy:HTMLBOM',
-					'copy:HTMLBSA',
-					'copy:HTMLSTG',
-					'copy:HTMLWBC',
-					'copy:HTML_',
-					'copyExamples',
-					'lessExamples',
-					'replace:jekyll',
-					'replace:BOM',
-					'replace:BSA',
-					'replace:STG',
-					'replace:WBC',
-					'replace:debugDev',
-					'jekyll:dev',
-					'wakeup',
-				],
-			},
-
-			htaccess: {
-				files: [
-					'<%= SETTINGS.folder.htaccess %>/**/*.htaccess',
-					'<%= SETTINGS.folder.htaccess %>/**/.htaccess',
-				],
-				tasks: [
-					// 'lintspaces',
-					'copy:htaccessBOM',
-					'copy:htaccessBSA',
-					'copy:htaccessSTG',
-					'copy:htaccessWBC',
+					'_html',
 					'jekyll:dev',
 					'wakeup',
 				],
@@ -1464,26 +1154,72 @@ module.exports = function(grunt) {
 		'clean:temp',
 	]);
 
+	grunt.registerTask('_js', [
+		'uglifyJS:BOM',
+		'concatJS:BOM',
+		'replace:jekyll',
+		'replaceBrand:BOM',
+		'replace:debugDev',
+	]);
+
+	grunt.registerTask('_less', [
+		'compileLess:BOM',
+		'replace:jekyll',
+		'replaceBrand:BOM',
+		'replace:debugDev',
+	]);
+
+	grunt.registerTask('_svg', [
+		'compileGrunticon:BOM',
+		'copyGrunticon:BOM',
+		'copyHTML:BOM',
+		'copyFonts:BOM',
+		'copyImages:BOM',
+		'concatGrunticon:BOM',
+		'cleanGrunticon:BOM',
+	]);
+
+	grunt.registerTask('_html', [
+		'copyHTML:BOM',
+		'copy:HTML_',
+		'examples:BOM',
+		'replace:jekyll',
+		'replaceBrand:BOM',
+		'replace:debugDev',
+	]);
+
 	grunt.registerTask('_buildDocs', [
+		'compileLess:BOM',
+		'uglifyJS:BOM',
+		'concatJS:BOM',
+		'compileGrunticon:BOM',
+		'copyGrunticon:BOM',
+		'copyHTML:BOM',
+		'copyFonts:BOM',
+		'copyImages:BOM',
+		'concatGrunticon:BOM',
+		'examples:BOM',
+		'replace:jekyll',
+		'replaceBrand:BOM',
+		'cleanGrunticon:BOM',
+	]);
+
+	grunt.registerTask('_buildAllDocs', [
 		'clean:jekyll',
-		// 'lintspaces',
-		'less',
-		'uglify',
-		'concat:js',
-		'grunticon',
-		'copy',
-		'concat:grunticonBOM',
-		'concat:grunticonBSA',
-		'concat:grunticonSTG',
-		'concat:grunticonWBC',
-		'copyExamples',
+		'compileLess',
+		'uglifyJS',
+		'concatJS',
+		'compileGrunticon',
+		'copyGrunticon',
+		'copyHTML',
+		'copyFonts',
+		'copyImages',
+		'concatGrunticon',
+		'examples',
 		'lessExamples',
 		'replace:jekyll',
-		'replace:BOM',
-		'replace:BSA',
-		'replace:STG',
-		'replace:WBC',
-		'clean:grunticon',
+		'replaceBrand',
+		'cleanGrunticon',
 	]);
 
 
@@ -1515,18 +1251,18 @@ module.exports = function(grunt) {
 	grunt.registerTask('build', [ //run everything with debug on
 		'font:title',
 		'_checkGUI',
+		'checkIncludes:dev',
 		'_buildDocs',
 		'replace:debugDev',
-		'checkIncludes:dev',
 		'jekyll:dev',
 		'wakeup',
 	]);
 
 	grunt.registerTask('building', [ //run everything with debug on without gui check
 		'font:title',
+		'checkIncludes:dev',
 		'_buildDocs',
 		'replace:debugDev',
-		'checkIncludes:dev',
 		'jekyll:dev',
 		'wakeup',
 	]);
@@ -1534,20 +1270,20 @@ module.exports = function(grunt) {
 	grunt.registerTask('prod', [ //run everything with debug off
 		'font:title',
 		'_checkGUI',
-		'_buildDocs',
-		'replace:debugProd',
 		'checkIncludes:prod',
-		'clean:testing',
+		'_buildAllDocs',
+		'replace:debugProd',
+		'cleanTesting',
 		'jekyll:prod',
 		'wakeup',
 	]);
 
 	grunt.registerTask('proding', [ //run everything with debug off without gui check
 		'font:title',
-		'_buildDocs',
-		'replace:debugProd',
 		'checkIncludes:prod',
-		'clean:testing',
+		'_buildAllDocs',
+		'replace:debugProd',
+		'cleanTesting',
 		'jekyll:prod',
 		'wakeup',
 	]);

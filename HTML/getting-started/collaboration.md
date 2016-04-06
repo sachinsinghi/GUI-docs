@@ -59,8 +59,7 @@ parent: Getting Started
 		<p class="content-text">
 			We built a <a href="https://nodejs.org/" target="_blank">NodeJS</a> app that runs on our server. This app is also open source and you can find it
 			<a href="https://github.com/WestpacCXTeam/GUI-docs" target="_blank">here</a>. The repo also includes the GEL website which is built with
-			<a href="http://jekyllrb.com/" target="_blank">Jekyll</a>, a ruby app that generates static files. And yes, we used the GUI to build the front-end
-		<span class="icon icon-size-sm icon-face-happy"></span>.
+			<a href="http://jekyllrb.com/" target="_blank">Jekyll</a>, a ruby app that generates static files. And yes, we used the GUI to build the front-end.
 		</p>
 	</div>
 
