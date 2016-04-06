@@ -1,6 +1,0 @@
-ErrorDocument 400 /GUI/BSA/error400/
-ErrorDocument 401 /GUI/BSA/error401/
-ErrorDocument 402 /GUI/BSA/error402/
-ErrorDocument 403 /GUI/BSA/error403/
-ErrorDocument 404 /GUI/BSA/error404/
-ErrorDocument 500 /GUI/BSA/error500/

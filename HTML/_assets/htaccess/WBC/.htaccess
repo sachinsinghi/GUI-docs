@@ -1,6 +1,0 @@
-ErrorDocument 400 /GUI/WBC/error400/
-ErrorDocument 401 /GUI/WBC/error401/
-ErrorDocument 402 /GUI/WBC/error402/
-ErrorDocument 403 /GUI/WBC/error403/
-ErrorDocument 404 /GUI/WBC/error404/
-ErrorDocument 500 /GUI/WBC/error500/
