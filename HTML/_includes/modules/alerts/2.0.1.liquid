@@ -6,38 +6,29 @@
 
 {% comment %} TITLE {% endcomment %}
 {% capture title %}
-	Bullet list
+	Alerts in text
 {% endcapture %}
 
 
 {% comment %} DESCRIPTION {% endcomment %}
 {% capture description %}
-	Add these custom symbols to style basic lists. Adding the required modifier classes to each list item allows more flexibility without the need to create
-	specific classes for every scenario.
+	Convey meaning through colour using our cross-brand, reserved contextual colour palette.
 {% endcapture %}
 
 
 {% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
 {% capture whatsnew %}
-	<h4 class="body-font whatsnew-headline">What&rsquo;s new since v1.0.1</h4>
+	<h4 class="body-font whatsnew-headline">What&rsquo;s new since v2.0.0</h4>
 
 	This version changed:
-		<code class="classes">CSS/LESS</code>,
+		<code class="classes">CSS/LESS</code>
 	but not:
-		<code class="classes">HTML</code>
+		<code class="classes">HTML</code>,
 		<code class="classes">JS</code>
 
 	<ul class="lists">
 		<li>
-			The linklist is now a normal list that can be mixed link and non-link.
-			(<a href="https://github.com/WestpacCXTeam/GUI-source/issues/181" target="_blank">#181</a>)
-		</li>
-		<li>
-			The linklist is now powered by an SVG rather than a CSS shape. This looks better on older browsers and low density displays.
-		</li>
-		<li>
-			We introduced a new class for a larger list and aligned the spacing of the default.
-			(<a href="https://github.com/WestpacCXTeam/GUI-source/issues/183" target="_blank">#183</a>)
+			Fanfare, Drum roll … We’ve added another brand. Yay! 👏
 		</li>
 	</ul>
 {{ whatsnew }}{% endcapture %}
@@ -49,24 +40,28 @@
 
 {% comment %} HTML TAB {% endcomment %}
 {% capture HTML %}
-<ul class="lists">
-	<li>Styled bullet list - primary</li>
-	<li>Styled bullet list - primary</li>
-	<li>Styled bullet list - primary</li>
-</ul>
+<p class="text-success">
+	I'm text-success. I'm accessible.
+</p>
 {% endcapture %}
 
 
 {% comment %} CSS TAB {% endcomment %}
 {% capture CSS %}
-	Modifier classes:
+	Main classes:
 
 	<ul>
 		<li>
-			<code class="classes">lists-hero</code>
+			<code class="classes">text-success</code>
 		</li>
 		<li>
-			<code class="classes">lists-neutral</code>
+			<code class="classes">text-info</code>
+		</li>
+		<li>
+			<code class="classes">text-warning</code>
+		</li>
+		<li>
+			<code class="classes">text-danger</code>
 		</li>
 	</ul>
 {% endcapture %}
@@ -74,12 +69,22 @@
 
 {% comment %} LESS TAB {% endcomment %}
 {% capture LESS %}
-	The main mixin is called: <code class="classes">_lists({{ page.brand }})</code>
+	The main mixin is called: <code class="classes">_alerts({{ page.brand }})</code>
 {% endcapture %}
 
 
 {% comment %} JS TAB {% endcomment %}
 {% capture JS %}
+	This module comes with the usual init method:
+
+	<ul>
+		<li>
+			<code class="classes">GUI.alerts.init();</code> after the page has been loaded.
+		</li>
+		<li>
+			<code class="classes">GUI.alerts.render();</code> for dynamically added elements after page load.
+		</li>
+	</ul>
 {% endcapture %}
 
 
@@ -101,166 +106,16 @@
 
 {% comment %} TITLE {% endcomment %}
 {% capture title %}
-	Link list
+	Alert boxes
 {% endcapture %}
 
 
 {% comment %} DESCRIPTION {% endcomment %}
 {% capture description %}
-	Use this style when the list items are clickable.
-{% endcapture %}
-
-
-{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
-{% capture whatsnew %}
-{{ whatsnew }}{% endcapture %}
-
-
-{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
-{% assign example = "ex3" %}
-
-
-{% comment %} HTML TAB {% endcomment %}
-{% capture HTML %}
-<ul class="lists lists-linklist">
-	<li><a href="http://YOUR-URL.com.au">Styled link list</a></li>
-	<li><a href="http://YOUR-URL.com.au">Styled link list</a></li>
-	<li><a href="http://YOUR-URL.com.au">Styled link list</a></li>
-</ul>
-{% endcapture %}
-
-
-{% comment %} CSS TAB {% endcomment %}
-{% capture CSS %}
-	Modifier classes:
-
-	<ul>
-		<li>
-			<code class="classes">lists-linklist</code>
-		</li>
-	</ul>
-{% endcapture %}
-
-
-{% comment %} LESS TAB {% endcomment %}
-{% capture LESS %}
-	{{ LESS }}
-{% endcapture %}
-
-
-{% comment %} JS TAB {% endcomment %}
-{% capture JS %}
-{% endcapture %}
-
-
-{% include showExample.liquid %}
-{% comment %}
-	--------------------------------------------------------------------------------------------------------------------------------------------------------------
-{% endcomment %}
-
-
-
-
-
-
-{% comment %}
-	--------------------------------------------------------------------------------------------------------------------------------------------------------------
-	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
-	--------------------------------------------------------------------------------------------------------------------------------------------------------------
-{% endcomment %}
-
-{% comment %} TITLE {% endcomment %}
-{% capture title %}
-	Tick list
-{% endcapture %}
-
-
-{% comment %} DESCRIPTION {% endcomment %}
-{% capture description %}
-{% endcapture %}
-
-
-{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
-{% capture whatsnew %}
-	<h4 class="body-font whatsnew-headline">What&rsquo;s new since v1.0.0</h4>
-
-	This version changed:
-		<code class="classes">CSS/LESS</code>,
-	but not:
-		<code class="classes">HTML</code>
-		<code class="classes">JS</code>
-
-	<ul class="lists">
-		<li>
-			BIG BOM brand change. All new colours, all new look, all new GUI. Brace yourselfs.
-			<a href="https://github.com/WestpacCXTeam/GUI-source/issues/157" target="_blank">#157</a>
-		</li>
-	</ul>
-{{ whatsnew }}{% endcapture %}
-
-
-{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
-{% assign example = "ex4" %}
-
-
-{% comment %} HTML TAB {% endcomment %}
-{% capture HTML %}
-<ul class="lists lists-tick">
-	<li>Styled tick list</li>
-	<li>Styled tick list</li>
-	<li>Styled tick list</li>
-</ul>
-{% endcapture %}
-
-
-{% comment %} CSS TAB {% endcomment %}
-{% capture CSS %}
-	Modifier classes:
-
-	<ul>
-		<li>
-			<code class="classes">lists-tick</code>
-		</li>
-	</ul>
-{% endcapture %}
-
-
-{% comment %} LESS TAB {% endcomment %}
-{% capture LESS %}
-	{{ LESS }}
-{% endcapture %}
-
-
-{% comment %} JS TAB {% endcomment %}
-{% capture JS %}
-{% endcapture %}
-
-
-{% include showExample.liquid %}
-{% comment %}
-	--------------------------------------------------------------------------------------------------------------------------------------------------------------
-{% endcomment %}
-
-
-
-
-
-
-{% comment %}
-	--------------------------------------------------------------------------------------------------------------------------------------------------------------
-	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
-	--------------------------------------------------------------------------------------------------------------------------------------------------------------
-{% endcomment %}
-
-{% comment %} TITLE {% endcomment %}
-{% capture title %}
-	List sizing
-{% endcapture %}
-
-
-{% comment %} DESCRIPTION {% endcomment %}
-{% capture description %}
-	Use a larger list when you have interactive elements. This increases the affordance on touch devices.
+	Use alert boxes to differentiate and emphasise inline messaging. These are simple functional elements designed to clearly separate messaging from content.
+	Avoid formatting text.<br>
+	Add the close button to allow the message to be dismissed and removed from the content flow.<br>
+	For a more friendly look, add an icon but <strong>make sure you have the icon in your blend</strong>.
 {% endcapture %}
 
 
@@ -275,11 +130,15 @@
 
 {% comment %} HTML TAB {% endcomment %}
 {% capture HTML %}
-<ul class="lists lists-lg">
-	<li>Large list</li>
-	<li>Large list</li>
-	<li>Large list</li>
-</ul>
+<div class="alert js-alert alert-success" role="alert">
+	<button type="button" class="alert-close js-alertclose icon icon-cross" data-grunticon-embed>close</button>
+
+	<button type="button" class="alert-close js-alertclose icon icon-cross" data-grunticon-embed>close</button>
+
+	<div class="alert-body">
+		<strong>HERE!</strong> YOUR ALERT TEXT!
+	</div>
+</div>
 {% endcapture %}
 
 
@@ -289,7 +148,16 @@
 
 	<ul>
 		<li>
-			<code class="classes">lists-lg</code>
+			<code class="classes">alert-success</code>
+		</li>
+		<li>
+			<code class="classes">alert-info</code>
+		</li>
+		<li>
+			<code class="classes">alert-warning</code>
+		</li>
+		<li>
+			<code class="classes">alert-danger</code>
 		</li>
 	</ul>
 {% endcapture %}
@@ -303,6 +171,76 @@
 
 {% comment %} JS TAB {% endcomment %}
 {% capture JS %}
+	{{ JS }}
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+
+
+
+
+
+
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Alerts in forms - validation
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	Contextual styles for error, warning, and success on form controls. Any label, .form-control, and .help-block within that element will receive the validation
+	styles.
+</p>
+<p class="example-description text-info">
+	The input-fields in this example are not included and will have to be added to the blend separately.
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% assign example = "ex3" %}
+
+
+{% comment %} HTML TAB {% endcomment %}
+{% capture HTML %}
+<div class="alert-form has-danger">
+	<input type="text" class="input-field" placeholder="I'm a default text input" aria-describedby="txt5{{ version[0] | handleize }}">
+	<p id="txt5{{ version[0] | handleize }}" class="alert-form-msg">YOUR ALERT MESSAGE HERE.</p>
+</div>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+	{{ CSS }}
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	{{ LESS }}
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+	{{ JS }}
 {% endcapture %}
 
 
