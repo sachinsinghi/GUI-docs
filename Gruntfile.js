@@ -176,6 +176,8 @@ var SETTINGS = function() {
 			'OnlineGUIzip': 'https://github.com/WestpacCXTeam/GUI-source/archive/master.zip',
 			'OnlineGUIjson': 'https://raw.githubusercontent.com/WestpacCXTeam/GUI-source/master/GUI.json',
 		},
+
+		'devBrand': 'BOM',
 	};
 };
 
@@ -287,14 +289,16 @@ module.exports = function(grunt) {
 		var GUI = grunt.file.readJSON( SETTINGS().folder.GUIjson );
 		var target = target ? target : 'dev'; //target can only be 'dev' or 'prod'
 		var missing = []; //array of all missing modules
+		var mod = 0;
 
 		Object.keys( GUI.modules ).forEach(function iterateCategories( category ) {
 			Object.keys( GUI.modules[category] ).forEach(function iterateModules( module ) {
 
-				if( target == 'prod' && category != '_testing' || target == 'dev' ) { //exclude the _testing category all together in prod
+				if( target == 'prod' && category != '_testing' && category != '_core' || target == 'dev' && category != '_core' ) { //exclude the _testing category all together in prod
 
 					Object.keys( GUI.modules[category][module].versions ).forEach(function interateVersions( version ) {
 						var path = SETTINGS().folder.modules + '/' + module + '/' + version + '.liquid'; //the path the module should be in
+						mod++;
 
 						grunt.verbose.writeln( 'Testing path: ' + path ); //for verbose user
 
@@ -311,6 +315,9 @@ module.exports = function(grunt) {
 			grunt.log.writeln(); //empty line
 			grunt.log.error('There are ' + Chalk.bgWhite.red( ' ' + missing.length + ' ' ) + ' module(s) not included in this GUI build! Please see below list:');
 			grunt.fail.warn('Missing modules' + Chalk.bgWhite.red( "\n • " + missing.join("\n • ") ) + "\n\n" ); //list all missing module from array
+		}
+		else {
+			grunt.log.ok('All ' + mod + ' modules found!');
 		}
 	});
 
@@ -1155,53 +1162,56 @@ module.exports = function(grunt) {
 	]);
 
 	grunt.registerTask('_js', [
-		'uglifyJS:BOM',
-		'concatJS:BOM',
+		'uglifyJS:' + SETTINGS().devBrand,
+		'concatJS:' + SETTINGS().devBrand,
 		'replace:jekyll',
-		'replaceBrand:BOM',
+		'replaceBrand:' + SETTINGS().devBrand,
 		'replace:debugDev',
 	]);
 
 	grunt.registerTask('_less', [
-		'compileLess:BOM',
+		'compileLess:' + SETTINGS().devBrand,
 		'replace:jekyll',
-		'replaceBrand:BOM',
+		'replaceBrand:' + SETTINGS().devBrand,
 		'replace:debugDev',
 	]);
 
 	grunt.registerTask('_svg', [
-		'compileGrunticon:BOM',
-		'copyGrunticon:BOM',
-		'copyHTML:BOM',
-		'copyFonts:BOM',
-		'copyImages:BOM',
-		'concatGrunticon:BOM',
-		'cleanGrunticon:BOM',
+		'compileGrunticon:' + SETTINGS().devBrand,
+		'copyGrunticon:' + SETTINGS().devBrand,
+		'copyHTML:' + SETTINGS().devBrand,
+		'copyFonts:' + SETTINGS().devBrand,
+		'copyImages:' + SETTINGS().devBrand,
+		'concatGrunticon:' + SETTINGS().devBrand,
+		'cleanGrunticon:' + SETTINGS().devBrand,
 	]);
 
 	grunt.registerTask('_html', [
-		'copyHTML:BOM',
+		'copyHTML:' + SETTINGS().devBrand,
 		'copy:HTML_',
-		'examples:BOM',
+		'copy:GUIjson',
+		'examples:' + SETTINGS().devBrand,
 		'replace:jekyll',
-		'replaceBrand:BOM',
+		'replaceBrand:' + SETTINGS().devBrand,
 		'replace:debugDev',
 	]);
 
 	grunt.registerTask('_buildDocs', [
-		'compileLess:BOM',
-		'uglifyJS:BOM',
-		'concatJS:BOM',
-		'compileGrunticon:BOM',
-		'copyGrunticon:BOM',
-		'copyHTML:BOM',
-		'copyFonts:BOM',
-		'copyImages:BOM',
-		'concatGrunticon:BOM',
-		'examples:BOM',
+		'compileLess:' + SETTINGS().devBrand,
+		'uglifyJS:' + SETTINGS().devBrand,
+		'concatJS:' + SETTINGS().devBrand,
+		'compileGrunticon:' + SETTINGS().devBrand,
+		'copyGrunticon:' + SETTINGS().devBrand,
+		'copyHTML:' + SETTINGS().devBrand,
+		'copy:HTML_',
+		'copy:GUIjson',
+		'copyFonts:' + SETTINGS().devBrand,
+		'copyImages:' + SETTINGS().devBrand,
+		'concatGrunticon:' + SETTINGS().devBrand,
+		'examples:' + SETTINGS().devBrand,
 		'replace:jekyll',
-		'replaceBrand:BOM',
-		'cleanGrunticon:BOM',
+		'replaceBrand:' + SETTINGS().devBrand,
+		'cleanGrunticon:' + SETTINGS().devBrand,
 	]);
 
 	grunt.registerTask('_buildAllDocs', [
@@ -1212,6 +1222,8 @@ module.exports = function(grunt) {
 		'compileGrunticon',
 		'copyGrunticon',
 		'copyHTML',
+		'copy:HTML_',
+		'copy:GUIjson',
 		'copyFonts',
 		'copyImages',
 		'concatGrunticon',
@@ -1227,6 +1239,7 @@ module.exports = function(grunt) {
 	// Build tasks
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	grunt.registerTask('default', [ //run build with watch
+		'clean:jekyll',
 		'build',
 		'connect',
 		'watch',
