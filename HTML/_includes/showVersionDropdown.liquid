@@ -105,15 +105,17 @@
 		{% comment %}
 			Layout
 		{% endcomment %}
-		{% if layout == 'inner' %}
-			{{ tick }}
-			{{ label }}
-			{{ select }}
-			<label class="module-version-label2" for="tick-{{ mod[1].ID }}">to the Blender</label>
-		{% else if layout == 'blender' %}
-			{{ label }}
-			{{ select }}
-			{{ tick }}
+		{% if _isInBrand %}
+			{% if layout == 'inner' %}
+				{{ tick }}
+				{{ label }}
+				{{ select }}
+				<label class="module-version-label2" for="tick-{{ mod[1].ID }}">to the Blender</label>
+			{% else if layout == 'blender' %}
+				{{ label }}
+				{{ select }}
+				{{ tick }}
+			{% endif %}
 		{% endif %}
 
 

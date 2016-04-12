@@ -1,0 +1,33 @@
+/* GUI blend http://gel.westpacgroup.com.au/GUI/BOM/blender/#/_colors:1.0.1/_fonts:1.0.2/_grid:1.0.0/_javascript-helpers:1.0.1/_text-styling:1.0.3 */
+
+
+/* ---------------------------------------| CORE |--------------------------------------- */
+.getBrand() when (@brand = BOM) {
+	@import 'BOM/_colors.less';
+	@import 'BOM/_fonts.less';
+	@import 'BOM/_grid.less';
+	@import 'BOM/_text-styling.less';
+}
+.getBrand() when (@brand = BSA) {
+	@import 'BSA/_colors.less';
+	@import 'BSA/_fonts.less';
+	@import 'BSA/_grid.less';
+	@import 'BSA/_text-styling.less';
+}
+.getBrand() when (@brand = STG) {
+	@import 'STG/_colors.less';
+	@import 'STG/_fonts.less';
+	@import 'STG/_grid.less';
+	@import 'STG/_text-styling.less';
+}
+.getBrand() when (@brand = WBC) {
+	@import 'WBC/_colors.less';
+	@import 'WBC/_fonts.less';
+	@import 'WBC/_grid.less';
+	@import 'WBC/_text-styling.less';
+}
+.getBrand();
+
+
+/* ---------------------------------------| EXAMPLES |--------------------------------------- */
+@import '../example.less';
