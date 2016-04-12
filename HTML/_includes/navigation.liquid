@@ -219,12 +219,13 @@ maxLevel: {{ maxLevel }}{% endcomment %}
 					{% comment %}
 						MAKING URL RELATIVE
 					{% endcomment %}
+					{% assign brandLength = brand.size | plus: 2 %}
 					{% assign thisUrl = thisPage.url %}
-					{% assign urlPrefix = thisUrl | slice: 0, 5 %}
+					{% assign urlPrefix = thisUrl | slice: 0, brandLength %}
 					{% capture urlBrand %}/{{ page.brand }}/{% endcapture %}
 
 					{% if urlPrefix == urlBrand %}
-						{% assign thisUrl = thisUrl | slice: 5, thisUrl.size %}
+						{% assign thisUrl = thisUrl | slice: brandLength, thisUrl.size %}
 					{% endif %}
 					{% if thisUrl == '' %}
 						{% assign thisUrl = '.' %}
