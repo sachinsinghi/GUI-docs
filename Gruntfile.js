@@ -177,7 +177,7 @@ var SETTINGS = function() {
 			'OnlineGUIjson': 'https://raw.githubusercontent.com/WestpacCXTeam/GUI-source/master/GUI.json',
 		},
 
-		'devBrand': 'BOM',
+		'devBrand': 'WBG',
 	};
 };
 
@@ -1012,6 +1012,22 @@ module.exports = function(grunt) {
 					expand: true,
 				}],
 			},
+
+			//guiconfig.json
+			GUIconfig: {
+				files: [{
+					cwd: '.',
+					src: [
+						'<%= SETTINGS.folder.GUIconfig %>',
+					],
+					dest: '<%= SETTINGS.folder.prod %>/_data',
+					rename: function(dest, src) {
+						return dest + '/guiconfig.json';
+					},
+					filter: 'isFile',
+					expand: true,
+				}],
+			},
 		},
 
 
@@ -1190,6 +1206,7 @@ module.exports = function(grunt) {
 		'copyHTML:' + SETTINGS().devBrand,
 		'copy:HTML_',
 		'copy:GUIjson',
+		'copy:GUIconfig',
 		'examples:' + SETTINGS().devBrand,
 		'replace:jekyll',
 		'replaceBrand:' + SETTINGS().devBrand,
@@ -1205,6 +1222,7 @@ module.exports = function(grunt) {
 		'copyHTML:' + SETTINGS().devBrand,
 		'copy:HTML_',
 		'copy:GUIjson',
+		'copy:GUIconfig',
 		'copyFonts:' + SETTINGS().devBrand,
 		'copyImages:' + SETTINGS().devBrand,
 		'concatGrunticon:' + SETTINGS().devBrand,
@@ -1224,6 +1242,7 @@ module.exports = function(grunt) {
 		'copyHTML',
 		'copy:HTML_',
 		'copy:GUIjson',
+		'copy:GUIconfig',
 		'copyFonts',
 		'copyImages',
 		'concatGrunticon',
