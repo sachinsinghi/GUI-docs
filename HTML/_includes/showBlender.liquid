@@ -183,10 +183,9 @@
 			<div class="col-sm-12 blender-action text-right">
 				{% if "[Debug]" == "true" %}
 					<select name="brand">
-						<option vlaue="BOM">BOM</option>
-						<option vlaue="BSA">BSA</option>
-						<option vlaue="STG">STG</option>
-						<option vlaue="WBC">WBC</option>
+						{% for brand in site.data.guiconfig.brands %}
+							<option value="{{ brand }}">{{ brand }}</option>
+						{% endfor %}
 					</select>
 				{% else %}
 					<input type="hidden" name="brand" value="{{ page.brand }}">

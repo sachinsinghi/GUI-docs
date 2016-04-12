@@ -1,4 +1,4 @@
-/*! Fonts v2.0.0 BOM */
+/*! Fonts v2.0.1 BOM */
 
 @brand: BOM;
 
@@ -6,7 +6,9 @@
 //////////////////////////////////////| FONTS MIXIN
 ._fonts( @brand ) {
 
-	//////////////////////////////////////| SETTINGS
+	/*
+	 *  SETTINGS
+	 */
 	._fonts-family( @brand );
 
 	.getBrand() when (@brand = BOM) {
@@ -50,6 +52,8 @@
 	}
 
 	.getBrand() when (@brand = WBC) {}
+	.getBrand() when (@brand = WBG) {}
+	.getBrand() when (@brand = BT) {}
 	.getBrand();
 
 	//////////////////////////////////////| FONTS
@@ -65,6 +69,9 @@
 
 //////////////////////////////////////| FONT FAMILY
 ._fonts-family( @brand ) {
+	/*
+	 *  SETTINGS
+	 */
 	.getBrand() when (@brand = BOM) {
 		@fontfamily: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 		@brand-fontfamily: "stag", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
@@ -80,6 +87,14 @@
 	.getBrand() when (@brand = WBC) {
 		@fontfamily: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 		@brand-fontfamily: "Times New Roman", "Times", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+	}
+	.getBrand() when (@brand = WBG) {
+		@fontfamily: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+		@brand-fontfamily: "Times New Roman", "Times", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+	}
+	.getBrand() when (@brand = BT) {
+		@fontfamily: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+		@brand-fontfamily: Georgia, "Times New Roman", "Times", serif;
 	}
 	.getBrand();
 }

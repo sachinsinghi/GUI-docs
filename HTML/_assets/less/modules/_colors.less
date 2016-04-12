@@ -1,4 +1,4 @@
-/*! Colors v2.0.0 BOM */
+/*! Colors v2.0.1 BOM */
 
 @brand: BOM;
 
@@ -6,7 +6,9 @@
 //////////////////////////////////////| COLORS MIXIN
 ._colors( @brand ) {
 
-	//////////////////////////////////////| SETTINGS
+	/*
+	 *  SETTINGS
+	 */
 	.getBrand() when (@brand = BOM) {
 		@color-A: #b45c38;
 		@color-B: #444f5e;
@@ -54,6 +56,30 @@
 		@color-H: #d7d2cb;
 		@color-I: #f4f3f0;
 		@color-J: #f9f9f8;
+	}
+	.getBrand() when (@brand = WBG) {
+		@color-A: #d5002b;
+		@color-B: #495761;
+		@color-C: #263238;
+		@color-D: #37474f;
+		@color-E: #455a64;
+		@color-F: #000;
+		@color-G: #5b6871;
+		@color-H: #cfd8dc;
+		@color-I: #f3f5f6;
+		@color-J: #f9fafb;
+	}
+	.getBrand() when (@brand = BT) {
+		@color-A: #9e005d;
+		@color-B: #2574a9;
+		@color-C: #637b98;
+		@color-D: #00afd7;
+		@color-E: #00232b;
+		@color-F: #333;
+		@color-G: #666;
+		@color-H: #e0e0e0;
+		@color-I: #f9f9f9;
+		@color-J: #fcfcfc;
 	}
 	.getBrand();
 
@@ -233,7 +259,7 @@
 	@color-Info-5: mix(@color-Info, white, 5%);
 
 	.written-by { //the proud parents
-		content: 'Dominik Wilkowski, Justin Spencer, Kate T MacDonald';
+		content: 'Dominik Wilkowski, Justin Spencer, Kate T MacDonald, Marita Purins, Daphne Bourne';
 		color: #BADA55;
 	}
 }
