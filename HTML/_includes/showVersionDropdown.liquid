@@ -15,6 +15,7 @@
 
 
 {% assign mod = include.mod %}
+{% assign brand = page.brand %}
 {% assign layout = include.layout %}
 {% assign versions = '' %}
 {% assign _isBase = false %}
@@ -33,21 +34,33 @@
 			Reverse order to have newest option on top
 		{% endcomment %}
 		{% for version in mod[1].versions %}
-			{% assign dependencies = "" %}
-			{% for dep in version[1].dependencies %}
-				{% capture dependencies %}{{ dependencies }}, {{ dep | handleize }}{% endcapture %}
+			{% assign _isInBrand = false %}
+			{% for versionBrand in version[1].brands %}
+				{% if brand == versionBrand %}
+					{% assign _isInBrand = true %}
+				{% endif %}
 			{% endfor %}
 
-			{% capture versions %}
-				<option class="js-blender-{{ mod[1].ID }} js-blender-{{ mod[1].ID }}{{ version[0] | handleize }}" value="{{ version[0] }}"
-					{% if dependencies.size > 0 %}data-dependencies="{{ dependencies | slice: 2, dependencies.size }}"{% endif %}
-					data-version="{{ version[0] | handleize }}"
-					data-size="{{ version[1].size }}"
-				>
-					{{ version[0] }}
-				</option>
-				{{ versions }}
-			{% endcapture %}
+			{% comment %}
+				Only add option if version exists in brand
+			{% endcomment %}
+			{% if _isInBrand %}
+				{% assign dependencies = "" %}
+				{% for dep in version[1].dependencies %}
+					{% capture dependencies %}{{ dependencies }}, {{ dep | handleize }}{% endcapture %}
+				{% endfor %}
+
+				{% capture versions %}
+					<option class="js-blender-{{ mod[1].ID }} js-blender-{{ mod[1].ID }}{{ version[0] | handleize }}" value="{{ version[0] }}"
+						{% if dependencies.size > 0 %}data-dependencies="{{ dependencies | slice: 2, dependencies.size }}"{% endif %}
+						data-version="{{ version[0] | handleize }}"
+						data-size="{{ version[1].size }}"
+					>
+						{{ version[0] }}
+					</option>
+					{{ versions }}
+				{% endcapture %}
+			{% endif %}
 		{% endfor %}
 
 
