@@ -199,6 +199,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-text-replace');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-grunticon');
+	grunt.loadNpmTasks('grunt-prompt');
 	grunt.loadNpmTasks('grunt-wakeup');
 	grunt.loadNpmTasks('grunt-jekyll');
 	grunt.loadNpmTasks('grunt-font');
@@ -323,6 +324,172 @@ module.exports = function(grunt) {
 
 
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	// Custom grunt task to add a new version to a modules example
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	grunt.registerTask('newExample', 'Add a new version to a modules example', function( module, version ) {
+		//check if version and module exists in master
+		try {
+			var moduleJson = grunt.file.readJSON( SETTINGS().folder.GUImaster + '/' + module + '/' + version + '/module.json' );
+			grunt.verbose.writeln( module + ':' + version + ' module found!');
+		}
+		catch(e) {
+			grunt.fail.warn('The version ' +
+				Chalk.magenta.bold( version ) +
+				Chalk.yellow(' of ') +
+				Chalk.magenta.bold( module ) +
+				Chalk.yellow(' couldn’t be found!'));
+
+			moduleJson = '';
+		}
+
+		var thisJson = moduleJson.versions[version];
+
+
+		//get the latest version that has an example
+		var oldVersion = '1.0.0';
+
+		grunt.file.expand({}, [ SETTINGS().folder.examples + '/' + module + '/*' ]).forEach(function( versionPath ) {
+			oldVersion = versionPath.substring( ( SETTINGS().folder.examples.length + 2 + module.length ) )
+		});
+
+
+		//copy latest folder to new version and get all new files from master
+		var copy = {};
+		var replace = grunt.config.get('replace');
+
+		copy[ 'newExampleOldVersion' ] = { //copy old version
+			files: [{
+				cwd: '<%= SETTINGS.folder.examples %>/' + module + '/' + oldVersion + '/',
+				src: [
+					'**/*',
+				],
+				dest: '<%= SETTINGS.folder.examples %>/' + module + '/' + version + '/',
+				filter: 'isFile',
+				expand: true,
+			}],
+		};
+
+		if( thisJson.less ) {
+			grunt.verbose.writeln( 'Copying LESS files from master' );
+
+			copy[ 'newExamplenewLess' ] = { //get less file from master
+				files: [{
+					cwd: '<%= SETTINGS.folder.GUImaster %>/' + module + '/' + version + '/less/',
+					src: [
+						'module-mixins.less',
+					],
+					dest: '<%= SETTINGS.folder.examples %>/' + module + '/' + version + '/_assets/less/',
+					rename: function(dest, src) {
+						return dest + '/module.less';
+					},
+					filter: 'isFile',
+					expand: true,
+				}],
+			};
+
+			replace[ 'newExamplenewLess' ] = { //replace less file placeholder strings
+				src: [
+					'<%= SETTINGS.folder.examples %>/' + module + '/' + version + '/_assets/less/module.less',
+				],
+				overwrite: true,
+				replacements: [
+					{
+						from: '[Brand]',
+						to: 'WBC',
+					},
+					{
+						from: '[brand]',
+						to: 'bwc',
+					},
+					{
+						from: '[Module-Version-Brand]',
+						to: moduleJson.name + ' v' + version + ' WBC',
+					},
+				],
+			};
+		}
+
+		if( thisJson.js ) {
+			grunt.verbose.writeln( 'Copying JS files from master' );
+
+			copy[ 'newExamplenewJS' ] = { //get js file from master
+				files: [{
+					cwd: '<%= SETTINGS.folder.GUImaster %>/' + module + '/' + version + '/js/',
+					src: [
+						'*.js',
+					],
+					dest: '<%= SETTINGS.folder.examples %>/' + module + '/' + version + '/_assets/js/',
+					filter: 'isFile',
+					expand: true,
+				}],
+			};
+		}
+
+		if( thisJson.font ) {
+			grunt.verbose.writeln( 'Copying font files from master' );
+
+			thisJson.brands.forEach(function iterateBrands( brand ) {
+				copy[ 'newExamplenewFonts' + brand ] = { //get font files from master
+					files: [{
+						cwd: '<%= SETTINGS.folder.GUImaster %>/' + module + '/' + version + '/_assets/' + brand + '/font/',
+						src: [
+							'**/*.eot',
+							'**/*.svg',
+							'**/*.ttf',
+							'**/*.woff',
+							'**/*.woff2',
+						],
+						dest: '<%= SETTINGS.folder.examples %>/' + module + '/' + version + '/_assets/font/' + brand + '/',
+						filter: 'isFile',
+						expand: true,
+					}],
+				};
+			});
+		}
+
+		if( thisJson.svg ) {
+			grunt.verbose.writeln( 'Copying SVG files from master' );
+
+			thisJson.brands.forEach(function iterateBrands( brand ) {
+				copy[ 'newExamplenewSVG' + brand ] = { //get svg files from master
+					files: [{
+						cwd: '<%= SETTINGS.folder.GUImaster %>/' + module + '/' + version + '/tests/' + brand + '/assets/css/',
+						src: [
+							'*.css',
+						],
+						dest: '<%= SETTINGS.folder.examples %>/' + module + '/' + version + '/_assets/css/' + brand + '/',
+						filter: 'isFile',
+						expand: true,
+					}],
+				};
+
+				copy[ 'newExamplenewSVGfallback' + brand ] = { //get svg flallback files from master
+					files: [{
+						cwd: '<%= SETTINGS.folder.GUImaster %>/' + module + '/' + version + '/tests/' + brand + '/assets/img/',
+						src: [
+							'*.png',
+						],
+						dest: '<%= SETTINGS.folder.examples %>/' + module + '/' + version + '/_assets/img/' + brand + '/',
+						filter: 'isFile',
+						expand: true,
+					}],
+				};
+			});
+		}
+
+
+		//assigning tasks
+		grunt.config.set('copy', copy);
+		grunt.task.run('copy');
+
+		if( thisJson.less ) {
+			grunt.config.set('replace', replace);
+			grunt.task.run('replace:newExamplenewLess');
+		}
+	});
+
+
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	// Custom grunt task to move all examples into place and compile less
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	grunt.registerTask('examples', 'Copy the examples into the prod folder for each brand and compile less', function( targetBrand ) {
@@ -333,92 +500,94 @@ module.exports = function(grunt) {
 		var less = {};
 
 		Object.keys( GUI.modules ).forEach(function iterateCategories( category ) { //iterate all categories
-			Object.keys( GUI.modules[category] ).forEach(function iterateModules( module ) { //iterate all modules
-				Object.keys( GUI.modules[category][module].versions ).forEach(function interateVersions( version ) { //iterate all versions
-					GUI.modules[category][module].versions[version].brands.forEach(function iterateBrands( brand ) { //iterate all brands
-						if( targetBrand === brand || !targetBrand ) { //only show selected brand or everything if targetBrand is not defined
+			if( category !== '_core' && category !== '_testing' ) { //only do modules once
+				Object.keys( GUI.modules[category] ).forEach(function iterateModules( module ) { //iterate all modules
+					Object.keys( GUI.modules[category][module].versions ).forEach(function interateVersions( version ) { //iterate all versions
+						GUI.modules[category][module].versions[version].brands.forEach(function iterateBrands( brand ) { //iterate all brands
+							if( targetBrand === brand || !targetBrand ) { //only show selected brand or everything if targetBrand is not defined
 
-							//////////////////////////////////////| COPY HTML
-							copy[ 'Example' + module + version + 'HTML' + brand ] = {
-								files: [{
-									cwd: '<%= SETTINGS.folder.examples %>/' + module + '/',
+								//////////////////////////////////////| COPY HTML
+								copy[ 'Example' + module + version + 'HTML' + brand ] = {
+									files: [{
+										cwd: '<%= SETTINGS.folder.examples %>/' + module + '/',
+										src: [
+											'**/*.html',
+											'**/*.md',
+											'**/*.liquid',
+											'!_assets/**/*',
+											'!_*/**/*',
+										],
+										dest: '<%= SETTINGS.folder.prod %>/' + brand + '/examples/' + module + '/',
+										filter: 'isFile',
+										expand: true,
+									}],
+								};
+
+								//////////////////////////////////////| COPY CSS
+								copy[ 'Example' + module + version + 'CSS' + brand ] = {
+									files: [{
+										cwd: '<%= SETTINGS.folder.examples %>/' + module + '/' + version + '/_assets/css/' + brand + '/',
+										src: [
+											'**/*.css',
+										],
+										dest: '<%= SETTINGS.folder.prod %>/' + brand + '/examples/' + module + '/' + version + '/assets/css/',
+										filter: 'isFile',
+										expand: true,
+									}],
+								};
+
+								//////////////////////////////////////| COPY FONT
+								copy[ 'Example' + module + version + 'Font' + brand ] = {
+									files: [{
+										cwd: '<%= SETTINGS.folder.examples %>/' + module + '/' + version + '/_assets/font/' + brand + '/',
+										src: [
+											'**/*',
+										],
+										dest: '<%= SETTINGS.folder.prod %>/' + brand + '/examples/' + module + '/' + version + '/assets/font/',
+										filter: 'isFile',
+										expand: true,
+									}],
+								};
+
+								//////////////////////////////////////| COPY IMAGE
+								copy[ 'Example' + module + version + 'Img' + brand ] = {
+									files: [{
+										cwd: '<%= SETTINGS.folder.examples %>/' + module + '/' + version + '/_assets/img/' + brand + '/',
+										src: [
+											'**/*.png',
+											'**/*.jpg',
+										],
+										dest: '<%= SETTINGS.folder.prod %>/' + brand + '/examples/' + module + '/' + version + '/assets/img/',
+										filter: 'isFile',
+										expand: true,
+									}],
+								};
+
+
+								//////////////////////////////////////| CONCAT JS
+								concatFiles['<%= SETTINGS.folder.prod %>/' + brand + '/examples/' + module + '/' + version + '/assets/js/example.min.js'] =
+									['<%= SETTINGS.folder.examples %>/' + module + '/' + version + '/_assets/js/*.js'];
+
+
+								//////////////////////////////////////| COMPILE LESS
+								less[ 'Example' + module + version + 'Less' + brand ] = {
+									options: {
+										cleancss: true,
+										compress: true,
+										ieCompat: true,
+										report: 'min',
+										plugins : [ new (require('less-plugin-autoprefix'))({ browsers: [ 'last 2 versions', 'ie 8', 'ie 9', 'ie 10' ] }) ],
+									},
 									src: [
-										'**/*.html',
-										'**/*.md',
-										'**/*.liquid',
-										'!_assets/**/*',
-										'!_*/**/*',
+										'<%= SETTINGS.folder.examples %>/' + module + '/' + version + '/_assets/less/' + brand + '/example.less',
 									],
-									dest: '<%= SETTINGS.folder.prod %>/' + brand + '/examples/' + module + '/',
-									filter: 'isFile',
-									expand: true,
-								}],
-							};
-
-							//////////////////////////////////////| COPY CSS
-							copy[ 'Example' + module + version + 'CSS' + brand ] = {
-								files: [{
-									cwd: '<%= SETTINGS.folder.examples %>/' + module + '/' + version + '/_assets/css/' + brand + '/',
-									src: [
-										'**/*.css',
-									],
-									dest: '<%= SETTINGS.folder.prod %>/' + brand + '/examples/' + module + '/' + version + '/assets/css/',
-									filter: 'isFile',
-									expand: true,
-								}],
-							};
-
-							//////////////////////////////////////| COPY FONT
-							copy[ 'Example' + module + version + 'Font' + brand ] = {
-								files: [{
-									cwd: '<%= SETTINGS.folder.examples %>/' + module + '/' + version + '/_assets/font/' + brand + '/',
-									src: [
-										'**/*',
-									],
-									dest: '<%= SETTINGS.folder.prod %>/' + brand + '/examples/' + module + '/' + version + '/assets/font/',
-									filter: 'isFile',
-									expand: true,
-								}],
-							};
-
-							//////////////////////////////////////| COPY IMAGE
-							copy[ 'Example' + module + version + 'Img' + brand ] = {
-								files: [{
-									cwd: '<%= SETTINGS.folder.examples %>/' + module + '/' + version + '/_assets/img/' + brand + '/',
-									src: [
-										'**/*.png',
-										'**/*.jpg',
-									],
-									dest: '<%= SETTINGS.folder.prod %>/' + brand + '/examples/' + module + '/' + version + '/assets/img/',
-									filter: 'isFile',
-									expand: true,
-								}],
-							};
-
-
-							//////////////////////////////////////| CONCAT JS
-							concatFiles['<%= SETTINGS.folder.prod %>/' + brand + '/examples/' + module + '/' + version + '/assets/js/example.min.js'] =
-								['<%= SETTINGS.folder.examples %>/' + module + '/' + version + '/_assets/js/*.js'];
-
-
-							//////////////////////////////////////| COMPILE LESS
-							less[ 'Example' + module + version + 'Less' + brand ] = {
-								options: {
-									cleancss: true,
-									compress: true,
-									ieCompat: true,
-									report: 'min',
-									plugins : [ new (require('less-plugin-autoprefix'))({ browsers: [ 'last 2 versions', 'ie 8', 'ie 9', 'ie 10' ] }) ],
-								},
-								src: [
-									'<%= SETTINGS.folder.examples %>/' + module + '/' + version + '/_assets/less/' + brand + '/example.less',
-								],
-								dest: '<%= SETTINGS.folder.prod %>/' + brand + '/examples/' + module + '/' + version + '/assets/css/example.min.css',
-							};
-						}
+									dest: '<%= SETTINGS.folder.prod %>/' + brand + '/examples/' + module + '/' + version + '/assets/css/example.min.css',
+								};
+							}
+						});
 					});
 				});
-			});
+			}
 		});
 
 		//create tasks
@@ -882,7 +1051,7 @@ module.exports = function(grunt) {
 
 
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
-		// Replace version
+		// Replace placeholder strings
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
 		replace: {
 			debugDev: {
@@ -942,6 +1111,75 @@ module.exports = function(grunt) {
 						to: '<%= pkg.version %>',
 					},
 				],
+			},
+		},
+
+
+		//----------------------------------------------------------------------------------------------------------------------------------------------------------
+		// What new module examples need updating
+		//----------------------------------------------------------------------------------------------------------------------------------------------------------
+		prompt: {
+			getModule : {
+				options: {
+					questions: [{
+						config: 'modules',
+						type: 'checkbox',
+						message: 'Please select the module(s) to update',
+						choices: function( answers ) { //listing all modules from GUI.json
+							var GUI = grunt.file.readJSON( SETTINGS().folder.GUIjson );
+							var GUImodules = {};
+							var questions = [];
+
+							//reformat the GUI.json for better lookup
+							Object.keys( GUI.modules ).forEach(function iterateCategories( category ) { //iterate all categories
+								if( category !== '_core' && category !== '_testing' ) {
+									Object.keys( GUI.modules[category] ).forEach(function iterateModules( module ) { //iterate all modules
+										GUImodules[ module ] = [];
+
+										Object.keys( GUI.modules[category][module].versions ).forEach(function interateVersions( version ) { //iterate all versions
+											GUImodules[ module ].push( version );
+										});
+									});
+								}
+							});
+
+							//look at what exists in the example folder and what is out-of-date
+							grunt.file.expand({}, [ SETTINGS().folder.examples + '/*' ]).forEach(function( modulePath ) {
+								var module = modulePath.substring( ( SETTINGS().folder.examples.length + 1 ) ); //module name
+								var versions = [];
+
+								//get all versions into an array for comparison
+								grunt.file.expand({}, [ modulePath + '/*' ]).forEach(function( versionPath ) {
+									versions.push( versionPath.substring( ( modulePath.length + 1 ) ) );
+								});
+
+								//diff of what we have in the GUI.json and what we have in the examples folder
+								var diff = GUImodules[module].filter(function( i ) {
+									return versions.indexOf( i ) < 0;
+								});
+
+								//give an option for each available version
+								diff.forEach(function iterateDiff( version ) {
+									questions.push( module + ':' + version );
+								});
+
+							});
+
+							return questions.sort();
+						},
+					}],
+					then: function(results, done) {
+						var modules = results['modules']; //all selected modules
+
+						modules.forEach(function iterateModules( module ) { //ask for version for each module
+
+							grunt.task.run( 'newExample:' + module );
+						});
+
+						done();
+						return true;
+					},
+				},
 			},
 		},
 
@@ -1324,6 +1562,12 @@ module.exports = function(grunt) {
 		'font:title',
 		'connect',
 		'watch',
+		'wakeup',
+	]);
+
+	grunt.registerTask('new-example', [ //add a new version to an example
+		'font:title',
+		'prompt',
 		'wakeup',
 	]);
 
