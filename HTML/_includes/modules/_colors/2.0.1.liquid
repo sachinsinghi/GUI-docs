@@ -1,0 +1,893 @@
+{% if page.brand == 'BOM' %}
+	{% comment %}
+		------------------------------------------------------------------------------------------------------------------------------------------------------------
+		BOM BRAND HTML
+		------------------------------------------------------------------------------------------------------------------------------------------------------------
+	{% endcomment %}
+
+
+	{% comment %}
+		PRIMARY PALETTE
+	{% endcomment %}
+
+	<div class="row">
+		<div class="col-sm-4">
+			<div class="row">
+				<div class="col-sm-10">
+					<h3 class="content-h">Primary Palette</h3>
+					<p class="example-description">
+						These are the ten core colours used in the digital the brand. It's important to use these colours correctly for their specified purpose.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-8">
+			<div class="row">
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Primary - Link'  color = 'A'  hex = '#B45C38'  rgb = 'R=180 G=92 B=56' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Hero'  color = 'B'  hex = '#444F5E'  rgb = 'R=68 G=79 B=94' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Neutral'  color = 'C'  hex = '#69727E'  rgb = 'R=105 G=114 B=126' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Complementary A'  color = 'D'  hex = '#446E61'  rgb = 'R=68 G=110 B=97' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Complementary B'  color = 'E'  hex = '#7E7357'  rgb = 'R=126 G=115 B=87' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Text'  color = 'F'  hex = '#20262D'  rgb = 'R=32 G=38 B=45' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Muted'  color = 'G'  hex = '#69727E'  rgb = 'R=105 G=114 B=126' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Border'  color = 'H'  hex = '#D2D5D8'  rgb = 'R=210 G=213 B=216' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Background'  color = 'I'  hex = '#F0F1F2'  rgb = 'R=240 G=241 B=242' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Light'  color = 'J'  hex = '#F7F8F9'  rgb = 'R=247 G=248 B=249' %}
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	{% comment %}
+		ADDITIONAL COLOURS
+	{% endcomment %}
+
+	<div class="row content-row">
+		<div class="col-sm-4">
+			<div class="row">
+				<div class="col-sm-10">
+					<h3 class="content-h">Secondray Tints</h3>
+					<p class="example-description">
+						These colours are tints of the primary palette.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-8">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="col-sm-6 col-lg-3">
+						{% include showTints.liquid  colors = '#b45c38,#bb6c4c,#c37d60,#ca8d74,#d29d88,#d9ad9b,#e1beaf,#e8cec3,#f0ded7,#f7efeb,#fbf7f5' %}
+					</div>
+					<div class="col-sm-6 col-lg-3">
+						{% include showTints.liquid  colors = '#444f5e,#57616e,#69727e,#7c848e,#8f959e,#a1a7ae,#b4b9bf,#c7cacf,#dadcdf,#ecedef,#f6f6f7' %}
+					</div>
+					<div class="col-sm-6 col-lg-3">
+						{% include showTints.liquid  colors = '#446e61,#577d71,#698b81,#7c9990,#8fa8a0,#a1b6b0,#b4c5c0,#c7d3d0,#dae2df,#ecf0ef,#f6f8f7' %}
+					</div>
+					<div class="col-sm-6 col-lg-3">
+						{% include showTints.liquid  colors = '#7e7357,#8b8168,#988f79,#a59d89,#b2ab9a,#beb9ab,#cbc7bc,#d8d5cd,#e5e3dd,#f2f1ee,#f9f8f7' %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	{% comment %}
+		NEUTRAL TINTS
+	{% endcomment %}
+
+	<div class="row content-row">
+		<div class="col-sm-4">
+			<div class="row">
+				<div class="col-sm-10">
+					<h3 class="content-h">Neutral Tints</h3>
+					<p class="example-description">
+						Each brand has a neutral colour with a set of eleven tints for subtle colouring. Three of these tints are already used in the primary palette for
+						borders backgrounds and super light backgrounds.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-8">
+			<div class="row">
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Muted'  color = '100%'  hex = '#69727E'  rgb = 'R=105 G=114 B=126'  %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = ''  color = '90%'  hex = '#78808B'  rgb = 'R=120 G=128 B=139' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = ''  color = '80%'  hex = '#878E98'  rgb = 'R=135 G=142 B=152' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = ''  color = '70%'  hex = '#969CA5'  rgb = 'R=150 G=156 B=165' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = ''  color = '60%'  hex = '#A5AAB2'  rgb = 'R=165 G=170 B=178' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = ''  color = '50%'  hex = '#B4B8BE'  rgb = 'R=180 G=184 B=190' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Borders'  color = '40%'  hex = '#C3C7CB'  rgb = 'R=195 G=199 B=203' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = ''  color = '30%'  hex = '#D2D5D8'  rgb = 'R=210 G=213 B=216' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = ''  color = '20%'  hex = '#E1E3E5'  rgb = 'R=225 G=227 B=229' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Background'  color = '10%'  hex = '#F0F1F2'  rgb = 'R=240 G=241 B=242' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Light'  color = '5%'  hex = '#F7F8F9'  rgb = 'R=247 G=248 B=249' %}
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	{% comment %}
+		ACCESSIBILLITY
+	{% endcomment %}
+
+	<div class="row content-row">
+		<div class="col-sm-4">
+			<div class="row">
+				<div class="col-sm-10">
+					<h3 class="content-h">Accessibility</h3>
+					<p class="example-description">
+						This is a quick and dirty accessibility guide. The Westpac group have committed to comply with WCAG2 AA standards. Certain colours used in
+						palette have to be accessible. Ignore at your peril.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-8">
+			<div class="row">
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Accessible'  color = 'A. Yes'  hex = ''  rgb = ''  textcolor = '#B45C38' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Accessible'  color = 'B. Yes'  hex = ''  rgb = ''  textcolor = '#444F5E' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Accessible'  color = 'C. Yes'  hex = ''  rgb = ''  textcolor = '#69727E' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Accessible'  color = 'D. Yes'  hex = ''  rgb = ''  textcolor = '#446E61' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Accessible'  color = 'E. Yes'  hex = ''  rgb = ''  textcolor = '#7E7357' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Accessible'  color = 'F. Yes'  hex = ''  rgb = ''  textcolor = '#20262D' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Accessible'  color = 'G. Yes'  hex = ''  rgb = ''  textcolor = '#69727E' %}
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	{% comment %}
+		RESERVED
+	{% endcomment %}
+
+	<div class="row content-row">
+		<div class="col-sm-4">
+			<div class="row">
+				<div class="col-sm-10">
+					<h3 class="content-h">Reserved Colours</h3>
+					<p class="example-description">
+						These are important contextual colours used throughout the interface. Do not use these colours for any other purpose than shown here.
+						All these colours are accessible.
+						Do not use these colours for any other purpose than shown here.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-8">
+			<div class="row">
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Success'  color = ''  hex = '#008000'  rgb = 'R=0 G=128 B=0' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Information'  color = ''  hex = '#0074C4'  rgb = 'R=0 G=116 B=196' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Warning'  color = ''  hex = '#C53B00'  rgb = 'R=197 G=59 B=0' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Danger'  color = ''  hex = '#C40000'  rgb = 'R=196 G=0 B=0' %}
+				</div>
+			</div>
+		</div>
+	</div>
+{% endif %}
+
+{% if page.brand == 'BSA' %}
+	{% comment %}
+		------------------------------------------------------------------------------------------------------------------------------------------------------------
+		BSA BRAND HTML
+		------------------------------------------------------------------------------------------------------------------------------------------------------------
+	{% endcomment %}
+
+
+	{% comment %}
+		PRIMARY PALETTE
+	{% endcomment %}
+
+	<div class="row">
+		<div class="col-sm-4">
+			<div class="row">
+				<div class="col-sm-10">
+					<h3 class="content-h">Primary Palette</h3>
+					<p class="example-description">
+						These are the ten core colours used in the digital the brand. It's important to use these colours correctly for their specified purpose.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-8">
+			<div class="row">
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Primary - Link'  color = 'A'  hex = '#C0142E'  rgb = 'R=192 G=20 B=46' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Hero'  color = 'B'  hex = '#365FB4'  rgb = 'R=54 G=95 B=180' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Neutral'  color = 'C'  hex = '#333333'  rgb = 'R=51 G=51 B=51' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Complementary A'  color = 'D'  hex = '#36528A'  rgb = 'R=54 G=82 B=138' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Complementary B'  color = 'E'  hex = '#178BC4'  rgb = 'R=23 G=139 B=196' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Text'  color = 'F'  hex = '#333333'  rgb = 'R=51 G=51 B=51' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Muted'  color = 'G'  hex = '#707070'  rgb = 'R=112 G=112 B=112' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Border'  color = 'H'  hex = '#C2C2C2'  rgb = 'R=194 G=194 B=194' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Background'  color = 'I'  hex = '#EBEBEB'  rgb = 'R=235 G=235 B=235' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Light'  color = 'J'  hex = '#F5F5F5'  rgb = 'R=245 G=245 B=245' %}
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	{% comment %}
+		SECONDARY PALETTE
+	{% endcomment %}
+
+	<div class="row content-row">
+		<div class="col-sm-4">
+			<div class="row">
+				<div class="col-sm-10">
+					<h3 class="content-h">Secondary Palette</h3>
+					<p class="example-description">
+						Commonly used for content specific tasks such as charts, info graphics, diagrams etc.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-8">
+			<div class="row">
+				<div class="col-sm-6 col-lg-4">
+					<p>
+						There are currently no colours in the BSA secondary palette however the BSA re-brand will implement a secondary palette.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	{% comment %}
+		NEUTRAL TINTS
+	{% endcomment %}
+
+	<div class="row content-row">
+		<div class="col-sm-4">
+			<div class="row">
+				<div class="col-sm-10">
+					<h3 class="content-h">Neutral Tints</h3>
+					<p class="example-description">
+						Each brand has a neutral colour with a set of eleven tints for subtle colouring. Three of these tints are already used in the primary palette
+						for borders backgrounds and super light backgrounds.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-8">
+			<div class="row">
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Text'  color = '100%'  hex = '#333333'  rgb = 'R=51 G=51 B=51' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = ''  color = '90%'  hex = '#474747'  rgb = 'R=71 G=71 B=71' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = ''  color = '80%'  hex = '#5C5C5C'  rgb = 'R=92 G=92 B=92' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Muted'  color = '70%'  hex = '#707070'  rgb = 'R=112 G=112 B=112' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = ''  color = '60%'  hex = '#858585'  rgb = 'R=133 G=133 B=133' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = ''  color = '50%'  hex = '#999999'  rgb = 'R=153 G=153 B=153' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = ''  color = '40%'  hex = '#ADADAD'  rgb = 'R=173 G=173 B=173' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Borders'  color = '30%'  hex = '#C2C2C2'  rgb = 'R=194 G=194 B=194' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = ''  color = '20%'  hex = '#D6D6D6'  rgb = 'R=214 G=214 B=214' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Background'  color = '10%'  hex = '#EBEBEB'  rgb = 'R=235 G=235 B=235' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Light'  color = '5%'  hex = '#F5F5F5'  rgb = 'R=245 G=245 B=245' %}
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	{% comment %}
+		ACCESSIBILLITY
+	{% endcomment %}
+
+	<div class="row content-row">
+		<div class="col-sm-4">
+			<div class="row">
+				<div class="col-sm-10">
+					<h3 class="content-h">Accessibility</h3>
+					<p class="example-description">
+						This is a quick and dirty accessibility guide. The Westpac group have committed to comply with WCAG2 AA standards. Certain colours used in
+						palette have to be accessible. Ignore at your peril.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-8">
+			<div class="row">
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'ACCESSIBLE'  color = 'A. Yes'  hex = ''  rgb = ''  textcolor = '#C0142E' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'ACCESSIBLE'  color = 'B. Yes'  hex = ''  rgb = ''  textcolor = '#365FB4' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'ACCESSIBLE'  color = 'C. Yes'  hex = ''  rgb = ''  textcolor = '#333333' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'ACCESSIBLE'  color = 'D. Yes'  hex = ''  rgb = ''  textcolor = '#36528A' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'NOT ACCESSIBLE'  color = 'E. No'  hex = ''  rgb = ''  textcolor = '#178BC4' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'ACCESSIBLE'  color = 'F. Yes'  hex = ''  rgb = ''  textcolor = '#333333' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'ACCESSIBLE'  color = 'G. Yes'  hex = ''  rgb = ''  textcolor = '#707070' %}
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	{% comment %}
+		RESERVED
+	{% endcomment %}
+
+	<div class="row content-row">
+		<div class="col-sm-4">
+			<div class="row">
+				<div class="col-sm-10">
+					<h3 class="content-h">Reserved Colours</h3>
+					<p class="example-description">
+						These are important contextual colours used throughout the interface. Do not use these colours for any other purpose than as shown here.
+						All of these colours are accessible.
+						Do not use these colours for any other purpose than shown here.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-8">
+			<div class="row">
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Success'  color = ''  hex = '#008000'  rgb = 'R=0 G=128 B=0' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Information'  color = ''  hex = '#0074C4'  rgb = 'R=0 G=116 B=196' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Warning'  color = ''  hex = '#C53B00'  rgb = 'R=197 G=59 B=0' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Danger'  color = ''  hex = '#C40000'  rgb = 'R=196 G=0 B=0' %}
+				</div>
+			</div>
+		</div>
+	</div>
+{% endif %}
+
+
+{% if page.brand == 'STG' %}
+	{% comment %}
+		------------------------------------------------------------------------------------------------------------------------------------------------------------
+		STG BRAND HTML
+		------------------------------------------------------------------------------------------------------------------------------------------------------------
+	{% endcomment %}
+
+
+	{% comment %}
+		PRIMARY PALETTE
+	{% endcomment %}
+	<div class="row content">
+		<div class="col-sm-4">
+			<div class="row">
+				<div class="col-sm-10">
+					<h3 class="content-h">Primary UI Palette</h3>
+					<p class="example-description">
+						These are the ten core colours used in the digital the brand. It's important to use these colours correctly for their specified purpose.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-8">
+			<div class="row">
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Primary - Link'  color = 'A'  hex = '#E30000'  rgb = 'R=227 G=0 B=0' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Hero'  color = 'B'  hex = '#78BE20'  rgb = 'R=120 G=190 B=32' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Neutral'  color = 'C'  hex = '#757463'  rgb = 'R=117 G=116 B=99' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Complementary A'  color = 'D'  hex = '#008739'  rgb = 'R=0 G=135 B=57' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Complementary B'  color = 'E'  hex = '#FFCD00'  rgb = 'R=255 G=205 B=0' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Text'  color = 'F'  hex = '#004833'  rgb = 'R=0 G=72 B=51' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Muted'  color = 'G'  hex = '#757463'  rgb = 'R=117 G=116 B=99' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Border'  color = 'H'  hex = '#D6D5D0'  rgb = 'R=214 G=213 B=208' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Background'  color = 'I'  hex = '#F1F1EF'  rgb = 'R=241 G=241 B=239' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Light'  color = 'J'  hex = '#F8F8F7'  rgb = 'R=248 G=248 B=247' %}
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	{% comment %}
+		SECONDARY PALETTE
+	{% endcomment %}
+
+	<div class="row content-row">
+		<div class="col-sm-4">
+			<div class="row">
+				<div class="col-sm-10">
+					<h3 class="content-h">Secondary Palette</h3>
+					<p class="example-description">
+						These colours add variation to the palette. They are commonly used for content specific tasks such as charts, info graphics, diagrams etc.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-8">
+			<div class="row">
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Ember'  color = ''  hex = '#F68D39'  rgb = 'R=246 G=141 B=57' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Citrus'  color = ''  hex = '#F8DF5C'  rgb = 'R=248 G=223 B=92' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Spring'  color = ''  hex = '#DDDF4B'  rgb = 'R=221 G=223 B=75' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Sky'  color = ''  hex = '#3FC3EB'  rgb = 'R=63 G=195 B=235' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Plumb'  color = ''  hex = '#502D79'  rgb = 'R=80 G=45 B=121' %}
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	{% comment %}
+		NEUTRAL TINTS
+	{% endcomment %}
+
+	<div class="row content-row">
+		<div class="col-sm-4">
+			<div class="row">
+				<div class="col-sm-10">
+					<h3 class="content-h">Neutral Tints</h3>
+					<p class="example-description">
+						Each brand has a neutral colour with a set of eleven tints for subtle colouring. Three of these tints are already used in the primary palette
+						for borders backgrounds and super light backgrounds.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-8">
+			<div class="row">
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Muted text'  color = '100%'  hex = '#757463'  rgb = 'R=117 G=116 B=99' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = ''  color = '90%'  hex = '#838273'  rgb = 'R=131 G=130 B=115' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = ''  color = '80%'  hex = '#919082'  rgb = 'R=145 G=144 B=130' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = ''  color = '70%'  hex = '#9e9e92'  rgb = 'R=158 G=158 B=146' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = ''  color = '60%'  hex = '#ACACA1'  rgb = 'R=172 G=172 B=16' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = ''  color = '50%'  hex = '#BAB9B1'  rgb = 'R=186 G185 B=177' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Borders'  color = '40%'  hex = '#C8C7C1'  rgb = 'R=200 G=199 B=193' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = ''  color = '30%'  hex = '#D6D5D0'  rgb = 'R=214 G=213 B=208' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = ''  color = '20%'  hex = '#E3E3E0'  rgb = 'R=227 G=227 B=224' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Background'  color = '10%'  hex = '#F1F1EF'  rgb = 'R=241 G=241 B=239' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Light'  color = '5%'  hex = '#F8F8F7'  rgb = 'R=248 G=248 B=247' %}
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	{% comment %}
+		ACCESSIBILLITY
+	{% endcomment %}
+
+	<div class="row content-row">
+		<div class="col-sm-4">
+			<div class="row">
+				<div class="col-sm-10">
+					<h3 class="content-h">Accessibility</h3>
+					<p class="example-description">
+						This is a quick and dirty accessibility guide. The Westpac group have committed to comply with WCAG2 AA standards. Certain colours used in
+						palette have to be accessible. Ignore at your peril.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-8">
+			<div class="row">
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'ACCESSIBLE'  color = 'A. Yes'  hex = ''  rgb = ''  textcolor = '#E30000' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'NOT ACCESSIBLE'  color = 'B. No'  hex = ''  rgb = ''  textcolor = '#78BE20' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'ACCESSIBLE'  color = 'C. Yes'  hex = ''  rgb = ''  textcolor = '#858370' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'ACCESSIBLE'  color = 'D. Yes'  hex = ''  rgb = ''  textcolor = '#008739' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'NOT ACCESSIBLE'  color = 'E. No'  hex = ''  rgb = ''  textcolor = '#FFCD00' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'ACCESSIBLE'  color = 'F. Yes'  hex = ''  rgb = ''  textcolor = '#004833' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'ACCESSIBLE'  color = 'G. Yes'  hex = ''  rgb = ''  textcolor = '#858370' %}
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	{% comment %}
+		RESERVED
+	{% endcomment %}
+
+	<div class="row content-row">
+		<div class="col-sm-4">
+			<div class="row">
+				<div class="col-sm-10">
+					<h3 class="content-h">Reserved Colours</h3>
+					<p class="example-description">
+						These are important contextual colours used throughout the interface. Do not use these colours for any other purpose than shown here.
+						All these colours are accessible.
+						Do not use these colours for any other purpose than shown here.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-8">
+			<div class="row">
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Success'  color = ''  hex = '#008000'  rgb = 'R=0 G=128 B=0' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Information'  color = ''  hex = '#0074C4'  rgb = 'R=0 G=116 B=196' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Warning'  color = ''  hex = '#C53B00'  rgb = 'R=197 G=59 B=0' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Danger'  color = ''  hex = '#C40000'  rgb = 'R=196 G=0 B=0' %}
+				</div>
+			</div>
+		</div>
+	</div>
+{% endif %}
+
+
+{% if page.brand == 'WBC' %}
+	{% comment %}
+		------------------------------------------------------------------------------------------------------------------------------------------------------------
+		WBC BRAND HTML
+		------------------------------------------------------------------------------------------------------------------------------------------------------------
+	{% endcomment %}
+
+
+	{% comment %}
+		PRIMARY PALETTE
+	{% endcomment %}
+
+	<div class="row">
+		<div class="col-sm-4">
+			<div class="row">
+				<div class="col-sm-10">
+					<h3 class="content-h">Primary Palette</h3>
+					<p class="example-description">
+						These are the ten core colours used in the digital the brand. It's important to use these colours correctly for their specified purpose.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-8">
+			<div class="row">
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Primary - Link'  color = 'A'  hex = '#D5002B'  rgb = 'R=213 G=0 B=43' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Hero'  color = 'B'  hex = '#621A4B'  rgb = 'R=98 G=26 B=75' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Neutral'  color = 'C'  hex = '#2D373E'  rgb = 'R=45 G=55 B=62' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Complementary A'  color = 'D'  hex = '#9F0029'  rgb = 'R=159 G=0 B=41' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Complementary B'  color = 'E'  hex = '#680000'  rgb = 'R=104 G=0 B=0' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Text'  color = 'F'  hex = '#2D373E'  rgb = 'R=45 G=55 B=62' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Muted'  color = 'G'  hex = '#575F65'  rgb = 'R=87 G=95 B=101' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Border'  color = 'H'  hex = '#D7D2CB'  rgb = 'R=215 G=210 B=203' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Background'  color = 'I'  hex = '#F4F3F0'  rgb = 'R=244 G=243 B=240' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Light'  color = 'J'  hex = '#F9F9F8'  rgb = 'R=249 G=249 B=248' %}
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	{% comment %}
+		EXTRA COLOURS
+	{% endcomment %}
+
+	<div class="row content-row">
+		<div class="col-sm-4">
+			<div class="row">
+				<div class="col-sm-10">
+					<h3 class="content-h">Additional Colours</h3>
+					<p class="example-description">
+						These additional colours can also be used for backgrounds etc. if required.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-8">
+			<div class="row">
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Stone'  color = 'G'  hex = '#E4E1DA'  rgb = 'R=228 G=225 B=218' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Stone 60'  color = 'A'  hex = '#EFEDE9'  rgb = 'R=239 G=237 B=233' %}
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	{% comment %}
+		ACCESSIBILLITY
+	{% endcomment %}
+
+	<div class="row content-row">
+		<div class="col-sm-4">
+			<div class="row">
+				<div class="col-sm-10">
+					<h3 class="content-h">Accessibility</h3>
+					<p class="example-description">
+						This is a quick and dirty accessibility guide. The Westpac group have committed to comply with WCAG2 AA standards. Certain colours used in
+						palette have to be accessible. Ignore at your peril.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-8">
+			<div class="row">
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Accessible'  color = 'A. Yes'  hex = ''  rgb = ''  textcolor = '#D5002B' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Accessible'  color = 'B. Yes'  hex = ''  rgb = ''  textcolor = '#621A4B' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Accessible'  color = 'C. Yes'  hex = ''  rgb = ''  textcolor = '#2D373E' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Accessible'  color = 'D. Yes'  hex = ''  rgb = ''  textcolor = '#9F0029' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Accessible'  color = 'E. Yes'  hex = ''  rgb = ''  textcolor = '#680000' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Accessible'  color = 'F. Yes'  hex = ''  rgb = ''  textcolor = '#2D373E' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Accessible'  color = 'G. Yes'  hex = ''  rgb = ''  textcolor = '#575F65' %}
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	{% comment %}
+		RESERVED
+	{% endcomment %}
+
+	<div class="row content-row">
+		<div class="col-sm-4">
+			<div class="row">
+				<div class="col-sm-10">
+					<h3 class="content-h">Reserved Colours</h3>
+					<p class="example-description">
+						These are important contextual colours used throughout the interface. Do not use these colours for any other purpose than shown here.
+						All these colours are accessible.
+						Do not use these colours for any other purpose than shown here.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-8">
+			<div class="row">
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Success'  color = ''  hex = '#008000'  rgb = 'R=0 G=128 B=0' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Information'  color = ''  hex = '#0074C4'  rgb = 'R=0 G=116 B=196' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Warning'  color = ''  hex = '#C53B00'  rgb = 'R=197 G=59 B=0' %}
+				</div>
+				<div class="col-sm-6 col-lg-4">
+					{% include showSwatch.liquid  title = 'Danger'  color = ''  hex = '#C40000'  rgb = 'R=196 G=0 B=0' %}
+				</div>
+			</div>
+		</div>
+	</div>
+{% endif %}
+
+
+{% if page.brand == 'WBG' %}
+	{% comment %}
+		------------------------------------------------------------------------------------------------------------------------------------------------------------
+		WBG BRAND HTML
+		------------------------------------------------------------------------------------------------------------------------------------------------------------
+	{% endcomment %}
+{% endif %}
+
+
+{% if page.brand == 'BT' %}
+	{% comment %}
+		------------------------------------------------------------------------------------------------------------------------------------------------------------
+		BT BRAND HTML
+		------------------------------------------------------------------------------------------------------------------------------------------------------------
+	{% endcomment %}
+{% endif %}

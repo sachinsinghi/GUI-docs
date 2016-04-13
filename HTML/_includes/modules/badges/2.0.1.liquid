@@ -1,0 +1,71 @@
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	Styled element used to highlight a number. They can be used alone, with links or in buttons.
+</p>
+<p class="example-description text-info">
+	The button in this example is not included and will have to be added to the blend separately.
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+	<h4 class="body-font whatsnew-headline">What&rsquo;s new since v2.0.0</h4>
+
+	This version changed:
+		<code class="classes">CSS/LESS</code>
+	but not:
+		<code class="classes">HTML</code>,
+		<code class="classes">JS</code>
+
+	<ul class="lists">
+		<li>
+			Fanfare, Drum roll … We’ve added another brand. Yay! 👏
+		</li>
+	</ul>
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% assign example = "ex1" %}
+
+
+{% comment %} HTML TAB {% endcomment %}
+{% capture HTML %}
+<span class="badge">
+	<span class="badge-text">YOUR TEXT</span>
+	<span class="badge-sronly">CONTEXT FOR SCREEN READERS</span>
+</span>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	The main mixin is called: <code class="classes">_labels({{ page.brand }})</code>
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}

@@ -1,0 +1,206 @@
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Brand font
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	Each brand has a display font typically used for headlines and marketing messages etc. These may come in several weights. If the brand font is a web font
+	(not a system font) then it should be self-hosted and implemented using the @fontface declaration. Suitable fallbacks should also be declared in the font
+	stack.<br>
+	<strong>Never use a web font without prior confirmation that you have the correct licence agreement in place.</strong>
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+	<h4 class="body-font whatsnew-headline">What&rsquo;s new since v2.0.0</h4>
+
+	This version changed:
+		<code class="classes">CSS/LESS</code>
+	but not:
+		<code class="classes">HTML</code>,
+		<code class="classes">JS</code>
+
+	<ul class="lists">
+		<li>
+			Fanfare, Drum roll … We’ve added another brand. Yay! 👏
+		</li>
+	</ul>
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% assign example = "ex1" %}
+
+
+{% comment %} HTML TAB {% endcomment %}
+{% capture HTML %}{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	The main mixin is called: <code class="classes">_fonts({{ page.brand }})</code>
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+
+
+
+
+
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Body font
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	Each brand has a body font typically used for editorial and user interface elements. The body font comes in several weights. If the body font is a web font
+	(not a system font) then it should be self hosted and implemented using the @fontface declaration. Suitable fallbacks should also be declared in the font
+	stack.<br>
+	<strong>Never use a web font without prior confirmation that you have the correct licence agreement in place.</strong>
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% assign example = "ex2" %}
+
+
+{% comment %} HTML TAB {% endcomment %}
+{% capture HTML %}{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+	Modifier class:
+
+	<ul>
+		<li>
+			<code class="classes">body-font</code>
+		</li>
+	</ul>
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	{{ LESS }}
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+
+
+
+
+
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Font usage
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	The brand or body font can be applied to any text using a simple class declaration. Refer to the digital brand guidelines regarding the use of typography.<br>
+	<strong>Never use a web font without prior confirmation that you have the correct licence agreement in place.</strong>
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% assign example = "ex3" %}
+
+
+{% comment %} HTML TAB {% endcomment %}
+{% capture HTML %}
+<h1 class="brand-font">I’m a Heading using the brand font</h1>
+
+<h1 class="body-font">I’m a Heading using the body font</h1>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+	Modifier classes:
+
+	<ul>
+		<li>
+			<code class="classes">brand-font</code>
+		</li>
+		<li>
+			<code class="classes">body-font</code>
+		</li>
+	</ul>
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	{{ LESS }}
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}

@@ -1,0 +1,114 @@
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	Pagination is used to navigate within a set of related views. This element allows navigation within both finite (a set number) and infinite (unknown number)
+	of views.<br>
+	Lazy-load seems to have superseded pagination, however if you are working within technical restrictions then pagination is still an acceptable option.
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+	<h4 class="body-font whatsnew-headline">What&rsquo;s new since v2.0.0</h4>
+
+	This version changed:
+		<code class="classes">CSS/LESS</code>
+	but not:
+		<code class="classes">HTML</code>,
+		<code class="classes">JS</code>
+
+	<ul class="lists">
+		<li>
+			Fanfare, Drum roll … We’ve added another brand. Yay! 👏
+		</li>
+	</ul>
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% assign example = "ex1" %}
+
+
+{% comment %} HTML TAB {% endcomment %}
+{% capture HTML %}
+<div class="pagination">
+	<span class="pagination-sronly">Pagination:</span>
+
+	<ul class="pagination-list">
+		<li class="is-disabled">
+			<a class="pagination-page" href="http://YOUR-URL.com.au" rel="prev">
+				<span class="pagination-sronly">Step</span>
+				Back
+				<span class="pagination-sronly">one page</span>
+			</a>
+		</li>
+		<li class="is-active">
+			<a class="pagination-page" href="http://YOUR-URL.com.au">
+				<span class="pagination-sronly">You are currently reading page</span>
+				1
+			</a>
+		</li>
+		<li>
+			<a class="pagination-page" href="http://YOUR-URL.com.au">
+				<span class="pagination-sronly">Go to page</span>
+				2
+			</a>
+		</li>
+		<li>
+			<a class="pagination-page" href="http://YOUR-URL.com.au">
+				<span class="pagination-sronly">Go to page</span>
+				3
+			</a>
+		</li>
+		<li>
+			<a class="pagination-page" href="http://YOUR-URL.com.au" rel="next">
+				<span class="pagination-sronly">Step to the</span>
+				Next
+				<span class="pagination-sronly">page</span>
+			</a>
+		</li>
+	</ul>
+</div>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+	Modifier classes:
+
+	<ul>
+		<li>
+			<code class="classes">is-disabled</code>
+		</li>
+		<li>
+			<code class="classes">is-active</code>
+		</li>
+	</ul>
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	The main mixin is called: <code class="classes">_paginations({{ page.brand }})</code>
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}

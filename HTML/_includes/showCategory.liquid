@@ -62,23 +62,36 @@
 
 				{% comment %}ALL VERSIONS{% endcomment %}
 				{% for version in thisModule.versions %}
-					<div class="module js-blender-versionhtml js-blender-version{{ version[0] | handleize }}
-						{% if forloop.last %}is-visible{% endif %}
-					">
-						{% capture path %}modules/{{ thisModule.ID }}/{{ version[0] }}.liquid{% endcapture %}
-						{% assign ID = thisModule.ID %}
-						{% assign category = thisModule.category %}
-						{% assign count = 0 %}
-						{% assign thisVersion = version[0] %}
+					{% assign _isInBrand = false %}
+					{% for versionBrand in version[1].brands %}
+						{% if brand == versionBrand %}
+							{% assign _isInBrand = true %}
+						{% endif %}
+					{% endfor %}
 
-						<div class="row">
-							<div class="col-sm-12">
-								<small class="module-version-string">{{ thisVersion }}</small>
+					{% comment %}
+						Only add option if version exists in brand
+					{% endcomment %}
+					{% if _isInBrand %}
+
+						<div class="module js-blender-versionhtml js-blender-version{{ version[0] | handleize }}
+							{% if forloop.last %}is-visible{% endif %}
+						">
+							{% capture path %}modules/{{ thisModule.ID }}/{{ version[0] }}.liquid{% endcapture %}
+							{% assign ID = thisModule.ID %}
+							{% assign category = thisModule.category %}
+							{% assign count = 0 %}
+							{% assign thisVersion = version[0] %}
+
+							<div class="row">
+								<div class="col-sm-12">
+									<small class="module-version-string">{{ thisVersion }}</small>
+								</div>
 							</div>
-						</div>
 
-						{% include {{ path }}  mod = thisModule  ver = thisVersion %}
-					</div>
+							{% include {{ path }}  mod = thisModule  ver = thisVersion %}
+						</div>
+					{% endif %}
 				{% endfor %}
 			</section>
 

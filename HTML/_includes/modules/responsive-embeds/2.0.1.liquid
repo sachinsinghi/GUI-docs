@@ -1,0 +1,85 @@
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Video
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	Allows browsers to determine video or slideshow dimensions based on the width of their containing block by creating an intrinsic ratio that will properly
+	scale on any device.
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+	<h4 class="body-font whatsnew-headline">What&rsquo;s new since v2.0.0</h4>
+
+	This version changed:
+		<code class="classes">CSS/LESS</code>
+	but not:
+		<code class="classes">HTML</code>,
+		<code class="classes">JS</code>
+
+	<ul class="lists">
+		<li>
+			Fanfare, Drum roll … We’ve added another brand. Yay! 👏
+		</li>
+	</ul>
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% assign example = "ex1" %}
+
+
+{% comment %} HTML TAB {% endcomment %}
+{% capture HTML %}
+<div class="responsive-embeds responsive-embeds-16by9">
+	<iframe class="responsive-embeds-item" src="http://LINK-TO-YOUTUBE"></iframe>
+</div>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+	Modifier classes:
+
+	<ul>
+		<li>
+			<code class="classes">responsive-embeds-16by9</code>
+		</li>
+		<li>
+			<code class="classes">responsive-embeds-4by3</code>
+		</li>
+		<li>
+			<code class="classes">responsive-embeds-185by1</code>
+		</li>
+		<li>
+			<code class="classes">responsive-embeds-235by1</code>
+		</li>
+	</ul>
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	The main mixin is called: <code class="classes">_responsive-embeds({{ page.brand }})</code>
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+{% endcapture %}
+
+
+{% include showExample.liquid %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}

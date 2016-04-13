@@ -4,9 +4,15 @@
 /*
  *  SETTINGS
  */
-.getBrand() when (@brand = BOM) {
+.getBrand() when (@brand = BOM) { ////////////////////////////////////| BOM
 	@header-color: #fff;
 	@header-bgcolor: @color-B;
+	@gridly-line: @color-B-70;
+
+	.head-headline() {
+		color: #fff;
+	}
+
 	.head-pos() {
 		background: @color-B no-repeat center;
 		background-size: 3196px auto;
@@ -54,17 +60,29 @@
 		opacity: 0.3;
 	}
 }
-.getBrand() when (@brand = BSA) {
+.getBrand() when (@brand = BSA) { ////////////////////////////////////| BSA
 	@header-color: #fff;
 	@header-bgcolor: @color-B;
+	@gridly-line: @color-B-70;
+
+	.head-headline() {
+		color: #fff;
+	}
+
 	.head-pos() {
 		background-attachment: scroll;
 	}
 	.gridly-tweak() {}
 }
-.getBrand() when (@brand = STG) {
+.getBrand() when (@brand = STG) { ////////////////////////////////////| STG
 	@header-color: @color-F;
 	@header-bgcolor: @color-B;
+	@gridly-line: @color-B-70;
+
+	.head-headline() {
+		color: #fff;
+	}
+
 	.head-pos() {
 		background-attachment: fixed;
 		background-size: 2749px 1123px;
@@ -72,9 +90,47 @@
 	}
 	.gridly-tweak() {}
 }
-.getBrand() when (@brand = WBC) {
+.getBrand() when (@brand = WBC) { ////////////////////////////////////| WBC
 	@header-color: #fff;
 	@header-bgcolor: @color-B;
+	@gridly-line: @color-B-70;
+
+	.head-headline() {
+		color: #fff;
+	}
+
+	.head-pos() {
+		background-attachment: scroll;
+	}
+	.gridly-tweak() {}
+}
+.getBrand() when (@brand = WBG) { ////////////////////////////////////| WBG
+	@header-color: #fff;
+	@header-bgcolor: @color-B;
+	@gridly-line: @color-B-70;
+
+	.head-headline() {
+		color: #fff;
+	}
+
+	.head-pos() {
+		background-attachment: scroll;
+	}
+	.gridly-tweak() {}
+}
+.getBrand() when (@brand = BT) { ////////////////////////////////////| BT
+	@header-color: #fff;
+	@header-bgcolor: @color-E;
+	@gridly-line: @color-D;
+
+	.head-headline() {
+		color: @color-D;
+
+		strong {
+			color: #fff;
+		}
+	}
+
 	.head-pos() {
 		background-attachment: scroll;
 	}
@@ -249,8 +305,12 @@
 	font-family: "Helvetica Neue", "Roboto", Arial, sans-serif;
 	font-size: 18px;
 	white-space: nowrap;
-	color: @header-color;
 	transition: margin 0.2s ease, font-size 0.2s ease;
+	.head-headline();
+
+	strong {
+		font-weight: 700;
+	}
 
 	@media (min-width: @screen-sm) {
 		bottom: 118px;
@@ -428,7 +488,7 @@
 
 		.gridly-line {
 			float: left;
-			background-color: @color-B-70;
+			background-color: @gridly-line;
 			width: 4px;
 			height: 24px;
 			margin-right: 2px;

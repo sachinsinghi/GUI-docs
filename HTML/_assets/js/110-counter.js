@@ -25,13 +25,15 @@
 			cache: false
 		}).done(function( html ) {
 
-			$('.js-counter').parent().removeClass('is-hidden');
-			$('.js-counter').text( html );
+			if( !isNaN(html) ) {
+				$('.js-counter').parent().removeClass('is-hidden');
+				$('.js-counter').text( html );
 
-			setTimeout(function() {
-					App.counter.get();
-				}, 4000
-			);
+				setTimeout(function() {
+						App.counter.get();
+					}, 4000
+				);
+			}
 
 		});
 	};
