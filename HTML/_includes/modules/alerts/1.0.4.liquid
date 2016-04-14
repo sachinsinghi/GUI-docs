@@ -28,10 +28,16 @@
 
 	<ul class="lists">
 		<li>
-			You know the feeling when you're trying to buy a beer at the corner pub on a Friday afternoon after you've just finished a sprint that was particularly
-			difficult and the alert message says: "No more funds" and you know you left the other card at home and never got around to setup cardless cash? Long
-			story short: You now get to make that alert message a bit easier on the eyes by adding icons inside of it to help make Friday afternoons fun again.
-			(<a href="https://github.com/WestpacCXTeam/GUI-source/issues/177" target="_blank">#177</a>)
+			Fixed flexbox bug with a handy workaround.
+			(<a href="https://github.com/WestpacCXTeam/GUI-source/issues/194" target="_blank">#194</a>)
+		</li>
+		<li>
+			Worked on the no-js fallback and made usability of large alerts better. Not that you should use large alert messages. Let's keep those grumpy messages
+			as short as possible.
+		</li>
+		<li>
+			Icons in those handy alert messages are now tinting the way they should have right from the start.
+			(<a href="https://github.com/WestpacCXTeam/GUI-source/issues/190" target="_blank">#190</a>)
 		</li>
 	</ul>
 {{ whatsnew }}{% endcapture %}
@@ -91,7 +97,7 @@
 {% endcapture %}
 
 
-{% include showExample.liquid %}
+{% include showExample.liquid  controls = false %}
 {% comment %}
 	--------------------------------------------------------------------------------------------------------------------------------------------------------------
 {% endcomment %}
@@ -136,7 +142,7 @@
 <div class="alert js-alert alert-success" role="alert">
 	<button type="button" class="alert-close js-alertclose icon icon-cross" data-grunticon-embed>close</button>
 
-	<button type="button" class="alert-close js-alertclose icon icon-cross" data-grunticon-embed>close</button>
+	<span class="alert-icon icon icon-size-md icon-alert" data-grunticon-embed></span>
 
 	<div class="alert-body">
 		<strong>HERE!</strong> YOUR ALERT TEXT!
@@ -178,7 +184,7 @@
 {% endcapture %}
 
 
-{% include showExample.liquid %}
+{% include showExample.liquid  controls = false %}
 {% comment %}
 	--------------------------------------------------------------------------------------------------------------------------------------------------------------
 {% endcomment %}
@@ -247,7 +253,7 @@
 {% endcapture %}
 
 
-{% include showExample.liquid %}
+{% include showExample.liquid  controls = false %}
 {% comment %}
 	--------------------------------------------------------------------------------------------------------------------------------------------------------------
 {% endcomment %}
