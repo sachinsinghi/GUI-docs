@@ -404,7 +404,7 @@ module.exports = function(grunt) {
 					},
 					{
 						from: '[Module-Version-Brand]',
-						to: moduleJson.name + ' v' + version + ' WBC',
+						to: ' ' + moduleJson.name + ' v' + version + ' WBC ',
 					},
 				],
 			};
