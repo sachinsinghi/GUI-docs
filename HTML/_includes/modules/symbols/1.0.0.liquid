@@ -1,66 +1,53 @@
-<div class="row">
+<div class="row example">
+	<div class="col-sm-12">
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
 
-	<div class="col-sm-4">
-		<div class="iconbox iconbox-symbols">
-			<p class="iconbox-class">.symbol .symbol-american-express</p>
-			<span class='iconbox-item symbol symbol-american-express'></span>
-		</div>
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% assign example = "ex1" %}
+
+
+{% comment %} HTML TAB, THIS WILL ALMOST ALWAYS BE THE SAME AS {{ example }} {% endcomment %}
+{% capture HTML %}
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+{% endcapture %}
+
+
+{% include exampleBox.liquid  controls = false  fullscreen = true %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
 	</div>
-
-	<div class="col-sm-4">
-		<div class="iconbox iconbox-symbols">
-			<p class="iconbox-class">.symbol .symbol-logo-alt</p>
-			<span class='iconbox-item symbol symbol-logo-alt'></span>
-		</div>
-	</div>
-
-	<div class="col-sm-4">
-		<div class="iconbox iconbox-symbols">
-			<p class="iconbox-class">.symbol .symbol-logo-phone</p>
-			<span class='iconbox-item symbol symbol-logo-phone'></span>
-		</div>
-	</div>
-
-	<div class="col-sm-4">
-		<div class="iconbox iconbox-symbols">
-			<p class="iconbox-class">.symbol .symbol-logo-tablet</p>
-			<span class='iconbox-item symbol symbol-logo-tablet'></span>
-		</div>
-	</div>
-
-	<div class="col-sm-4">
-		<div class="iconbox iconbox-symbols">
-			<p class="iconbox-class">.symbol .symbol-master-card</p>
-			<span class='iconbox-item symbol symbol-master-card'></span>
-		</div>
-	</div>
-
-	<div class="col-sm-4">
-		<div class="iconbox iconbox-symbols">
-			<p class="iconbox-class">.symbol .symbol-store-apple</p>
-			<span class='iconbox-item symbol symbol-store-apple'></span>
-		</div>
-	</div>
-
-	<div class="col-sm-4">
-		<div class="iconbox iconbox-symbols">
-			<p class="iconbox-class">.symbol .symbol-store-google</p>
-			<span class='iconbox-item symbol symbol-store-google'></span>
-		</div>
-	</div>
-
-	<div class="col-sm-4">
-		<div class="iconbox iconbox-symbols">
-			<p class="iconbox-class">.symbol .symbol-store-windows</p>
-			<span class='iconbox-item symbol symbol-store-windows'></span>
-		</div>
-	</div>
-
-	<div class="col-sm-4">
-		<div class="iconbox iconbox-symbols">
-			<p class="iconbox-class">.symbol .symbol-visa</p>
-			<span class='iconbox-item symbol symbol-visa'></span>
-		</div>
-	</div>
-
 </div>

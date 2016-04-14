@@ -18,8 +18,22 @@
 		{{ CSS }}          [variable]  CSS tab [optional]
 		{{ LESS }}         [variable]  LESS tab [optional]
 		{{ JS }}           [variable]  JS tab [optional]
+
+	Optional:
+		{{ fullscreen }}   [boolean]   Whether or not the iframe is fullscreen(for symbols etc) (false by default)
+		{{ controls }}     [boolean]   Whether or not the iframe should sport controls for responsiveness (true be default)
 {% endcomment %}
 
+
+{% assign _isFullscreen = false %}
+{% if include.fullscreen == true %}
+	{% assign _isFullscreen = true %}
+{% endif %}
+
+{% assign _hasControls = true %}
+{% if include.controls == false %}
+	{% assign _hasControls = false %}
+{% endif %}
 
 {% capture IDwhatsnew %}{{ ID }}-{{ thisVersion | handleize }}whatsnew{% endcapture %}
 {% capture IDhtml %}{{ ID }}-{{ thisVersion | handleize }}html{% endcapture %}
@@ -97,7 +111,7 @@ allTabs: {{ allTabs }}<hr>{% endcomment %}
 {% if allTabs == 1 or allTabs <= 1 and WHATSNEWHandle.size > 2 %}
 
 	{% if exampleHandle.size > 2 %}
-		{% include makeiFrame.liquid  ex = example %}
+		{% include makeiFrame.liquid  ex = example  fullscreen = _isFullscreen  controls = _hasControls %}
 		{% assign BoxContent = iFrame %}
 	{% endif %}
 	{% comment %}{% if WHATSNEWHandle.size > 2 %}{% assign BoxContent = WHATSNEWtab %}{% endif %}{% endcomment %}
@@ -107,10 +121,17 @@ allTabs: {{ allTabs }}<hr>{% endcomment %}
 	{% if JSHandle.size > 2 %}{% assign BoxContent = JStab %}{% endif %}
 
 	{% if allTabs == 1 %}
-		<div class="example-box">{{ BoxContent }}</div>
+		<div class="example-box{% if _isFullscreen %}
+			example-box-fullscreen
+		{% endif %}">{{ BoxContent }}</div>
 	{% endif %}
 
 	{% if WHATSNEWHandle.size > 2 %}
+		{% if _isFullscreen %}
+			<div class="row example">
+				<div class="col-sm-offset-4 col-sm-8">
+		{% endif %}
+
 		<div class="example-tabs-wrapper js-exampletabs">
 			<ul class="example-tabs">
 				<li class="example-tab example-tab-link-new">
@@ -124,6 +145,11 @@ allTabs: {{ allTabs }}<hr>{% endcomment %}
 				</div>
 			</div>
 		</div>
+
+		{% if _isFullscreen %}
+				</div>
+			</div>
+		{% endif %}
 	{% endif %}
 
 {% endif %}
@@ -135,8 +161,15 @@ allTabs: {{ allTabs }}<hr>{% endcomment %}
 {% if allTabs > 1 %}
 
 	{% if exampleHandle.size > 2 %}
-		{% include makeiFrame.liquid  ex = example %}
-		<div class="example-box">{{ iFrame }}</div>
+		{% include makeiFrame.liquid  ex = example  fullscreen = _isFullscreen  controls = _hasControls %}
+		<div class="example-box{% if _isFullscreen %}
+			example-box-fullscreen
+		{% endif %}">{{ iFrame }}</div>
+	{% endif %}
+
+	{% if _isFullscreen %}
+		<div class="row example">
+			<div class="col-sm-offset-4 col-sm-8">
 	{% endif %}
 
 	<div class="example-tabs-wrapper js-exampletabs">
@@ -204,4 +237,9 @@ allTabs: {{ allTabs }}<hr>{% endcomment %}
 			</div>
 		{% endif %}
 	</div>
+
+	{% if _isFullscreen %}
+			</div>
+		</div>
+	{% endif %}
 {% endif %}

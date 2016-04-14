@@ -20,7 +20,7 @@ svg: true
 </div>
 
 <div class="alert alert-info js-alert" role="alert">
-	<span class="alert-icon icon icon-size-md icon-message" data-grunticon-embed></span>
+	<span class="alert-icon icon icon-size-md icon-alert" data-grunticon-embed></span>
 
 	<div class="alert-body">
 		<strong>Heads up!</strong> This alert needs your attention, but it's not super important.
@@ -36,7 +36,7 @@ svg: true
 <div class="alert js-alert alert-danger" role="alert">
 	<button type="button" class="alert-close js-alertclose icon icon-cross" data-grunticon-embed>close</button>
 
-	<span class="alert-icon icon icon-size-md icon-message" data-grunticon-embed></span>
+	<span class="alert-icon icon icon-size-md icon-alert" data-grunticon-embed></span>
 
 	<div class="alert-body">
 		<strong>Oh snap!</strong> Change a few things up and try submitting again.

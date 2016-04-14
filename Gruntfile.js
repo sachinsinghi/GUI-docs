@@ -356,6 +356,7 @@ module.exports = function(grunt) {
 		//copy latest folder to new version and get all new files from master
 		var copy = {};
 		var replace = grunt.config.get('replace');
+		var replaceTasks = [];
 
 		copy[ 'newExampleOldVersion' ] = { //copy old version
 			files: [{
@@ -403,10 +404,60 @@ module.exports = function(grunt) {
 					},
 					{
 						from: '[Module-Version-Brand]',
-						to: moduleJson.name + ' v' + version + ' WBC',
+						to: ' ' + moduleJson.name + ' v' + version + ' WBC ',
 					},
 				],
 			};
+
+			replaceTasks.push('newExamplenewLess');
+
+			//let’s check if the new version has more brands than the old one
+			var versionsInstalled = [];
+			var path = SETTINGS().folder.examples + '/' + module + '/' + oldVersion + '/_assets/less/';
+
+			grunt.file.expand({ filter: 'isDirectory' }, [ path + '*' ]).forEach(function( brandPath ) {
+				versionsInstalled.push( brandPath.substring( ( path.length ) ) );
+			});
+
+			//diff of what we have in the GUI.json and what we have in the less folder
+			var diff = thisJson.brands.filter(function( i ) {
+				return versionsInstalled.indexOf( i ) < 0;
+			});
+
+			//if there are some copy the WBC folder into them and replace the less version variable
+			if( diff.length > 0 ) {
+				grunt.verbose.writeln( 'Creating new LESS brand folders for new brands' );
+
+				diff.forEach(function iterateBrands( brand ) {
+
+					copy[ 'newExamplenewLessBrand' + brand ] = { //copy WBC folder
+						files: [{
+							cwd: '<%= SETTINGS.folder.examples %>/' + module + '/' + version + '/_assets/less/WBC/',
+							src: [
+								'example.less',
+							],
+							dest: '<%= SETTINGS.folder.examples %>/' + module + '/' + version + '/_assets/less/' + brand + '/',
+							filter: 'isFile',
+							expand: true,
+						}],
+					};
+
+					replace[ 'newExamplenewLessBrand' + brand ] = { //replace less file placeholder strings
+						src: [
+							'<%= SETTINGS.folder.examples %>/' + module + '/' + version + '/_assets/less/' + brand + '/example.less',
+						],
+						overwrite: true,
+						replacements: [
+							{
+								from: '@brand: WBC;',
+								to: '@brand: ' + brand.toUpperCase() + ';',
+							},
+						],
+					};
+					replaceTasks.push( 'newExamplenewLessBrand' + brand );
+
+				});
+			}
 		}
 
 		if( thisJson.js ) {
@@ -482,9 +533,12 @@ module.exports = function(grunt) {
 		grunt.config.set('copy', copy);
 		grunt.task.run('copy');
 
-		if( thisJson.less ) {
+		if( replaceTasks.length ) {
 			grunt.config.set('replace', replace);
-			grunt.task.run('replace:newExamplenewLess');
+
+			replaceTasks.forEach(function iterateTasks( task ) {
+				grunt.task.run( 'replace:' + task );
+			});
 		}
 	});
 
@@ -1164,6 +1218,10 @@ module.exports = function(grunt) {
 								});
 
 							});
+
+							if( questions.length < 1 ) {
+								grunt.fail.warn('No Examples missing. Move right along...');
+							}
 
 							return questions.sort();
 						},
