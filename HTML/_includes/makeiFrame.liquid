@@ -2,13 +2,14 @@
 	This snippet prints an iframe if the param is meant to be one… hopefully
 
 	Usage:
-		{% include makeiFrame.liquid  ex = example %}
+		{% include makeiFrame.liquid  ex = example  controls = true %}
 
 	Return:
 		{{ iFrame }}  [string]  Content in either an iframe or direct
 
 	Required:
 		{{ ex }}           [string]  The content to be either iframe or not. If it starts with "ex" it is an iframe…
+		{{ controls }}     [boolean]   Whether or not the iframe should sport controls for responsiveness (true be default)
 		{{ ID }}           [string]  ID of module
 		{{ thisVersion }}  [string]  Version string
 		{{ thisModule }}   [array]   This modules GUI.json object
@@ -17,6 +18,11 @@
 
 
 {% assign example = include.ex %}
+{% assign _hasControls = true %}
+{% if include.controls == false %}
+	{% assign _hasControls = false %}
+{% endif %}
+
 {% assign iFrame = '' %}
 {% assign Brand = page.brand %}
 {% assign _isiFrame = example | startwith: 'ex' %}
@@ -42,11 +48,15 @@
 {% if _isiFrame %}
 	{% if thisVersion == lastVersion %}
 		{% capture iFrame %}
-			<iframe class="example-box-iframe js-iframe" src="{{ iFrameURL }}"></iframe>
+			<iframe class="example-box-iframe js-iframe{% if _hasControls %}
+				js-iframe-controls
+			{% endif %}" src="{{ iFrameURL }}"></iframe>
 		{% endcapture %}
 	{% else %}
 		{% capture iFrame %}
-			<a class="example-box-iframelink js-iframelink" href="{{ iFrameURL }}" target="_blank">
+			<a class="example-box-iframelink js-iframelink{% if _hasControls %}
+				js-iframe-controls
+			{% endif %}" href="{{ iFrameURL }}" target="_blank">
 				<span class="icon icon-size-lg icon-loading"></span>
 				loading example&hellip;
 			</a>

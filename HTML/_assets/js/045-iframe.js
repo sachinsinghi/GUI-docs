@@ -27,8 +27,9 @@
 		$iframes.each(function() {
 			var $a = $(this);
 			var src = $a.attr('href');
+			var _hasControls = $a.hasClass('js-iframe-controls');
 			var $iframe = $('<iframe/>')
-				.addClass('example-box-iframe js-iframe')
+				.addClass( 'example-box-iframe js-iframe' + (_hasControls ? ' js-iframe-controls' : '') )
 				.attr('src', src);
 
 			$a.replaceWith( $iframe );
@@ -88,12 +89,10 @@
 				}
 			);
 
-			$('.js-iframe')
+			$('.js-iframe.js-iframe-controls')
 				.parent('.example-box')
 				.addClass('has-buttons')
 				.before( $buttons );
-
-			$('.js-iframebtn')
 
 			//init iframe resizer
 			var isOldIE = (navigator.userAgent.indexOf("MSIE") !== -1); // Detect IE10 and below

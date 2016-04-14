@@ -1,6 +1,10 @@
 //////////////////////////////////////| EXAMPLES ADDITIONS
 body {
 	background: #fff;
+
+	&.fullscreen {
+		background: transparent;
+	}
 }
 
 hr {
@@ -41,5 +45,32 @@ hr {
 	& > [class*="top-margin"],
 	& > [class*="bottom-margin"] {
 		background-color: @color-Background;
+	}
+}
+
+//icon boxes for symbols and logos
+.iconbox {
+	background-color: #fff;
+	border: 1px solid @color-Border;
+	border-radius: 3px;
+	padding: 6px;
+	text-align: center;
+	margin-bottom: 24px;
+	overflow: auto;
+
+	&.iconbox-symbols {
+		min-height: 165px;
+	}
+
+	.iconbox-class {
+		margin: 0;
+		border-radius: 3px;
+		padding: 6px;
+		overflow: auto;
+		white-space: nowrap;
+	}
+
+	.iconbox-item {
+		margin: 21px 0;
 	}
 }
