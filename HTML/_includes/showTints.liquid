@@ -17,7 +17,7 @@
 <div class="tints">
 	{% for color in colors %}
 		<div class="tint" style="background-color:{{ color }}">
-			<span class="tint-hex">{{ color }}</span>
+			<span class="tint-hex">{{ color | upcase }}</span>
 		</div>
 	{% endfor %}
 </div>
