@@ -6,30 +6,30 @@ js: false
 svg: false
 ---
 
-<h1 class="body-font">Heading one style h1</h1>
+<span class="h1 body-font">Heading style h1</span>
 <p>Ignore me I&rsquo;m just some text sitting under this heading to see how much margin bottom is required.</p>
 
 <hr>
 
-<h2 class="body-font">Heading one style h2</h2>
+<span class="h2 body-font">Heading style h2</span>
 <p>Ignore me I&rsquo;m just some text sitting under this heading to see how much margin bottom is required.</p>
 
 <hr>
 
-<h3 class="body-font">Heading one style h3</h3>
+<span class="h3 body-font">Heading style h3</span>
 <p>Ignore me I&rsquo;m just some text sitting under this heading to see how much margin bottom is required.</p>
 
 <hr>
 
-<h4 class="body-font">Heading one style h4</h4>
+<span class="h4 body-font">Heading style h4</span>
 <p>Ignore me I&rsquo;m just some text sitting under this heading to see how much margin bottom is required.</p>
 
 <hr>
 
-<h5 class="body-font">Heading one style h5</h5>
+<span class="h5 body-font">Heading style h5</span>
 <p>Ignore me I&rsquo;m just some text sitting under this heading to see how much margin bottom is required.</p>
 
 <hr>
 
-<h6 class="body-font">Heading one style h6</h6>
+<span class="h6 body-font">Heading style h6</span>
 <p>Ignore me I&rsquo;m just some text sitting under this heading to see how much margin bottom is required.</p>

@@ -12,8 +12,9 @@
 
 {% comment %} DESCRIPTION {% endcomment %}
 {% capture description %}
-	All HTML headings, are available. h1 through to h6 classes are also available, for when you want to match the font styling of a heading while maintaining
-	inline display. The default spacing used in these headings may not be suitable in all cases. Use the margin classes to adjust spacing above
+	All HTML headings, are available. H1 through to h6 classes are available and should be used instead of hardcoded headline tags. This enables you to use the
+	styling but keep the accessibility order of headlines to the information structure of your page.
+	The default spacing used in these headings may not be suitable in all cases. Use the margin classes to adjust spacing above
 	and below headings.
 {% endcapture %}
 
@@ -47,7 +48,9 @@
 
 {% comment %} HTML TAB {% endcomment %}
 {% capture HTML %}
-<h2 class="body-font">YOUR HEADLINE</h2>
+<span class="h1 body-font">YOUR NON-SEMANTIC HEADLINE IN A SPAN</span>
+
+<h3 class="h4">YOUR HEADLINE STYLED AS H4</h3>
 {% endcapture %}
 
 
