@@ -1543,7 +1543,6 @@ module.exports = function(grunt) {
 		'copyImages',
 		'concatGrunticon',
 		'examples',
-		'lessExamples',
 		'replace:jekyll',
 		'replaceBrand',
 		'cleanGrunticon',
