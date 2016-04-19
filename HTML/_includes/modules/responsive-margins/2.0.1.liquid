@@ -35,6 +35,9 @@
 			(<a href="https://github.com/WestpacCXTeam/GUI-source/issues/201" target="_blank">#201</a>)
 		</li>
 		<li>
+			(We moved to a neat mixin for margins, removed the block statement and bang important.)
+		</li>
+		<li>
 			Fanfare, Drum roll … We’ve added another brand. Yay! 👏
 		</li>
 	</ul>
@@ -87,6 +90,20 @@
 {% comment %} LESS TAB {% endcomment %}
 {% capture LESS %}
 	The main mixin is called: <code class="classes">_responsive-margins({{ page.brand }})</code>
+
+	After you called the main mixin you have access to the margin mixins:
+	<code class="classes">._responsive-margins-top( 1, 6px );</code> and <code class="classes">._responsive-margins-bottom( 1, 6px );</code>
+
+	You can call the mixins with the optional important flag to make your css more specific, however by default there is no
+	<code class="classes">!important</code> appended.
+
+	<pre><code>
+/*
+ * @param  @el         {string}  Element name appendix, We use numbers
+ * @param  @space      {margin}  Space for this margin, We use px
+ * @param  @important  {sting}   Either omit or add 'important' to make margins important
+ */
+	</code></pre>
 {% endcapture %}
 
 

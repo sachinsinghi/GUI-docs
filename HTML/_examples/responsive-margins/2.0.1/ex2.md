@@ -7,6 +7,12 @@ svg: false
 ---
 
 <div class="margin-classes">
+	<div class="bottom-margin7-xs bottom-margin1-sm bottom-margin7-md bottom-margin1-lg">Responsive margins across all breakpoints</div>
+</div>
+
+<hr>
+
+<div class="margin-classes">
 	<div class="no-bottom-margin-xs text-center">no-bottom-margin-xs (0px)</div>
 </div>
 <div class="margin-classes">

@@ -6,12 +6,12 @@ js: false
 svg: false
 ---
 
-{% comment %}<div class="margin-classes">
+<div class="margin-classes">
 	<div class="top-margin7-xs top-margin1-sm top-margin7-md top-margin1-lg">Responsive margins across all breakpoints</div>
 </div>
 
 <hr>
-{% endcomment %}
+
 <div class="margin-classes">
 	<div class="no-top-margin-xs">no-top-margin-xs (0px)</div>
 </div>
