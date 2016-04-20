@@ -33,11 +33,8 @@
 	}
 	.getBrand();
 
-	.no-top-margin-xs,
-	.no-bottom-margin-xs {
-		display: block;
-	}
 
+	//classes
 	._responsive-margins-top( 1, 6px );
 	._responsive-margins-top( 2, 12px );
 	._responsive-margins-top( 3, 18px );
@@ -45,9 +42,6 @@
 	._responsive-margins-top( 5, 30px );
 	._responsive-margins-top( 6, 36px );
 	._responsive-margins-top( 7, 42px );
-	// ._responsive-margins-top( 8, 48px );
-	// ._responsive-margins-top( 9, 54px );
-	// ._responsive-margins-top( 10, 60px );
 
 	._responsive-margins-bottom( 1, 6px );
 	._responsive-margins-bottom( 2, 12px );
@@ -56,9 +50,58 @@
 	._responsive-margins-bottom( 5, 30px );
 	._responsive-margins-bottom( 6, 36px );
 	._responsive-margins-bottom( 7, 42px );
-	// ._responsive-margins-bottom( 8, 48px );
-	// ._responsive-margins-bottom( 9, 54px );
-	// ._responsive-margins-bottom( 10, 60px );
+
+
+	//collect all classes in one media query to avoid specificity issues
+	//////////////////////////////////////| XS
+	._responsive-margins-top-classes(xs);
+	.no-top-margin-xs {
+		margin-top: 0;
+	}
+
+	._responsive-margins-bottom-classes(xs);
+	.no-bottom-margin-xs {
+		margin-bottom: 0;
+	}
+
+	//////////////////////////////////////|  SM
+	@media (min-width: @screen-sm) {
+		._responsive-margins-top-classes(sm);
+		.no-top-margin-sm {
+			margin-top: 0;
+		}
+
+		._responsive-margins-bottom-classes(sm);
+		.no-bottom-margin-sm {
+			margin-bottom: 0;
+		}
+	}
+
+	//////////////////////////////////////|  MD
+	@media (min-width: @screen-md) {
+		._responsive-margins-top-classes(md);
+		.no-top-margin-md {
+			margin-top: 0;
+		}
+
+		._responsive-margins-bottom-classes(md);
+		.no-bottom-margin-md {
+			margin-bottom: 0;
+		}
+	}
+
+	//////////////////////////////////////|  LG
+	@media (min-width: @screen-lg) {
+		._responsive-margins-top-classes(lg);
+		.no-top-margin-lg {
+			margin-top: 0;
+		}
+
+		._responsive-margins-bottom-classes(lg);
+		.no-bottom-margin-lg {
+			margin-bottom: 0;
+		}
+	}
 }
 
 
@@ -70,7 +113,7 @@
  * @param  @space      {margin}  Space for this margin, We use px
  * @param  @important  {sting}   Either omit or add 'important' to make margins important
  */
-._responsive-margins-top( @el, @space, @important: 'nope' ) {
+._responsive-margins-top(@el, @space, @important: 'nope') {
 	/*
 	 *  SETTINGS
 	 */
@@ -82,44 +125,13 @@
 	}
 	.getSetting();
 
-	@xs: ~"top-margin@{el}-xs";
-	@sm: ~"top-margin@{el}-sm";
-	@md: ~"top-margin@{el}-md";
-	@lg: ~"top-margin@{el}-lg";
-
-	.@{xs},
-	.@{sm},
-	.@{md},
-	.@{lg} {
-		&:extend(.no-top-margin-xs all);
-	}
-
-	//////////////////////////////////////| XS
-	.@{xs} {
-		margin-top: @value;
-	}
-
-	//////////////////////////////////////|  SM
-	@media (min-width: @screen-sm) {
-		.@{sm} {
-			margin-top: @value;
-		}
-	}
-
-	//////////////////////////////////////|  MD
-	@media (min-width: @screen-md) {
-		.@{md} {
-			margin-top: @value;
-		}
-	}
-
-	//////////////////////////////////////|  LG
-	@media (min-width: @screen-lg) {
-		.@{lg} {
+	._responsive-margins-top-classes(@breakpoint) {
+		.top-margin@{el}-@{breakpoint} {
 			margin-top: @value;
 		}
 	}
 }
+
 
 /*
  * MARGINS-BOTTOM
@@ -128,7 +140,7 @@
  * @param  @space      {margin}  Space for this margin, We use px
  * @param  @important  {sting}   Either omit or add 'important' to make margins important
  */
-._responsive-margins-bottom( @el, @space, @important: 'nope' ) {
+._responsive-margins-bottom(@el, @space, @important: 'nope') {
 	/*
 	 *  SETTINGS
 	 */
@@ -140,40 +152,8 @@
 	}
 	.getSetting();
 
-	@xs: ~"bottom-margin@{el}-xs";
-	@sm: ~"bottom-margin@{el}-sm";
-	@md: ~"bottom-margin@{el}-md";
-	@lg: ~"bottom-margin@{el}-lg";
-
-	.@{xs},
-	.@{sm},
-	.@{md},
-	.@{lg} {
-		&:extend(.no-bottom-margin-xs all);
-	}
-
-	//////////////////////////////////////| XS
-	.@{xs} {
-		margin-bottom: @value;
-	}
-
-	//////////////////////////////////////|  SM
-	@media (min-width: @screen-sm) {
-		.@{sm} {
-			margin-bottom: @value;
-		}
-	}
-
-	//////////////////////////////////////|  MD
-	@media (min-width: @screen-md) {
-		.@{md} {
-			margin-bottom: @value;
-		}
-	}
-
-	//////////////////////////////////////|  LG
-	@media (min-width: @screen-lg) {
-		.@{lg} {
+	._responsive-margins-bottom-classes(@breakpoint) {
+		.bottom-margin@{el}-@{breakpoint} {
 			margin-bottom: @value;
 		}
 	}

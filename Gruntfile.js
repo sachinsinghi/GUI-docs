@@ -1361,7 +1361,7 @@ module.exports = function(grunt) {
 			},
 
 			title: {
-				text: '| GUI docs',
+				text: '| GUI docs|     <%= SETTINGS.devBrand %>',
 			},
 
 			updating: {
@@ -1509,6 +1509,8 @@ module.exports = function(grunt) {
 		'replace:debugDev',
 	]);
 
+
+	//tying it all together
 	grunt.registerTask('_buildDocs', [
 		'compileLess:' + SETTINGS().devBrand,
 		'uglifyJS:' + SETTINGS().devBrand,
@@ -1552,21 +1554,13 @@ module.exports = function(grunt) {
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	// Build tasks
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	grunt.registerTask('default', [ //run build with watch
-		'clean:jekyll',
-		'build',
-		'connect',
-		'watch',
-	]);
-
-	grunt.registerTask('checkGui', [ //check gui
+	grunt.registerTask('check-gui', [ //check gui
 		'font:title',
-		'downloadJSON',
-		'verifyGUI',
+		'_checkGUI',
 		'wakeup',
 	]);
 
-	grunt.registerTask('gui', [ //check gui
+	grunt.registerTask('download-gui', [ //download gui
 		'font:title',
 		'font:updating',
 		'downloadGUI',
@@ -1575,7 +1569,8 @@ module.exports = function(grunt) {
 		'wakeup',
 	]);
 
-	grunt.registerTask('build', [ //run everything with debug on
+	grunt.registerTask('default', [ //run build with watch in dev
+		'clean:jekyll',
 		'font:title',
 		'_checkGUI',
 		'checkIncludes:dev',
@@ -1583,18 +1578,25 @@ module.exports = function(grunt) {
 		'replace:debugDev',
 		'jekyll:dev',
 		'wakeup',
+		'connect',
+		'watch',
 	]);
 
-	grunt.registerTask('building', [ //run everything with debug on without gui check
+	grunt.registerTask('prod', [ //compile current brand in prod
 		'font:title',
-		'checkIncludes:dev',
+		'clean:jekyll',
+		'_checkGUI',
+		'checkIncludes:prod',
 		'_buildDocs',
-		'replace:debugDev',
-		'jekyll:dev',
+		'replace:debugProd',
+		'cleanTesting',
+		'jekyll:prod',
 		'wakeup',
+		'connect',
+		'watch',
 	]);
 
-	grunt.registerTask('prod', [ //run everything with debug off
+	grunt.registerTask('prod-all', [ //compile all pages of all brands in prod
 		'font:title',
 		'_checkGUI',
 		'checkIncludes:prod',
@@ -1605,17 +1607,7 @@ module.exports = function(grunt) {
 		'wakeup',
 	]);
 
-	grunt.registerTask('proding', [ //run everything with debug off without gui check
-		'font:title',
-		'checkIncludes:prod',
-		'_buildAllDocs',
-		'replace:debugProd',
-		'cleanTesting',
-		'jekyll:prod',
-		'wakeup',
-	]);
-
-	grunt.registerTask('server', [ //run everything with debug off without gui check
+	grunt.registerTask('server', [ //just start server
 		'font:title',
 		'connect',
 		'watch',
