@@ -17,27 +17,29 @@
 	}
 
 	.example-box-iframe {
-		box-shadow: 10px 0px 15px -11px rgba(0, 0, 0, 0);
-		transition: width 0.5s ease, box-shadow 0.5s ease;
+		box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0);
+		transition: width 0.3s ease, box-shadow 0.5s ease;
+		display: block;
+		margin: 0 auto;
 
 		&.iframe-xs {
 			width: 320px;
-			box-shadow: 10px 0px 15px -11px rgba(0, 0, 0, 0.5);
+			box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.3);
 		}
 
 		&.iframe-sm {
 			width: @screen-sm;
-			box-shadow: 10px 0px 15px -11px rgba(0, 0, 0, 0.5);
+			box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.3);
 		}
 
 		&.iframe-md {
 			width: @screen-md;
-			box-shadow: 10px 0px 15px -11px rgba(0, 0, 0, 0.5);
+			box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.3);
 		}
 
 		&.iframe-lg {
 			width: @screen-lg;
-			box-shadow: 10px 0px 15px -11px rgba(0, 0, 0, 0.5);
+			box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.3);
 		}
 	}
 }
