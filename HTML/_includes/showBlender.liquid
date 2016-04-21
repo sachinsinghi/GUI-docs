@@ -184,7 +184,7 @@
 				{% if "[Debug]" == "true" %}
 					<select name="brand">
 						{% for brand in site.data.guiconfig.brands %}
-							<option value="{{ brand }}">{{ brand }}</option>
+							<option value="{{ brand.ID }}">{{ brand.name }}</option>
 						{% endfor %}
 					</select>
 				{% else %}

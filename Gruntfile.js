@@ -400,7 +400,7 @@ module.exports = function(grunt) {
 					},
 					{
 						from: '[brand]',
-						to: 'bwc',
+						to: 'wbc',
 					},
 					{
 						from: '[Module-Version-Brand]',
@@ -673,10 +673,10 @@ module.exports = function(grunt) {
 		var grunticon = [];
 
 		GUIconfig.brands.forEach(function iterateBrands( brand ) { //iterate all brands
-			if( targetBrand === brand || !targetBrand ) { //only show selected brand or everything if targetBrand is not defined
-				grunticon.push('<%= SETTINGS.folder.prod %>/' + brand + '/assets/css/grunticon.loader.js');
-				grunticon.push('<%= SETTINGS.folder.prod %>/' + brand + '/assets/css/preview.html');
-				grunticon.push('<%= SETTINGS.folder.prod %>/' + brand + '/assets/css/png/');
+			if( targetBrand === brand.ID || !targetBrand ) { //only show selected brand or everything if targetBrand is not defined
+				grunticon.push('<%= SETTINGS.folder.prod %>/' + brand.ID + '/assets/css/grunticon.loader.js');
+				grunticon.push('<%= SETTINGS.folder.prod %>/' + brand.ID + '/assets/css/preview.html');
+				grunticon.push('<%= SETTINGS.folder.prod %>/' + brand.ID + '/assets/css/png/');
 			}
 		});
 
@@ -697,8 +697,8 @@ module.exports = function(grunt) {
 		var testing = [];
 
 		GUIconfig.brands.forEach(function iterateBrands( brand ) { //iterate all brands
-			if( targetBrand === brand || !targetBrand ) { //only show selected brand or everything if targetBrand is not defined
-				testing.push('<%= SETTINGS.folder.prod %>/' + brand + '/testing.md');
+			if( targetBrand === brand.ID || !targetBrand ) { //only show selected brand or everything if targetBrand is not defined
+				testing.push('<%= SETTINGS.folder.prod %>/' + brand.ID + '/testing.md');
 			}
 		});
 
@@ -719,29 +719,29 @@ module.exports = function(grunt) {
 		var tasks = [];
 
 		GUIconfig.brands.forEach(function iterateBrands( brand ) { //iterate all brands
-			if( targetBrand === brand || !targetBrand ) { //only show selected brand or everything if targetBrand is not defined
-				replace[ brand ] = {
+			if( targetBrand === brand.ID || !targetBrand ) { //only show selected brand or everything if targetBrand is not defined
+				replace[ brand.ID ] = {
 					src: [
-						'<%= SETTINGS.folder.prod %>/' + brand + '/**/*.js',
-						'<%= SETTINGS.folder.prod %>/' + brand + '/**/*.css',
-						'<%= SETTINGS.folder.prod %>/' + brand + '/**/*.html',
-						'<%= SETTINGS.folder.prod %>/' + brand + '/**/*.md',
-						'<%= SETTINGS.folder.prod %>/' + brand + '/**/*.liquid',
+						'<%= SETTINGS.folder.prod %>/' + brand.ID + '/**/*.js',
+						'<%= SETTINGS.folder.prod %>/' + brand.ID + '/**/*.css',
+						'<%= SETTINGS.folder.prod %>/' + brand.ID + '/**/*.html',
+						'<%= SETTINGS.folder.prod %>/' + brand.ID + '/**/*.md',
+						'<%= SETTINGS.folder.prod %>/' + brand.ID + '/**/*.liquid',
 					],
 					overwrite: true,
 					replacements: [
 						{
 							from: '[Brand]',
-							to: brand.toUpperCase(),
+							to: brand.ID.toUpperCase(),
 						},
 						{
 							from: '[brand]',
-							to: brand.toLowerCase(),
+							to: brand.ID.toLowerCase(),
 						},
 					],
 				};
 
-				tasks.push( brand );
+				tasks.push( brand.ID );
 			}
 		});
 
@@ -763,8 +763,8 @@ module.exports = function(grunt) {
 		var less = {};
 
 		GUIconfig.brands.forEach(function iterateBrands( brand ) { //iterate all brands
-			if( targetBrand === brand || !targetBrand ) { //only show selected brand or everything if targetBrand is not defined
-				files['<%= SETTINGS.folder.prod %>/' + brand + '/assets/css/site-<%= pkg.version %>.min.css'] = '<%= SETTINGS.folder.assets %>/less/theme-' + brand + '.less';
+			if( targetBrand === brand.ID || !targetBrand ) { //only show selected brand or everything if targetBrand is not defined
+				files['<%= SETTINGS.folder.prod %>/' + brand.ID + '/assets/css/site-<%= pkg.version %>.min.css'] = '<%= SETTINGS.folder.assets %>/less/theme-' + brand.ID + '.less';
 			}
 		});
 
@@ -793,25 +793,25 @@ module.exports = function(grunt) {
 		var concat = {};
 
 		GUIconfig.brands.forEach(function iterateBrands( brand ) { //iterate all brands
-			if( targetBrand === brand || !targetBrand ) { //only show selected brand or everything if targetBrand is not defined
+			if( targetBrand === brand.ID || !targetBrand ) { //only show selected brand or everything if targetBrand is not defined
 				var files = {};
 
-				files['<%= SETTINGS.folder.prod %>/' + brand + '/assets/css/symbols-<%= pkg.version %>.data.svg.css'] = [
-					'<%= SETTINGS.folder.prod %>/' + brand + '/assets/css/symbols-<%= pkg.version %>.data.svg.css',
-					'<%= SETTINGS.folder.css %>/' + brand + '/symbols.data.svg.css',
+				files['<%= SETTINGS.folder.prod %>/' + brand.ID + '/assets/css/symbols-<%= pkg.version %>.data.svg.css'] = [
+					'<%= SETTINGS.folder.prod %>/' + brand.ID + '/assets/css/symbols-<%= pkg.version %>.data.svg.css',
+					'<%= SETTINGS.folder.css %>/' + brand.ID + '/symbols.data.svg.css',
 				];
 
-				files['<%= SETTINGS.folder.prod %>/' + brand + '/assets/css/symbols-<%= pkg.version %>.data.png.css'] = [
-					'<%= SETTINGS.folder.prod %>/' + brand + '/assets/css/symbols-<%= pkg.version %>.data.png.css',
-					'<%= SETTINGS.folder.css %>/' + brand + '/symbols.data.png.css',
+				files['<%= SETTINGS.folder.prod %>/' + brand.ID + '/assets/css/symbols-<%= pkg.version %>.data.png.css'] = [
+					'<%= SETTINGS.folder.prod %>/' + brand.ID + '/assets/css/symbols-<%= pkg.version %>.data.png.css',
+					'<%= SETTINGS.folder.css %>/' + brand.ID + '/symbols.data.png.css',
 				];
 
-				files['<%= SETTINGS.folder.prod %>/' + brand + '/assets/css/symbols-<%= pkg.version %>.fallback.css'] = [
-					'<%= SETTINGS.folder.prod %>/' + brand + '/assets/css/symbols-<%= pkg.version %>.fallback.css',
-					'<%= SETTINGS.folder.css %>/' + brand + '/symbols.fallback.css',
+				files['<%= SETTINGS.folder.prod %>/' + brand.ID + '/assets/css/symbols-<%= pkg.version %>.fallback.css'] = [
+					'<%= SETTINGS.folder.prod %>/' + brand.ID + '/assets/css/symbols-<%= pkg.version %>.fallback.css',
+					'<%= SETTINGS.folder.css %>/' + brand.ID + '/symbols.fallback.css',
 				];
 
-				concat[ 'grunticon' + brand ] = {
+				concat[ 'grunticon' + brand.ID ] = {
 					files: files,
 				};
 			}
@@ -832,11 +832,11 @@ module.exports = function(grunt) {
 		var files = {};
 
 		GUIconfig.brands.forEach(function iterateBrands( brand ) { //iterate all brands
-			if( targetBrand === brand || !targetBrand ) { //only show selected brand or everything if targetBrand is not defined
-				files['<%= SETTINGS.folder.prod %>/' + brand + '/assets/js/site-<%= pkg.version %>.min.js'] = [
+			if( targetBrand === brand.ID || !targetBrand ) { //only show selected brand or everything if targetBrand is not defined
+				files['<%= SETTINGS.folder.prod %>/' + brand.ID + '/assets/js/site-<%= pkg.version %>.min.js'] = [
 					'<%= SETTINGS.folder.js %>/**/*jquery*.js',
 					'<%= SETTINGS.folder.js %>/**/*store*.js',
-					'<%= SETTINGS.folder.prod %>/' + brand + '/assets/js/site-<%= pkg.version %>.min.js',
+					'<%= SETTINGS.folder.prod %>/' + brand.ID + '/assets/js/site-<%= pkg.version %>.min.js',
 				];
 			}
 		});
@@ -860,8 +860,8 @@ module.exports = function(grunt) {
 		var files = {};
 
 		GUIconfig.brands.forEach(function iterateBrands( brand ) { //iterate all brands
-			if( targetBrand === brand || !targetBrand ) { //only show selected brand or everything if targetBrand is not defined
-				files['<%= SETTINGS.folder.prod %>/' + brand + '/assets/js/site-<%= pkg.version %>.min.js'] = [
+			if( targetBrand === brand.ID || !targetBrand ) { //only show selected brand or everything if targetBrand is not defined
+				files['<%= SETTINGS.folder.prod %>/' + brand.ID + '/assets/js/site-<%= pkg.version %>.min.js'] = [
 					'<%= SETTINGS.folder.js %>/**/*.js',
 					'!<%= SETTINGS.folder.js %>/**/*jquery*.js',
 					'!<%= SETTINGS.folder.js %>/**/*store*.js',
@@ -903,16 +903,16 @@ module.exports = function(grunt) {
 		};
 
 		GUIconfig.brands.forEach(function iterateBrands( brand ) { //iterate all brands
-			if( targetBrand === brand || !targetBrand ) { //only show selected brand or everything if targetBrand is not defined
-				grunticon[ brand ] = {
+			if( targetBrand === brand.ID || !targetBrand ) { //only show selected brand or everything if targetBrand is not defined
+				grunticon[ brand.ID ] = {
 					files: [{
 						expand: true,
 						cwd: '<%= SETTINGS.folder.svg %>/',
 						src: [
 							'all/*.svg',
-							brand + '/*.svg',
+							brand.ID + '/*.svg',
 						],
-						dest: '<%= SETTINGS.folder.prod %>/' + brand + '/assets/css',
+						dest: '<%= SETTINGS.folder.prod %>/' + brand.ID + '/assets/css',
 					}],
 
 				};
@@ -934,18 +934,18 @@ module.exports = function(grunt) {
 		var tasks = [];
 
 		GUIconfig.brands.forEach(function iterateBrands( brand ) { //iterate all brands
-			if( targetBrand === brand || !targetBrand ) { //only show selected brand or everything if targetBrand is not defined
-				copy[ 'grunticon' + brand ] = {
+			if( targetBrand === brand.ID || !targetBrand ) { //only show selected brand or everything if targetBrand is not defined
+				copy[ 'grunticon' + brand.ID ] = {
 					files: [{
-						cwd: '<%= SETTINGS.folder.prod %>/' + brand + '/assets/css/png/',
+						cwd: '<%= SETTINGS.folder.prod %>/' + brand.ID + '/assets/css/png/',
 						src: ['**/*.png'],
-						dest: '<%= SETTINGS.folder.prod %>/' + brand + '/assets/img/',
+						dest: '<%= SETTINGS.folder.prod %>/' + brand.ID + '/assets/img/',
 						filter: 'isFile',
 						expand: true,
 					}],
 				};
 
-				tasks.push( 'grunticon' + brand );
+				tasks.push( 'grunticon' + brand.ID );
 			}
 		});
 
@@ -967,8 +967,8 @@ module.exports = function(grunt) {
 		var tasks = [];
 
 		GUIconfig.brands.forEach(function iterateBrands( brand ) { //iterate all brands
-			if( targetBrand === brand || !targetBrand ) { //only show selected brand or everything if targetBrand is not defined
-				copy[ 'HTML' + brand ] = {
+			if( targetBrand === brand.ID || !targetBrand ) { //only show selected brand or everything if targetBrand is not defined
+				copy[ 'HTML' + brand.ID ] = {
 					files: [{
 						cwd: '<%= SETTINGS.folder.html %>/',
 						src: [
@@ -979,13 +979,13 @@ module.exports = function(grunt) {
 							'!_examples/**/*',
 							'!_*/**/*',
 						],
-						dest: '<%= SETTINGS.folder.prod %>/' + brand + '/',
+						dest: '<%= SETTINGS.folder.prod %>/' + brand.ID + '/',
 						filter: 'isFile',
 						expand: true,
 					}],
 				};
 
-				tasks.push( 'HTML' + brand );
+				tasks.push( 'HTML' + brand.ID );
 			}
 		});
 
@@ -1007,10 +1007,10 @@ module.exports = function(grunt) {
 		var tasks = [];
 
 		GUIconfig.brands.forEach(function iterateBrands( brand ) { //iterate all brands
-			if( targetBrand === brand || !targetBrand ) { //only show selected brand or everything if targetBrand is not defined
-				copy[ 'Fonts' + brand ] = {
+			if( targetBrand === brand.ID || !targetBrand ) { //only show selected brand or everything if targetBrand is not defined
+				copy[ 'Fonts' + brand.ID ] = {
 					files: [{
-						cwd: '<%= SETTINGS.folder.font %>/' + brand + '/',
+						cwd: '<%= SETTINGS.folder.font %>/' + brand.ID + '/',
 						src: [
 							'**/*.eot',
 							'**/*.svg',
@@ -1018,13 +1018,13 @@ module.exports = function(grunt) {
 							'**/*.woff',
 							'**/*.woff2',
 						],
-						dest: '<%= SETTINGS.folder.prod %>/' + brand + '/assets/font/',
+						dest: '<%= SETTINGS.folder.prod %>/' + brand.ID + '/assets/font/',
 						filter: 'isFile',
 						expand: true,
 					}],
 				};
 
-				tasks.push( 'Fonts' + brand );
+				tasks.push( 'Fonts' + brand.ID );
 			}
 		});
 
@@ -1046,21 +1046,21 @@ module.exports = function(grunt) {
 		var tasks = [];
 
 		GUIconfig.brands.forEach(function iterateBrands( brand ) { //iterate all brands
-			if( targetBrand === brand || !targetBrand ) { //only show selected brand or everything if targetBrand is not defined
-				copy[ 'Images' + brand ] = {
+			if( targetBrand === brand.ID || !targetBrand ) { //only show selected brand or everything if targetBrand is not defined
+				copy[ 'Images' + brand.ID ] = {
 					files: [{
-						cwd: '<%= SETTINGS.folder.img %>/' + brand + '/',
+						cwd: '<%= SETTINGS.folder.img %>/' + brand.ID + '/',
 						src: [
 							'**/*.png',
 							'**/*.jpg',
 						],
-						dest: '<%= SETTINGS.folder.prod %>/' + brand + '/assets/img/',
+						dest: '<%= SETTINGS.folder.prod %>/' + brand.ID + '/assets/img/',
 						filter: 'isFile',
 						expand: true,
 					}],
 				};
 
-				tasks.push( 'Images' + brand );
+				tasks.push( 'Images' + brand.ID );
 			}
 		});
 
