@@ -151,7 +151,7 @@
 							</div>
 						</li>
 
-						<li class="blender-module row">
+						{% comment %}<li class="blender-module row">
 							<div class="col-sm-5 blender-module-text">
 								<label class="blender-module-label" for="includeBowie">
 									Call ground control for Major Tom?
@@ -168,11 +168,12 @@
 									</span>
 								</label>
 							</div>
-						</li>
+						</li>{% endcomment %}
 
 						{% if "[Debug]" == "true" %}
 							includeBond: <input type="checkbox" name="includeBond"><br>
-							includeStarWars: <input type="checkbox" name="includeStarWars">
+							includeStarWars: <input type="checkbox" name="includeStarWars"><br>
+							includeBowie: <input type="checkbox" name="includeBowie"><br>
 						{% endif %}
 					</ul>
 				</div>
