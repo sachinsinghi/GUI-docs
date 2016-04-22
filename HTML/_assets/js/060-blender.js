@@ -182,10 +182,14 @@
 
 			//////////////////////////////////////////////////| SUBMITTING THE FORM
 			$('.js-blender').on('submit', function(e) {
+				e.preventDefault();
 				App.debugging( 'Blender: Blender submitted', 'interaction' );
+
+				var form = this;
 
 				_gaq.push(['_trackEvent', 'Blender', 'submitted', 'Blender form submitted for brand: [Brand]']); //track the button
 
+				//button animation
 				$('.js-blender-submit').prop( 'disabled', true );
 				$('.js-blender-submit .icon-download').toggle();
 				$('.js-blender-submit .icon-refresh').toggle();
@@ -196,6 +200,31 @@
 					$('.js-blender-submit .icon-refresh').toggle();
 				}, 2000);
 
+				//generate history
+				var address = 'https://gel.westpacgroup.com.au/GUI/WBG/blender/#'
+				$('.js-blender-tick:checked').each(function() {
+					var moduleName = $(this).attr('id').substring(5);
+					var version = $('.js-blender-version[name="module-' + moduleName + '"] option:selected').attr('value');
+					address += '/' + moduleName + ':' + version;
+				});
+
+				//add to existing history
+				var oldHistory = App.blender.store.get().get('blender-history');
+				var todayObject = new Date();
+				var today = todayObject.getDate() + ' ' + (todayObject.getMonth() + 1) + ' ' + todayObject.getFullYear();
+
+				if( typeof oldHistory === 'undefined' || !oldHistory.items instanceof Array) {
+					var oldHistory = {};
+					oldHistory.items = [];
+				}
+				oldHistory.items.push({
+					date: today,
+					address: address,
+				});
+				App.blender.store.save( 'blender-history', oldHistory );
+
+				//submit form
+				form.submit();
 			});
 
 
