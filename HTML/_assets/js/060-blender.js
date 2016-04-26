@@ -200,28 +200,8 @@
 					$('.js-blender-submit .icon-refresh').toggle();
 				}, 2000);
 
-				//generate history
-				var address = 'https://gel.westpacgroup.com.au/GUI/WBG/blender/#'
-				$('.js-blender-tick:checked').each(function() {
-					var moduleName = $(this).attr('id').substring(5);
-					var version = $('.js-blender-version[name="module-' + moduleName + '"] option:selected').attr('value');
-					address += '/' + moduleName + ':' + version;
-				});
-
 				//add to existing history
-				var oldHistory = App.blender.store.get().get('blender-history');
-				var todayObject = new Date();
-				var today = todayObject.getDate() + ' ' + (todayObject.getMonth() + 1) + ' ' + todayObject.getFullYear();
-
-				if( typeof oldHistory === 'undefined' || !oldHistory.items instanceof Array) {
-					var oldHistory = {};
-					oldHistory.items = [];
-				}
-				oldHistory.items.push({
-					date: today,
-					address: address,
-				});
-				App.blender.store.save( 'blender-history', oldHistory );
+				App.blender.addHistory();
 
 				//submit form
 				form.submit();
@@ -280,6 +260,96 @@
 
 		//////////////////////////////////////////////////| LOAD FROM LOCAL STORAGE
 		App.blender.load();
+	};
+
+
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	// Get URL for current selected modules
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	module.getURL = function() {
+		App.debugging( 'Blender: Get URL', 'report' );
+
+		// var address = 'https://gel.westpacgroup.com.au/GUI/[Brand]/blender/#';
+		var address = '';
+
+		$('.js-blender-tick:checked').each(function() {
+			var moduleName = $(this).attr('id').substring(5);
+			var version = $('.js-blender-version[name="module-' + moduleName + '"] option:selected').attr('value');
+			address += '/' + moduleName + ':' + version;
+		});
+
+		return address;
+	};
+
+
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	// Add to history entry
+	//------------------------------------------------------------------------------------------------------------------------------------------------------------
+	module.addHistory = function( ) {
+		App.debugging( 'Blender: Add to history', 'report' );
+
+		var oldHistory = App.blender.store.get().get('blender-history');
+		var newHistory = {};
+		newHistory.items = [];
+		var todayObject = new Date();
+		var today = todayObject.getDate() + ' ' + (todayObject.getMonth() + 1) + ' ' + todayObject.getFullYear();
+		var addressURL = App.blender.getURL();
+		var duplicates = '';
+
+		//if no histroy in local storage
+		if( typeof oldHistory === 'undefined' || !oldHistory.items instanceof Array) {
+			App.debugging( 'Blender: Add to history: No history found so far.', 'report' );
+
+			var oldHistory = {};
+			oldHistory.items = [];
+		}
+		//let's check for duplicates
+		else {
+			App.debugging( 'Blender: Add to history: Checking old history', 'report' );
+
+			for(var i = oldHistory.items.length - 1; i >= 0; i--) {
+				if( duplicates.indexOf( '#' + oldHistory.items[i].address + '#' ) === -1 ) {
+					var date = oldHistory.items[i].date;
+					var address = oldHistory.items[i].address;
+
+					if( !oldHistory.items[i].brand === 'undefined' ) {
+						var brand = '[Brand]';
+					}
+					else {
+						var brand = oldHistory.items[i].brand;
+					}
+
+					if( address.substring(0, 49) === 'https://gel.westpacgroup.com.au/GUI/WBG/blender/#' ) { //remove hardcoded domain
+						address = address.substring(49, address.length );
+					}
+
+					newHistory.items.push({
+						date: date,
+						address: address,
+						brand: brand,
+					});
+
+					duplicates = duplicates + '#' + oldHistory.items[i].address + '#';
+				}
+				else {
+					App.debugging( 'Blender: Add to history: Found duplicate in history and removed it!', 'report' );
+				}
+			};
+		}
+
+		//adding history
+		if( duplicates.indexOf( '#' + addressURL + '#' ) === -1 ) {
+			App.debugging( 'Blender: Add to history: History is unique', 'report' );
+
+			newHistory.items.push({
+				date: today,
+				address: addressURL,
+				brand: '[Brand]',
+			});
+		}
+
+		//save
+		App.blender.store.save( 'blender-history', newHistory );
 	};
 
 
