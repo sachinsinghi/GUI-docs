@@ -34,7 +34,7 @@ padding: "0 0 140px 0"
 			Close
 			<span class="modal-sronly">modal and return to GUI page</span>
 		</button>
-		<button type="button" class="btn btn-hero">Save changes</button>
+		<button type="button" class="btn btn-primary">Save changes</button>
 	</div>
 </div>
 
@@ -54,7 +54,7 @@ padding: "0 0 140px 0"
 			Close
 			<span class="modal-sronly">modal and return to GUI page</span>
 		</button>
-		<button type="button" class="btn btn-hero">Save changes</button>
+		<button type="button" class="btn btn-primary">Save changes</button>
 	</div>
 </div>
 
@@ -72,6 +72,6 @@ padding: "0 0 140px 0"
 			Close
 			<span class="modal-sronly">modal and return to test-page</span>
 		</button>
-		<button type="button" class="btn btn-hero">Save changes</button>
+		<button type="button" class="btn btn-primary">Save changes</button>
 	</div>
 </div>
