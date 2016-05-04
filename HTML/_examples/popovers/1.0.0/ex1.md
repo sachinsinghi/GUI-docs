@@ -3,7 +3,7 @@ layout: examples
 weight: "-0"
 brand: [Brand]
 js: true
-svg: true
+svg: false
 padding: "200px 0 0 0"
 ---
 
