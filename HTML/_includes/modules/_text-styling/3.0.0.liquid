@@ -1,0 +1,161 @@
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Headings
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	All HTML headings, are available. H1 through to h6 classes are available and should be used instead of hardcoded headline tags. This enables you to use the
+	styling but keep the accessibility order of headlines to the information structure of your page.
+	The default spacing used in these headings may not be suitable in all cases. Use the margin classes to adjust spacing above
+	and below headings.
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+	<h4 class="body-font whatsnew-headline">What&rsquo;s new since v2.0.1</h4>
+
+	This version changed:
+		<code class="classes">CSS/LESS</code>,
+		<code class="classes">HTML</code>
+	but not:
+		<code class="classes">JS</code>
+
+	<ul class="lists">
+		<li>
+			Headlines caused a lot of confusion. We showed tags in the examples, developers knew they should us the classes so we removed the tags from the selectors.
+			Less shenanigans, more classes.
+			(<a href="https://github.com/WestpacCXTeam/GUI-source/issues/251" target="_blank">#251</a>)
+		</li>
+		<li>
+			We nudged the spacing of the paragraphs ever so slightly. This should be better now. Definitely! Maybe.
+			(<a href="https://github.com/WestpacCXTeam/GUI-source/issues/253" target="_blank">#253</a>)
+		</li>
+		<li>
+			We made improvements to our A11Y. Now all links come with underlines so you can tell them apart by color AND shape. Also A11Y means "accessibility" for all
+			who were wondering.
+			(<a href="https://github.com/WestpacCXTeam/GUI-source/issues/247" target="_blank">#247</a>)
+		</li>
+		<li>
+			We started working on even better A11Y. Something we are passionate about. A11Y that is, not working in general.
+			(<a href="https://github.com/WestpacCXTeam/GUI-source/issues/214" target="_blank">#214</a>)
+			(<a href="https://github.com/WestpacCXTeam/GUI-source/issues/241" target="_blank">#241</a>)
+		</li>
+	</ul>
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% assign example = "ex1" %}
+
+
+{% comment %} HTML TAB {% endcomment %}
+{% capture HTML %}
+<span class="h1 body-font">YOUR NON-SEMANTIC HEADLINE IN A SPAN</span>
+
+<h3 class="h4">YOUR HEADLINE STYLED AS H4</h3>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	The main mixin is called: <code class="classes">_text-styling({{ page.brand }})</code>
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+{% endcapture %}
+
+
+{% include showExample.liquid  controls = false %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+
+
+
+
+
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Editorial text
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	<strong>Paragraph:</strong> The baseline body text.<br><br>
+	<strong>Small:</strong> De-emphasise inline or blocks of text.<br><br>
+	<strong>Strong:</strong> Emphasise a snippet of text. The default behaviour being a heavier font weight.<br><br>
+	<strong>Emphasis:</strong> Emphasise a snippet of text. The default behaviour being italics.<br><br>
+	<strong>Abbreviation:</strong> Explain abbreviations and acronyms by showing the expanded version on hover. Abbreviations with a title attribute have a light
+	dotted bottom border and a help cursor on hover, providing additional context on hover.<br><br>
+	<strong>Mark:</strong> Highlight a portion of text.<br><br>
+	<strong>Del/Ins:</strong> Show changes by marking up what has been deleted and what has been inserted.
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% assign example = "ex2" %}
+
+
+{% comment %} HTML TAB {% endcomment %}
+{% capture HTML %}
+<p>
+	I&rsquo;m a basic paragraph.
+	<small>I&rsquo;m small.</small>
+	<strong>I&rsquo;m strong</strong>
+	<a href="?">I&rsquo;m a link</a>
+	<em>I&rsquo;ve been emphasised</em>
+	<mark>highlighted text</mark>
+	<del>removed bit</del> <ins>replacement bit</ins>
+</p>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	{{ LESS }}
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+{% endcapture %}
+
+
+{% include showExample.liquid  controls = false %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}

@@ -358,7 +358,27 @@ module.exports = function(grunt) {
 		var replace = grunt.config.get('replace');
 		var replaceTasks = [];
 
-		copy[ 'newExampleOldVersion' ] = { //copy old version
+		var _hasIncludes = grunt.file.exists(SETTINGS().folder.modules + '/' + module + '/' + version + '.liquid');
+
+		if( !_hasIncludes ) { //copy includes over
+			copy[ 'newIncludeOldVersion' ] = { //copy old version include
+				files: [{
+					cwd: '<%= SETTINGS.folder.modules %>/' + module + '/',
+					src: [
+						oldVersion + '.liquid',
+					],
+					dest: '<%= SETTINGS.folder.modules %>/' + module + '/',
+					rename: function(dest, src) {
+						return dest + '/' + version + '.liquid';
+					},
+					filter: 'isFile',
+					expand: true,
+				}],
+			};
+		}
+
+
+		copy[ 'newExampleOldVersion' ] = { //copy old version example
 			files: [{
 				cwd: '<%= SETTINGS.folder.examples %>/' + module + '/' + oldVersion + '/',
 				src: [

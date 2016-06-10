@@ -1,0 +1,117 @@
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Modal
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	Modals are streamlined, but flexible, dialog prompts with the minimum required functionality and smart defaults. Modals should be easy to digest so that the
+	user can quickly get back to what they were doing.<br>
+	Set the initial width of your modal depending on the amount of content you are showing.
+</p>
+<p class="example-description text-info">
+	The buttons in this example are not included and will have to be added to the blend separately.
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+	<h4 class="body-font whatsnew-headline">What&rsquo;s new since v2.0.1</h4>
+
+	This version changed:
+		<code class="classes">CSS/LESS</code>
+	but not:
+		<code class="classes">HTML</code>,
+		<code class="classes">JS</code>
+
+	<ul class="lists">
+		<li>
+			We removed the border around the modal. Why? Because you couldn’t see it.
+			(<a href="https://github.com/WestpacCXTeam/GUI-source/issues/240" target="_blank">#240</a>)
+		</li>
+	</ul>
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% assign example = "ex1" %}
+
+
+{% comment %} HTML TAB {% endcomment %}
+{% capture HTML %}
+<button class="btn btn-primary js-modal" data-modal="#myModalID" aria-label="YOUR BUTTON DESCRIPTION Hit enter to open modal">YOUR BUTTON DESCRIPTION</button>
+
+<div class="modal js-modalbody" id="myModalID" tabindex="-1" role="dialog" aria-labelledby="modal-header-title1" aria-describedby="modal-bodyID" aria-hidden="true">
+	<div class="modal-header">
+		<button class="modal-header-close js-modalclose icon icon-size-sm icon-cross">Close modal and return to GUI page</button>
+		<span class="modal-header-title" id="modal-header-title1">YOUR MODAL TITLE</span>
+	</div>
+	<div class="modal-body" id="modal-bodyID">
+		YOUR MODAL CONTENT
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-faint js-modalclose">
+			Close
+			<span class="modal-sronly">modal and return to GUI page</span>
+		</button>
+		<button type="button" class="btn btn-hero">Save changes</button>
+	</div>
+</div>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+	Modifier classes:
+
+	<ul>
+		<li>
+			<code class="classes">modal-lg</code>
+		</li>
+		<li>
+			<code class="classes">modal-sm</code>
+		</li>
+	</ul>
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	The main mixin is called: <code class="classes">_modals({{ page.brand }})</code>
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+	This module comes with the usual init method and a public method:
+
+	<ul>
+		<li>
+			<code class="classes">GUI.modals.init();</code> after the page has been loaded.
+		</li>
+		<li>
+			<code class="classes">GUI.modals.render();</code> for dynamically added elements after page load.
+		</li>
+		<li>
+			<code class="classes">GUI.modals.toggelModal( _isOpen, $modal, target )</code>
+			<ul>
+				<li>@param   <code class="classes">_isOpen</code>  [boolean]        Whether to open or close the modal</li>
+				<li>@param   <code class="classes">$modal</code>   [jquery object]  The modal element</li>
+				<li>@param   <code class="classes">target</code>   [string]         Selector string to id the modal for opening only</li>
+			</ul>
+		</li>
+	</ul>
+{% endcapture %}
+
+
+{% include showExample.liquid  controls = false %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}

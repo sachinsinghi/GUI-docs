@@ -1,0 +1,66 @@
+.checkbox-input:disabled + .checkbox-text:after,
+.symbol-checkbox-off-disabled { background-image: url('../img/checkbox-off-disabled.png'); background-repeat: no-repeat; }
+
+.checkbox-input + .checkbox-text:after,
+.symbol-checkbox-off { background-image: url('../img/checkbox-off.png'); background-repeat: no-repeat; }
+
+.checkbox-input:disabled:checked + .checkbox-text:after,
+.symbol-checkbox-on-disabled { background-image: url('../img/checkbox-on-disabled.png'); background-repeat: no-repeat; }
+
+.checkbox-input:checked + .checkbox-text:after,
+.symbol-checkbox-on { background-image: url('../img/checkbox-on.png'); background-repeat: no-repeat; }
+
+.radio-input:disabled + .radio-text:after,
+.symbol-radio-off-disabled { background-image: url('../img/radio-off-disabled.png'); background-repeat: no-repeat; }
+
+.radio-input + .radio-text:after,
+.symbol-radio-off { background-image: url('../img/radio-off.png'); background-repeat: no-repeat; }
+
+.radio-input:disabled:checked + .radio-text:after,
+.symbol-radio-on-disabled { background-image: url('../img/radio-on-disabled.png'); background-repeat: no-repeat; }
+
+.radio-input:checked + .radio-text:after,
+.symbol-radio-on { background-image: url('../img/radio-on.png'); background-repeat: no-repeat; }
+
+.icon-australia,
+.symbol-australia { background-image: url('../img/australia.png'); background-repeat: no-repeat; }
+
+.icon-chat,
+.symbol-chat { background-image: url('../img/chat.png'); background-repeat: no-repeat; }
+
+.icon-clock,
+.symbol-clock { background-image: url('../img/clock.png'); background-repeat: no-repeat; }
+
+.icon-edit,
+.symbol-edit { background-image: url('../img/edit.png'); background-repeat: no-repeat; }
+
+.icon-email,
+.symbol-email { background-image: url('../img/email.png'); background-repeat: no-repeat; }
+
+.icon-id-card,
+.symbol-id-card { background-image: url('../img/id-card.png'); background-repeat: no-repeat; }
+
+.icon-padlock,
+.symbol-padlock { background-image: url('../img/padlock.png'); background-repeat: no-repeat; }
+
+.icon-print,
+.symbol-print { background-image: url('../img/print.png'); background-repeat: no-repeat; }
+
+.icon-sms,
+.symbol-sms { background-image: url('../img/sms.png'); background-repeat: no-repeat; }
+
+.icon-stopwatch,
+.symbol-stopwatch { background-image: url('../img/stopwatch.png'); background-repeat: no-repeat; }
+
+.icon-telephone,
+.symbol-telephone { background-image: url('../img/telephone.png'); background-repeat: no-repeat; }
+
+.icon-tick,
+.symbol-tick { background-image: url('../img/tick.png'); background-repeat: no-repeat; }
+
+.lists.lists-linklist > li:after,
+.symbol-linklist { background-image: url('../img/linklist.png'); background-repeat: no-repeat; }
+
+.lists.lists-tick > li:after,
+.symbol-ticklist { background-image: url('../img/ticklist.png'); background-repeat: no-repeat; }
+

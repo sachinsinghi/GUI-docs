@@ -12,5 +12,5 @@ svg: false
 <hr>
 <p>As a link</p>
 
-<a href="{{ page.title | handleize }}/#url" class="label label-primary">Primary</a>
-<a href="{{ page.title | handleize }}/#url" class="label label-hero">Hero</a>
+<a href="?" class="label label-primary">Primary</a>
+<a href="?" class="label label-hero">Hero</a>

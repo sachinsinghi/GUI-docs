@@ -21,7 +21,7 @@ svg: false
 	<span class="breadcrumb-sronly">Page navigation:</span>
 
 	<ol class="breadcrumb-list">
-		<li><a href="{{ page.title | handleize }}/#url">Home</a></li>
+		<li><a href="?">Home</a></li>
 		<li class="is-active">
 			<span class="breadcrumb-sronly">Current page:</span>
 			Personal
@@ -33,8 +33,8 @@ svg: false
 	<span class="breadcrumb-sronly">Page navigation:</span>
 
 	<ol class="breadcrumb-list">
-		<li><a href="{{ page.title | handleize }}/#url">Home</a></li>
-		<li><a href="{{ page.title | handleize }}/#url">Personal</a></li>
+		<li><a href="?">Home</a></li>
+		<li><a href="?">Personal</a></li>
 		<li class="is-active">
 			<span class="breadcrumb-sronly">Current page:</span>
 			Business
