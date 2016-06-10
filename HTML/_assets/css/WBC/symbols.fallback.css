@@ -334,15 +334,6 @@
 .icon-alert,
 .symbol-alert { background-image: url('../img/alert.png'); background-repeat: no-repeat; }
 
-.icon-face-happy,
-.symbol-face-happy { background-image: url('../img/face-happy.png'); background-repeat: no-repeat; }
-
-.icon-face-hmm,
-.symbol-face-hmm { background-image: url('../img/face-hmm.png'); background-repeat: no-repeat; }
-
-.icon-face-sad,
-.symbol-face-sad { background-image: url('../img/face-sad.png'); background-repeat: no-repeat; }
-
 .icon-help,
 .symbol-help { background-image: url('../img/help.png'); background-repeat: no-repeat; }
 
@@ -361,41 +352,38 @@
 .lists.lists-tick > li:after,
 .symbol-ticklist { background-image: url('../img/ticklist.png'); background-repeat: no-repeat; }
 
-.logo-bom-alt,
-.symbol-bom-alt { background-image: url('../img/bom-alt.png'); background-repeat: no-repeat; }
+.logo-bom-shield,
+.symbol-bom-shield { background-image: url('../img/bom-shield.png'); background-repeat: no-repeat; }
 
-.logo-bom-phone,
-.symbol-bom-phone { background-image: url('../img/bom-phone.png'); background-repeat: no-repeat; }
+.logo-bom,
+.symbol-bom { background-image: url('../img/bom.png'); background-repeat: no-repeat; }
 
-.logo-bom-tablet,
-.symbol-bom-tablet { background-image: url('../img/bom-tablet.png'); background-repeat: no-repeat; }
+.logo-bsa-stacked,
+.symbol-bsa-stacked { background-image: url('../img/bsa-stacked.png'); background-repeat: no-repeat; }
 
-.logo-bsa-alt,
-.symbol-bsa-alt { background-image: url('../img/bsa-alt.png'); background-repeat: no-repeat; }
+.logo-bsa,
+.symbol-bsa { background-image: url('../img/bsa.png'); background-repeat: no-repeat; }
 
-.logo-bsa-phone,
-.symbol-bsa-phone { background-image: url('../img/bsa-phone.png'); background-repeat: no-repeat; }
+.logo-bt-stacked,
+.symbol-bt-stacked { background-image: url('../img/bt-stacked.png'); background-repeat: no-repeat; }
 
-.logo-bsa-tablet,
-.symbol-bsa-tablet { background-image: url('../img/bsa-tablet.png'); background-repeat: no-repeat; }
+.logo-bt,
+.symbol-bt { background-image: url('../img/bt.png'); background-repeat: no-repeat; }
 
-.logo-stg-alt,
-.symbol-stg-alt { background-image: url('../img/stg-alt.png'); background-repeat: no-repeat; }
+.logo-stg-dragon,
+.symbol-stg-dragon { background-image: url('../img/stg-dragon.png'); background-repeat: no-repeat; }
 
-.logo-stg-phone,
-.symbol-stg-phone { background-image: url('../img/stg-phone.png'); background-repeat: no-repeat; }
+.logo-stg,
+.symbol-stg { background-image: url('../img/stg.png'); background-repeat: no-repeat; }
 
-.logo-stg-tablet,
-.symbol-stg-tablet { background-image: url('../img/stg-tablet.png'); background-repeat: no-repeat; }
+.logo-wbc-live,
+.symbol-wbc-live { background-image: url('../img/wbc-live.png'); background-repeat: no-repeat; }
 
-.logo-wbc-alt,
-.symbol-wbc-alt { background-image: url('../img/wbc-alt.png'); background-repeat: no-repeat; }
+.logo-wbc,
+.symbol-wbc { background-image: url('../img/wbc.png'); background-repeat: no-repeat; }
 
-.logo-wbc-phone,
-.symbol-wbc-phone { background-image: url('../img/wbc-phone.png'); background-repeat: no-repeat; }
-
-.logo-wbc-tablet,
-.symbol-wbc-tablet { background-image: url('../img/wbc-tablet.png'); background-repeat: no-repeat; }
+.logo-wbg,
+.symbol-wbg { background-image: url('../img/wbg.png'); background-repeat: no-repeat; }
 
 .symbol-american-express { background-image: url('../img/american-express.png'); background-repeat: no-repeat; }
 

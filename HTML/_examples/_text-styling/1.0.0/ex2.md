@@ -12,7 +12,7 @@ svg: false
 	I&rsquo;m a basic paragraph. I provide my own margin bottom to space paragraphs so you don&rsquo;t need to use paragraph returns to add space.
 	If you&rsquo;re copying and pasting text from some word processing software be sure to remove unnecessary formating.<br>
 
-	When you place <a href="{{ page.title | handleize }}/#url">a link</a> inside a paragraph of text this is what it looks like. Avoid using too many long
+	When you place <a href="?">a link</a> inside a paragraph of text this is what it looks like. Avoid using too many long
 	links in your paragraphs. It can become difficult to read and can start to look like a Christmas tree.
 </p>
 

@@ -8,7 +8,7 @@ svg: false
 
 <ul class="list-group">
 	<li>
-		<a class="list-group-item" href="{{ page.title | handleize }}/#url">
+		<a class="list-group-item" href="?">
 			<span class="list-group-text">Personal messages</span>
 
 			<span class="list-group-element">
@@ -20,7 +20,7 @@ svg: false
 		</a>
 	</li>
 	<li>
-		<a class="list-group-item" href="{{ page.title | handleize }}/#url">
+		<a class="list-group-item" href="?">
 			<span class="list-group-text">Work messages</span>
 
 			<span class="list-group-element">
@@ -32,7 +32,7 @@ svg: false
 		</a>
 	</li>
 	<li>
-		<a class="list-group-item" href="{{ page.title | handleize }}/#url">
+		<a class="list-group-item" href="?">
 			<span class="list-group-text">Deleted messages</span>
 
 			<span class="list-group-element">

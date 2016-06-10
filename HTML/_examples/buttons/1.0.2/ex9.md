@@ -45,11 +45,11 @@ padding: "0 0 250px 0"
 	</button>
 	<ul class="dropdown-menu js-button-dropdownbody" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
 		<li class="dropdown-menu-headline">Headline</li>
-		<li><a href="{{ page.title | handleize }}/#url">Action 1</a></li>
-		<li><a href="{{ page.title | handleize }}/#url">Another action</a></li>
+		<li><a href="?">Action 1</a></li>
+		<li><a href="?">Another action</a></li>
 		<li class="dropdown-menu-headline dropdown-menu-divider">Headline 2</li>
-		<li><a href="{{ page.title | handleize }}/#url">Action 3</a></li>
-		<li><a href="{{ page.title | handleize }}/#url">Last action</a></li>
+		<li><a href="?">Action 3</a></li>
+		<li><a href="?">Last action</a></li>
 	</ul>
 </div>
 
@@ -61,10 +61,10 @@ padding: "0 0 250px 0"
 	</button>
 	<ul class="dropdown-menu js-button-dropdownbody" role="menu" aria-label="Hit the Esc key to close dropdown" tabindex="-1">
 		<li class="dropdown-menu-headline">Headline</li>
-		<li><a href="{{ page.title | handleize }}/#url">Action 1</a></li>
-		<li><a href="{{ page.title | handleize }}/#url">Another action</a></li>
+		<li><a href="?">Action 1</a></li>
+		<li><a href="?">Another action</a></li>
 		<li class="dropdown-menu-headline dropdown-menu-divider">Headline 2</li>
-		<li><a href="{{ page.title | handleize }}/#url">Action 3</a></li>
-		<li><a href="{{ page.title | handleize }}/#url">Last action</a></li>
+		<li><a href="?">Action 3</a></li>
+		<li><a href="?">Last action</a></li>
 	</ul>
 </div>

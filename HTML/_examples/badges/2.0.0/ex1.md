@@ -13,7 +13,7 @@ svg: false
 
 <hr>
 
-<a href="{{ page.title | handleize }}/#url">
+<a href="?">
 	Inbox
 	<span class="badge">
 		<span class="badge-text">42</span>
