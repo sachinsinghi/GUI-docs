@@ -6,16 +6,19 @@
 
 {% comment %} TITLE {% endcomment %}
 {% capture title %}
-	Headings
+	Display styles
 {% endcapture %}
 
 
 {% comment %} DESCRIPTION {% endcomment %}
 {% capture description %}
-	All HTML headings, are available. H1 through to h6 classes are available and should be used instead of hardcoded headline tags. This enables you to use the
-	styling but keep the accessibility order of headlines to the information structure of your page.
-	The default spacing used in these headings may not be suitable in all cases. Use the margin classes to adjust spacing above
-	and below headings.
+	This is a group of potential heading styles. These styles establlish a visual hierachy for a project.
+</p>
+<p class="example-description">
+	Designers can adjust these classes to suit their needs providing they stay within the range of fonts, weights, colors and sizes described in the fonts core module.
+</p>
+<p class="example-description">
+	Classes should always be used instead of hardcoded headline tags. This gives us flexible styling options while maintaining a semantic and accessible order of headlines.
 {% endcapture %}
 
 
@@ -59,14 +62,36 @@
 
 {% comment %} HTML TAB {% endcomment %}
 {% capture HTML %}
-<span class="h1 body-font">YOUR NON-SEMANTIC HEADLINE IN A SPAN</span>
+<span class="h1">YOUR NON-SEMANTIC HEADLINE IN A SPAN</span>
 
-<h3 class="h4">YOUR HEADLINE STYLED AS H4</h3>
+<h3 class="h4">YOUR SEMANTIC HEADLINE STYLED AS H4</h3>
 {% endcapture %}
 
 
 {% comment %} CSS TAB {% endcomment %}
 {% capture CSS %}
+	Modifier classes:
+
+	<ul>
+		<li>
+			<code class="classes">h1</code>
+		</li>
+		<li>
+			<code class="classes">h2</code>
+		</li>
+		<li>
+			<code class="classes">h3</code>
+		</li>
+		<li>
+			<code class="classes">h4</code>
+		</li>
+		<li>
+			<code class="classes">h5</code>
+		</li>
+		<li>
+			<code class="classes">h6</code>
+		</li>
+	</ul>
 {% endcapture %}
 
 

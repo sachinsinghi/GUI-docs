@@ -6,8 +6,14 @@ js: false
 svg: false
 ---
 
-<h1 class="body-font text-primary" style="font-weight:700;">I’m your body font bold</h1>
+<div>
+	<snap>Sans serif system font</span>
 
-<h1 class="body-font text-primary" style="font-weight:400;">I’m your body font regular</h1>
-
-<h1 class="body-font text-primary" style="font-weight:300;">I’m your body font light</h1>
+	<p>
+		<span style="font-size:42px;" class="body-font">
+			ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
+			abcdefghijklmnopqrstuvwxyz<br>
+			0123456789
+		</span>
+	</p>
+</div>

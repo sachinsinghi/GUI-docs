@@ -7,38 +7,32 @@ svg: false
 ---
 
 <div>
-	{% if page.brand == 'BOM' %}
-		<h1 class="text-primary" style="font-weight:500;">I&rsquo;m your brand font medium</h1>
+	<span>
+		{% if page.brand == 'BOM' %}
+			Stag
+		{% endif %}
+		{% if page.brand == 'BSA' %}
+			Sans serif system font
+		{% endif %}
+		{% if page.brand == 'STG' %}
+			Dragon Bold
+		{% endif %}
+		{% if page.brand == 'WBC' %}
+			Times New Roman
+		{% endif %}
+		{% if page.brand == 'WBG' %}
+			Times New Roman
+		{% endif %}
+		{% if page.brand == 'BT' %}
+			Sans serif system font
+		{% endif %}
+	</span>
 
-		<h1 class="text-primary" style="font-weight:300;">I&rsquo;m your brand font light</h1>
-	{% endif %}
-	{% if page.brand == 'BSA' %}
-		<h1 class="text-primary" style="font-weight:700;">I&rsquo;m your brand font bold</h1>
-
-		<h1 class="text-primary" style="font-weight:400;">I&rsquo;m your brand font regular</h1>
-
-		<h1 class="text-primary" style="font-weight:300;">I&rsquo;m your brand font light</h1>
-	{% endif %}
-	{% if page.brand == 'STG' %}
-		<h1 class="text-primary" style="font-weight:400;">I&rsquo;m your brand font</h1>
-	{% endif %}
-	{% if page.brand == 'WBC' %}
-		<h1 class="text-primary" style="font-weight:700;">I&rsquo;m your brand font bold</h1>
-
-		<h1 class="text-primary" style="font-weight:400;">I&rsquo;m your brand font regular</h1>
-	{% endif %}
-	{% if page.brand == 'WBG' %}
-		<h1 class="text-primary" style="font-weight:700;">I&rsquo;m your brand font bold</h1>
-
-		<h1 class="text-primary" style="font-weight:400;">I&rsquo;m your brand font regular</h1>
-	{% endif %}
-	{% if page.brand == 'BT' %}
-		<h1 class="text-primary" style="font-weight:300;">I&rsquo;m your brand font light</h1>
-
-		<h1 class="text-primary" style="font-weight:400;">I&rsquo;m your brand font regular</h1>
-
-		<h1 class="text-primary" style="font-weight:500;">I&rsquo;m your brand font medium</h1>
-
-		<h1 class="text-primary" style="font-weight:700;">I&rsquo;m your brand font bold</h1>
-	{% endif %}
+	<p>
+		<span style="font-size:42px;" class="brand-font">
+			ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
+			abcdefghijklmnopqrstuvwxyz<br>
+			0123456789
+		</span>
+	</p>
 </div>
