@@ -7,13 +7,27 @@ svg: false
 ---
 
 <div>
-	{% if page.brand == 'BT' %}
-		<h1 class="brand-font">I’m a Heading using the pull quote font</h1>
+	<p>Sans serif system font</p>
 
-		<h1 class="body-font">I’m a Heading using the body font</h1>
-	{% else %}
-		<h1 class="brand-font">I’m a Heading using the brand font</h1>
-
-		<h1 class="body-font">I’m a Heading using the body font</h1>
-	{% endif %}
+	<p>
+		<span style="font-size:42px;">Type size: <strong>42px</strong></span>
+	</p>
+	<p>
+		<span style="font-size:36px;">Type size: <strong>36px</strong></span>
+	</p>
+	<p>
+		<span style="font-size:30px;">Type size: <strong>30px</strong></span>
+	</p>
+	<p>
+		<span style="font-size:24px;">Type size: <strong>24px</strong></span>
+	</p>
+	<p>
+		<span style="font-size:18px;">Type size: <strong>18px</strong></span>
+	</p>
+	<p>
+		<span style="font-size:16px;">Type size: <strong>16px</strong></span>
+	</p>
+	<p>
+		<span style="font-size:14px;">Type size: <strong>14px</strong></span>
+	</p>
 </div>

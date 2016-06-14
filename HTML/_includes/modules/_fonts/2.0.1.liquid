@@ -13,9 +13,12 @@
 {% comment %} DESCRIPTION {% endcomment %}
 {% capture description %}
 	Each brand has a display font typically used for headlines and marketing messages etc. These may come in several weights. If the brand font is a web font
-	(not a system font) then it should be self-hosted and implemented using the @fontface declaration. Suitable fallbacks should also be declared in the font
+	(not a system font) then it should be self hosted and implemented using the @fontface declaration. Suitable fallbacks should also be declared in the font
 	stack.<br>
-	<strong>Never use a web font without prior confirmation that you have the correct licence agreement in place.</strong>
+	<strong>Never use a web font without con mation that you have the correct licence agreement in place.</strong>
+</p>
+<p class="example-description">
+	<a href="https://gel.westpacgroup.com.au/resources/design/typography/">Read more about the typography system</a>
 {% endcapture %}
 
 
@@ -47,6 +50,13 @@
 
 {% comment %} CSS TAB {% endcomment %}
 {% capture CSS %}
+	Modifier class:
+
+	<ul>
+		<li>
+			<code class="classes">brand-font</code>
+		</li>
+	</ul>
 {% endcapture %}
 
 
@@ -85,10 +95,13 @@
 
 {% comment %} DESCRIPTION {% endcomment %}
 {% capture description %}
-	Each brand has a body font typically used for editorial and user interface elements. The body font comes in several weights. If the body font is a web font
-	(not a system font) then it should be self hosted and implemented using the @fontface declaration. Suitable fallbacks should also be declared in the font
-	stack.<br>
-	<strong>Never use a web font without prior confirmation that you have the correct licence agreement in place.</strong>
+	Each brand has a body font typically used for editorial and user interface elements. The body font comes in several weights. If the body font is a web
+	font (not a system font) then it should be self hosted and implemented using the @fontface declaration. Suitable fallbacks should also be declared in the
+	font stack.<br>
+	<strong>Never use a web font without con mation that you have the correct licence agreement in place.</strong>
+</p>
+<p class="example-description">
+	<a href="https://gel.westpacgroup.com.au/resources/design/typography/">Read more about the typography system</a>
 {% endcapture %}
 
 
@@ -146,14 +159,17 @@
 
 {% comment %} TITLE {% endcomment %}
 {% capture title %}
-	Font usage
+	Typographic scale
 {% endcapture %}
 
 
 {% comment %} DESCRIPTION {% endcomment %}
 {% capture description %}
-	The brand or body font can be applied to any text using a simple class declaration. Refer to the digital brand guidelines regarding the use of typography.<br>
-	<strong>Never use a web font without prior confirmation that you have the correct licence agreement in place.</strong>
+	Our typographic scale has a limited set of type sizes that work together and help maintain a consistent type scale across all digital touch- points.
+	Designers can use these sizes as they see  t however there are a few practical rules around the use of type sizes.
+</p>
+<p class="example-description">
+	<a href="https://gel.westpacgroup.com.au/resources/design/typography/">Read more about the typography system</a>
 {% endcapture %}
 
 
@@ -167,32 +183,76 @@
 
 
 {% comment %} HTML TAB {% endcomment %}
-{% capture HTML %}
-<h1 class="brand-font">I’m a Heading using the brand font</h1>
-
-<h1 class="body-font">I’m a Heading using the body font</h1>
-{% endcapture %}
+{% capture HTML %}{% endcapture %}
 
 
 {% comment %} CSS TAB {% endcomment %}
-{% capture CSS %}
-	Modifier classes:
-
-	<ul>
-		<li>
-			<code class="classes">brand-font</code>
-		</li>
-		<li>
-			<code class="classes">body-font</code>
-		</li>
-	</ul>
-{% endcapture %}
+{% capture CSS %}{% endcapture %}
 
 
 {% comment %} LESS TAB {% endcomment %}
-{% capture LESS %}
-	{{ LESS }}
+{% capture LESS %}{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
 {% endcapture %}
+
+
+{% include showExample.liquid  controls = false %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+
+
+
+
+
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Font weights
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	The typography system uses numerical values
+	to assign different font weights rather than specifying the physical name or weight of the font. For example, assigning a value of 300 to the font weight
+	property will display the light weight (providing It&rsquo;s available). Unavailable weights display the logically closest weight. Font weights should always
+	be used in alignment with the GUI and the digital brand guidelines.<br>
+	<strong>Note: Do not use 300 (light) on text sizes below 18px or your text may fall out of an accessible colour contrast range.</strong>
+</p>
+<p class="example-description">
+	<a href="https://gel.westpacgroup.com.au/resources/design/typography/">Read more about the typography system</a>
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% assign example = "ex4" %}
+
+
+{% comment %} HTML TAB {% endcomment %}
+{% capture HTML %}{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}{% endcapture %}
 
 
 {% comment %} JS TAB {% endcomment %}
