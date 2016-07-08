@@ -177,7 +177,7 @@ var SETTINGS = function() {
 			'OnlineGUIjson': 'https://raw.githubusercontent.com/WestpacCXTeam/GUI-source/master/GUI.json',
 		},
 
-		'devBrand': 'WBG',
+		'devBrand': 'WBC',
 	};
 };
 
@@ -1377,11 +1377,13 @@ module.exports = function(grunt) {
 			options: {
 				space: false,
 				maxLength: 11,
-				colors: ['white', 'gray'],
+				font: 'chrome',
+				align: 'center',
+				colors: ['cyan', 'gray'],
 			},
 
 			title: {
-				text: '| GUI docs|     <%= SETTINGS.devBrand %>',
+				text: '|GUI docs|<%= SETTINGS.devBrand %>',
 			},
 
 			updating: {
