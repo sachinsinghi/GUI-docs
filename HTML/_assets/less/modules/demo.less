@@ -7,6 +7,17 @@
 }
 
 .demo-resizer {
+	.is-opening:not(.is-open) & {
+		&.is-free {
+			transition: width 0.3s ease;
+			padding: 0 12px;
+
+			@media (min-width: @screen-md) {
+				padding: 0 48px;
+			}
+		}
+	}
+
 	.is-open & {
 		width: 100%;
 		margin: 0 auto;
@@ -30,6 +41,7 @@
 		}
 
 		&.is-free {
+			transition: width 0.3s ease, padding 0.3s ease;
 			padding: 0 12px;
 
 			@media (min-width: @screen-md) {

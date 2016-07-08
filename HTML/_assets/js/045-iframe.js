@@ -72,6 +72,7 @@
 					if( _isOpen ) { //CLOSING
 						$iframedemow.removeClass('is-open is-opening');
 
+						$('.js-demo-resizer').removeClass('is-xs is-sm is-md is-lg').addClass('is-free');
 						$('.js-body').removeClass('has-demo');
 						$('.iframedemo-ani').remove();
 
@@ -227,6 +228,8 @@
 			}).keyup('.js-iframedemo', function(e) { //listen to the excape key
 				if(e.keyCode == 27) {
 					App.debugging( 'iFrame: Esc buttons clicked', 'interaction' );
+
+					$('.js-demo-resizer').removeClass('is-xs is-sm is-md is-lg').addClass('is-free');
 
 					$('.js-iframedemo-wrapper').removeClass('is-open is-opening');
 					$('.js-body').removeClass('has-demo');
