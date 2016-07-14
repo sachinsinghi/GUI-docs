@@ -22,7 +22,10 @@
 		width: 100%;
 		margin: 0 auto;
 		padding: 0;
-		transition: width 0.3s ease, padding 0.3s ease;
+
+		&.has-transition {
+			transition: width 0.3s ease, padding 0.3s ease;
+		}
 
 		&.is-xs {
 			width: 320px;
@@ -41,7 +44,6 @@
 		}
 
 		&.is-free {
-			transition: width 0.3s ease, padding 0.3s ease;
 			padding: 0 12px;
 
 			@media (min-width: @screen-md) {
@@ -175,7 +177,7 @@
 		opacity: 0.3;
 		overflow: hidden;
 		text-indent: 99999em;
-		transition: opacity 0.3s ease;
+		transition: opacity 0.2s ease;
 
 		&.sitesymbol-device-phone {
 			width: 18px;

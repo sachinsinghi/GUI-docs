@@ -73,40 +73,46 @@
 						$iframedemow.removeClass('is-open is-opening');
 
 						$('.js-demo-resizer').removeClass('is-xs is-sm is-md is-lg').addClass('is-free');
+						$('.js-demo-btn').prop('checked', false);
 						$('.js-body').removeClass('has-demo');
+						$('.js-demo-resizer').removeClass('has-transition');
 						$('.iframedemo-ani').remove();
 
 						$iframedemo.untrap();
 					}
 					else { //OPENING
-						var X = $iframedemow.offset().left; //we flip the animation
-						var Y = $iframedemow.offset().top - $(window).scrollTop();
+						var left = Math.floor( $iframedemow.offset().left ); //we flip the animation
+						var top = Math.floor( $iframedemow.offset().top - $(window).scrollTop() );
 
 						$iframedemow.addClass('is-opening'); //set iframe to opacity 0 and add transition
 
-						$ani.css({ //FLIP animation
-							transform: 'translateX(' + X + 'px) translateY(' + Y + 'px)',
-							clip: 'rect(0, ' + width + 'px, ' + height + 'px, 0)',
+						$ani.css({
+							top: top,
+							width: width,
+							height: height,
+							left: left,
 						});
 
 						$iframedemow.after( $ani ); //insert animmation div
 
-						var $ani = $('.iframedemo-ani'); //cache reuse
+						$('.iframedemo-ani').animate(
+							{
+								top: 0,
+								width: $(window).width(),
+								height: $(window).height(),
+								left: 0,
+							},
+							300,
+							function() {
+								App.debugging( 'iFrame: animation ended', 'report' ); //trigger after animation div tranition is done
 
-						$ani.css('width'); //resetting layout engine
-
-						$ani
-							.addClass('is-opening')
-							.one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function() {
-								App.debugging( 'iFrame: transition end found', 'report' ); //trigger after animation div tranition is done
-
-								if( !$iframedemow.hasClass('is-open') ) { //the event is triggered multiple times if we transition on multiple atributes
-									$iframedemo.trap();
-									$iframedemo.focus(); //move the focus into the popup
-								}
-
+								$iframedemo.trap();
+								$iframedemo.focus(); //move the focus into the popup
 								$iframedemow.addClass('is-open'); //now show iframe div
-							});
+								$('.js-demo-resizer').width();
+								$('.js-demo-resizer').addClass('has-transition');
+							}
+						);
 
 						$('.js-body').addClass('has-demo'); //prevent body from scrolling now
 					}

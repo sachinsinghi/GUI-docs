@@ -61,16 +61,6 @@
 
 .iframedemo-ani {
 	position: fixed;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
 	z-index: 99;
 	background-color: #fff;
-	transition: transform 0.3s ease, clip 0.3s ease;
-
-	&.is-opening {
-		transform: translateX(0) translateY(0) !important;
-		clip: rect(0, 100vw, 100vh, 0) !important;
-	}
 }
