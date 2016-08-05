@@ -639,8 +639,9 @@ module.exports = function(grunt) {
 
 
 								//////////////////////////////////////| CONCAT JS
-								concatFiles['<%= SETTINGS.folder.prod %>/' + brand + '/examples/' + module + '/' + version + '/assets/js/example.min.js'] =
-									['<%= SETTINGS.folder.examples %>/' + module + '/' + version + '/_assets/js/*.js'];
+								concatFiles['<%= SETTINGS.folder.prod %>/' + brand + '/examples/' + module + '/' + version + '/assets/js/example.min.js'] = [
+									'<%= SETTINGS.folder.examples %>/' + module + '/' + version + '/_assets/js/*.js',
+								];
 
 
 								//////////////////////////////////////| COMPILE LESS
@@ -1421,6 +1422,7 @@ module.exports = function(grunt) {
 				],
 				tasks: [
 					'_js',
+					'replace:debugDev',
 					'jekyll:dev',
 					'wakeup',
 				],
@@ -1432,6 +1434,7 @@ module.exports = function(grunt) {
 				],
 				tasks: [
 					'_less',
+					'replace:debugDev',
 					'jekyll:dev',
 					'wakeup',
 				],
@@ -1443,6 +1446,7 @@ module.exports = function(grunt) {
 				],
 				tasks: [
 					'_svg',
+					'replace:debugDev',
 					'jekyll:dev',
 					'wakeup',
 				],
@@ -1459,6 +1463,8 @@ module.exports = function(grunt) {
 				],
 				tasks: [
 					'_html',
+					'replace:debugDev',
+					'replace:jekyll',
 					'jekyll:dev',
 					'wakeup',
 				],

@@ -1,66 +1,50 @@
-.iframedemo-ani,
-.iframedemo-wrapper {
-	position: relative;
-}
+// .iframedemo-ani,
+// .iframedemo-wrapper {
+// 	position: relative;
+// }
 
 .iframedemo-btn {
 	position: absolute;
 	z-index: 10;
 	right: 6px;
-	top: 0;
-
-	.iframedemo-btn-close {
-		display: none;
-
-		.is-open & {
-			display: block;
-		}
-	}
-
-	.iframedemo-btn-open {
-		display: block;
-
-		.is-open & {
-			display: none;
-		}
-	}
+	top: 6px;
 }
 
-.iframedemo {
-	position: relative;
-	background-color: @color-Background;
+// .iframedemo {
+// 	position: relative;
+// 	background-color: #000;
 
-	&:focus {
-		.outline();
-	}
+// 	&:focus {
+// 		.outline();
+// 	}
 
-	.is-opening & {
-		opacity: 0;
-		transition: opacity 0.3s ease;
-	}
+// 	.is-opening & {
+// 		opacity: 0;
+// 		transition: opacity 0.3s ease;
+// 	}
 
-	.is-open & {
-		position: fixed;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		z-index: 100;
-		opacity: 1;
-		padding: 0 12px;
+// 	.is-open & {
+// 		position: fixed;
+// 		top: 0;
+// 		bottom: 0;
+// 		left: 0;
+// 		right: 0;
+// 		z-index: 100;
+// 		opacity: 1;
+// 		padding: 0 12px;
 
-		@media (min-width: @screen-md) {
-			padding: 0 48px;
-		}
-	}
-}
+// 		@media (min-width: @screen-sm) {
+// 			padding: 0 42px;
+// 		}
+// 	}
+// }
 
-.has-demo {
-	overflow: hidden
-}
+// .has-demo {
+// 	overflow: hidden
+// }
 
-.iframedemo-ani {
-	position: fixed;
-	z-index: 99;
-	background-color: #fff;
-}
+// .iframedemo-ani {
+// 	position: fixed;
+// 	z-index: 99;
+// 	background-color: #fff;
+// }

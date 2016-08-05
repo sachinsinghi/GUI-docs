@@ -53,6 +53,12 @@
 		}
 	}
 
+	.is-open .example-box {
+		background-color: transparent;
+		padding: 0;
+		min-height: 0;
+	}
+
 	.example-tabs-wrapper {
 		font-size: 0;
 		overflow: auto;
@@ -191,4 +197,37 @@ hr {
 	border: 0 none;
 	border-top: 1px solid #d2d5d8;
 	margin: 24px 0;
+}
+
+.example .example-box {
+	// &.has-buttons {
+	// 	padding-top: 52px;
+	// }
+
+	.example-box-iframe {
+		box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0);
+		transition: width 0.3s ease, box-shadow 0.5s ease;
+		display: block;
+		margin: 0 auto;
+
+		&.iframe-xs {
+			width: 320px;
+			box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.3);
+		}
+
+		&.iframe-sm {
+			width: @screen-sm;
+			box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.3);
+		}
+
+		&.iframe-md {
+			width: @screen-md;
+			box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.3);
+		}
+
+		&.iframe-lg {
+			width: @screen-lg;
+			box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.3);
+		}
+	}
 }

@@ -19,10 +19,10 @@
 	<title>GUI example page</title>
 
 {% comment %}
-	GET RELATIVE URL
+	GET ABSOLUTE URL AS RELATIVE WON'T WORK FOR GRUNTICON
 {% endcomment %}
 {% assign pageURLs = page.url | split: '/' %}
-{% assign pageSize = pageURLs.size | minus: 1 %}
+{% assign pageSize = pageURLs.size | minus: 2 %}
 {% for pageURL in pageURLs %}
 	{% unless forloop.index > pageSize or pageURL == '' %}
 		{% capture URL %}{{ URL }}/{{ pageURL }}{% endcapture %}

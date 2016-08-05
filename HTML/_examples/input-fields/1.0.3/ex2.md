@@ -1,5 +1,6 @@
 ---
-layout: examples
+layout: [example, demo]
+permalink: ":layout/"
 weight: "-0"
 brand: [Brand]
 js: false

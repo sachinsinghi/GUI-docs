@@ -42,18 +42,31 @@
 	{% capture relativePath %}../{{ relativePath }}{% endcapture %}
 {% endfor %}
 
-{% capture iFrameURL %}{{ relativePath }}{{ Brand }}/examples/{{ ID }}/{{ thisVersion }}/{{ example }}/?v=[Version]{% endcapture %}
+{% capture iFrameURL %}{{ relativePath }}{{ Brand }}/examples/{{ ID }}/{{ thisVersion }}/{{ example }}/example/?v=[Version]{% endcapture %}
+{% capture demoURL %}{{ relativePath }}{{ Brand }}/examples/{{ ID }}/{{ thisVersion }}/{{ example }}/demo/?v=[Version]{% endcapture %}
 
 
 {% if _isiFrame %}
 	{% if thisVersion == lastVersion %}
 		{% capture iFrame %}
+			{% if _hasControls %}
+				<a href="{{ demoURL }}" class="iframedemo-btn" target="_blank">
+					Demo
+					<span class="icon icon-size-sm icon-close"></span>
+				</a>
+			{% endif %}
 			<iframe class="example-box-iframe js-iframe{% if _hasControls %}
 				js-iframe-controls
 			{% endif %}" src="{{ iFrameURL }}"></iframe>
 		{% endcapture %}
 	{% else %}
 		{% capture iFrame %}
+			{% if _hasControls %}
+				<a href="{{ demoURL }}" class="iframedemo-btn" target="_blank">
+					Demo
+					<span class="icon icon-size-sm icon-close"></span>
+				</a>
+			{% endif %}
 			<a class="example-box-iframelink js-iframelink{% if _hasControls %}
 				js-iframe-controls
 			{% endif %}" href="{{ iFrameURL }}" target="_blank">

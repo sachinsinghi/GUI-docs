@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<!--[if lt IE 8]>
+	<html class="no-js lt-ie8 lt-ie9" lang="en">
+<![endif]-->
+<!--[if IE 8]>
+	<html class="no-js lt-ie9 ie8" lang="en">
+<![endif]-->
+<!--[if IE 9 ]>
+	<html class="no-js ie9" lang="en">
+<![endif]-->
+<!--[if !(IE)]><!-->
+	<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+
+	<title>GUI example page</title>
+
+{% comment %}
+	GET ABSOLUTE URL AS RELATIVE WON'T WORK FOR GRUNTICON
+{% endcomment %}
+{% assign pageURLs = page.url | split: '/' %}
+{% assign pageSize = pageURLs.size | minus: 2 %}
+{% for pageURL in pageURLs %}
+	{% unless forloop.index > pageSize or pageURL == '' %}
+		{% capture URL %}{{ URL }}/{{ pageURL }}{% endcapture %}
+	{% endunless %}
+{% endfor %}
+
+{% if "[Debug]" == "true" %}
+{% else %}
+	{% capture URL %}/GUI{{ URL }}{% endcapture %}
+{% endif %}
+
+{% if page.svg == true %}
+	<script>
+		/*! grunt-grunticon Stylesheet Loader - v2.1.7 | https://github.com/filamentgroup/grunticon | (c) 2015 Scott Jehl, Filament Group, Inc. | MIT license. */
+		(function(e){function n(n,t,o,a){"use strict";var i=e.document.createElement("link"),r=t||e.document.getElementsByTagName("script")[0],d=e.document.styleSheets;return i.rel="stylesheet",i.href=n,i.media="only x",a&&(i.onload=a),r.parentNode.insertBefore(i,r),i.onloadcssdefined=function(e){for(var t,o=0;d.length>o;o++)d[o].href&&d[o].href.indexOf(n)>-1&&(t=!0);t?e():setTimeout(function(){i.onloadcssdefined(e)})},i.onloadcssdefined(function(){i.media=o||"all"}),i}function t(e,n){e.onload=function(){e.onload=null,n&&n.call(e)},"isApplicationInstalled"in navigator&&"onloadcssdefined"in e&&e.onloadcssdefined(n)}var o=function(a,i){"use strict";if(a&&3===a.length){var r=e.Image,d=!(!document.createElementNS||!document.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect||!document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Image","1.1")||e.opera&&-1===navigator.userAgent.indexOf("Chrome")||-1!==navigator.userAgent.indexOf("Series40")),c=new r;c.onerror=function(){o.method="png",o.href=a[2],n(a[2])},c.onload=function(){var e=1===c.width&&1===c.height,r=a[e&&d?0:e?1:2];o.method=e&&d?"svg":e?"datapng":"png",o.href=r,t(n(r),i)},c.src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==",document.documentElement.className+=" grunticon"}};o.loadCSS=n,o.onloadCSS=t,e.grunticon=o})(this);(function(e,n){"use strict";var t=n.document,o="grunticon:",r=function(e){if(t.attachEvent?"complete"===t.readyState:"loading"!==t.readyState)e();else{var n=!1;t.addEventListener("readystatechange",function(){n||(n=!0,e())},!1)}},a=function(e){return n.document.querySelector('link[href$="'+e+'"]')},i=function(e){var n,t,r,a,i,c,s={};if(n=e.sheet,!n)return s;t=n.cssRules?n.cssRules:n.rules;for(var d=0;t.length>d;d++)r=t[d].cssText,a=o+t[d].selectorText,i=r.split(");")[0].match(/US\-ASCII\,([^"']+)/),i&&i[1]&&(c=decodeURIComponent(i[1]),s[a]=c);return s},c=function(e){var n,r,a,i;a="data-grunticon-embed";for(var c in e){i=c.slice(o.length);try{n=t.querySelectorAll(i)}catch(s){continue}r=[];for(var d=0;n.length>d;d++)null!==n[d].getAttribute(a)&&r.push(n[d]);if(r.length)for(d=0;r.length>d;d++)r[d].innerHTML=e[c],r[d].style.backgroundImage="none",r[d].removeAttribute(a)}return r},s=function(n){"svg"===e.method&&r(function(){c(i(a(e.href))),"function"==typeof n&&n()})};e.embedIcons=c,e.getCSS=a,e.getIcons=i,e.ready=r,e.svgLoadedCallback=s,e.embedSVG=s})(grunticon,this);
+		grunticon(["{{ URL }}/assets/css/symbols.data.svg.css", "{{ URL }}/assets/css/symbols.data.png.css", "{{ URL }}/assets/css/symbols.fallback.css"], grunticon.svgLoadedCallback);
+	</script>
+	<noscript><link href="{{ URL }}/assets/css/symbols.fallback.css" rel="stylesheet"></noscript>
+{% endif %}
+
+	<script type="text/javascript">
+		var $html=document.documentElement;if($html.classList)$html.classList.remove("no-js"),$html.classList.add("js");else{var className="no-js";$html.className=$html.className.replace(new RegExp("(^|\\b)"+className.split(" ").join("|")+"(\\b|$)","gi")," "),$html.className+=" js"}
+	</script>
+
+	<link rel="stylesheet" href="{{ URL }}/assets/css/example.min.css">
+
+</head>
+<body class="demopage {% if page.fullscreen == true %} fullscreen{% endif %}">
+{% if page.js == true %}
+	<noscript>
+		<p role="alert">This website needs JavaScript to work properly.</p>
+	</noscript>
+{% endif %}
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-12">
+
+				<div class="row">
+					<div class="col-xs-8">
+						<h1 class="demopage-headline">
+							<small>Responsive</small>
+							Demo
+						</h1>
+					</div>
+					<div class="col-xs-4 logo-wrapper">
+						<a href="https://gel.westpacgroup.com.au/">
+							<svg class="logo" aria-labelledby="title-logo" version="1.1" xmlns="http://www.w3.org/2000/svg"
+								xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="60px" height="60px" viewBox="0 0 60 60" enable-background="new 0 0 60 60"
+								xml:space="preserve">
+							<title id="title-logo" lang="en">GEL logo</title>
+
+							<path fill="#c80038" d="M27.8,0c-3.6,0.3-6.9,1.2-10,2.8C11.1,6.3,6.2,12.6,4.3,19.9c-0.6,2.3-0.7,3.8-0.7,6.3s0.2,4,0.7,6.3
+								c2.3,9.4,9.8,16.9,19.2,19.2c1.7,0.4,3.4,0.7,5.3,0.8l1,0v3.7c0,2,0,3.7,0,3.7c0.1,0,4-2,5-2.6c2.9-1.6,5.8-3.5,8.1-5.3
+								c1.9-1.5,4.2-3.7,5.5-5.3c4.3-5.1,6.7-10.7,7.4-17.2c0.2-1.5,0.2-4.8,0-6.1c-0.8-6.2-3.3-11.4-7.5-15.7c-4.2-4.3-9.6-6.9-15.7-7.6
+								C31.7,0,28.8,0,27.8,0z M19.8,18.9c1.4,0.3,2.6,0.9,3.5,1.7c0.9,0.8,1.6,2.2,1.7,3.6l0,0.4h-2.2h-2.2l-0.1-0.2
+								c0-0.1-0.1-0.3-0.1-0.3c0,0-0.1-0.2-0.2-0.4c-0.4-0.9-1.3-1.3-2.5-1.3c-1,0-1.8,0.3-2.5,1c-0.7,0.7-1,1.5-1.1,2.9
+								c-0.1,0.8,0,2,0.2,2.7c0.5,1.8,1.8,2.8,3.8,2.7c1.2-0.1,2.1-0.5,2.5-1.3c0.1-0.2,0.3-0.9,0.3-1.1c0,0-0.7,0-1.5,0h-1.5v-1.6V26h3.7
+								h3.7v1.2c0,1.9-0.2,2.7-0.7,3.9c-0.9,2-2.6,3.2-5.1,3.7c-0.9,0.2-3,0.2-4,0c-3.3-0.7-5.4-2.7-6-5.9c-0.2-0.8-0.2-2.3-0.1-3.2
+								c0.4-3.8,3.2-6.4,7.2-7C17.2,18.7,19.2,18.8,19.8,18.9z M37.8,20.7l0,1.7l-3.2,0l-3.2,0v1.3v1.3h2.6h2.6v1.6v1.6h-2.6h-2.6v1.4v1.4
+								h3.4h3.4V33v1.7h-5.7h-5.7v-7.9V19h5.5h5.5L37.8,20.7z M44.1,25.1v6.1h3h3V33v1.7h-5.3h-5.3v-7.9V19h2.3h2.3V25.1z"/>
+							</svg>
+						</a>
+					</div>
+				</div>
+
+				<div class="demopage-header">
+					<div class="demopage-gridly">
+						<div class="row">
+							<div class="col-xs-1"><div class="demopage-gridy-block"></div></div>
+							<div class="col-xs-1"><div class="demopage-gridy-block"></div></div>
+							<div class="col-xs-1"><div class="demopage-gridy-block"></div></div>
+							<div class="col-xs-1"><div class="demopage-gridy-block"></div></div>
+							<div class="col-xs-1"><div class="demopage-gridy-block"></div></div>
+							<div class="col-xs-1"><div class="demopage-gridy-block"></div></div>
+							<div class="col-xs-1"><div class="demopage-gridy-block"></div></div>
+							<div class="col-xs-1"><div class="demopage-gridy-block"></div></div>
+							<div class="col-xs-1"><div class="demopage-gridy-block"></div></div>
+							<div class="col-xs-1"><div class="demopage-gridy-block"></div></div>
+							<div class="col-xs-1"><div class="demopage-gridy-block"></div></div>
+							<div class="col-xs-1"><div class="demopage-gridy-block"></div></div>
+						</div>
+					</div>
+					<div class="demopage-buttons-wrapper">
+						<div class="row">
+							<div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1 demopage-buttons-line">
+								<div class="devices">
+									<svg class="device device-phone" aria-labelledby="title-device-phone" version="1.1" xmlns="http://www.w3.org/2000/svg"
+										xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="18px" height="32px" viewBox="0 0 18 32" enable-background="new 0 0 18 32"
+										xml:space="preserve">
+										<title id="title-device-phone" lang="en">Phone</title>
+
+										<path class="device-background" fill="#000" d="M16,0H2C0.9,0,0,0.9,0,2v28c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V2C18,0.9,17.1,0,16,0z M5,
+											1h8v1H5V1z M16,26 H2V3h14V26z M9,31c-1.1,0-2-0.9-2-2c0-1.1,0.9-2,2-2s2,0.9,2,2C11,30.1,10.1,31,9,31"/>
+									</svg>
+
+									<svg class="device device-fablet" aria-labelledby="title-device-fablet" version="1.1" xmlns="http://www.w3.org/2000/svg"
+										xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="22px" height="34px" viewBox="0 0 22 34" enable-background="new 0 0 22 34"
+										xml:space="preserve">
+										<title id="title-device-fablet" lang="en">Fablet</title>
+
+										<path class="icon-background" fill="#000" d="M20,0H2C0.9,0,0,0.9,0,2v30c0,1.1,0.9,2,2,2h18c1.1,0,2-0.9,2-2V2C22,0.9,21.1,0,20,0z M9,1h4v1H9V1z M9,32
+											H7v-1h2V32z M12,32h-2v-1h2V32z M15,32h-2v-1h2V32z M20,29H2V3h18V29z"/>
+									</svg>
+
+									<svg class="device device-tablet" aria-labelledby="title-device-tablet" version="1.1" xmlns="http://www.w3.org/2000/svg"
+										xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="36px" height="28px" viewBox="0 0 36 28" enable-background="new 0 0 36 28"
+										xml:space="preserve">
+										<title id="title-device-tablet" lang="en">Tablet</title>
+
+										<path class="device-background" fill="#000" d="M6,2h28v24H6V2z M1,14c0-1.1,0.9-2,2-2c1.1,0,2,0.9,2,2s-0.9,2-2,2C1.9,16,1,15.1,1,14 M36,
+											26V2 c0-2,0-2-2-2H2C0,0,0,0,0,2v24c0,2,0,2,2,2h32C36,28,36,28,36,26"/>
+									</svg>
+
+									<svg class="device device-computer" aria-labelledby="title-device-computer" version="1.1" xmlns="http://www.w3.org/2000/svg"
+										xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="34px" height="32px" viewBox="0 0 34 32" enable-background="new 0 0 34 32"
+										xml:space="preserve">
+										<title id="title-device-computer" lang="en">Computer</title>
+
+										<path class="device-background" fill="#000" d="M12,26l-1,4l-2,2h16l-2-2l-1-4H12z M2,2h30v20H2V2z M0,24h34V0H0V24z"/>
+									</svg>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				{{ content }}
+
+			</div>
+		</div>
+	</div>
+
+{% if page.js == true %}
+	<script src="{{ URL }}/assets/js/example.min.js"></script>
+{% endif %}
+</body>
+</html>
