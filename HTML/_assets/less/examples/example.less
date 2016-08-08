@@ -84,10 +84,23 @@ hr {
 
 .demopage {
 	background-color: @color-Background;
-	padding: 0;
+	margin: 0 -12px;
+	padding: 0 12px;
 
 	@media (min-width: @screen-sm) {
-		padding: 0 6%;
+		padding: 0 36px;
+	}
+
+	@media (min-width: @screen-md) {
+		padding: 0 48px;
+	}
+
+	@media (min-width: @screen-lg) {
+		padding: 0 60px;
+	}
+
+	.container-fluid {
+		max-width: 1524px;
 	}
 
 	hr {
@@ -145,8 +158,33 @@ hr {
 		right: 12px;
 
 		@media (min-width: @screen-sm) {
-			left: 7%;
-			right: 7%;
+			left: 36px;
+			right: 36px;
+		}
+
+		@media (min-width: @screen-md) {
+			left: 48px;
+			right: 48px;
+		}
+
+		@media (min-width: @screen-lg) {
+			left: 60px;
+			right: 60px;
+		}
+
+		@media (min-width: 1622px) {
+			left: 50%;
+			right: auto;
+			width: 1500px;
+			margin-left: -750px;
+		}
+
+		& > .row {
+			max-width: 1524px;
+
+			@media (min-width: @screen-sm) {
+				margin-left: 0 auto;
+			}
 		}
 
 		.row,
