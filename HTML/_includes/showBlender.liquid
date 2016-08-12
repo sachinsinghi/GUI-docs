@@ -151,15 +151,15 @@
 							</div>
 						</li>
 
-						{% comment %}<li class="blender-module row">
+						<li class="blender-module row">
 							<div class="col-sm-5 blender-module-text">
-								<label class="blender-module-label" for="includeBowie">
-									Call ground control for Major Tom?
+								<label class="blender-module-label" for="includePokemon">
+									Catch &rsquo;em all?
 								</label>
 							</div>
 							<div class="col-sm-7 text-right">
 								<label class="switch">
-									<input type="checkbox" class="switch-input js-blender-option" name="includeBowie" id="includeBowie">
+									<input type="checkbox" class="switch-input js-blender-option" name="includePokemon" id="includePokemon">
 
 									<span class="switch-text">
 										Turn this setting:
@@ -168,12 +168,13 @@
 									</span>
 								</label>
 							</div>
-						</li>{% endcomment %}
+						</li>
 
 						{% if "[Debug]" == "true" %}
 							includeBond: <input type="checkbox" name="includeBond"><br>
 							includeStarWars: <input type="checkbox" name="includeStarWars"><br>
 							includeBowie: <input type="checkbox" name="includeBowie"><br>
+							includePokemon: <input type="checkbox" name="includePokemon"><br>
 						{% endif %}
 					</ul>
 				</div>
