@@ -1068,12 +1068,29 @@ module.exports = function(grunt) {
 
 		GUIconfig.brands.forEach(function iterateBrands( brand ) { //iterate all brands
 			if( targetBrand === brand.ID || !targetBrand ) { //only show selected brand or everything if targetBrand is not defined
+				copy[ 'ImagesAll' + brand.ID ] = {
+					files: [{
+						cwd: '<%= SETTINGS.folder.img %>/all/',
+						src: [
+							'**/*.png',
+							'**/*.jpg',
+							'**/*.gif',
+						],
+						dest: '<%= SETTINGS.folder.prod %>/' + brand.ID + '/assets/img/',
+						filter: 'isFile',
+						expand: true,
+					}],
+				};
+
+				tasks.push( 'ImagesAll' + brand.ID );
+
 				copy[ 'Images' + brand.ID ] = {
 					files: [{
 						cwd: '<%= SETTINGS.folder.img %>/' + brand.ID + '/',
 						src: [
 							'**/*.png',
 							'**/*.jpg',
+							'**/*.gif',
 						],
 						dest: '<%= SETTINGS.folder.prod %>/' + brand.ID + '/assets/img/',
 						filter: 'isFile',
