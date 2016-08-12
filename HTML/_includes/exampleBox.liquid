@@ -106,16 +106,6 @@ allTabs: {{ allTabs }}<hr>{% endcomment %}
 
 
 {% comment %}
-	IF THE CONTROLS ARE SWITCHED ON, SHOW THE DEMO BUTTON
-{% endcomment %}
-{% if _hasControls %}
-	<a href="{{ demoURL }}" class="iframedemo-btn" target="_blank">
-		Demo<span class="icon icon-size-sm icon-new-window"></span>
-	</a>
-{% endif %}
-
-
-{% comment %}
 	IF THERE IS ONLY ONE TAB AND NO EXAMPLE SHOW THE TAB INSIDE THE BOX ALWAYS OPEN
 {% endcomment %}
 {% if allTabs == 1 or allTabs <= 1 and WHATSNEWHandle.size > 2 %}
@@ -133,6 +123,8 @@ allTabs: {{ allTabs }}<hr>{% endcomment %}
 	{% if allTabs == 1 %}
 		<div class="example-box{% if _isFullscreen %}
 			example-box-fullscreen
+		{% endif %}{% if _hasControls %}
+			has-buttons
 		{% endif %}">{{ BoxContent }}</div>
 	{% endif %}
 
@@ -174,6 +166,8 @@ allTabs: {{ allTabs }}<hr>{% endcomment %}
 		{% include makeiFrame.liquid  ex = example  fullscreen = _isFullscreen  controls = _hasControls %}
 		<div class="example-box{% if _isFullscreen %}
 			example-box-fullscreen
+		{% endif %}{% if _hasControls %}
+			has-buttons
 		{% endif %}">{{ iFrame }}</div>
 	{% endif %}
 

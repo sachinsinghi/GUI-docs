@@ -47,6 +47,20 @@
 
 
 {% if _isiFrame %}
+	{% comment %}
+		IF THE CONTROLS ARE SWITCHED ON, SHOW THE DEMO BUTTON
+	{% endcomment %}
+	{% if _hasControls %}
+
+		<a href="{{ demoURL }}" class="example-btn btn btn-sm btn-faint btn-soft" target="_blank">
+			<span class="btn-text">Demo</span>
+			<span class="btn-icon icon icon-size-sm icon-new-window"></span>
+		</a>
+	{% endif %}
+
+	{% comment %}
+		SHOW EITHER THE IFRAME OR A LINK TO THE IFRAME FOR LAZY LOADING
+	{% endcomment %}
 	{% if thisVersion == lastVersion %}
 		{% capture iFrame %}
 			<iframe class="example-box-iframe js-iframe{% if _hasControls %}

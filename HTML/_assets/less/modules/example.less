@@ -21,6 +21,10 @@
 		overflow: auto;
 		position: relative;
 
+		&.has-buttons {
+			padding-top: 64px;
+		}
+
 		&.example-box-fullscreen {
 			background-color: transparent;
 			padding: 0;
@@ -51,6 +55,13 @@
 				margin: 0 auto 12px auto;
 			}
 		}
+	}
+
+	.example-btn {
+		position: absolute;
+		right: 30px;
+		top: 18px;
+		z-index: 2;
 	}
 
 	.is-open .example-box {
