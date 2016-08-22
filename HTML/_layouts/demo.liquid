@@ -30,6 +30,7 @@
 {% endfor %}
 
 {% if "[Debug]" == "true" %}
+	{% capture URL %}/~dominikwilkowski/GUI-docs/jekyll/_site{{ URL }}{% endcapture %}
 {% else %}
 	{% capture URL %}/GUI{{ URL }}{% endcapture %}
 {% endif %}
