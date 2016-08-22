@@ -65,7 +65,7 @@
 				zIndex: 70,
 				cursor: 'pointer',
 			})
-			.on('click', function() {
+			.one('click', function() {
 				$(this)
 					.attr('src', App.pokemon.path + 'ball-explode.gif')
 					.css({
