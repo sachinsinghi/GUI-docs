@@ -74,7 +74,7 @@
 
 				setTimeout(function() {
 					$('.js-pokemon').remove();
-				}, 5000);
+				}, 2000);
 
 				setTimeout(function() {
 					App.pokemon.appear();
