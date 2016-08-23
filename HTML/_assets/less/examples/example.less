@@ -74,3 +74,248 @@ hr {
 		margin: 21px 0;
 	}
 }
+
+//**************************************************************************************************************************************************************
+// DEMOPAGE
+//**************************************************************************************************************************************************************
+.demopage-header {
+	position: relative;
+}
+
+.demopage {
+	background-color: @color-Background;
+	margin: 0 -12px;
+	padding: 0 12px;
+
+	@media (min-width: @screen-sm) {
+		padding: 0 36px;
+	}
+
+	@media (min-width: @screen-md) {
+		padding: 0 48px;
+	}
+
+	@media (min-width: @screen-lg) {
+		padding: 0 60px;
+	}
+
+	.container-fluid {
+		max-width: 1524px;
+	}
+
+	hr {
+		display: none;
+	}
+
+	.demopage-buttons-wrapper {
+		position: relative;
+		border-top: 1px solid @color-Muted;
+		margin-bottom: 30px;
+
+		@media (min-width: @screen-sm) {
+			margin-bottom: 60px;
+		}
+
+		&:before,
+		&:after {
+			content: ' ';
+			position: absolute;
+			top: -12px;
+			height: 24px;
+			width: 1px;
+		}
+
+		&:before {
+			left: 0;
+			border-left: 1px solid @color-Muted;
+		}
+
+		&:after {
+			right: 0;
+			border-right: 1px solid @color-Muted;
+		}
+	}
+
+	.demopage-buttons-line {
+		transition: width 0.3s ease, margin 0.3s ease;
+
+		.is-xs & {
+			width: 100%;
+			margin-left: 0;
+		}
+	}
+
+	.demopage-buttons {
+		margin-top: -25px;
+	}
+
+	.demopage-gridly {
+		position: fixed;
+		z-index: -1;
+		top: 100px;
+		height: 100%;
+		left: 12px;
+		right: 12px;
+
+		@media (min-width: @screen-sm) {
+			left: 36px;
+			right: 36px;
+		}
+
+		@media (min-width: @screen-md) {
+			left: 48px;
+			right: 48px;
+		}
+
+		@media (min-width: @screen-lg) {
+			left: 60px;
+			right: 60px;
+		}
+
+		@media (min-width: 1622px) {
+			left: 50%;
+			right: auto;
+			width: 1500px;
+			margin-left: -750px;
+		}
+
+		& > .row {
+			max-width: 1524px;
+
+			@media (min-width: @screen-sm) {
+				margin-left: 0 auto;
+			}
+		}
+
+		.row,
+		.col-xs-1 {
+			height: 100%;
+		}
+
+		.is-xs & {
+			.row {
+				margin-left: -6px;
+				margin-right: -6px;
+			}
+
+			.col-xs-1 {
+				padding-left: 6px;
+				padding-right: 6px;
+			}
+		}
+
+		.demopage-gridy-block {
+			background-color: @color-Neutral;
+			height: 100%;
+			opacity: 0.05;
+		}
+	}
+
+	.demopage-headline {
+		margin-top: 0;
+		font-size: 18px;
+		font-weight: 700;
+		color: @color-Text;
+		padding-top: 30px;
+		height: 100px;
+		margin: 0;
+
+		small {
+			font-size: 1em;
+			font-weight: 300;
+		}
+
+		@media (min-width: @screen-sm) {
+			font-size: 30px;
+		}
+	}
+}
+
+//**************************************************************************************************************************************************************
+// DEVICES
+//**************************************************************************************************************************************************************
+.devices {
+	background-color: #fff;
+	padding: 10px 30px;
+	margin-top: -28px;
+	border: 1px solid @color-Neutral;
+	border-radius: 6px;
+	line-height: 0;
+	text-align: center;
+
+	.device {
+		opacity: 0.2;
+		transition: opacity 0.3s ease;
+		margin-right: 20px;
+
+		&:last-child {
+			margin-right: 0;
+		}
+
+		.device-background {
+			fill: @color-Text;
+		}
+	}
+
+	.device-phone {
+		opacity: 1;
+		height: 22px;
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+
+	.device-fablet {
+		height: 26px;
+		margin-top: 3px;
+		margin-bottom: 3px;
+	}
+
+	.device-tablet {
+		margin-top: 2px;
+		margin-bottom: 2px;
+	}
+
+	.device-computer {
+	}
+
+	@media (min-width: @screen-sm) {
+		.device {
+			opacity: 0.2;
+		}
+
+		.device-fablet {
+			opacity: 1;
+		}
+	}
+
+	@media (min-width: @screen-md) {
+		.device {
+			opacity: 0.2;
+		}
+
+		.device-tablet {
+			opacity: 1;
+		}
+	}
+
+	@media (min-width: @screen-lg) {
+		.device {
+			opacity: 0.2;
+		}
+
+		.device-computer {
+			opacity: 1;
+		}
+	}
+}
+
+//**************************************************************************************************************************************************************
+// LOGO
+//**************************************************************************************************************************************************************
+.logo-wrapper {
+	text-align: right;
+}
+
+.logo {
+	margin: 12px 0;
+}

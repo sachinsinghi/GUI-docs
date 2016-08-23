@@ -17,7 +17,7 @@ var App = (function Init() {
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	return {
 		DEBUG: [Debug], //debugging infos
-		DEBUGfilter: [], //filter debug messages
+		DEBUGfilter: ['Pokemon'], //filter debug messages
 		PREFIX: 'BLEND',
 		LOG: 'https://gel.westpacgroup.com.au/GUI/blender/remote/blender.log',
 

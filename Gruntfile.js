@@ -177,7 +177,7 @@ var SETTINGS = function() {
 			'OnlineGUIjson': 'https://raw.githubusercontent.com/WestpacCXTeam/GUI-source/master/GUI.json',
 		},
 
-		'devBrand': 'WBG',
+		'devBrand': 'WBC',
 	};
 };
 
@@ -639,8 +639,9 @@ module.exports = function(grunt) {
 
 
 								//////////////////////////////////////| CONCAT JS
-								concatFiles['<%= SETTINGS.folder.prod %>/' + brand + '/examples/' + module + '/' + version + '/assets/js/example.min.js'] =
-									['<%= SETTINGS.folder.examples %>/' + module + '/' + version + '/_assets/js/*.js'];
+								concatFiles['<%= SETTINGS.folder.prod %>/' + brand + '/examples/' + module + '/' + version + '/assets/js/example.min.js'] = [
+									'<%= SETTINGS.folder.examples %>/' + module + '/' + version + '/_assets/js/*.js',
+								];
 
 
 								//////////////////////////////////////| COMPILE LESS
@@ -1067,12 +1068,29 @@ module.exports = function(grunt) {
 
 		GUIconfig.brands.forEach(function iterateBrands( brand ) { //iterate all brands
 			if( targetBrand === brand.ID || !targetBrand ) { //only show selected brand or everything if targetBrand is not defined
+				copy[ 'ImagesAll' + brand.ID ] = {
+					files: [{
+						cwd: '<%= SETTINGS.folder.img %>/all/',
+						src: [
+							'**/*.png',
+							'**/*.jpg',
+							'**/*.gif',
+						],
+						dest: '<%= SETTINGS.folder.prod %>/' + brand.ID + '/assets/img/',
+						filter: 'isFile',
+						expand: true,
+					}],
+				};
+
+				tasks.push( 'ImagesAll' + brand.ID );
+
 				copy[ 'Images' + brand.ID ] = {
 					files: [{
 						cwd: '<%= SETTINGS.folder.img %>/' + brand.ID + '/',
 						src: [
 							'**/*.png',
 							'**/*.jpg',
+							'**/*.gif',
 						],
 						dest: '<%= SETTINGS.folder.prod %>/' + brand.ID + '/assets/img/',
 						filter: 'isFile',
@@ -1377,11 +1395,13 @@ module.exports = function(grunt) {
 			options: {
 				space: false,
 				maxLength: 11,
-				colors: ['white', 'gray'],
+				font: 'chrome',
+				align: 'center',
+				colors: ['cyan', 'gray'],
 			},
 
 			title: {
-				text: '| GUI docs|     <%= SETTINGS.devBrand %>',
+				text: '|GUI docs|<%= SETTINGS.devBrand %>',
 			},
 
 			updating: {
@@ -1419,6 +1439,7 @@ module.exports = function(grunt) {
 				],
 				tasks: [
 					'_js',
+					'replace:debugDev',
 					'jekyll:dev',
 					'wakeup',
 				],
@@ -1430,6 +1451,7 @@ module.exports = function(grunt) {
 				],
 				tasks: [
 					'_less',
+					'replace:debugDev',
 					'jekyll:dev',
 					'wakeup',
 				],
@@ -1441,6 +1463,7 @@ module.exports = function(grunt) {
 				],
 				tasks: [
 					'_svg',
+					'replace:debugDev',
 					'jekyll:dev',
 					'wakeup',
 				],
@@ -1457,6 +1480,8 @@ module.exports = function(grunt) {
 				],
 				tasks: [
 					'_html',
+					'replace:debugDev',
+					'replace:jekyll',
 					'jekyll:dev',
 					'wakeup',
 				],

@@ -10,12 +10,20 @@
 		margin: 0 0 12px 0;
 	}
 
+	.example-box-wrapper {
+		height: 100%;
+	}
+
 	.example-box {
 		background-color: #fff;
 		min-height: 250px;
 		padding: 24px;
 		overflow: auto;
 		position: relative;
+
+		&.has-buttons {
+			padding-top: 64px;
+		}
 
 		&.example-box-fullscreen {
 			background-color: transparent;
@@ -47,6 +55,19 @@
 				margin: 0 auto 12px auto;
 			}
 		}
+	}
+
+	.example-btn {
+		position: absolute;
+		right: 30px;
+		top: 18px;
+		z-index: 2;
+	}
+
+	.is-open .example-box {
+		background-color: transparent;
+		padding: 0;
+		min-height: 0;
 	}
 
 	.example-tabs-wrapper {
@@ -187,4 +208,34 @@ hr {
 	border: 0 none;
 	border-top: 1px solid #d2d5d8;
 	margin: 24px 0;
+}
+
+.example .example-box {
+
+	.example-box-iframe {
+		box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0);
+		transition: width 0.3s ease, box-shadow 0.5s ease;
+		display: block;
+		margin: 0 auto;
+
+		&.iframe-xs {
+			width: 320px;
+			box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.3);
+		}
+
+		&.iframe-sm {
+			width: @screen-sm;
+			box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.3);
+		}
+
+		&.iframe-md {
+			width: @screen-md;
+			box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.3);
+		}
+
+		&.iframe-lg {
+			width: @screen-lg;
+			box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.3);
+		}
+	}
 }

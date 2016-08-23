@@ -14,11 +14,11 @@
 
 {% comment %}Set the file-server url depending on the local environment{% endcomment %}
 {% if "[Debug]" == "true" %}
-	{% assign server = 'http://localhost' %}
+	{% assign server = 'http://localhost:1337' %}
 	{% assign exclude = '' %}
 	{% assign exclude2 = '_core' %}
 {% else %}
-	{% assign server = 'http://128.199.200.220' %}
+	{% assign server = 'http://128.199.200.220:8080' %}
 	{% assign exclude = '_testing' %}
 	{% assign exclude2 = '_core' %}
 {% endif %}
@@ -31,7 +31,7 @@
 		</div>
 	</div>
 
-	<form class="blender-form js-blender" method="POST" action="{{ server }}:8080/blender">
+	<form class="blender-form js-blender" method="POST" action="{{ server }}/blender">
 		{% for category in site.data.GUI.modules %}
 			{% if category[0] != exclude and category[0] != exclude2 %}
 				<fieldset class="blender-category">
@@ -151,15 +151,15 @@
 							</div>
 						</li>
 
-						{% comment %}<li class="blender-module row">
+						<li class="blender-module row">
 							<div class="col-sm-5 blender-module-text">
-								<label class="blender-module-label" for="includeBowie">
-									Call ground control for Major Tom?
+								<label class="blender-module-label" for="includePokemon">
+									Catch &rsquo;em all?
 								</label>
 							</div>
 							<div class="col-sm-7 text-right">
 								<label class="switch">
-									<input type="checkbox" class="switch-input js-blender-option" name="includeBowie" id="includeBowie">
+									<input type="checkbox" class="switch-input js-blender-option" name="includePokemon" id="includePokemon">
 
 									<span class="switch-text">
 										Turn this setting:
@@ -168,17 +168,30 @@
 									</span>
 								</label>
 							</div>
-						</li>{% endcomment %}
-
-						{% if "[Debug]" == "true" %}
-							includeBond: <input type="checkbox" name="includeBond"><br>
-							includeStarWars: <input type="checkbox" name="includeStarWars"><br>
-							includeBowie: <input type="checkbox" name="includeBowie"><br>
-						{% endif %}
+						</li>
 					</ul>
+
+					<div class="alert js-alert alert-info" role="note">
+						<span class="alert-icon icon icon-size-md icon-info" data-grunticon-embed></span>
+
+						<div class="alert-body">
+							<strong>Web fonts</strong>
+							The license agreements for web fonts don&rsquo;t allow us to distribute them in the blender. However, for those who work at Westpac we provide
+							an internal link to the web font package for each blend within our internal network. Please click the link supplied in the index page of the blend
+							zip and download the webfont from there.
+							Make sure you install the files into the <code class="classes">assets/font/</code> folder of your blend.
+						</div>
+					</div>
 				</div>
 			</div>
 		</fieldset>
+
+		{% if "[Debug]" == "true" %}
+			includeBond: <input type="checkbox" name="includeBond"><br>
+			includeStarWars: <input type="checkbox" name="includeStarWars"><br>
+			includeBowie: <input type="checkbox" name="includeBowie"><br>
+			includePokemon: <input type="checkbox" name="includePokemon"><br>
+		{% endif %}
 
 		<div class="row">
 			<div class="col-sm-12 blender-action text-right">

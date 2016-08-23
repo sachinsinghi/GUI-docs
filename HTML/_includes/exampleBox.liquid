@@ -123,6 +123,8 @@ allTabs: {{ allTabs }}<hr>{% endcomment %}
 	{% if allTabs == 1 %}
 		<div class="example-box{% if _isFullscreen %}
 			example-box-fullscreen
+		{% endif %}{% if _hasControls %}
+			has-buttons
 		{% endif %}">{{ BoxContent }}</div>
 	{% endif %}
 
@@ -164,6 +166,8 @@ allTabs: {{ allTabs }}<hr>{% endcomment %}
 		{% include makeiFrame.liquid  ex = example  fullscreen = _isFullscreen  controls = _hasControls %}
 		<div class="example-box{% if _isFullscreen %}
 			example-box-fullscreen
+		{% endif %}{% if _hasControls %}
+			has-buttons
 		{% endif %}">{{ iFrame }}</div>
 	{% endif %}
 
