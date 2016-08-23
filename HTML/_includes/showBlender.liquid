@@ -169,13 +169,6 @@
 								</label>
 							</div>
 						</li>
-
-						{% if "[Debug]" == "true" %}
-							includeBond: <input type="checkbox" name="includeBond"><br>
-							includeStarWars: <input type="checkbox" name="includeStarWars"><br>
-							includeBowie: <input type="checkbox" name="includeBowie"><br>
-							includePokemon: <input type="checkbox" name="includePokemon"><br>
-						{% endif %}
 					</ul>
 
 					<div class="alert js-alert alert-info" role="note">
@@ -192,6 +185,13 @@
 				</div>
 			</div>
 		</fieldset>
+
+		{% if "[Debug]" == "true" %}
+			includeBond: <input type="checkbox" name="includeBond"><br>
+			includeStarWars: <input type="checkbox" name="includeStarWars"><br>
+			includeBowie: <input type="checkbox" name="includeBowie"><br>
+			includePokemon: <input type="checkbox" name="includePokemon"><br>
+		{% endif %}
 
 		<div class="row">
 			<div class="col-sm-12 blender-action text-right">

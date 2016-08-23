@@ -27,4 +27,6 @@ svg: true
 
 <hr>
 
-<button type="button" class="btn btn-link">Make a button look like a link</button>
+<button type="button" class="btn btn-link">
+	<span class="btn-text">Make a button look like a link</span>
+</button>
