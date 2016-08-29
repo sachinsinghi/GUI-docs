@@ -66,6 +66,8 @@
 				cursor: 'pointer',
 			})
 			.one('click', function() {
+				_gaq.push(['_trackEvent', 'Pokemon', 'caught', 'A pokemon was caught']); //track the button
+
 				$(this)
 					.attr('src', App.pokemon.path + 'ball-explode.gif')
 					.css({
