@@ -548,6 +548,14 @@
 			$('.js-body').removeClass('has-onlyCore');
 		}
 
+		if( count <= (core + 1) ) {
+			$('.js-blender-count-plural').addClass('is-hidden');
+		}
+
+		if( count > (core + 1) ) {
+			$('.js-blender-count-plural').removeClass('is-hidden');
+		}
+
 		$('.js-blender-count').text( ( count - core ) );
 		$('.js-blender-size').text( size );
 
