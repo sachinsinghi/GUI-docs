@@ -11,6 +11,12 @@ svg: false
 	<p>Sans serif system font</p>
 
 	<p>
+		<span style="font-size:54px;">Type size: <strong>54px</strong></span>
+	</p>
+	<p>
+		<span style="font-size:48px;">Type size: <strong>48px</strong></span>
+	</p>
+	<p>
 		<span style="font-size:42px;">Type size: <strong>42px</strong></span>
 	</p>
 	<p>
