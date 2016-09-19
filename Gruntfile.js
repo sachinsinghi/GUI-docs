@@ -918,6 +918,8 @@ module.exports = function(grunt) {
 				enhanceSVG: true,
 				customselectors: {
 					'header-bg': ['.header .headerline'],
+					'energy-left': ['.header .headerline:before'],
+					'energy-right': ['.header .headerline:after'],
 				},
 				pngpath: '../img',
 			},
