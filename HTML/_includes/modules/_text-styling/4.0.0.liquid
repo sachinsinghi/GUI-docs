@@ -1,0 +1,86 @@
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Display styles
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	<strong>Paragraph:</strong> The baseline body text.<br><br>
+	<strong>Small:</strong> De-emphasise inline or blocks of text.<br><br>
+	<strong>Strong:</strong> Emphasise a snippet of text. The default behaviour being a heavier font weight.<br><br>
+	<strong>Emphasis:</strong> Emphasise a snippet of text. The default behaviour being italics.<br><br>
+	<strong>Abbreviation:</strong> Explain abbreviations and acronyms by showing the expanded version on hover. Abbreviations with a title attribute have a light
+	dotted bottom border and a help cursor on hover, providing additional context on hover.<br><br>
+	<strong>Mark:</strong> Highlight a portion of text.<br><br>
+	<strong>Del/Ins:</strong> Show changes by marking up what has been deleted and what has been inserted.
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+	<h4 class="body-font whatsnew-headline">What&rsquo;s new since v3.0.0</h4>
+
+	This version changed:
+		<code class="classes">CSS/LESS</code>,
+		<code class="classes">HTML</code>
+	but not:
+		<code class="classes">JS</code>
+
+	<ul class="lists">
+		<li>
+			We have removed the classes for headlines. Wow. I know! The thing was, they were not really useful and more overwritten than used as is. Now you can go
+			and run your own headlines. Prettier, more your.
+			(<a href="https://github.com/WestpacCXTeam/GUI-source/issues/277" target="_blank">#277</a>)
+		</li>
+		<li>
+			Updated the normalize CSS to v4.2.0. (Everything is now even more normal)
+		</li>
+	</ul>
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% assign example = "ex1" %}
+
+
+{% comment %} HTML TAB {% endcomment %}
+{% capture HTML %}
+<p>
+	I&rsquo;m a basic paragraph.
+	<small>I&rsquo;m small.</small>
+	<strong>I&rsquo;m strong</strong>
+	<a href="?">I&rsquo;m a link</a>
+	<em>I&rsquo;ve been emphasised</em>
+	<mark>highlighted text</mark>
+	<del>removed bit</del> <ins>replacement bit</ins>
+</p>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	The main mixin is called: <code class="classes">_text-styling({{ page.brand }})</code>
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+{% endcapture %}
+
+
+{% include showExample.liquid  controls = false %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}

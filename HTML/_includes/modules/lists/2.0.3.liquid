@@ -1,0 +1,397 @@
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Bullet list
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	Add these custom symbols to style basic lists. Adding the required modifier classes to each list item allows more flexibility without the need to create
+	specific classes for every scenario.
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+	<h4 class="body-font whatsnew-headline">What&rsquo;s new since v2.0.2</h4>
+
+	This version changed:
+		<code class="classes">CSS/LESS</code>
+	but not:
+		<code class="classes">HTML</code>,
+		<code class="classes">JS</code>
+
+	<ul class="lists">
+		<li>
+			We added some diversity to lists and are proud to introduce you to icon lists. You can now use any icons and add them to your list. PDF lists, padlock
+			lists, star lists, all now possible!
+			(<a href="https://github.com/WestpacCXTeam/GUI-source/issues/230" target="_blank">#230</a>)
+		</li>
+		<li>
+			Sometimes you want to list something in order. That’s where the HTML tag ol (ordered list) comes in. When using this tag with the lists class you now get
+			all the benefits of a GUI list without the bullets and the whole shebang.
+			(<a href="https://github.com/WestpacCXTeam/GUI-source/issues/248" target="_blank">#248</a>)
+		</li>
+		<li>
+			In link lists the chevron was a little too friendly with the text. We had a long talk about personal space and now we are all cool. More space.
+			(<a href="https://github.com/WestpacCXTeam/GUI-source/issues/268" target="_blank">#268</a>)
+		</li>
+	</ul>
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% assign example = "ex1" %}
+
+
+{% comment %} HTML TAB {% endcomment %}
+{% capture HTML %}
+<ul class="lists">
+	<li>Styled bullet list - primary</li>
+	<li>Styled bullet list - primary</li>
+	<li>Styled bullet list - primary</li>
+</ul>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+	Modifier classes:
+
+	<ul>
+		<li>
+			<code class="classes">lists-primary</code>
+		</li>
+		<li>
+			<code class="classes">lists-hero</code>
+		</li>
+		<li>
+			<code class="classes">lists-neutral</code>
+		</li>
+	</ul>
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	The main mixin is called: <code class="classes">_lists({{ page.brand }})</code>
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+{% endcapture %}
+
+
+{% include showExample.liquid  controls = false %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+
+
+
+
+
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Link list
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	Use this style when the list items are clickable.
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% assign example = "ex3" %}
+
+
+{% comment %} HTML TAB {% endcomment %}
+{% capture HTML %}
+<ul class="lists lists-linklist">
+	<li><a href="http://YOUR-URL.com.au">Styled link list</a></li>
+	<li><a href="http://YOUR-URL.com.au">Styled link list</a></li>
+	<li><a href="http://YOUR-URL.com.au">Styled link list</a></li>
+</ul>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+	Modifier classes:
+
+	<ul>
+		<li>
+			<code class="classes">lists-linklist</code>
+		</li>
+	</ul>
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	{{ LESS }}
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+{% endcapture %}
+
+
+{% include showExample.liquid  controls = false %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+
+
+
+
+
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Tick list
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+	<h4 class="body-font whatsnew-headline">What&rsquo;s new since v1.0.0</h4>
+
+	This version changed:
+		<code class="classes">CSS/LESS</code>,
+	but not:
+		<code class="classes">HTML</code>
+		<code class="classes">JS</code>
+
+	<ul class="lists">
+		<li>
+			BIG BOM brand change. All new colours, all new look, all new GUI. Brace yourselfs.
+			<a href="https://github.com/WestpacCXTeam/GUI-source/issues/157" target="_blank">#157</a>
+		</li>
+	</ul>
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% assign example = "ex4" %}
+
+
+{% comment %} HTML TAB {% endcomment %}
+{% capture HTML %}
+<ul class="lists lists-tick">
+	<li>Styled tick list</li>
+	<li>Styled tick list</li>
+	<li>Styled tick list</li>
+</ul>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+	Modifier classes:
+
+	<ul>
+		<li>
+			<code class="classes">lists-tick</code>
+		</li>
+	</ul>
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	{{ LESS }}
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+{% endcapture %}
+
+
+{% include showExample.liquid  controls = false %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+
+
+
+
+
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	Icon lists
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	You can use any GUI icon in a list if the provided options are not sufficient.
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% assign example = "ex5" %}
+
+
+{% comment %} HTML TAB {% endcomment %}
+{% capture HTML %}
+<ul class="lists lists-icon">
+	<li>
+		<span class="icon icon-padlock" data-grunticon-embed></span>
+		YOUR LIST ITEM
+	</li>
+	<li>
+		<span class="icon icon-padlock" data-grunticon-embed></span>
+		YOUR LIST ITEM
+	</li>
+	<li>
+		<span class="icon icon-padlock" data-grunticon-embed></span>
+		YOUR LIST ITEM
+	</li>
+</ul>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+	Modifier classes:
+
+	<ul>
+		<li>
+			<code class="classes">lists-icon</code>
+		</li>
+	</ul>
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	{{ LESS }}
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+{% endcapture %}
+
+
+{% include showExample.liquid  controls = false %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+
+
+
+
+
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	EXAMPLE FOR THIS MODULE WITH THE VISUAL EXAMPLE AND THE CODE TABS
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
+
+{% comment %} TITLE {% endcomment %}
+{% capture title %}
+	List sizing
+{% endcapture %}
+
+
+{% comment %} DESCRIPTION {% endcomment %}
+{% capture description %}
+	Use a larger list when you have interactive elements. This increases the affordance on touch devices.
+{% endcapture %}
+
+
+{% comment %} WHAT'S NEW TAB FOR CHANGES COMPARED TO THE LAST VERSION {% endcomment %}
+{% capture whatsnew %}
+{{ whatsnew }}{% endcapture %}
+
+
+{% comment %} EXAMPLE HTML CODE IN THE BOX {% endcomment %}
+{% assign example = "ex2" %}
+
+
+{% comment %} HTML TAB {% endcomment %}
+{% capture HTML %}
+<ul class="lists lists-lg">
+	<li>Large list</li>
+	<li>Large list</li>
+	<li>Large list</li>
+</ul>
+{% endcapture %}
+
+
+{% comment %} CSS TAB {% endcomment %}
+{% capture CSS %}
+	Modifier classes:
+
+	<ul>
+		<li>
+			<code class="classes">lists-lg</code>
+		</li>
+	</ul>
+{% endcapture %}
+
+
+{% comment %} LESS TAB {% endcomment %}
+{% capture LESS %}
+	{{ LESS }}
+{% endcapture %}
+
+
+{% comment %} JS TAB {% endcomment %}
+{% capture JS %}
+{% endcapture %}
+
+
+{% include showExample.liquid  controls = false %}
+{% comment %}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+{% endcomment %}
