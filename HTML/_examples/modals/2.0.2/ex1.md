@@ -8,7 +8,7 @@ svg: true
 padding: "0 0 140px 0"
 ---
 
-<button class="btn btn-primary js-modal" data-modal="#myModal{{ version[0] | handleize }}" aria-label="Open sesame! Hit enter to open modal">Open sesame!</button>
+<button class="btn btn-primary js-modal js-docs" data-modal="#myModal{{ version[0] | handleize }}" aria-label="Open sesame! Hit enter to open modal">Open sesame!</button>
 
 <hr>
 
@@ -76,3 +76,10 @@ padding: "0 0 140px 0"
 		<button type="button" class="btn btn-primary">Save changes</button>
 	</div>
 </div>
+
+<script type="text/javascript">
+	document.addEventListener("DOMContentLoaded", function() {
+		GUI.modals.lastFocus = $('js-docs');
+		GUI.modals.toggelModal( false, $('#myModal{{ version[0] | handleize }}'), '#myModal{{ version[0] | handleize }}' );
+	});
+</script>

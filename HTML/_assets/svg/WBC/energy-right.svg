@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg aria-labelledby="title-energy-right" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="268px" height="228px" viewBox="0 0 268 228" enable-background="new 0 0 268 228" xml:space="preserve">
+	<title id="title-energy-right" lang="en">Slack</title>
+	<rect x="104" fill="#DD3A46" width="124" height="96"/>
+	<rect x="110" y="96" fill="#B6000B" width="118" height="132"/>
+	<path fill="#D5002B" d="M180.6,33.4l-20,62.6l34.1,107.9c0,0,8.3,22.7,16,24.1H268V0l-52.1,0C196.1,0,188.2,7.4,180.6,33.4z"/>
+	<path fill="#C30019" d="M126.6,203.9L160.6,96l-20-62.6C133,7.4,120.1,0,100.3,0H0c7.9,3.3,13.1,24,13.1,24l48.4,171.2 c5.6,21.5,23,32.8,42.8,32.8h6.3C118.2,226.6,126.6,203.9,126.6,203.9z"/>
+</svg>

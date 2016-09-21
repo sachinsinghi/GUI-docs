@@ -92,8 +92,8 @@
 }
 .getBrand() when (@brand = WBC) { ////////////////////////////////////| WBC
 	@header-color: #fff;
-	@header-bgcolor: @color-B;
-	@gridly-line: @color-B-70;
+	@header-bgcolor: @color-A;
+	@gridly-line: #b6000b;
 
 	.head-headline() {
 		color: #fff;
@@ -101,6 +101,49 @@
 
 	.head-pos() {
 		background-attachment: scroll;
+
+		&:before,
+		&:after {
+			content: '';
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			z-index: 1;
+
+			@media (min-width: @screen-sm) {
+				.has-scrolledContent & {
+					opacity: 0.8;
+					top: -162px;
+				}
+			}
+		}
+
+		&:before {
+			left: 0;
+			width: 360px;
+			background-size: auto 100%;
+			opacity: 0.8;
+
+			@media (min-width: @screen-sm) {
+				left: -100px;
+				background-size: auto auto;
+				opacity: 1;
+			}
+
+			@media (min-width: @screen-lg) {
+				left: 140px;
+			}
+		}
+
+		&:after {
+			display: none;
+			width: 268px;
+
+			@media (min-width: @screen-sm) {
+				display: block;
+				right: 0;
+			}
+		}
 	}
 	.gridly-tweak() {}
 }
@@ -305,6 +348,7 @@
 	font-family: "Helvetica Neue", "Roboto", Arial, sans-serif;
 	font-size: 18px;
 	white-space: nowrap;
+	z-index: 2;
 	transition: margin 0.2s ease, font-size 0.2s ease;
 	.head-headline();
 
@@ -318,7 +362,7 @@
 
 	.has-halfScrolledContent & {
 		@media (min-width: @screen-sm) {
-			bottom: 118px;
+			bottom: 89px;
 			margin: 0 0 0 60px;
 			font-size: 18px;
 			font-weight: 400;
@@ -459,6 +503,7 @@
 	top: 12px;
 	right: 0;
 	color: @header-color;
+	z-index: 2;
 
 	.has-scrolledContent & {
 		position: absolute;
