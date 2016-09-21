@@ -80,7 +80,7 @@
 
 				setTimeout(function() {
 					App.pokemon.appear();
-				}, 12000);
+				}, 30000);
 			})
 			.appendTo('.js-canvas');
 	};
