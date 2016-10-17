@@ -93,4 +93,4 @@
 
 
 // start the module
-App.pokemon.init();
+// App.pokemon.init();
