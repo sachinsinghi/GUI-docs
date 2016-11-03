@@ -917,7 +917,7 @@ module.exports = function(grunt) {
 				cssprefix: '.sitesymbol-',
 				enhanceSVG: true,
 				customselectors: {
-					'header-bg': ['.header .headerline'],
+					'header-bg': ['.header .headerline:after'],
 					'energy-left': ['.header .headerline:before'],
 					'energy-right': ['.header .headerline:after'],
 				},

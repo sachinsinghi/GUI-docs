@@ -15,31 +15,31 @@
 
 	.head-pos() {
 		background: @color-B no-repeat center;
-		background-size: 3196px auto;
-		background-attachment: fixed;
-		background-position: -450px 0;
+		// background-size: 3196px auto;
+		// background-attachment: fixed;
+		// background-position: -450px 0;
 
-		.has-scrolledContent & {
-			background-position: -450px -162px;
-		}
+		// .has-scrolledContent & {
+		// 	background-position: -450px -162px;
+		// }
 
-		.is-subpage & {
-			background-position: -450px -162px;
-		}
+		// .is-subpage & {
+		// 	background-position: -450px -162px;
+		// }
 
-		@media (min-width: @screen-sm) {
-			background: @color-B url(../img/header-bg.jpg) no-repeat center;
-			background-size: 3196px auto;
-			background-position: -450px 0;
+		// @media (min-width: @screen-sm) {
+		// 	background: @color-B url(../img/header-bg.jpg) no-repeat center;
+		// 	background-size: 3196px auto;
+		// 	background-position: -450px 0;
 
-			.has-scrolledContent & {
-				background-position: -450px -162px;
-			}
+		// 	.has-scrolledContent & {
+		// 		background-position: -450px -162px;
+		// 	}
 
-			.is-subpage & {
-				background-position: -450px -162px;
-			}
-		}
+		// 	.is-subpage & {
+		// 		background-position: -450px -162px;
+		// 	}
+		// }
 
 		@media (min-width: @screen-lg) {
 			background-position: 0 0;
@@ -63,7 +63,7 @@
 .getBrand() when (@brand = BSA) { ////////////////////////////////////| BSA
 	@header-color: #fff;
 	@header-bgcolor: @color-B;
-	@gridly-line: @color-B-70;
+	@gridly-line: #fff;
 
 	.head-headline() {
 		color: #fff;
@@ -71,8 +71,29 @@
 
 	.head-pos() {
 		background-attachment: scroll;
+		background: @color-B;
+		background: linear-gradient(to right, @color-B 0%, #00468e 50%, @color-E 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@color-B', endColorstr='@color-E', GradientType=1);
+
+		&:after {
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background-position: right center;
+			background-size: 100% auto;
+
+			@media (min-width: @screen-sm) {
+				bottom: 65px;
+				background-size: auto;
+			}
+		}
 	}
-	.gridly-tweak() {}
+	.gridly-tweak() {
+		opacity: 0.3;
+	}
 }
 .getBrand() when (@brand = STG) { ////////////////////////////////////| STG
 	@header-color: @color-F;
