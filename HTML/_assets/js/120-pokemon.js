@@ -35,9 +35,10 @@
 				})
 				.appendTo('.js-canvas');
 
-			setTimeout(function() {
+
+			$('.js-pokemonbtn').on('click', function() {
 				App.pokemon.appear();
-			}, 10000);
+			});
 		}
 	};
 
@@ -93,4 +94,4 @@
 
 
 // start the module
-// App.pokemon.init();
+App.pokemon.init();
